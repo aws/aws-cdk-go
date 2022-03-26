@@ -1,12 +1,12 @@
 package awslex
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslex/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awslex/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::Lex::Bot`.
@@ -15,56 +15,1253 @@ import (
 //
 // You must configure an intent based on the AMAZON.FallbackIntent built-in intent. If you don't add one, creating the bot will fail.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//
+//   var dataPrivacy interface{}
+//   var sentimentAnalysisSettings interface{}
+//   cfnBot := lex.NewCfnBot(this, jsii.String("MyCfnBot"), &cfnBotProps{
+//   	dataPrivacy: dataPrivacy,
+//   	idleSessionTtlInSeconds: jsii.Number(123),
+//   	name: jsii.String("name"),
+//   	roleArn: jsii.String("roleArn"),
+//
+//   	// the properties below are optional
+//   	autoBuildBotLocales: jsii.Boolean(false),
+//   	botFileS3Location: &s3LocationProperty{
+//   		s3Bucket: jsii.String("s3Bucket"),
+//   		s3ObjectKey: jsii.String("s3ObjectKey"),
+//
+//   		// the properties below are optional
+//   		s3ObjectVersion: jsii.String("s3ObjectVersion"),
+//   	},
+//   	botLocales: []interface{}{
+//   		&botLocaleProperty{
+//   			localeId: jsii.String("localeId"),
+//   			nluConfidenceThreshold: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			customVocabulary: &customVocabularyProperty{
+//   				customVocabularyItems: []interface{}{
+//   					&customVocabularyItemProperty{
+//   						phrase: jsii.String("phrase"),
+//
+//   						// the properties below are optional
+//   						weight: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   			description: jsii.String("description"),
+//   			intents: []interface{}{
+//   				&intentProperty{
+//   					name: jsii.String("name"),
+//
+//   					// the properties below are optional
+//   					description: jsii.String("description"),
+//   					dialogCodeHook: &dialogCodeHookSettingProperty{
+//   						enabled: jsii.Boolean(false),
+//   					},
+//   					fulfillmentCodeHook: &fulfillmentCodeHookSettingProperty{
+//   						enabled: jsii.Boolean(false),
+//
+//   						// the properties below are optional
+//   						fulfillmentUpdatesSpecification: &fulfillmentUpdatesSpecificationProperty{
+//   							active: jsii.Boolean(false),
+//
+//   							// the properties below are optional
+//   							startResponse: &fulfillmentStartResponseSpecificationProperty{
+//   								delayInSeconds: jsii.Number(123),
+//   								messageGroups: []interface{}{
+//   									&messageGroupProperty{
+//   										message: &messageProperty{
+//   											customPayload: &customPayloadProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											imageResponseCard: &imageResponseCardProperty{
+//   												title: jsii.String("title"),
+//
+//   												// the properties below are optional
+//   												buttons: []interface{}{
+//   													&buttonProperty{
+//   														text: jsii.String("text"),
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   												imageUrl: jsii.String("imageUrl"),
+//   												subtitle: jsii.String("subtitle"),
+//   											},
+//   											plainTextMessage: &plainTextMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											ssmlMessage: &sSMLMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//
+//   										// the properties below are optional
+//   										variations: []interface{}{
+//   											&messageProperty{
+//   												customPayload: &customPayloadProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												imageResponseCard: &imageResponseCardProperty{
+//   													title: jsii.String("title"),
+//
+//   													// the properties below are optional
+//   													buttons: []interface{}{
+//   														&buttonProperty{
+//   															text: jsii.String("text"),
+//   															value: jsii.String("value"),
+//   														},
+//   													},
+//   													imageUrl: jsii.String("imageUrl"),
+//   													subtitle: jsii.String("subtitle"),
+//   												},
+//   												plainTextMessage: &plainTextMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												ssmlMessage: &sSMLMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   										},
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								allowInterrupt: jsii.Boolean(false),
+//   							},
+//   							timeoutInSeconds: jsii.Number(123),
+//   							updateResponse: &fulfillmentUpdateResponseSpecificationProperty{
+//   								frequencyInSeconds: jsii.Number(123),
+//   								messageGroups: []interface{}{
+//   									&messageGroupProperty{
+//   										message: &messageProperty{
+//   											customPayload: &customPayloadProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											imageResponseCard: &imageResponseCardProperty{
+//   												title: jsii.String("title"),
+//
+//   												// the properties below are optional
+//   												buttons: []interface{}{
+//   													&buttonProperty{
+//   														text: jsii.String("text"),
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   												imageUrl: jsii.String("imageUrl"),
+//   												subtitle: jsii.String("subtitle"),
+//   											},
+//   											plainTextMessage: &plainTextMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											ssmlMessage: &sSMLMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//
+//   										// the properties below are optional
+//   										variations: []interface{}{
+//   											&messageProperty{
+//   												customPayload: &customPayloadProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												imageResponseCard: &imageResponseCardProperty{
+//   													title: jsii.String("title"),
+//
+//   													// the properties below are optional
+//   													buttons: []interface{}{
+//   														&buttonProperty{
+//   															text: jsii.String("text"),
+//   															value: jsii.String("value"),
+//   														},
+//   													},
+//   													imageUrl: jsii.String("imageUrl"),
+//   													subtitle: jsii.String("subtitle"),
+//   												},
+//   												plainTextMessage: &plainTextMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												ssmlMessage: &sSMLMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   										},
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								allowInterrupt: jsii.Boolean(false),
+//   							},
+//   						},
+//   						postFulfillmentStatusSpecification: &postFulfillmentStatusSpecificationProperty{
+//   							failureResponse: &responseSpecificationProperty{
+//   								messageGroupsList: []interface{}{
+//   									&messageGroupProperty{
+//   										message: &messageProperty{
+//   											customPayload: &customPayloadProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											imageResponseCard: &imageResponseCardProperty{
+//   												title: jsii.String("title"),
+//
+//   												// the properties below are optional
+//   												buttons: []interface{}{
+//   													&buttonProperty{
+//   														text: jsii.String("text"),
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   												imageUrl: jsii.String("imageUrl"),
+//   												subtitle: jsii.String("subtitle"),
+//   											},
+//   											plainTextMessage: &plainTextMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											ssmlMessage: &sSMLMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//
+//   										// the properties below are optional
+//   										variations: []interface{}{
+//   											&messageProperty{
+//   												customPayload: &customPayloadProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												imageResponseCard: &imageResponseCardProperty{
+//   													title: jsii.String("title"),
+//
+//   													// the properties below are optional
+//   													buttons: []interface{}{
+//   														&buttonProperty{
+//   															text: jsii.String("text"),
+//   															value: jsii.String("value"),
+//   														},
+//   													},
+//   													imageUrl: jsii.String("imageUrl"),
+//   													subtitle: jsii.String("subtitle"),
+//   												},
+//   												plainTextMessage: &plainTextMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												ssmlMessage: &sSMLMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   										},
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								allowInterrupt: jsii.Boolean(false),
+//   							},
+//   							successResponse: &responseSpecificationProperty{
+//   								messageGroupsList: []interface{}{
+//   									&messageGroupProperty{
+//   										message: &messageProperty{
+//   											customPayload: &customPayloadProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											imageResponseCard: &imageResponseCardProperty{
+//   												title: jsii.String("title"),
+//
+//   												// the properties below are optional
+//   												buttons: []interface{}{
+//   													&buttonProperty{
+//   														text: jsii.String("text"),
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   												imageUrl: jsii.String("imageUrl"),
+//   												subtitle: jsii.String("subtitle"),
+//   											},
+//   											plainTextMessage: &plainTextMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											ssmlMessage: &sSMLMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//
+//   										// the properties below are optional
+//   										variations: []interface{}{
+//   											&messageProperty{
+//   												customPayload: &customPayloadProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												imageResponseCard: &imageResponseCardProperty{
+//   													title: jsii.String("title"),
+//
+//   													// the properties below are optional
+//   													buttons: []interface{}{
+//   														&buttonProperty{
+//   															text: jsii.String("text"),
+//   															value: jsii.String("value"),
+//   														},
+//   													},
+//   													imageUrl: jsii.String("imageUrl"),
+//   													subtitle: jsii.String("subtitle"),
+//   												},
+//   												plainTextMessage: &plainTextMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												ssmlMessage: &sSMLMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   										},
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								allowInterrupt: jsii.Boolean(false),
+//   							},
+//   							timeoutResponse: &responseSpecificationProperty{
+//   								messageGroupsList: []interface{}{
+//   									&messageGroupProperty{
+//   										message: &messageProperty{
+//   											customPayload: &customPayloadProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											imageResponseCard: &imageResponseCardProperty{
+//   												title: jsii.String("title"),
+//
+//   												// the properties below are optional
+//   												buttons: []interface{}{
+//   													&buttonProperty{
+//   														text: jsii.String("text"),
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   												imageUrl: jsii.String("imageUrl"),
+//   												subtitle: jsii.String("subtitle"),
+//   											},
+//   											plainTextMessage: &plainTextMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											ssmlMessage: &sSMLMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//
+//   										// the properties below are optional
+//   										variations: []interface{}{
+//   											&messageProperty{
+//   												customPayload: &customPayloadProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												imageResponseCard: &imageResponseCardProperty{
+//   													title: jsii.String("title"),
+//
+//   													// the properties below are optional
+//   													buttons: []interface{}{
+//   														&buttonProperty{
+//   															text: jsii.String("text"),
+//   															value: jsii.String("value"),
+//   														},
+//   													},
+//   													imageUrl: jsii.String("imageUrl"),
+//   													subtitle: jsii.String("subtitle"),
+//   												},
+//   												plainTextMessage: &plainTextMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												ssmlMessage: &sSMLMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   										},
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								allowInterrupt: jsii.Boolean(false),
+//   							},
+//   						},
+//   					},
+//   					inputContexts: []interface{}{
+//   						&inputContextProperty{
+//   							name: jsii.String("name"),
+//   						},
+//   					},
+//   					intentClosingSetting: &intentClosingSettingProperty{
+//   						closingResponse: &responseSpecificationProperty{
+//   							messageGroupsList: []interface{}{
+//   								&messageGroupProperty{
+//   									message: &messageProperty{
+//   										customPayload: &customPayloadProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										imageResponseCard: &imageResponseCardProperty{
+//   											title: jsii.String("title"),
+//
+//   											// the properties below are optional
+//   											buttons: []interface{}{
+//   												&buttonProperty{
+//   													text: jsii.String("text"),
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   											imageUrl: jsii.String("imageUrl"),
+//   											subtitle: jsii.String("subtitle"),
+//   										},
+//   										plainTextMessage: &plainTextMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										ssmlMessage: &sSMLMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//
+//   									// the properties below are optional
+//   									variations: []interface{}{
+//   										&messageProperty{
+//   											customPayload: &customPayloadProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											imageResponseCard: &imageResponseCardProperty{
+//   												title: jsii.String("title"),
+//
+//   												// the properties below are optional
+//   												buttons: []interface{}{
+//   													&buttonProperty{
+//   														text: jsii.String("text"),
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   												imageUrl: jsii.String("imageUrl"),
+//   												subtitle: jsii.String("subtitle"),
+//   											},
+//   											plainTextMessage: &plainTextMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											ssmlMessage: &sSMLMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//
+//   							// the properties below are optional
+//   							allowInterrupt: jsii.Boolean(false),
+//   						},
+//
+//   						// the properties below are optional
+//   						isActive: jsii.Boolean(false),
+//   					},
+//   					intentConfirmationSetting: &intentConfirmationSettingProperty{
+//   						declinationResponse: &responseSpecificationProperty{
+//   							messageGroupsList: []interface{}{
+//   								&messageGroupProperty{
+//   									message: &messageProperty{
+//   										customPayload: &customPayloadProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										imageResponseCard: &imageResponseCardProperty{
+//   											title: jsii.String("title"),
+//
+//   											// the properties below are optional
+//   											buttons: []interface{}{
+//   												&buttonProperty{
+//   													text: jsii.String("text"),
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   											imageUrl: jsii.String("imageUrl"),
+//   											subtitle: jsii.String("subtitle"),
+//   										},
+//   										plainTextMessage: &plainTextMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										ssmlMessage: &sSMLMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//
+//   									// the properties below are optional
+//   									variations: []interface{}{
+//   										&messageProperty{
+//   											customPayload: &customPayloadProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											imageResponseCard: &imageResponseCardProperty{
+//   												title: jsii.String("title"),
+//
+//   												// the properties below are optional
+//   												buttons: []interface{}{
+//   													&buttonProperty{
+//   														text: jsii.String("text"),
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   												imageUrl: jsii.String("imageUrl"),
+//   												subtitle: jsii.String("subtitle"),
+//   											},
+//   											plainTextMessage: &plainTextMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											ssmlMessage: &sSMLMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//
+//   							// the properties below are optional
+//   							allowInterrupt: jsii.Boolean(false),
+//   						},
+//   						promptSpecification: &promptSpecificationProperty{
+//   							maxRetries: jsii.Number(123),
+//   							messageGroupsList: []interface{}{
+//   								&messageGroupProperty{
+//   									message: &messageProperty{
+//   										customPayload: &customPayloadProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										imageResponseCard: &imageResponseCardProperty{
+//   											title: jsii.String("title"),
+//
+//   											// the properties below are optional
+//   											buttons: []interface{}{
+//   												&buttonProperty{
+//   													text: jsii.String("text"),
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   											imageUrl: jsii.String("imageUrl"),
+//   											subtitle: jsii.String("subtitle"),
+//   										},
+//   										plainTextMessage: &plainTextMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										ssmlMessage: &sSMLMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//
+//   									// the properties below are optional
+//   									variations: []interface{}{
+//   										&messageProperty{
+//   											customPayload: &customPayloadProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											imageResponseCard: &imageResponseCardProperty{
+//   												title: jsii.String("title"),
+//
+//   												// the properties below are optional
+//   												buttons: []interface{}{
+//   													&buttonProperty{
+//   														text: jsii.String("text"),
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   												imageUrl: jsii.String("imageUrl"),
+//   												subtitle: jsii.String("subtitle"),
+//   											},
+//   											plainTextMessage: &plainTextMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											ssmlMessage: &sSMLMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//
+//   							// the properties below are optional
+//   							allowInterrupt: jsii.Boolean(false),
+//   						},
+//
+//   						// the properties below are optional
+//   						isActive: jsii.Boolean(false),
+//   					},
+//   					kendraConfiguration: &kendraConfigurationProperty{
+//   						kendraIndex: jsii.String("kendraIndex"),
+//
+//   						// the properties below are optional
+//   						queryFilterString: jsii.String("queryFilterString"),
+//   						queryFilterStringEnabled: jsii.Boolean(false),
+//   					},
+//   					outputContexts: []interface{}{
+//   						&outputContextProperty{
+//   							name: jsii.String("name"),
+//   							timeToLiveInSeconds: jsii.Number(123),
+//   							turnsToLive: jsii.Number(123),
+//   						},
+//   					},
+//   					parentIntentSignature: jsii.String("parentIntentSignature"),
+//   					sampleUtterances: []interface{}{
+//   						&sampleUtteranceProperty{
+//   							utterance: jsii.String("utterance"),
+//   						},
+//   					},
+//   					slotPriorities: []interface{}{
+//   						&slotPriorityProperty{
+//   							priority: jsii.Number(123),
+//   							slotName: jsii.String("slotName"),
+//   						},
+//   					},
+//   					slots: []interface{}{
+//   						&slotProperty{
+//   							name: jsii.String("name"),
+//   							slotTypeName: jsii.String("slotTypeName"),
+//   							valueElicitationSetting: &slotValueElicitationSettingProperty{
+//   								slotConstraint: jsii.String("slotConstraint"),
+//
+//   								// the properties below are optional
+//   								defaultValueSpecification: &slotDefaultValueSpecificationProperty{
+//   									defaultValueList: []interface{}{
+//   										&slotDefaultValueProperty{
+//   											defaultValue: jsii.String("defaultValue"),
+//   										},
+//   									},
+//   								},
+//   								promptSpecification: &promptSpecificationProperty{
+//   									maxRetries: jsii.Number(123),
+//   									messageGroupsList: []interface{}{
+//   										&messageGroupProperty{
+//   											message: &messageProperty{
+//   												customPayload: &customPayloadProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												imageResponseCard: &imageResponseCardProperty{
+//   													title: jsii.String("title"),
+//
+//   													// the properties below are optional
+//   													buttons: []interface{}{
+//   														&buttonProperty{
+//   															text: jsii.String("text"),
+//   															value: jsii.String("value"),
+//   														},
+//   													},
+//   													imageUrl: jsii.String("imageUrl"),
+//   													subtitle: jsii.String("subtitle"),
+//   												},
+//   												plainTextMessage: &plainTextMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												ssmlMessage: &sSMLMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//
+//   											// the properties below are optional
+//   											variations: []interface{}{
+//   												&messageProperty{
+//   													customPayload: &customPayloadProperty{
+//   														value: jsii.String("value"),
+//   													},
+//   													imageResponseCard: &imageResponseCardProperty{
+//   														title: jsii.String("title"),
+//
+//   														// the properties below are optional
+//   														buttons: []interface{}{
+//   															&buttonProperty{
+//   																text: jsii.String("text"),
+//   																value: jsii.String("value"),
+//   															},
+//   														},
+//   														imageUrl: jsii.String("imageUrl"),
+//   														subtitle: jsii.String("subtitle"),
+//   													},
+//   													plainTextMessage: &plainTextMessageProperty{
+//   														value: jsii.String("value"),
+//   													},
+//   													ssmlMessage: &sSMLMessageProperty{
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   											},
+//   										},
+//   									},
+//
+//   									// the properties below are optional
+//   									allowInterrupt: jsii.Boolean(false),
+//   								},
+//   								sampleUtterances: []interface{}{
+//   									&sampleUtteranceProperty{
+//   										utterance: jsii.String("utterance"),
+//   									},
+//   								},
+//   								waitAndContinueSpecification: &waitAndContinueSpecificationProperty{
+//   									continueResponse: &responseSpecificationProperty{
+//   										messageGroupsList: []interface{}{
+//   											&messageGroupProperty{
+//   												message: &messageProperty{
+//   													customPayload: &customPayloadProperty{
+//   														value: jsii.String("value"),
+//   													},
+//   													imageResponseCard: &imageResponseCardProperty{
+//   														title: jsii.String("title"),
+//
+//   														// the properties below are optional
+//   														buttons: []interface{}{
+//   															&buttonProperty{
+//   																text: jsii.String("text"),
+//   																value: jsii.String("value"),
+//   															},
+//   														},
+//   														imageUrl: jsii.String("imageUrl"),
+//   														subtitle: jsii.String("subtitle"),
+//   													},
+//   													plainTextMessage: &plainTextMessageProperty{
+//   														value: jsii.String("value"),
+//   													},
+//   													ssmlMessage: &sSMLMessageProperty{
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//
+//   												// the properties below are optional
+//   												variations: []interface{}{
+//   													&messageProperty{
+//   														customPayload: &customPayloadProperty{
+//   															value: jsii.String("value"),
+//   														},
+//   														imageResponseCard: &imageResponseCardProperty{
+//   															title: jsii.String("title"),
+//
+//   															// the properties below are optional
+//   															buttons: []interface{}{
+//   																&buttonProperty{
+//   																	text: jsii.String("text"),
+//   																	value: jsii.String("value"),
+//   																},
+//   															},
+//   															imageUrl: jsii.String("imageUrl"),
+//   															subtitle: jsii.String("subtitle"),
+//   														},
+//   														plainTextMessage: &plainTextMessageProperty{
+//   															value: jsii.String("value"),
+//   														},
+//   														ssmlMessage: &sSMLMessageProperty{
+//   															value: jsii.String("value"),
+//   														},
+//   													},
+//   												},
+//   											},
+//   										},
+//
+//   										// the properties below are optional
+//   										allowInterrupt: jsii.Boolean(false),
+//   									},
+//   									waitingResponse: &responseSpecificationProperty{
+//   										messageGroupsList: []interface{}{
+//   											&messageGroupProperty{
+//   												message: &messageProperty{
+//   													customPayload: &customPayloadProperty{
+//   														value: jsii.String("value"),
+//   													},
+//   													imageResponseCard: &imageResponseCardProperty{
+//   														title: jsii.String("title"),
+//
+//   														// the properties below are optional
+//   														buttons: []interface{}{
+//   															&buttonProperty{
+//   																text: jsii.String("text"),
+//   																value: jsii.String("value"),
+//   															},
+//   														},
+//   														imageUrl: jsii.String("imageUrl"),
+//   														subtitle: jsii.String("subtitle"),
+//   													},
+//   													plainTextMessage: &plainTextMessageProperty{
+//   														value: jsii.String("value"),
+//   													},
+//   													ssmlMessage: &sSMLMessageProperty{
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//
+//   												// the properties below are optional
+//   												variations: []interface{}{
+//   													&messageProperty{
+//   														customPayload: &customPayloadProperty{
+//   															value: jsii.String("value"),
+//   														},
+//   														imageResponseCard: &imageResponseCardProperty{
+//   															title: jsii.String("title"),
+//
+//   															// the properties below are optional
+//   															buttons: []interface{}{
+//   																&buttonProperty{
+//   																	text: jsii.String("text"),
+//   																	value: jsii.String("value"),
+//   																},
+//   															},
+//   															imageUrl: jsii.String("imageUrl"),
+//   															subtitle: jsii.String("subtitle"),
+//   														},
+//   														plainTextMessage: &plainTextMessageProperty{
+//   															value: jsii.String("value"),
+//   														},
+//   														ssmlMessage: &sSMLMessageProperty{
+//   															value: jsii.String("value"),
+//   														},
+//   													},
+//   												},
+//   											},
+//   										},
+//
+//   										// the properties below are optional
+//   										allowInterrupt: jsii.Boolean(false),
+//   									},
+//
+//   									// the properties below are optional
+//   									isActive: jsii.Boolean(false),
+//   									stillWaitingResponse: &stillWaitingResponseSpecificationProperty{
+//   										frequencyInSeconds: jsii.Number(123),
+//   										messageGroupsList: []interface{}{
+//   											&messageGroupProperty{
+//   												message: &messageProperty{
+//   													customPayload: &customPayloadProperty{
+//   														value: jsii.String("value"),
+//   													},
+//   													imageResponseCard: &imageResponseCardProperty{
+//   														title: jsii.String("title"),
+//
+//   														// the properties below are optional
+//   														buttons: []interface{}{
+//   															&buttonProperty{
+//   																text: jsii.String("text"),
+//   																value: jsii.String("value"),
+//   															},
+//   														},
+//   														imageUrl: jsii.String("imageUrl"),
+//   														subtitle: jsii.String("subtitle"),
+//   													},
+//   													plainTextMessage: &plainTextMessageProperty{
+//   														value: jsii.String("value"),
+//   													},
+//   													ssmlMessage: &sSMLMessageProperty{
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//
+//   												// the properties below are optional
+//   												variations: []interface{}{
+//   													&messageProperty{
+//   														customPayload: &customPayloadProperty{
+//   															value: jsii.String("value"),
+//   														},
+//   														imageResponseCard: &imageResponseCardProperty{
+//   															title: jsii.String("title"),
+//
+//   															// the properties below are optional
+//   															buttons: []interface{}{
+//   																&buttonProperty{
+//   																	text: jsii.String("text"),
+//   																	value: jsii.String("value"),
+//   																},
+//   															},
+//   															imageUrl: jsii.String("imageUrl"),
+//   															subtitle: jsii.String("subtitle"),
+//   														},
+//   														plainTextMessage: &plainTextMessageProperty{
+//   															value: jsii.String("value"),
+//   														},
+//   														ssmlMessage: &sSMLMessageProperty{
+//   															value: jsii.String("value"),
+//   														},
+//   													},
+//   												},
+//   											},
+//   										},
+//   										timeoutInSeconds: jsii.Number(123),
+//
+//   										// the properties below are optional
+//   										allowInterrupt: jsii.Boolean(false),
+//   									},
+//   								},
+//   							},
+//
+//   							// the properties below are optional
+//   							description: jsii.String("description"),
+//   							multipleValuesSetting: &multipleValuesSettingProperty{
+//   								allowMultipleValues: jsii.Boolean(false),
+//   							},
+//   							obfuscationSetting: &obfuscationSettingProperty{
+//   								obfuscationSettingType: jsii.String("obfuscationSettingType"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   			slotTypes: []interface{}{
+//   				&slotTypeProperty{
+//   					name: jsii.String("name"),
+//
+//   					// the properties below are optional
+//   					description: jsii.String("description"),
+//   					externalSourceSetting: &externalSourceSettingProperty{
+//   						grammarSlotTypeSetting: &grammarSlotTypeSettingProperty{
+//   							source: &grammarSlotTypeSourceProperty{
+//   								s3BucketName: jsii.String("s3BucketName"),
+//   								s3ObjectKey: jsii.String("s3ObjectKey"),
+//
+//   								// the properties below are optional
+//   								kmsKeyArn: jsii.String("kmsKeyArn"),
+//   							},
+//   						},
+//   					},
+//   					parentSlotTypeSignature: jsii.String("parentSlotTypeSignature"),
+//   					slotTypeValues: []interface{}{
+//   						&slotTypeValueProperty{
+//   							sampleValue: &sampleValueProperty{
+//   								value: jsii.String("value"),
+//   							},
+//
+//   							// the properties below are optional
+//   							synonyms: []interface{}{
+//   								&sampleValueProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   					valueSelectionSetting: &slotValueSelectionSettingProperty{
+//   						resolutionStrategy: jsii.String("resolutionStrategy"),
+//
+//   						// the properties below are optional
+//   						advancedRecognitionSetting: &advancedRecognitionSettingProperty{
+//   							audioRecognitionStrategy: jsii.String("audioRecognitionStrategy"),
+//   						},
+//   						regexFilter: &slotValueRegexFilterProperty{
+//   							pattern: jsii.String("pattern"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			voiceSettings: &voiceSettingsProperty{
+//   				voiceId: jsii.String("voiceId"),
+//   			},
+//   		},
+//   	},
+//   	botTags: []interface{}{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	description: jsii.String("description"),
+//   	testBotAliasSettings: &testBotAliasSettingsProperty{
+//   		botAliasLocaleSettings: []interface{}{
+//   			&botAliasLocaleSettingsItemProperty{
+//   				botAliasLocaleSetting: &botAliasLocaleSettingsProperty{
+//   					enabled: jsii.Boolean(false),
+//
+//   					// the properties below are optional
+//   					codeHookSpecification: &codeHookSpecificationProperty{
+//   						lambdaCodeHook: &lambdaCodeHookProperty{
+//   							codeHookInterfaceVersion: jsii.String("codeHookInterfaceVersion"),
+//   							lambdaArn: jsii.String("lambdaArn"),
+//   						},
+//   					},
+//   				},
+//   				localeId: jsii.String("localeId"),
+//   			},
+//   		},
+//   		conversationLogSettings: &conversationLogSettingsProperty{
+//   			audioLogSettings: []interface{}{
+//   				&audioLogSettingProperty{
+//   					destination: &audioLogDestinationProperty{
+//   						s3Bucket: &s3BucketLogDestinationProperty{
+//   							logPrefix: jsii.String("logPrefix"),
+//   							s3BucketArn: jsii.String("s3BucketArn"),
+//
+//   							// the properties below are optional
+//   							kmsKeyArn: jsii.String("kmsKeyArn"),
+//   						},
+//   					},
+//   					enabled: jsii.Boolean(false),
+//   				},
+//   			},
+//   			textLogSettings: []interface{}{
+//   				&textLogSettingProperty{
+//   					destination: &textLogDestinationProperty{
+//   						cloudWatch: &cloudWatchLogGroupLogDestinationProperty{
+//   							cloudWatchLogGroupArn: jsii.String("cloudWatchLogGroupArn"),
+//   							logPrefix: jsii.String("logPrefix"),
+//   						},
+//   					},
+//   					enabled: jsii.Boolean(false),
+//   				},
+//   			},
+//   		},
+//   		description: jsii.String("description"),
+//   		sentimentAnalysisSettings: sentimentAnalysisSettings,
+//   	},
+//   	testBotAliasTags: []interface{}{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   })
 //
 type CfnBot interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the bot.
 	AttrArn() *string
+	// The unique identifier of the bot.
 	AttrId() *string
+	// Indicates whether Amazon Lex V2 should automatically build the locales for the bot after a change.
 	AutoBuildBotLocales() interface{}
 	SetAutoBuildBotLocales(val interface{})
+	// The Amazon S3 location of files used to import a bot.
+	//
+	// The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
 	BotFileS3Location() interface{}
 	SetBotFileS3Location(val interface{})
+	// A list of locales for the bot.
 	BotLocales() interface{}
 	SetBotLocales(val interface{})
+	// A list of tags to add to the bot.
+	//
+	// You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
 	BotTags() interface{}
 	SetBotTags(val interface{})
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// Provides information on additional privacy protections Amazon Lex should use with the bot's data.
 	DataPrivacy() interface{}
 	SetDataPrivacy(val interface{})
+	// The description of the version.
 	Description() *string
 	SetDescription(val *string)
+	// The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
+	//
+	// A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Lex deletes any data provided before the timeout.
+	//
+	// You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
 	IdleSessionTtlInSeconds() *float64
 	SetIdleSessionTtlInSeconds(val *float64)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The name of the field to filter the list of bots.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
 	RoleArn() *string
 	SetRoleArn(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Specifies configuration settings for the alias used to test the bot.
+	//
+	// If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
+	TestBotAliasSettings() interface{}
+	SetTestBotAliasSettings(val interface{})
+	// A list of tags to add to the test alias for a bot.
+	//
+	// You can only add tags when you import a bot. You can't use the `UpdateAlias` operation to update tags. To update tags on the test alias, use the `TagResource` operation.
 	TestBotAliasTags() interface{}
 	SetTestBotAliasTags(val interface{})
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -224,8 +1421,8 @@ func (j *jsiiProxy_CfnBot) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBot) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnBot) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -264,6 +1461,16 @@ func (j *jsiiProxy_CfnBot) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnBot) TestBotAliasSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"testBotAliasSettings",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnBot) TestBotAliasTags() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -286,13 +1493,13 @@ func (j *jsiiProxy_CfnBot) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Lex::Bot`.
-func NewCfnBot(scope constructs.Construct, id *string, props *CfnBotProps) CfnBot {
+func NewCfnBot(scope awscdk.Construct, id *string, props *CfnBotProps) CfnBot {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnBot{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lex.CfnBot",
+		"monocdk.aws_lex.CfnBot",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -301,11 +1508,11 @@ func NewCfnBot(scope constructs.Construct, id *string, props *CfnBotProps) CfnBo
 }
 
 // Create a new `AWS::Lex::Bot`.
-func NewCfnBot_Override(c CfnBot, scope constructs.Construct, id *string, props *CfnBotProps) {
+func NewCfnBot_Override(c CfnBot, scope awscdk.Construct, id *string, props *CfnBotProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lex.CfnBot",
+		"monocdk.aws_lex.CfnBot",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -383,6 +1590,14 @@ func (j *jsiiProxy_CfnBot) SetRoleArn(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnBot) SetTestBotAliasSettings(val interface{}) {
+	_jsii_.Set(
+		j,
+		"testBotAliasSettings",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnBot) SetTestBotAliasTags(val interface{}) {
 	_jsii_.Set(
 		j,
@@ -397,13 +1612,14 @@ func (j *jsiiProxy_CfnBot) SetTestBotAliasTags(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnBot_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lex.CfnBot",
+		"monocdk.aws_lex.CfnBot",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -413,13 +1629,14 @@ func CfnBot_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnBot_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lex.CfnBot",
+		"monocdk.aws_lex.CfnBot",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -428,17 +1645,15 @@ func CfnBot_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnBot_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lex.CfnBot",
+		"monocdk.aws_lex.CfnBot",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -451,14 +1666,13 @@ func CfnBot_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_lex.CfnBot",
+		"monocdk.aws_lex.CfnBot",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnBot) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -467,10 +1681,6 @@ func (c *jsiiProxy_CfnBot) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnBot) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -479,13 +1689,6 @@ func (c *jsiiProxy_CfnBot) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnBot) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -494,49 +1697,6 @@ func (c *jsiiProxy_CfnBot) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnBot) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -545,7 +1705,6 @@ func (c *jsiiProxy_CfnBot) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnBot) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -554,9 +1713,6 @@ func (c *jsiiProxy_CfnBot) AddPropertyDeletionOverride(propertyPath *string) {
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnBot) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -565,15 +1721,6 @@ func (c *jsiiProxy_CfnBot) AddPropertyOverride(propertyPath *string, value inter
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnBot) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -582,10 +1729,6 @@ func (c *jsiiProxy_CfnBot) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, optio
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnBot) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -599,13 +1742,6 @@ func (c *jsiiProxy_CfnBot) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnBot) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -619,7 +1755,6 @@ func (c *jsiiProxy_CfnBot) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnBot) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -628,12 +1763,48 @@ func (c *jsiiProxy_CfnBot) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnBot) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnBot) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnBot) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnBot) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnBot) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -650,10 +1821,6 @@ func (c *jsiiProxy_CfnBot) RenderProperties(props *map[string]interface{}) *map[
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnBot) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -667,15 +1834,33 @@ func (c *jsiiProxy_CfnBot) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnBot) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnBot) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnBot) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -691,9 +1876,1026 @@ func (c *jsiiProxy_CfnBot) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Specifies settings that enable advanced audio recognition for slot values.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   advancedRecognitionSettingProperty := &advancedRecognitionSettingProperty{
+//   	audioRecognitionStrategy: jsii.String("audioRecognitionStrategy"),
+//   }
+//
+type CfnBot_AdvancedRecognitionSettingProperty struct {
+	// Specifies that Amazon Lex should use slot values as a custom vocabulary when recognizing user utterances.
+	AudioRecognitionStrategy *string `json:"audioRecognitionStrategy" yaml:"audioRecognitionStrategy"`
+}
+
+// Specifies the location of audio log files collected when conversation logging is enabled for a bot.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   audioLogDestinationProperty := &audioLogDestinationProperty{
+//   	s3Bucket: &s3BucketLogDestinationProperty{
+//   		logPrefix: jsii.String("logPrefix"),
+//   		s3BucketArn: jsii.String("s3BucketArn"),
+//
+//   		// the properties below are optional
+//   		kmsKeyArn: jsii.String("kmsKeyArn"),
+//   	},
+//   }
+//
+type CfnBot_AudioLogDestinationProperty struct {
+	// Specifies the Amazon S3 bucket where the audio files are stored.
+	S3Bucket interface{} `json:"s3Bucket" yaml:"s3Bucket"`
+}
+
+// Specifies settings for logging the audio of conversations between Amazon Lex and a user.
+//
+// You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   audioLogSettingProperty := &audioLogSettingProperty{
+//   	destination: &audioLogDestinationProperty{
+//   		s3Bucket: &s3BucketLogDestinationProperty{
+//   			logPrefix: jsii.String("logPrefix"),
+//   			s3BucketArn: jsii.String("s3BucketArn"),
+//
+//   			// the properties below are optional
+//   			kmsKeyArn: jsii.String("kmsKeyArn"),
+//   		},
+//   	},
+//   	enabled: jsii.Boolean(false),
+//   }
+//
+type CfnBot_AudioLogSettingProperty struct {
+	// Specifies the location of the audio log files collected when conversation logging is enabled for a bot.
+	Destination interface{} `json:"destination" yaml:"destination"`
+	// Specifies whether audio logging is enabled for the bot.
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
+}
+
+// Specifies locale settings for a single locale.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   botAliasLocaleSettingsItemProperty := &botAliasLocaleSettingsItemProperty{
+//   	botAliasLocaleSetting: &botAliasLocaleSettingsProperty{
+//   		enabled: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		codeHookSpecification: &codeHookSpecificationProperty{
+//   			lambdaCodeHook: &lambdaCodeHookProperty{
+//   				codeHookInterfaceVersion: jsii.String("codeHookInterfaceVersion"),
+//   				lambdaArn: jsii.String("lambdaArn"),
+//   			},
+//   		},
+//   	},
+//   	localeId: jsii.String("localeId"),
+//   }
+//
+type CfnBot_BotAliasLocaleSettingsItemProperty struct {
+	// Specifies locale settings for a locale.
+	BotAliasLocaleSetting interface{} `json:"botAliasLocaleSetting" yaml:"botAliasLocaleSetting"`
+	// Specifies the locale that the settings apply to.
+	LocaleId *string `json:"localeId" yaml:"localeId"`
+}
+
+// Specifies settings that are unique to a locale.
+//
+// For example, you can use a different Lambda function for each locale.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   botAliasLocaleSettingsProperty := &botAliasLocaleSettingsProperty{
+//   	enabled: jsii.Boolean(false),
+//
+//   	// the properties below are optional
+//   	codeHookSpecification: &codeHookSpecificationProperty{
+//   		lambdaCodeHook: &lambdaCodeHookProperty{
+//   			codeHookInterfaceVersion: jsii.String("codeHookInterfaceVersion"),
+//   			lambdaArn: jsii.String("lambdaArn"),
+//   		},
+//   	},
+//   }
+//
+type CfnBot_BotAliasLocaleSettingsProperty struct {
+	// Specifies whether the locale is enabled for the bot.
+	//
+	// If the value is false, the locale isn't available for use.
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	// Specifies the Lambda function to use in this locale.
+	CodeHookSpecification interface{} `json:"codeHookSpecification" yaml:"codeHookSpecification"`
+}
+
 // Provides configuration information for a locale.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   botLocaleProperty := &botLocaleProperty{
+//   	localeId: jsii.String("localeId"),
+//   	nluConfidenceThreshold: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	customVocabulary: &customVocabularyProperty{
+//   		customVocabularyItems: []interface{}{
+//   			&customVocabularyItemProperty{
+//   				phrase: jsii.String("phrase"),
+//
+//   				// the properties below are optional
+//   				weight: jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   	description: jsii.String("description"),
+//   	intents: []interface{}{
+//   		&intentProperty{
+//   			name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			description: jsii.String("description"),
+//   			dialogCodeHook: &dialogCodeHookSettingProperty{
+//   				enabled: jsii.Boolean(false),
+//   			},
+//   			fulfillmentCodeHook: &fulfillmentCodeHookSettingProperty{
+//   				enabled: jsii.Boolean(false),
+//
+//   				// the properties below are optional
+//   				fulfillmentUpdatesSpecification: &fulfillmentUpdatesSpecificationProperty{
+//   					active: jsii.Boolean(false),
+//
+//   					// the properties below are optional
+//   					startResponse: &fulfillmentStartResponseSpecificationProperty{
+//   						delayInSeconds: jsii.Number(123),
+//   						messageGroups: []interface{}{
+//   							&messageGroupProperty{
+//   								message: &messageProperty{
+//   									customPayload: &customPayloadProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									imageResponseCard: &imageResponseCardProperty{
+//   										title: jsii.String("title"),
+//
+//   										// the properties below are optional
+//   										buttons: []interface{}{
+//   											&buttonProperty{
+//   												text: jsii.String("text"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   										imageUrl: jsii.String("imageUrl"),
+//   										subtitle: jsii.String("subtitle"),
+//   									},
+//   									plainTextMessage: &plainTextMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									ssmlMessage: &sSMLMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								variations: []interface{}{
+//   									&messageProperty{
+//   										customPayload: &customPayloadProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										imageResponseCard: &imageResponseCardProperty{
+//   											title: jsii.String("title"),
+//
+//   											// the properties below are optional
+//   											buttons: []interface{}{
+//   												&buttonProperty{
+//   													text: jsii.String("text"),
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   											imageUrl: jsii.String("imageUrl"),
+//   											subtitle: jsii.String("subtitle"),
+//   										},
+//   										plainTextMessage: &plainTextMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										ssmlMessage: &sSMLMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						allowInterrupt: jsii.Boolean(false),
+//   					},
+//   					timeoutInSeconds: jsii.Number(123),
+//   					updateResponse: &fulfillmentUpdateResponseSpecificationProperty{
+//   						frequencyInSeconds: jsii.Number(123),
+//   						messageGroups: []interface{}{
+//   							&messageGroupProperty{
+//   								message: &messageProperty{
+//   									customPayload: &customPayloadProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									imageResponseCard: &imageResponseCardProperty{
+//   										title: jsii.String("title"),
+//
+//   										// the properties below are optional
+//   										buttons: []interface{}{
+//   											&buttonProperty{
+//   												text: jsii.String("text"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   										imageUrl: jsii.String("imageUrl"),
+//   										subtitle: jsii.String("subtitle"),
+//   									},
+//   									plainTextMessage: &plainTextMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									ssmlMessage: &sSMLMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								variations: []interface{}{
+//   									&messageProperty{
+//   										customPayload: &customPayloadProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										imageResponseCard: &imageResponseCardProperty{
+//   											title: jsii.String("title"),
+//
+//   											// the properties below are optional
+//   											buttons: []interface{}{
+//   												&buttonProperty{
+//   													text: jsii.String("text"),
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   											imageUrl: jsii.String("imageUrl"),
+//   											subtitle: jsii.String("subtitle"),
+//   										},
+//   										plainTextMessage: &plainTextMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										ssmlMessage: &sSMLMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						allowInterrupt: jsii.Boolean(false),
+//   					},
+//   				},
+//   				postFulfillmentStatusSpecification: &postFulfillmentStatusSpecificationProperty{
+//   					failureResponse: &responseSpecificationProperty{
+//   						messageGroupsList: []interface{}{
+//   							&messageGroupProperty{
+//   								message: &messageProperty{
+//   									customPayload: &customPayloadProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									imageResponseCard: &imageResponseCardProperty{
+//   										title: jsii.String("title"),
+//
+//   										// the properties below are optional
+//   										buttons: []interface{}{
+//   											&buttonProperty{
+//   												text: jsii.String("text"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   										imageUrl: jsii.String("imageUrl"),
+//   										subtitle: jsii.String("subtitle"),
+//   									},
+//   									plainTextMessage: &plainTextMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									ssmlMessage: &sSMLMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								variations: []interface{}{
+//   									&messageProperty{
+//   										customPayload: &customPayloadProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										imageResponseCard: &imageResponseCardProperty{
+//   											title: jsii.String("title"),
+//
+//   											// the properties below are optional
+//   											buttons: []interface{}{
+//   												&buttonProperty{
+//   													text: jsii.String("text"),
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   											imageUrl: jsii.String("imageUrl"),
+//   											subtitle: jsii.String("subtitle"),
+//   										},
+//   										plainTextMessage: &plainTextMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										ssmlMessage: &sSMLMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						allowInterrupt: jsii.Boolean(false),
+//   					},
+//   					successResponse: &responseSpecificationProperty{
+//   						messageGroupsList: []interface{}{
+//   							&messageGroupProperty{
+//   								message: &messageProperty{
+//   									customPayload: &customPayloadProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									imageResponseCard: &imageResponseCardProperty{
+//   										title: jsii.String("title"),
+//
+//   										// the properties below are optional
+//   										buttons: []interface{}{
+//   											&buttonProperty{
+//   												text: jsii.String("text"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   										imageUrl: jsii.String("imageUrl"),
+//   										subtitle: jsii.String("subtitle"),
+//   									},
+//   									plainTextMessage: &plainTextMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									ssmlMessage: &sSMLMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								variations: []interface{}{
+//   									&messageProperty{
+//   										customPayload: &customPayloadProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										imageResponseCard: &imageResponseCardProperty{
+//   											title: jsii.String("title"),
+//
+//   											// the properties below are optional
+//   											buttons: []interface{}{
+//   												&buttonProperty{
+//   													text: jsii.String("text"),
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   											imageUrl: jsii.String("imageUrl"),
+//   											subtitle: jsii.String("subtitle"),
+//   										},
+//   										plainTextMessage: &plainTextMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										ssmlMessage: &sSMLMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						allowInterrupt: jsii.Boolean(false),
+//   					},
+//   					timeoutResponse: &responseSpecificationProperty{
+//   						messageGroupsList: []interface{}{
+//   							&messageGroupProperty{
+//   								message: &messageProperty{
+//   									customPayload: &customPayloadProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									imageResponseCard: &imageResponseCardProperty{
+//   										title: jsii.String("title"),
+//
+//   										// the properties below are optional
+//   										buttons: []interface{}{
+//   											&buttonProperty{
+//   												text: jsii.String("text"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   										imageUrl: jsii.String("imageUrl"),
+//   										subtitle: jsii.String("subtitle"),
+//   									},
+//   									plainTextMessage: &plainTextMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									ssmlMessage: &sSMLMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								variations: []interface{}{
+//   									&messageProperty{
+//   										customPayload: &customPayloadProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										imageResponseCard: &imageResponseCardProperty{
+//   											title: jsii.String("title"),
+//
+//   											// the properties below are optional
+//   											buttons: []interface{}{
+//   												&buttonProperty{
+//   													text: jsii.String("text"),
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   											imageUrl: jsii.String("imageUrl"),
+//   											subtitle: jsii.String("subtitle"),
+//   										},
+//   										plainTextMessage: &plainTextMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										ssmlMessage: &sSMLMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						allowInterrupt: jsii.Boolean(false),
+//   					},
+//   				},
+//   			},
+//   			inputContexts: []interface{}{
+//   				&inputContextProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   			},
+//   			intentClosingSetting: &intentClosingSettingProperty{
+//   				closingResponse: &responseSpecificationProperty{
+//   					messageGroupsList: []interface{}{
+//   						&messageGroupProperty{
+//   							message: &messageProperty{
+//   								customPayload: &customPayloadProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								imageResponseCard: &imageResponseCardProperty{
+//   									title: jsii.String("title"),
+//
+//   									// the properties below are optional
+//   									buttons: []interface{}{
+//   										&buttonProperty{
+//   											text: jsii.String("text"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   									imageUrl: jsii.String("imageUrl"),
+//   									subtitle: jsii.String("subtitle"),
+//   								},
+//   								plainTextMessage: &plainTextMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								ssmlMessage: &sSMLMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//
+//   							// the properties below are optional
+//   							variations: []interface{}{
+//   								&messageProperty{
+//   									customPayload: &customPayloadProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									imageResponseCard: &imageResponseCardProperty{
+//   										title: jsii.String("title"),
+//
+//   										// the properties below are optional
+//   										buttons: []interface{}{
+//   											&buttonProperty{
+//   												text: jsii.String("text"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   										imageUrl: jsii.String("imageUrl"),
+//   										subtitle: jsii.String("subtitle"),
+//   									},
+//   									plainTextMessage: &plainTextMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									ssmlMessage: &sSMLMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					allowInterrupt: jsii.Boolean(false),
+//   				},
+//
+//   				// the properties below are optional
+//   				isActive: jsii.Boolean(false),
+//   			},
+//   			intentConfirmationSetting: &intentConfirmationSettingProperty{
+//   				declinationResponse: &responseSpecificationProperty{
+//   					messageGroupsList: []interface{}{
+//   						&messageGroupProperty{
+//   							message: &messageProperty{
+//   								customPayload: &customPayloadProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								imageResponseCard: &imageResponseCardProperty{
+//   									title: jsii.String("title"),
+//
+//   									// the properties below are optional
+//   									buttons: []interface{}{
+//   										&buttonProperty{
+//   											text: jsii.String("text"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   									imageUrl: jsii.String("imageUrl"),
+//   									subtitle: jsii.String("subtitle"),
+//   								},
+//   								plainTextMessage: &plainTextMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								ssmlMessage: &sSMLMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//
+//   							// the properties below are optional
+//   							variations: []interface{}{
+//   								&messageProperty{
+//   									customPayload: &customPayloadProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									imageResponseCard: &imageResponseCardProperty{
+//   										title: jsii.String("title"),
+//
+//   										// the properties below are optional
+//   										buttons: []interface{}{
+//   											&buttonProperty{
+//   												text: jsii.String("text"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   										imageUrl: jsii.String("imageUrl"),
+//   										subtitle: jsii.String("subtitle"),
+//   									},
+//   									plainTextMessage: &plainTextMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									ssmlMessage: &sSMLMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					allowInterrupt: jsii.Boolean(false),
+//   				},
+//   				promptSpecification: &promptSpecificationProperty{
+//   					maxRetries: jsii.Number(123),
+//   					messageGroupsList: []interface{}{
+//   						&messageGroupProperty{
+//   							message: &messageProperty{
+//   								customPayload: &customPayloadProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								imageResponseCard: &imageResponseCardProperty{
+//   									title: jsii.String("title"),
+//
+//   									// the properties below are optional
+//   									buttons: []interface{}{
+//   										&buttonProperty{
+//   											text: jsii.String("text"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   									imageUrl: jsii.String("imageUrl"),
+//   									subtitle: jsii.String("subtitle"),
+//   								},
+//   								plainTextMessage: &plainTextMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								ssmlMessage: &sSMLMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//
+//   							// the properties below are optional
+//   							variations: []interface{}{
+//   								&messageProperty{
+//   									customPayload: &customPayloadProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									imageResponseCard: &imageResponseCardProperty{
+//   										title: jsii.String("title"),
+//
+//   										// the properties below are optional
+//   										buttons: []interface{}{
+//   											&buttonProperty{
+//   												text: jsii.String("text"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   										imageUrl: jsii.String("imageUrl"),
+//   										subtitle: jsii.String("subtitle"),
+//   									},
+//   									plainTextMessage: &plainTextMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									ssmlMessage: &sSMLMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					allowInterrupt: jsii.Boolean(false),
+//   				},
+//
+//   				// the properties below are optional
+//   				isActive: jsii.Boolean(false),
+//   			},
+//   			kendraConfiguration: &kendraConfigurationProperty{
+//   				kendraIndex: jsii.String("kendraIndex"),
+//
+//   				// the properties below are optional
+//   				queryFilterString: jsii.String("queryFilterString"),
+//   				queryFilterStringEnabled: jsii.Boolean(false),
+//   			},
+//   			outputContexts: []interface{}{
+//   				&outputContextProperty{
+//   					name: jsii.String("name"),
+//   					timeToLiveInSeconds: jsii.Number(123),
+//   					turnsToLive: jsii.Number(123),
+//   				},
+//   			},
+//   			parentIntentSignature: jsii.String("parentIntentSignature"),
+//   			sampleUtterances: []interface{}{
+//   				&sampleUtteranceProperty{
+//   					utterance: jsii.String("utterance"),
+//   				},
+//   			},
+//   			slotPriorities: []interface{}{
+//   				&slotPriorityProperty{
+//   					priority: jsii.Number(123),
+//   					slotName: jsii.String("slotName"),
+//   				},
+//   			},
+//   			slots: []interface{}{
+//   				&slotProperty{
+//   					name: jsii.String("name"),
+//   					slotTypeName: jsii.String("slotTypeName"),
+//   					valueElicitationSetting: &slotValueElicitationSettingProperty{
+//   						slotConstraint: jsii.String("slotConstraint"),
+//
+//   						// the properties below are optional
+//   						defaultValueSpecification: &slotDefaultValueSpecificationProperty{
+//   							defaultValueList: []interface{}{
+//   								&slotDefaultValueProperty{
+//   									defaultValue: jsii.String("defaultValue"),
+//   								},
+//   							},
+//   						},
+//   						promptSpecification: &promptSpecificationProperty{
+//   							maxRetries: jsii.Number(123),
+//   							messageGroupsList: []interface{}{
+//   								&messageGroupProperty{
+//   									message: &messageProperty{
+//   										customPayload: &customPayloadProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										imageResponseCard: &imageResponseCardProperty{
+//   											title: jsii.String("title"),
+//
+//   											// the properties below are optional
+//   											buttons: []interface{}{
+//   												&buttonProperty{
+//   													text: jsii.String("text"),
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   											imageUrl: jsii.String("imageUrl"),
+//   											subtitle: jsii.String("subtitle"),
+//   										},
+//   										plainTextMessage: &plainTextMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										ssmlMessage: &sSMLMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//
+//   									// the properties below are optional
+//   									variations: []interface{}{
+//   										&messageProperty{
+//   											customPayload: &customPayloadProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											imageResponseCard: &imageResponseCardProperty{
+//   												title: jsii.String("title"),
+//
+//   												// the properties below are optional
+//   												buttons: []interface{}{
+//   													&buttonProperty{
+//   														text: jsii.String("text"),
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   												imageUrl: jsii.String("imageUrl"),
+//   												subtitle: jsii.String("subtitle"),
+//   											},
+//   											plainTextMessage: &plainTextMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											ssmlMessage: &sSMLMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//
+//   							// the properties below are optional
+//   							allowInterrupt: jsii.Boolean(false),
+//   						},
+//   						sampleUtterances: []interface{}{
+//   							&sampleUtteranceProperty{
+//   								utterance: jsii.String("utterance"),
+//   							},
+//   						},
+//   						waitAndContinueSpecification: &waitAndContinueSpecificationProperty{
+//   							continueResponse: &responseSpecificationProperty{
+//   								messageGroupsList: []interface{}{
+//   									&messageGroupProperty{
+//   										message: &messageProperty{
+//   											customPayload: &customPayloadProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											imageResponseCard: &imageResponseCardProperty{
+//   												title: jsii.String("title"),
+//
+//   												// the properties below are optional
+//   												buttons: []interface{}{
+//   													&buttonProperty{
+//   														text: jsii.String("text"),
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   												imageUrl: jsii.String("imageUrl"),
+//   												subtitle: jsii.String("subtitle"),
+//   											},
+//   											plainTextMessage: &plainTextMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											ssmlMessage: &sSMLMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//
+//   										// the properties below are optional
+//   										variations: []interface{}{
+//   											&messageProperty{
+//   												customPayload: &customPayloadProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												imageResponseCard: &imageResponseCardProperty{
+//   													title: jsii.String("title"),
+//
+//   													// the properties below are optional
+//   													buttons: []interface{}{
+//   														&buttonProperty{
+//   															text: jsii.String("text"),
+//   															value: jsii.String("value"),
+//   														},
+//   													},
+//   													imageUrl: jsii.String("imageUrl"),
+//   													subtitle: jsii.String("subtitle"),
+//   												},
+//   												plainTextMessage: &plainTextMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												ssmlMessage: &sSMLMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   										},
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								allowInterrupt: jsii.Boolean(false),
+//   							},
+//   							waitingResponse: &responseSpecificationProperty{
+//   								messageGroupsList: []interface{}{
+//   									&messageGroupProperty{
+//   										message: &messageProperty{
+//   											customPayload: &customPayloadProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											imageResponseCard: &imageResponseCardProperty{
+//   												title: jsii.String("title"),
+//
+//   												// the properties below are optional
+//   												buttons: []interface{}{
+//   													&buttonProperty{
+//   														text: jsii.String("text"),
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   												imageUrl: jsii.String("imageUrl"),
+//   												subtitle: jsii.String("subtitle"),
+//   											},
+//   											plainTextMessage: &plainTextMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											ssmlMessage: &sSMLMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//
+//   										// the properties below are optional
+//   										variations: []interface{}{
+//   											&messageProperty{
+//   												customPayload: &customPayloadProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												imageResponseCard: &imageResponseCardProperty{
+//   													title: jsii.String("title"),
+//
+//   													// the properties below are optional
+//   													buttons: []interface{}{
+//   														&buttonProperty{
+//   															text: jsii.String("text"),
+//   															value: jsii.String("value"),
+//   														},
+//   													},
+//   													imageUrl: jsii.String("imageUrl"),
+//   													subtitle: jsii.String("subtitle"),
+//   												},
+//   												plainTextMessage: &plainTextMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												ssmlMessage: &sSMLMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   										},
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								allowInterrupt: jsii.Boolean(false),
+//   							},
+//
+//   							// the properties below are optional
+//   							isActive: jsii.Boolean(false),
+//   							stillWaitingResponse: &stillWaitingResponseSpecificationProperty{
+//   								frequencyInSeconds: jsii.Number(123),
+//   								messageGroupsList: []interface{}{
+//   									&messageGroupProperty{
+//   										message: &messageProperty{
+//   											customPayload: &customPayloadProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											imageResponseCard: &imageResponseCardProperty{
+//   												title: jsii.String("title"),
+//
+//   												// the properties below are optional
+//   												buttons: []interface{}{
+//   													&buttonProperty{
+//   														text: jsii.String("text"),
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   												imageUrl: jsii.String("imageUrl"),
+//   												subtitle: jsii.String("subtitle"),
+//   											},
+//   											plainTextMessage: &plainTextMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											ssmlMessage: &sSMLMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//
+//   										// the properties below are optional
+//   										variations: []interface{}{
+//   											&messageProperty{
+//   												customPayload: &customPayloadProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												imageResponseCard: &imageResponseCardProperty{
+//   													title: jsii.String("title"),
+//
+//   													// the properties below are optional
+//   													buttons: []interface{}{
+//   														&buttonProperty{
+//   															text: jsii.String("text"),
+//   															value: jsii.String("value"),
+//   														},
+//   													},
+//   													imageUrl: jsii.String("imageUrl"),
+//   													subtitle: jsii.String("subtitle"),
+//   												},
+//   												plainTextMessage: &plainTextMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												ssmlMessage: &sSMLMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   										},
+//   									},
+//   								},
+//   								timeoutInSeconds: jsii.Number(123),
+//
+//   								// the properties below are optional
+//   								allowInterrupt: jsii.Boolean(false),
+//   							},
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					description: jsii.String("description"),
+//   					multipleValuesSetting: &multipleValuesSettingProperty{
+//   						allowMultipleValues: jsii.Boolean(false),
+//   					},
+//   					obfuscationSetting: &obfuscationSettingProperty{
+//   						obfuscationSettingType: jsii.String("obfuscationSettingType"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	slotTypes: []interface{}{
+//   		&slotTypeProperty{
+//   			name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			description: jsii.String("description"),
+//   			externalSourceSetting: &externalSourceSettingProperty{
+//   				grammarSlotTypeSetting: &grammarSlotTypeSettingProperty{
+//   					source: &grammarSlotTypeSourceProperty{
+//   						s3BucketName: jsii.String("s3BucketName"),
+//   						s3ObjectKey: jsii.String("s3ObjectKey"),
+//
+//   						// the properties below are optional
+//   						kmsKeyArn: jsii.String("kmsKeyArn"),
+//   					},
+//   				},
+//   			},
+//   			parentSlotTypeSignature: jsii.String("parentSlotTypeSignature"),
+//   			slotTypeValues: []interface{}{
+//   				&slotTypeValueProperty{
+//   					sampleValue: &sampleValueProperty{
+//   						value: jsii.String("value"),
+//   					},
+//
+//   					// the properties below are optional
+//   					synonyms: []interface{}{
+//   						&sampleValueProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			valueSelectionSetting: &slotValueSelectionSettingProperty{
+//   				resolutionStrategy: jsii.String("resolutionStrategy"),
+//
+//   				// the properties below are optional
+//   				advancedRecognitionSetting: &advancedRecognitionSettingProperty{
+//   					audioRecognitionStrategy: jsii.String("audioRecognitionStrategy"),
+//   				},
+//   				regexFilter: &slotValueRegexFilterProperty{
+//   					pattern: jsii.String("pattern"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	voiceSettings: &voiceSettingsProperty{
+//   		voiceId: jsii.String("voiceId"),
+//   	},
+//   }
 //
 type CfnBot_BotLocaleProperty struct {
 	// The identifier of the language and locale that the bot will be used in.
@@ -702,6 +2904,8 @@ type CfnBot_BotLocaleProperty struct {
 	LocaleId *string `json:"localeId" yaml:"localeId"`
 	// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents. You must configure an AMAZON.FallbackIntent. AMAZON.KendraSearchIntent is only inserted if it is configured for the bot.
 	NluConfidenceThreshold *float64 `json:"nluConfidenceThreshold" yaml:"nluConfidenceThreshold"`
+	// Specifies a custom vocabulary to use with a specific locale.
+	CustomVocabulary interface{} `json:"customVocabulary" yaml:"customVocabulary"`
 	// A description of the bot locale.
 	//
 	// Use this to help identify the bot locale in lists.
@@ -716,7 +2920,12 @@ type CfnBot_BotLocaleProperty struct {
 
 // Describes a button to use on a response card used to gather slot values from a user.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   buttonProperty := &buttonProperty{
+//   	text: jsii.String("text"),
+//   	value: jsii.String("value"),
+//   }
 //
 type CfnBot_ButtonProperty struct {
 	// The text that appears on the button.
@@ -729,20 +2938,145 @@ type CfnBot_ButtonProperty struct {
 	Value *string `json:"value" yaml:"value"`
 }
 
+// Specifies the Amazon CloudWatch Logs log group where text and metadata logs are delivered.
+//
+// The log group must exist before you enable logging.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   cloudWatchLogGroupLogDestinationProperty := &cloudWatchLogGroupLogDestinationProperty{
+//   	cloudWatchLogGroupArn: jsii.String("cloudWatchLogGroupArn"),
+//   	logPrefix: jsii.String("logPrefix"),
+//   }
+//
+type CfnBot_CloudWatchLogGroupLogDestinationProperty struct {
+	// Specifies the Amazon Resource Name (ARN) of the log group where text and metadata logs are delivered.
+	CloudWatchLogGroupArn *string `json:"cloudWatchLogGroupArn" yaml:"cloudWatchLogGroupArn"`
+	// Specifies the prefix of the log stream name within the log group that you specified.
+	LogPrefix *string `json:"logPrefix" yaml:"logPrefix"`
+}
+
+// Specifies information about code hooks that Amazon Lex calls during a conversation.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   codeHookSpecificationProperty := &codeHookSpecificationProperty{
+//   	lambdaCodeHook: &lambdaCodeHookProperty{
+//   		codeHookInterfaceVersion: jsii.String("codeHookInterfaceVersion"),
+//   		lambdaArn: jsii.String("lambdaArn"),
+//   	},
+//   }
+//
+type CfnBot_CodeHookSpecificationProperty struct {
+	// Specifies a Lambda function that verifies requests to a bot or fulfills the user's request to a bot.
+	LambdaCodeHook interface{} `json:"lambdaCodeHook" yaml:"lambdaCodeHook"`
+}
+
+// Specifies settings that manage logging that saves audio, text, and metadata for the conversations with your users.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   conversationLogSettingsProperty := &conversationLogSettingsProperty{
+//   	audioLogSettings: []interface{}{
+//   		&audioLogSettingProperty{
+//   			destination: &audioLogDestinationProperty{
+//   				s3Bucket: &s3BucketLogDestinationProperty{
+//   					logPrefix: jsii.String("logPrefix"),
+//   					s3BucketArn: jsii.String("s3BucketArn"),
+//
+//   					// the properties below are optional
+//   					kmsKeyArn: jsii.String("kmsKeyArn"),
+//   				},
+//   			},
+//   			enabled: jsii.Boolean(false),
+//   		},
+//   	},
+//   	textLogSettings: []interface{}{
+//   		&textLogSettingProperty{
+//   			destination: &textLogDestinationProperty{
+//   				cloudWatch: &cloudWatchLogGroupLogDestinationProperty{
+//   					cloudWatchLogGroupArn: jsii.String("cloudWatchLogGroupArn"),
+//   					logPrefix: jsii.String("logPrefix"),
+//   				},
+//   			},
+//   			enabled: jsii.Boolean(false),
+//   		},
+//   	},
+//   }
+//
+type CfnBot_ConversationLogSettingsProperty struct {
+	// Specifies the Amazon S3 settings for logging audio to an S3 bucket.
+	AudioLogSettings interface{} `json:"audioLogSettings" yaml:"audioLogSettings"`
+	// Specifies settings to enable text conversation logs.
+	//
+	// You specify the Amazon CloudWatch Logs log group and whether logs should be stored for an alias.
+	TextLogSettings interface{} `json:"textLogSettings" yaml:"textLogSettings"`
+}
+
 // A custom response string that Amazon Lex sends to your application.
 //
 // You define the content and structure of the string.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   customPayloadProperty := &customPayloadProperty{
+//   	value: jsii.String("value"),
+//   }
 //
 type CfnBot_CustomPayloadProperty struct {
 	// The string that is sent to your application.
 	Value *string `json:"value" yaml:"value"`
 }
 
+// Specifies an entry in a custom vocabulary.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   customVocabularyItemProperty := &customVocabularyItemProperty{
+//   	phrase: jsii.String("phrase"),
+//
+//   	// the properties below are optional
+//   	weight: jsii.Number(123),
+//   }
+//
+type CfnBot_CustomVocabularyItemProperty struct {
+	// Specifies 1 - 4 words that should be recognized.
+	Phrase *string `json:"phrase" yaml:"phrase"`
+	// Specifies the degree to which the phrase recognition is boosted.
+	//
+	// The default value is 1.
+	Weight *float64 `json:"weight" yaml:"weight"`
+}
+
+// Specifies a custom vocabulary.
+//
+// A custom vocabulary is a list of words that you expect to be used during a conversation with your bot.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   customVocabularyProperty := &customVocabularyProperty{
+//   	customVocabularyItems: []interface{}{
+//   		&customVocabularyItemProperty{
+//   			phrase: jsii.String("phrase"),
+//
+//   			// the properties below are optional
+//   			weight: jsii.Number(123),
+//   		},
+//   	},
+//   }
+//
+type CfnBot_CustomVocabularyProperty struct {
+	// Specifies a list of words that you expect to be used during a conversation with your bot.
+	CustomVocabularyItems interface{} `json:"customVocabularyItems" yaml:"customVocabularyItems"`
+}
+
 // Specifies whether an intent uses the dialog code hook during conversations with a user.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   dialogCodeHookSettingProperty := &dialogCodeHookSettingProperty{
+//   	enabled: jsii.Boolean(false),
+//   }
 //
 type CfnBot_DialogCodeHookSettingProperty struct {
 	// Indicates whether an intent uses the dialog code hook during a conversation with a user.
@@ -751,7 +3085,19 @@ type CfnBot_DialogCodeHookSettingProperty struct {
 
 // Provides information about the external source of the slot type's definition.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   externalSourceSettingProperty := &externalSourceSettingProperty{
+//   	grammarSlotTypeSetting: &grammarSlotTypeSettingProperty{
+//   		source: &grammarSlotTypeSourceProperty{
+//   			s3BucketName: jsii.String("s3BucketName"),
+//   			s3ObjectKey: jsii.String("s3ObjectKey"),
+//
+//   			// the properties below are optional
+//   			kmsKeyArn: jsii.String("kmsKeyArn"),
+//   		},
+//   	},
+//   }
 //
 type CfnBot_ExternalSourceSettingProperty struct {
 	// Settings required for a slot type based on a grammar that you provide.
@@ -760,7 +3106,328 @@ type CfnBot_ExternalSourceSettingProperty struct {
 
 // Determines if a Lambda function should be invoked for a specific intent.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   fulfillmentCodeHookSettingProperty := &fulfillmentCodeHookSettingProperty{
+//   	enabled: jsii.Boolean(false),
+//
+//   	// the properties below are optional
+//   	fulfillmentUpdatesSpecification: &fulfillmentUpdatesSpecificationProperty{
+//   		active: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		startResponse: &fulfillmentStartResponseSpecificationProperty{
+//   			delayInSeconds: jsii.Number(123),
+//   			messageGroups: []interface{}{
+//   				&messageGroupProperty{
+//   					message: &messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					variations: []interface{}{
+//   						&messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			allowInterrupt: jsii.Boolean(false),
+//   		},
+//   		timeoutInSeconds: jsii.Number(123),
+//   		updateResponse: &fulfillmentUpdateResponseSpecificationProperty{
+//   			frequencyInSeconds: jsii.Number(123),
+//   			messageGroups: []interface{}{
+//   				&messageGroupProperty{
+//   					message: &messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					variations: []interface{}{
+//   						&messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			allowInterrupt: jsii.Boolean(false),
+//   		},
+//   	},
+//   	postFulfillmentStatusSpecification: &postFulfillmentStatusSpecificationProperty{
+//   		failureResponse: &responseSpecificationProperty{
+//   			messageGroupsList: []interface{}{
+//   				&messageGroupProperty{
+//   					message: &messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					variations: []interface{}{
+//   						&messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			allowInterrupt: jsii.Boolean(false),
+//   		},
+//   		successResponse: &responseSpecificationProperty{
+//   			messageGroupsList: []interface{}{
+//   				&messageGroupProperty{
+//   					message: &messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					variations: []interface{}{
+//   						&messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			allowInterrupt: jsii.Boolean(false),
+//   		},
+//   		timeoutResponse: &responseSpecificationProperty{
+//   			messageGroupsList: []interface{}{
+//   				&messageGroupProperty{
+//   					message: &messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					variations: []interface{}{
+//   						&messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			allowInterrupt: jsii.Boolean(false),
+//   		},
+//   	},
+//   }
 //
 type CfnBot_FulfillmentCodeHookSettingProperty struct {
 	// Indicates whether a Lambda function should be invoked for fulfill a specific intent.
@@ -777,7 +3444,70 @@ type CfnBot_FulfillmentCodeHookSettingProperty struct {
 
 // Provides settings for a message that is sent to the user when a fulfillment Lambda function starts running.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   fulfillmentStartResponseSpecificationProperty := &fulfillmentStartResponseSpecificationProperty{
+//   	delayInSeconds: jsii.Number(123),
+//   	messageGroups: []interface{}{
+//   		&messageGroupProperty{
+//   			message: &messageProperty{
+//   				customPayload: &customPayloadProperty{
+//   					value: jsii.String("value"),
+//   				},
+//   				imageResponseCard: &imageResponseCardProperty{
+//   					title: jsii.String("title"),
+//
+//   					// the properties below are optional
+//   					buttons: []interface{}{
+//   						&buttonProperty{
+//   							text: jsii.String("text"),
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   					imageUrl: jsii.String("imageUrl"),
+//   					subtitle: jsii.String("subtitle"),
+//   				},
+//   				plainTextMessage: &plainTextMessageProperty{
+//   					value: jsii.String("value"),
+//   				},
+//   				ssmlMessage: &sSMLMessageProperty{
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			variations: []interface{}{
+//   				&messageProperty{
+//   					customPayload: &customPayloadProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					imageResponseCard: &imageResponseCardProperty{
+//   						title: jsii.String("title"),
+//
+//   						// the properties below are optional
+//   						buttons: []interface{}{
+//   							&buttonProperty{
+//   								text: jsii.String("text"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   						imageUrl: jsii.String("imageUrl"),
+//   						subtitle: jsii.String("subtitle"),
+//   					},
+//   					plainTextMessage: &plainTextMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					ssmlMessage: &sSMLMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	allowInterrupt: jsii.Boolean(false),
+//   }
 //
 type CfnBot_FulfillmentStartResponseSpecificationProperty struct {
 	// The delay between when the Lambda fulfillment function starts running and the start message is played.
@@ -794,7 +3524,70 @@ type CfnBot_FulfillmentStartResponseSpecificationProperty struct {
 
 // Provides information for updating the user on the progress of fulfilling an intent.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   fulfillmentUpdateResponseSpecificationProperty := &fulfillmentUpdateResponseSpecificationProperty{
+//   	frequencyInSeconds: jsii.Number(123),
+//   	messageGroups: []interface{}{
+//   		&messageGroupProperty{
+//   			message: &messageProperty{
+//   				customPayload: &customPayloadProperty{
+//   					value: jsii.String("value"),
+//   				},
+//   				imageResponseCard: &imageResponseCardProperty{
+//   					title: jsii.String("title"),
+//
+//   					// the properties below are optional
+//   					buttons: []interface{}{
+//   						&buttonProperty{
+//   							text: jsii.String("text"),
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   					imageUrl: jsii.String("imageUrl"),
+//   					subtitle: jsii.String("subtitle"),
+//   				},
+//   				plainTextMessage: &plainTextMessageProperty{
+//   					value: jsii.String("value"),
+//   				},
+//   				ssmlMessage: &sSMLMessageProperty{
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			variations: []interface{}{
+//   				&messageProperty{
+//   					customPayload: &customPayloadProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					imageResponseCard: &imageResponseCardProperty{
+//   						title: jsii.String("title"),
+//
+//   						// the properties below are optional
+//   						buttons: []interface{}{
+//   							&buttonProperty{
+//   								text: jsii.String("text"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   						imageUrl: jsii.String("imageUrl"),
+//   						subtitle: jsii.String("subtitle"),
+//   					},
+//   					plainTextMessage: &plainTextMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					ssmlMessage: &sSMLMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	allowInterrupt: jsii.Boolean(false),
+//   }
 //
 type CfnBot_FulfillmentUpdateResponseSpecificationProperty struct {
 	// The frequency that a message is sent to the user.
@@ -811,7 +3604,138 @@ type CfnBot_FulfillmentUpdateResponseSpecificationProperty struct {
 
 // Provides information for updating the user on the progress of fulfilling an intent.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   fulfillmentUpdatesSpecificationProperty := &fulfillmentUpdatesSpecificationProperty{
+//   	active: jsii.Boolean(false),
+//
+//   	// the properties below are optional
+//   	startResponse: &fulfillmentStartResponseSpecificationProperty{
+//   		delayInSeconds: jsii.Number(123),
+//   		messageGroups: []interface{}{
+//   			&messageGroupProperty{
+//   				message: &messageProperty{
+//   					customPayload: &customPayloadProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					imageResponseCard: &imageResponseCardProperty{
+//   						title: jsii.String("title"),
+//
+//   						// the properties below are optional
+//   						buttons: []interface{}{
+//   							&buttonProperty{
+//   								text: jsii.String("text"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   						imageUrl: jsii.String("imageUrl"),
+//   						subtitle: jsii.String("subtitle"),
+//   					},
+//   					plainTextMessage: &plainTextMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					ssmlMessage: &sSMLMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				variations: []interface{}{
+//   					&messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		allowInterrupt: jsii.Boolean(false),
+//   	},
+//   	timeoutInSeconds: jsii.Number(123),
+//   	updateResponse: &fulfillmentUpdateResponseSpecificationProperty{
+//   		frequencyInSeconds: jsii.Number(123),
+//   		messageGroups: []interface{}{
+//   			&messageGroupProperty{
+//   				message: &messageProperty{
+//   					customPayload: &customPayloadProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					imageResponseCard: &imageResponseCardProperty{
+//   						title: jsii.String("title"),
+//
+//   						// the properties below are optional
+//   						buttons: []interface{}{
+//   							&buttonProperty{
+//   								text: jsii.String("text"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   						imageUrl: jsii.String("imageUrl"),
+//   						subtitle: jsii.String("subtitle"),
+//   					},
+//   					plainTextMessage: &plainTextMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					ssmlMessage: &sSMLMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				variations: []interface{}{
+//   					&messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		allowInterrupt: jsii.Boolean(false),
+//   	},
+//   }
 //
 type CfnBot_FulfillmentUpdatesSpecificationProperty struct {
 	// Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.
@@ -828,7 +3752,17 @@ type CfnBot_FulfillmentUpdatesSpecificationProperty struct {
 
 // Settings required for a slot type based on a grammar that you provide.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   grammarSlotTypeSettingProperty := &grammarSlotTypeSettingProperty{
+//   	source: &grammarSlotTypeSourceProperty{
+//   		s3BucketName: jsii.String("s3BucketName"),
+//   		s3ObjectKey: jsii.String("s3ObjectKey"),
+//
+//   		// the properties below are optional
+//   		kmsKeyArn: jsii.String("kmsKeyArn"),
+//   	},
+//   }
 //
 type CfnBot_GrammarSlotTypeSettingProperty struct {
 	// The source of the grammar used to create the slot type.
@@ -837,7 +3771,15 @@ type CfnBot_GrammarSlotTypeSettingProperty struct {
 
 // Describes the Amazon S3 bucket name and location for the grammar that is the source of the slot type.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   grammarSlotTypeSourceProperty := &grammarSlotTypeSourceProperty{
+//   	s3BucketName: jsii.String("s3BucketName"),
+//   	s3ObjectKey: jsii.String("s3ObjectKey"),
+//
+//   	// the properties below are optional
+//   	kmsKeyArn: jsii.String("kmsKeyArn"),
+//   }
 //
 type CfnBot_GrammarSlotTypeSourceProperty struct {
 	// The name of the S3 bucket that contains the grammar source.
@@ -854,7 +3796,21 @@ type CfnBot_GrammarSlotTypeSourceProperty struct {
 //
 // When you use a response card, the response from the user is constrained to the text associated with a button on the card.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   imageResponseCardProperty := &imageResponseCardProperty{
+//   	title: jsii.String("title"),
+//
+//   	// the properties below are optional
+//   	buttons: []interface{}{
+//   		&buttonProperty{
+//   			text: jsii.String("text"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	imageUrl: jsii.String("imageUrl"),
+//   	subtitle: jsii.String("subtitle"),
+//   }
 //
 type CfnBot_ImageResponseCardProperty struct {
 	// The title to display on the response card.
@@ -877,7 +3833,11 @@ type CfnBot_ImageResponseCardProperty struct {
 
 // The name of a context that must be active for an intent to be selected by Amazon Lex .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   inputContextProperty := &inputContextProperty{
+//   	name: jsii.String("name"),
+//   }
 //
 type CfnBot_InputContextProperty struct {
 	// The name of the context.
@@ -886,7 +3846,74 @@ type CfnBot_InputContextProperty struct {
 
 // Provides a statement the Amazon Lex conveys to the user when the intent is successfully fulfilled.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   intentClosingSettingProperty := &intentClosingSettingProperty{
+//   	closingResponse: &responseSpecificationProperty{
+//   		messageGroupsList: []interface{}{
+//   			&messageGroupProperty{
+//   				message: &messageProperty{
+//   					customPayload: &customPayloadProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					imageResponseCard: &imageResponseCardProperty{
+//   						title: jsii.String("title"),
+//
+//   						// the properties below are optional
+//   						buttons: []interface{}{
+//   							&buttonProperty{
+//   								text: jsii.String("text"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   						imageUrl: jsii.String("imageUrl"),
+//   						subtitle: jsii.String("subtitle"),
+//   					},
+//   					plainTextMessage: &plainTextMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					ssmlMessage: &sSMLMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				variations: []interface{}{
+//   					&messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		allowInterrupt: jsii.Boolean(false),
+//   	},
+//
+//   	// the properties below are optional
+//   	isActive: jsii.Boolean(false),
+//   }
 //
 type CfnBot_IntentClosingSettingProperty struct {
 	// The response that Amazon Lex sends to the user when the intent is complete.
@@ -899,7 +3926,136 @@ type CfnBot_IntentClosingSettingProperty struct {
 
 // Provides a prompt for making sure that the user is ready for the intent to be fulfilled.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   intentConfirmationSettingProperty := &intentConfirmationSettingProperty{
+//   	declinationResponse: &responseSpecificationProperty{
+//   		messageGroupsList: []interface{}{
+//   			&messageGroupProperty{
+//   				message: &messageProperty{
+//   					customPayload: &customPayloadProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					imageResponseCard: &imageResponseCardProperty{
+//   						title: jsii.String("title"),
+//
+//   						// the properties below are optional
+//   						buttons: []interface{}{
+//   							&buttonProperty{
+//   								text: jsii.String("text"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   						imageUrl: jsii.String("imageUrl"),
+//   						subtitle: jsii.String("subtitle"),
+//   					},
+//   					plainTextMessage: &plainTextMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					ssmlMessage: &sSMLMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				variations: []interface{}{
+//   					&messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		allowInterrupt: jsii.Boolean(false),
+//   	},
+//   	promptSpecification: &promptSpecificationProperty{
+//   		maxRetries: jsii.Number(123),
+//   		messageGroupsList: []interface{}{
+//   			&messageGroupProperty{
+//   				message: &messageProperty{
+//   					customPayload: &customPayloadProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					imageResponseCard: &imageResponseCardProperty{
+//   						title: jsii.String("title"),
+//
+//   						// the properties below are optional
+//   						buttons: []interface{}{
+//   							&buttonProperty{
+//   								text: jsii.String("text"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   						imageUrl: jsii.String("imageUrl"),
+//   						subtitle: jsii.String("subtitle"),
+//   					},
+//   					plainTextMessage: &plainTextMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					ssmlMessage: &sSMLMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				variations: []interface{}{
+//   					&messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		allowInterrupt: jsii.Boolean(false),
+//   	},
+//
+//   	// the properties below are optional
+//   	isActive: jsii.Boolean(false),
+//   }
 //
 type CfnBot_IntentConfirmationSettingProperty struct {
 	// When the user answers "no" to the question defined in PromptSpecification, Amazon Lex responds with this response to acknowledge that the intent was canceled.
@@ -916,7 +4072,846 @@ type CfnBot_IntentConfirmationSettingProperty struct {
 
 // Represents an action that the user wants to perform.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   intentProperty := &intentProperty{
+//   	name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   	dialogCodeHook: &dialogCodeHookSettingProperty{
+//   		enabled: jsii.Boolean(false),
+//   	},
+//   	fulfillmentCodeHook: &fulfillmentCodeHookSettingProperty{
+//   		enabled: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		fulfillmentUpdatesSpecification: &fulfillmentUpdatesSpecificationProperty{
+//   			active: jsii.Boolean(false),
+//
+//   			// the properties below are optional
+//   			startResponse: &fulfillmentStartResponseSpecificationProperty{
+//   				delayInSeconds: jsii.Number(123),
+//   				messageGroups: []interface{}{
+//   					&messageGroupProperty{
+//   						message: &messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						variations: []interface{}{
+//   							&messageProperty{
+//   								customPayload: &customPayloadProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								imageResponseCard: &imageResponseCardProperty{
+//   									title: jsii.String("title"),
+//
+//   									// the properties below are optional
+//   									buttons: []interface{}{
+//   										&buttonProperty{
+//   											text: jsii.String("text"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   									imageUrl: jsii.String("imageUrl"),
+//   									subtitle: jsii.String("subtitle"),
+//   								},
+//   								plainTextMessage: &plainTextMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								ssmlMessage: &sSMLMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				allowInterrupt: jsii.Boolean(false),
+//   			},
+//   			timeoutInSeconds: jsii.Number(123),
+//   			updateResponse: &fulfillmentUpdateResponseSpecificationProperty{
+//   				frequencyInSeconds: jsii.Number(123),
+//   				messageGroups: []interface{}{
+//   					&messageGroupProperty{
+//   						message: &messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						variations: []interface{}{
+//   							&messageProperty{
+//   								customPayload: &customPayloadProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								imageResponseCard: &imageResponseCardProperty{
+//   									title: jsii.String("title"),
+//
+//   									// the properties below are optional
+//   									buttons: []interface{}{
+//   										&buttonProperty{
+//   											text: jsii.String("text"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   									imageUrl: jsii.String("imageUrl"),
+//   									subtitle: jsii.String("subtitle"),
+//   								},
+//   								plainTextMessage: &plainTextMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								ssmlMessage: &sSMLMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				allowInterrupt: jsii.Boolean(false),
+//   			},
+//   		},
+//   		postFulfillmentStatusSpecification: &postFulfillmentStatusSpecificationProperty{
+//   			failureResponse: &responseSpecificationProperty{
+//   				messageGroupsList: []interface{}{
+//   					&messageGroupProperty{
+//   						message: &messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						variations: []interface{}{
+//   							&messageProperty{
+//   								customPayload: &customPayloadProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								imageResponseCard: &imageResponseCardProperty{
+//   									title: jsii.String("title"),
+//
+//   									// the properties below are optional
+//   									buttons: []interface{}{
+//   										&buttonProperty{
+//   											text: jsii.String("text"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   									imageUrl: jsii.String("imageUrl"),
+//   									subtitle: jsii.String("subtitle"),
+//   								},
+//   								plainTextMessage: &plainTextMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								ssmlMessage: &sSMLMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				allowInterrupt: jsii.Boolean(false),
+//   			},
+//   			successResponse: &responseSpecificationProperty{
+//   				messageGroupsList: []interface{}{
+//   					&messageGroupProperty{
+//   						message: &messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						variations: []interface{}{
+//   							&messageProperty{
+//   								customPayload: &customPayloadProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								imageResponseCard: &imageResponseCardProperty{
+//   									title: jsii.String("title"),
+//
+//   									// the properties below are optional
+//   									buttons: []interface{}{
+//   										&buttonProperty{
+//   											text: jsii.String("text"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   									imageUrl: jsii.String("imageUrl"),
+//   									subtitle: jsii.String("subtitle"),
+//   								},
+//   								plainTextMessage: &plainTextMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								ssmlMessage: &sSMLMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				allowInterrupt: jsii.Boolean(false),
+//   			},
+//   			timeoutResponse: &responseSpecificationProperty{
+//   				messageGroupsList: []interface{}{
+//   					&messageGroupProperty{
+//   						message: &messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						variations: []interface{}{
+//   							&messageProperty{
+//   								customPayload: &customPayloadProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								imageResponseCard: &imageResponseCardProperty{
+//   									title: jsii.String("title"),
+//
+//   									// the properties below are optional
+//   									buttons: []interface{}{
+//   										&buttonProperty{
+//   											text: jsii.String("text"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   									imageUrl: jsii.String("imageUrl"),
+//   									subtitle: jsii.String("subtitle"),
+//   								},
+//   								plainTextMessage: &plainTextMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								ssmlMessage: &sSMLMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				allowInterrupt: jsii.Boolean(false),
+//   			},
+//   		},
+//   	},
+//   	inputContexts: []interface{}{
+//   		&inputContextProperty{
+//   			name: jsii.String("name"),
+//   		},
+//   	},
+//   	intentClosingSetting: &intentClosingSettingProperty{
+//   		closingResponse: &responseSpecificationProperty{
+//   			messageGroupsList: []interface{}{
+//   				&messageGroupProperty{
+//   					message: &messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					variations: []interface{}{
+//   						&messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			allowInterrupt: jsii.Boolean(false),
+//   		},
+//
+//   		// the properties below are optional
+//   		isActive: jsii.Boolean(false),
+//   	},
+//   	intentConfirmationSetting: &intentConfirmationSettingProperty{
+//   		declinationResponse: &responseSpecificationProperty{
+//   			messageGroupsList: []interface{}{
+//   				&messageGroupProperty{
+//   					message: &messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					variations: []interface{}{
+//   						&messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			allowInterrupt: jsii.Boolean(false),
+//   		},
+//   		promptSpecification: &promptSpecificationProperty{
+//   			maxRetries: jsii.Number(123),
+//   			messageGroupsList: []interface{}{
+//   				&messageGroupProperty{
+//   					message: &messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					variations: []interface{}{
+//   						&messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			allowInterrupt: jsii.Boolean(false),
+//   		},
+//
+//   		// the properties below are optional
+//   		isActive: jsii.Boolean(false),
+//   	},
+//   	kendraConfiguration: &kendraConfigurationProperty{
+//   		kendraIndex: jsii.String("kendraIndex"),
+//
+//   		// the properties below are optional
+//   		queryFilterString: jsii.String("queryFilterString"),
+//   		queryFilterStringEnabled: jsii.Boolean(false),
+//   	},
+//   	outputContexts: []interface{}{
+//   		&outputContextProperty{
+//   			name: jsii.String("name"),
+//   			timeToLiveInSeconds: jsii.Number(123),
+//   			turnsToLive: jsii.Number(123),
+//   		},
+//   	},
+//   	parentIntentSignature: jsii.String("parentIntentSignature"),
+//   	sampleUtterances: []interface{}{
+//   		&sampleUtteranceProperty{
+//   			utterance: jsii.String("utterance"),
+//   		},
+//   	},
+//   	slotPriorities: []interface{}{
+//   		&slotPriorityProperty{
+//   			priority: jsii.Number(123),
+//   			slotName: jsii.String("slotName"),
+//   		},
+//   	},
+//   	slots: []interface{}{
+//   		&slotProperty{
+//   			name: jsii.String("name"),
+//   			slotTypeName: jsii.String("slotTypeName"),
+//   			valueElicitationSetting: &slotValueElicitationSettingProperty{
+//   				slotConstraint: jsii.String("slotConstraint"),
+//
+//   				// the properties below are optional
+//   				defaultValueSpecification: &slotDefaultValueSpecificationProperty{
+//   					defaultValueList: []interface{}{
+//   						&slotDefaultValueProperty{
+//   							defaultValue: jsii.String("defaultValue"),
+//   						},
+//   					},
+//   				},
+//   				promptSpecification: &promptSpecificationProperty{
+//   					maxRetries: jsii.Number(123),
+//   					messageGroupsList: []interface{}{
+//   						&messageGroupProperty{
+//   							message: &messageProperty{
+//   								customPayload: &customPayloadProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								imageResponseCard: &imageResponseCardProperty{
+//   									title: jsii.String("title"),
+//
+//   									// the properties below are optional
+//   									buttons: []interface{}{
+//   										&buttonProperty{
+//   											text: jsii.String("text"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   									imageUrl: jsii.String("imageUrl"),
+//   									subtitle: jsii.String("subtitle"),
+//   								},
+//   								plainTextMessage: &plainTextMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								ssmlMessage: &sSMLMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//
+//   							// the properties below are optional
+//   							variations: []interface{}{
+//   								&messageProperty{
+//   									customPayload: &customPayloadProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									imageResponseCard: &imageResponseCardProperty{
+//   										title: jsii.String("title"),
+//
+//   										// the properties below are optional
+//   										buttons: []interface{}{
+//   											&buttonProperty{
+//   												text: jsii.String("text"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   										imageUrl: jsii.String("imageUrl"),
+//   										subtitle: jsii.String("subtitle"),
+//   									},
+//   									plainTextMessage: &plainTextMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									ssmlMessage: &sSMLMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					allowInterrupt: jsii.Boolean(false),
+//   				},
+//   				sampleUtterances: []interface{}{
+//   					&sampleUtteranceProperty{
+//   						utterance: jsii.String("utterance"),
+//   					},
+//   				},
+//   				waitAndContinueSpecification: &waitAndContinueSpecificationProperty{
+//   					continueResponse: &responseSpecificationProperty{
+//   						messageGroupsList: []interface{}{
+//   							&messageGroupProperty{
+//   								message: &messageProperty{
+//   									customPayload: &customPayloadProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									imageResponseCard: &imageResponseCardProperty{
+//   										title: jsii.String("title"),
+//
+//   										// the properties below are optional
+//   										buttons: []interface{}{
+//   											&buttonProperty{
+//   												text: jsii.String("text"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   										imageUrl: jsii.String("imageUrl"),
+//   										subtitle: jsii.String("subtitle"),
+//   									},
+//   									plainTextMessage: &plainTextMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									ssmlMessage: &sSMLMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								variations: []interface{}{
+//   									&messageProperty{
+//   										customPayload: &customPayloadProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										imageResponseCard: &imageResponseCardProperty{
+//   											title: jsii.String("title"),
+//
+//   											// the properties below are optional
+//   											buttons: []interface{}{
+//   												&buttonProperty{
+//   													text: jsii.String("text"),
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   											imageUrl: jsii.String("imageUrl"),
+//   											subtitle: jsii.String("subtitle"),
+//   										},
+//   										plainTextMessage: &plainTextMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										ssmlMessage: &sSMLMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						allowInterrupt: jsii.Boolean(false),
+//   					},
+//   					waitingResponse: &responseSpecificationProperty{
+//   						messageGroupsList: []interface{}{
+//   							&messageGroupProperty{
+//   								message: &messageProperty{
+//   									customPayload: &customPayloadProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									imageResponseCard: &imageResponseCardProperty{
+//   										title: jsii.String("title"),
+//
+//   										// the properties below are optional
+//   										buttons: []interface{}{
+//   											&buttonProperty{
+//   												text: jsii.String("text"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   										imageUrl: jsii.String("imageUrl"),
+//   										subtitle: jsii.String("subtitle"),
+//   									},
+//   									plainTextMessage: &plainTextMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									ssmlMessage: &sSMLMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								variations: []interface{}{
+//   									&messageProperty{
+//   										customPayload: &customPayloadProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										imageResponseCard: &imageResponseCardProperty{
+//   											title: jsii.String("title"),
+//
+//   											// the properties below are optional
+//   											buttons: []interface{}{
+//   												&buttonProperty{
+//   													text: jsii.String("text"),
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   											imageUrl: jsii.String("imageUrl"),
+//   											subtitle: jsii.String("subtitle"),
+//   										},
+//   										plainTextMessage: &plainTextMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										ssmlMessage: &sSMLMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						allowInterrupt: jsii.Boolean(false),
+//   					},
+//
+//   					// the properties below are optional
+//   					isActive: jsii.Boolean(false),
+//   					stillWaitingResponse: &stillWaitingResponseSpecificationProperty{
+//   						frequencyInSeconds: jsii.Number(123),
+//   						messageGroupsList: []interface{}{
+//   							&messageGroupProperty{
+//   								message: &messageProperty{
+//   									customPayload: &customPayloadProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									imageResponseCard: &imageResponseCardProperty{
+//   										title: jsii.String("title"),
+//
+//   										// the properties below are optional
+//   										buttons: []interface{}{
+//   											&buttonProperty{
+//   												text: jsii.String("text"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   										imageUrl: jsii.String("imageUrl"),
+//   										subtitle: jsii.String("subtitle"),
+//   									},
+//   									plainTextMessage: &plainTextMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									ssmlMessage: &sSMLMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								variations: []interface{}{
+//   									&messageProperty{
+//   										customPayload: &customPayloadProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										imageResponseCard: &imageResponseCardProperty{
+//   											title: jsii.String("title"),
+//
+//   											// the properties below are optional
+//   											buttons: []interface{}{
+//   												&buttonProperty{
+//   													text: jsii.String("text"),
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   											imageUrl: jsii.String("imageUrl"),
+//   											subtitle: jsii.String("subtitle"),
+//   										},
+//   										plainTextMessage: &plainTextMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										ssmlMessage: &sSMLMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   						},
+//   						timeoutInSeconds: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						allowInterrupt: jsii.Boolean(false),
+//   					},
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			description: jsii.String("description"),
+//   			multipleValuesSetting: &multipleValuesSettingProperty{
+//   				allowMultipleValues: jsii.Boolean(false),
+//   			},
+//   			obfuscationSetting: &obfuscationSettingProperty{
+//   				obfuscationSettingType: jsii.String("obfuscationSettingType"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnBot_IntentProperty struct {
 	// The name of the intent.
@@ -961,7 +4956,15 @@ type CfnBot_IntentProperty struct {
 
 // Provides configuration information for the AMAZON.KendraSearchIntent intent. When you use this intent, Amazon Lex searches the specified Amazon Kendra index and returns documents from the index that match the user's utterance.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   kendraConfigurationProperty := &kendraConfigurationProperty{
+//   	kendraIndex: jsii.String("kendraIndex"),
+//
+//   	// the properties below are optional
+//   	queryFilterString: jsii.String("queryFilterString"),
+//   	queryFilterStringEnabled: jsii.Boolean(false),
+//   }
 //
 type CfnBot_KendraConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent intent to search. The index must be in the same account and Region as the Amazon Lex bot.
@@ -974,9 +4977,80 @@ type CfnBot_KendraConfigurationProperty struct {
 	QueryFilterStringEnabled interface{} `json:"queryFilterStringEnabled" yaml:"queryFilterStringEnabled"`
 }
 
+// Specifies a Lambda function that verifies requests to a bot or fulfills the user's request to a bot.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   lambdaCodeHookProperty := &lambdaCodeHookProperty{
+//   	codeHookInterfaceVersion: jsii.String("codeHookInterfaceVersion"),
+//   	lambdaArn: jsii.String("lambdaArn"),
+//   }
+//
+type CfnBot_LambdaCodeHookProperty struct {
+	// Specifies the version of the request-response that you want Amazon Lex to use to invoke your Lambda function.
+	CodeHookInterfaceVersion *string `json:"codeHookInterfaceVersion" yaml:"codeHookInterfaceVersion"`
+	// Specifies the Amazon Resource Name (ARN) of the Lambda function.
+	LambdaArn *string `json:"lambdaArn" yaml:"lambdaArn"`
+}
+
 // Provides one or more messages that Amazon Lex should send to the user.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   messageGroupProperty := &messageGroupProperty{
+//   	message: &messageProperty{
+//   		customPayload: &customPayloadProperty{
+//   			value: jsii.String("value"),
+//   		},
+//   		imageResponseCard: &imageResponseCardProperty{
+//   			title: jsii.String("title"),
+//
+//   			// the properties below are optional
+//   			buttons: []interface{}{
+//   				&buttonProperty{
+//   					text: jsii.String("text"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   			imageUrl: jsii.String("imageUrl"),
+//   			subtitle: jsii.String("subtitle"),
+//   		},
+//   		plainTextMessage: &plainTextMessageProperty{
+//   			value: jsii.String("value"),
+//   		},
+//   		ssmlMessage: &sSMLMessageProperty{
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	variations: []interface{}{
+//   		&messageProperty{
+//   			customPayload: &customPayloadProperty{
+//   				value: jsii.String("value"),
+//   			},
+//   			imageResponseCard: &imageResponseCardProperty{
+//   				title: jsii.String("title"),
+//
+//   				// the properties below are optional
+//   				buttons: []interface{}{
+//   					&buttonProperty{
+//   						text: jsii.String("text"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   				imageUrl: jsii.String("imageUrl"),
+//   				subtitle: jsii.String("subtitle"),
+//   			},
+//   			plainTextMessage: &plainTextMessageProperty{
+//   				value: jsii.String("value"),
+//   			},
+//   			ssmlMessage: &sSMLMessageProperty{
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnBot_MessageGroupProperty struct {
 	// The primary message that Amazon Lex should send to the user.
@@ -989,7 +5063,32 @@ type CfnBot_MessageGroupProperty struct {
 
 // The object that provides message text and it's type.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   messageProperty := &messageProperty{
+//   	customPayload: &customPayloadProperty{
+//   		value: jsii.String("value"),
+//   	},
+//   	imageResponseCard: &imageResponseCardProperty{
+//   		title: jsii.String("title"),
+//
+//   		// the properties below are optional
+//   		buttons: []interface{}{
+//   			&buttonProperty{
+//   				text: jsii.String("text"),
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   		imageUrl: jsii.String("imageUrl"),
+//   		subtitle: jsii.String("subtitle"),
+//   	},
+//   	plainTextMessage: &plainTextMessageProperty{
+//   		value: jsii.String("value"),
+//   	},
+//   	ssmlMessage: &sSMLMessageProperty{
+//   		value: jsii.String("value"),
+//   	},
+//   }
 //
 type CfnBot_MessageProperty struct {
 	// A message in a custom format defined by the client application.
@@ -1004,7 +5103,11 @@ type CfnBot_MessageProperty struct {
 
 // Indicates whether a slot can return multiple values.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   multipleValuesSettingProperty := &multipleValuesSettingProperty{
+//   	allowMultipleValues: jsii.Boolean(false),
+//   }
 //
 type CfnBot_MultipleValuesSettingProperty struct {
 	// Indicates whether a slot can return multiple values.
@@ -1017,7 +5120,11 @@ type CfnBot_MultipleValuesSettingProperty struct {
 
 // Determines whether Amazon Lex obscures slot values in conversation logs.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   obfuscationSettingProperty := &obfuscationSettingProperty{
+//   	obfuscationSettingType: jsii.String("obfuscationSettingType"),
+//   }
 //
 type CfnBot_ObfuscationSettingProperty struct {
 	// Value that determines whether Amazon Lex obscures slot values in conversation logs.
@@ -1028,7 +5135,13 @@ type CfnBot_ObfuscationSettingProperty struct {
 
 // Describes a session context that is activated when an intent is fulfilled.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   outputContextProperty := &outputContextProperty{
+//   	name: jsii.String("name"),
+//   	timeToLiveInSeconds: jsii.Number(123),
+//   	turnsToLive: jsii.Number(123),
+//   }
 //
 type CfnBot_OutputContextProperty struct {
 	// The name of the output context.
@@ -1045,7 +5158,11 @@ type CfnBot_OutputContextProperty struct {
 
 // Defines an ASCII text message to send to the user.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   plainTextMessageProperty := &plainTextMessageProperty{
+//   	value: jsii.String("value"),
+//   }
 //
 type CfnBot_PlainTextMessageProperty struct {
 	// The message to send to the user.
@@ -1056,7 +5173,193 @@ type CfnBot_PlainTextMessageProperty struct {
 //
 // For more information, see [Post-fulfillment response](https://docs.aws.amazon.com/lex/latest/dg/streaming-progress.html#progress-complete) in the *Amazon Lex developer guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   postFulfillmentStatusSpecificationProperty := &postFulfillmentStatusSpecificationProperty{
+//   	failureResponse: &responseSpecificationProperty{
+//   		messageGroupsList: []interface{}{
+//   			&messageGroupProperty{
+//   				message: &messageProperty{
+//   					customPayload: &customPayloadProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					imageResponseCard: &imageResponseCardProperty{
+//   						title: jsii.String("title"),
+//
+//   						// the properties below are optional
+//   						buttons: []interface{}{
+//   							&buttonProperty{
+//   								text: jsii.String("text"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   						imageUrl: jsii.String("imageUrl"),
+//   						subtitle: jsii.String("subtitle"),
+//   					},
+//   					plainTextMessage: &plainTextMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					ssmlMessage: &sSMLMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				variations: []interface{}{
+//   					&messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		allowInterrupt: jsii.Boolean(false),
+//   	},
+//   	successResponse: &responseSpecificationProperty{
+//   		messageGroupsList: []interface{}{
+//   			&messageGroupProperty{
+//   				message: &messageProperty{
+//   					customPayload: &customPayloadProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					imageResponseCard: &imageResponseCardProperty{
+//   						title: jsii.String("title"),
+//
+//   						// the properties below are optional
+//   						buttons: []interface{}{
+//   							&buttonProperty{
+//   								text: jsii.String("text"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   						imageUrl: jsii.String("imageUrl"),
+//   						subtitle: jsii.String("subtitle"),
+//   					},
+//   					plainTextMessage: &plainTextMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					ssmlMessage: &sSMLMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				variations: []interface{}{
+//   					&messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		allowInterrupt: jsii.Boolean(false),
+//   	},
+//   	timeoutResponse: &responseSpecificationProperty{
+//   		messageGroupsList: []interface{}{
+//   			&messageGroupProperty{
+//   				message: &messageProperty{
+//   					customPayload: &customPayloadProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					imageResponseCard: &imageResponseCardProperty{
+//   						title: jsii.String("title"),
+//
+//   						// the properties below are optional
+//   						buttons: []interface{}{
+//   							&buttonProperty{
+//   								text: jsii.String("text"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   						imageUrl: jsii.String("imageUrl"),
+//   						subtitle: jsii.String("subtitle"),
+//   					},
+//   					plainTextMessage: &plainTextMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					ssmlMessage: &sSMLMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				variations: []interface{}{
+//   					&messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		allowInterrupt: jsii.Boolean(false),
+//   	},
+//   }
 //
 type CfnBot_PostFulfillmentStatusSpecificationProperty struct {
 	// Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't successful.
@@ -1069,7 +5372,70 @@ type CfnBot_PostFulfillmentStatusSpecificationProperty struct {
 
 // Specifies a list of message groups that Amazon Lex sends to a user to elicit a response.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   promptSpecificationProperty := &promptSpecificationProperty{
+//   	maxRetries: jsii.Number(123),
+//   	messageGroupsList: []interface{}{
+//   		&messageGroupProperty{
+//   			message: &messageProperty{
+//   				customPayload: &customPayloadProperty{
+//   					value: jsii.String("value"),
+//   				},
+//   				imageResponseCard: &imageResponseCardProperty{
+//   					title: jsii.String("title"),
+//
+//   					// the properties below are optional
+//   					buttons: []interface{}{
+//   						&buttonProperty{
+//   							text: jsii.String("text"),
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   					imageUrl: jsii.String("imageUrl"),
+//   					subtitle: jsii.String("subtitle"),
+//   				},
+//   				plainTextMessage: &plainTextMessageProperty{
+//   					value: jsii.String("value"),
+//   				},
+//   				ssmlMessage: &sSMLMessageProperty{
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			variations: []interface{}{
+//   				&messageProperty{
+//   					customPayload: &customPayloadProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					imageResponseCard: &imageResponseCardProperty{
+//   						title: jsii.String("title"),
+//
+//   						// the properties below are optional
+//   						buttons: []interface{}{
+//   							&buttonProperty{
+//   								text: jsii.String("text"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   						imageUrl: jsii.String("imageUrl"),
+//   						subtitle: jsii.String("subtitle"),
+//   					},
+//   					plainTextMessage: &plainTextMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					ssmlMessage: &sSMLMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	allowInterrupt: jsii.Boolean(false),
+//   }
 //
 type CfnBot_PromptSpecificationProperty struct {
 	// The maximum number of times the bot tries to elicit a response from the user using this prompt.
@@ -1084,7 +5450,69 @@ type CfnBot_PromptSpecificationProperty struct {
 
 // Specifies a list of message groups that Amazon Lex uses to respond to user input.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   responseSpecificationProperty := &responseSpecificationProperty{
+//   	messageGroupsList: []interface{}{
+//   		&messageGroupProperty{
+//   			message: &messageProperty{
+//   				customPayload: &customPayloadProperty{
+//   					value: jsii.String("value"),
+//   				},
+//   				imageResponseCard: &imageResponseCardProperty{
+//   					title: jsii.String("title"),
+//
+//   					// the properties below are optional
+//   					buttons: []interface{}{
+//   						&buttonProperty{
+//   							text: jsii.String("text"),
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   					imageUrl: jsii.String("imageUrl"),
+//   					subtitle: jsii.String("subtitle"),
+//   				},
+//   				plainTextMessage: &plainTextMessageProperty{
+//   					value: jsii.String("value"),
+//   				},
+//   				ssmlMessage: &sSMLMessageProperty{
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			variations: []interface{}{
+//   				&messageProperty{
+//   					customPayload: &customPayloadProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					imageResponseCard: &imageResponseCardProperty{
+//   						title: jsii.String("title"),
+//
+//   						// the properties below are optional
+//   						buttons: []interface{}{
+//   							&buttonProperty{
+//   								text: jsii.String("text"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   						imageUrl: jsii.String("imageUrl"),
+//   						subtitle: jsii.String("subtitle"),
+//   					},
+//   					plainTextMessage: &plainTextMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					ssmlMessage: &sSMLMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	allowInterrupt: jsii.Boolean(false),
+//   }
 //
 type CfnBot_ResponseSpecificationProperty struct {
 	// A collection of responses that Amazon Lex can send to the user.
@@ -1095,9 +5523,38 @@ type CfnBot_ResponseSpecificationProperty struct {
 	AllowInterrupt interface{} `json:"allowInterrupt" yaml:"allowInterrupt"`
 }
 
+// Specifies an Amazon S3 bucket for logging audio conversations.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   s3BucketLogDestinationProperty := &s3BucketLogDestinationProperty{
+//   	logPrefix: jsii.String("logPrefix"),
+//   	s3BucketArn: jsii.String("s3BucketArn"),
+//
+//   	// the properties below are optional
+//   	kmsKeyArn: jsii.String("kmsKeyArn"),
+//   }
+//
+type CfnBot_S3BucketLogDestinationProperty struct {
+	// Specifies the Amazon S3 prefix to assign to audio log files.
+	LogPrefix *string `json:"logPrefix" yaml:"logPrefix"`
+	// Specifies the Amazon Resource Name (ARN) of the Amazon S3 bucket where audio files are stored.
+	S3BucketArn *string `json:"s3BucketArn" yaml:"s3BucketArn"`
+	// Specifies the Amazon Resource Name (ARN) of an AWS Key Management Service key for encrypting audio log files stored in an Amazon S3 bucket.
+	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
+}
+
 // Defines an Amazon S3 bucket location.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   s3LocationProperty := &s3LocationProperty{
+//   	s3Bucket: jsii.String("s3Bucket"),
+//   	s3ObjectKey: jsii.String("s3ObjectKey"),
+//
+//   	// the properties below are optional
+//   	s3ObjectVersion: jsii.String("s3ObjectVersion"),
+//   }
 //
 type CfnBot_S3LocationProperty struct {
 	// The S3 bucket name.
@@ -1110,7 +5567,11 @@ type CfnBot_S3LocationProperty struct {
 
 // Defines a Speech Synthesis Markup Language (SSML) prompt.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   sSMLMessageProperty := &sSMLMessageProperty{
+//   	value: jsii.String("value"),
+//   }
 //
 type CfnBot_SSMLMessageProperty struct {
 	// The SSML text that defines the prompt.
@@ -1119,7 +5580,11 @@ type CfnBot_SSMLMessageProperty struct {
 
 // A sample utterance that invokes and intent or responds to a slot elicitation prompt.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   sampleUtteranceProperty := &sampleUtteranceProperty{
+//   	utterance: jsii.String("utterance"),
+//   }
 //
 type CfnBot_SampleUtteranceProperty struct {
 	// The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
@@ -1128,7 +5593,11 @@ type CfnBot_SampleUtteranceProperty struct {
 
 // Defines one of the values for a slot type.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   sampleValueProperty := &sampleValueProperty{
+//   	value: jsii.String("value"),
+//   }
 //
 type CfnBot_SampleValueProperty struct {
 	// The value that can be used for a slot type.
@@ -1137,7 +5606,11 @@ type CfnBot_SampleValueProperty struct {
 
 // Specifies the default value to use when a user doesn't provide a value for a slot.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   slotDefaultValueProperty := &slotDefaultValueProperty{
+//   	defaultValue: jsii.String("defaultValue"),
+//   }
 //
 type CfnBot_SlotDefaultValueProperty struct {
 	// The default value to use when a user doesn't provide a value for a slot.
@@ -1146,7 +5619,15 @@ type CfnBot_SlotDefaultValueProperty struct {
 
 // Defines a list of values that Amazon Lex should use as the default value for a slot.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   slotDefaultValueSpecificationProperty := &slotDefaultValueSpecificationProperty{
+//   	defaultValueList: []interface{}{
+//   		&slotDefaultValueProperty{
+//   			defaultValue: jsii.String("defaultValue"),
+//   		},
+//   	},
+//   }
 //
 type CfnBot_SlotDefaultValueSpecificationProperty struct {
 	// A list of default values.
@@ -1157,7 +5638,12 @@ type CfnBot_SlotDefaultValueSpecificationProperty struct {
 
 // Sets the priority that Amazon Lex should use when eliciting slots values from a user.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   slotPriorityProperty := &slotPriorityProperty{
+//   	priority: jsii.Number(123),
+//   	slotName: jsii.String("slotName"),
+//   }
 //
 type CfnBot_SlotPriorityProperty struct {
 	// The priority that Amazon Lex should apply to the slot.
@@ -1170,7 +5656,290 @@ type CfnBot_SlotPriorityProperty struct {
 //
 // Amazon Lex elicits slot values from uses to fulfill the user's intent.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   slotProperty := &slotProperty{
+//   	name: jsii.String("name"),
+//   	slotTypeName: jsii.String("slotTypeName"),
+//   	valueElicitationSetting: &slotValueElicitationSettingProperty{
+//   		slotConstraint: jsii.String("slotConstraint"),
+//
+//   		// the properties below are optional
+//   		defaultValueSpecification: &slotDefaultValueSpecificationProperty{
+//   			defaultValueList: []interface{}{
+//   				&slotDefaultValueProperty{
+//   					defaultValue: jsii.String("defaultValue"),
+//   				},
+//   			},
+//   		},
+//   		promptSpecification: &promptSpecificationProperty{
+//   			maxRetries: jsii.Number(123),
+//   			messageGroupsList: []interface{}{
+//   				&messageGroupProperty{
+//   					message: &messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					variations: []interface{}{
+//   						&messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			allowInterrupt: jsii.Boolean(false),
+//   		},
+//   		sampleUtterances: []interface{}{
+//   			&sampleUtteranceProperty{
+//   				utterance: jsii.String("utterance"),
+//   			},
+//   		},
+//   		waitAndContinueSpecification: &waitAndContinueSpecificationProperty{
+//   			continueResponse: &responseSpecificationProperty{
+//   				messageGroupsList: []interface{}{
+//   					&messageGroupProperty{
+//   						message: &messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						variations: []interface{}{
+//   							&messageProperty{
+//   								customPayload: &customPayloadProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								imageResponseCard: &imageResponseCardProperty{
+//   									title: jsii.String("title"),
+//
+//   									// the properties below are optional
+//   									buttons: []interface{}{
+//   										&buttonProperty{
+//   											text: jsii.String("text"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   									imageUrl: jsii.String("imageUrl"),
+//   									subtitle: jsii.String("subtitle"),
+//   								},
+//   								plainTextMessage: &plainTextMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								ssmlMessage: &sSMLMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				allowInterrupt: jsii.Boolean(false),
+//   			},
+//   			waitingResponse: &responseSpecificationProperty{
+//   				messageGroupsList: []interface{}{
+//   					&messageGroupProperty{
+//   						message: &messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						variations: []interface{}{
+//   							&messageProperty{
+//   								customPayload: &customPayloadProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								imageResponseCard: &imageResponseCardProperty{
+//   									title: jsii.String("title"),
+//
+//   									// the properties below are optional
+//   									buttons: []interface{}{
+//   										&buttonProperty{
+//   											text: jsii.String("text"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   									imageUrl: jsii.String("imageUrl"),
+//   									subtitle: jsii.String("subtitle"),
+//   								},
+//   								plainTextMessage: &plainTextMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								ssmlMessage: &sSMLMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				allowInterrupt: jsii.Boolean(false),
+//   			},
+//
+//   			// the properties below are optional
+//   			isActive: jsii.Boolean(false),
+//   			stillWaitingResponse: &stillWaitingResponseSpecificationProperty{
+//   				frequencyInSeconds: jsii.Number(123),
+//   				messageGroupsList: []interface{}{
+//   					&messageGroupProperty{
+//   						message: &messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						variations: []interface{}{
+//   							&messageProperty{
+//   								customPayload: &customPayloadProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								imageResponseCard: &imageResponseCardProperty{
+//   									title: jsii.String("title"),
+//
+//   									// the properties below are optional
+//   									buttons: []interface{}{
+//   										&buttonProperty{
+//   											text: jsii.String("text"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   									imageUrl: jsii.String("imageUrl"),
+//   									subtitle: jsii.String("subtitle"),
+//   								},
+//   								plainTextMessage: &plainTextMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								ssmlMessage: &sSMLMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   				timeoutInSeconds: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				allowInterrupt: jsii.Boolean(false),
+//   			},
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   	multipleValuesSetting: &multipleValuesSettingProperty{
+//   		allowMultipleValues: jsii.Boolean(false),
+//   	},
+//   	obfuscationSetting: &obfuscationSettingProperty{
+//   		obfuscationSettingType: jsii.String("obfuscationSettingType"),
+//   	},
+//   }
 //
 type CfnBot_SlotProperty struct {
 	// The name of the slot.
@@ -1200,7 +5969,51 @@ type CfnBot_SlotProperty struct {
 
 // Describes a slot type.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   slotTypeProperty := &slotTypeProperty{
+//   	name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   	externalSourceSetting: &externalSourceSettingProperty{
+//   		grammarSlotTypeSetting: &grammarSlotTypeSettingProperty{
+//   			source: &grammarSlotTypeSourceProperty{
+//   				s3BucketName: jsii.String("s3BucketName"),
+//   				s3ObjectKey: jsii.String("s3ObjectKey"),
+//
+//   				// the properties below are optional
+//   				kmsKeyArn: jsii.String("kmsKeyArn"),
+//   			},
+//   		},
+//   	},
+//   	parentSlotTypeSignature: jsii.String("parentSlotTypeSignature"),
+//   	slotTypeValues: []interface{}{
+//   		&slotTypeValueProperty{
+//   			sampleValue: &sampleValueProperty{
+//   				value: jsii.String("value"),
+//   			},
+//
+//   			// the properties below are optional
+//   			synonyms: []interface{}{
+//   				&sampleValueProperty{
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	valueSelectionSetting: &slotValueSelectionSettingProperty{
+//   		resolutionStrategy: jsii.String("resolutionStrategy"),
+//
+//   		// the properties below are optional
+//   		advancedRecognitionSetting: &advancedRecognitionSettingProperty{
+//   			audioRecognitionStrategy: jsii.String("audioRecognitionStrategy"),
+//   		},
+//   		regexFilter: &slotValueRegexFilterProperty{
+//   			pattern: jsii.String("pattern"),
+//   		},
+//   	},
+//   }
 //
 type CfnBot_SlotTypeProperty struct {
 	// The name of the slot type.
@@ -1238,7 +6051,20 @@ type CfnBot_SlotTypeProperty struct {
 //
 // The `SlotTypeValue` represents a value that the slot type can take.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   slotTypeValueProperty := &slotTypeValueProperty{
+//   	sampleValue: &sampleValueProperty{
+//   		value: jsii.String("value"),
+//   	},
+//
+//   	// the properties below are optional
+//   	synonyms: []interface{}{
+//   		&sampleValueProperty{
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnBot_SlotTypeValueProperty struct {
 	// The value of the slot type entry.
@@ -1249,7 +6075,277 @@ type CfnBot_SlotTypeValueProperty struct {
 
 // Settings that you can use for eliciting a slot value.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   slotValueElicitationSettingProperty := &slotValueElicitationSettingProperty{
+//   	slotConstraint: jsii.String("slotConstraint"),
+//
+//   	// the properties below are optional
+//   	defaultValueSpecification: &slotDefaultValueSpecificationProperty{
+//   		defaultValueList: []interface{}{
+//   			&slotDefaultValueProperty{
+//   				defaultValue: jsii.String("defaultValue"),
+//   			},
+//   		},
+//   	},
+//   	promptSpecification: &promptSpecificationProperty{
+//   		maxRetries: jsii.Number(123),
+//   		messageGroupsList: []interface{}{
+//   			&messageGroupProperty{
+//   				message: &messageProperty{
+//   					customPayload: &customPayloadProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					imageResponseCard: &imageResponseCardProperty{
+//   						title: jsii.String("title"),
+//
+//   						// the properties below are optional
+//   						buttons: []interface{}{
+//   							&buttonProperty{
+//   								text: jsii.String("text"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   						imageUrl: jsii.String("imageUrl"),
+//   						subtitle: jsii.String("subtitle"),
+//   					},
+//   					plainTextMessage: &plainTextMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					ssmlMessage: &sSMLMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				variations: []interface{}{
+//   					&messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		allowInterrupt: jsii.Boolean(false),
+//   	},
+//   	sampleUtterances: []interface{}{
+//   		&sampleUtteranceProperty{
+//   			utterance: jsii.String("utterance"),
+//   		},
+//   	},
+//   	waitAndContinueSpecification: &waitAndContinueSpecificationProperty{
+//   		continueResponse: &responseSpecificationProperty{
+//   			messageGroupsList: []interface{}{
+//   				&messageGroupProperty{
+//   					message: &messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					variations: []interface{}{
+//   						&messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			allowInterrupt: jsii.Boolean(false),
+//   		},
+//   		waitingResponse: &responseSpecificationProperty{
+//   			messageGroupsList: []interface{}{
+//   				&messageGroupProperty{
+//   					message: &messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					variations: []interface{}{
+//   						&messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			allowInterrupt: jsii.Boolean(false),
+//   		},
+//
+//   		// the properties below are optional
+//   		isActive: jsii.Boolean(false),
+//   		stillWaitingResponse: &stillWaitingResponseSpecificationProperty{
+//   			frequencyInSeconds: jsii.Number(123),
+//   			messageGroupsList: []interface{}{
+//   				&messageGroupProperty{
+//   					message: &messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					variations: []interface{}{
+//   						&messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   			timeoutInSeconds: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			allowInterrupt: jsii.Boolean(false),
+//   		},
+//   	},
+//   }
 //
 type CfnBot_SlotValueElicitationSettingProperty struct {
 	// Specifies whether the slot is required or optional.
@@ -1270,7 +6366,11 @@ type CfnBot_SlotValueElicitationSettingProperty struct {
 
 // Provides a regular expression used to validate the value of a slot.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   slotValueRegexFilterProperty := &slotValueRegexFilterProperty{
+//   	pattern: jsii.String("pattern"),
+//   }
 //
 type CfnBot_SlotValueRegexFilterProperty struct {
 	// A regular expression used to validate the value of a slot.
@@ -1292,7 +6392,19 @@ type CfnBot_SlotValueRegexFilterProperty struct {
 
 // Contains settings used by Amazon Lex to select a slot value.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   slotValueSelectionSettingProperty := &slotValueSelectionSettingProperty{
+//   	resolutionStrategy: jsii.String("resolutionStrategy"),
+//
+//   	// the properties below are optional
+//   	advancedRecognitionSetting: &advancedRecognitionSettingProperty{
+//   		audioRecognitionStrategy: jsii.String("audioRecognitionStrategy"),
+//   	},
+//   	regexFilter: &slotValueRegexFilterProperty{
+//   		pattern: jsii.String("pattern"),
+//   	},
+//   }
 //
 type CfnBot_SlotValueSelectionSettingProperty struct {
 	// Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
@@ -1304,13 +6416,81 @@ type CfnBot_SlotValueSelectionSettingProperty struct {
 	//
 	// If you don't specify the valueSelectionStrategy, the default is OriginalValue.
 	ResolutionStrategy *string `json:"resolutionStrategy" yaml:"resolutionStrategy"`
+	// Specifies settings that enable advanced recognition settings for slot values.
+	//
+	// You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+	AdvancedRecognitionSetting interface{} `json:"advancedRecognitionSetting" yaml:"advancedRecognitionSetting"`
 	// A regular expression used to validate the value of a slot.
 	RegexFilter interface{} `json:"regexFilter" yaml:"regexFilter"`
 }
 
 // Defines the messages that Amazon Lex sends to a user to remind them that the bot is waiting for a response.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   stillWaitingResponseSpecificationProperty := &stillWaitingResponseSpecificationProperty{
+//   	frequencyInSeconds: jsii.Number(123),
+//   	messageGroupsList: []interface{}{
+//   		&messageGroupProperty{
+//   			message: &messageProperty{
+//   				customPayload: &customPayloadProperty{
+//   					value: jsii.String("value"),
+//   				},
+//   				imageResponseCard: &imageResponseCardProperty{
+//   					title: jsii.String("title"),
+//
+//   					// the properties below are optional
+//   					buttons: []interface{}{
+//   						&buttonProperty{
+//   							text: jsii.String("text"),
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   					imageUrl: jsii.String("imageUrl"),
+//   					subtitle: jsii.String("subtitle"),
+//   				},
+//   				plainTextMessage: &plainTextMessageProperty{
+//   					value: jsii.String("value"),
+//   				},
+//   				ssmlMessage: &sSMLMessageProperty{
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			variations: []interface{}{
+//   				&messageProperty{
+//   					customPayload: &customPayloadProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					imageResponseCard: &imageResponseCardProperty{
+//   						title: jsii.String("title"),
+//
+//   						// the properties below are optional
+//   						buttons: []interface{}{
+//   							&buttonProperty{
+//   								text: jsii.String("text"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   						imageUrl: jsii.String("imageUrl"),
+//   						subtitle: jsii.String("subtitle"),
+//   					},
+//   					plainTextMessage: &plainTextMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					ssmlMessage: &sSMLMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	timeoutInSeconds: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	allowInterrupt: jsii.Boolean(false),
+//   }
 //
 type CfnBot_StillWaitingResponseSpecificationProperty struct {
 	// How often a message should be sent to the user.
@@ -1327,9 +6507,119 @@ type CfnBot_StillWaitingResponseSpecificationProperty struct {
 	AllowInterrupt interface{} `json:"allowInterrupt" yaml:"allowInterrupt"`
 }
 
+// Specifies configuration settings for the alias used to test the bot.
+//
+// If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//
+//   var sentimentAnalysisSettings interface{}
+//   testBotAliasSettingsProperty := &testBotAliasSettingsProperty{
+//   	botAliasLocaleSettings: []interface{}{
+//   		&botAliasLocaleSettingsItemProperty{
+//   			botAliasLocaleSetting: &botAliasLocaleSettingsProperty{
+//   				enabled: jsii.Boolean(false),
+//
+//   				// the properties below are optional
+//   				codeHookSpecification: &codeHookSpecificationProperty{
+//   					lambdaCodeHook: &lambdaCodeHookProperty{
+//   						codeHookInterfaceVersion: jsii.String("codeHookInterfaceVersion"),
+//   						lambdaArn: jsii.String("lambdaArn"),
+//   					},
+//   				},
+//   			},
+//   			localeId: jsii.String("localeId"),
+//   		},
+//   	},
+//   	conversationLogSettings: &conversationLogSettingsProperty{
+//   		audioLogSettings: []interface{}{
+//   			&audioLogSettingProperty{
+//   				destination: &audioLogDestinationProperty{
+//   					s3Bucket: &s3BucketLogDestinationProperty{
+//   						logPrefix: jsii.String("logPrefix"),
+//   						s3BucketArn: jsii.String("s3BucketArn"),
+//
+//   						// the properties below are optional
+//   						kmsKeyArn: jsii.String("kmsKeyArn"),
+//   					},
+//   				},
+//   				enabled: jsii.Boolean(false),
+//   			},
+//   		},
+//   		textLogSettings: []interface{}{
+//   			&textLogSettingProperty{
+//   				destination: &textLogDestinationProperty{
+//   					cloudWatch: &cloudWatchLogGroupLogDestinationProperty{
+//   						cloudWatchLogGroupArn: jsii.String("cloudWatchLogGroupArn"),
+//   						logPrefix: jsii.String("logPrefix"),
+//   					},
+//   				},
+//   				enabled: jsii.Boolean(false),
+//   			},
+//   		},
+//   	},
+//   	description: jsii.String("description"),
+//   	sentimentAnalysisSettings: sentimentAnalysisSettings,
+//   }
+//
+type CfnBot_TestBotAliasSettingsProperty struct {
+	// Specifies settings that are unique to a locale.
+	//
+	// For example, you can use a different Lambda function depending on the bot's locale.
+	BotAliasLocaleSettings interface{} `json:"botAliasLocaleSettings" yaml:"botAliasLocaleSettings"`
+	// Specifies settings for conversation logs that save audio, text, and metadata information for conversations with your users.
+	ConversationLogSettings interface{} `json:"conversationLogSettings" yaml:"conversationLogSettings"`
+	// Specifies a description for the test bot alias.
+	Description *string `json:"description" yaml:"description"`
+	// Specifies whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+	SentimentAnalysisSettings interface{} `json:"sentimentAnalysisSettings" yaml:"sentimentAnalysisSettings"`
+}
+
+// Specifies the Amazon CloudWatch Logs destination log group for conversation text logs.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   textLogDestinationProperty := &textLogDestinationProperty{
+//   	cloudWatch: &cloudWatchLogGroupLogDestinationProperty{
+//   		cloudWatchLogGroupArn: jsii.String("cloudWatchLogGroupArn"),
+//   		logPrefix: jsii.String("logPrefix"),
+//   	},
+//   }
+//
+type CfnBot_TextLogDestinationProperty struct {
+	// Specifies the Amazon CloudWatch Logs log group where text and metadata logs are delivered.
+	CloudWatch interface{} `json:"cloudWatch" yaml:"cloudWatch"`
+}
+
+// Specifies settings to enable conversation logs.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   textLogSettingProperty := &textLogSettingProperty{
+//   	destination: &textLogDestinationProperty{
+//   		cloudWatch: &cloudWatchLogGroupLogDestinationProperty{
+//   			cloudWatchLogGroupArn: jsii.String("cloudWatchLogGroupArn"),
+//   			logPrefix: jsii.String("logPrefix"),
+//   		},
+//   	},
+//   	enabled: jsii.Boolean(false),
+//   }
+//
+type CfnBot_TextLogSettingProperty struct {
+	// Specifies the Amazon CloudWatch Logs destination log group for conversation text logs.
+	Destination interface{} `json:"destination" yaml:"destination"`
+	// Specifies whether conversation logs should be stored for an alias.
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
+}
+
 // Identifies the Amazon Polly voice used for audio interaction with the user.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   voiceSettingsProperty := &voiceSettingsProperty{
+//   	voiceId: jsii.String("voiceId"),
+//   }
 //
 type CfnBot_VoiceSettingsProperty struct {
 	// The Amazon Polly voice used for voice interaction with the user.
@@ -1338,7 +6628,198 @@ type CfnBot_VoiceSettingsProperty struct {
 
 // Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   waitAndContinueSpecificationProperty := &waitAndContinueSpecificationProperty{
+//   	continueResponse: &responseSpecificationProperty{
+//   		messageGroupsList: []interface{}{
+//   			&messageGroupProperty{
+//   				message: &messageProperty{
+//   					customPayload: &customPayloadProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					imageResponseCard: &imageResponseCardProperty{
+//   						title: jsii.String("title"),
+//
+//   						// the properties below are optional
+//   						buttons: []interface{}{
+//   							&buttonProperty{
+//   								text: jsii.String("text"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   						imageUrl: jsii.String("imageUrl"),
+//   						subtitle: jsii.String("subtitle"),
+//   					},
+//   					plainTextMessage: &plainTextMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					ssmlMessage: &sSMLMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				variations: []interface{}{
+//   					&messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		allowInterrupt: jsii.Boolean(false),
+//   	},
+//   	waitingResponse: &responseSpecificationProperty{
+//   		messageGroupsList: []interface{}{
+//   			&messageGroupProperty{
+//   				message: &messageProperty{
+//   					customPayload: &customPayloadProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					imageResponseCard: &imageResponseCardProperty{
+//   						title: jsii.String("title"),
+//
+//   						// the properties below are optional
+//   						buttons: []interface{}{
+//   							&buttonProperty{
+//   								text: jsii.String("text"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   						imageUrl: jsii.String("imageUrl"),
+//   						subtitle: jsii.String("subtitle"),
+//   					},
+//   					plainTextMessage: &plainTextMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					ssmlMessage: &sSMLMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				variations: []interface{}{
+//   					&messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		allowInterrupt: jsii.Boolean(false),
+//   	},
+//
+//   	// the properties below are optional
+//   	isActive: jsii.Boolean(false),
+//   	stillWaitingResponse: &stillWaitingResponseSpecificationProperty{
+//   		frequencyInSeconds: jsii.Number(123),
+//   		messageGroupsList: []interface{}{
+//   			&messageGroupProperty{
+//   				message: &messageProperty{
+//   					customPayload: &customPayloadProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					imageResponseCard: &imageResponseCardProperty{
+//   						title: jsii.String("title"),
+//
+//   						// the properties below are optional
+//   						buttons: []interface{}{
+//   							&buttonProperty{
+//   								text: jsii.String("text"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   						imageUrl: jsii.String("imageUrl"),
+//   						subtitle: jsii.String("subtitle"),
+//   					},
+//   					plainTextMessage: &plainTextMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					ssmlMessage: &sSMLMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				variations: []interface{}{
+//   					&messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   		timeoutInSeconds: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		allowInterrupt: jsii.Boolean(false),
+//   	},
+//   }
 //
 type CfnBot_WaitAndContinueSpecificationProperty struct {
 	// The response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
@@ -1359,53 +6840,314 @@ type CfnBot_WaitAndContinueSpecificationProperty struct {
 //
 // For example, you can specify an alias called "PROD" that your applications use to call the Amazon Lex bot.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//
+//   var sentimentAnalysisSettings interface{}
+//   cfnBotAlias := lex.NewCfnBotAlias(this, jsii.String("MyCfnBotAlias"), &cfnBotAliasProps{
+//   	botAliasName: jsii.String("botAliasName"),
+//   	botId: jsii.String("botId"),
+//
+//   	// the properties below are optional
+//   	botAliasLocaleSettings: []interface{}{
+//   		&botAliasLocaleSettingsItemProperty{
+//   			botAliasLocaleSetting: &botAliasLocaleSettingsProperty{
+//   				enabled: jsii.Boolean(false),
+//
+//   				// the properties below are optional
+//   				codeHookSpecification: &codeHookSpecificationProperty{
+//   					lambdaCodeHook: &lambdaCodeHookProperty{
+//   						codeHookInterfaceVersion: jsii.String("codeHookInterfaceVersion"),
+//   						lambdaArn: jsii.String("lambdaArn"),
+//   					},
+//   				},
+//   			},
+//   			localeId: jsii.String("localeId"),
+//   		},
+//   	},
+//   	botAliasTags: []interface{}{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	botVersion: jsii.String("botVersion"),
+//   	conversationLogSettings: &conversationLogSettingsProperty{
+//   		audioLogSettings: []interface{}{
+//   			&audioLogSettingProperty{
+//   				destination: &audioLogDestinationProperty{
+//   					s3Bucket: &s3BucketLogDestinationProperty{
+//   						logPrefix: jsii.String("logPrefix"),
+//   						s3BucketArn: jsii.String("s3BucketArn"),
+//
+//   						// the properties below are optional
+//   						kmsKeyArn: jsii.String("kmsKeyArn"),
+//   					},
+//   				},
+//   				enabled: jsii.Boolean(false),
+//   			},
+//   		},
+//   		textLogSettings: []interface{}{
+//   			&textLogSettingProperty{
+//   				destination: &textLogDestinationProperty{
+//   				},
+//   				enabled: jsii.Boolean(false),
+//   			},
+//   		},
+//   	},
+//   	description: jsii.String("description"),
+//   	sentimentAnalysisSettings: sentimentAnalysisSettings,
+//   })
 //
 type CfnBotAlias interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the bot alias.
 	AttrArn() *string
+	// The unique identifier of the bot alias.
 	AttrBotAliasId() *string
+	// The current status of the bot alias.
+	//
+	// When the status is Available the alias is ready for use with your bot.
 	AttrBotAliasStatus() *string
+	// Maps configuration information to a specific locale.
+	//
+	// You can use this parameter to specify a specific Lambda function to run different functions in different locales.
 	BotAliasLocaleSettings() interface{}
 	SetBotAliasLocaleSettings(val interface{})
+	// The name of the bot alias.
 	BotAliasName() *string
 	SetBotAliasName(val *string)
+	// An array of key-value pairs to apply to this resource.
+	//
+	// You can only add tags when you specify an alias.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	BotAliasTags() interface{}
 	SetBotAliasTags(val interface{})
+	// The unique identifier of the bot.
 	BotId() *string
 	SetBotId(val *string)
+	// The version of the bot that the bot alias references.
 	BotVersion() *string
 	SetBotVersion(val *string)
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Specifies whether Amazon Lex logs text and audio for conversations with the bot.
+	//
+	// When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
 	ConversationLogSettings() interface{}
 	SetConversationLogSettings(val interface{})
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The description of the bot alias.
 	Description() *string
 	SetDescription(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
 	SentimentAnalysisSettings() interface{}
 	SetSentimentAnalysisSettings(val interface{})
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1565,8 +7307,8 @@ func (j *jsiiProxy_CfnBotAlias) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBotAlias) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnBotAlias) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1617,13 +7359,13 @@ func (j *jsiiProxy_CfnBotAlias) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Lex::BotAlias`.
-func NewCfnBotAlias(scope constructs.Construct, id *string, props *CfnBotAliasProps) CfnBotAlias {
+func NewCfnBotAlias(scope awscdk.Construct, id *string, props *CfnBotAliasProps) CfnBotAlias {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnBotAlias{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lex.CfnBotAlias",
+		"monocdk.aws_lex.CfnBotAlias",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1632,11 +7374,11 @@ func NewCfnBotAlias(scope constructs.Construct, id *string, props *CfnBotAliasPr
 }
 
 // Create a new `AWS::Lex::BotAlias`.
-func NewCfnBotAlias_Override(c CfnBotAlias, scope constructs.Construct, id *string, props *CfnBotAliasProps) {
+func NewCfnBotAlias_Override(c CfnBotAlias, scope awscdk.Construct, id *string, props *CfnBotAliasProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lex.CfnBotAlias",
+		"monocdk.aws_lex.CfnBotAlias",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1712,13 +7454,14 @@ func (j *jsiiProxy_CfnBotAlias) SetSentimentAnalysisSettings(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnBotAlias_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lex.CfnBotAlias",
+		"monocdk.aws_lex.CfnBotAlias",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1728,13 +7471,14 @@ func CfnBotAlias_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnBotAlias_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lex.CfnBotAlias",
+		"monocdk.aws_lex.CfnBotAlias",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1743,17 +7487,15 @@ func CfnBotAlias_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnBotAlias_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lex.CfnBotAlias",
+		"monocdk.aws_lex.CfnBotAlias",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1766,14 +7508,13 @@ func CfnBotAlias_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_lex.CfnBotAlias",
+		"monocdk.aws_lex.CfnBotAlias",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnBotAlias) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1782,10 +7523,6 @@ func (c *jsiiProxy_CfnBotAlias) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnBotAlias) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1794,13 +7531,6 @@ func (c *jsiiProxy_CfnBotAlias) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnBotAlias) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1809,49 +7539,6 @@ func (c *jsiiProxy_CfnBotAlias) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnBotAlias) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1860,7 +7547,6 @@ func (c *jsiiProxy_CfnBotAlias) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnBotAlias) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1869,9 +7555,6 @@ func (c *jsiiProxy_CfnBotAlias) AddPropertyDeletionOverride(propertyPath *string
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnBotAlias) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1880,15 +7563,6 @@ func (c *jsiiProxy_CfnBotAlias) AddPropertyOverride(propertyPath *string, value 
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnBotAlias) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1897,10 +7571,6 @@ func (c *jsiiProxy_CfnBotAlias) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnBotAlias) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1914,13 +7584,6 @@ func (c *jsiiProxy_CfnBotAlias) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnBotAlias) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1934,7 +7597,6 @@ func (c *jsiiProxy_CfnBotAlias) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnBotAlias) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1943,12 +7605,48 @@ func (c *jsiiProxy_CfnBotAlias) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnBotAlias) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnBotAlias) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnBotAlias) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnBotAlias) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnBotAlias) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1965,10 +7663,6 @@ func (c *jsiiProxy_CfnBotAlias) RenderProperties(props *map[string]interface{}) 
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnBotAlias) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1982,15 +7676,33 @@ func (c *jsiiProxy_CfnBotAlias) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnBotAlias) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnBotAlias) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnBotAlias) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2008,7 +7720,17 @@ func (c *jsiiProxy_CfnBotAlias) ValidateProperties(_properties interface{}) {
 
 // Specifies the S3 bucket location where audio logs are stored.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   audioLogDestinationProperty := &audioLogDestinationProperty{
+//   	s3Bucket: &s3BucketLogDestinationProperty{
+//   		logPrefix: jsii.String("logPrefix"),
+//   		s3BucketArn: jsii.String("s3BucketArn"),
+//
+//   		// the properties below are optional
+//   		kmsKeyArn: jsii.String("kmsKeyArn"),
+//   	},
+//   }
 //
 type CfnBotAlias_AudioLogDestinationProperty struct {
 	// The S3 bucket location where audio logs are stored.
@@ -2019,7 +7741,20 @@ type CfnBotAlias_AudioLogDestinationProperty struct {
 //
 // You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   audioLogSettingProperty := &audioLogSettingProperty{
+//   	destination: &audioLogDestinationProperty{
+//   		s3Bucket: &s3BucketLogDestinationProperty{
+//   			logPrefix: jsii.String("logPrefix"),
+//   			s3BucketArn: jsii.String("s3BucketArn"),
+//
+//   			// the properties below are optional
+//   			kmsKeyArn: jsii.String("kmsKeyArn"),
+//   		},
+//   	},
+//   	enabled: jsii.Boolean(false),
+//   }
 //
 type CfnBotAlias_AudioLogSettingProperty struct {
 	// The location of audio log files collected when conversation logging is enabled for a bot.
@@ -2032,7 +7767,22 @@ type CfnBotAlias_AudioLogSettingProperty struct {
 //
 // For example, you can use different Lambda function depending on the bot's locale.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   botAliasLocaleSettingsItemProperty := &botAliasLocaleSettingsItemProperty{
+//   	botAliasLocaleSetting: &botAliasLocaleSettingsProperty{
+//   		enabled: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		codeHookSpecification: &codeHookSpecificationProperty{
+//   			lambdaCodeHook: &lambdaCodeHookProperty{
+//   				codeHookInterfaceVersion: jsii.String("codeHookInterfaceVersion"),
+//   				lambdaArn: jsii.String("lambdaArn"),
+//   			},
+//   		},
+//   	},
+//   	localeId: jsii.String("localeId"),
+//   }
 //
 type CfnBotAlias_BotAliasLocaleSettingsItemProperty struct {
 	// Specifies settings that are unique to a locale.
@@ -2045,7 +7795,19 @@ type CfnBotAlias_BotAliasLocaleSettingsItemProperty struct {
 //
 // For example, you can use different Lambda function depending on the bot's locale.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   botAliasLocaleSettingsProperty := &botAliasLocaleSettingsProperty{
+//   	enabled: jsii.Boolean(false),
+//
+//   	// the properties below are optional
+//   	codeHookSpecification: &codeHookSpecificationProperty{
+//   		lambdaCodeHook: &lambdaCodeHookProperty{
+//   			codeHookInterfaceVersion: jsii.String("codeHookInterfaceVersion"),
+//   			lambdaArn: jsii.String("lambdaArn"),
+//   		},
+//   	},
+//   }
 //
 type CfnBotAlias_BotAliasLocaleSettingsProperty struct {
 	// Determines whether the locale is enabled for the bot.
@@ -2060,7 +7822,12 @@ type CfnBotAlias_BotAliasLocaleSettingsProperty struct {
 //
 // The log group must exist before you enable logging.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   cloudWatchLogGroupLogDestinationProperty := &cloudWatchLogGroupLogDestinationProperty{
+//   	cloudWatchLogGroupArn: jsii.String("cloudWatchLogGroupArn"),
+//   	logPrefix: jsii.String("logPrefix"),
+//   }
 //
 type CfnBotAlias_CloudWatchLogGroupLogDestinationProperty struct {
 	// The Amazon Resource Name (ARN) of the log group where text and metadata logs are delivered.
@@ -2071,7 +7838,14 @@ type CfnBotAlias_CloudWatchLogGroupLogDestinationProperty struct {
 
 // Contains information about code hooks that Amazon Lex calls during a conversation.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   codeHookSpecificationProperty := &codeHookSpecificationProperty{
+//   	lambdaCodeHook: &lambdaCodeHookProperty{
+//   		codeHookInterfaceVersion: jsii.String("codeHookInterfaceVersion"),
+//   		lambdaArn: jsii.String("lambdaArn"),
+//   	},
+//   }
 //
 type CfnBotAlias_CodeHookSpecificationProperty struct {
 	// Specifies a Lambda function that verifies requests to a bot or fulfills the user's request to a bot.
@@ -2080,7 +7854,31 @@ type CfnBotAlias_CodeHookSpecificationProperty struct {
 
 // Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   conversationLogSettingsProperty := &conversationLogSettingsProperty{
+//   	audioLogSettings: []interface{}{
+//   		&audioLogSettingProperty{
+//   			destination: &audioLogDestinationProperty{
+//   				s3Bucket: &s3BucketLogDestinationProperty{
+//   					logPrefix: jsii.String("logPrefix"),
+//   					s3BucketArn: jsii.String("s3BucketArn"),
+//
+//   					// the properties below are optional
+//   					kmsKeyArn: jsii.String("kmsKeyArn"),
+//   				},
+//   			},
+//   			enabled: jsii.Boolean(false),
+//   		},
+//   	},
+//   	textLogSettings: []interface{}{
+//   		&textLogSettingProperty{
+//   			destination: &textLogDestinationProperty{
+//   			},
+//   			enabled: jsii.Boolean(false),
+//   		},
+//   	},
+//   }
 //
 type CfnBotAlias_ConversationLogSettingsProperty struct {
 	// The Amazon S3 settings for logging audio to an S3 bucket.
@@ -2091,7 +7889,12 @@ type CfnBotAlias_ConversationLogSettingsProperty struct {
 
 // Specifies a Lambda function that verifies requests to a bot or fulfills the user's request to a bot.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   lambdaCodeHookProperty := &lambdaCodeHookProperty{
+//   	codeHookInterfaceVersion: jsii.String("codeHookInterfaceVersion"),
+//   	lambdaArn: jsii.String("lambdaArn"),
+//   }
 //
 type CfnBotAlias_LambdaCodeHookProperty struct {
 	// The version of the request-response that you want Amazon Lex to use to invoke your Lambda function.
@@ -2102,7 +7905,15 @@ type CfnBotAlias_LambdaCodeHookProperty struct {
 
 // Specifies an Amazon S3 bucket for logging audio conversations.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   s3BucketLogDestinationProperty := &s3BucketLogDestinationProperty{
+//   	logPrefix: jsii.String("logPrefix"),
+//   	s3BucketArn: jsii.String("s3BucketArn"),
+//
+//   	// the properties below are optional
+//   	kmsKeyArn: jsii.String("kmsKeyArn"),
+//   }
 //
 type CfnBotAlias_S3BucketLogDestinationProperty struct {
 	// The S3 prefix to assign to audio log files.
@@ -2115,14 +7926,23 @@ type CfnBotAlias_S3BucketLogDestinationProperty struct {
 
 // Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   textLogDestinationProperty := &textLogDestinationProperty{
+//   }
 //
 type CfnBotAlias_TextLogDestinationProperty struct {
 }
 
 // Defines settings to enable conversation logs.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   textLogSettingProperty := &textLogSettingProperty{
+//   	destination: &textLogDestinationProperty{
+//   	},
+//   	enabled: jsii.Boolean(false),
+//   }
 //
 type CfnBotAlias_TextLogSettingProperty struct {
 	// Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
@@ -2133,7 +7953,64 @@ type CfnBotAlias_TextLogSettingProperty struct {
 
 // Properties for defining a `CfnBotAlias`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//
+//   var sentimentAnalysisSettings interface{}
+//   cfnBotAliasProps := &cfnBotAliasProps{
+//   	botAliasName: jsii.String("botAliasName"),
+//   	botId: jsii.String("botId"),
+//
+//   	// the properties below are optional
+//   	botAliasLocaleSettings: []interface{}{
+//   		&botAliasLocaleSettingsItemProperty{
+//   			botAliasLocaleSetting: &botAliasLocaleSettingsProperty{
+//   				enabled: jsii.Boolean(false),
+//
+//   				// the properties below are optional
+//   				codeHookSpecification: &codeHookSpecificationProperty{
+//   					lambdaCodeHook: &lambdaCodeHookProperty{
+//   						codeHookInterfaceVersion: jsii.String("codeHookInterfaceVersion"),
+//   						lambdaArn: jsii.String("lambdaArn"),
+//   					},
+//   				},
+//   			},
+//   			localeId: jsii.String("localeId"),
+//   		},
+//   	},
+//   	botAliasTags: []interface{}{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	botVersion: jsii.String("botVersion"),
+//   	conversationLogSettings: &conversationLogSettingsProperty{
+//   		audioLogSettings: []interface{}{
+//   			&audioLogSettingProperty{
+//   				destination: &audioLogDestinationProperty{
+//   					s3Bucket: &s3BucketLogDestinationProperty{
+//   						logPrefix: jsii.String("logPrefix"),
+//   						s3BucketArn: jsii.String("s3BucketArn"),
+//
+//   						// the properties below are optional
+//   						kmsKeyArn: jsii.String("kmsKeyArn"),
+//   					},
+//   				},
+//   				enabled: jsii.Boolean(false),
+//   			},
+//   		},
+//   		textLogSettings: []interface{}{
+//   			&textLogSettingProperty{
+//   				destination: &textLogDestinationProperty{
+//   				},
+//   				enabled: jsii.Boolean(false),
+//   			},
+//   		},
+//   	},
+//   	description: jsii.String("description"),
+//   	sentimentAnalysisSettings: sentimentAnalysisSettings,
+//   }
 //
 type CfnBotAliasProps struct {
 	// The name of the bot alias.
@@ -2164,7 +8041,994 @@ type CfnBotAliasProps struct {
 
 // Properties for defining a `CfnBot`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//
+//   var dataPrivacy interface{}
+//   var sentimentAnalysisSettings interface{}
+//   cfnBotProps := &cfnBotProps{
+//   	dataPrivacy: dataPrivacy,
+//   	idleSessionTtlInSeconds: jsii.Number(123),
+//   	name: jsii.String("name"),
+//   	roleArn: jsii.String("roleArn"),
+//
+//   	// the properties below are optional
+//   	autoBuildBotLocales: jsii.Boolean(false),
+//   	botFileS3Location: &s3LocationProperty{
+//   		s3Bucket: jsii.String("s3Bucket"),
+//   		s3ObjectKey: jsii.String("s3ObjectKey"),
+//
+//   		// the properties below are optional
+//   		s3ObjectVersion: jsii.String("s3ObjectVersion"),
+//   	},
+//   	botLocales: []interface{}{
+//   		&botLocaleProperty{
+//   			localeId: jsii.String("localeId"),
+//   			nluConfidenceThreshold: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			customVocabulary: &customVocabularyProperty{
+//   				customVocabularyItems: []interface{}{
+//   					&customVocabularyItemProperty{
+//   						phrase: jsii.String("phrase"),
+//
+//   						// the properties below are optional
+//   						weight: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   			description: jsii.String("description"),
+//   			intents: []interface{}{
+//   				&intentProperty{
+//   					name: jsii.String("name"),
+//
+//   					// the properties below are optional
+//   					description: jsii.String("description"),
+//   					dialogCodeHook: &dialogCodeHookSettingProperty{
+//   						enabled: jsii.Boolean(false),
+//   					},
+//   					fulfillmentCodeHook: &fulfillmentCodeHookSettingProperty{
+//   						enabled: jsii.Boolean(false),
+//
+//   						// the properties below are optional
+//   						fulfillmentUpdatesSpecification: &fulfillmentUpdatesSpecificationProperty{
+//   							active: jsii.Boolean(false),
+//
+//   							// the properties below are optional
+//   							startResponse: &fulfillmentStartResponseSpecificationProperty{
+//   								delayInSeconds: jsii.Number(123),
+//   								messageGroups: []interface{}{
+//   									&messageGroupProperty{
+//   										message: &messageProperty{
+//   											customPayload: &customPayloadProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											imageResponseCard: &imageResponseCardProperty{
+//   												title: jsii.String("title"),
+//
+//   												// the properties below are optional
+//   												buttons: []interface{}{
+//   													&buttonProperty{
+//   														text: jsii.String("text"),
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   												imageUrl: jsii.String("imageUrl"),
+//   												subtitle: jsii.String("subtitle"),
+//   											},
+//   											plainTextMessage: &plainTextMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											ssmlMessage: &sSMLMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//
+//   										// the properties below are optional
+//   										variations: []interface{}{
+//   											&messageProperty{
+//   												customPayload: &customPayloadProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												imageResponseCard: &imageResponseCardProperty{
+//   													title: jsii.String("title"),
+//
+//   													// the properties below are optional
+//   													buttons: []interface{}{
+//   														&buttonProperty{
+//   															text: jsii.String("text"),
+//   															value: jsii.String("value"),
+//   														},
+//   													},
+//   													imageUrl: jsii.String("imageUrl"),
+//   													subtitle: jsii.String("subtitle"),
+//   												},
+//   												plainTextMessage: &plainTextMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												ssmlMessage: &sSMLMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   										},
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								allowInterrupt: jsii.Boolean(false),
+//   							},
+//   							timeoutInSeconds: jsii.Number(123),
+//   							updateResponse: &fulfillmentUpdateResponseSpecificationProperty{
+//   								frequencyInSeconds: jsii.Number(123),
+//   								messageGroups: []interface{}{
+//   									&messageGroupProperty{
+//   										message: &messageProperty{
+//   											customPayload: &customPayloadProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											imageResponseCard: &imageResponseCardProperty{
+//   												title: jsii.String("title"),
+//
+//   												// the properties below are optional
+//   												buttons: []interface{}{
+//   													&buttonProperty{
+//   														text: jsii.String("text"),
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   												imageUrl: jsii.String("imageUrl"),
+//   												subtitle: jsii.String("subtitle"),
+//   											},
+//   											plainTextMessage: &plainTextMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											ssmlMessage: &sSMLMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//
+//   										// the properties below are optional
+//   										variations: []interface{}{
+//   											&messageProperty{
+//   												customPayload: &customPayloadProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												imageResponseCard: &imageResponseCardProperty{
+//   													title: jsii.String("title"),
+//
+//   													// the properties below are optional
+//   													buttons: []interface{}{
+//   														&buttonProperty{
+//   															text: jsii.String("text"),
+//   															value: jsii.String("value"),
+//   														},
+//   													},
+//   													imageUrl: jsii.String("imageUrl"),
+//   													subtitle: jsii.String("subtitle"),
+//   												},
+//   												plainTextMessage: &plainTextMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												ssmlMessage: &sSMLMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   										},
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								allowInterrupt: jsii.Boolean(false),
+//   							},
+//   						},
+//   						postFulfillmentStatusSpecification: &postFulfillmentStatusSpecificationProperty{
+//   							failureResponse: &responseSpecificationProperty{
+//   								messageGroupsList: []interface{}{
+//   									&messageGroupProperty{
+//   										message: &messageProperty{
+//   											customPayload: &customPayloadProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											imageResponseCard: &imageResponseCardProperty{
+//   												title: jsii.String("title"),
+//
+//   												// the properties below are optional
+//   												buttons: []interface{}{
+//   													&buttonProperty{
+//   														text: jsii.String("text"),
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   												imageUrl: jsii.String("imageUrl"),
+//   												subtitle: jsii.String("subtitle"),
+//   											},
+//   											plainTextMessage: &plainTextMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											ssmlMessage: &sSMLMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//
+//   										// the properties below are optional
+//   										variations: []interface{}{
+//   											&messageProperty{
+//   												customPayload: &customPayloadProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												imageResponseCard: &imageResponseCardProperty{
+//   													title: jsii.String("title"),
+//
+//   													// the properties below are optional
+//   													buttons: []interface{}{
+//   														&buttonProperty{
+//   															text: jsii.String("text"),
+//   															value: jsii.String("value"),
+//   														},
+//   													},
+//   													imageUrl: jsii.String("imageUrl"),
+//   													subtitle: jsii.String("subtitle"),
+//   												},
+//   												plainTextMessage: &plainTextMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												ssmlMessage: &sSMLMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   										},
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								allowInterrupt: jsii.Boolean(false),
+//   							},
+//   							successResponse: &responseSpecificationProperty{
+//   								messageGroupsList: []interface{}{
+//   									&messageGroupProperty{
+//   										message: &messageProperty{
+//   											customPayload: &customPayloadProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											imageResponseCard: &imageResponseCardProperty{
+//   												title: jsii.String("title"),
+//
+//   												// the properties below are optional
+//   												buttons: []interface{}{
+//   													&buttonProperty{
+//   														text: jsii.String("text"),
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   												imageUrl: jsii.String("imageUrl"),
+//   												subtitle: jsii.String("subtitle"),
+//   											},
+//   											plainTextMessage: &plainTextMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											ssmlMessage: &sSMLMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//
+//   										// the properties below are optional
+//   										variations: []interface{}{
+//   											&messageProperty{
+//   												customPayload: &customPayloadProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												imageResponseCard: &imageResponseCardProperty{
+//   													title: jsii.String("title"),
+//
+//   													// the properties below are optional
+//   													buttons: []interface{}{
+//   														&buttonProperty{
+//   															text: jsii.String("text"),
+//   															value: jsii.String("value"),
+//   														},
+//   													},
+//   													imageUrl: jsii.String("imageUrl"),
+//   													subtitle: jsii.String("subtitle"),
+//   												},
+//   												plainTextMessage: &plainTextMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												ssmlMessage: &sSMLMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   										},
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								allowInterrupt: jsii.Boolean(false),
+//   							},
+//   							timeoutResponse: &responseSpecificationProperty{
+//   								messageGroupsList: []interface{}{
+//   									&messageGroupProperty{
+//   										message: &messageProperty{
+//   											customPayload: &customPayloadProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											imageResponseCard: &imageResponseCardProperty{
+//   												title: jsii.String("title"),
+//
+//   												// the properties below are optional
+//   												buttons: []interface{}{
+//   													&buttonProperty{
+//   														text: jsii.String("text"),
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   												imageUrl: jsii.String("imageUrl"),
+//   												subtitle: jsii.String("subtitle"),
+//   											},
+//   											plainTextMessage: &plainTextMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											ssmlMessage: &sSMLMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//
+//   										// the properties below are optional
+//   										variations: []interface{}{
+//   											&messageProperty{
+//   												customPayload: &customPayloadProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												imageResponseCard: &imageResponseCardProperty{
+//   													title: jsii.String("title"),
+//
+//   													// the properties below are optional
+//   													buttons: []interface{}{
+//   														&buttonProperty{
+//   															text: jsii.String("text"),
+//   															value: jsii.String("value"),
+//   														},
+//   													},
+//   													imageUrl: jsii.String("imageUrl"),
+//   													subtitle: jsii.String("subtitle"),
+//   												},
+//   												plainTextMessage: &plainTextMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												ssmlMessage: &sSMLMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   										},
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								allowInterrupt: jsii.Boolean(false),
+//   							},
+//   						},
+//   					},
+//   					inputContexts: []interface{}{
+//   						&inputContextProperty{
+//   							name: jsii.String("name"),
+//   						},
+//   					},
+//   					intentClosingSetting: &intentClosingSettingProperty{
+//   						closingResponse: &responseSpecificationProperty{
+//   							messageGroupsList: []interface{}{
+//   								&messageGroupProperty{
+//   									message: &messageProperty{
+//   										customPayload: &customPayloadProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										imageResponseCard: &imageResponseCardProperty{
+//   											title: jsii.String("title"),
+//
+//   											// the properties below are optional
+//   											buttons: []interface{}{
+//   												&buttonProperty{
+//   													text: jsii.String("text"),
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   											imageUrl: jsii.String("imageUrl"),
+//   											subtitle: jsii.String("subtitle"),
+//   										},
+//   										plainTextMessage: &plainTextMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										ssmlMessage: &sSMLMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//
+//   									// the properties below are optional
+//   									variations: []interface{}{
+//   										&messageProperty{
+//   											customPayload: &customPayloadProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											imageResponseCard: &imageResponseCardProperty{
+//   												title: jsii.String("title"),
+//
+//   												// the properties below are optional
+//   												buttons: []interface{}{
+//   													&buttonProperty{
+//   														text: jsii.String("text"),
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   												imageUrl: jsii.String("imageUrl"),
+//   												subtitle: jsii.String("subtitle"),
+//   											},
+//   											plainTextMessage: &plainTextMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											ssmlMessage: &sSMLMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//
+//   							// the properties below are optional
+//   							allowInterrupt: jsii.Boolean(false),
+//   						},
+//
+//   						// the properties below are optional
+//   						isActive: jsii.Boolean(false),
+//   					},
+//   					intentConfirmationSetting: &intentConfirmationSettingProperty{
+//   						declinationResponse: &responseSpecificationProperty{
+//   							messageGroupsList: []interface{}{
+//   								&messageGroupProperty{
+//   									message: &messageProperty{
+//   										customPayload: &customPayloadProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										imageResponseCard: &imageResponseCardProperty{
+//   											title: jsii.String("title"),
+//
+//   											// the properties below are optional
+//   											buttons: []interface{}{
+//   												&buttonProperty{
+//   													text: jsii.String("text"),
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   											imageUrl: jsii.String("imageUrl"),
+//   											subtitle: jsii.String("subtitle"),
+//   										},
+//   										plainTextMessage: &plainTextMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										ssmlMessage: &sSMLMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//
+//   									// the properties below are optional
+//   									variations: []interface{}{
+//   										&messageProperty{
+//   											customPayload: &customPayloadProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											imageResponseCard: &imageResponseCardProperty{
+//   												title: jsii.String("title"),
+//
+//   												// the properties below are optional
+//   												buttons: []interface{}{
+//   													&buttonProperty{
+//   														text: jsii.String("text"),
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   												imageUrl: jsii.String("imageUrl"),
+//   												subtitle: jsii.String("subtitle"),
+//   											},
+//   											plainTextMessage: &plainTextMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											ssmlMessage: &sSMLMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//
+//   							// the properties below are optional
+//   							allowInterrupt: jsii.Boolean(false),
+//   						},
+//   						promptSpecification: &promptSpecificationProperty{
+//   							maxRetries: jsii.Number(123),
+//   							messageGroupsList: []interface{}{
+//   								&messageGroupProperty{
+//   									message: &messageProperty{
+//   										customPayload: &customPayloadProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										imageResponseCard: &imageResponseCardProperty{
+//   											title: jsii.String("title"),
+//
+//   											// the properties below are optional
+//   											buttons: []interface{}{
+//   												&buttonProperty{
+//   													text: jsii.String("text"),
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   											imageUrl: jsii.String("imageUrl"),
+//   											subtitle: jsii.String("subtitle"),
+//   										},
+//   										plainTextMessage: &plainTextMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										ssmlMessage: &sSMLMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//
+//   									// the properties below are optional
+//   									variations: []interface{}{
+//   										&messageProperty{
+//   											customPayload: &customPayloadProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											imageResponseCard: &imageResponseCardProperty{
+//   												title: jsii.String("title"),
+//
+//   												// the properties below are optional
+//   												buttons: []interface{}{
+//   													&buttonProperty{
+//   														text: jsii.String("text"),
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   												imageUrl: jsii.String("imageUrl"),
+//   												subtitle: jsii.String("subtitle"),
+//   											},
+//   											plainTextMessage: &plainTextMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											ssmlMessage: &sSMLMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//
+//   							// the properties below are optional
+//   							allowInterrupt: jsii.Boolean(false),
+//   						},
+//
+//   						// the properties below are optional
+//   						isActive: jsii.Boolean(false),
+//   					},
+//   					kendraConfiguration: &kendraConfigurationProperty{
+//   						kendraIndex: jsii.String("kendraIndex"),
+//
+//   						// the properties below are optional
+//   						queryFilterString: jsii.String("queryFilterString"),
+//   						queryFilterStringEnabled: jsii.Boolean(false),
+//   					},
+//   					outputContexts: []interface{}{
+//   						&outputContextProperty{
+//   							name: jsii.String("name"),
+//   							timeToLiveInSeconds: jsii.Number(123),
+//   							turnsToLive: jsii.Number(123),
+//   						},
+//   					},
+//   					parentIntentSignature: jsii.String("parentIntentSignature"),
+//   					sampleUtterances: []interface{}{
+//   						&sampleUtteranceProperty{
+//   							utterance: jsii.String("utterance"),
+//   						},
+//   					},
+//   					slotPriorities: []interface{}{
+//   						&slotPriorityProperty{
+//   							priority: jsii.Number(123),
+//   							slotName: jsii.String("slotName"),
+//   						},
+//   					},
+//   					slots: []interface{}{
+//   						&slotProperty{
+//   							name: jsii.String("name"),
+//   							slotTypeName: jsii.String("slotTypeName"),
+//   							valueElicitationSetting: &slotValueElicitationSettingProperty{
+//   								slotConstraint: jsii.String("slotConstraint"),
+//
+//   								// the properties below are optional
+//   								defaultValueSpecification: &slotDefaultValueSpecificationProperty{
+//   									defaultValueList: []interface{}{
+//   										&slotDefaultValueProperty{
+//   											defaultValue: jsii.String("defaultValue"),
+//   										},
+//   									},
+//   								},
+//   								promptSpecification: &promptSpecificationProperty{
+//   									maxRetries: jsii.Number(123),
+//   									messageGroupsList: []interface{}{
+//   										&messageGroupProperty{
+//   											message: &messageProperty{
+//   												customPayload: &customPayloadProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												imageResponseCard: &imageResponseCardProperty{
+//   													title: jsii.String("title"),
+//
+//   													// the properties below are optional
+//   													buttons: []interface{}{
+//   														&buttonProperty{
+//   															text: jsii.String("text"),
+//   															value: jsii.String("value"),
+//   														},
+//   													},
+//   													imageUrl: jsii.String("imageUrl"),
+//   													subtitle: jsii.String("subtitle"),
+//   												},
+//   												plainTextMessage: &plainTextMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   												ssmlMessage: &sSMLMessageProperty{
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//
+//   											// the properties below are optional
+//   											variations: []interface{}{
+//   												&messageProperty{
+//   													customPayload: &customPayloadProperty{
+//   														value: jsii.String("value"),
+//   													},
+//   													imageResponseCard: &imageResponseCardProperty{
+//   														title: jsii.String("title"),
+//
+//   														// the properties below are optional
+//   														buttons: []interface{}{
+//   															&buttonProperty{
+//   																text: jsii.String("text"),
+//   																value: jsii.String("value"),
+//   															},
+//   														},
+//   														imageUrl: jsii.String("imageUrl"),
+//   														subtitle: jsii.String("subtitle"),
+//   													},
+//   													plainTextMessage: &plainTextMessageProperty{
+//   														value: jsii.String("value"),
+//   													},
+//   													ssmlMessage: &sSMLMessageProperty{
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   											},
+//   										},
+//   									},
+//
+//   									// the properties below are optional
+//   									allowInterrupt: jsii.Boolean(false),
+//   								},
+//   								sampleUtterances: []interface{}{
+//   									&sampleUtteranceProperty{
+//   										utterance: jsii.String("utterance"),
+//   									},
+//   								},
+//   								waitAndContinueSpecification: &waitAndContinueSpecificationProperty{
+//   									continueResponse: &responseSpecificationProperty{
+//   										messageGroupsList: []interface{}{
+//   											&messageGroupProperty{
+//   												message: &messageProperty{
+//   													customPayload: &customPayloadProperty{
+//   														value: jsii.String("value"),
+//   													},
+//   													imageResponseCard: &imageResponseCardProperty{
+//   														title: jsii.String("title"),
+//
+//   														// the properties below are optional
+//   														buttons: []interface{}{
+//   															&buttonProperty{
+//   																text: jsii.String("text"),
+//   																value: jsii.String("value"),
+//   															},
+//   														},
+//   														imageUrl: jsii.String("imageUrl"),
+//   														subtitle: jsii.String("subtitle"),
+//   													},
+//   													plainTextMessage: &plainTextMessageProperty{
+//   														value: jsii.String("value"),
+//   													},
+//   													ssmlMessage: &sSMLMessageProperty{
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//
+//   												// the properties below are optional
+//   												variations: []interface{}{
+//   													&messageProperty{
+//   														customPayload: &customPayloadProperty{
+//   															value: jsii.String("value"),
+//   														},
+//   														imageResponseCard: &imageResponseCardProperty{
+//   															title: jsii.String("title"),
+//
+//   															// the properties below are optional
+//   															buttons: []interface{}{
+//   																&buttonProperty{
+//   																	text: jsii.String("text"),
+//   																	value: jsii.String("value"),
+//   																},
+//   															},
+//   															imageUrl: jsii.String("imageUrl"),
+//   															subtitle: jsii.String("subtitle"),
+//   														},
+//   														plainTextMessage: &plainTextMessageProperty{
+//   															value: jsii.String("value"),
+//   														},
+//   														ssmlMessage: &sSMLMessageProperty{
+//   															value: jsii.String("value"),
+//   														},
+//   													},
+//   												},
+//   											},
+//   										},
+//
+//   										// the properties below are optional
+//   										allowInterrupt: jsii.Boolean(false),
+//   									},
+//   									waitingResponse: &responseSpecificationProperty{
+//   										messageGroupsList: []interface{}{
+//   											&messageGroupProperty{
+//   												message: &messageProperty{
+//   													customPayload: &customPayloadProperty{
+//   														value: jsii.String("value"),
+//   													},
+//   													imageResponseCard: &imageResponseCardProperty{
+//   														title: jsii.String("title"),
+//
+//   														// the properties below are optional
+//   														buttons: []interface{}{
+//   															&buttonProperty{
+//   																text: jsii.String("text"),
+//   																value: jsii.String("value"),
+//   															},
+//   														},
+//   														imageUrl: jsii.String("imageUrl"),
+//   														subtitle: jsii.String("subtitle"),
+//   													},
+//   													plainTextMessage: &plainTextMessageProperty{
+//   														value: jsii.String("value"),
+//   													},
+//   													ssmlMessage: &sSMLMessageProperty{
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//
+//   												// the properties below are optional
+//   												variations: []interface{}{
+//   													&messageProperty{
+//   														customPayload: &customPayloadProperty{
+//   															value: jsii.String("value"),
+//   														},
+//   														imageResponseCard: &imageResponseCardProperty{
+//   															title: jsii.String("title"),
+//
+//   															// the properties below are optional
+//   															buttons: []interface{}{
+//   																&buttonProperty{
+//   																	text: jsii.String("text"),
+//   																	value: jsii.String("value"),
+//   																},
+//   															},
+//   															imageUrl: jsii.String("imageUrl"),
+//   															subtitle: jsii.String("subtitle"),
+//   														},
+//   														plainTextMessage: &plainTextMessageProperty{
+//   															value: jsii.String("value"),
+//   														},
+//   														ssmlMessage: &sSMLMessageProperty{
+//   															value: jsii.String("value"),
+//   														},
+//   													},
+//   												},
+//   											},
+//   										},
+//
+//   										// the properties below are optional
+//   										allowInterrupt: jsii.Boolean(false),
+//   									},
+//
+//   									// the properties below are optional
+//   									isActive: jsii.Boolean(false),
+//   									stillWaitingResponse: &stillWaitingResponseSpecificationProperty{
+//   										frequencyInSeconds: jsii.Number(123),
+//   										messageGroupsList: []interface{}{
+//   											&messageGroupProperty{
+//   												message: &messageProperty{
+//   													customPayload: &customPayloadProperty{
+//   														value: jsii.String("value"),
+//   													},
+//   													imageResponseCard: &imageResponseCardProperty{
+//   														title: jsii.String("title"),
+//
+//   														// the properties below are optional
+//   														buttons: []interface{}{
+//   															&buttonProperty{
+//   																text: jsii.String("text"),
+//   																value: jsii.String("value"),
+//   															},
+//   														},
+//   														imageUrl: jsii.String("imageUrl"),
+//   														subtitle: jsii.String("subtitle"),
+//   													},
+//   													plainTextMessage: &plainTextMessageProperty{
+//   														value: jsii.String("value"),
+//   													},
+//   													ssmlMessage: &sSMLMessageProperty{
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//
+//   												// the properties below are optional
+//   												variations: []interface{}{
+//   													&messageProperty{
+//   														customPayload: &customPayloadProperty{
+//   															value: jsii.String("value"),
+//   														},
+//   														imageResponseCard: &imageResponseCardProperty{
+//   															title: jsii.String("title"),
+//
+//   															// the properties below are optional
+//   															buttons: []interface{}{
+//   																&buttonProperty{
+//   																	text: jsii.String("text"),
+//   																	value: jsii.String("value"),
+//   																},
+//   															},
+//   															imageUrl: jsii.String("imageUrl"),
+//   															subtitle: jsii.String("subtitle"),
+//   														},
+//   														plainTextMessage: &plainTextMessageProperty{
+//   															value: jsii.String("value"),
+//   														},
+//   														ssmlMessage: &sSMLMessageProperty{
+//   															value: jsii.String("value"),
+//   														},
+//   													},
+//   												},
+//   											},
+//   										},
+//   										timeoutInSeconds: jsii.Number(123),
+//
+//   										// the properties below are optional
+//   										allowInterrupt: jsii.Boolean(false),
+//   									},
+//   								},
+//   							},
+//
+//   							// the properties below are optional
+//   							description: jsii.String("description"),
+//   							multipleValuesSetting: &multipleValuesSettingProperty{
+//   								allowMultipleValues: jsii.Boolean(false),
+//   							},
+//   							obfuscationSetting: &obfuscationSettingProperty{
+//   								obfuscationSettingType: jsii.String("obfuscationSettingType"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   			slotTypes: []interface{}{
+//   				&slotTypeProperty{
+//   					name: jsii.String("name"),
+//
+//   					// the properties below are optional
+//   					description: jsii.String("description"),
+//   					externalSourceSetting: &externalSourceSettingProperty{
+//   						grammarSlotTypeSetting: &grammarSlotTypeSettingProperty{
+//   							source: &grammarSlotTypeSourceProperty{
+//   								s3BucketName: jsii.String("s3BucketName"),
+//   								s3ObjectKey: jsii.String("s3ObjectKey"),
+//
+//   								// the properties below are optional
+//   								kmsKeyArn: jsii.String("kmsKeyArn"),
+//   							},
+//   						},
+//   					},
+//   					parentSlotTypeSignature: jsii.String("parentSlotTypeSignature"),
+//   					slotTypeValues: []interface{}{
+//   						&slotTypeValueProperty{
+//   							sampleValue: &sampleValueProperty{
+//   								value: jsii.String("value"),
+//   							},
+//
+//   							// the properties below are optional
+//   							synonyms: []interface{}{
+//   								&sampleValueProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   					valueSelectionSetting: &slotValueSelectionSettingProperty{
+//   						resolutionStrategy: jsii.String("resolutionStrategy"),
+//
+//   						// the properties below are optional
+//   						advancedRecognitionSetting: &advancedRecognitionSettingProperty{
+//   							audioRecognitionStrategy: jsii.String("audioRecognitionStrategy"),
+//   						},
+//   						regexFilter: &slotValueRegexFilterProperty{
+//   							pattern: jsii.String("pattern"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			voiceSettings: &voiceSettingsProperty{
+//   				voiceId: jsii.String("voiceId"),
+//   			},
+//   		},
+//   	},
+//   	botTags: []interface{}{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	description: jsii.String("description"),
+//   	testBotAliasSettings: &testBotAliasSettingsProperty{
+//   		botAliasLocaleSettings: []interface{}{
+//   			&botAliasLocaleSettingsItemProperty{
+//   				botAliasLocaleSetting: &botAliasLocaleSettingsProperty{
+//   					enabled: jsii.Boolean(false),
+//
+//   					// the properties below are optional
+//   					codeHookSpecification: &codeHookSpecificationProperty{
+//   						lambdaCodeHook: &lambdaCodeHookProperty{
+//   							codeHookInterfaceVersion: jsii.String("codeHookInterfaceVersion"),
+//   							lambdaArn: jsii.String("lambdaArn"),
+//   						},
+//   					},
+//   				},
+//   				localeId: jsii.String("localeId"),
+//   			},
+//   		},
+//   		conversationLogSettings: &conversationLogSettingsProperty{
+//   			audioLogSettings: []interface{}{
+//   				&audioLogSettingProperty{
+//   					destination: &audioLogDestinationProperty{
+//   						s3Bucket: &s3BucketLogDestinationProperty{
+//   							logPrefix: jsii.String("logPrefix"),
+//   							s3BucketArn: jsii.String("s3BucketArn"),
+//
+//   							// the properties below are optional
+//   							kmsKeyArn: jsii.String("kmsKeyArn"),
+//   						},
+//   					},
+//   					enabled: jsii.Boolean(false),
+//   				},
+//   			},
+//   			textLogSettings: []interface{}{
+//   				&textLogSettingProperty{
+//   					destination: &textLogDestinationProperty{
+//   						cloudWatch: &cloudWatchLogGroupLogDestinationProperty{
+//   							cloudWatchLogGroupArn: jsii.String("cloudWatchLogGroupArn"),
+//   							logPrefix: jsii.String("logPrefix"),
+//   						},
+//   					},
+//   					enabled: jsii.Boolean(false),
+//   				},
+//   			},
+//   		},
+//   		description: jsii.String("description"),
+//   		sentimentAnalysisSettings: sentimentAnalysisSettings,
+//   	},
+//   	testBotAliasTags: []interface{}{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnBotProps struct {
 	// Provides information on additional privacy protections Amazon Lex should use with the bot's data.
@@ -2193,6 +9057,10 @@ type CfnBotProps struct {
 	BotTags interface{} `json:"botTags" yaml:"botTags"`
 	// The description of the version.
 	Description *string `json:"description" yaml:"description"`
+	// Specifies configuration settings for the alias used to test the bot.
+	//
+	// If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
+	TestBotAliasSettings interface{} `json:"testBotAliasSettings" yaml:"testBotAliasSettings"`
 	// A list of tags to add to the test alias for a bot.
 	//
 	// You can only add tags when you import a bot. You can't use the `UpdateAlias` operation to update tags. To update tags on the test alias, use the `TagResource` operation.
@@ -2205,41 +9073,245 @@ type CfnBotProps struct {
 //
 // When you specify the first version of a bot, Amazon Lex sets the version to 1. Subsequent versions increment by 1.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   cfnBotVersion := lex.NewCfnBotVersion(this, jsii.String("MyCfnBotVersion"), &cfnBotVersionProps{
+//   	botId: jsii.String("botId"),
+//   	botVersionLocaleSpecification: []interface{}{
+//   		&botVersionLocaleSpecificationProperty{
+//   			botVersionLocaleDetails: &botVersionLocaleDetailsProperty{
+//   				sourceBotVersion: jsii.String("sourceBotVersion"),
+//   			},
+//   			localeId: jsii.String("localeId"),
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   })
 //
 type CfnBotVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The version of the bot.
 	AttrBotVersion() *string
+	// The unique identifier of the bot.
 	BotId() *string
 	SetBotId(val *string)
+	// Specifies the locales that Amazon Lex adds to this version.
+	//
+	// You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
 	BotVersionLocaleSpecification() interface{}
 	SetBotVersionLocaleSpecification(val interface{})
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The description of the version.
 	Description() *string
 	SetDescription(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2339,8 +9411,8 @@ func (j *jsiiProxy_CfnBotVersion) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBotVersion) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnBotVersion) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2381,13 +9453,13 @@ func (j *jsiiProxy_CfnBotVersion) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Lex::BotVersion`.
-func NewCfnBotVersion(scope constructs.Construct, id *string, props *CfnBotVersionProps) CfnBotVersion {
+func NewCfnBotVersion(scope awscdk.Construct, id *string, props *CfnBotVersionProps) CfnBotVersion {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnBotVersion{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lex.CfnBotVersion",
+		"monocdk.aws_lex.CfnBotVersion",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2396,11 +9468,11 @@ func NewCfnBotVersion(scope constructs.Construct, id *string, props *CfnBotVersi
 }
 
 // Create a new `AWS::Lex::BotVersion`.
-func NewCfnBotVersion_Override(c CfnBotVersion, scope constructs.Construct, id *string, props *CfnBotVersionProps) {
+func NewCfnBotVersion_Override(c CfnBotVersion, scope awscdk.Construct, id *string, props *CfnBotVersionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lex.CfnBotVersion",
+		"monocdk.aws_lex.CfnBotVersion",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2436,13 +9508,14 @@ func (j *jsiiProxy_CfnBotVersion) SetDescription(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnBotVersion_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lex.CfnBotVersion",
+		"monocdk.aws_lex.CfnBotVersion",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2452,13 +9525,14 @@ func CfnBotVersion_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnBotVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lex.CfnBotVersion",
+		"monocdk.aws_lex.CfnBotVersion",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2467,17 +9541,15 @@ func CfnBotVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnBotVersion_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lex.CfnBotVersion",
+		"monocdk.aws_lex.CfnBotVersion",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2490,14 +9562,13 @@ func CfnBotVersion_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_lex.CfnBotVersion",
+		"monocdk.aws_lex.CfnBotVersion",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnBotVersion) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2506,10 +9577,6 @@ func (c *jsiiProxy_CfnBotVersion) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnBotVersion) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2518,13 +9585,6 @@ func (c *jsiiProxy_CfnBotVersion) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnBotVersion) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2533,49 +9593,6 @@ func (c *jsiiProxy_CfnBotVersion) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnBotVersion) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2584,7 +9601,6 @@ func (c *jsiiProxy_CfnBotVersion) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnBotVersion) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2593,9 +9609,6 @@ func (c *jsiiProxy_CfnBotVersion) AddPropertyDeletionOverride(propertyPath *stri
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnBotVersion) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2604,15 +9617,6 @@ func (c *jsiiProxy_CfnBotVersion) AddPropertyOverride(propertyPath *string, valu
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnBotVersion) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2621,10 +9625,6 @@ func (c *jsiiProxy_CfnBotVersion) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnBotVersion) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2638,13 +9638,6 @@ func (c *jsiiProxy_CfnBotVersion) GetAtt(attributeName *string) awscdk.Reference
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnBotVersion) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2658,7 +9651,6 @@ func (c *jsiiProxy_CfnBotVersion) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnBotVersion) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2667,12 +9659,48 @@ func (c *jsiiProxy_CfnBotVersion) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnBotVersion) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnBotVersion) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnBotVersion) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnBotVersion) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnBotVersion) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2689,10 +9717,6 @@ func (c *jsiiProxy_CfnBotVersion) RenderProperties(props *map[string]interface{}
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnBotVersion) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2706,15 +9730,33 @@ func (c *jsiiProxy_CfnBotVersion) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnBotVersion) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnBotVersion) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnBotVersion) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2732,7 +9774,11 @@ func (c *jsiiProxy_CfnBotVersion) ValidateProperties(_properties interface{}) {
 
 // The version of a bot used for a bot locale.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   botVersionLocaleDetailsProperty := &botVersionLocaleDetailsProperty{
+//   	sourceBotVersion: jsii.String("sourceBotVersion"),
+//   }
 //
 type CfnBotVersion_BotVersionLocaleDetailsProperty struct {
 	// The version of a bot used for a bot locale.
@@ -2743,7 +9789,14 @@ type CfnBotVersion_BotVersionLocaleDetailsProperty struct {
 //
 // You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   botVersionLocaleSpecificationProperty := &botVersionLocaleSpecificationProperty{
+//   	botVersionLocaleDetails: &botVersionLocaleDetailsProperty{
+//   		sourceBotVersion: jsii.String("sourceBotVersion"),
+//   	},
+//   	localeId: jsii.String("localeId"),
+//   }
 //
 type CfnBotVersion_BotVersionLocaleSpecificationProperty struct {
 	// The version of a bot used for a bot locale.
@@ -2754,7 +9807,22 @@ type CfnBotVersion_BotVersionLocaleSpecificationProperty struct {
 
 // Properties for defining a `CfnBotVersion`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   cfnBotVersionProps := &cfnBotVersionProps{
+//   	botId: jsii.String("botId"),
+//   	botVersionLocaleSpecification: []interface{}{
+//   		&botVersionLocaleSpecificationProperty{
+//   			botVersionLocaleDetails: &botVersionLocaleDetailsProperty{
+//   				sourceBotVersion: jsii.String("sourceBotVersion"),
+//   			},
+//   			localeId: jsii.String("localeId"),
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   }
 //
 type CfnBotVersionProps struct {
 	// The unique identifier of the bot.
@@ -2771,40 +9839,236 @@ type CfnBotVersionProps struct {
 //
 // Specifies a new resource policy with the specified policy statements.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//
+//   var policy interface{}
+//   cfnResourcePolicy := lex.NewCfnResourcePolicy(this, jsii.String("MyCfnResourcePolicy"), &cfnResourcePolicyProps{
+//   	policy: policy,
+//   	resourceArn: jsii.String("resourceArn"),
+//   })
 //
 type CfnResourcePolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The identifier of the resource policy.
 	AttrId() *string
+	// Specifies the current revision of a resource policy.
 	AttrRevisionId() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// A resource policy to add to the resource.
+	//
+	// The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
 	Policy() interface{}
 	SetPolicy(val interface{})
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
 	ResourceArn() *string
 	SetResourceArn(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2884,8 +10148,8 @@ func (j *jsiiProxy_CfnResourcePolicy) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourcePolicy) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnResourcePolicy) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2946,13 +10210,13 @@ func (j *jsiiProxy_CfnResourcePolicy) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::Lex::ResourcePolicy`.
-func NewCfnResourcePolicy(scope constructs.Construct, id *string, props *CfnResourcePolicyProps) CfnResourcePolicy {
+func NewCfnResourcePolicy(scope awscdk.Construct, id *string, props *CfnResourcePolicyProps) CfnResourcePolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnResourcePolicy{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lex.CfnResourcePolicy",
+		"monocdk.aws_lex.CfnResourcePolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2961,11 +10225,11 @@ func NewCfnResourcePolicy(scope constructs.Construct, id *string, props *CfnReso
 }
 
 // Create a new `AWS::Lex::ResourcePolicy`.
-func NewCfnResourcePolicy_Override(c CfnResourcePolicy, scope constructs.Construct, id *string, props *CfnResourcePolicyProps) {
+func NewCfnResourcePolicy_Override(c CfnResourcePolicy, scope awscdk.Construct, id *string, props *CfnResourcePolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lex.CfnResourcePolicy",
+		"monocdk.aws_lex.CfnResourcePolicy",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2993,13 +10257,14 @@ func (j *jsiiProxy_CfnResourcePolicy) SetResourceArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnResourcePolicy_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lex.CfnResourcePolicy",
+		"monocdk.aws_lex.CfnResourcePolicy",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3009,13 +10274,14 @@ func CfnResourcePolicy_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnResourcePolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lex.CfnResourcePolicy",
+		"monocdk.aws_lex.CfnResourcePolicy",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3024,17 +10290,15 @@ func CfnResourcePolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnResourcePolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lex.CfnResourcePolicy",
+		"monocdk.aws_lex.CfnResourcePolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3047,14 +10311,13 @@ func CfnResourcePolicy_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_lex.CfnResourcePolicy",
+		"monocdk.aws_lex.CfnResourcePolicy",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnResourcePolicy) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3063,10 +10326,6 @@ func (c *jsiiProxy_CfnResourcePolicy) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnResourcePolicy) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3075,13 +10334,6 @@ func (c *jsiiProxy_CfnResourcePolicy) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnResourcePolicy) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3090,49 +10342,6 @@ func (c *jsiiProxy_CfnResourcePolicy) AddMetadata(key *string, value interface{}
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnResourcePolicy) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3141,7 +10350,6 @@ func (c *jsiiProxy_CfnResourcePolicy) AddOverride(path *string, value interface{
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnResourcePolicy) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3150,9 +10358,6 @@ func (c *jsiiProxy_CfnResourcePolicy) AddPropertyDeletionOverride(propertyPath *
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnResourcePolicy) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3161,15 +10366,6 @@ func (c *jsiiProxy_CfnResourcePolicy) AddPropertyOverride(propertyPath *string, 
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnResourcePolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3178,10 +10374,6 @@ func (c *jsiiProxy_CfnResourcePolicy) ApplyRemovalPolicy(policy awscdk.RemovalPo
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnResourcePolicy) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3195,13 +10387,6 @@ func (c *jsiiProxy_CfnResourcePolicy) GetAtt(attributeName *string) awscdk.Refer
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnResourcePolicy) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3215,7 +10400,6 @@ func (c *jsiiProxy_CfnResourcePolicy) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnResourcePolicy) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3224,12 +10408,48 @@ func (c *jsiiProxy_CfnResourcePolicy) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnResourcePolicy) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnResourcePolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnResourcePolicy) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnResourcePolicy) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnResourcePolicy) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3246,10 +10466,6 @@ func (c *jsiiProxy_CfnResourcePolicy) RenderProperties(props *map[string]interfa
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnResourcePolicy) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3263,15 +10479,33 @@ func (c *jsiiProxy_CfnResourcePolicy) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnResourcePolicy) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnResourcePolicy) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnResourcePolicy) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3289,7 +10523,14 @@ func (c *jsiiProxy_CfnResourcePolicy) ValidateProperties(_properties interface{}
 
 // Properties for defining a `CfnResourcePolicy`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//
+//   var policy interface{}
+//   cfnResourcePolicyProps := &cfnResourcePolicyProps{
+//   	policy: policy,
+//   	resourceArn: jsii.String("resourceArn"),
+//   }
 //
 type CfnResourcePolicyProps struct {
 	// A resource policy to add to the resource.

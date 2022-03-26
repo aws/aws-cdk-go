@@ -1,69 +1,352 @@
 package awsquicksight
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsquicksight/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsquicksight/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::QuickSight::Analysis`.
 //
 // Creates an analysis in Amazon QuickSight.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   cfnAnalysis := quicksight.NewCfnAnalysis(this, jsii.String("MyCfnAnalysis"), &cfnAnalysisProps{
+//   	analysisId: jsii.String("analysisId"),
+//   	awsAccountId: jsii.String("awsAccountId"),
+//   	sourceEntity: &analysisSourceEntityProperty{
+//   		sourceTemplate: &analysisSourceTemplateProperty{
+//   			arn: jsii.String("arn"),
+//   			dataSetReferences: []interface{}{
+//   				&dataSetReferenceProperty{
+//   					dataSetArn: jsii.String("dataSetArn"),
+//   					dataSetPlaceholder: jsii.String("dataSetPlaceholder"),
+//   				},
+//   			},
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	errors: []interface{}{
+//   		&analysisErrorProperty{
+//   			message: jsii.String("message"),
+//   			type: jsii.String("type"),
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//   	parameters: &parametersProperty{
+//   		dateTimeParameters: []interface{}{
+//   			&dateTimeParameterProperty{
+//   				name: jsii.String("name"),
+//   				values: []*string{
+//   					jsii.String("values"),
+//   				},
+//   			},
+//   		},
+//   		decimalParameters: []interface{}{
+//   			&decimalParameterProperty{
+//   				name: jsii.String("name"),
+//   				values: []interface{}{
+//   					jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   		integerParameters: []interface{}{
+//   			&integerParameterProperty{
+//   				name: jsii.String("name"),
+//   				values: []interface{}{
+//   					jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   		stringParameters: []interface{}{
+//   			&stringParameterProperty{
+//   				name: jsii.String("name"),
+//   				values: []*string{
+//   					jsii.String("values"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	permissions: []interface{}{
+//   		&resourcePermissionProperty{
+//   			actions: []*string{
+//   				jsii.String("actions"),
+//   			},
+//   			principal: jsii.String("principal"),
+//   		},
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	themeArn: jsii.String("themeArn"),
+//   })
 //
 type CfnAnalysis interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ID for the analysis that you're creating.
+	//
+	// This ID displays in the URL of the analysis.
 	AnalysisId() *string
 	SetAnalysisId(val *string)
+	// The Amazon Resource Name (ARN) of the analysis.
 	AttrArn() *string
 	AttrCreatedTime() *string
+	// The ARNs of the datasets of the analysis.
 	AttrDataSetArns() *[]*string
+	// The time that the analysis was last updated.
 	AttrLastUpdatedTime() *string
 	AttrSheets() awscdk.IResolvable
 	AttrStatus() *string
+	// The ID of the AWS account where you are creating an analysis.
 	AwsAccountId() *string
 	SetAwsAccountId(val *string)
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// `AWS::QuickSight::Analysis.Errors`.
 	Errors() interface{}
 	SetErrors(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// A descriptive name for the analysis that you're creating.
+	//
+	// This name displays for the analysis in the Amazon QuickSight console.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// The parameter names and override values that you want to use.
+	//
+	// An analysis can have any parameter type, and some parameters might accept multiple values.
 	Parameters() interface{}
 	SetParameters(val interface{})
+	// A structure that describes the principals and the resource-level permissions on an analysis.
+	//
+	// You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+	//
+	// To specify no permissions, omit `Permissions` .
 	Permissions() interface{}
 	SetPermissions(val interface{})
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// A source entity to use for the analysis that you're creating.
+	//
+	// This metadata structure contains details that describe a source template and one or more datasets.
 	SourceEntity() interface{}
 	SetSourceEntity(val interface{})
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the analysis.
 	Tags() awscdk.TagManager
+	// The ARN for the theme to apply to the analysis that you're creating.
+	//
+	// To see the theme in the Amazon QuickSight console, make sure that you have access to it.
 	ThemeArn() *string
 	SetThemeArn(val *string)
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -223,8 +506,8 @@ func (j *jsiiProxy_CfnAnalysis) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAnalysis) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnAnalysis) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -315,13 +598,13 @@ func (j *jsiiProxy_CfnAnalysis) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::QuickSight::Analysis`.
-func NewCfnAnalysis(scope constructs.Construct, id *string, props *CfnAnalysisProps) CfnAnalysis {
+func NewCfnAnalysis(scope awscdk.Construct, id *string, props *CfnAnalysisProps) CfnAnalysis {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAnalysis{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis",
+		"monocdk.aws_quicksight.CfnAnalysis",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -330,11 +613,11 @@ func NewCfnAnalysis(scope constructs.Construct, id *string, props *CfnAnalysisPr
 }
 
 // Create a new `AWS::QuickSight::Analysis`.
-func NewCfnAnalysis_Override(c CfnAnalysis, scope constructs.Construct, id *string, props *CfnAnalysisProps) {
+func NewCfnAnalysis_Override(c CfnAnalysis, scope awscdk.Construct, id *string, props *CfnAnalysisProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis",
+		"monocdk.aws_quicksight.CfnAnalysis",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -410,13 +693,14 @@ func (j *jsiiProxy_CfnAnalysis) SetThemeArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnAnalysis_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis",
+		"monocdk.aws_quicksight.CfnAnalysis",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -426,13 +710,14 @@ func CfnAnalysis_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnAnalysis_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis",
+		"monocdk.aws_quicksight.CfnAnalysis",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -441,17 +726,15 @@ func CfnAnalysis_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnAnalysis_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis",
+		"monocdk.aws_quicksight.CfnAnalysis",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -464,14 +747,13 @@ func CfnAnalysis_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis",
+		"monocdk.aws_quicksight.CfnAnalysis",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnAnalysis) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -480,10 +762,6 @@ func (c *jsiiProxy_CfnAnalysis) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnAnalysis) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -492,13 +770,6 @@ func (c *jsiiProxy_CfnAnalysis) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnAnalysis) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -507,49 +778,6 @@ func (c *jsiiProxy_CfnAnalysis) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnAnalysis) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -558,7 +786,6 @@ func (c *jsiiProxy_CfnAnalysis) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnAnalysis) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -567,9 +794,6 @@ func (c *jsiiProxy_CfnAnalysis) AddPropertyDeletionOverride(propertyPath *string
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnAnalysis) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -578,15 +802,6 @@ func (c *jsiiProxy_CfnAnalysis) AddPropertyOverride(propertyPath *string, value 
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnAnalysis) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -595,10 +810,6 @@ func (c *jsiiProxy_CfnAnalysis) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnAnalysis) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -612,13 +823,6 @@ func (c *jsiiProxy_CfnAnalysis) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnAnalysis) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -632,7 +836,6 @@ func (c *jsiiProxy_CfnAnalysis) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnAnalysis) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -641,12 +844,48 @@ func (c *jsiiProxy_CfnAnalysis) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnAnalysis) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnAnalysis) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnAnalysis) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnAnalysis) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnAnalysis) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -663,10 +902,6 @@ func (c *jsiiProxy_CfnAnalysis) RenderProperties(props *map[string]interface{}) 
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnAnalysis) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -680,15 +915,33 @@ func (c *jsiiProxy_CfnAnalysis) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnAnalysis) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnAnalysis) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnAnalysis) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -706,7 +959,12 @@ func (c *jsiiProxy_CfnAnalysis) ValidateProperties(_properties interface{}) {
 
 // Analysis error.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   analysisErrorProperty := &analysisErrorProperty{
+//   	message: jsii.String("message"),
+//   	type: jsii.String("type"),
+//   }
 //
 type CfnAnalysis_AnalysisErrorProperty struct {
 	// The message associated with the analysis error.
@@ -717,7 +975,19 @@ type CfnAnalysis_AnalysisErrorProperty struct {
 
 // The source entity of an analysis.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   analysisSourceEntityProperty := &analysisSourceEntityProperty{
+//   	sourceTemplate: &analysisSourceTemplateProperty{
+//   		arn: jsii.String("arn"),
+//   		dataSetReferences: []interface{}{
+//   			&dataSetReferenceProperty{
+//   				dataSetArn: jsii.String("dataSetArn"),
+//   				dataSetPlaceholder: jsii.String("dataSetPlaceholder"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnAnalysis_AnalysisSourceEntityProperty struct {
 	// The source template for the source entity of the analysis.
@@ -726,7 +996,17 @@ type CfnAnalysis_AnalysisSourceEntityProperty struct {
 
 // The source template of an analysis.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   analysisSourceTemplateProperty := &analysisSourceTemplateProperty{
+//   	arn: jsii.String("arn"),
+//   	dataSetReferences: []interface{}{
+//   		&dataSetReferenceProperty{
+//   			dataSetArn: jsii.String("dataSetArn"),
+//   			dataSetPlaceholder: jsii.String("dataSetPlaceholder"),
+//   		},
+//   	},
+//   }
 //
 type CfnAnalysis_AnalysisSourceTemplateProperty struct {
 	// The Amazon Resource Name (ARN) of the source template of an analysis.
@@ -737,7 +1017,12 @@ type CfnAnalysis_AnalysisSourceTemplateProperty struct {
 
 // Dataset reference.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   dataSetReferenceProperty := &dataSetReferenceProperty{
+//   	dataSetArn: jsii.String("dataSetArn"),
+//   	dataSetPlaceholder: jsii.String("dataSetPlaceholder"),
+//   }
 //
 type CfnAnalysis_DataSetReferenceProperty struct {
 	// Dataset Amazon Resource Name (ARN).
@@ -748,7 +1033,14 @@ type CfnAnalysis_DataSetReferenceProperty struct {
 
 // A date-time parameter.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   dateTimeParameterProperty := &dateTimeParameterProperty{
+//   	name: jsii.String("name"),
+//   	values: []*string{
+//   		jsii.String("values"),
+//   	},
+//   }
 //
 type CfnAnalysis_DateTimeParameterProperty struct {
 	// A display name for the date-time parameter.
@@ -759,7 +1051,14 @@ type CfnAnalysis_DateTimeParameterProperty struct {
 
 // A decimal parameter.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   decimalParameterProperty := &decimalParameterProperty{
+//   	name: jsii.String("name"),
+//   	values: []interface{}{
+//   		jsii.Number(123),
+//   	},
+//   }
 //
 type CfnAnalysis_DecimalParameterProperty struct {
 	// A display name for the decimal parameter.
@@ -770,7 +1069,14 @@ type CfnAnalysis_DecimalParameterProperty struct {
 
 // An integer parameter.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   integerParameterProperty := &integerParameterProperty{
+//   	name: jsii.String("name"),
+//   	values: []interface{}{
+//   		jsii.Number(123),
+//   	},
+//   }
 //
 type CfnAnalysis_IntegerParameterProperty struct {
 	// The name of the integer parameter.
@@ -781,7 +1087,42 @@ type CfnAnalysis_IntegerParameterProperty struct {
 
 // A list of Amazon QuickSight parameters and the list's override values.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   parametersProperty := &parametersProperty{
+//   	dateTimeParameters: []interface{}{
+//   		&dateTimeParameterProperty{
+//   			name: jsii.String("name"),
+//   			values: []*string{
+//   				jsii.String("values"),
+//   			},
+//   		},
+//   	},
+//   	decimalParameters: []interface{}{
+//   		&decimalParameterProperty{
+//   			name: jsii.String("name"),
+//   			values: []interface{}{
+//   				jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   	integerParameters: []interface{}{
+//   		&integerParameterProperty{
+//   			name: jsii.String("name"),
+//   			values: []interface{}{
+//   				jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   	stringParameters: []interface{}{
+//   		&stringParameterProperty{
+//   			name: jsii.String("name"),
+//   			values: []*string{
+//   				jsii.String("values"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnAnalysis_ParametersProperty struct {
 	// The parameters that have a data type of date-time.
@@ -796,7 +1137,14 @@ type CfnAnalysis_ParametersProperty struct {
 
 // Permission for the resource.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   resourcePermissionProperty := &resourcePermissionProperty{
+//   	actions: []*string{
+//   		jsii.String("actions"),
+//   	},
+//   	principal: jsii.String("principal"),
+//   }
 //
 type CfnAnalysis_ResourcePermissionProperty struct {
 	// The IAM action to grant or revoke permissions on.
@@ -813,7 +1161,12 @@ type CfnAnalysis_ResourcePermissionProperty struct {
 //
 // Every analysis and dashboard contains at least one sheet. Each sheet contains at least one visualization widget, for example a chart, pivot table, or narrative insight. Sheets can be associated with other components, such as controls, filters, and so on.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   sheetProperty := &sheetProperty{
+//   	name: jsii.String("name"),
+//   	sheetId: jsii.String("sheetId"),
+//   }
 //
 type CfnAnalysis_SheetProperty struct {
 	// The name of a sheet.
@@ -826,7 +1179,14 @@ type CfnAnalysis_SheetProperty struct {
 
 // A string parameter.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   stringParameterProperty := &stringParameterProperty{
+//   	name: jsii.String("name"),
+//   	values: []*string{
+//   		jsii.String("values"),
+//   	},
+//   }
 //
 type CfnAnalysis_StringParameterProperty struct {
 	// A display name for a string parameter.
@@ -837,7 +1197,81 @@ type CfnAnalysis_StringParameterProperty struct {
 
 // Properties for defining a `CfnAnalysis`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   cfnAnalysisProps := &cfnAnalysisProps{
+//   	analysisId: jsii.String("analysisId"),
+//   	awsAccountId: jsii.String("awsAccountId"),
+//   	sourceEntity: &analysisSourceEntityProperty{
+//   		sourceTemplate: &analysisSourceTemplateProperty{
+//   			arn: jsii.String("arn"),
+//   			dataSetReferences: []interface{}{
+//   				&dataSetReferenceProperty{
+//   					dataSetArn: jsii.String("dataSetArn"),
+//   					dataSetPlaceholder: jsii.String("dataSetPlaceholder"),
+//   				},
+//   			},
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	errors: []interface{}{
+//   		&analysisErrorProperty{
+//   			message: jsii.String("message"),
+//   			type: jsii.String("type"),
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//   	parameters: &parametersProperty{
+//   		dateTimeParameters: []interface{}{
+//   			&dateTimeParameterProperty{
+//   				name: jsii.String("name"),
+//   				values: []*string{
+//   					jsii.String("values"),
+//   				},
+//   			},
+//   		},
+//   		decimalParameters: []interface{}{
+//   			&decimalParameterProperty{
+//   				name: jsii.String("name"),
+//   				values: []interface{}{
+//   					jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   		integerParameters: []interface{}{
+//   			&integerParameterProperty{
+//   				name: jsii.String("name"),
+//   				values: []interface{}{
+//   					jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   		stringParameters: []interface{}{
+//   			&stringParameterProperty{
+//   				name: jsii.String("name"),
+//   				values: []*string{
+//   					jsii.String("values"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	permissions: []interface{}{
+//   		&resourcePermissionProperty{
+//   			actions: []*string{
+//   				jsii.String("actions"),
+//   			},
+//   			principal: jsii.String("principal"),
+//   		},
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	themeArn: jsii.String("themeArn"),
+//   }
 //
 type CfnAnalysisProps struct {
 	// The ID for the analysis that you're creating.
@@ -880,57 +1314,350 @@ type CfnAnalysisProps struct {
 //
 // A dashboard is an entity in Amazon QuickSight that identifies Amazon QuickSight reports, created from analyses. You can share Amazon QuickSight dashboards. With the right permissions, you can create scheduled email reports from them. If you have the correct permissions, you can create a dashboard from a template that exists in a different AWS account .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   cfnDashboard := quicksight.NewCfnDashboard(this, jsii.String("MyCfnDashboard"), &cfnDashboardProps{
+//   	awsAccountId: jsii.String("awsAccountId"),
+//   	dashboardId: jsii.String("dashboardId"),
+//   	sourceEntity: &dashboardSourceEntityProperty{
+//   		sourceTemplate: &dashboardSourceTemplateProperty{
+//   			arn: jsii.String("arn"),
+//   			dataSetReferences: []interface{}{
+//   				&dataSetReferenceProperty{
+//   					dataSetArn: jsii.String("dataSetArn"),
+//   					dataSetPlaceholder: jsii.String("dataSetPlaceholder"),
+//   				},
+//   			},
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	dashboardPublishOptions: &dashboardPublishOptionsProperty{
+//   		adHocFilteringOption: &adHocFilteringOptionProperty{
+//   			availabilityStatus: jsii.String("availabilityStatus"),
+//   		},
+//   		exportToCsvOption: &exportToCSVOptionProperty{
+//   			availabilityStatus: jsii.String("availabilityStatus"),
+//   		},
+//   		sheetControlsOption: &sheetControlsOptionProperty{
+//   			visibilityState: jsii.String("visibilityState"),
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//   	parameters: &parametersProperty{
+//   		dateTimeParameters: []interface{}{
+//   			&dateTimeParameterProperty{
+//   				name: jsii.String("name"),
+//   				values: []*string{
+//   					jsii.String("values"),
+//   				},
+//   			},
+//   		},
+//   		decimalParameters: []interface{}{
+//   			&decimalParameterProperty{
+//   				name: jsii.String("name"),
+//   				values: []interface{}{
+//   					jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   		integerParameters: []interface{}{
+//   			&integerParameterProperty{
+//   				name: jsii.String("name"),
+//   				values: []interface{}{
+//   					jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   		stringParameters: []interface{}{
+//   			&stringParameterProperty{
+//   				name: jsii.String("name"),
+//   				values: []*string{
+//   					jsii.String("values"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	permissions: []interface{}{
+//   		&resourcePermissionProperty{
+//   			actions: []*string{
+//   				jsii.String("actions"),
+//   			},
+//   			principal: jsii.String("principal"),
+//   		},
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	themeArn: jsii.String("themeArn"),
+//   	versionDescription: jsii.String("versionDescription"),
+//   })
 //
 type CfnDashboard interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the dashboard.
 	AttrArn() *string
+	// The time this dashboard version was created.
 	AttrCreatedTime() *string
+	// The time that the dashboard was last published.
 	AttrLastPublishedTime() *string
+	// The time that the dashboard was last updated.
 	AttrLastUpdatedTime() *string
+	// The ID of the AWS account where you want to create the dashboard.
 	AwsAccountId() *string
 	SetAwsAccountId(val *string)
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The ID for the dashboard, also added to the IAM policy.
 	DashboardId() *string
 	SetDashboardId(val *string)
+	// Options for publishing the dashboard when you create it:.
+	//
+	// - `AvailabilityStatus` for `AdHocFilteringOption` - This status can be either `ENABLED` or `DISABLED` . When this is set to `DISABLED` , Amazon QuickSight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is `ENABLED` by default.
+	// - `AvailabilityStatus` for `ExportToCSVOption` - This status can be either `ENABLED` or `DISABLED` . The visual option to export data to .CSV format isn't enabled when this is set to `DISABLED` . This option is `ENABLED` by default.
+	// - `VisibilityState` for `SheetControlsOption` - This visibility state can be either `COLLAPSED` or `EXPANDED` . This option is `COLLAPSED` by default.
 	DashboardPublishOptions() interface{}
 	SetDashboardPublishOptions(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The display name of the dashboard.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// The parameters for the creation of the dashboard, which you want to use to override the default settings.
+	//
+	// A dashboard can have any type of parameters, and some parameters might accept multiple values.
 	Parameters() interface{}
 	SetParameters(val interface{})
+	// A structure that contains the permissions of the dashboard.
+	//
+	// You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN.
+	//
+	// To specify no permissions, omit the permissions list.
 	Permissions() interface{}
 	SetPermissions(val interface{})
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The entity that you are using as a source when you create the dashboard.
+	//
+	// In `SourceEntity` , you specify the type of object that you want to use. You can only create a dashboard from a template, so you use a `SourceTemplate` entity. If you need to create a dashboard from an analysis, first convert the analysis to a template by using the `CreateTemplate` API operation. For `SourceTemplate` , specify the Amazon Resource Name (ARN) of the source template. The `SourceTemplate` ARN can contain any AWS account; and any QuickSight-supported AWS Region .
+	//
+	// Use the `DataSetReferences` entity within `SourceTemplate` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
 	SourceEntity() interface{}
 	SetSourceEntity(val interface{})
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
 	Tags() awscdk.TagManager
+	// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard.
+	//
+	// If you add a value for this field, it overrides the value that is used in the source entity. The theme ARN must exist in the same AWS account where you create the dashboard.
 	ThemeArn() *string
 	SetThemeArn(val *string)
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// A description for the first version of the dashboard being created.
 	VersionDescription() *string
 	SetVersionDescription(val *string)
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1070,8 +1797,8 @@ func (j *jsiiProxy_CfnDashboard) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDashboard) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDashboard) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1172,13 +1899,13 @@ func (j *jsiiProxy_CfnDashboard) VersionDescription() *string {
 
 
 // Create a new `AWS::QuickSight::Dashboard`.
-func NewCfnDashboard(scope constructs.Construct, id *string, props *CfnDashboardProps) CfnDashboard {
+func NewCfnDashboard(scope awscdk.Construct, id *string, props *CfnDashboardProps) CfnDashboard {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDashboard{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard",
+		"monocdk.aws_quicksight.CfnDashboard",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1187,11 +1914,11 @@ func NewCfnDashboard(scope constructs.Construct, id *string, props *CfnDashboard
 }
 
 // Create a new `AWS::QuickSight::Dashboard`.
-func NewCfnDashboard_Override(c CfnDashboard, scope constructs.Construct, id *string, props *CfnDashboardProps) {
+func NewCfnDashboard_Override(c CfnDashboard, scope awscdk.Construct, id *string, props *CfnDashboardProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard",
+		"monocdk.aws_quicksight.CfnDashboard",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1275,13 +2002,14 @@ func (j *jsiiProxy_CfnDashboard) SetVersionDescription(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDashboard_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard",
+		"monocdk.aws_quicksight.CfnDashboard",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1291,13 +2019,14 @@ func CfnDashboard_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDashboard_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard",
+		"monocdk.aws_quicksight.CfnDashboard",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1306,17 +2035,15 @@ func CfnDashboard_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDashboard_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard",
+		"monocdk.aws_quicksight.CfnDashboard",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1329,14 +2056,13 @@ func CfnDashboard_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard",
+		"monocdk.aws_quicksight.CfnDashboard",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnDashboard) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1345,10 +2071,6 @@ func (c *jsiiProxy_CfnDashboard) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnDashboard) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1357,13 +2079,6 @@ func (c *jsiiProxy_CfnDashboard) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnDashboard) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1372,49 +2087,6 @@ func (c *jsiiProxy_CfnDashboard) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnDashboard) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1423,7 +2095,6 @@ func (c *jsiiProxy_CfnDashboard) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnDashboard) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1432,9 +2103,6 @@ func (c *jsiiProxy_CfnDashboard) AddPropertyDeletionOverride(propertyPath *strin
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnDashboard) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1443,15 +2111,6 @@ func (c *jsiiProxy_CfnDashboard) AddPropertyOverride(propertyPath *string, value
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnDashboard) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1460,10 +2119,6 @@ func (c *jsiiProxy_CfnDashboard) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnDashboard) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1477,13 +2132,6 @@ func (c *jsiiProxy_CfnDashboard) GetAtt(attributeName *string) awscdk.Reference 
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnDashboard) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1497,7 +2145,6 @@ func (c *jsiiProxy_CfnDashboard) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnDashboard) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1506,12 +2153,48 @@ func (c *jsiiProxy_CfnDashboard) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnDashboard) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnDashboard) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnDashboard) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnDashboard) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnDashboard) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1528,10 +2211,6 @@ func (c *jsiiProxy_CfnDashboard) RenderProperties(props *map[string]interface{})
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnDashboard) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1545,15 +2224,33 @@ func (c *jsiiProxy_CfnDashboard) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnDashboard) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnDashboard) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDashboard) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1571,7 +2268,11 @@ func (c *jsiiProxy_CfnDashboard) ValidateProperties(_properties interface{}) {
 
 // Ad hoc (one-time) filtering option.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   adHocFilteringOptionProperty := &adHocFilteringOptionProperty{
+//   	availabilityStatus: jsii.String("availabilityStatus"),
+//   }
 //
 type CfnDashboard_AdHocFilteringOptionProperty struct {
 	// Availability status.
@@ -1580,7 +2281,19 @@ type CfnDashboard_AdHocFilteringOptionProperty struct {
 
 // Dashboard publish options.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   dashboardPublishOptionsProperty := &dashboardPublishOptionsProperty{
+//   	adHocFilteringOption: &adHocFilteringOptionProperty{
+//   		availabilityStatus: jsii.String("availabilityStatus"),
+//   	},
+//   	exportToCsvOption: &exportToCSVOptionProperty{
+//   		availabilityStatus: jsii.String("availabilityStatus"),
+//   	},
+//   	sheetControlsOption: &sheetControlsOptionProperty{
+//   		visibilityState: jsii.String("visibilityState"),
+//   	},
+//   }
 //
 type CfnDashboard_DashboardPublishOptionsProperty struct {
 	// Ad hoc (one-time) filtering option.
@@ -1593,7 +2306,19 @@ type CfnDashboard_DashboardPublishOptionsProperty struct {
 
 // Dashboard source entity.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   dashboardSourceEntityProperty := &dashboardSourceEntityProperty{
+//   	sourceTemplate: &dashboardSourceTemplateProperty{
+//   		arn: jsii.String("arn"),
+//   		dataSetReferences: []interface{}{
+//   			&dataSetReferenceProperty{
+//   				dataSetArn: jsii.String("dataSetArn"),
+//   				dataSetPlaceholder: jsii.String("dataSetPlaceholder"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnDashboard_DashboardSourceEntityProperty struct {
 	// Source template.
@@ -1602,7 +2327,17 @@ type CfnDashboard_DashboardSourceEntityProperty struct {
 
 // Dashboard source template.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   dashboardSourceTemplateProperty := &dashboardSourceTemplateProperty{
+//   	arn: jsii.String("arn"),
+//   	dataSetReferences: []interface{}{
+//   		&dataSetReferenceProperty{
+//   			dataSetArn: jsii.String("dataSetArn"),
+//   			dataSetPlaceholder: jsii.String("dataSetPlaceholder"),
+//   		},
+//   	},
+//   }
 //
 type CfnDashboard_DashboardSourceTemplateProperty struct {
 	// The Amazon Resource Name (ARN) of the resource.
@@ -1613,7 +2348,12 @@ type CfnDashboard_DashboardSourceTemplateProperty struct {
 
 // Dataset reference.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   dataSetReferenceProperty := &dataSetReferenceProperty{
+//   	dataSetArn: jsii.String("dataSetArn"),
+//   	dataSetPlaceholder: jsii.String("dataSetPlaceholder"),
+//   }
 //
 type CfnDashboard_DataSetReferenceProperty struct {
 	// Dataset Amazon Resource Name (ARN).
@@ -1624,7 +2364,14 @@ type CfnDashboard_DataSetReferenceProperty struct {
 
 // A date-time parameter.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   dateTimeParameterProperty := &dateTimeParameterProperty{
+//   	name: jsii.String("name"),
+//   	values: []*string{
+//   		jsii.String("values"),
+//   	},
+//   }
 //
 type CfnDashboard_DateTimeParameterProperty struct {
 	// A display name for the date-time parameter.
@@ -1635,7 +2382,14 @@ type CfnDashboard_DateTimeParameterProperty struct {
 
 // A decimal parameter.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   decimalParameterProperty := &decimalParameterProperty{
+//   	name: jsii.String("name"),
+//   	values: []interface{}{
+//   		jsii.Number(123),
+//   	},
+//   }
 //
 type CfnDashboard_DecimalParameterProperty struct {
 	// A display name for the decimal parameter.
@@ -1646,7 +2400,11 @@ type CfnDashboard_DecimalParameterProperty struct {
 
 // Export to .csv option.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   exportToCSVOptionProperty := &exportToCSVOptionProperty{
+//   	availabilityStatus: jsii.String("availabilityStatus"),
+//   }
 //
 type CfnDashboard_ExportToCSVOptionProperty struct {
 	// Availability status.
@@ -1655,7 +2413,14 @@ type CfnDashboard_ExportToCSVOptionProperty struct {
 
 // An integer parameter.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   integerParameterProperty := &integerParameterProperty{
+//   	name: jsii.String("name"),
+//   	values: []interface{}{
+//   		jsii.Number(123),
+//   	},
+//   }
 //
 type CfnDashboard_IntegerParameterProperty struct {
 	// The name of the integer parameter.
@@ -1666,7 +2431,42 @@ type CfnDashboard_IntegerParameterProperty struct {
 
 // A list of Amazon QuickSight parameters and the list's override values.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   parametersProperty := &parametersProperty{
+//   	dateTimeParameters: []interface{}{
+//   		&dateTimeParameterProperty{
+//   			name: jsii.String("name"),
+//   			values: []*string{
+//   				jsii.String("values"),
+//   			},
+//   		},
+//   	},
+//   	decimalParameters: []interface{}{
+//   		&decimalParameterProperty{
+//   			name: jsii.String("name"),
+//   			values: []interface{}{
+//   				jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   	integerParameters: []interface{}{
+//   		&integerParameterProperty{
+//   			name: jsii.String("name"),
+//   			values: []interface{}{
+//   				jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   	stringParameters: []interface{}{
+//   		&stringParameterProperty{
+//   			name: jsii.String("name"),
+//   			values: []*string{
+//   				jsii.String("values"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnDashboard_ParametersProperty struct {
 	// The parameters that have a data type of date-time.
@@ -1681,7 +2481,14 @@ type CfnDashboard_ParametersProperty struct {
 
 // Permission for the resource.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   resourcePermissionProperty := &resourcePermissionProperty{
+//   	actions: []*string{
+//   		jsii.String("actions"),
+//   	},
+//   	principal: jsii.String("principal"),
+//   }
 //
 type CfnDashboard_ResourcePermissionProperty struct {
 	// The IAM action to grant or revoke permissions on.
@@ -1696,7 +2503,11 @@ type CfnDashboard_ResourcePermissionProperty struct {
 
 // Sheet controls option.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   sheetControlsOptionProperty := &sheetControlsOptionProperty{
+//   	visibilityState: jsii.String("visibilityState"),
+//   }
 //
 type CfnDashboard_SheetControlsOptionProperty struct {
 	// Visibility state.
@@ -1705,7 +2516,14 @@ type CfnDashboard_SheetControlsOptionProperty struct {
 
 // A string parameter.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   stringParameterProperty := &stringParameterProperty{
+//   	name: jsii.String("name"),
+//   	values: []*string{
+//   		jsii.String("values"),
+//   	},
+//   }
 //
 type CfnDashboard_StringParameterProperty struct {
 	// A display name for a string parameter.
@@ -1716,7 +2534,87 @@ type CfnDashboard_StringParameterProperty struct {
 
 // Properties for defining a `CfnDashboard`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   cfnDashboardProps := &cfnDashboardProps{
+//   	awsAccountId: jsii.String("awsAccountId"),
+//   	dashboardId: jsii.String("dashboardId"),
+//   	sourceEntity: &dashboardSourceEntityProperty{
+//   		sourceTemplate: &dashboardSourceTemplateProperty{
+//   			arn: jsii.String("arn"),
+//   			dataSetReferences: []interface{}{
+//   				&dataSetReferenceProperty{
+//   					dataSetArn: jsii.String("dataSetArn"),
+//   					dataSetPlaceholder: jsii.String("dataSetPlaceholder"),
+//   				},
+//   			},
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	dashboardPublishOptions: &dashboardPublishOptionsProperty{
+//   		adHocFilteringOption: &adHocFilteringOptionProperty{
+//   			availabilityStatus: jsii.String("availabilityStatus"),
+//   		},
+//   		exportToCsvOption: &exportToCSVOptionProperty{
+//   			availabilityStatus: jsii.String("availabilityStatus"),
+//   		},
+//   		sheetControlsOption: &sheetControlsOptionProperty{
+//   			visibilityState: jsii.String("visibilityState"),
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//   	parameters: &parametersProperty{
+//   		dateTimeParameters: []interface{}{
+//   			&dateTimeParameterProperty{
+//   				name: jsii.String("name"),
+//   				values: []*string{
+//   					jsii.String("values"),
+//   				},
+//   			},
+//   		},
+//   		decimalParameters: []interface{}{
+//   			&decimalParameterProperty{
+//   				name: jsii.String("name"),
+//   				values: []interface{}{
+//   					jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   		integerParameters: []interface{}{
+//   			&integerParameterProperty{
+//   				name: jsii.String("name"),
+//   				values: []interface{}{
+//   					jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   		stringParameters: []interface{}{
+//   			&stringParameterProperty{
+//   				name: jsii.String("name"),
+//   				values: []*string{
+//   					jsii.String("values"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	permissions: []interface{}{
+//   		&resourcePermissionProperty{
+//   			actions: []*string{
+//   				jsii.String("actions"),
+//   			},
+//   			principal: jsii.String("principal"),
+//   		},
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	themeArn: jsii.String("themeArn"),
+//   	versionDescription: jsii.String("versionDescription"),
+//   }
 //
 type CfnDashboardProps struct {
 	// The ID of the AWS account where you want to create the dashboard.
@@ -1761,64 +2659,447 @@ type CfnDashboardProps struct {
 //
 // Creates a dataset. This operation doesn't support datasets that include uploaded files as a source.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   cfnDataSet := quicksight.NewCfnDataSet(this, jsii.String("MyCfnDataSet"), &cfnDataSetProps{
+//   	awsAccountId: jsii.String("awsAccountId"),
+//   	columnGroups: []interface{}{
+//   		&columnGroupProperty{
+//   			geoSpatialColumnGroup: &geoSpatialColumnGroupProperty{
+//   				columns: []*string{
+//   					jsii.String("columns"),
+//   				},
+//   				name: jsii.String("name"),
+//
+//   				// the properties below are optional
+//   				countryCode: jsii.String("countryCode"),
+//   			},
+//   		},
+//   	},
+//   	columnLevelPermissionRules: []interface{}{
+//   		&columnLevelPermissionRuleProperty{
+//   			columnNames: []*string{
+//   				jsii.String("columnNames"),
+//   			},
+//   			principals: []*string{
+//   				jsii.String("principals"),
+//   			},
+//   		},
+//   	},
+//   	dataSetId: jsii.String("dataSetId"),
+//   	fieldFolders: map[string]interface{}{
+//   		"fieldFoldersKey": &FieldFolderProperty{
+//   			"columns": []*string{
+//   				jsii.String("columns"),
+//   			},
+//   			"description": jsii.String("description"),
+//   		},
+//   	},
+//   	importMode: jsii.String("importMode"),
+//   	ingestionWaitPolicy: &ingestionWaitPolicyProperty{
+//   		ingestionWaitTimeInHours: jsii.Number(123),
+//   		waitForSpiceIngestion: jsii.Boolean(false),
+//   	},
+//   	logicalTableMap: map[string]interface{}{
+//   		"logicalTableMapKey": &LogicalTableProperty{
+//   			"alias": jsii.String("alias"),
+//   			"source": &LogicalTableSourceProperty{
+//   				"joinInstruction": &JoinInstructionProperty{
+//   					"leftOperand": jsii.String("leftOperand"),
+//   					"onClause": jsii.String("onClause"),
+//   					"rightOperand": jsii.String("rightOperand"),
+//   					"type": jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					"leftJoinKeyProperties": &JoinKeyPropertiesProperty{
+//   						"uniqueKey": jsii.Boolean(false),
+//   					},
+//   					"rightJoinKeyProperties": &JoinKeyPropertiesProperty{
+//   						"uniqueKey": jsii.Boolean(false),
+//   					},
+//   				},
+//   				"physicalTableId": jsii.String("physicalTableId"),
+//   			},
+//
+//   			// the properties below are optional
+//   			"dataTransforms": []interface{}{
+//   				&TransformOperationProperty{
+//   					"castColumnTypeOperation": &CastColumnTypeOperationProperty{
+//   						"columnName": jsii.String("columnName"),
+//   						"newColumnType": jsii.String("newColumnType"),
+//
+//   						// the properties below are optional
+//   						"format": jsii.String("format"),
+//   					},
+//   					"createColumnsOperation": &CreateColumnsOperationProperty{
+//   						"columns": []interface{}{
+//   							&CalculatedColumnProperty{
+//   								"columnId": jsii.String("columnId"),
+//   								"columnName": jsii.String("columnName"),
+//   								"expression": jsii.String("expression"),
+//   							},
+//   						},
+//   					},
+//   					"filterOperation": &FilterOperationProperty{
+//   						"conditionExpression": jsii.String("conditionExpression"),
+//   					},
+//   					"projectOperation": &ProjectOperationProperty{
+//   						"projectedColumns": []*string{
+//   							jsii.String("projectedColumns"),
+//   						},
+//   					},
+//   					"renameColumnOperation": &RenameColumnOperationProperty{
+//   						"columnName": jsii.String("columnName"),
+//   						"newColumnName": jsii.String("newColumnName"),
+//   					},
+//   					"tagColumnOperation": &TagColumnOperationProperty{
+//   						"columnName": jsii.String("columnName"),
+//   						"tags": []ColumnTagProperty{
+//   							&ColumnTagProperty{
+//   								"columnDescription": &ColumnDescriptionProperty{
+//   									"text": jsii.String("text"),
+//   								},
+//   								"columnGeographicRole": jsii.String("columnGeographicRole"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//   	permissions: []interface{}{
+//   		&resourcePermissionProperty{
+//   			actions: []*string{
+//   				jsii.String("actions"),
+//   			},
+//   			principal: jsii.String("principal"),
+//   		},
+//   	},
+//   	physicalTableMap: map[string]interface{}{
+//   		"physicalTableMapKey": &PhysicalTableProperty{
+//   			"customSql": &CustomSqlProperty{
+//   				"columns": []interface{}{
+//   					&InputColumnProperty{
+//   						"name": jsii.String("name"),
+//   						"type": jsii.String("type"),
+//   					},
+//   				},
+//   				"dataSourceArn": jsii.String("dataSourceArn"),
+//   				"name": jsii.String("name"),
+//   				"sqlQuery": jsii.String("sqlQuery"),
+//   			},
+//   			"relationalTable": &RelationalTableProperty{
+//   				"dataSourceArn": jsii.String("dataSourceArn"),
+//   				"inputColumns": []interface{}{
+//   					&InputColumnProperty{
+//   						"name": jsii.String("name"),
+//   						"type": jsii.String("type"),
+//   					},
+//   				},
+//   				"name": jsii.String("name"),
+//
+//   				// the properties below are optional
+//   				"catalog": jsii.String("catalog"),
+//   				"schema": jsii.String("schema"),
+//   			},
+//   			"s3Source": &S3SourceProperty{
+//   				"dataSourceArn": jsii.String("dataSourceArn"),
+//   				"inputColumns": []interface{}{
+//   					&InputColumnProperty{
+//   						"name": jsii.String("name"),
+//   						"type": jsii.String("type"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				"uploadSettings": &UploadSettingsProperty{
+//   					"containsHeader": jsii.Boolean(false),
+//   					"delimiter": jsii.String("delimiter"),
+//   					"format": jsii.String("format"),
+//   					"startFromRow": jsii.Number(123),
+//   					"textQualifier": jsii.String("textQualifier"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	rowLevelPermissionDataSet: &rowLevelPermissionDataSetProperty{
+//   		arn: jsii.String("arn"),
+//   		permissionPolicy: jsii.String("permissionPolicy"),
+//
+//   		// the properties below are optional
+//   		formatVersion: jsii.String("formatVersion"),
+//   		namespace: jsii.String("namespace"),
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   })
 //
 type CfnDataSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the dataset.
 	AttrArn() *string
 	AttrConsumedSpiceCapacityInBytes() awscdk.IResolvable
+	// The time this dataset version was created.
 	AttrCreatedTime() *string
+	// The time this dataset version was last updated.
 	AttrLastUpdatedTime() *string
 	AttrOutputColumns() awscdk.IResolvable
+	// The AWS account ID.
 	AwsAccountId() *string
 	SetAwsAccountId(val *string)
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Groupings of columns that work together in certain Amazon QuickSight features.
+	//
+	// Currently, only geospatial hierarchy is supported.
 	ColumnGroups() interface{}
 	SetColumnGroups(val interface{})
+	// A set of one or more definitions of a `ColumnLevelPermissionRule` .
 	ColumnLevelPermissionRules() interface{}
 	SetColumnLevelPermissionRules(val interface{})
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// An ID for the dataset that you want to create.
+	//
+	// This ID is unique per AWS Region for each AWS account.
 	DataSetId() *string
 	SetDataSetId(val *string)
+	// The folder that contains fields and nested subfolders for your dataset.
 	FieldFolders() interface{}
 	SetFieldFolders(val interface{})
+	// Indicates whether you want to import the data into SPICE.
 	ImportMode() *string
 	SetImportMode(val *string)
+	// The wait policy to use when creating or updating a Dataset.
+	//
+	// The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
 	IngestionWaitPolicy() interface{}
 	SetIngestionWaitPolicy(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// Configures the combination and transformation of the data from the physical tables.
 	LogicalTableMap() interface{}
 	SetLogicalTableMap(val interface{})
+	// The display name for the dataset.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// A list of resource permissions on the dataset.
 	Permissions() interface{}
 	SetPermissions(val interface{})
+	// Declares the physical tables that are available in the underlying data sources.
 	PhysicalTableMap() interface{}
 	SetPhysicalTableMap(val interface{})
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The row-level security configuration for the data that you want to create.
 	RowLevelPermissionDataSet() interface{}
 	SetRowLevelPermissionDataSet(val interface{})
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2018,8 +3299,8 @@ func (j *jsiiProxy_CfnDataSet) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataSet) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDataSet) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2100,13 +3381,13 @@ func (j *jsiiProxy_CfnDataSet) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::QuickSight::DataSet`.
-func NewCfnDataSet(scope constructs.Construct, id *string, props *CfnDataSetProps) CfnDataSet {
+func NewCfnDataSet(scope awscdk.Construct, id *string, props *CfnDataSetProps) CfnDataSet {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDataSet{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnDataSet",
+		"monocdk.aws_quicksight.CfnDataSet",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2115,11 +3396,11 @@ func NewCfnDataSet(scope constructs.Construct, id *string, props *CfnDataSetProp
 }
 
 // Create a new `AWS::QuickSight::DataSet`.
-func NewCfnDataSet_Override(c CfnDataSet, scope constructs.Construct, id *string, props *CfnDataSetProps) {
+func NewCfnDataSet_Override(c CfnDataSet, scope awscdk.Construct, id *string, props *CfnDataSetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnDataSet",
+		"monocdk.aws_quicksight.CfnDataSet",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2227,13 +3508,14 @@ func (j *jsiiProxy_CfnDataSet) SetRowLevelPermissionDataSet(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDataSet_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnDataSet",
+		"monocdk.aws_quicksight.CfnDataSet",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2243,13 +3525,14 @@ func CfnDataSet_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDataSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnDataSet",
+		"monocdk.aws_quicksight.CfnDataSet",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2258,17 +3541,15 @@ func CfnDataSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDataSet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnDataSet",
+		"monocdk.aws_quicksight.CfnDataSet",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2281,14 +3562,13 @@ func CfnDataSet_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_quicksight.CfnDataSet",
+		"monocdk.aws_quicksight.CfnDataSet",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnDataSet) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2297,10 +3577,6 @@ func (c *jsiiProxy_CfnDataSet) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnDataSet) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2309,13 +3585,6 @@ func (c *jsiiProxy_CfnDataSet) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnDataSet) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2324,49 +3593,6 @@ func (c *jsiiProxy_CfnDataSet) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnDataSet) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2375,7 +3601,6 @@ func (c *jsiiProxy_CfnDataSet) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnDataSet) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2384,9 +3609,6 @@ func (c *jsiiProxy_CfnDataSet) AddPropertyDeletionOverride(propertyPath *string)
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnDataSet) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2395,15 +3617,6 @@ func (c *jsiiProxy_CfnDataSet) AddPropertyOverride(propertyPath *string, value i
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnDataSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2412,10 +3625,6 @@ func (c *jsiiProxy_CfnDataSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnDataSet) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2429,13 +3638,6 @@ func (c *jsiiProxy_CfnDataSet) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnDataSet) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2449,7 +3651,6 @@ func (c *jsiiProxy_CfnDataSet) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnDataSet) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2458,12 +3659,48 @@ func (c *jsiiProxy_CfnDataSet) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnDataSet) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnDataSet) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnDataSet) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnDataSet) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnDataSet) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2480,10 +3717,6 @@ func (c *jsiiProxy_CfnDataSet) RenderProperties(props *map[string]interface{}) *
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnDataSet) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2497,15 +3730,33 @@ func (c *jsiiProxy_CfnDataSet) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnDataSet) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnDataSet) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDataSet) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2523,7 +3774,13 @@ func (c *jsiiProxy_CfnDataSet) ValidateProperties(_properties interface{}) {
 
 // A calculated column for a dataset.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   calculatedColumnProperty := &calculatedColumnProperty{
+//   	columnId: jsii.String("columnId"),
+//   	columnName: jsii.String("columnName"),
+//   	expression: jsii.String("expression"),
+//   }
 //
 type CfnDataSet_CalculatedColumnProperty struct {
 	// A unique ID to identify a calculated column.
@@ -2538,7 +3795,15 @@ type CfnDataSet_CalculatedColumnProperty struct {
 
 // A transform operation that casts a column to a different type.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   castColumnTypeOperationProperty := &castColumnTypeOperationProperty{
+//   	columnName: jsii.String("columnName"),
+//   	newColumnType: jsii.String("newColumnType"),
+//
+//   	// the properties below are optional
+//   	format: jsii.String("format"),
+//   }
 //
 type CfnDataSet_CastColumnTypeOperationProperty struct {
 	// Column name.
@@ -2551,7 +3816,11 @@ type CfnDataSet_CastColumnTypeOperationProperty struct {
 
 // Metadata that contains a description for a column.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   columnDescriptionProperty := &columnDescriptionProperty{
+//   	text: jsii.String("text"),
+//   }
 //
 type CfnDataSet_ColumnDescriptionProperty struct {
 	// The text of a description for a column.
@@ -2562,7 +3831,19 @@ type CfnDataSet_ColumnDescriptionProperty struct {
 //
 // This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   columnGroupProperty := &columnGroupProperty{
+//   	geoSpatialColumnGroup: &geoSpatialColumnGroupProperty{
+//   		columns: []*string{
+//   			jsii.String("columns"),
+//   		},
+//   		name: jsii.String("name"),
+//
+//   		// the properties below are optional
+//   		countryCode: jsii.String("countryCode"),
+//   	},
+//   }
 //
 type CfnDataSet_ColumnGroupProperty struct {
 	// Geospatial column group that denotes a hierarchy.
@@ -2573,7 +3854,16 @@ type CfnDataSet_ColumnGroupProperty struct {
 //
 // Each dataset can have multiple rules. To create a restricted column, you add it to one or more rules. Each rule must contain at least one column and at least one user or group. To be able to see a restricted column, a user or group needs to be added to a rule for that column.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   columnLevelPermissionRuleProperty := &columnLevelPermissionRuleProperty{
+//   	columnNames: []*string{
+//   		jsii.String("columnNames"),
+//   	},
+//   	principals: []*string{
+//   		jsii.String("principals"),
+//   	},
+//   }
 //
 type CfnDataSet_ColumnLevelPermissionRuleProperty struct {
 	// An array of column names.
@@ -2584,7 +3874,14 @@ type CfnDataSet_ColumnLevelPermissionRuleProperty struct {
 
 // A tag for a column in a `[TagColumnOperation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagColumnOperation.html)` structure. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   columnTagProperty := &columnTagProperty{
+//   	columnDescription: &columnDescriptionProperty{
+//   		text: jsii.String("text"),
+//   	},
+//   	columnGeographicRole: jsii.String("columnGeographicRole"),
+//   }
 //
 type CfnDataSet_ColumnTagProperty struct {
 	// A description for a column.
@@ -2597,7 +3894,17 @@ type CfnDataSet_ColumnTagProperty struct {
 //
 // Columns created in one such operation form a lexical closure.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   createColumnsOperationProperty := &createColumnsOperationProperty{
+//   	columns: []interface{}{
+//   		&calculatedColumnProperty{
+//   			columnId: jsii.String("columnId"),
+//   			columnName: jsii.String("columnName"),
+//   			expression: jsii.String("expression"),
+//   		},
+//   	},
+//   }
 //
 type CfnDataSet_CreateColumnsOperationProperty struct {
 	// Calculated columns to create.
@@ -2606,7 +3913,19 @@ type CfnDataSet_CreateColumnsOperationProperty struct {
 
 // A physical table type built from the results of the custom SQL query.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   customSqlProperty := &customSqlProperty{
+//   	columns: []interface{}{
+//   		&inputColumnProperty{
+//   			name: jsii.String("name"),
+//   			type: jsii.String("type"),
+//   		},
+//   	},
+//   	dataSourceArn: jsii.String("dataSourceArn"),
+//   	name: jsii.String("name"),
+//   	sqlQuery: jsii.String("sqlQuery"),
+//   }
 //
 type CfnDataSet_CustomSqlProperty struct {
 	// The column schema from the SQL query result set.
@@ -2621,7 +3940,14 @@ type CfnDataSet_CustomSqlProperty struct {
 
 // A FieldFolder element is a folder that contains fields and nested subfolders.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   fieldFolderProperty := &fieldFolderProperty{
+//   	columns: []*string{
+//   		jsii.String("columns"),
+//   	},
+//   	description: jsii.String("description"),
+//   }
 //
 type CfnDataSet_FieldFolderProperty struct {
 	// A folder has a list of columns.
@@ -2634,7 +3960,11 @@ type CfnDataSet_FieldFolderProperty struct {
 
 // A transform operation that filters rows based on a condition.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   filterOperationProperty := &filterOperationProperty{
+//   	conditionExpression: jsii.String("conditionExpression"),
+//   }
 //
 type CfnDataSet_FilterOperationProperty struct {
 	// An expression that must evaluate to a Boolean value.
@@ -2645,7 +3975,17 @@ type CfnDataSet_FilterOperationProperty struct {
 
 // Geospatial column group that denotes a hierarchy.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   geoSpatialColumnGroupProperty := &geoSpatialColumnGroupProperty{
+//   	columns: []*string{
+//   		jsii.String("columns"),
+//   	},
+//   	name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	countryCode: jsii.String("countryCode"),
+//   }
 //
 type CfnDataSet_GeoSpatialColumnGroupProperty struct {
 	// Columns in this hierarchy.
@@ -2660,7 +4000,12 @@ type CfnDataSet_GeoSpatialColumnGroupProperty struct {
 //
 // The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   ingestionWaitPolicyProperty := &ingestionWaitPolicyProperty{
+//   	ingestionWaitTimeInHours: jsii.Number(123),
+//   	waitForSpiceIngestion: jsii.Boolean(false),
+//   }
 //
 type CfnDataSet_IngestionWaitPolicyProperty struct {
 	// The maximum time (in hours) to wait for Ingestion to complete.
@@ -2675,7 +4020,12 @@ type CfnDataSet_IngestionWaitPolicyProperty struct {
 
 // Metadata for a column that is used as the input of a transform operation.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   inputColumnProperty := &inputColumnProperty{
+//   	name: jsii.String("name"),
+//   	type: jsii.String("type"),
+//   }
 //
 type CfnDataSet_InputColumnProperty struct {
 	// The name of this column in the underlying data source.
@@ -2686,7 +4036,22 @@ type CfnDataSet_InputColumnProperty struct {
 
 // The instructions associated with a join.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   joinInstructionProperty := &joinInstructionProperty{
+//   	leftOperand: jsii.String("leftOperand"),
+//   	onClause: jsii.String("onClause"),
+//   	rightOperand: jsii.String("rightOperand"),
+//   	type: jsii.String("type"),
+//
+//   	// the properties below are optional
+//   	leftJoinKeyProperties: &joinKeyPropertiesProperty{
+//   		uniqueKey: jsii.Boolean(false),
+//   	},
+//   	rightJoinKeyProperties: &joinKeyPropertiesProperty{
+//   		uniqueKey: jsii.Boolean(false),
+//   	},
+//   }
 //
 type CfnDataSet_JoinInstructionProperty struct {
 	// The operand on the left side of a join.
@@ -2705,7 +4070,11 @@ type CfnDataSet_JoinInstructionProperty struct {
 
 // Properties associated with the columns participating in a join.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   joinKeyPropertiesProperty := &joinKeyPropertiesProperty{
+//   	uniqueKey: jsii.Boolean(false),
+//   }
 //
 type CfnDataSet_JoinKeyPropertiesProperty struct {
 	// A value that indicates that a row in a table is uniquely identified by the columns in a join key.
@@ -2718,7 +4087,73 @@ type CfnDataSet_JoinKeyPropertiesProperty struct {
 //
 // A logical table has a source, which can be either a physical table or result of a join. When a logical table points to a physical table, the logical table acts as a mutable copy of that physical table through transform operations.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   logicalTableProperty := &logicalTableProperty{
+//   	alias: jsii.String("alias"),
+//   	source: &logicalTableSourceProperty{
+//   		joinInstruction: &joinInstructionProperty{
+//   			leftOperand: jsii.String("leftOperand"),
+//   			onClause: jsii.String("onClause"),
+//   			rightOperand: jsii.String("rightOperand"),
+//   			type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			leftJoinKeyProperties: &joinKeyPropertiesProperty{
+//   				uniqueKey: jsii.Boolean(false),
+//   			},
+//   			rightJoinKeyProperties: &joinKeyPropertiesProperty{
+//   				uniqueKey: jsii.Boolean(false),
+//   			},
+//   		},
+//   		physicalTableId: jsii.String("physicalTableId"),
+//   	},
+//
+//   	// the properties below are optional
+//   	dataTransforms: []interface{}{
+//   		&transformOperationProperty{
+//   			castColumnTypeOperation: &castColumnTypeOperationProperty{
+//   				columnName: jsii.String("columnName"),
+//   				newColumnType: jsii.String("newColumnType"),
+//
+//   				// the properties below are optional
+//   				format: jsii.String("format"),
+//   			},
+//   			createColumnsOperation: &createColumnsOperationProperty{
+//   				columns: []interface{}{
+//   					&calculatedColumnProperty{
+//   						columnId: jsii.String("columnId"),
+//   						columnName: jsii.String("columnName"),
+//   						expression: jsii.String("expression"),
+//   					},
+//   				},
+//   			},
+//   			filterOperation: &filterOperationProperty{
+//   				conditionExpression: jsii.String("conditionExpression"),
+//   			},
+//   			projectOperation: &projectOperationProperty{
+//   				projectedColumns: []*string{
+//   					jsii.String("projectedColumns"),
+//   				},
+//   			},
+//   			renameColumnOperation: &renameColumnOperationProperty{
+//   				columnName: jsii.String("columnName"),
+//   				newColumnName: jsii.String("newColumnName"),
+//   			},
+//   			tagColumnOperation: &tagColumnOperationProperty{
+//   				columnName: jsii.String("columnName"),
+//   				tags: []columnTagProperty{
+//   					&columnTagProperty{
+//   						columnDescription: &columnDescriptionProperty{
+//   							text: jsii.String("text"),
+//   						},
+//   						columnGeographicRole: jsii.String("columnGeographicRole"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnDataSet_LogicalTableProperty struct {
 	// A display name for the logical table.
@@ -2733,7 +4168,25 @@ type CfnDataSet_LogicalTableProperty struct {
 //
 // This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   logicalTableSourceProperty := &logicalTableSourceProperty{
+//   	joinInstruction: &joinInstructionProperty{
+//   		leftOperand: jsii.String("leftOperand"),
+//   		onClause: jsii.String("onClause"),
+//   		rightOperand: jsii.String("rightOperand"),
+//   		type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		leftJoinKeyProperties: &joinKeyPropertiesProperty{
+//   			uniqueKey: jsii.Boolean(false),
+//   		},
+//   		rightJoinKeyProperties: &joinKeyPropertiesProperty{
+//   			uniqueKey: jsii.Boolean(false),
+//   		},
+//   	},
+//   	physicalTableId: jsii.String("physicalTableId"),
+//   }
 //
 type CfnDataSet_LogicalTableSourceProperty struct {
 	// Specifies the result of a join of two logical tables.
@@ -2744,7 +4197,13 @@ type CfnDataSet_LogicalTableSourceProperty struct {
 
 // Output column.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   outputColumnProperty := &outputColumnProperty{
+//   	description: jsii.String("description"),
+//   	name: jsii.String("name"),
+//   	type: jsii.String("type"),
+//   }
 //
 type CfnDataSet_OutputColumnProperty struct {
 	// A description for a column.
@@ -2759,7 +4218,53 @@ type CfnDataSet_OutputColumnProperty struct {
 //
 // This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   physicalTableProperty := &physicalTableProperty{
+//   	customSql: &customSqlProperty{
+//   		columns: []interface{}{
+//   			&inputColumnProperty{
+//   				name: jsii.String("name"),
+//   				type: jsii.String("type"),
+//   			},
+//   		},
+//   		dataSourceArn: jsii.String("dataSourceArn"),
+//   		name: jsii.String("name"),
+//   		sqlQuery: jsii.String("sqlQuery"),
+//   	},
+//   	relationalTable: &relationalTableProperty{
+//   		dataSourceArn: jsii.String("dataSourceArn"),
+//   		inputColumns: []interface{}{
+//   			&inputColumnProperty{
+//   				name: jsii.String("name"),
+//   				type: jsii.String("type"),
+//   			},
+//   		},
+//   		name: jsii.String("name"),
+//
+//   		// the properties below are optional
+//   		catalog: jsii.String("catalog"),
+//   		schema: jsii.String("schema"),
+//   	},
+//   	s3Source: &s3SourceProperty{
+//   		dataSourceArn: jsii.String("dataSourceArn"),
+//   		inputColumns: []interface{}{
+//   			&inputColumnProperty{
+//   				name: jsii.String("name"),
+//   				type: jsii.String("type"),
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		uploadSettings: &uploadSettingsProperty{
+//   			containsHeader: jsii.Boolean(false),
+//   			delimiter: jsii.String("delimiter"),
+//   			format: jsii.String("format"),
+//   			startFromRow: jsii.Number(123),
+//   			textQualifier: jsii.String("textQualifier"),
+//   		},
+//   	},
+//   }
 //
 type CfnDataSet_PhysicalTableProperty struct {
 	// A physical table type built from the results of the custom SQL query.
@@ -2774,7 +4279,13 @@ type CfnDataSet_PhysicalTableProperty struct {
 //
 // Operations that come after a projection can only refer to projected columns.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   projectOperationProperty := &projectOperationProperty{
+//   	projectedColumns: []*string{
+//   		jsii.String("projectedColumns"),
+//   	},
+//   }
 //
 type CfnDataSet_ProjectOperationProperty struct {
 	// Projected columns.
@@ -2783,7 +4294,22 @@ type CfnDataSet_ProjectOperationProperty struct {
 
 // A physical table type for relational data sources.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   relationalTableProperty := &relationalTableProperty{
+//   	dataSourceArn: jsii.String("dataSourceArn"),
+//   	inputColumns: []interface{}{
+//   		&inputColumnProperty{
+//   			name: jsii.String("name"),
+//   			type: jsii.String("type"),
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	catalog: jsii.String("catalog"),
+//   	schema: jsii.String("schema"),
+//   }
 //
 type CfnDataSet_RelationalTableProperty struct {
 	// The Amazon Resource Name (ARN) for the data source.
@@ -2802,7 +4328,12 @@ type CfnDataSet_RelationalTableProperty struct {
 
 // A transform operation that renames a column.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   renameColumnOperationProperty := &renameColumnOperationProperty{
+//   	columnName: jsii.String("columnName"),
+//   	newColumnName: jsii.String("newColumnName"),
+//   }
 //
 type CfnDataSet_RenameColumnOperationProperty struct {
 	// The name of the column to be renamed.
@@ -2813,7 +4344,14 @@ type CfnDataSet_RenameColumnOperationProperty struct {
 
 // Permission for the resource.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   resourcePermissionProperty := &resourcePermissionProperty{
+//   	actions: []*string{
+//   		jsii.String("actions"),
+//   	},
+//   	principal: jsii.String("principal"),
+//   }
 //
 type CfnDataSet_ResourcePermissionProperty struct {
 	// The IAM action to grand or revoke permisions on.
@@ -2832,7 +4370,16 @@ type CfnDataSet_ResourcePermissionProperty struct {
 //
 // The option to deny permissions by setting `PermissionPolicy` to `DENY_ACCESS` is not supported for new RLS datasets.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   rowLevelPermissionDataSetProperty := &rowLevelPermissionDataSetProperty{
+//   	arn: jsii.String("arn"),
+//   	permissionPolicy: jsii.String("permissionPolicy"),
+//
+//   	// the properties below are optional
+//   	formatVersion: jsii.String("formatVersion"),
+//   	namespace: jsii.String("namespace"),
+//   }
 //
 type CfnDataSet_RowLevelPermissionDataSetProperty struct {
 	// The Amazon Resource Name (ARN) of the dataset that contains permissions for RLS.
@@ -2851,7 +4398,26 @@ type CfnDataSet_RowLevelPermissionDataSetProperty struct {
 
 // A physical table type for an S3 data source.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   s3SourceProperty := &s3SourceProperty{
+//   	dataSourceArn: jsii.String("dataSourceArn"),
+//   	inputColumns: []interface{}{
+//   		&inputColumnProperty{
+//   			name: jsii.String("name"),
+//   			type: jsii.String("type"),
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	uploadSettings: &uploadSettingsProperty{
+//   		containsHeader: jsii.Boolean(false),
+//   		delimiter: jsii.String("delimiter"),
+//   		format: jsii.String("format"),
+//   		startFromRow: jsii.Number(123),
+//   		textQualifier: jsii.String("textQualifier"),
+//   	},
+//   }
 //
 type CfnDataSet_S3SourceProperty struct {
 	// The Amazon Resource Name (ARN) for the data source.
@@ -2866,7 +4432,19 @@ type CfnDataSet_S3SourceProperty struct {
 
 // A transform operation that tags a column with additional information.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   tagColumnOperationProperty := &tagColumnOperationProperty{
+//   	columnName: jsii.String("columnName"),
+//   	tags: []columnTagProperty{
+//   		&columnTagProperty{
+//   			columnDescription: &columnDescriptionProperty{
+//   				text: jsii.String("text"),
+//   			},
+//   			columnGeographicRole: jsii.String("columnGeographicRole"),
+//   		},
+//   	},
+//   }
 //
 type CfnDataSet_TagColumnOperationProperty struct {
 	// The column that this operation acts on.
@@ -2881,7 +4459,49 @@ type CfnDataSet_TagColumnOperationProperty struct {
 //
 // This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   transformOperationProperty := &transformOperationProperty{
+//   	castColumnTypeOperation: &castColumnTypeOperationProperty{
+//   		columnName: jsii.String("columnName"),
+//   		newColumnType: jsii.String("newColumnType"),
+//
+//   		// the properties below are optional
+//   		format: jsii.String("format"),
+//   	},
+//   	createColumnsOperation: &createColumnsOperationProperty{
+//   		columns: []interface{}{
+//   			&calculatedColumnProperty{
+//   				columnId: jsii.String("columnId"),
+//   				columnName: jsii.String("columnName"),
+//   				expression: jsii.String("expression"),
+//   			},
+//   		},
+//   	},
+//   	filterOperation: &filterOperationProperty{
+//   		conditionExpression: jsii.String("conditionExpression"),
+//   	},
+//   	projectOperation: &projectOperationProperty{
+//   		projectedColumns: []*string{
+//   			jsii.String("projectedColumns"),
+//   		},
+//   	},
+//   	renameColumnOperation: &renameColumnOperationProperty{
+//   		columnName: jsii.String("columnName"),
+//   		newColumnName: jsii.String("newColumnName"),
+//   	},
+//   	tagColumnOperation: &tagColumnOperationProperty{
+//   		columnName: jsii.String("columnName"),
+//   		tags: []columnTagProperty{
+//   			&columnTagProperty{
+//   				columnDescription: &columnDescriptionProperty{
+//   					text: jsii.String("text"),
+//   				},
+//   				columnGeographicRole: jsii.String("columnGeographicRole"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnDataSet_TransformOperationProperty struct {
 	// A transform operation that casts a column to a different type.
@@ -2904,7 +4524,15 @@ type CfnDataSet_TransformOperationProperty struct {
 
 // Information about the format for a source file or files.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   uploadSettingsProperty := &uploadSettingsProperty{
+//   	containsHeader: jsii.Boolean(false),
+//   	delimiter: jsii.String("delimiter"),
+//   	format: jsii.String("format"),
+//   	startFromRow: jsii.Number(123),
+//   	textQualifier: jsii.String("textQualifier"),
+//   }
 //
 type CfnDataSet_UploadSettingsProperty struct {
 	// Whether the file has a header row, or the files each have a header row.
@@ -2921,7 +4549,185 @@ type CfnDataSet_UploadSettingsProperty struct {
 
 // Properties for defining a `CfnDataSet`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   cfnDataSetProps := &cfnDataSetProps{
+//   	awsAccountId: jsii.String("awsAccountId"),
+//   	columnGroups: []interface{}{
+//   		&columnGroupProperty{
+//   			geoSpatialColumnGroup: &geoSpatialColumnGroupProperty{
+//   				columns: []*string{
+//   					jsii.String("columns"),
+//   				},
+//   				name: jsii.String("name"),
+//
+//   				// the properties below are optional
+//   				countryCode: jsii.String("countryCode"),
+//   			},
+//   		},
+//   	},
+//   	columnLevelPermissionRules: []interface{}{
+//   		&columnLevelPermissionRuleProperty{
+//   			columnNames: []*string{
+//   				jsii.String("columnNames"),
+//   			},
+//   			principals: []*string{
+//   				jsii.String("principals"),
+//   			},
+//   		},
+//   	},
+//   	dataSetId: jsii.String("dataSetId"),
+//   	fieldFolders: map[string]interface{}{
+//   		"fieldFoldersKey": &FieldFolderProperty{
+//   			"columns": []*string{
+//   				jsii.String("columns"),
+//   			},
+//   			"description": jsii.String("description"),
+//   		},
+//   	},
+//   	importMode: jsii.String("importMode"),
+//   	ingestionWaitPolicy: &ingestionWaitPolicyProperty{
+//   		ingestionWaitTimeInHours: jsii.Number(123),
+//   		waitForSpiceIngestion: jsii.Boolean(false),
+//   	},
+//   	logicalTableMap: map[string]interface{}{
+//   		"logicalTableMapKey": &LogicalTableProperty{
+//   			"alias": jsii.String("alias"),
+//   			"source": &LogicalTableSourceProperty{
+//   				"joinInstruction": &JoinInstructionProperty{
+//   					"leftOperand": jsii.String("leftOperand"),
+//   					"onClause": jsii.String("onClause"),
+//   					"rightOperand": jsii.String("rightOperand"),
+//   					"type": jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					"leftJoinKeyProperties": &JoinKeyPropertiesProperty{
+//   						"uniqueKey": jsii.Boolean(false),
+//   					},
+//   					"rightJoinKeyProperties": &JoinKeyPropertiesProperty{
+//   						"uniqueKey": jsii.Boolean(false),
+//   					},
+//   				},
+//   				"physicalTableId": jsii.String("physicalTableId"),
+//   			},
+//
+//   			// the properties below are optional
+//   			"dataTransforms": []interface{}{
+//   				&TransformOperationProperty{
+//   					"castColumnTypeOperation": &CastColumnTypeOperationProperty{
+//   						"columnName": jsii.String("columnName"),
+//   						"newColumnType": jsii.String("newColumnType"),
+//
+//   						// the properties below are optional
+//   						"format": jsii.String("format"),
+//   					},
+//   					"createColumnsOperation": &CreateColumnsOperationProperty{
+//   						"columns": []interface{}{
+//   							&CalculatedColumnProperty{
+//   								"columnId": jsii.String("columnId"),
+//   								"columnName": jsii.String("columnName"),
+//   								"expression": jsii.String("expression"),
+//   							},
+//   						},
+//   					},
+//   					"filterOperation": &FilterOperationProperty{
+//   						"conditionExpression": jsii.String("conditionExpression"),
+//   					},
+//   					"projectOperation": &ProjectOperationProperty{
+//   						"projectedColumns": []*string{
+//   							jsii.String("projectedColumns"),
+//   						},
+//   					},
+//   					"renameColumnOperation": &RenameColumnOperationProperty{
+//   						"columnName": jsii.String("columnName"),
+//   						"newColumnName": jsii.String("newColumnName"),
+//   					},
+//   					"tagColumnOperation": &TagColumnOperationProperty{
+//   						"columnName": jsii.String("columnName"),
+//   						"tags": []ColumnTagProperty{
+//   							&ColumnTagProperty{
+//   								"columnDescription": &ColumnDescriptionProperty{
+//   									"text": jsii.String("text"),
+//   								},
+//   								"columnGeographicRole": jsii.String("columnGeographicRole"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//   	permissions: []interface{}{
+//   		&resourcePermissionProperty{
+//   			actions: []*string{
+//   				jsii.String("actions"),
+//   			},
+//   			principal: jsii.String("principal"),
+//   		},
+//   	},
+//   	physicalTableMap: map[string]interface{}{
+//   		"physicalTableMapKey": &PhysicalTableProperty{
+//   			"customSql": &CustomSqlProperty{
+//   				"columns": []interface{}{
+//   					&InputColumnProperty{
+//   						"name": jsii.String("name"),
+//   						"type": jsii.String("type"),
+//   					},
+//   				},
+//   				"dataSourceArn": jsii.String("dataSourceArn"),
+//   				"name": jsii.String("name"),
+//   				"sqlQuery": jsii.String("sqlQuery"),
+//   			},
+//   			"relationalTable": &RelationalTableProperty{
+//   				"dataSourceArn": jsii.String("dataSourceArn"),
+//   				"inputColumns": []interface{}{
+//   					&InputColumnProperty{
+//   						"name": jsii.String("name"),
+//   						"type": jsii.String("type"),
+//   					},
+//   				},
+//   				"name": jsii.String("name"),
+//
+//   				// the properties below are optional
+//   				"catalog": jsii.String("catalog"),
+//   				"schema": jsii.String("schema"),
+//   			},
+//   			"s3Source": &S3SourceProperty{
+//   				"dataSourceArn": jsii.String("dataSourceArn"),
+//   				"inputColumns": []interface{}{
+//   					&InputColumnProperty{
+//   						"name": jsii.String("name"),
+//   						"type": jsii.String("type"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				"uploadSettings": &UploadSettingsProperty{
+//   					"containsHeader": jsii.Boolean(false),
+//   					"delimiter": jsii.String("delimiter"),
+//   					"format": jsii.String("format"),
+//   					"startFromRow": jsii.Number(123),
+//   					"textQualifier": jsii.String("textQualifier"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	rowLevelPermissionDataSet: &rowLevelPermissionDataSetProperty{
+//   		arn: jsii.String("arn"),
+//   		permissionPolicy: jsii.String("permissionPolicy"),
+//
+//   		// the properties below are optional
+//   		formatVersion: jsii.String("formatVersion"),
+//   		namespace: jsii.String("namespace"),
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnDataSetProps struct {
 	// The AWS account ID.
@@ -2962,61 +4768,561 @@ type CfnDataSetProps struct {
 //
 // Creates a data source.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   cfnDataSource := quicksight.NewCfnDataSource(this, jsii.String("MyCfnDataSource"), &cfnDataSourceProps{
+//   	alternateDataSourceParameters: []interface{}{
+//   		&dataSourceParametersProperty{
+//   			amazonElasticsearchParameters: &amazonElasticsearchParametersProperty{
+//   				domain: jsii.String("domain"),
+//   			},
+//   			amazonOpenSearchParameters: &amazonOpenSearchParametersProperty{
+//   				domain: jsii.String("domain"),
+//   			},
+//   			athenaParameters: &athenaParametersProperty{
+//   				workGroup: jsii.String("workGroup"),
+//   			},
+//   			auroraParameters: &auroraParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			auroraPostgreSqlParameters: &auroraPostgreSqlParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			mariaDbParameters: &mariaDbParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			mySqlParameters: &mySqlParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			oracleParameters: &oracleParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			postgreSqlParameters: &postgreSqlParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			prestoParameters: &prestoParametersProperty{
+//   				catalog: jsii.String("catalog"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			rdsParameters: &rdsParametersProperty{
+//   				database: jsii.String("database"),
+//   				instanceId: jsii.String("instanceId"),
+//   			},
+//   			redshiftParameters: &redshiftParametersProperty{
+//   				database: jsii.String("database"),
+//
+//   				// the properties below are optional
+//   				clusterId: jsii.String("clusterId"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			s3Parameters: &s3ParametersProperty{
+//   				manifestFileLocation: &manifestFileLocationProperty{
+//   					bucket: jsii.String("bucket"),
+//   					key: jsii.String("key"),
+//   				},
+//   			},
+//   			snowflakeParameters: &snowflakeParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				warehouse: jsii.String("warehouse"),
+//   			},
+//   			sparkParameters: &sparkParametersProperty{
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			sqlServerParameters: &sqlServerParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			teradataParameters: &teradataParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   	awsAccountId: jsii.String("awsAccountId"),
+//   	credentials: &dataSourceCredentialsProperty{
+//   		copySourceArn: jsii.String("copySourceArn"),
+//   		credentialPair: &credentialPairProperty{
+//   			password: jsii.String("password"),
+//   			username: jsii.String("username"),
+//
+//   			// the properties below are optional
+//   			alternateDataSourceParameters: []interface{}{
+//   				&dataSourceParametersProperty{
+//   					amazonElasticsearchParameters: &amazonElasticsearchParametersProperty{
+//   						domain: jsii.String("domain"),
+//   					},
+//   					amazonOpenSearchParameters: &amazonOpenSearchParametersProperty{
+//   						domain: jsii.String("domain"),
+//   					},
+//   					athenaParameters: &athenaParametersProperty{
+//   						workGroup: jsii.String("workGroup"),
+//   					},
+//   					auroraParameters: &auroraParametersProperty{
+//   						database: jsii.String("database"),
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   					},
+//   					auroraPostgreSqlParameters: &auroraPostgreSqlParametersProperty{
+//   						database: jsii.String("database"),
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   					},
+//   					mariaDbParameters: &mariaDbParametersProperty{
+//   						database: jsii.String("database"),
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   					},
+//   					mySqlParameters: &mySqlParametersProperty{
+//   						database: jsii.String("database"),
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   					},
+//   					oracleParameters: &oracleParametersProperty{
+//   						database: jsii.String("database"),
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   					},
+//   					postgreSqlParameters: &postgreSqlParametersProperty{
+//   						database: jsii.String("database"),
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   					},
+//   					prestoParameters: &prestoParametersProperty{
+//   						catalog: jsii.String("catalog"),
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   					},
+//   					rdsParameters: &rdsParametersProperty{
+//   						database: jsii.String("database"),
+//   						instanceId: jsii.String("instanceId"),
+//   					},
+//   					redshiftParameters: &redshiftParametersProperty{
+//   						database: jsii.String("database"),
+//
+//   						// the properties below are optional
+//   						clusterId: jsii.String("clusterId"),
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   					},
+//   					s3Parameters: &s3ParametersProperty{
+//   						manifestFileLocation: &manifestFileLocationProperty{
+//   							bucket: jsii.String("bucket"),
+//   							key: jsii.String("key"),
+//   						},
+//   					},
+//   					snowflakeParameters: &snowflakeParametersProperty{
+//   						database: jsii.String("database"),
+//   						host: jsii.String("host"),
+//   						warehouse: jsii.String("warehouse"),
+//   					},
+//   					sparkParameters: &sparkParametersProperty{
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   					},
+//   					sqlServerParameters: &sqlServerParametersProperty{
+//   						database: jsii.String("database"),
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   					},
+//   					teradataParameters: &teradataParametersProperty{
+//   						database: jsii.String("database"),
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	dataSourceId: jsii.String("dataSourceId"),
+//   	dataSourceParameters: &dataSourceParametersProperty{
+//   		amazonElasticsearchParameters: &amazonElasticsearchParametersProperty{
+//   			domain: jsii.String("domain"),
+//   		},
+//   		amazonOpenSearchParameters: &amazonOpenSearchParametersProperty{
+//   			domain: jsii.String("domain"),
+//   		},
+//   		athenaParameters: &athenaParametersProperty{
+//   			workGroup: jsii.String("workGroup"),
+//   		},
+//   		auroraParameters: &auroraParametersProperty{
+//   			database: jsii.String("database"),
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//   		},
+//   		auroraPostgreSqlParameters: &auroraPostgreSqlParametersProperty{
+//   			database: jsii.String("database"),
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//   		},
+//   		mariaDbParameters: &mariaDbParametersProperty{
+//   			database: jsii.String("database"),
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//   		},
+//   		mySqlParameters: &mySqlParametersProperty{
+//   			database: jsii.String("database"),
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//   		},
+//   		oracleParameters: &oracleParametersProperty{
+//   			database: jsii.String("database"),
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//   		},
+//   		postgreSqlParameters: &postgreSqlParametersProperty{
+//   			database: jsii.String("database"),
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//   		},
+//   		prestoParameters: &prestoParametersProperty{
+//   			catalog: jsii.String("catalog"),
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//   		},
+//   		rdsParameters: &rdsParametersProperty{
+//   			database: jsii.String("database"),
+//   			instanceId: jsii.String("instanceId"),
+//   		},
+//   		redshiftParameters: &redshiftParametersProperty{
+//   			database: jsii.String("database"),
+//
+//   			// the properties below are optional
+//   			clusterId: jsii.String("clusterId"),
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//   		},
+//   		s3Parameters: &s3ParametersProperty{
+//   			manifestFileLocation: &manifestFileLocationProperty{
+//   				bucket: jsii.String("bucket"),
+//   				key: jsii.String("key"),
+//   			},
+//   		},
+//   		snowflakeParameters: &snowflakeParametersProperty{
+//   			database: jsii.String("database"),
+//   			host: jsii.String("host"),
+//   			warehouse: jsii.String("warehouse"),
+//   		},
+//   		sparkParameters: &sparkParametersProperty{
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//   		},
+//   		sqlServerParameters: &sqlServerParametersProperty{
+//   			database: jsii.String("database"),
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//   		},
+//   		teradataParameters: &teradataParametersProperty{
+//   			database: jsii.String("database"),
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//   		},
+//   	},
+//   	errorInfo: &dataSourceErrorInfoProperty{
+//   		message: jsii.String("message"),
+//   		type: jsii.String("type"),
+//   	},
+//   	name: jsii.String("name"),
+//   	permissions: []interface{}{
+//   		&resourcePermissionProperty{
+//   			actions: []*string{
+//   				jsii.String("actions"),
+//   			},
+//   			principal: jsii.String("principal"),
+//   		},
+//   	},
+//   	sslProperties: &sslPropertiesProperty{
+//   		disableSsl: jsii.Boolean(false),
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	type: jsii.String("type"),
+//   	vpcConnectionProperties: &vpcConnectionPropertiesProperty{
+//   		vpcConnectionArn: jsii.String("vpcConnectionArn"),
+//   	},
+//   })
 //
 type CfnDataSource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// A set of alternate data source parameters that you want to share for the credentials stored with this data source.
+	//
+	// The credentials are applied in tandem with the data source parameters when you copy a data source by using a create or update request. The API operation compares the `DataSourceParameters` structure that's in the request with the structures in the `AlternateDataSourceParameters` allow list. If the structures are an exact match, the request is allowed to use the credentials from this existing data source. If the `AlternateDataSourceParameters` list is null, the `Credentials` originally used with this `DataSourceParameters` are automatically allowed.
 	AlternateDataSourceParameters() interface{}
 	SetAlternateDataSourceParameters(val interface{})
+	// The Amazon Resource Name (ARN) of the dataset.
 	AttrArn() *string
+	// The time that this data source was created.
 	AttrCreatedTime() *string
+	// The last time that this data source was updated.
 	AttrLastUpdatedTime() *string
+	// The HTTP status of the request.
 	AttrStatus() *string
+	// The AWS account ID.
 	AwsAccountId() *string
 	SetAwsAccountId(val *string)
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The credentials Amazon QuickSight that uses to connect to your underlying source.
+	//
+	// Currently, only credentials based on user name and password are supported.
 	Credentials() interface{}
 	SetCredentials(val interface{})
+	// An ID for the data source.
+	//
+	// This ID is unique per AWS Region for each AWS account.
 	DataSourceId() *string
 	SetDataSourceId(val *string)
+	// The parameters that Amazon QuickSight uses to connect to your underlying source.
 	DataSourceParameters() interface{}
 	SetDataSourceParameters(val interface{})
+	// Error information from the last update or the creation of the data source.
 	ErrorInfo() interface{}
 	SetErrorInfo(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// A display name for the data source.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// A list of resource permissions on the data source.
 	Permissions() interface{}
 	SetPermissions(val interface{})
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
 	SslProperties() interface{}
 	SetSslProperties(val interface{})
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
 	Tags() awscdk.TagManager
+	// The type of the data source. To return a list of all data sources, use `ListDataSources` .
+	//
+	// Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
 	Type() *string
 	SetType(val *string)
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
 	VpcConnectionProperties() interface{}
 	SetVpcConnectionProperties(val interface{})
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -3186,8 +5492,8 @@ func (j *jsiiProxy_CfnDataSource) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataSource) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDataSource) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3278,13 +5584,13 @@ func (j *jsiiProxy_CfnDataSource) VpcConnectionProperties() interface{} {
 
 
 // Create a new `AWS::QuickSight::DataSource`.
-func NewCfnDataSource(scope constructs.Construct, id *string, props *CfnDataSourceProps) CfnDataSource {
+func NewCfnDataSource(scope awscdk.Construct, id *string, props *CfnDataSourceProps) CfnDataSource {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDataSource{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnDataSource",
+		"monocdk.aws_quicksight.CfnDataSource",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3293,11 +5599,11 @@ func NewCfnDataSource(scope constructs.Construct, id *string, props *CfnDataSour
 }
 
 // Create a new `AWS::QuickSight::DataSource`.
-func NewCfnDataSource_Override(c CfnDataSource, scope constructs.Construct, id *string, props *CfnDataSourceProps) {
+func NewCfnDataSource_Override(c CfnDataSource, scope awscdk.Construct, id *string, props *CfnDataSourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnDataSource",
+		"monocdk.aws_quicksight.CfnDataSource",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3397,13 +5703,14 @@ func (j *jsiiProxy_CfnDataSource) SetVpcConnectionProperties(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDataSource_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnDataSource",
+		"monocdk.aws_quicksight.CfnDataSource",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3413,13 +5720,14 @@ func CfnDataSource_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDataSource_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnDataSource",
+		"monocdk.aws_quicksight.CfnDataSource",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3428,17 +5736,15 @@ func CfnDataSource_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDataSource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnDataSource",
+		"monocdk.aws_quicksight.CfnDataSource",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3451,14 +5757,13 @@ func CfnDataSource_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_quicksight.CfnDataSource",
+		"monocdk.aws_quicksight.CfnDataSource",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnDataSource) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3467,10 +5772,6 @@ func (c *jsiiProxy_CfnDataSource) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnDataSource) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3479,13 +5780,6 @@ func (c *jsiiProxy_CfnDataSource) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnDataSource) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3494,49 +5788,6 @@ func (c *jsiiProxy_CfnDataSource) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnDataSource) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3545,7 +5796,6 @@ func (c *jsiiProxy_CfnDataSource) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnDataSource) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3554,9 +5804,6 @@ func (c *jsiiProxy_CfnDataSource) AddPropertyDeletionOverride(propertyPath *stri
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnDataSource) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3565,15 +5812,6 @@ func (c *jsiiProxy_CfnDataSource) AddPropertyOverride(propertyPath *string, valu
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnDataSource) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3582,10 +5820,6 @@ func (c *jsiiProxy_CfnDataSource) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnDataSource) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3599,13 +5833,6 @@ func (c *jsiiProxy_CfnDataSource) GetAtt(attributeName *string) awscdk.Reference
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnDataSource) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3619,7 +5846,6 @@ func (c *jsiiProxy_CfnDataSource) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnDataSource) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3628,12 +5854,48 @@ func (c *jsiiProxy_CfnDataSource) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnDataSource) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnDataSource) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnDataSource) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnDataSource) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnDataSource) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3650,10 +5912,6 @@ func (c *jsiiProxy_CfnDataSource) RenderProperties(props *map[string]interface{}
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnDataSource) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3667,15 +5925,33 @@ func (c *jsiiProxy_CfnDataSource) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnDataSource) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnDataSource) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDataSource) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3693,7 +5969,11 @@ func (c *jsiiProxy_CfnDataSource) ValidateProperties(_properties interface{}) {
 
 // The parameters for OpenSearch.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   amazonElasticsearchParametersProperty := &amazonElasticsearchParametersProperty{
+//   	domain: jsii.String("domain"),
+//   }
 //
 type CfnDataSource_AmazonElasticsearchParametersProperty struct {
 	// The OpenSearch domain.
@@ -3702,7 +5982,11 @@ type CfnDataSource_AmazonElasticsearchParametersProperty struct {
 
 // The parameters for OpenSearch.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   amazonOpenSearchParametersProperty := &amazonOpenSearchParametersProperty{
+//   	domain: jsii.String("domain"),
+//   }
 //
 type CfnDataSource_AmazonOpenSearchParametersProperty struct {
 	// The OpenSearch domain.
@@ -3711,7 +5995,11 @@ type CfnDataSource_AmazonOpenSearchParametersProperty struct {
 
 // Parameters for Amazon Athena.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   athenaParametersProperty := &athenaParametersProperty{
+//   	workGroup: jsii.String("workGroup"),
+//   }
 //
 type CfnDataSource_AthenaParametersProperty struct {
 	// The workgroup that Amazon Athena uses.
@@ -3720,7 +6008,13 @@ type CfnDataSource_AthenaParametersProperty struct {
 
 // Parameters for Amazon Aurora.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   auroraParametersProperty := &auroraParametersProperty{
+//   	database: jsii.String("database"),
+//   	host: jsii.String("host"),
+//   	port: jsii.Number(123),
+//   }
 //
 type CfnDataSource_AuroraParametersProperty struct {
 	// Database.
@@ -3733,7 +6027,13 @@ type CfnDataSource_AuroraParametersProperty struct {
 
 // Parameters for Amazon Aurora PostgreSQL-Compatible Edition.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   auroraPostgreSqlParametersProperty := &auroraPostgreSqlParametersProperty{
+//   	database: jsii.String("database"),
+//   	host: jsii.String("host"),
+//   	port: jsii.Number(123),
+//   }
 //
 type CfnDataSource_AuroraPostgreSqlParametersProperty struct {
 	// The Amazon Aurora PostgreSQL database to connect to.
@@ -3746,7 +6046,99 @@ type CfnDataSource_AuroraPostgreSqlParametersProperty struct {
 
 // The combination of user name and password that are used as credentials.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   credentialPairProperty := &credentialPairProperty{
+//   	password: jsii.String("password"),
+//   	username: jsii.String("username"),
+//
+//   	// the properties below are optional
+//   	alternateDataSourceParameters: []interface{}{
+//   		&dataSourceParametersProperty{
+//   			amazonElasticsearchParameters: &amazonElasticsearchParametersProperty{
+//   				domain: jsii.String("domain"),
+//   			},
+//   			amazonOpenSearchParameters: &amazonOpenSearchParametersProperty{
+//   				domain: jsii.String("domain"),
+//   			},
+//   			athenaParameters: &athenaParametersProperty{
+//   				workGroup: jsii.String("workGroup"),
+//   			},
+//   			auroraParameters: &auroraParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			auroraPostgreSqlParameters: &auroraPostgreSqlParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			mariaDbParameters: &mariaDbParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			mySqlParameters: &mySqlParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			oracleParameters: &oracleParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			postgreSqlParameters: &postgreSqlParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			prestoParameters: &prestoParametersProperty{
+//   				catalog: jsii.String("catalog"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			rdsParameters: &rdsParametersProperty{
+//   				database: jsii.String("database"),
+//   				instanceId: jsii.String("instanceId"),
+//   			},
+//   			redshiftParameters: &redshiftParametersProperty{
+//   				database: jsii.String("database"),
+//
+//   				// the properties below are optional
+//   				clusterId: jsii.String("clusterId"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			s3Parameters: &s3ParametersProperty{
+//   				manifestFileLocation: &manifestFileLocationProperty{
+//   					bucket: jsii.String("bucket"),
+//   					key: jsii.String("key"),
+//   				},
+//   			},
+//   			snowflakeParameters: &snowflakeParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				warehouse: jsii.String("warehouse"),
+//   			},
+//   			sparkParameters: &sparkParametersProperty{
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			sqlServerParameters: &sqlServerParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			teradataParameters: &teradataParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnDataSource_CredentialPairProperty struct {
 	// Password.
@@ -3763,7 +6155,102 @@ type CfnDataSource_CredentialPairProperty struct {
 //
 // This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   dataSourceCredentialsProperty := &dataSourceCredentialsProperty{
+//   	copySourceArn: jsii.String("copySourceArn"),
+//   	credentialPair: &credentialPairProperty{
+//   		password: jsii.String("password"),
+//   		username: jsii.String("username"),
+//
+//   		// the properties below are optional
+//   		alternateDataSourceParameters: []interface{}{
+//   			&dataSourceParametersProperty{
+//   				amazonElasticsearchParameters: &amazonElasticsearchParametersProperty{
+//   					domain: jsii.String("domain"),
+//   				},
+//   				amazonOpenSearchParameters: &amazonOpenSearchParametersProperty{
+//   					domain: jsii.String("domain"),
+//   				},
+//   				athenaParameters: &athenaParametersProperty{
+//   					workGroup: jsii.String("workGroup"),
+//   				},
+//   				auroraParameters: &auroraParametersProperty{
+//   					database: jsii.String("database"),
+//   					host: jsii.String("host"),
+//   					port: jsii.Number(123),
+//   				},
+//   				auroraPostgreSqlParameters: &auroraPostgreSqlParametersProperty{
+//   					database: jsii.String("database"),
+//   					host: jsii.String("host"),
+//   					port: jsii.Number(123),
+//   				},
+//   				mariaDbParameters: &mariaDbParametersProperty{
+//   					database: jsii.String("database"),
+//   					host: jsii.String("host"),
+//   					port: jsii.Number(123),
+//   				},
+//   				mySqlParameters: &mySqlParametersProperty{
+//   					database: jsii.String("database"),
+//   					host: jsii.String("host"),
+//   					port: jsii.Number(123),
+//   				},
+//   				oracleParameters: &oracleParametersProperty{
+//   					database: jsii.String("database"),
+//   					host: jsii.String("host"),
+//   					port: jsii.Number(123),
+//   				},
+//   				postgreSqlParameters: &postgreSqlParametersProperty{
+//   					database: jsii.String("database"),
+//   					host: jsii.String("host"),
+//   					port: jsii.Number(123),
+//   				},
+//   				prestoParameters: &prestoParametersProperty{
+//   					catalog: jsii.String("catalog"),
+//   					host: jsii.String("host"),
+//   					port: jsii.Number(123),
+//   				},
+//   				rdsParameters: &rdsParametersProperty{
+//   					database: jsii.String("database"),
+//   					instanceId: jsii.String("instanceId"),
+//   				},
+//   				redshiftParameters: &redshiftParametersProperty{
+//   					database: jsii.String("database"),
+//
+//   					// the properties below are optional
+//   					clusterId: jsii.String("clusterId"),
+//   					host: jsii.String("host"),
+//   					port: jsii.Number(123),
+//   				},
+//   				s3Parameters: &s3ParametersProperty{
+//   					manifestFileLocation: &manifestFileLocationProperty{
+//   						bucket: jsii.String("bucket"),
+//   						key: jsii.String("key"),
+//   					},
+//   				},
+//   				snowflakeParameters: &snowflakeParametersProperty{
+//   					database: jsii.String("database"),
+//   					host: jsii.String("host"),
+//   					warehouse: jsii.String("warehouse"),
+//   				},
+//   				sparkParameters: &sparkParametersProperty{
+//   					host: jsii.String("host"),
+//   					port: jsii.Number(123),
+//   				},
+//   				sqlServerParameters: &sqlServerParametersProperty{
+//   					database: jsii.String("database"),
+//   					host: jsii.String("host"),
+//   					port: jsii.Number(123),
+//   				},
+//   				teradataParameters: &teradataParametersProperty{
+//   					database: jsii.String("database"),
+//   					host: jsii.String("host"),
+//   					port: jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnDataSource_DataSourceCredentialsProperty struct {
 	// The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
@@ -3778,7 +6265,12 @@ type CfnDataSource_DataSourceCredentialsProperty struct {
 
 // Error information for the data source creation or update.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   dataSourceErrorInfoProperty := &dataSourceErrorInfoProperty{
+//   	message: jsii.String("message"),
+//   	type: jsii.String("type"),
+//   }
 //
 type CfnDataSource_DataSourceErrorInfoProperty struct {
 	// Error message.
@@ -3791,7 +6283,91 @@ type CfnDataSource_DataSourceErrorInfoProperty struct {
 //
 // This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   dataSourceParametersProperty := &dataSourceParametersProperty{
+//   	amazonElasticsearchParameters: &amazonElasticsearchParametersProperty{
+//   		domain: jsii.String("domain"),
+//   	},
+//   	amazonOpenSearchParameters: &amazonOpenSearchParametersProperty{
+//   		domain: jsii.String("domain"),
+//   	},
+//   	athenaParameters: &athenaParametersProperty{
+//   		workGroup: jsii.String("workGroup"),
+//   	},
+//   	auroraParameters: &auroraParametersProperty{
+//   		database: jsii.String("database"),
+//   		host: jsii.String("host"),
+//   		port: jsii.Number(123),
+//   	},
+//   	auroraPostgreSqlParameters: &auroraPostgreSqlParametersProperty{
+//   		database: jsii.String("database"),
+//   		host: jsii.String("host"),
+//   		port: jsii.Number(123),
+//   	},
+//   	mariaDbParameters: &mariaDbParametersProperty{
+//   		database: jsii.String("database"),
+//   		host: jsii.String("host"),
+//   		port: jsii.Number(123),
+//   	},
+//   	mySqlParameters: &mySqlParametersProperty{
+//   		database: jsii.String("database"),
+//   		host: jsii.String("host"),
+//   		port: jsii.Number(123),
+//   	},
+//   	oracleParameters: &oracleParametersProperty{
+//   		database: jsii.String("database"),
+//   		host: jsii.String("host"),
+//   		port: jsii.Number(123),
+//   	},
+//   	postgreSqlParameters: &postgreSqlParametersProperty{
+//   		database: jsii.String("database"),
+//   		host: jsii.String("host"),
+//   		port: jsii.Number(123),
+//   	},
+//   	prestoParameters: &prestoParametersProperty{
+//   		catalog: jsii.String("catalog"),
+//   		host: jsii.String("host"),
+//   		port: jsii.Number(123),
+//   	},
+//   	rdsParameters: &rdsParametersProperty{
+//   		database: jsii.String("database"),
+//   		instanceId: jsii.String("instanceId"),
+//   	},
+//   	redshiftParameters: &redshiftParametersProperty{
+//   		database: jsii.String("database"),
+//
+//   		// the properties below are optional
+//   		clusterId: jsii.String("clusterId"),
+//   		host: jsii.String("host"),
+//   		port: jsii.Number(123),
+//   	},
+//   	s3Parameters: &s3ParametersProperty{
+//   		manifestFileLocation: &manifestFileLocationProperty{
+//   			bucket: jsii.String("bucket"),
+//   			key: jsii.String("key"),
+//   		},
+//   	},
+//   	snowflakeParameters: &snowflakeParametersProperty{
+//   		database: jsii.String("database"),
+//   		host: jsii.String("host"),
+//   		warehouse: jsii.String("warehouse"),
+//   	},
+//   	sparkParameters: &sparkParametersProperty{
+//   		host: jsii.String("host"),
+//   		port: jsii.Number(123),
+//   	},
+//   	sqlServerParameters: &sqlServerParametersProperty{
+//   		database: jsii.String("database"),
+//   		host: jsii.String("host"),
+//   		port: jsii.Number(123),
+//   	},
+//   	teradataParameters: &teradataParametersProperty{
+//   		database: jsii.String("database"),
+//   		host: jsii.String("host"),
+//   		port: jsii.Number(123),
+//   	},
+//   }
 //
 type CfnDataSource_DataSourceParametersProperty struct {
 	// The parameters for OpenSearch.
@@ -3832,7 +6408,12 @@ type CfnDataSource_DataSourceParametersProperty struct {
 
 // Amazon S3 manifest file location.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   manifestFileLocationProperty := &manifestFileLocationProperty{
+//   	bucket: jsii.String("bucket"),
+//   	key: jsii.String("key"),
+//   }
 //
 type CfnDataSource_ManifestFileLocationProperty struct {
 	// Amazon S3 bucket.
@@ -3843,7 +6424,13 @@ type CfnDataSource_ManifestFileLocationProperty struct {
 
 // The parameters for MariaDB.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   mariaDbParametersProperty := &mariaDbParametersProperty{
+//   	database: jsii.String("database"),
+//   	host: jsii.String("host"),
+//   	port: jsii.Number(123),
+//   }
 //
 type CfnDataSource_MariaDbParametersProperty struct {
 	// Database.
@@ -3856,7 +6443,13 @@ type CfnDataSource_MariaDbParametersProperty struct {
 
 // The parameters for MySQL.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   mySqlParametersProperty := &mySqlParametersProperty{
+//   	database: jsii.String("database"),
+//   	host: jsii.String("host"),
+//   	port: jsii.Number(123),
+//   }
 //
 type CfnDataSource_MySqlParametersProperty struct {
 	// Database.
@@ -3869,7 +6462,13 @@ type CfnDataSource_MySqlParametersProperty struct {
 
 // Oracle parameters.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   oracleParametersProperty := &oracleParametersProperty{
+//   	database: jsii.String("database"),
+//   	host: jsii.String("host"),
+//   	port: jsii.Number(123),
+//   }
 //
 type CfnDataSource_OracleParametersProperty struct {
 	// Database.
@@ -3882,7 +6481,13 @@ type CfnDataSource_OracleParametersProperty struct {
 
 // The parameters for PostgreSQL.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   postgreSqlParametersProperty := &postgreSqlParametersProperty{
+//   	database: jsii.String("database"),
+//   	host: jsii.String("host"),
+//   	port: jsii.Number(123),
+//   }
 //
 type CfnDataSource_PostgreSqlParametersProperty struct {
 	// Database.
@@ -3895,7 +6500,13 @@ type CfnDataSource_PostgreSqlParametersProperty struct {
 
 // The parameters for Presto.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   prestoParametersProperty := &prestoParametersProperty{
+//   	catalog: jsii.String("catalog"),
+//   	host: jsii.String("host"),
+//   	port: jsii.Number(123),
+//   }
 //
 type CfnDataSource_PrestoParametersProperty struct {
 	// Catalog.
@@ -3908,7 +6519,12 @@ type CfnDataSource_PrestoParametersProperty struct {
 
 // The parameters for Amazon RDS.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   rdsParametersProperty := &rdsParametersProperty{
+//   	database: jsii.String("database"),
+//   	instanceId: jsii.String("instanceId"),
+//   }
 //
 type CfnDataSource_RdsParametersProperty struct {
 	// Database.
@@ -3921,7 +6537,16 @@ type CfnDataSource_RdsParametersProperty struct {
 //
 // The `ClusterId` field can be blank if `Host` and `Port` are both set. The `Host` and `Port` fields can be blank if the `ClusterId` field is set.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   redshiftParametersProperty := &redshiftParametersProperty{
+//   	database: jsii.String("database"),
+//
+//   	// the properties below are optional
+//   	clusterId: jsii.String("clusterId"),
+//   	host: jsii.String("host"),
+//   	port: jsii.Number(123),
+//   }
 //
 type CfnDataSource_RedshiftParametersProperty struct {
 	// Database.
@@ -3942,7 +6567,14 @@ type CfnDataSource_RedshiftParametersProperty struct {
 
 // Permission for the resource.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   resourcePermissionProperty := &resourcePermissionProperty{
+//   	actions: []*string{
+//   		jsii.String("actions"),
+//   	},
+//   	principal: jsii.String("principal"),
+//   }
 //
 type CfnDataSource_ResourcePermissionProperty struct {
 	// The IAM action to grant or revoke permissions on.
@@ -3957,7 +6589,14 @@ type CfnDataSource_ResourcePermissionProperty struct {
 
 // The parameters for S3.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   s3ParametersProperty := &s3ParametersProperty{
+//   	manifestFileLocation: &manifestFileLocationProperty{
+//   		bucket: jsii.String("bucket"),
+//   		key: jsii.String("key"),
+//   	},
+//   }
 //
 type CfnDataSource_S3ParametersProperty struct {
 	// Location of the Amazon S3 manifest file.
@@ -3968,7 +6607,13 @@ type CfnDataSource_S3ParametersProperty struct {
 
 // The parameters for Snowflake.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   snowflakeParametersProperty := &snowflakeParametersProperty{
+//   	database: jsii.String("database"),
+//   	host: jsii.String("host"),
+//   	warehouse: jsii.String("warehouse"),
+//   }
 //
 type CfnDataSource_SnowflakeParametersProperty struct {
 	// Database.
@@ -3981,7 +6626,12 @@ type CfnDataSource_SnowflakeParametersProperty struct {
 
 // The parameters for Spark.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   sparkParametersProperty := &sparkParametersProperty{
+//   	host: jsii.String("host"),
+//   	port: jsii.Number(123),
+//   }
 //
 type CfnDataSource_SparkParametersProperty struct {
 	// Host.
@@ -3992,7 +6642,13 @@ type CfnDataSource_SparkParametersProperty struct {
 
 // The parameters for SQL Server.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   sqlServerParametersProperty := &sqlServerParametersProperty{
+//   	database: jsii.String("database"),
+//   	host: jsii.String("host"),
+//   	port: jsii.Number(123),
+//   }
 //
 type CfnDataSource_SqlServerParametersProperty struct {
 	// Database.
@@ -4005,7 +6661,11 @@ type CfnDataSource_SqlServerParametersProperty struct {
 
 // Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying data source.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   sslPropertiesProperty := &sslPropertiesProperty{
+//   	disableSsl: jsii.Boolean(false),
+//   }
 //
 type CfnDataSource_SslPropertiesProperty struct {
 	// A Boolean option to control whether SSL should be disabled.
@@ -4014,7 +6674,13 @@ type CfnDataSource_SslPropertiesProperty struct {
 
 // The parameters for Teradata.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   teradataParametersProperty := &teradataParametersProperty{
+//   	database: jsii.String("database"),
+//   	host: jsii.String("host"),
+//   	port: jsii.Number(123),
+//   }
 //
 type CfnDataSource_TeradataParametersProperty struct {
 	// Database.
@@ -4027,7 +6693,11 @@ type CfnDataSource_TeradataParametersProperty struct {
 
 // VPC connection properties.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   vpcConnectionPropertiesProperty := &vpcConnectionPropertiesProperty{
+//   	vpcConnectionArn: jsii.String("vpcConnectionArn"),
+//   }
 //
 type CfnDataSource_VpcConnectionPropertiesProperty struct {
 	// The Amazon Resource Name (ARN) for the VPC connection.
@@ -4036,7 +6706,300 @@ type CfnDataSource_VpcConnectionPropertiesProperty struct {
 
 // Properties for defining a `CfnDataSource`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   cfnDataSourceProps := &cfnDataSourceProps{
+//   	alternateDataSourceParameters: []interface{}{
+//   		&dataSourceParametersProperty{
+//   			amazonElasticsearchParameters: &amazonElasticsearchParametersProperty{
+//   				domain: jsii.String("domain"),
+//   			},
+//   			amazonOpenSearchParameters: &amazonOpenSearchParametersProperty{
+//   				domain: jsii.String("domain"),
+//   			},
+//   			athenaParameters: &athenaParametersProperty{
+//   				workGroup: jsii.String("workGroup"),
+//   			},
+//   			auroraParameters: &auroraParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			auroraPostgreSqlParameters: &auroraPostgreSqlParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			mariaDbParameters: &mariaDbParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			mySqlParameters: &mySqlParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			oracleParameters: &oracleParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			postgreSqlParameters: &postgreSqlParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			prestoParameters: &prestoParametersProperty{
+//   				catalog: jsii.String("catalog"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			rdsParameters: &rdsParametersProperty{
+//   				database: jsii.String("database"),
+//   				instanceId: jsii.String("instanceId"),
+//   			},
+//   			redshiftParameters: &redshiftParametersProperty{
+//   				database: jsii.String("database"),
+//
+//   				// the properties below are optional
+//   				clusterId: jsii.String("clusterId"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			s3Parameters: &s3ParametersProperty{
+//   				manifestFileLocation: &manifestFileLocationProperty{
+//   					bucket: jsii.String("bucket"),
+//   					key: jsii.String("key"),
+//   				},
+//   			},
+//   			snowflakeParameters: &snowflakeParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				warehouse: jsii.String("warehouse"),
+//   			},
+//   			sparkParameters: &sparkParametersProperty{
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			sqlServerParameters: &sqlServerParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   			teradataParameters: &teradataParametersProperty{
+//   				database: jsii.String("database"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   	awsAccountId: jsii.String("awsAccountId"),
+//   	credentials: &dataSourceCredentialsProperty{
+//   		copySourceArn: jsii.String("copySourceArn"),
+//   		credentialPair: &credentialPairProperty{
+//   			password: jsii.String("password"),
+//   			username: jsii.String("username"),
+//
+//   			// the properties below are optional
+//   			alternateDataSourceParameters: []interface{}{
+//   				&dataSourceParametersProperty{
+//   					amazonElasticsearchParameters: &amazonElasticsearchParametersProperty{
+//   						domain: jsii.String("domain"),
+//   					},
+//   					amazonOpenSearchParameters: &amazonOpenSearchParametersProperty{
+//   						domain: jsii.String("domain"),
+//   					},
+//   					athenaParameters: &athenaParametersProperty{
+//   						workGroup: jsii.String("workGroup"),
+//   					},
+//   					auroraParameters: &auroraParametersProperty{
+//   						database: jsii.String("database"),
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   					},
+//   					auroraPostgreSqlParameters: &auroraPostgreSqlParametersProperty{
+//   						database: jsii.String("database"),
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   					},
+//   					mariaDbParameters: &mariaDbParametersProperty{
+//   						database: jsii.String("database"),
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   					},
+//   					mySqlParameters: &mySqlParametersProperty{
+//   						database: jsii.String("database"),
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   					},
+//   					oracleParameters: &oracleParametersProperty{
+//   						database: jsii.String("database"),
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   					},
+//   					postgreSqlParameters: &postgreSqlParametersProperty{
+//   						database: jsii.String("database"),
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   					},
+//   					prestoParameters: &prestoParametersProperty{
+//   						catalog: jsii.String("catalog"),
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   					},
+//   					rdsParameters: &rdsParametersProperty{
+//   						database: jsii.String("database"),
+//   						instanceId: jsii.String("instanceId"),
+//   					},
+//   					redshiftParameters: &redshiftParametersProperty{
+//   						database: jsii.String("database"),
+//
+//   						// the properties below are optional
+//   						clusterId: jsii.String("clusterId"),
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   					},
+//   					s3Parameters: &s3ParametersProperty{
+//   						manifestFileLocation: &manifestFileLocationProperty{
+//   							bucket: jsii.String("bucket"),
+//   							key: jsii.String("key"),
+//   						},
+//   					},
+//   					snowflakeParameters: &snowflakeParametersProperty{
+//   						database: jsii.String("database"),
+//   						host: jsii.String("host"),
+//   						warehouse: jsii.String("warehouse"),
+//   					},
+//   					sparkParameters: &sparkParametersProperty{
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   					},
+//   					sqlServerParameters: &sqlServerParametersProperty{
+//   						database: jsii.String("database"),
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   					},
+//   					teradataParameters: &teradataParametersProperty{
+//   						database: jsii.String("database"),
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	dataSourceId: jsii.String("dataSourceId"),
+//   	dataSourceParameters: &dataSourceParametersProperty{
+//   		amazonElasticsearchParameters: &amazonElasticsearchParametersProperty{
+//   			domain: jsii.String("domain"),
+//   		},
+//   		amazonOpenSearchParameters: &amazonOpenSearchParametersProperty{
+//   			domain: jsii.String("domain"),
+//   		},
+//   		athenaParameters: &athenaParametersProperty{
+//   			workGroup: jsii.String("workGroup"),
+//   		},
+//   		auroraParameters: &auroraParametersProperty{
+//   			database: jsii.String("database"),
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//   		},
+//   		auroraPostgreSqlParameters: &auroraPostgreSqlParametersProperty{
+//   			database: jsii.String("database"),
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//   		},
+//   		mariaDbParameters: &mariaDbParametersProperty{
+//   			database: jsii.String("database"),
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//   		},
+//   		mySqlParameters: &mySqlParametersProperty{
+//   			database: jsii.String("database"),
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//   		},
+//   		oracleParameters: &oracleParametersProperty{
+//   			database: jsii.String("database"),
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//   		},
+//   		postgreSqlParameters: &postgreSqlParametersProperty{
+//   			database: jsii.String("database"),
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//   		},
+//   		prestoParameters: &prestoParametersProperty{
+//   			catalog: jsii.String("catalog"),
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//   		},
+//   		rdsParameters: &rdsParametersProperty{
+//   			database: jsii.String("database"),
+//   			instanceId: jsii.String("instanceId"),
+//   		},
+//   		redshiftParameters: &redshiftParametersProperty{
+//   			database: jsii.String("database"),
+//
+//   			// the properties below are optional
+//   			clusterId: jsii.String("clusterId"),
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//   		},
+//   		s3Parameters: &s3ParametersProperty{
+//   			manifestFileLocation: &manifestFileLocationProperty{
+//   				bucket: jsii.String("bucket"),
+//   				key: jsii.String("key"),
+//   			},
+//   		},
+//   		snowflakeParameters: &snowflakeParametersProperty{
+//   			database: jsii.String("database"),
+//   			host: jsii.String("host"),
+//   			warehouse: jsii.String("warehouse"),
+//   		},
+//   		sparkParameters: &sparkParametersProperty{
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//   		},
+//   		sqlServerParameters: &sqlServerParametersProperty{
+//   			database: jsii.String("database"),
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//   		},
+//   		teradataParameters: &teradataParametersProperty{
+//   			database: jsii.String("database"),
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//   		},
+//   	},
+//   	errorInfo: &dataSourceErrorInfoProperty{
+//   		message: jsii.String("message"),
+//   		type: jsii.String("type"),
+//   	},
+//   	name: jsii.String("name"),
+//   	permissions: []interface{}{
+//   		&resourcePermissionProperty{
+//   			actions: []*string{
+//   				jsii.String("actions"),
+//   			},
+//   			principal: jsii.String("principal"),
+//   		},
+//   	},
+//   	sslProperties: &sslPropertiesProperty{
+//   		disableSsl: jsii.Boolean(false),
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	type: jsii.String("type"),
+//   	vpcConnectionProperties: &vpcConnectionPropertiesProperty{
+//   		vpcConnectionArn: jsii.String("vpcConnectionArn"),
+//   	},
+//   }
 //
 type CfnDataSourceProps struct {
 	// A set of alternate data source parameters that you want to share for the credentials stored with this data source.
@@ -4079,50 +7042,290 @@ type CfnDataSourceProps struct {
 //
 // A *template* is an entity in Amazon QuickSight that encapsulates the metadata required to create an analysis and that you can use to create s dashboard. A template adds a layer of abstraction by using placeholders to replace the dataset associated with the analysis. You can use templates to create dashboards by replacing dataset placeholders with datasets that follow the same schema that was used to create the source analysis and template.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   cfnTemplate := quicksight.NewCfnTemplate(this, jsii.String("MyCfnTemplate"), &cfnTemplateProps{
+//   	awsAccountId: jsii.String("awsAccountId"),
+//   	sourceEntity: &templateSourceEntityProperty{
+//   		sourceAnalysis: &templateSourceAnalysisProperty{
+//   			arn: jsii.String("arn"),
+//   			dataSetReferences: []interface{}{
+//   				&dataSetReferenceProperty{
+//   					dataSetArn: jsii.String("dataSetArn"),
+//   					dataSetPlaceholder: jsii.String("dataSetPlaceholder"),
+//   				},
+//   			},
+//   		},
+//   		sourceTemplate: &templateSourceTemplateProperty{
+//   			arn: jsii.String("arn"),
+//   		},
+//   	},
+//   	templateId: jsii.String("templateId"),
+//
+//   	// the properties below are optional
+//   	name: jsii.String("name"),
+//   	permissions: []interface{}{
+//   		&resourcePermissionProperty{
+//   			actions: []*string{
+//   				jsii.String("actions"),
+//   			},
+//   			principal: jsii.String("principal"),
+//   		},
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	versionDescription: jsii.String("versionDescription"),
+//   })
 //
 type CfnTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the template.
 	AttrArn() *string
+	// The time this template was created.
 	AttrCreatedTime() *string
+	// The time this template was last updated.
 	AttrLastUpdatedTime() *string
+	// The ID for the AWS account that the group is in.
+	//
+	// You use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId() *string
 	SetAwsAccountId(val *string)
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// A display name for the template.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// A list of resource permissions to be set on the template.
 	Permissions() interface{}
 	SetPermissions(val interface{})
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The entity that you are using as a source when you create the template.
+	//
+	// In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+	//
+	// Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
 	SourceEntity() interface{}
 	SetSourceEntity(val interface{})
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
 	Tags() awscdk.TagManager
+	// An ID for the template that you want to create.
+	//
+	// This template is unique per AWS Region ; in each AWS account.
 	TemplateId() *string
 	SetTemplateId(val *string)
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// A description of the current template version being created.
+	//
+	// This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.
 	VersionDescription() *string
 	SetVersionDescription(val *string)
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -4232,8 +7435,8 @@ func (j *jsiiProxy_CfnTemplate) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTemplate) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnTemplate) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4324,13 +7527,13 @@ func (j *jsiiProxy_CfnTemplate) VersionDescription() *string {
 
 
 // Create a new `AWS::QuickSight::Template`.
-func NewCfnTemplate(scope constructs.Construct, id *string, props *CfnTemplateProps) CfnTemplate {
+func NewCfnTemplate(scope awscdk.Construct, id *string, props *CfnTemplateProps) CfnTemplate {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnTemplate{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate",
+		"monocdk.aws_quicksight.CfnTemplate",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4339,11 +7542,11 @@ func NewCfnTemplate(scope constructs.Construct, id *string, props *CfnTemplatePr
 }
 
 // Create a new `AWS::QuickSight::Template`.
-func NewCfnTemplate_Override(c CfnTemplate, scope constructs.Construct, id *string, props *CfnTemplateProps) {
+func NewCfnTemplate_Override(c CfnTemplate, scope awscdk.Construct, id *string, props *CfnTemplateProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate",
+		"monocdk.aws_quicksight.CfnTemplate",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4403,13 +7606,14 @@ func (j *jsiiProxy_CfnTemplate) SetVersionDescription(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnTemplate_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate",
+		"monocdk.aws_quicksight.CfnTemplate",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4419,13 +7623,14 @@ func CfnTemplate_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnTemplate_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate",
+		"monocdk.aws_quicksight.CfnTemplate",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4434,17 +7639,15 @@ func CfnTemplate_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnTemplate_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate",
+		"monocdk.aws_quicksight.CfnTemplate",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4457,14 +7660,13 @@ func CfnTemplate_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate",
+		"monocdk.aws_quicksight.CfnTemplate",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnTemplate) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4473,10 +7675,6 @@ func (c *jsiiProxy_CfnTemplate) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnTemplate) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4485,13 +7683,6 @@ func (c *jsiiProxy_CfnTemplate) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnTemplate) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4500,49 +7691,6 @@ func (c *jsiiProxy_CfnTemplate) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnTemplate) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4551,7 +7699,6 @@ func (c *jsiiProxy_CfnTemplate) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnTemplate) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4560,9 +7707,6 @@ func (c *jsiiProxy_CfnTemplate) AddPropertyDeletionOverride(propertyPath *string
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnTemplate) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4571,15 +7715,6 @@ func (c *jsiiProxy_CfnTemplate) AddPropertyOverride(propertyPath *string, value 
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnTemplate) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4588,10 +7723,6 @@ func (c *jsiiProxy_CfnTemplate) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnTemplate) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4605,13 +7736,6 @@ func (c *jsiiProxy_CfnTemplate) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnTemplate) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4625,7 +7749,6 @@ func (c *jsiiProxy_CfnTemplate) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnTemplate) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4634,12 +7757,48 @@ func (c *jsiiProxy_CfnTemplate) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnTemplate) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnTemplate) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnTemplate) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnTemplate) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnTemplate) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -4656,10 +7815,6 @@ func (c *jsiiProxy_CfnTemplate) RenderProperties(props *map[string]interface{}) 
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnTemplate) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4673,15 +7828,33 @@ func (c *jsiiProxy_CfnTemplate) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnTemplate) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnTemplate) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnTemplate) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4699,7 +7872,12 @@ func (c *jsiiProxy_CfnTemplate) ValidateProperties(_properties interface{}) {
 
 // Dataset reference.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   dataSetReferenceProperty := &dataSetReferenceProperty{
+//   	dataSetArn: jsii.String("dataSetArn"),
+//   	dataSetPlaceholder: jsii.String("dataSetPlaceholder"),
+//   }
 //
 type CfnTemplate_DataSetReferenceProperty struct {
 	// Dataset Amazon Resource Name (ARN).
@@ -4710,7 +7888,14 @@ type CfnTemplate_DataSetReferenceProperty struct {
 
 // Permission for the resource.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   resourcePermissionProperty := &resourcePermissionProperty{
+//   	actions: []*string{
+//   		jsii.String("actions"),
+//   	},
+//   	principal: jsii.String("principal"),
+//   }
 //
 type CfnTemplate_ResourcePermissionProperty struct {
 	// The IAM action to grant or revoke permissions on.
@@ -4725,7 +7910,17 @@ type CfnTemplate_ResourcePermissionProperty struct {
 
 // The source analysis of the template.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   templateSourceAnalysisProperty := &templateSourceAnalysisProperty{
+//   	arn: jsii.String("arn"),
+//   	dataSetReferences: []interface{}{
+//   		&dataSetReferenceProperty{
+//   			dataSetArn: jsii.String("dataSetArn"),
+//   			dataSetPlaceholder: jsii.String("dataSetPlaceholder"),
+//   		},
+//   	},
+//   }
 //
 type CfnTemplate_TemplateSourceAnalysisProperty struct {
 	// The Amazon Resource Name (ARN) of the resource.
@@ -4736,7 +7931,22 @@ type CfnTemplate_TemplateSourceAnalysisProperty struct {
 
 // The source entity of the template.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   templateSourceEntityProperty := &templateSourceEntityProperty{
+//   	sourceAnalysis: &templateSourceAnalysisProperty{
+//   		arn: jsii.String("arn"),
+//   		dataSetReferences: []interface{}{
+//   			&dataSetReferenceProperty{
+//   				dataSetArn: jsii.String("dataSetArn"),
+//   				dataSetPlaceholder: jsii.String("dataSetPlaceholder"),
+//   			},
+//   		},
+//   	},
+//   	sourceTemplate: &templateSourceTemplateProperty{
+//   		arn: jsii.String("arn"),
+//   	},
+//   }
 //
 type CfnTemplate_TemplateSourceEntityProperty struct {
 	// The source analysis, if it is based on an analysis.
@@ -4747,7 +7957,11 @@ type CfnTemplate_TemplateSourceEntityProperty struct {
 
 // The source template of the template.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   templateSourceTemplateProperty := &templateSourceTemplateProperty{
+//   	arn: jsii.String("arn"),
+//   }
 //
 type CfnTemplate_TemplateSourceTemplateProperty struct {
 	// The Amazon Resource Name (ARN) of the resource.
@@ -4756,7 +7970,44 @@ type CfnTemplate_TemplateSourceTemplateProperty struct {
 
 // Properties for defining a `CfnTemplate`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   cfnTemplateProps := &cfnTemplateProps{
+//   	awsAccountId: jsii.String("awsAccountId"),
+//   	sourceEntity: &templateSourceEntityProperty{
+//   		sourceAnalysis: &templateSourceAnalysisProperty{
+//   			arn: jsii.String("arn"),
+//   			dataSetReferences: []interface{}{
+//   				&dataSetReferenceProperty{
+//   					dataSetArn: jsii.String("dataSetArn"),
+//   					dataSetPlaceholder: jsii.String("dataSetPlaceholder"),
+//   				},
+//   			},
+//   		},
+//   		sourceTemplate: &templateSourceTemplateProperty{
+//   			arn: jsii.String("arn"),
+//   		},
+//   	},
+//   	templateId: jsii.String("templateId"),
+//
+//   	// the properties below are optional
+//   	name: jsii.String("name"),
+//   	permissions: []interface{}{
+//   		&resourcePermissionProperty{
+//   			actions: []*string{
+//   				jsii.String("actions"),
+//   			},
+//   			principal: jsii.String("principal"),
+//   		},
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	versionDescription: jsii.String("versionDescription"),
+//   }
 //
 type CfnTemplateProps struct {
 	// The ID for the AWS account that the group is in.
@@ -4791,53 +8042,329 @@ type CfnTemplateProps struct {
 //
 // A *theme* is set of configuration options for color and layout. Themes apply to analyses and dashboards. For more information, see [Using Themes in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html) in the *Amazon QuickSight User Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   cfnTheme := quicksight.NewCfnTheme(this, jsii.String("MyCfnTheme"), &cfnThemeProps{
+//   	awsAccountId: jsii.String("awsAccountId"),
+//   	themeId: jsii.String("themeId"),
+//
+//   	// the properties below are optional
+//   	baseThemeId: jsii.String("baseThemeId"),
+//   	configuration: &themeConfigurationProperty{
+//   		dataColorPalette: &dataColorPaletteProperty{
+//   			colors: []*string{
+//   				jsii.String("colors"),
+//   			},
+//   			emptyFillColor: jsii.String("emptyFillColor"),
+//   			minMaxGradient: []*string{
+//   				jsii.String("minMaxGradient"),
+//   			},
+//   		},
+//   		sheet: &sheetStyleProperty{
+//   			tile: &tileStyleProperty{
+//   				border: &borderStyleProperty{
+//   					show: jsii.Boolean(false),
+//   				},
+//   			},
+//   			tileLayout: &tileLayoutStyleProperty{
+//   				gutter: &gutterStyleProperty{
+//   					show: jsii.Boolean(false),
+//   				},
+//   				margin: &marginStyleProperty{
+//   					show: jsii.Boolean(false),
+//   				},
+//   			},
+//   		},
+//   		typography: &typographyProperty{
+//   			fontFamilies: []interface{}{
+//   				&fontProperty{
+//   					fontFamily: jsii.String("fontFamily"),
+//   				},
+//   			},
+//   		},
+//   		uiColorPalette: &uIColorPaletteProperty{
+//   			accent: jsii.String("accent"),
+//   			accentForeground: jsii.String("accentForeground"),
+//   			danger: jsii.String("danger"),
+//   			dangerForeground: jsii.String("dangerForeground"),
+//   			dimension: jsii.String("dimension"),
+//   			dimensionForeground: jsii.String("dimensionForeground"),
+//   			measure: jsii.String("measure"),
+//   			measureForeground: jsii.String("measureForeground"),
+//   			primaryBackground: jsii.String("primaryBackground"),
+//   			primaryForeground: jsii.String("primaryForeground"),
+//   			secondaryBackground: jsii.String("secondaryBackground"),
+//   			secondaryForeground: jsii.String("secondaryForeground"),
+//   			success: jsii.String("success"),
+//   			successForeground: jsii.String("successForeground"),
+//   			warning: jsii.String("warning"),
+//   			warningForeground: jsii.String("warningForeground"),
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//   	permissions: []interface{}{
+//   		&resourcePermissionProperty{
+//   			actions: []*string{
+//   				jsii.String("actions"),
+//   			},
+//   			principal: jsii.String("principal"),
+//   		},
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	versionDescription: jsii.String("versionDescription"),
+//   })
 //
 type CfnTheme interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the theme.
 	AttrArn() *string
+	// The time the theme was created.
 	AttrCreatedTime() *string
+	// The time the theme was last updated.
 	AttrLastUpdatedTime() *string
+	// Theme type.
 	AttrType() *string
+	// The ID of the AWS account where you want to store the new theme.
 	AwsAccountId() *string
 	SetAwsAccountId(val *string)
+	// The ID of the theme that a custom theme will inherit from.
+	//
+	// All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
 	BaseThemeId() *string
 	SetBaseThemeId(val *string)
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// The theme configuration, which contains the theme display properties.
 	Configuration() interface{}
 	SetConfiguration(val interface{})
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// A display name for the theme.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// A valid grouping of resource permissions to apply to the new theme.
 	Permissions() interface{}
 	SetPermissions(val interface{})
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// A map of the key-value pairs for the resource tag or tags that you want to add to the resource.
 	Tags() awscdk.TagManager
+	// An ID for the theme that you want to create.
+	//
+	// The theme ID is unique per AWS Region in each AWS account.
 	ThemeId() *string
 	SetThemeId(val *string)
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// A description of the first version of the theme that you're creating.
+	//
+	// Every time `UpdateTheme` is called, a new version is created. Each version of the theme has a description of the version in the `VersionDescription` field.
 	VersionDescription() *string
 	SetVersionDescription(val *string)
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -4977,8 +8504,8 @@ func (j *jsiiProxy_CfnTheme) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTheme) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnTheme) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5059,13 +8586,13 @@ func (j *jsiiProxy_CfnTheme) VersionDescription() *string {
 
 
 // Create a new `AWS::QuickSight::Theme`.
-func NewCfnTheme(scope constructs.Construct, id *string, props *CfnThemeProps) CfnTheme {
+func NewCfnTheme(scope awscdk.Construct, id *string, props *CfnThemeProps) CfnTheme {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnTheme{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnTheme",
+		"monocdk.aws_quicksight.CfnTheme",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5074,11 +8601,11 @@ func NewCfnTheme(scope constructs.Construct, id *string, props *CfnThemeProps) C
 }
 
 // Create a new `AWS::QuickSight::Theme`.
-func NewCfnTheme_Override(c CfnTheme, scope constructs.Construct, id *string, props *CfnThemeProps) {
+func NewCfnTheme_Override(c CfnTheme, scope awscdk.Construct, id *string, props *CfnThemeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnTheme",
+		"monocdk.aws_quicksight.CfnTheme",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5146,13 +8673,14 @@ func (j *jsiiProxy_CfnTheme) SetVersionDescription(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnTheme_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnTheme",
+		"monocdk.aws_quicksight.CfnTheme",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -5162,13 +8690,14 @@ func CfnTheme_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnTheme_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnTheme",
+		"monocdk.aws_quicksight.CfnTheme",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -5177,17 +8706,15 @@ func CfnTheme_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnTheme_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnTheme",
+		"monocdk.aws_quicksight.CfnTheme",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5200,14 +8727,13 @@ func CfnTheme_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_quicksight.CfnTheme",
+		"monocdk.aws_quicksight.CfnTheme",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnTheme) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5216,10 +8742,6 @@ func (c *jsiiProxy_CfnTheme) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnTheme) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5228,13 +8750,6 @@ func (c *jsiiProxy_CfnTheme) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnTheme) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5243,49 +8758,6 @@ func (c *jsiiProxy_CfnTheme) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnTheme) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5294,7 +8766,6 @@ func (c *jsiiProxy_CfnTheme) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnTheme) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5303,9 +8774,6 @@ func (c *jsiiProxy_CfnTheme) AddPropertyDeletionOverride(propertyPath *string) {
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnTheme) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5314,15 +8782,6 @@ func (c *jsiiProxy_CfnTheme) AddPropertyOverride(propertyPath *string, value int
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnTheme) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5331,10 +8790,6 @@ func (c *jsiiProxy_CfnTheme) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnTheme) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -5348,13 +8803,6 @@ func (c *jsiiProxy_CfnTheme) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnTheme) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -5368,7 +8816,6 @@ func (c *jsiiProxy_CfnTheme) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnTheme) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5377,12 +8824,48 @@ func (c *jsiiProxy_CfnTheme) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnTheme) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnTheme) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnTheme) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnTheme) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnTheme) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -5399,10 +8882,6 @@ func (c *jsiiProxy_CfnTheme) RenderProperties(props *map[string]interface{}) *ma
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnTheme) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -5416,15 +8895,33 @@ func (c *jsiiProxy_CfnTheme) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnTheme) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnTheme) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnTheme) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5442,7 +8939,11 @@ func (c *jsiiProxy_CfnTheme) ValidateProperties(_properties interface{}) {
 
 // The display options for tile borders for visuals.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   borderStyleProperty := &borderStyleProperty{
+//   	show: jsii.Boolean(false),
+//   }
 //
 type CfnTheme_BorderStyleProperty struct {
 	// The option to enable display of borders for visuals.
@@ -5453,7 +8954,17 @@ type CfnTheme_BorderStyleProperty struct {
 //
 // The colors description is a hexadecimal color code that consists of six alphanumerical characters, prefixed with `#` , for example #37BFF5.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   dataColorPaletteProperty := &dataColorPaletteProperty{
+//   	colors: []*string{
+//   		jsii.String("colors"),
+//   	},
+//   	emptyFillColor: jsii.String("emptyFillColor"),
+//   	minMaxGradient: []*string{
+//   		jsii.String("minMaxGradient"),
+//   	},
+//   }
 //
 type CfnTheme_DataColorPaletteProperty struct {
 	// The hexadecimal codes for the colors.
@@ -5464,7 +8975,11 @@ type CfnTheme_DataColorPaletteProperty struct {
 	MinMaxGradient *[]*string `json:"minMaxGradient" yaml:"minMaxGradient"`
 }
 
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   fontProperty := &fontProperty{
+//   	fontFamily: jsii.String("fontFamily"),
+//   }
 //
 type CfnTheme_FontProperty struct {
 	// `CfnTheme.FontProperty.FontFamily`.
@@ -5473,7 +8988,11 @@ type CfnTheme_FontProperty struct {
 
 // The display options for gutter spacing between tiles on a sheet.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   gutterStyleProperty := &gutterStyleProperty{
+//   	show: jsii.Boolean(false),
+//   }
 //
 type CfnTheme_GutterStyleProperty struct {
 	// This Boolean value controls whether to display a gutter space between sheet tiles.
@@ -5482,7 +9001,11 @@ type CfnTheme_GutterStyleProperty struct {
 
 // The display options for margins around the outside edge of sheets.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   marginStyleProperty := &marginStyleProperty{
+//   	show: jsii.Boolean(false),
+//   }
 //
 type CfnTheme_MarginStyleProperty struct {
 	// This Boolean value controls whether to display sheet margins.
@@ -5491,7 +9014,14 @@ type CfnTheme_MarginStyleProperty struct {
 
 // Permission for the resource.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   resourcePermissionProperty := &resourcePermissionProperty{
+//   	actions: []*string{
+//   		jsii.String("actions"),
+//   	},
+//   	principal: jsii.String("principal"),
+//   }
 //
 type CfnTheme_ResourcePermissionProperty struct {
 	// The IAM action to grant or revoke permissions on.
@@ -5506,7 +9036,23 @@ type CfnTheme_ResourcePermissionProperty struct {
 
 // The theme display options for sheets.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   sheetStyleProperty := &sheetStyleProperty{
+//   	tile: &tileStyleProperty{
+//   		border: &borderStyleProperty{
+//   			show: jsii.Boolean(false),
+//   		},
+//   	},
+//   	tileLayout: &tileLayoutStyleProperty{
+//   		gutter: &gutterStyleProperty{
+//   			show: jsii.Boolean(false),
+//   		},
+//   		margin: &marginStyleProperty{
+//   			show: jsii.Boolean(false),
+//   		},
+//   	},
+//   }
 //
 type CfnTheme_SheetStyleProperty struct {
 	// The display options for tiles.
@@ -5519,7 +9065,59 @@ type CfnTheme_SheetStyleProperty struct {
 //
 // This configuration contains all of the display properties for a theme.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   themeConfigurationProperty := &themeConfigurationProperty{
+//   	dataColorPalette: &dataColorPaletteProperty{
+//   		colors: []*string{
+//   			jsii.String("colors"),
+//   		},
+//   		emptyFillColor: jsii.String("emptyFillColor"),
+//   		minMaxGradient: []*string{
+//   			jsii.String("minMaxGradient"),
+//   		},
+//   	},
+//   	sheet: &sheetStyleProperty{
+//   		tile: &tileStyleProperty{
+//   			border: &borderStyleProperty{
+//   				show: jsii.Boolean(false),
+//   			},
+//   		},
+//   		tileLayout: &tileLayoutStyleProperty{
+//   			gutter: &gutterStyleProperty{
+//   				show: jsii.Boolean(false),
+//   			},
+//   			margin: &marginStyleProperty{
+//   				show: jsii.Boolean(false),
+//   			},
+//   		},
+//   	},
+//   	typography: &typographyProperty{
+//   		fontFamilies: []interface{}{
+//   			&fontProperty{
+//   				fontFamily: jsii.String("fontFamily"),
+//   			},
+//   		},
+//   	},
+//   	uiColorPalette: &uIColorPaletteProperty{
+//   		accent: jsii.String("accent"),
+//   		accentForeground: jsii.String("accentForeground"),
+//   		danger: jsii.String("danger"),
+//   		dangerForeground: jsii.String("dangerForeground"),
+//   		dimension: jsii.String("dimension"),
+//   		dimensionForeground: jsii.String("dimensionForeground"),
+//   		measure: jsii.String("measure"),
+//   		measureForeground: jsii.String("measureForeground"),
+//   		primaryBackground: jsii.String("primaryBackground"),
+//   		primaryForeground: jsii.String("primaryForeground"),
+//   		secondaryBackground: jsii.String("secondaryBackground"),
+//   		secondaryForeground: jsii.String("secondaryForeground"),
+//   		success: jsii.String("success"),
+//   		successForeground: jsii.String("successForeground"),
+//   		warning: jsii.String("warning"),
+//   		warningForeground: jsii.String("warningForeground"),
+//   	},
+//   }
 //
 type CfnTheme_ThemeConfigurationProperty struct {
 	// Color properties that apply to chart data colors.
@@ -5534,7 +9132,16 @@ type CfnTheme_ThemeConfigurationProperty struct {
 
 // The display options for the layout of tiles on a sheet.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   tileLayoutStyleProperty := &tileLayoutStyleProperty{
+//   	gutter: &gutterStyleProperty{
+//   		show: jsii.Boolean(false),
+//   	},
+//   	margin: &marginStyleProperty{
+//   		show: jsii.Boolean(false),
+//   	},
+//   }
 //
 type CfnTheme_TileLayoutStyleProperty struct {
 	// The gutter settings that apply between tiles.
@@ -5545,14 +9152,28 @@ type CfnTheme_TileLayoutStyleProperty struct {
 
 // Display options related to tiles on a sheet.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   tileStyleProperty := &tileStyleProperty{
+//   	border: &borderStyleProperty{
+//   		show: jsii.Boolean(false),
+//   	},
+//   }
 //
 type CfnTheme_TileStyleProperty struct {
 	// The border around a tile.
 	Border interface{} `json:"border" yaml:"border"`
 }
 
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   typographyProperty := &typographyProperty{
+//   	fontFamilies: []interface{}{
+//   		&fontProperty{
+//   			fontFamily: jsii.String("fontFamily"),
+//   		},
+//   	},
+//   }
 //
 type CfnTheme_TypographyProperty struct {
 	// `CfnTheme.TypographyProperty.FontFamilies`.
@@ -5563,7 +9184,26 @@ type CfnTheme_TypographyProperty struct {
 //
 // The colors description is a hexadecimal color code that consists of six alphanumerical characters, prefixed with `#` , for example #37BFF5. For more information, see [Using Themes in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html) in the *Amazon QuickSight User Guide.*
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   uIColorPaletteProperty := &uIColorPaletteProperty{
+//   	accent: jsii.String("accent"),
+//   	accentForeground: jsii.String("accentForeground"),
+//   	danger: jsii.String("danger"),
+//   	dangerForeground: jsii.String("dangerForeground"),
+//   	dimension: jsii.String("dimension"),
+//   	dimensionForeground: jsii.String("dimensionForeground"),
+//   	measure: jsii.String("measure"),
+//   	measureForeground: jsii.String("measureForeground"),
+//   	primaryBackground: jsii.String("primaryBackground"),
+//   	primaryForeground: jsii.String("primaryForeground"),
+//   	secondaryBackground: jsii.String("secondaryBackground"),
+//   	secondaryForeground: jsii.String("secondaryForeground"),
+//   	success: jsii.String("success"),
+//   	successForeground: jsii.String("successForeground"),
+//   	warning: jsii.String("warning"),
+//   	warningForeground: jsii.String("warningForeground"),
+//   }
 //
 type CfnTheme_UIColorPaletteProperty struct {
 	// This color is that applies to selected states and buttons.
@@ -5602,7 +9242,82 @@ type CfnTheme_UIColorPaletteProperty struct {
 
 // Properties for defining a `CfnTheme`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   cfnThemeProps := &cfnThemeProps{
+//   	awsAccountId: jsii.String("awsAccountId"),
+//   	themeId: jsii.String("themeId"),
+//
+//   	// the properties below are optional
+//   	baseThemeId: jsii.String("baseThemeId"),
+//   	configuration: &themeConfigurationProperty{
+//   		dataColorPalette: &dataColorPaletteProperty{
+//   			colors: []*string{
+//   				jsii.String("colors"),
+//   			},
+//   			emptyFillColor: jsii.String("emptyFillColor"),
+//   			minMaxGradient: []*string{
+//   				jsii.String("minMaxGradient"),
+//   			},
+//   		},
+//   		sheet: &sheetStyleProperty{
+//   			tile: &tileStyleProperty{
+//   				border: &borderStyleProperty{
+//   					show: jsii.Boolean(false),
+//   				},
+//   			},
+//   			tileLayout: &tileLayoutStyleProperty{
+//   				gutter: &gutterStyleProperty{
+//   					show: jsii.Boolean(false),
+//   				},
+//   				margin: &marginStyleProperty{
+//   					show: jsii.Boolean(false),
+//   				},
+//   			},
+//   		},
+//   		typography: &typographyProperty{
+//   			fontFamilies: []interface{}{
+//   				&fontProperty{
+//   					fontFamily: jsii.String("fontFamily"),
+//   				},
+//   			},
+//   		},
+//   		uiColorPalette: &uIColorPaletteProperty{
+//   			accent: jsii.String("accent"),
+//   			accentForeground: jsii.String("accentForeground"),
+//   			danger: jsii.String("danger"),
+//   			dangerForeground: jsii.String("dangerForeground"),
+//   			dimension: jsii.String("dimension"),
+//   			dimensionForeground: jsii.String("dimensionForeground"),
+//   			measure: jsii.String("measure"),
+//   			measureForeground: jsii.String("measureForeground"),
+//   			primaryBackground: jsii.String("primaryBackground"),
+//   			primaryForeground: jsii.String("primaryForeground"),
+//   			secondaryBackground: jsii.String("secondaryBackground"),
+//   			secondaryForeground: jsii.String("secondaryForeground"),
+//   			success: jsii.String("success"),
+//   			successForeground: jsii.String("successForeground"),
+//   			warning: jsii.String("warning"),
+//   			warningForeground: jsii.String("warningForeground"),
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//   	permissions: []interface{}{
+//   		&resourcePermissionProperty{
+//   			actions: []*string{
+//   				jsii.String("actions"),
+//   			},
+//   			principal: jsii.String("principal"),
+//   		},
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	versionDescription: jsii.String("versionDescription"),
+//   }
 //
 type CfnThemeProps struct {
 	// The ID of the AWS account where you want to store the new theme.

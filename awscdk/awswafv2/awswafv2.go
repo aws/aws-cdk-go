@@ -1,12 +1,12 @@
 package awswafv2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awswafv2/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awswafv2/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::WAFv2::IPSet`.
@@ -17,47 +17,277 @@ import (
 //
 // You use an IP set by providing its Amazon Resource Name (ARN) to the rule statement `IPSetReferenceStatement` , when you add a rule to a rule group or web ACL.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   cfnIPSet := wafv2.NewCfnIPSet(this, jsii.String("MyCfnIPSet"), &cfnIPSetProps{
+//   	addresses: []*string{
+//   		jsii.String("addresses"),
+//   	},
+//   	ipAddressVersion: jsii.String("ipAddressVersion"),
+//   	scope: jsii.String("scope"),
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   	name: jsii.String("name"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   })
 //
 type CfnIPSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
+	//
+	// AWS WAF supports all IPv4 and IPv6 CIDR ranges except for /0.
+	//
+	// Examples:
+	//
+	// - To configure AWS WAF to allow, block, or count requests that originated from the IP address 192.0.2.44, specify `192.0.2.44/32` .
+	// - To configure AWS WAF to allow, block, or count requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify `192.0.2.0/24` .
+	// - To configure AWS WAF to allow, block, or count requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify `1111:0000:0000:0000:0000:0000:0000:0111/128` .
+	// - To configure AWS WAF to allow, block, or count requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify `1111:0000:0000:0000:0000:0000:0000:0000/64` .
+	//
+	// For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 	Addresses() *[]*string
 	SetAddresses(val *[]*string)
+	// The Amazon Resource Name (ARN) of the IP set.
 	AttrArn() *string
+	// The ID of the IP set.
 	AttrId() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// A description of the IP set that helps with identification.
 	Description() *string
 	SetDescription(val *string)
+	// Specify IPV4 or IPV6.
 	IpAddressVersion() *string
 	SetIpAddressVersion(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The descriptive name of the IP set.
+	//
+	// You cannot change the name of an `IPSet` after you create it.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application.
+	//
+	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AWS AppSync GraphQL API. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+	//
+	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
 	Scope() *string
 	SetScope(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Key:value pairs associated with an AWS resource.
+	//
+	// The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	//
+	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -177,8 +407,8 @@ func (j *jsiiProxy_CfnIPSet) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIPSet) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnIPSet) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -239,13 +469,13 @@ func (j *jsiiProxy_CfnIPSet) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::WAFv2::IPSet`.
-func NewCfnIPSet(scope constructs.Construct, id *string, props *CfnIPSetProps) CfnIPSet {
+func NewCfnIPSet(scope awscdk.Construct, id *string, props *CfnIPSetProps) CfnIPSet {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnIPSet{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wafv2.CfnIPSet",
+		"monocdk.aws_wafv2.CfnIPSet",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -254,11 +484,11 @@ func NewCfnIPSet(scope constructs.Construct, id *string, props *CfnIPSetProps) C
 }
 
 // Create a new `AWS::WAFv2::IPSet`.
-func NewCfnIPSet_Override(c CfnIPSet, scope constructs.Construct, id *string, props *CfnIPSetProps) {
+func NewCfnIPSet_Override(c CfnIPSet, scope awscdk.Construct, id *string, props *CfnIPSetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wafv2.CfnIPSet",
+		"monocdk.aws_wafv2.CfnIPSet",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -310,13 +540,14 @@ func (j *jsiiProxy_CfnIPSet) SetScope(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnIPSet_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnIPSet",
+		"monocdk.aws_wafv2.CfnIPSet",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -326,13 +557,14 @@ func CfnIPSet_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnIPSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnIPSet",
+		"monocdk.aws_wafv2.CfnIPSet",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -341,17 +573,15 @@ func CfnIPSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnIPSet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnIPSet",
+		"monocdk.aws_wafv2.CfnIPSet",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -364,14 +594,13 @@ func CfnIPSet_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_wafv2.CfnIPSet",
+		"monocdk.aws_wafv2.CfnIPSet",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnIPSet) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -380,10 +609,6 @@ func (c *jsiiProxy_CfnIPSet) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnIPSet) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -392,13 +617,6 @@ func (c *jsiiProxy_CfnIPSet) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnIPSet) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -407,49 +625,6 @@ func (c *jsiiProxy_CfnIPSet) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnIPSet) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -458,7 +633,6 @@ func (c *jsiiProxy_CfnIPSet) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnIPSet) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -467,9 +641,6 @@ func (c *jsiiProxy_CfnIPSet) AddPropertyDeletionOverride(propertyPath *string) {
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnIPSet) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -478,15 +649,6 @@ func (c *jsiiProxy_CfnIPSet) AddPropertyOverride(propertyPath *string, value int
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnIPSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -495,10 +657,6 @@ func (c *jsiiProxy_CfnIPSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnIPSet) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -512,13 +670,6 @@ func (c *jsiiProxy_CfnIPSet) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnIPSet) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -532,7 +683,6 @@ func (c *jsiiProxy_CfnIPSet) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnIPSet) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -541,12 +691,48 @@ func (c *jsiiProxy_CfnIPSet) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnIPSet) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnIPSet) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnIPSet) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnIPSet) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnIPSet) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -563,10 +749,6 @@ func (c *jsiiProxy_CfnIPSet) RenderProperties(props *map[string]interface{}) *ma
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnIPSet) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -580,15 +762,33 @@ func (c *jsiiProxy_CfnIPSet) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnIPSet) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnIPSet) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnIPSet) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -606,7 +806,25 @@ func (c *jsiiProxy_CfnIPSet) ValidateProperties(_properties interface{}) {
 
 // Properties for defining a `CfnIPSet`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   cfnIPSetProps := &cfnIPSetProps{
+//   	addresses: []*string{
+//   		jsii.String("addresses"),
+//   	},
+//   	ipAddressVersion: jsii.String("ipAddressVersion"),
+//   	scope: jsii.String("scope"),
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   	name: jsii.String("name"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnIPSetProps struct {
 	// Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
@@ -659,43 +877,267 @@ type CfnIPSetProps struct {
 //
 // For additional information about web ACL logging, see [Logging web ACL traffic information](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) in the *AWS WAF Developer Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var jsonBody interface{}
+//   var loggingFilter interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var uriPath interface{}
+//   cfnLoggingConfiguration := wafv2.NewCfnLoggingConfiguration(this, jsii.String("MyCfnLoggingConfiguration"), &cfnLoggingConfigurationProps{
+//   	logDestinationConfigs: []*string{
+//   		jsii.String("logDestinationConfigs"),
+//   	},
+//   	resourceArn: jsii.String("resourceArn"),
+//
+//   	// the properties below are optional
+//   	loggingFilter: loggingFilter,
+//   	redactedFields: []interface{}{
+//   		&fieldToMatchProperty{
+//   			jsonBody: jsonBody,
+//   			method: method,
+//   			queryString: queryString,
+//   			singleHeader: singleHeader,
+//   			uriPath: uriPath,
+//   		},
+//   	},
+//   })
 //
 type CfnLoggingConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Indicates whether the logging configuration was created by AWS Firewall Manager , as part of an AWS WAF policy configuration.
+	//
+	// If true, only Firewall Manager can modify or delete the configuration.
 	AttrManagedByFirewallManager() awscdk.IResolvable
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The logging destination configuration that you want to associate with the web ACL.
+	//
+	// > You can associate one logging destination to a web ACL.
 	LogDestinationConfigs() *[]*string
 	SetLogDestinationConfigs(val *[]*string)
+	// Filtering that specifies which web requests are kept in the logs and which are dropped.
+	//
+	// You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
 	LoggingFilter() interface{}
 	SetLoggingFilter(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// The parts of the request that you want to keep out of the logs.
+	//
+	// For example, if you redact the `SingleHeader` field, the `HEADER` field in the logs will be `xxx` .
+	//
+	// > You can specify only the following fields for redaction: `UriPath` , `QueryString` , `SingleHeader` , `Method` , and `JsonBody` .
 	RedactedFields() interface{}
 	SetRedactedFields(val interface{})
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The Amazon Resource Name (ARN) of the web ACL that you want to associate with `LogDestinationConfigs` .
 	ResourceArn() *string
 	SetResourceArn(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -785,8 +1227,8 @@ func (j *jsiiProxy_CfnLoggingConfiguration) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoggingConfiguration) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnLoggingConfiguration) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -847,13 +1289,13 @@ func (j *jsiiProxy_CfnLoggingConfiguration) UpdatedProperites() *map[string]inte
 
 
 // Create a new `AWS::WAFv2::LoggingConfiguration`.
-func NewCfnLoggingConfiguration(scope constructs.Construct, id *string, props *CfnLoggingConfigurationProps) CfnLoggingConfiguration {
+func NewCfnLoggingConfiguration(scope awscdk.Construct, id *string, props *CfnLoggingConfigurationProps) CfnLoggingConfiguration {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLoggingConfiguration{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wafv2.CfnLoggingConfiguration",
+		"monocdk.aws_wafv2.CfnLoggingConfiguration",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -862,11 +1304,11 @@ func NewCfnLoggingConfiguration(scope constructs.Construct, id *string, props *C
 }
 
 // Create a new `AWS::WAFv2::LoggingConfiguration`.
-func NewCfnLoggingConfiguration_Override(c CfnLoggingConfiguration, scope constructs.Construct, id *string, props *CfnLoggingConfigurationProps) {
+func NewCfnLoggingConfiguration_Override(c CfnLoggingConfiguration, scope awscdk.Construct, id *string, props *CfnLoggingConfigurationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wafv2.CfnLoggingConfiguration",
+		"monocdk.aws_wafv2.CfnLoggingConfiguration",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -910,13 +1352,14 @@ func (j *jsiiProxy_CfnLoggingConfiguration) SetResourceArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnLoggingConfiguration_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnLoggingConfiguration",
+		"monocdk.aws_wafv2.CfnLoggingConfiguration",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -926,13 +1369,14 @@ func CfnLoggingConfiguration_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnLoggingConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnLoggingConfiguration",
+		"monocdk.aws_wafv2.CfnLoggingConfiguration",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -941,17 +1385,15 @@ func CfnLoggingConfiguration_IsCfnResource(construct constructs.IConstruct) *boo
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnLoggingConfiguration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnLoggingConfiguration",
+		"monocdk.aws_wafv2.CfnLoggingConfiguration",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -964,14 +1406,13 @@ func CfnLoggingConfiguration_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_wafv2.CfnLoggingConfiguration",
+		"monocdk.aws_wafv2.CfnLoggingConfiguration",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnLoggingConfiguration) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -980,10 +1421,6 @@ func (c *jsiiProxy_CfnLoggingConfiguration) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnLoggingConfiguration) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -992,13 +1429,6 @@ func (c *jsiiProxy_CfnLoggingConfiguration) AddDependsOn(target awscdk.CfnResour
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnLoggingConfiguration) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1007,49 +1437,6 @@ func (c *jsiiProxy_CfnLoggingConfiguration) AddMetadata(key *string, value inter
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnLoggingConfiguration) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1058,7 +1445,6 @@ func (c *jsiiProxy_CfnLoggingConfiguration) AddOverride(path *string, value inte
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnLoggingConfiguration) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1067,9 +1453,6 @@ func (c *jsiiProxy_CfnLoggingConfiguration) AddPropertyDeletionOverride(property
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnLoggingConfiguration) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1078,15 +1461,6 @@ func (c *jsiiProxy_CfnLoggingConfiguration) AddPropertyOverride(propertyPath *st
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnLoggingConfiguration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1095,10 +1469,6 @@ func (c *jsiiProxy_CfnLoggingConfiguration) ApplyRemovalPolicy(policy awscdk.Rem
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnLoggingConfiguration) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1112,13 +1482,6 @@ func (c *jsiiProxy_CfnLoggingConfiguration) GetAtt(attributeName *string) awscdk
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnLoggingConfiguration) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1132,7 +1495,6 @@ func (c *jsiiProxy_CfnLoggingConfiguration) GetMetadata(key *string) interface{}
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnLoggingConfiguration) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1141,12 +1503,48 @@ func (c *jsiiProxy_CfnLoggingConfiguration) Inspect(inspector awscdk.TreeInspect
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnLoggingConfiguration) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnLoggingConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnLoggingConfiguration) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnLoggingConfiguration) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnLoggingConfiguration) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1163,10 +1561,6 @@ func (c *jsiiProxy_CfnLoggingConfiguration) RenderProperties(props *map[string]i
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnLoggingConfiguration) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1180,15 +1574,33 @@ func (c *jsiiProxy_CfnLoggingConfiguration) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnLoggingConfiguration) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnLoggingConfiguration) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnLoggingConfiguration) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1214,9 +1626,23 @@ func (c *jsiiProxy_CfnLoggingConfiguration) ValidateProperties(_properties inter
 //
 // Example JSON for a `Method` field to match specification:
 //
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
+// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var jsonBody interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var uriPath interface{}
+//   fieldToMatchProperty := &fieldToMatchProperty{
+//   	jsonBody: jsonBody,
+//   	method: method,
+//   	queryString: queryString,
+//   	singleHeader: singleHeader,
+//   	uriPath: uriPath,
+//   }
 //
 type CfnLoggingConfiguration_FieldToMatchProperty struct {
 	// Inspect the request body as JSON.
@@ -1237,7 +1663,7 @@ type CfnLoggingConfiguration_FieldToMatchProperty struct {
 	//
 	// Provide the name of the header to inspect, for example, `User-Agent` or `Referer` . This setting isn't case sensitive.
 	//
-	// Example JSON: `"SingleHeader": { "Name": "haystack" }`
+	// Example JSON: `"SingleHeader": { "Name": "haystack" }`.
 	SingleHeader interface{} `json:"singleHeader" yaml:"singleHeader"`
 	// Inspect the request URI path.
 	//
@@ -1247,7 +1673,33 @@ type CfnLoggingConfiguration_FieldToMatchProperty struct {
 
 // Properties for defining a `CfnLoggingConfiguration`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var jsonBody interface{}
+//   var loggingFilter interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var uriPath interface{}
+//   cfnLoggingConfigurationProps := &cfnLoggingConfigurationProps{
+//   	logDestinationConfigs: []*string{
+//   		jsii.String("logDestinationConfigs"),
+//   	},
+//   	resourceArn: jsii.String("resourceArn"),
+//
+//   	// the properties below are optional
+//   	loggingFilter: loggingFilter,
+//   	redactedFields: []interface{}{
+//   		&fieldToMatchProperty{
+//   			jsonBody: jsonBody,
+//   			method: method,
+//   			queryString: queryString,
+//   			singleHeader: singleHeader,
+//   			uriPath: uriPath,
+//   		},
+//   	},
+//   }
 //
 type CfnLoggingConfigurationProps struct {
 	// The logging destination configuration that you want to associate with the web ACL.
@@ -1276,45 +1728,262 @@ type CfnLoggingConfigurationProps struct {
 //
 // You use a regex pattern set by providing its Amazon Resource Name (ARN) to the rule statement `RegexPatternSetReferenceStatement` , when you add a rule to a rule group or web ACL.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   cfnRegexPatternSet := wafv2.NewCfnRegexPatternSet(this, jsii.String("MyCfnRegexPatternSet"), &cfnRegexPatternSetProps{
+//   	regularExpressionList: []*string{
+//   		jsii.String("regularExpressionList"),
+//   	},
+//   	scope: jsii.String("scope"),
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   	name: jsii.String("name"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   })
 //
 type CfnRegexPatternSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the regex pattern set.
 	AttrArn() *string
+	// The ID of the regex pattern set.
 	AttrId() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// A description of the set that helps with identification.
 	Description() *string
 	SetDescription(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The descriptive name of the set.
+	//
+	// You cannot change the name after you create the set.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The regular expression patterns in the set.
 	RegularExpressionList() *[]*string
 	SetRegularExpressionList(val *[]*string)
+	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application.
+	//
+	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AWS AppSync GraphQL API. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+	//
+	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
 	Scope() *string
 	SetScope(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Key:value pairs associated with an AWS resource.
+	//
+	// The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	//
+	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1414,8 +2083,8 @@ func (j *jsiiProxy_CfnRegexPatternSet) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRegexPatternSet) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnRegexPatternSet) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1486,13 +2155,13 @@ func (j *jsiiProxy_CfnRegexPatternSet) UpdatedProperites() *map[string]interface
 
 
 // Create a new `AWS::WAFv2::RegexPatternSet`.
-func NewCfnRegexPatternSet(scope constructs.Construct, id *string, props *CfnRegexPatternSetProps) CfnRegexPatternSet {
+func NewCfnRegexPatternSet(scope awscdk.Construct, id *string, props *CfnRegexPatternSetProps) CfnRegexPatternSet {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnRegexPatternSet{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wafv2.CfnRegexPatternSet",
+		"monocdk.aws_wafv2.CfnRegexPatternSet",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1501,11 +2170,11 @@ func NewCfnRegexPatternSet(scope constructs.Construct, id *string, props *CfnReg
 }
 
 // Create a new `AWS::WAFv2::RegexPatternSet`.
-func NewCfnRegexPatternSet_Override(c CfnRegexPatternSet, scope constructs.Construct, id *string, props *CfnRegexPatternSetProps) {
+func NewCfnRegexPatternSet_Override(c CfnRegexPatternSet, scope awscdk.Construct, id *string, props *CfnRegexPatternSetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wafv2.CfnRegexPatternSet",
+		"monocdk.aws_wafv2.CfnRegexPatternSet",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1549,13 +2218,14 @@ func (j *jsiiProxy_CfnRegexPatternSet) SetScope(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnRegexPatternSet_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnRegexPatternSet",
+		"monocdk.aws_wafv2.CfnRegexPatternSet",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1565,13 +2235,14 @@ func CfnRegexPatternSet_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnRegexPatternSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnRegexPatternSet",
+		"monocdk.aws_wafv2.CfnRegexPatternSet",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1580,17 +2251,15 @@ func CfnRegexPatternSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnRegexPatternSet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnRegexPatternSet",
+		"monocdk.aws_wafv2.CfnRegexPatternSet",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1603,14 +2272,13 @@ func CfnRegexPatternSet_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_wafv2.CfnRegexPatternSet",
+		"monocdk.aws_wafv2.CfnRegexPatternSet",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnRegexPatternSet) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1619,10 +2287,6 @@ func (c *jsiiProxy_CfnRegexPatternSet) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnRegexPatternSet) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1631,13 +2295,6 @@ func (c *jsiiProxy_CfnRegexPatternSet) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnRegexPatternSet) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1646,49 +2303,6 @@ func (c *jsiiProxy_CfnRegexPatternSet) AddMetadata(key *string, value interface{
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnRegexPatternSet) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1697,7 +2311,6 @@ func (c *jsiiProxy_CfnRegexPatternSet) AddOverride(path *string, value interface
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnRegexPatternSet) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1706,9 +2319,6 @@ func (c *jsiiProxy_CfnRegexPatternSet) AddPropertyDeletionOverride(propertyPath 
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnRegexPatternSet) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1717,15 +2327,6 @@ func (c *jsiiProxy_CfnRegexPatternSet) AddPropertyOverride(propertyPath *string,
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnRegexPatternSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1734,10 +2335,6 @@ func (c *jsiiProxy_CfnRegexPatternSet) ApplyRemovalPolicy(policy awscdk.RemovalP
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnRegexPatternSet) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1751,13 +2348,6 @@ func (c *jsiiProxy_CfnRegexPatternSet) GetAtt(attributeName *string) awscdk.Refe
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnRegexPatternSet) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1771,7 +2361,6 @@ func (c *jsiiProxy_CfnRegexPatternSet) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnRegexPatternSet) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1780,12 +2369,48 @@ func (c *jsiiProxy_CfnRegexPatternSet) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnRegexPatternSet) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnRegexPatternSet) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnRegexPatternSet) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnRegexPatternSet) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnRegexPatternSet) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1802,10 +2427,6 @@ func (c *jsiiProxy_CfnRegexPatternSet) RenderProperties(props *map[string]interf
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnRegexPatternSet) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1819,15 +2440,33 @@ func (c *jsiiProxy_CfnRegexPatternSet) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnRegexPatternSet) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnRegexPatternSet) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnRegexPatternSet) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1845,7 +2484,24 @@ func (c *jsiiProxy_CfnRegexPatternSet) ValidateProperties(_properties interface{
 
 // Properties for defining a `CfnRegexPatternSet`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   cfnRegexPatternSetProps := &cfnRegexPatternSetProps{
+//   	regularExpressionList: []*string{
+//   		jsii.String("regularExpressionList"),
+//   	},
+//   	scope: jsii.String("scope"),
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   	name: jsii.String("name"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnRegexPatternSetProps struct {
 	// The regular expression patterns in the set.
@@ -1878,54 +2534,583 @@ type CfnRegexPatternSetProps struct {
 //
 // When you create a rule group, you define an immutable capacity limit. If you update a rule group, you must stay within the capacity. This allows others to reuse the rule group with confidence in its capacity requirements.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allow interface{}
+//   var allQueryArguments interface{}
+//   var block interface{}
+//   var body interface{}
+//   var captcha interface{}
+//   var count interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var statementProperty_ statementProperty
+//   var uriPath interface{}
+//   cfnRuleGroup := wafv2.NewCfnRuleGroup(this, jsii.String("MyCfnRuleGroup"), &cfnRuleGroupProps{
+//   	capacity: jsii.Number(123),
+//   	scope: jsii.String("scope"),
+//   	visibilityConfig: &visibilityConfigProperty{
+//   		cloudWatchMetricsEnabled: jsii.Boolean(false),
+//   		metricName: jsii.String("metricName"),
+//   		sampledRequestsEnabled: jsii.Boolean(false),
+//   	},
+//
+//   	// the properties below are optional
+//   	customResponseBodies: map[string]interface{}{
+//   		"customResponseBodiesKey": &CustomResponseBodyProperty{
+//   			"content": jsii.String("content"),
+//   			"contentType": jsii.String("contentType"),
+//   		},
+//   	},
+//   	description: jsii.String("description"),
+//   	name: jsii.String("name"),
+//   	rules: []interface{}{
+//   		&ruleProperty{
+//   			name: jsii.String("name"),
+//   			priority: jsii.Number(123),
+//   			statement: &statementProperty{
+//   				andStatement: &andStatementProperty{
+//   					statements: []interface{}{
+//   						statementProperty_,
+//   					},
+//   				},
+//   				byteMatchStatement: &byteMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					positionalConstraint: jsii.String("positionalConstraint"),
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					searchString: jsii.String("searchString"),
+//   					searchStringBase64: jsii.String("searchStringBase64"),
+//   				},
+//   				geoMatchStatement: &geoMatchStatementProperty{
+//   					countryCodes: []*string{
+//   						jsii.String("countryCodes"),
+//   					},
+//   					forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   						fallbackBehavior: jsii.String("fallbackBehavior"),
+//   						headerName: jsii.String("headerName"),
+//   					},
+//   				},
+//   				ipSetReferenceStatement: map[string]interface{}{
+//   					"arn": jsii.String("arn"),
+//
+//   					// the properties below are optional
+//   					"ipSetForwardedIpConfig": map[string]*string{
+//   						"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   						"headerName": jsii.String("headerName"),
+//   						"position": jsii.String("position"),
+//   					},
+//   				},
+//   				labelMatchStatement: &labelMatchStatementProperty{
+//   					key: jsii.String("key"),
+//   					scope: jsii.String("scope"),
+//   				},
+//   				notStatement: &notStatementProperty{
+//   					statement: statementProperty_,
+//   				},
+//   				orStatement: &orStatementProperty{
+//   					statements: []interface{}{
+//   						statementProperty_,
+//   					},
+//   				},
+//   				rateBasedStatement: &rateBasedStatementProperty{
+//   					aggregateKeyType: jsii.String("aggregateKeyType"),
+//   					limit: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   						fallbackBehavior: jsii.String("fallbackBehavior"),
+//   						headerName: jsii.String("headerName"),
+//   					},
+//   					scopeDownStatement: statementProperty_,
+//   				},
+//   				regexMatchStatement: &regexMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					regexString: jsii.String("regexString"),
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   					arn: jsii.String("arn"),
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   					comparisonOperator: jsii.String("comparisonOperator"),
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					size: jsii.Number(123),
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				sqliMatchStatement: &sqliMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				xssMatchStatement: &xssMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			visibilityConfig: &visibilityConfigProperty{
+//   				cloudWatchMetricsEnabled: jsii.Boolean(false),
+//   				metricName: jsii.String("metricName"),
+//   				sampledRequestsEnabled: jsii.Boolean(false),
+//   			},
+//
+//   			// the properties below are optional
+//   			action: &ruleActionProperty{
+//   				allow: allow,
+//   				block: block,
+//   				captcha: captcha,
+//   				count: count,
+//   			},
+//   			captchaConfig: &captchaConfigProperty{
+//   				immunityTimeProperty: &immunityTimePropertyProperty{
+//   					immunityTime: jsii.Number(123),
+//   				},
+//   			},
+//   			ruleLabels: []interface{}{
+//   				&labelProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   })
 //
 type CfnRuleGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the rule group.
 	AttrArn() *string
+	// Labels that rules in this rule group add to matching requests.
+	//
+	// These labels are defined in the `RuleLabels` for a `Rule` .
 	AttrAvailableLabels() awscdk.IResolvable
+	// Labels that rules in this rule group match against.
+	//
+	// Each of these labels is defined in a `LabelMatchStatement` specification, in the rule statement.
 	AttrConsumedLabels() awscdk.IResolvable
+	// The ID of the rule group.
 	AttrId() *string
+	// The label namespace prefix for this rule group.
+	//
+	// All labels added by rules in this rule group have this prefix.
+	//
+	// The syntax for the label namespace prefix for a rule group is the following: `awswaf:<account ID>:rule group:<rule group name>:`
+	//
+	// When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
 	AttrLabelNamespace() *string
+	// The web ACL capacity units (WCUs) required for this rule group.
+	//
+	// When you create your own rule group, you define this, and you cannot change it after creation. When you add or modify the rules in a rule group, AWS WAF enforces this limit.
+	//
+	// AWS WAF uses WCUs to calculate and control the operating resources that are used to run your rules, rule groups, and web ACLs. AWS WAF calculates capacity differently for each rule type, to reflect the relative cost of each rule. Simple rules that cost little to run use fewer WCUs than more complex rules that use more processing power. Rule group capacity is fixed at creation, which helps users plan their web ACL WCU usage when they use a rule group. The WCU limit for web ACLs is 1,500.
 	Capacity() *float64
 	SetCapacity(val *float64)
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// A map of custom response keys and content bodies.
+	//
+	// When you create a rule with a block action, you can send a custom response to the web request. You define these for the rule group, and then use them in the rules that you define in the rule group.
+	//
+	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+	//
+	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 	CustomResponseBodies() interface{}
 	SetCustomResponseBodies(val interface{})
+	// A description of the rule group that helps with identification.
 	Description() *string
 	SetDescription(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The descriptive name of the rule group.
+	//
+	// You cannot change the name of a rule group after you create it.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The rule statements used to identify the web requests that you want to allow, block, or count.
+	//
+	// Each rule includes one top-level statement that AWS WAF uses to identify matching web requests, and parameters that govern how AWS WAF handles them.
 	Rules() interface{}
 	SetRules(val interface{})
+	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application.
+	//
+	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AWS AppSync GraphQL API. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+	//
+	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
 	Scope() *string
 	SetScope(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Key:value pairs associated with an AWS resource.
+	//
+	// The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	//
+	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
 	VisibilityConfig() interface{}
 	SetVisibilityConfig(val interface{})
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2075,8 +3260,8 @@ func (j *jsiiProxy_CfnRuleGroup) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRuleGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnRuleGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2157,13 +3342,13 @@ func (j *jsiiProxy_CfnRuleGroup) VisibilityConfig() interface{} {
 
 
 // Create a new `AWS::WAFv2::RuleGroup`.
-func NewCfnRuleGroup(scope constructs.Construct, id *string, props *CfnRuleGroupProps) CfnRuleGroup {
+func NewCfnRuleGroup(scope awscdk.Construct, id *string, props *CfnRuleGroupProps) CfnRuleGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnRuleGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wafv2.CfnRuleGroup",
+		"monocdk.aws_wafv2.CfnRuleGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2172,11 +3357,11 @@ func NewCfnRuleGroup(scope constructs.Construct, id *string, props *CfnRuleGroup
 }
 
 // Create a new `AWS::WAFv2::RuleGroup`.
-func NewCfnRuleGroup_Override(c CfnRuleGroup, scope constructs.Construct, id *string, props *CfnRuleGroupProps) {
+func NewCfnRuleGroup_Override(c CfnRuleGroup, scope awscdk.Construct, id *string, props *CfnRuleGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wafv2.CfnRuleGroup",
+		"monocdk.aws_wafv2.CfnRuleGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2244,13 +3429,14 @@ func (j *jsiiProxy_CfnRuleGroup) SetVisibilityConfig(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnRuleGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnRuleGroup",
+		"monocdk.aws_wafv2.CfnRuleGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2260,13 +3446,14 @@ func CfnRuleGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnRuleGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnRuleGroup",
+		"monocdk.aws_wafv2.CfnRuleGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2275,17 +3462,15 @@ func CfnRuleGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnRuleGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnRuleGroup",
+		"monocdk.aws_wafv2.CfnRuleGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2298,14 +3483,13 @@ func CfnRuleGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_wafv2.CfnRuleGroup",
+		"monocdk.aws_wafv2.CfnRuleGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnRuleGroup) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2314,10 +3498,6 @@ func (c *jsiiProxy_CfnRuleGroup) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnRuleGroup) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2326,13 +3506,6 @@ func (c *jsiiProxy_CfnRuleGroup) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnRuleGroup) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2341,49 +3514,6 @@ func (c *jsiiProxy_CfnRuleGroup) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnRuleGroup) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2392,7 +3522,6 @@ func (c *jsiiProxy_CfnRuleGroup) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnRuleGroup) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2401,9 +3530,6 @@ func (c *jsiiProxy_CfnRuleGroup) AddPropertyDeletionOverride(propertyPath *strin
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnRuleGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2412,15 +3538,6 @@ func (c *jsiiProxy_CfnRuleGroup) AddPropertyOverride(propertyPath *string, value
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnRuleGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2429,10 +3546,6 @@ func (c *jsiiProxy_CfnRuleGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnRuleGroup) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2446,13 +3559,6 @@ func (c *jsiiProxy_CfnRuleGroup) GetAtt(attributeName *string) awscdk.Reference 
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnRuleGroup) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2466,7 +3572,6 @@ func (c *jsiiProxy_CfnRuleGroup) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnRuleGroup) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2475,12 +3580,48 @@ func (c *jsiiProxy_CfnRuleGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnRuleGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnRuleGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnRuleGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnRuleGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnRuleGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2497,10 +3638,6 @@ func (c *jsiiProxy_CfnRuleGroup) RenderProperties(props *map[string]interface{})
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnRuleGroup) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2514,15 +3651,33 @@ func (c *jsiiProxy_CfnRuleGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnRuleGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnRuleGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnRuleGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2542,7 +3697,254 @@ func (c *jsiiProxy_CfnRuleGroup) ValidateProperties(_properties interface{}) {
 //
 // You provide more than one `Statement` within the `AndStatement` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var statementProperty_ statementProperty
+//   var uriPath interface{}
+//   andStatementProperty := &andStatementProperty{
+//   	statements: []interface{}{
+//   		&statementProperty{
+//   			andStatement: &andStatementProperty{
+//   				statements: []interface{}{
+//   					statementProperty_,
+//   				},
+//   			},
+//   			byteMatchStatement: &byteMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				positionalConstraint: jsii.String("positionalConstraint"),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				searchString: jsii.String("searchString"),
+//   				searchStringBase64: jsii.String("searchStringBase64"),
+//   			},
+//   			geoMatchStatement: &geoMatchStatementProperty{
+//   				countryCodes: []*string{
+//   					jsii.String("countryCodes"),
+//   				},
+//   				forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   					fallbackBehavior: jsii.String("fallbackBehavior"),
+//   					headerName: jsii.String("headerName"),
+//   				},
+//   			},
+//   			ipSetReferenceStatement: map[string]interface{}{
+//   				"arn": jsii.String("arn"),
+//
+//   				// the properties below are optional
+//   				"ipSetForwardedIpConfig": map[string]*string{
+//   					"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   					"headerName": jsii.String("headerName"),
+//   					"position": jsii.String("position"),
+//   				},
+//   			},
+//   			labelMatchStatement: &labelMatchStatementProperty{
+//   				key: jsii.String("key"),
+//   				scope: jsii.String("scope"),
+//   			},
+//   			notStatement: &notStatementProperty{
+//   				statement: statementProperty_,
+//   			},
+//   			orStatement: &orStatementProperty{
+//   				statements: []interface{}{
+//   					statementProperty_,
+//   				},
+//   			},
+//   			rateBasedStatement: &rateBasedStatementProperty{
+//   				aggregateKeyType: jsii.String("aggregateKeyType"),
+//   				limit: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   					fallbackBehavior: jsii.String("fallbackBehavior"),
+//   					headerName: jsii.String("headerName"),
+//   				},
+//   				scopeDownStatement: statementProperty_,
+//   			},
+//   			regexMatchStatement: &regexMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				regexString: jsii.String("regexString"),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   				arn: jsii.String("arn"),
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   				comparisonOperator: jsii.String("comparisonOperator"),
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				size: jsii.Number(123),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			sqliMatchStatement: &sqliMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			xssMatchStatement: &xssMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnRuleGroup_AndStatementProperty struct {
 	// The statements to combine with AND logic.
@@ -2555,7 +3957,51 @@ type CfnRuleGroup_AndStatementProperty struct {
 //
 // The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is refered to as a string match statement.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var uriPath interface{}
+//   byteMatchStatementProperty := &byteMatchStatementProperty{
+//   	fieldToMatch: &fieldToMatchProperty{
+//   		allQueryArguments: allQueryArguments,
+//   		body: body,
+//   		jsonBody: &jsonBodyProperty{
+//   			matchPattern: &jsonMatchPatternProperty{
+//   				all: all,
+//   				includedPaths: []*string{
+//   					jsii.String("includedPaths"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//
+//   			// the properties below are optional
+//   			invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   		},
+//   		method: method,
+//   		queryString: queryString,
+//   		singleHeader: singleHeader,
+//   		singleQueryArgument: singleQueryArgument,
+//   		uriPath: uriPath,
+//   	},
+//   	positionalConstraint: jsii.String("positionalConstraint"),
+//   	textTransformations: []interface{}{
+//   		&textTransformationProperty{
+//   			priority: jsii.Number(123),
+//   			type: jsii.String("type"),
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	searchString: jsii.String("searchString"),
+//   	searchStringBase64: jsii.String("searchStringBase64"),
+//   }
 //
 type CfnRuleGroup_ByteMatchStatementProperty struct {
 	// The part of a web request that you want AWS WAF to inspect.
@@ -2613,7 +4059,13 @@ type CfnRuleGroup_ByteMatchStatementProperty struct {
 //
 // This is available at the web ACL level and in each rule.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   captchaConfigProperty := &captchaConfigProperty{
+//   	immunityTimeProperty: &immunityTimePropertyProperty{
+//   		immunityTime: jsii.Number(123),
+//   	},
+//   }
 //
 type CfnRuleGroup_CaptchaConfigProperty struct {
 	// Determines how long a `CAPTCHA` token remains valid after the client successfully solves a `CAPTCHA` puzzle.
@@ -2624,7 +4076,12 @@ type CfnRuleGroup_CaptchaConfigProperty struct {
 //
 // This is referenced by key from the `CustomResponse` `CustomResponseBodyKey` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   customResponseBodyProperty := &customResponseBodyProperty{
+//   	content: jsii.String("content"),
+//   	contentType: jsii.String("contentType"),
+//   }
 //
 type CfnRuleGroup_CustomResponseBodyProperty struct {
 	// The payload of the custom response.
@@ -2641,7 +4098,38 @@ type CfnRuleGroup_CustomResponseBodyProperty struct {
 //
 // Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of a web request, create a separate rule statement for each component.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var uriPath interface{}
+//   fieldToMatchProperty := &fieldToMatchProperty{
+//   	allQueryArguments: allQueryArguments,
+//   	body: body,
+//   	jsonBody: &jsonBodyProperty{
+//   		matchPattern: &jsonMatchPatternProperty{
+//   			all: all,
+//   			includedPaths: []*string{
+//   				jsii.String("includedPaths"),
+//   			},
+//   		},
+//   		matchScope: jsii.String("matchScope"),
+//
+//   		// the properties below are optional
+//   		invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   	},
+//   	method: method,
+//   	queryString: queryString,
+//   	singleHeader: singleHeader,
+//   	singleQueryArgument: singleQueryArgument,
+//   	uriPath: uriPath,
+//   }
 //
 type CfnRuleGroup_FieldToMatchProperty struct {
 	// Inspect all query arguments.
@@ -2690,7 +4178,12 @@ type CfnRuleGroup_FieldToMatchProperty struct {
 //
 // AWS WAF only evaluates the first IP address found in the specified HTTP header.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   forwardedIPConfigurationProperty := &forwardedIPConfigurationProperty{
+//   	fallbackBehavior: jsii.String("fallbackBehavior"),
+//   	headerName: jsii.String("headerName"),
+//   }
 //
 type CfnRuleGroup_ForwardedIPConfigurationProperty struct {
 	// The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
@@ -2712,7 +4205,17 @@ type CfnRuleGroup_ForwardedIPConfigurationProperty struct {
 
 // A rule statement used to identify web requests based on country of origin.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   geoMatchStatementProperty := &geoMatchStatementProperty{
+//   	countryCodes: []*string{
+//   		jsii.String("countryCodes"),
+//   	},
+//   	forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   		fallbackBehavior: jsii.String("fallbackBehavior"),
+//   		headerName: jsii.String("headerName"),
+//   	},
+//   }
 //
 type CfnRuleGroup_GeoMatchStatementProperty struct {
 	// An array of two-character country codes, for example, `[ "US", "CN" ]` , from the alpha-2 country ISO codes of the ISO 3166 international standard.
@@ -2733,7 +4236,13 @@ type CfnRuleGroup_GeoMatchStatementProperty struct {
 //
 // This configuration is used only for `IPSetReferenceStatement` . For `GeoMatchStatement` and `RateBasedStatement` , use `ForwardedIPConfig` instead.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   iPSetForwardedIPConfigurationProperty := map[string]*string{
+//   	"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   	"headerName": jsii.String("headerName"),
+//   	"position": jsii.String("position"),
+//   }
 //
 type CfnRuleGroup_IPSetForwardedIPConfigurationProperty struct {
 	// The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
@@ -2769,7 +4278,18 @@ type CfnRuleGroup_IPSetForwardedIPConfigurationProperty struct {
 //
 // Each IP set rule statement references an IP set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   iPSetReferenceStatementProperty := map[string]interface{}{
+//   	"arn": jsii.String("arn"),
+//
+//   	// the properties below are optional
+//   	"ipSetForwardedIpConfig": map[string]*string{
+//   		"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   		"headerName": jsii.String("headerName"),
+//   		"position": jsii.String("position"),
+//   	},
+//   }
 //
 type CfnRuleGroup_IPSetReferenceStatementProperty struct {
 	// The Amazon Resource Name (ARN) of the `IPSet` that this statement references.
@@ -2784,7 +4304,11 @@ type CfnRuleGroup_IPSetReferenceStatementProperty struct {
 
 // Determines how long a `CAPTCHA` token remains valid after the client successfully solves a `CAPTCHA` puzzle.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   immunityTimePropertyProperty := &immunityTimePropertyProperty{
+//   	immunityTime: jsii.Number(123),
+//   }
 //
 type CfnRuleGroup_ImmunityTimePropertyProperty struct {
 	// The amount of time, in seconds, that a `CAPTCHA` token is valid.
@@ -2799,7 +4323,22 @@ type CfnRuleGroup_ImmunityTimePropertyProperty struct {
 //
 // Use the specifications in this object to indicate which parts of the JSON body to inspect using the rule's inspection criteria. AWS WAF inspects only the parts of the JSON that result from the matches that you indicate.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   jsonBodyProperty := &jsonBodyProperty{
+//   	matchPattern: &jsonMatchPatternProperty{
+//   		all: all,
+//   		includedPaths: []*string{
+//   			jsii.String("includedPaths"),
+//   		},
+//   	},
+//   	matchScope: jsii.String("matchScope"),
+//
+//   	// the properties below are optional
+//   	invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   }
 //
 type CfnRuleGroup_JsonBodyProperty struct {
 	// The patterns to look for in the JSON body.
@@ -2824,7 +4363,7 @@ type CfnRuleGroup_JsonBodyProperty struct {
 	//
 	// - Missing comma: `{"key1":"value1""key2":"value2"}`
 	// - Missing colon: `{"key1":"value1","key2""value2"}`
-	// - Extra colons: `{"key1"::"value1","key2""value2"}`
+	// - Extra colons: `{"key1"::"value1","key2""value2"}`.
 	InvalidFallbackBehavior *string `json:"invalidFallbackBehavior" yaml:"invalidFallbackBehavior"`
 }
 
@@ -2832,7 +4371,16 @@ type CfnRuleGroup_JsonBodyProperty struct {
 //
 // AWS WAF inspects the results of these pattern matches against the rule inspection criteria. This is used with the `FieldToMatch` option `JsonBody` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   jsonMatchPatternProperty := &jsonMatchPatternProperty{
+//   	all: all,
+//   	includedPaths: []*string{
+//   		jsii.String("includedPaths"),
+//   	},
+//   }
 //
 type CfnRuleGroup_JsonMatchPatternProperty struct {
 	// Match all of the elements. See also `MatchScope` in `JsonBody` .
@@ -2853,7 +4401,12 @@ type CfnRuleGroup_JsonMatchPatternProperty struct {
 //
 // The label match statement provides the label or namespace string to search for. The label string can represent a part or all of the fully qualified label name that had been added to the web request. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. If you do not provide the fully qualified name in your label match string, AWS WAF performs the search for labels that were added in the same context as the label match statement.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   labelMatchStatementProperty := &labelMatchStatementProperty{
+//   	key: jsii.String("key"),
+//   	scope: jsii.String("scope"),
+//   }
 //
 type CfnRuleGroup_LabelMatchStatementProperty struct {
 	// The string to match against. The setting you provide for this depends on the match statement's `Scope` setting:.
@@ -2871,7 +4424,11 @@ type CfnRuleGroup_LabelMatchStatementProperty struct {
 //
 // This is used as an element of a label array in `RuleLabels` inside a `Rule` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   labelProperty := &labelProperty{
+//   	name: jsii.String("name"),
+//   }
 //
 type CfnRuleGroup_LabelProperty struct {
 	// The label string.
@@ -2885,7 +4442,11 @@ type CfnRuleGroup_LabelProperty struct {
 // - `AvailableLabels` - Labels that rules add to matching requests. These labels are defined in the `RuleLabels` for a `Rule` .
 // - `ConsumedLabels` - Labels that rules match against. These labels are defined in a `LabelMatchStatement` specification, in the rule statement.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   labelSummaryProperty := &labelSummaryProperty{
+//   	name: jsii.String("name"),
+//   }
 //
 type CfnRuleGroup_LabelSummaryProperty struct {
 	// An individual label specification.
@@ -2896,7 +4457,252 @@ type CfnRuleGroup_LabelSummaryProperty struct {
 //
 // You provide one `Statement` within the `NotStatement` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var statementProperty_ statementProperty
+//   var uriPath interface{}
+//   notStatementProperty := &notStatementProperty{
+//   	statement: &statementProperty{
+//   		andStatement: &andStatementProperty{
+//   			statements: []interface{}{
+//   				statementProperty_,
+//   			},
+//   		},
+//   		byteMatchStatement: &byteMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			positionalConstraint: jsii.String("positionalConstraint"),
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			searchString: jsii.String("searchString"),
+//   			searchStringBase64: jsii.String("searchStringBase64"),
+//   		},
+//   		geoMatchStatement: &geoMatchStatementProperty{
+//   			countryCodes: []*string{
+//   				jsii.String("countryCodes"),
+//   			},
+//   			forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   				fallbackBehavior: jsii.String("fallbackBehavior"),
+//   				headerName: jsii.String("headerName"),
+//   			},
+//   		},
+//   		ipSetReferenceStatement: map[string]interface{}{
+//   			"arn": jsii.String("arn"),
+//
+//   			// the properties below are optional
+//   			"ipSetForwardedIpConfig": map[string]*string{
+//   				"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   				"headerName": jsii.String("headerName"),
+//   				"position": jsii.String("position"),
+//   			},
+//   		},
+//   		labelMatchStatement: &labelMatchStatementProperty{
+//   			key: jsii.String("key"),
+//   			scope: jsii.String("scope"),
+//   		},
+//   		notStatement: &notStatementProperty{
+//   			statement: statementProperty_,
+//   		},
+//   		orStatement: &orStatementProperty{
+//   			statements: []interface{}{
+//   				statementProperty_,
+//   			},
+//   		},
+//   		rateBasedStatement: &rateBasedStatementProperty{
+//   			aggregateKeyType: jsii.String("aggregateKeyType"),
+//   			limit: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   				fallbackBehavior: jsii.String("fallbackBehavior"),
+//   				headerName: jsii.String("headerName"),
+//   			},
+//   			scopeDownStatement: statementProperty_,
+//   		},
+//   		regexMatchStatement: &regexMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			regexString: jsii.String("regexString"),
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   			arn: jsii.String("arn"),
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   			comparisonOperator: jsii.String("comparisonOperator"),
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			size: jsii.Number(123),
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		sqliMatchStatement: &sqliMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		xssMatchStatement: &xssMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnRuleGroup_NotStatementProperty struct {
 	// The statement to negate.
@@ -2909,7 +4715,254 @@ type CfnRuleGroup_NotStatementProperty struct {
 //
 // You provide more than one `Statement` within the `OrStatement` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var statementProperty_ statementProperty
+//   var uriPath interface{}
+//   orStatementProperty := &orStatementProperty{
+//   	statements: []interface{}{
+//   		&statementProperty{
+//   			andStatement: &andStatementProperty{
+//   				statements: []interface{}{
+//   					statementProperty_,
+//   				},
+//   			},
+//   			byteMatchStatement: &byteMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				positionalConstraint: jsii.String("positionalConstraint"),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				searchString: jsii.String("searchString"),
+//   				searchStringBase64: jsii.String("searchStringBase64"),
+//   			},
+//   			geoMatchStatement: &geoMatchStatementProperty{
+//   				countryCodes: []*string{
+//   					jsii.String("countryCodes"),
+//   				},
+//   				forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   					fallbackBehavior: jsii.String("fallbackBehavior"),
+//   					headerName: jsii.String("headerName"),
+//   				},
+//   			},
+//   			ipSetReferenceStatement: map[string]interface{}{
+//   				"arn": jsii.String("arn"),
+//
+//   				// the properties below are optional
+//   				"ipSetForwardedIpConfig": map[string]*string{
+//   					"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   					"headerName": jsii.String("headerName"),
+//   					"position": jsii.String("position"),
+//   				},
+//   			},
+//   			labelMatchStatement: &labelMatchStatementProperty{
+//   				key: jsii.String("key"),
+//   				scope: jsii.String("scope"),
+//   			},
+//   			notStatement: &notStatementProperty{
+//   				statement: statementProperty_,
+//   			},
+//   			orStatement: &orStatementProperty{
+//   				statements: []interface{}{
+//   					statementProperty_,
+//   				},
+//   			},
+//   			rateBasedStatement: &rateBasedStatementProperty{
+//   				aggregateKeyType: jsii.String("aggregateKeyType"),
+//   				limit: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   					fallbackBehavior: jsii.String("fallbackBehavior"),
+//   					headerName: jsii.String("headerName"),
+//   				},
+//   				scopeDownStatement: statementProperty_,
+//   			},
+//   			regexMatchStatement: &regexMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				regexString: jsii.String("regexString"),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   				arn: jsii.String("arn"),
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   				comparisonOperator: jsii.String("comparisonOperator"),
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				size: jsii.Number(123),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			sqliMatchStatement: &sqliMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			xssMatchStatement: &xssMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnRuleGroup_OrStatementProperty struct {
 	// The statements to combine with OR logic.
@@ -2933,7 +4986,260 @@ type CfnRuleGroup_OrStatementProperty struct {
 //
 // You cannot nest a `RateBasedStatement` , for example for use inside a `NotStatement` or `OrStatement` . It can only be referenced as a top-level statement within a rule.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var statementProperty_ statementProperty
+//   var uriPath interface{}
+//   rateBasedStatementProperty := &rateBasedStatementProperty{
+//   	aggregateKeyType: jsii.String("aggregateKeyType"),
+//   	limit: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   		fallbackBehavior: jsii.String("fallbackBehavior"),
+//   		headerName: jsii.String("headerName"),
+//   	},
+//   	scopeDownStatement: &statementProperty{
+//   		andStatement: &andStatementProperty{
+//   			statements: []interface{}{
+//   				statementProperty_,
+//   			},
+//   		},
+//   		byteMatchStatement: &byteMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			positionalConstraint: jsii.String("positionalConstraint"),
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			searchString: jsii.String("searchString"),
+//   			searchStringBase64: jsii.String("searchStringBase64"),
+//   		},
+//   		geoMatchStatement: &geoMatchStatementProperty{
+//   			countryCodes: []*string{
+//   				jsii.String("countryCodes"),
+//   			},
+//   			forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   				fallbackBehavior: jsii.String("fallbackBehavior"),
+//   				headerName: jsii.String("headerName"),
+//   			},
+//   		},
+//   		ipSetReferenceStatement: map[string]interface{}{
+//   			"arn": jsii.String("arn"),
+//
+//   			// the properties below are optional
+//   			"ipSetForwardedIpConfig": map[string]*string{
+//   				"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   				"headerName": jsii.String("headerName"),
+//   				"position": jsii.String("position"),
+//   			},
+//   		},
+//   		labelMatchStatement: &labelMatchStatementProperty{
+//   			key: jsii.String("key"),
+//   			scope: jsii.String("scope"),
+//   		},
+//   		notStatement: &notStatementProperty{
+//   			statement: statementProperty_,
+//   		},
+//   		orStatement: &orStatementProperty{
+//   			statements: []interface{}{
+//   				statementProperty_,
+//   			},
+//   		},
+//   		rateBasedStatement: &rateBasedStatementProperty{
+//   			aggregateKeyType: jsii.String("aggregateKeyType"),
+//   			limit: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   				fallbackBehavior: jsii.String("fallbackBehavior"),
+//   				headerName: jsii.String("headerName"),
+//   			},
+//   			scopeDownStatement: statementProperty_,
+//   		},
+//   		regexMatchStatement: &regexMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			regexString: jsii.String("regexString"),
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   			arn: jsii.String("arn"),
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   			comparisonOperator: jsii.String("comparisonOperator"),
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			size: jsii.Number(123),
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		sqliMatchStatement: &sqliMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		xssMatchStatement: &xssMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnRuleGroup_RateBasedStatementProperty struct {
 	// Setting that indicates how to aggregate the request counts. The options are the following:.
@@ -2961,7 +5267,47 @@ type CfnRuleGroup_RateBasedStatementProperty struct {
 
 // A rule statement used to search web request components for a match against a single regular expression.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var uriPath interface{}
+//   regexMatchStatementProperty := &regexMatchStatementProperty{
+//   	fieldToMatch: &fieldToMatchProperty{
+//   		allQueryArguments: allQueryArguments,
+//   		body: body,
+//   		jsonBody: &jsonBodyProperty{
+//   			matchPattern: &jsonMatchPatternProperty{
+//   				all: all,
+//   				includedPaths: []*string{
+//   					jsii.String("includedPaths"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//
+//   			// the properties below are optional
+//   			invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   		},
+//   		method: method,
+//   		queryString: queryString,
+//   		singleHeader: singleHeader,
+//   		singleQueryArgument: singleQueryArgument,
+//   		uriPath: uriPath,
+//   	},
+//   	regexString: jsii.String("regexString"),
+//   	textTransformations: []interface{}{
+//   		&textTransformationProperty{
+//   			priority: jsii.Number(123),
+//   			type: jsii.String("type"),
+//   		},
+//   	},
+//   }
 //
 type CfnRuleGroup_RegexMatchStatementProperty struct {
 	// The part of a web request that you want AWS WAF to inspect.
@@ -2982,7 +5328,47 @@ type CfnRuleGroup_RegexMatchStatementProperty struct {
 //
 // Each regex pattern set rule statement references a regex pattern set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var uriPath interface{}
+//   regexPatternSetReferenceStatementProperty := &regexPatternSetReferenceStatementProperty{
+//   	arn: jsii.String("arn"),
+//   	fieldToMatch: &fieldToMatchProperty{
+//   		allQueryArguments: allQueryArguments,
+//   		body: body,
+//   		jsonBody: &jsonBodyProperty{
+//   			matchPattern: &jsonMatchPatternProperty{
+//   				all: all,
+//   				includedPaths: []*string{
+//   					jsii.String("includedPaths"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//
+//   			// the properties below are optional
+//   			invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   		},
+//   		method: method,
+//   		queryString: queryString,
+//   		singleHeader: singleHeader,
+//   		singleQueryArgument: singleQueryArgument,
+//   		uriPath: uriPath,
+//   	},
+//   	textTransformations: []interface{}{
+//   		&textTransformationProperty{
+//   			priority: jsii.Number(123),
+//   			type: jsii.String("type"),
+//   		},
+//   	},
+//   }
 //
 type CfnRuleGroup_RegexPatternSetReferenceStatementProperty struct {
 	// The Amazon Resource Name (ARN) of the regular expression pattern set that this statement references.
@@ -2999,7 +5385,19 @@ type CfnRuleGroup_RegexPatternSetReferenceStatementProperty struct {
 //
 // Settings at the web ACL level can override the rule action setting.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var allow interface{}
+//   var block interface{}
+//   var captcha interface{}
+//   var count interface{}
+//   ruleActionProperty := &ruleActionProperty{
+//   	allow: allow,
+//   	block: block,
+//   	captcha: captcha,
+//   	count: count,
+//   }
 //
 type CfnRuleGroup_RuleActionProperty struct {
 	// Instructs AWS WAF to allow the web request.
@@ -3031,7 +5429,281 @@ type CfnRuleGroup_RuleActionProperty struct {
 //
 // Each rule includes one top-level Statement that AWS WAF uses to identify matching web requests, and parameters that govern how AWS WAF handles them.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allow interface{}
+//   var allQueryArguments interface{}
+//   var block interface{}
+//   var body interface{}
+//   var captcha interface{}
+//   var count interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var statementProperty_ statementProperty
+//   var uriPath interface{}
+//   ruleProperty := &ruleProperty{
+//   	name: jsii.String("name"),
+//   	priority: jsii.Number(123),
+//   	statement: &statementProperty{
+//   		andStatement: &andStatementProperty{
+//   			statements: []interface{}{
+//   				statementProperty_,
+//   			},
+//   		},
+//   		byteMatchStatement: &byteMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			positionalConstraint: jsii.String("positionalConstraint"),
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			searchString: jsii.String("searchString"),
+//   			searchStringBase64: jsii.String("searchStringBase64"),
+//   		},
+//   		geoMatchStatement: &geoMatchStatementProperty{
+//   			countryCodes: []*string{
+//   				jsii.String("countryCodes"),
+//   			},
+//   			forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   				fallbackBehavior: jsii.String("fallbackBehavior"),
+//   				headerName: jsii.String("headerName"),
+//   			},
+//   		},
+//   		ipSetReferenceStatement: map[string]interface{}{
+//   			"arn": jsii.String("arn"),
+//
+//   			// the properties below are optional
+//   			"ipSetForwardedIpConfig": map[string]*string{
+//   				"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   				"headerName": jsii.String("headerName"),
+//   				"position": jsii.String("position"),
+//   			},
+//   		},
+//   		labelMatchStatement: &labelMatchStatementProperty{
+//   			key: jsii.String("key"),
+//   			scope: jsii.String("scope"),
+//   		},
+//   		notStatement: &notStatementProperty{
+//   			statement: statementProperty_,
+//   		},
+//   		orStatement: &orStatementProperty{
+//   			statements: []interface{}{
+//   				statementProperty_,
+//   			},
+//   		},
+//   		rateBasedStatement: &rateBasedStatementProperty{
+//   			aggregateKeyType: jsii.String("aggregateKeyType"),
+//   			limit: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   				fallbackBehavior: jsii.String("fallbackBehavior"),
+//   				headerName: jsii.String("headerName"),
+//   			},
+//   			scopeDownStatement: statementProperty_,
+//   		},
+//   		regexMatchStatement: &regexMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			regexString: jsii.String("regexString"),
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   			arn: jsii.String("arn"),
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   			comparisonOperator: jsii.String("comparisonOperator"),
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			size: jsii.Number(123),
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		sqliMatchStatement: &sqliMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		xssMatchStatement: &xssMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	visibilityConfig: &visibilityConfigProperty{
+//   		cloudWatchMetricsEnabled: jsii.Boolean(false),
+//   		metricName: jsii.String("metricName"),
+//   		sampledRequestsEnabled: jsii.Boolean(false),
+//   	},
+//
+//   	// the properties below are optional
+//   	action: &ruleActionProperty{
+//   		allow: allow,
+//   		block: block,
+//   		captcha: captcha,
+//   		count: count,
+//   	},
+//   	captchaConfig: &captchaConfigProperty{
+//   		immunityTimeProperty: &immunityTimePropertyProperty{
+//   			immunityTime: jsii.Number(123),
+//   		},
+//   	},
+//   	ruleLabels: []interface{}{
+//   		&labelProperty{
+//   			name: jsii.String("name"),
+//   		},
+//   	},
+//   }
 //
 type CfnRuleGroup_RuleProperty struct {
 	// The descriptive name of the rule.
@@ -3079,7 +5751,48 @@ type CfnRuleGroup_RuleProperty struct {
 //
 // If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI `/logo.jpg` is nine characters long.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var uriPath interface{}
+//   sizeConstraintStatementProperty := &sizeConstraintStatementProperty{
+//   	comparisonOperator: jsii.String("comparisonOperator"),
+//   	fieldToMatch: &fieldToMatchProperty{
+//   		allQueryArguments: allQueryArguments,
+//   		body: body,
+//   		jsonBody: &jsonBodyProperty{
+//   			matchPattern: &jsonMatchPatternProperty{
+//   				all: all,
+//   				includedPaths: []*string{
+//   					jsii.String("includedPaths"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//
+//   			// the properties below are optional
+//   			invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   		},
+//   		method: method,
+//   		queryString: queryString,
+//   		singleHeader: singleHeader,
+//   		singleQueryArgument: singleQueryArgument,
+//   		uriPath: uriPath,
+//   	},
+//   	size: jsii.Number(123),
+//   	textTransformations: []interface{}{
+//   		&textTransformationProperty{
+//   			priority: jsii.Number(123),
+//   			type: jsii.String("type"),
+//   		},
+//   	},
+//   }
 //
 type CfnRuleGroup_SizeConstraintStatementProperty struct {
 	// The operator to use to compare the request part to the size setting.
@@ -3098,7 +5811,46 @@ type CfnRuleGroup_SizeConstraintStatementProperty struct {
 //
 // To allow or block web requests that appear to contain malicious SQL code, create one or more SQL injection match conditions. An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. Later in the process, when you create a web ACL, you specify whether to allow or block requests that appear to contain malicious SQL code.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var uriPath interface{}
+//   sqliMatchStatementProperty := &sqliMatchStatementProperty{
+//   	fieldToMatch: &fieldToMatchProperty{
+//   		allQueryArguments: allQueryArguments,
+//   		body: body,
+//   		jsonBody: &jsonBodyProperty{
+//   			matchPattern: &jsonMatchPatternProperty{
+//   				all: all,
+//   				includedPaths: []*string{
+//   					jsii.String("includedPaths"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//
+//   			// the properties below are optional
+//   			invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   		},
+//   		method: method,
+//   		queryString: queryString,
+//   		singleHeader: singleHeader,
+//   		singleQueryArgument: singleQueryArgument,
+//   		uriPath: uriPath,
+//   	},
+//   	textTransformations: []interface{}{
+//   		&textTransformationProperty{
+//   			priority: jsii.Number(123),
+//   			type: jsii.String("type"),
+//   		},
+//   	},
+//   }
 //
 type CfnRuleGroup_SqliMatchStatementProperty struct {
 	// The part of a web request that you want AWS WAF to inspect.
@@ -3111,7 +5863,1158 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 
 // The processing guidance for a `Rule` , used by AWS WAF to determine whether a web request matches the rule.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var andStatementProperty_ andStatementProperty
+//   var body interface{}
+//   var method interface{}
+//   var notStatementProperty_ notStatementProperty
+//   var orStatementProperty_ orStatementProperty
+//   var queryString interface{}
+//   var rateBasedStatementProperty_ rateBasedStatementProperty
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var statementProperty_ statementProperty
+//   var uriPath interface{}
+//   statementProperty := &statementProperty{
+//   	andStatement: &andStatementProperty{
+//   		statements: []interface{}{
+//   			&statementProperty{
+//   				andStatement: andStatementProperty_,
+//   				byteMatchStatement: &byteMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					positionalConstraint: jsii.String("positionalConstraint"),
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					searchString: jsii.String("searchString"),
+//   					searchStringBase64: jsii.String("searchStringBase64"),
+//   				},
+//   				geoMatchStatement: &geoMatchStatementProperty{
+//   					countryCodes: []*string{
+//   						jsii.String("countryCodes"),
+//   					},
+//   					forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   						fallbackBehavior: jsii.String("fallbackBehavior"),
+//   						headerName: jsii.String("headerName"),
+//   					},
+//   				},
+//   				ipSetReferenceStatement: map[string]interface{}{
+//   					"arn": jsii.String("arn"),
+//
+//   					// the properties below are optional
+//   					"ipSetForwardedIpConfig": map[string]*string{
+//   						"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   						"headerName": jsii.String("headerName"),
+//   						"position": jsii.String("position"),
+//   					},
+//   				},
+//   				labelMatchStatement: &labelMatchStatementProperty{
+//   					key: jsii.String("key"),
+//   					scope: jsii.String("scope"),
+//   				},
+//   				notStatement: &notStatementProperty{
+//   					statement: statementProperty_,
+//   				},
+//   				orStatement: &orStatementProperty{
+//   					statements: []interface{}{
+//   						statementProperty_,
+//   					},
+//   				},
+//   				rateBasedStatement: &rateBasedStatementProperty{
+//   					aggregateKeyType: jsii.String("aggregateKeyType"),
+//   					limit: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   						fallbackBehavior: jsii.String("fallbackBehavior"),
+//   						headerName: jsii.String("headerName"),
+//   					},
+//   					scopeDownStatement: statementProperty_,
+//   				},
+//   				regexMatchStatement: &regexMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					regexString: jsii.String("regexString"),
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   					arn: jsii.String("arn"),
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   					comparisonOperator: jsii.String("comparisonOperator"),
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					size: jsii.Number(123),
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				sqliMatchStatement: &sqliMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				xssMatchStatement: &xssMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	byteMatchStatement: &byteMatchStatementProperty{
+//   		fieldToMatch: &fieldToMatchProperty{
+//   			allQueryArguments: allQueryArguments,
+//   			body: body,
+//   			jsonBody: &jsonBodyProperty{
+//   				matchPattern: &jsonMatchPatternProperty{
+//   					all: all,
+//   					includedPaths: []*string{
+//   						jsii.String("includedPaths"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//
+//   				// the properties below are optional
+//   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			},
+//   			method: method,
+//   			queryString: queryString,
+//   			singleHeader: singleHeader,
+//   			singleQueryArgument: singleQueryArgument,
+//   			uriPath: uriPath,
+//   		},
+//   		positionalConstraint: jsii.String("positionalConstraint"),
+//   		textTransformations: []interface{}{
+//   			&textTransformationProperty{
+//   				priority: jsii.Number(123),
+//   				type: jsii.String("type"),
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		searchString: jsii.String("searchString"),
+//   		searchStringBase64: jsii.String("searchStringBase64"),
+//   	},
+//   	geoMatchStatement: &geoMatchStatementProperty{
+//   		countryCodes: []*string{
+//   			jsii.String("countryCodes"),
+//   		},
+//   		forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   			fallbackBehavior: jsii.String("fallbackBehavior"),
+//   			headerName: jsii.String("headerName"),
+//   		},
+//   	},
+//   	ipSetReferenceStatement: map[string]interface{}{
+//   		"arn": jsii.String("arn"),
+//
+//   		// the properties below are optional
+//   		"ipSetForwardedIpConfig": map[string]*string{
+//   			"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   			"headerName": jsii.String("headerName"),
+//   			"position": jsii.String("position"),
+//   		},
+//   	},
+//   	labelMatchStatement: &labelMatchStatementProperty{
+//   		key: jsii.String("key"),
+//   		scope: jsii.String("scope"),
+//   	},
+//   	notStatement: &notStatementProperty{
+//   		statement: &statementProperty{
+//   			andStatement: &andStatementProperty{
+//   				statements: []interface{}{
+//   					statementProperty_,
+//   				},
+//   			},
+//   			byteMatchStatement: &byteMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				positionalConstraint: jsii.String("positionalConstraint"),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				searchString: jsii.String("searchString"),
+//   				searchStringBase64: jsii.String("searchStringBase64"),
+//   			},
+//   			geoMatchStatement: &geoMatchStatementProperty{
+//   				countryCodes: []*string{
+//   					jsii.String("countryCodes"),
+//   				},
+//   				forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   					fallbackBehavior: jsii.String("fallbackBehavior"),
+//   					headerName: jsii.String("headerName"),
+//   				},
+//   			},
+//   			ipSetReferenceStatement: map[string]interface{}{
+//   				"arn": jsii.String("arn"),
+//
+//   				// the properties below are optional
+//   				"ipSetForwardedIpConfig": map[string]*string{
+//   					"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   					"headerName": jsii.String("headerName"),
+//   					"position": jsii.String("position"),
+//   				},
+//   			},
+//   			labelMatchStatement: &labelMatchStatementProperty{
+//   				key: jsii.String("key"),
+//   				scope: jsii.String("scope"),
+//   			},
+//   			notStatement: notStatementProperty_,
+//   			orStatement: &orStatementProperty{
+//   				statements: []interface{}{
+//   					statementProperty_,
+//   				},
+//   			},
+//   			rateBasedStatement: &rateBasedStatementProperty{
+//   				aggregateKeyType: jsii.String("aggregateKeyType"),
+//   				limit: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   					fallbackBehavior: jsii.String("fallbackBehavior"),
+//   					headerName: jsii.String("headerName"),
+//   				},
+//   				scopeDownStatement: statementProperty_,
+//   			},
+//   			regexMatchStatement: &regexMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				regexString: jsii.String("regexString"),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   				arn: jsii.String("arn"),
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   				comparisonOperator: jsii.String("comparisonOperator"),
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				size: jsii.Number(123),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			sqliMatchStatement: &sqliMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			xssMatchStatement: &xssMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	orStatement: &orStatementProperty{
+//   		statements: []interface{}{
+//   			&statementProperty{
+//   				andStatement: &andStatementProperty{
+//   					statements: []interface{}{
+//   						statementProperty_,
+//   					},
+//   				},
+//   				byteMatchStatement: &byteMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					positionalConstraint: jsii.String("positionalConstraint"),
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					searchString: jsii.String("searchString"),
+//   					searchStringBase64: jsii.String("searchStringBase64"),
+//   				},
+//   				geoMatchStatement: &geoMatchStatementProperty{
+//   					countryCodes: []*string{
+//   						jsii.String("countryCodes"),
+//   					},
+//   					forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   						fallbackBehavior: jsii.String("fallbackBehavior"),
+//   						headerName: jsii.String("headerName"),
+//   					},
+//   				},
+//   				ipSetReferenceStatement: map[string]interface{}{
+//   					"arn": jsii.String("arn"),
+//
+//   					// the properties below are optional
+//   					"ipSetForwardedIpConfig": map[string]*string{
+//   						"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   						"headerName": jsii.String("headerName"),
+//   						"position": jsii.String("position"),
+//   					},
+//   				},
+//   				labelMatchStatement: &labelMatchStatementProperty{
+//   					key: jsii.String("key"),
+//   					scope: jsii.String("scope"),
+//   				},
+//   				notStatement: &notStatementProperty{
+//   					statement: statementProperty_,
+//   				},
+//   				orStatement: orStatementProperty_,
+//   				rateBasedStatement: &rateBasedStatementProperty{
+//   					aggregateKeyType: jsii.String("aggregateKeyType"),
+//   					limit: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   						fallbackBehavior: jsii.String("fallbackBehavior"),
+//   						headerName: jsii.String("headerName"),
+//   					},
+//   					scopeDownStatement: statementProperty_,
+//   				},
+//   				regexMatchStatement: &regexMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					regexString: jsii.String("regexString"),
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   					arn: jsii.String("arn"),
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   					comparisonOperator: jsii.String("comparisonOperator"),
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					size: jsii.Number(123),
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				sqliMatchStatement: &sqliMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				xssMatchStatement: &xssMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	rateBasedStatement: &rateBasedStatementProperty{
+//   		aggregateKeyType: jsii.String("aggregateKeyType"),
+//   		limit: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   			fallbackBehavior: jsii.String("fallbackBehavior"),
+//   			headerName: jsii.String("headerName"),
+//   		},
+//   		scopeDownStatement: &statementProperty{
+//   			andStatement: &andStatementProperty{
+//   				statements: []interface{}{
+//   					statementProperty_,
+//   				},
+//   			},
+//   			byteMatchStatement: &byteMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				positionalConstraint: jsii.String("positionalConstraint"),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				searchString: jsii.String("searchString"),
+//   				searchStringBase64: jsii.String("searchStringBase64"),
+//   			},
+//   			geoMatchStatement: &geoMatchStatementProperty{
+//   				countryCodes: []*string{
+//   					jsii.String("countryCodes"),
+//   				},
+//   				forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   					fallbackBehavior: jsii.String("fallbackBehavior"),
+//   					headerName: jsii.String("headerName"),
+//   				},
+//   			},
+//   			ipSetReferenceStatement: map[string]interface{}{
+//   				"arn": jsii.String("arn"),
+//
+//   				// the properties below are optional
+//   				"ipSetForwardedIpConfig": map[string]*string{
+//   					"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   					"headerName": jsii.String("headerName"),
+//   					"position": jsii.String("position"),
+//   				},
+//   			},
+//   			labelMatchStatement: &labelMatchStatementProperty{
+//   				key: jsii.String("key"),
+//   				scope: jsii.String("scope"),
+//   			},
+//   			notStatement: &notStatementProperty{
+//   				statement: statementProperty_,
+//   			},
+//   			orStatement: &orStatementProperty{
+//   				statements: []interface{}{
+//   					statementProperty_,
+//   				},
+//   			},
+//   			rateBasedStatement: rateBasedStatementProperty_,
+//   			regexMatchStatement: &regexMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				regexString: jsii.String("regexString"),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   				arn: jsii.String("arn"),
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   				comparisonOperator: jsii.String("comparisonOperator"),
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				size: jsii.Number(123),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			sqliMatchStatement: &sqliMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			xssMatchStatement: &xssMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	regexMatchStatement: &regexMatchStatementProperty{
+//   		fieldToMatch: &fieldToMatchProperty{
+//   			allQueryArguments: allQueryArguments,
+//   			body: body,
+//   			jsonBody: &jsonBodyProperty{
+//   				matchPattern: &jsonMatchPatternProperty{
+//   					all: all,
+//   					includedPaths: []*string{
+//   						jsii.String("includedPaths"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//
+//   				// the properties below are optional
+//   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			},
+//   			method: method,
+//   			queryString: queryString,
+//   			singleHeader: singleHeader,
+//   			singleQueryArgument: singleQueryArgument,
+//   			uriPath: uriPath,
+//   		},
+//   		regexString: jsii.String("regexString"),
+//   		textTransformations: []interface{}{
+//   			&textTransformationProperty{
+//   				priority: jsii.Number(123),
+//   				type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
+//   	regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   		arn: jsii.String("arn"),
+//   		fieldToMatch: &fieldToMatchProperty{
+//   			allQueryArguments: allQueryArguments,
+//   			body: body,
+//   			jsonBody: &jsonBodyProperty{
+//   				matchPattern: &jsonMatchPatternProperty{
+//   					all: all,
+//   					includedPaths: []*string{
+//   						jsii.String("includedPaths"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//
+//   				// the properties below are optional
+//   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			},
+//   			method: method,
+//   			queryString: queryString,
+//   			singleHeader: singleHeader,
+//   			singleQueryArgument: singleQueryArgument,
+//   			uriPath: uriPath,
+//   		},
+//   		textTransformations: []interface{}{
+//   			&textTransformationProperty{
+//   				priority: jsii.Number(123),
+//   				type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
+//   	sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   		comparisonOperator: jsii.String("comparisonOperator"),
+//   		fieldToMatch: &fieldToMatchProperty{
+//   			allQueryArguments: allQueryArguments,
+//   			body: body,
+//   			jsonBody: &jsonBodyProperty{
+//   				matchPattern: &jsonMatchPatternProperty{
+//   					all: all,
+//   					includedPaths: []*string{
+//   						jsii.String("includedPaths"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//
+//   				// the properties below are optional
+//   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			},
+//   			method: method,
+//   			queryString: queryString,
+//   			singleHeader: singleHeader,
+//   			singleQueryArgument: singleQueryArgument,
+//   			uriPath: uriPath,
+//   		},
+//   		size: jsii.Number(123),
+//   		textTransformations: []interface{}{
+//   			&textTransformationProperty{
+//   				priority: jsii.Number(123),
+//   				type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
+//   	sqliMatchStatement: &sqliMatchStatementProperty{
+//   		fieldToMatch: &fieldToMatchProperty{
+//   			allQueryArguments: allQueryArguments,
+//   			body: body,
+//   			jsonBody: &jsonBodyProperty{
+//   				matchPattern: &jsonMatchPatternProperty{
+//   					all: all,
+//   					includedPaths: []*string{
+//   						jsii.String("includedPaths"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//
+//   				// the properties below are optional
+//   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			},
+//   			method: method,
+//   			queryString: queryString,
+//   			singleHeader: singleHeader,
+//   			singleQueryArgument: singleQueryArgument,
+//   			uriPath: uriPath,
+//   		},
+//   		textTransformations: []interface{}{
+//   			&textTransformationProperty{
+//   				priority: jsii.Number(123),
+//   				type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
+//   	xssMatchStatement: &xssMatchStatementProperty{
+//   		fieldToMatch: &fieldToMatchProperty{
+//   			allQueryArguments: allQueryArguments,
+//   			body: body,
+//   			jsonBody: &jsonBodyProperty{
+//   				matchPattern: &jsonMatchPatternProperty{
+//   					all: all,
+//   					includedPaths: []*string{
+//   						jsii.String("includedPaths"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//
+//   				// the properties below are optional
+//   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			},
+//   			method: method,
+//   			queryString: queryString,
+//   			singleHeader: singleHeader,
+//   			singleQueryArgument: singleQueryArgument,
+//   			uriPath: uriPath,
+//   		},
+//   		textTransformations: []interface{}{
+//   			&textTransformationProperty{
+//   				priority: jsii.Number(123),
+//   				type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnRuleGroup_StatementProperty struct {
 	// A logical rule statement used to combine other rule statements with AND logic.
@@ -3185,7 +7088,12 @@ type CfnRuleGroup_StatementProperty struct {
 
 // Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   textTransformationProperty := &textTransformationProperty{
+//   	priority: jsii.Number(123),
+//   	type: jsii.String("type"),
+//   }
 //
 type CfnRuleGroup_TextTransformationProperty struct {
 	// Sets the relative processing order for multiple transformations that are defined for a rule statement.
@@ -3262,7 +7170,13 @@ type CfnRuleGroup_TextTransformationProperty struct {
 
 // Defines and enables Amazon CloudWatch metrics and web request sample collection.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   visibilityConfigProperty := &visibilityConfigProperty{
+//   	cloudWatchMetricsEnabled: jsii.Boolean(false),
+//   	metricName: jsii.String("metricName"),
+//   	sampledRequestsEnabled: jsii.Boolean(false),
+//   }
 //
 type CfnRuleGroup_VisibilityConfigProperty struct {
 	// A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch .
@@ -3283,7 +7197,46 @@ type CfnRuleGroup_VisibilityConfigProperty struct {
 //
 // XSS attacks are those where the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers. The XSS match statement provides the location in requests that you want AWS WAF to search and text transformations to use on the search area before AWS WAF searches for character sequences that are likely to be malicious strings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var uriPath interface{}
+//   xssMatchStatementProperty := &xssMatchStatementProperty{
+//   	fieldToMatch: &fieldToMatchProperty{
+//   		allQueryArguments: allQueryArguments,
+//   		body: body,
+//   		jsonBody: &jsonBodyProperty{
+//   			matchPattern: &jsonMatchPatternProperty{
+//   				all: all,
+//   				includedPaths: []*string{
+//   					jsii.String("includedPaths"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//
+//   			// the properties below are optional
+//   			invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   		},
+//   		method: method,
+//   		queryString: queryString,
+//   		singleHeader: singleHeader,
+//   		singleQueryArgument: singleQueryArgument,
+//   		uriPath: uriPath,
+//   	},
+//   	textTransformations: []interface{}{
+//   		&textTransformationProperty{
+//   			priority: jsii.Number(123),
+//   			type: jsii.String("type"),
+//   		},
+//   	},
+//   }
 //
 type CfnRuleGroup_XssMatchStatementProperty struct {
 	// The part of a web request that you want AWS WAF to inspect.
@@ -3296,7 +7249,308 @@ type CfnRuleGroup_XssMatchStatementProperty struct {
 
 // Properties for defining a `CfnRuleGroup`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allow interface{}
+//   var allQueryArguments interface{}
+//   var block interface{}
+//   var body interface{}
+//   var captcha interface{}
+//   var count interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var statementProperty_ statementProperty
+//   var uriPath interface{}
+//   cfnRuleGroupProps := &cfnRuleGroupProps{
+//   	capacity: jsii.Number(123),
+//   	scope: jsii.String("scope"),
+//   	visibilityConfig: &visibilityConfigProperty{
+//   		cloudWatchMetricsEnabled: jsii.Boolean(false),
+//   		metricName: jsii.String("metricName"),
+//   		sampledRequestsEnabled: jsii.Boolean(false),
+//   	},
+//
+//   	// the properties below are optional
+//   	customResponseBodies: map[string]interface{}{
+//   		"customResponseBodiesKey": &CustomResponseBodyProperty{
+//   			"content": jsii.String("content"),
+//   			"contentType": jsii.String("contentType"),
+//   		},
+//   	},
+//   	description: jsii.String("description"),
+//   	name: jsii.String("name"),
+//   	rules: []interface{}{
+//   		&ruleProperty{
+//   			name: jsii.String("name"),
+//   			priority: jsii.Number(123),
+//   			statement: &statementProperty{
+//   				andStatement: &andStatementProperty{
+//   					statements: []interface{}{
+//   						statementProperty_,
+//   					},
+//   				},
+//   				byteMatchStatement: &byteMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					positionalConstraint: jsii.String("positionalConstraint"),
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					searchString: jsii.String("searchString"),
+//   					searchStringBase64: jsii.String("searchStringBase64"),
+//   				},
+//   				geoMatchStatement: &geoMatchStatementProperty{
+//   					countryCodes: []*string{
+//   						jsii.String("countryCodes"),
+//   					},
+//   					forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   						fallbackBehavior: jsii.String("fallbackBehavior"),
+//   						headerName: jsii.String("headerName"),
+//   					},
+//   				},
+//   				ipSetReferenceStatement: map[string]interface{}{
+//   					"arn": jsii.String("arn"),
+//
+//   					// the properties below are optional
+//   					"ipSetForwardedIpConfig": map[string]*string{
+//   						"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   						"headerName": jsii.String("headerName"),
+//   						"position": jsii.String("position"),
+//   					},
+//   				},
+//   				labelMatchStatement: &labelMatchStatementProperty{
+//   					key: jsii.String("key"),
+//   					scope: jsii.String("scope"),
+//   				},
+//   				notStatement: &notStatementProperty{
+//   					statement: statementProperty_,
+//   				},
+//   				orStatement: &orStatementProperty{
+//   					statements: []interface{}{
+//   						statementProperty_,
+//   					},
+//   				},
+//   				rateBasedStatement: &rateBasedStatementProperty{
+//   					aggregateKeyType: jsii.String("aggregateKeyType"),
+//   					limit: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   						fallbackBehavior: jsii.String("fallbackBehavior"),
+//   						headerName: jsii.String("headerName"),
+//   					},
+//   					scopeDownStatement: statementProperty_,
+//   				},
+//   				regexMatchStatement: &regexMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					regexString: jsii.String("regexString"),
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   					arn: jsii.String("arn"),
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   					comparisonOperator: jsii.String("comparisonOperator"),
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					size: jsii.Number(123),
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				sqliMatchStatement: &sqliMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				xssMatchStatement: &xssMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			visibilityConfig: &visibilityConfigProperty{
+//   				cloudWatchMetricsEnabled: jsii.Boolean(false),
+//   				metricName: jsii.String("metricName"),
+//   				sampledRequestsEnabled: jsii.Boolean(false),
+//   			},
+//
+//   			// the properties below are optional
+//   			action: &ruleActionProperty{
+//   				allow: allow,
+//   				block: block,
+//   				captcha: captcha,
+//   				count: count,
+//   			},
+//   			captchaConfig: &captchaConfigProperty{
+//   				immunityTimeProperty: &immunityTimePropertyProperty{
+//   					immunityTime: jsii.Number(123),
+//   				},
+//   			},
+//   			ruleLabels: []interface{}{
+//   				&labelProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnRuleGroupProps struct {
 	// The web ACL capacity units (WCUs) required for this rule group.
@@ -3345,55 +7599,687 @@ type CfnRuleGroupProps struct {
 //
 // Use an `WebACL` to define a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can contain rule statements that you define explicitly and rule statements that reference rule groups and managed rule groups. You can associate a web ACL with one or more AWS resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer , or an AWS AppSync GraphQL API.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var count interface{}
+//   var method interface{}
+//   var none interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var statementProperty_ statementProperty
+//   var uriPath interface{}
+//   cfnWebACL := wafv2.NewCfnWebACL(this, jsii.String("MyCfnWebACL"), &cfnWebACLProps{
+//   	defaultAction: &defaultActionProperty{
+//   		allow: &allowActionProperty{
+//   			customRequestHandling: &customRequestHandlingProperty{
+//   				insertHeaders: []interface{}{
+//   					&customHTTPHeaderProperty{
+//   						name: jsii.String("name"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		block: &blockActionProperty{
+//   			customResponse: &customResponseProperty{
+//   				responseCode: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				customResponseBodyKey: jsii.String("customResponseBodyKey"),
+//   				responseHeaders: []interface{}{
+//   					&customHTTPHeaderProperty{
+//   						name: jsii.String("name"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	scope: jsii.String("scope"),
+//   	visibilityConfig: &visibilityConfigProperty{
+//   		cloudWatchMetricsEnabled: jsii.Boolean(false),
+//   		metricName: jsii.String("metricName"),
+//   		sampledRequestsEnabled: jsii.Boolean(false),
+//   	},
+//
+//   	// the properties below are optional
+//   	captchaConfig: &captchaConfigProperty{
+//   		immunityTimeProperty: &immunityTimePropertyProperty{
+//   			immunityTime: jsii.Number(123),
+//   		},
+//   	},
+//   	customResponseBodies: map[string]interface{}{
+//   		"customResponseBodiesKey": &CustomResponseBodyProperty{
+//   			"content": jsii.String("content"),
+//   			"contentType": jsii.String("contentType"),
+//   		},
+//   	},
+//   	description: jsii.String("description"),
+//   	name: jsii.String("name"),
+//   	rules: []interface{}{
+//   		&ruleProperty{
+//   			name: jsii.String("name"),
+//   			priority: jsii.Number(123),
+//   			statement: &statementProperty{
+//   				andStatement: &andStatementProperty{
+//   					statements: []interface{}{
+//   						statementProperty_,
+//   					},
+//   				},
+//   				byteMatchStatement: &byteMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					positionalConstraint: jsii.String("positionalConstraint"),
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					searchString: jsii.String("searchString"),
+//   					searchStringBase64: jsii.String("searchStringBase64"),
+//   				},
+//   				geoMatchStatement: &geoMatchStatementProperty{
+//   					countryCodes: []*string{
+//   						jsii.String("countryCodes"),
+//   					},
+//   					forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   						fallbackBehavior: jsii.String("fallbackBehavior"),
+//   						headerName: jsii.String("headerName"),
+//   					},
+//   				},
+//   				ipSetReferenceStatement: map[string]interface{}{
+//   					"arn": jsii.String("arn"),
+//
+//   					// the properties below are optional
+//   					"ipSetForwardedIpConfig": map[string]*string{
+//   						"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   						"headerName": jsii.String("headerName"),
+//   						"position": jsii.String("position"),
+//   					},
+//   				},
+//   				labelMatchStatement: &labelMatchStatementProperty{
+//   					key: jsii.String("key"),
+//   					scope: jsii.String("scope"),
+//   				},
+//   				managedRuleGroupStatement: &managedRuleGroupStatementProperty{
+//   					name: jsii.String("name"),
+//   					vendorName: jsii.String("vendorName"),
+//
+//   					// the properties below are optional
+//   					excludedRules: []interface{}{
+//   						&excludedRuleProperty{
+//   							name: jsii.String("name"),
+//   						},
+//   					},
+//   					managedRuleGroupConfigs: []interface{}{
+//   						&managedRuleGroupConfigProperty{
+//   							loginPath: jsii.String("loginPath"),
+//   							passwordField: &fieldIdentifierProperty{
+//   								identifier: jsii.String("identifier"),
+//   							},
+//   							payloadType: jsii.String("payloadType"),
+//   							usernameField: &fieldIdentifierProperty{
+//   								identifier: jsii.String("identifier"),
+//   							},
+//   						},
+//   					},
+//   					scopeDownStatement: statementProperty_,
+//   					version: jsii.String("version"),
+//   				},
+//   				notStatement: &notStatementProperty{
+//   					statement: statementProperty_,
+//   				},
+//   				orStatement: &orStatementProperty{
+//   					statements: []interface{}{
+//   						statementProperty_,
+//   					},
+//   				},
+//   				rateBasedStatement: &rateBasedStatementProperty{
+//   					aggregateKeyType: jsii.String("aggregateKeyType"),
+//   					limit: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   						fallbackBehavior: jsii.String("fallbackBehavior"),
+//   						headerName: jsii.String("headerName"),
+//   					},
+//   					scopeDownStatement: statementProperty_,
+//   				},
+//   				regexMatchStatement: &regexMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					regexString: jsii.String("regexString"),
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   					arn: jsii.String("arn"),
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				ruleGroupReferenceStatement: &ruleGroupReferenceStatementProperty{
+//   					arn: jsii.String("arn"),
+//
+//   					// the properties below are optional
+//   					excludedRules: []interface{}{
+//   						&excludedRuleProperty{
+//   							name: jsii.String("name"),
+//   						},
+//   					},
+//   				},
+//   				sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   					comparisonOperator: jsii.String("comparisonOperator"),
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					size: jsii.Number(123),
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				sqliMatchStatement: &sqliMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				xssMatchStatement: &xssMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			visibilityConfig: &visibilityConfigProperty{
+//   				cloudWatchMetricsEnabled: jsii.Boolean(false),
+//   				metricName: jsii.String("metricName"),
+//   				sampledRequestsEnabled: jsii.Boolean(false),
+//   			},
+//
+//   			// the properties below are optional
+//   			action: &ruleActionProperty{
+//   				allow: &allowActionProperty{
+//   					customRequestHandling: &customRequestHandlingProperty{
+//   						insertHeaders: []interface{}{
+//   							&customHTTPHeaderProperty{
+//   								name: jsii.String("name"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				block: &blockActionProperty{
+//   					customResponse: &customResponseProperty{
+//   						responseCode: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						customResponseBodyKey: jsii.String("customResponseBodyKey"),
+//   						responseHeaders: []interface{}{
+//   							&customHTTPHeaderProperty{
+//   								name: jsii.String("name"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				captcha: &captchaActionProperty{
+//   					customRequestHandling: &customRequestHandlingProperty{
+//   						insertHeaders: []interface{}{
+//   							&customHTTPHeaderProperty{
+//   								name: jsii.String("name"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				count: &countActionProperty{
+//   					customRequestHandling: &customRequestHandlingProperty{
+//   						insertHeaders: []interface{}{
+//   							&customHTTPHeaderProperty{
+//   								name: jsii.String("name"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   			captchaConfig: &captchaConfigProperty{
+//   				immunityTimeProperty: &immunityTimePropertyProperty{
+//   					immunityTime: jsii.Number(123),
+//   				},
+//   			},
+//   			overrideAction: &overrideActionProperty{
+//   				count: count,
+//   				none: none,
+//   			},
+//   			ruleLabels: []interface{}{
+//   				&labelProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   })
 //
 type CfnWebACL interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the web ACL.
 	AttrArn() *string
+	// The current web ACL capacity (WCU) usage by the web ACL.
 	AttrCapacity() *float64
+	// The ID of the web ACL.
 	AttrId() *string
+	// The label namespace prefix for this web ACL.
+	//
+	// All labels added by rules in this web ACL have this prefix.
+	//
+	// The syntax for the label namespace prefix for a web ACL is the following: `awswaf:<account ID>:webacl:<web ACL name>:`
+	//
+	// When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
 	AttrLabelNamespace() *string
+	// Specifies how AWS WAF should handle `CAPTCHA` evaluations for rules that don't have their own `CaptchaConfig` settings.
+	//
+	// If you don't specify this, AWS WAF uses its default settings for `CaptchaConfig` .
 	CaptchaConfig() interface{}
 	SetCaptchaConfig(val interface{})
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// A map of custom response keys and content bodies.
+	//
+	// When you create a rule with a block action, you can send a custom response to the web request. You define these for the web ACL, and then use them in the rules and default actions that you define in the web ACL.
+	//
+	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+	//
+	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 	CustomResponseBodies() interface{}
 	SetCustomResponseBodies(val interface{})
+	// The action to perform if none of the `Rules` contained in the `WebACL` match.
 	DefaultAction() interface{}
 	SetDefaultAction(val interface{})
+	// A description of the web ACL that helps with identification.
 	Description() *string
 	SetDescription(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The descriptive name of the web ACL.
+	//
+	// You cannot change the name of a web ACL after you create it.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The rule statements used to identify the web requests that you want to allow, block, or count.
+	//
+	// Each rule includes one top-level statement that AWS WAF uses to identify matching web requests, and parameters that govern how AWS WAF handles them.
 	Rules() interface{}
 	SetRules(val interface{})
+	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application.
+	//
+	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AWS AppSync GraphQL API. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+	//
+	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
+	//
+	// For information about how to define the association of the web ACL with your resource, see `WebACLAssociation` .
 	Scope() *string
 	SetScope(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Key:value pairs associated with an AWS resource.
+	//
+	// The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	//
+	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
 	VisibilityConfig() interface{}
 	SetVisibilityConfig(val interface{})
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -3543,8 +8429,8 @@ func (j *jsiiProxy_CfnWebACL) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWebACL) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnWebACL) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3625,13 +8511,13 @@ func (j *jsiiProxy_CfnWebACL) VisibilityConfig() interface{} {
 
 
 // Create a new `AWS::WAFv2::WebACL`.
-func NewCfnWebACL(scope constructs.Construct, id *string, props *CfnWebACLProps) CfnWebACL {
+func NewCfnWebACL(scope awscdk.Construct, id *string, props *CfnWebACLProps) CfnWebACL {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnWebACL{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wafv2.CfnWebACL",
+		"monocdk.aws_wafv2.CfnWebACL",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3640,11 +8526,11 @@ func NewCfnWebACL(scope constructs.Construct, id *string, props *CfnWebACLProps)
 }
 
 // Create a new `AWS::WAFv2::WebACL`.
-func NewCfnWebACL_Override(c CfnWebACL, scope constructs.Construct, id *string, props *CfnWebACLProps) {
+func NewCfnWebACL_Override(c CfnWebACL, scope awscdk.Construct, id *string, props *CfnWebACLProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wafv2.CfnWebACL",
+		"monocdk.aws_wafv2.CfnWebACL",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3720,13 +8606,14 @@ func (j *jsiiProxy_CfnWebACL) SetVisibilityConfig(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnWebACL_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnWebACL",
+		"monocdk.aws_wafv2.CfnWebACL",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3736,13 +8623,14 @@ func CfnWebACL_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnWebACL_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnWebACL",
+		"monocdk.aws_wafv2.CfnWebACL",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3751,17 +8639,15 @@ func CfnWebACL_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnWebACL_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnWebACL",
+		"monocdk.aws_wafv2.CfnWebACL",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3774,14 +8660,13 @@ func CfnWebACL_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_wafv2.CfnWebACL",
+		"monocdk.aws_wafv2.CfnWebACL",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnWebACL) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3790,10 +8675,6 @@ func (c *jsiiProxy_CfnWebACL) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnWebACL) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3802,13 +8683,6 @@ func (c *jsiiProxy_CfnWebACL) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnWebACL) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3817,49 +8691,6 @@ func (c *jsiiProxy_CfnWebACL) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnWebACL) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3868,7 +8699,6 @@ func (c *jsiiProxy_CfnWebACL) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnWebACL) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3877,9 +8707,6 @@ func (c *jsiiProxy_CfnWebACL) AddPropertyDeletionOverride(propertyPath *string) 
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnWebACL) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3888,15 +8715,6 @@ func (c *jsiiProxy_CfnWebACL) AddPropertyOverride(propertyPath *string, value in
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnWebACL) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3905,10 +8723,6 @@ func (c *jsiiProxy_CfnWebACL) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, op
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnWebACL) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3922,13 +8736,6 @@ func (c *jsiiProxy_CfnWebACL) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnWebACL) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3942,7 +8749,6 @@ func (c *jsiiProxy_CfnWebACL) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnWebACL) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3951,12 +8757,48 @@ func (c *jsiiProxy_CfnWebACL) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnWebACL) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnWebACL) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnWebACL) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnWebACL) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnWebACL) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3973,10 +8815,6 @@ func (c *jsiiProxy_CfnWebACL) RenderProperties(props *map[string]interface{}) *m
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnWebACL) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3990,15 +8828,33 @@ func (c *jsiiProxy_CfnWebACL) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnWebACL) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnWebACL) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnWebACL) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4018,7 +8874,18 @@ func (c *jsiiProxy_CfnWebACL) ValidateProperties(_properties interface{}) {
 //
 // This is used only in the context of other settings, for example to specify values for the web ACL and rule group `RuleAction` and for the web ACL `DefaultAction` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   allowActionProperty := &allowActionProperty{
+//   	customRequestHandling: &customRequestHandlingProperty{
+//   		insertHeaders: []interface{}{
+//   			&customHTTPHeaderProperty{
+//   				name: jsii.String("name"),
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnWebACL_AllowActionProperty struct {
 	// Defines custom handling for the web request.
@@ -4031,7 +8898,289 @@ type CfnWebACL_AllowActionProperty struct {
 //
 // You provide more than one `Statement` within the `AndStatement` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var statementProperty_ statementProperty
+//   var uriPath interface{}
+//   andStatementProperty := &andStatementProperty{
+//   	statements: []interface{}{
+//   		&statementProperty{
+//   			andStatement: &andStatementProperty{
+//   				statements: []interface{}{
+//   					statementProperty_,
+//   				},
+//   			},
+//   			byteMatchStatement: &byteMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				positionalConstraint: jsii.String("positionalConstraint"),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				searchString: jsii.String("searchString"),
+//   				searchStringBase64: jsii.String("searchStringBase64"),
+//   			},
+//   			geoMatchStatement: &geoMatchStatementProperty{
+//   				countryCodes: []*string{
+//   					jsii.String("countryCodes"),
+//   				},
+//   				forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   					fallbackBehavior: jsii.String("fallbackBehavior"),
+//   					headerName: jsii.String("headerName"),
+//   				},
+//   			},
+//   			ipSetReferenceStatement: map[string]interface{}{
+//   				"arn": jsii.String("arn"),
+//
+//   				// the properties below are optional
+//   				"ipSetForwardedIpConfig": map[string]*string{
+//   					"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   					"headerName": jsii.String("headerName"),
+//   					"position": jsii.String("position"),
+//   				},
+//   			},
+//   			labelMatchStatement: &labelMatchStatementProperty{
+//   				key: jsii.String("key"),
+//   				scope: jsii.String("scope"),
+//   			},
+//   			managedRuleGroupStatement: &managedRuleGroupStatementProperty{
+//   				name: jsii.String("name"),
+//   				vendorName: jsii.String("vendorName"),
+//
+//   				// the properties below are optional
+//   				excludedRules: []interface{}{
+//   					&excludedRuleProperty{
+//   						name: jsii.String("name"),
+//   					},
+//   				},
+//   				managedRuleGroupConfigs: []interface{}{
+//   					&managedRuleGroupConfigProperty{
+//   						loginPath: jsii.String("loginPath"),
+//   						passwordField: &fieldIdentifierProperty{
+//   							identifier: jsii.String("identifier"),
+//   						},
+//   						payloadType: jsii.String("payloadType"),
+//   						usernameField: &fieldIdentifierProperty{
+//   							identifier: jsii.String("identifier"),
+//   						},
+//   					},
+//   				},
+//   				scopeDownStatement: statementProperty_,
+//   				version: jsii.String("version"),
+//   			},
+//   			notStatement: &notStatementProperty{
+//   				statement: statementProperty_,
+//   			},
+//   			orStatement: &orStatementProperty{
+//   				statements: []interface{}{
+//   					statementProperty_,
+//   				},
+//   			},
+//   			rateBasedStatement: &rateBasedStatementProperty{
+//   				aggregateKeyType: jsii.String("aggregateKeyType"),
+//   				limit: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   					fallbackBehavior: jsii.String("fallbackBehavior"),
+//   					headerName: jsii.String("headerName"),
+//   				},
+//   				scopeDownStatement: statementProperty_,
+//   			},
+//   			regexMatchStatement: &regexMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				regexString: jsii.String("regexString"),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   				arn: jsii.String("arn"),
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			ruleGroupReferenceStatement: &ruleGroupReferenceStatementProperty{
+//   				arn: jsii.String("arn"),
+//
+//   				// the properties below are optional
+//   				excludedRules: []interface{}{
+//   					&excludedRuleProperty{
+//   						name: jsii.String("name"),
+//   					},
+//   				},
+//   			},
+//   			sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   				comparisonOperator: jsii.String("comparisonOperator"),
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				size: jsii.Number(123),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			sqliMatchStatement: &sqliMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			xssMatchStatement: &xssMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnWebACL_AndStatementProperty struct {
 	// The statements to combine with AND logic.
@@ -4044,7 +9193,22 @@ type CfnWebACL_AndStatementProperty struct {
 //
 // This is used only in the context of other settings, for example to specify values for the web ACL and rule group `RuleAction` and for the web ACL `DefaultAction` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   blockActionProperty := &blockActionProperty{
+//   	customResponse: &customResponseProperty{
+//   		responseCode: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		customResponseBodyKey: jsii.String("customResponseBodyKey"),
+//   		responseHeaders: []interface{}{
+//   			&customHTTPHeaderProperty{
+//   				name: jsii.String("name"),
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnWebACL_BlockActionProperty struct {
 	// Defines a custom response for the web request.
@@ -4057,7 +9221,51 @@ type CfnWebACL_BlockActionProperty struct {
 //
 // The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is refered to as a string match statement.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var uriPath interface{}
+//   byteMatchStatementProperty := &byteMatchStatementProperty{
+//   	fieldToMatch: &fieldToMatchProperty{
+//   		allQueryArguments: allQueryArguments,
+//   		body: body,
+//   		jsonBody: &jsonBodyProperty{
+//   			matchPattern: &jsonMatchPatternProperty{
+//   				all: all,
+//   				includedPaths: []*string{
+//   					jsii.String("includedPaths"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//
+//   			// the properties below are optional
+//   			invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   		},
+//   		method: method,
+//   		queryString: queryString,
+//   		singleHeader: singleHeader,
+//   		singleQueryArgument: singleQueryArgument,
+//   		uriPath: uriPath,
+//   	},
+//   	positionalConstraint: jsii.String("positionalConstraint"),
+//   	textTransformations: []interface{}{
+//   		&textTransformationProperty{
+//   			priority: jsii.Number(123),
+//   			type: jsii.String("type"),
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	searchString: jsii.String("searchString"),
+//   	searchStringBase64: jsii.String("searchStringBase64"),
+//   }
 //
 type CfnWebACL_ByteMatchStatementProperty struct {
 	// The part of a web request that you want AWS WAF to inspect.
@@ -4128,7 +9336,18 @@ type CfnWebACL_ByteMatchStatementProperty struct {
 //
 // This is used in the context of other settings, for example to specify values for `RuleAction` and web ACL `DefaultAction` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   captchaActionProperty := &captchaActionProperty{
+//   	customRequestHandling: &customRequestHandlingProperty{
+//   		insertHeaders: []interface{}{
+//   			&customHTTPHeaderProperty{
+//   				name: jsii.String("name"),
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnWebACL_CaptchaActionProperty struct {
 	// Defines custom handling for the web request.
@@ -4141,7 +9360,13 @@ type CfnWebACL_CaptchaActionProperty struct {
 //
 // This is available at the web ACL level and in each rule.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   captchaConfigProperty := &captchaConfigProperty{
+//   	immunityTimeProperty: &immunityTimePropertyProperty{
+//   		immunityTime: jsii.Number(123),
+//   	},
+//   }
 //
 type CfnWebACL_CaptchaConfigProperty struct {
 	// Determines how long a `CAPTCHA` token remains valid after the client successfully solves a `CAPTCHA` puzzle.
@@ -4152,7 +9377,18 @@ type CfnWebACL_CaptchaConfigProperty struct {
 //
 // This is used only in the context of other settings, for example to specify values for the web ACL and rule group `RuleAction` and for the web ACL `DefaultAction` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   countActionProperty := &countActionProperty{
+//   	customRequestHandling: &customRequestHandlingProperty{
+//   		insertHeaders: []interface{}{
+//   			&customHTTPHeaderProperty{
+//   				name: jsii.String("name"),
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnWebACL_CountActionProperty struct {
 	// Defines custom handling for the web request.
@@ -4165,7 +9401,12 @@ type CfnWebACL_CountActionProperty struct {
 //
 // This is used in `CustomResponse` and `CustomRequestHandling` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   customHTTPHeaderProperty := &customHTTPHeaderProperty{
+//   	name: jsii.String("name"),
+//   	value: jsii.String("value"),
+//   }
 //
 type CfnWebACL_CustomHTTPHeaderProperty struct {
 	// The name of the custom header.
@@ -4182,7 +9423,16 @@ type CfnWebACL_CustomHTTPHeaderProperty struct {
 //
 // For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   customRequestHandlingProperty := &customRequestHandlingProperty{
+//   	insertHeaders: []interface{}{
+//   		&customHTTPHeaderProperty{
+//   			name: jsii.String("name"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnWebACL_CustomRequestHandlingProperty struct {
 	// The HTTP headers to insert into the request. Duplicate header names are not allowed.
@@ -4195,7 +9445,12 @@ type CfnWebACL_CustomRequestHandlingProperty struct {
 //
 // This is referenced by key from the `CustomResponse` `CustomResponseBodyKey` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   customResponseBodyProperty := &customResponseBodyProperty{
+//   	content: jsii.String("content"),
+//   	contentType: jsii.String("contentType"),
+//   }
 //
 type CfnWebACL_CustomResponseBodyProperty struct {
 	// The payload of the custom response.
@@ -4214,7 +9469,20 @@ type CfnWebACL_CustomResponseBodyProperty struct {
 //
 // For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   customResponseProperty := &customResponseProperty{
+//   	responseCode: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	customResponseBodyKey: jsii.String("customResponseBodyKey"),
+//   	responseHeaders: []interface{}{
+//   		&customHTTPHeaderProperty{
+//   			name: jsii.String("name"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnWebACL_CustomResponseProperty struct {
 	// The HTTP status code to return to the client.
@@ -4235,7 +9503,34 @@ type CfnWebACL_CustomResponseProperty struct {
 //
 // The default action must be a terminating action, so count is not allowed.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   defaultActionProperty := &defaultActionProperty{
+//   	allow: &allowActionProperty{
+//   		customRequestHandling: &customRequestHandlingProperty{
+//   			insertHeaders: []interface{}{
+//   				&customHTTPHeaderProperty{
+//   					name: jsii.String("name"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	block: &blockActionProperty{
+//   		customResponse: &customResponseProperty{
+//   			responseCode: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			customResponseBodyKey: jsii.String("customResponseBodyKey"),
+//   			responseHeaders: []interface{}{
+//   				&customHTTPHeaderProperty{
+//   					name: jsii.String("name"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnWebACL_DefaultActionProperty struct {
 	// Specifies that AWS WAF should allow requests by default.
@@ -4248,7 +9543,11 @@ type CfnWebACL_DefaultActionProperty struct {
 //
 // Excluding a rule overrides its action setting for the rule group in the web ACL, setting it to `COUNT` . This effectively excludes the rule from acting on web requests.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   excludedRuleProperty := &excludedRuleProperty{
+//   	name: jsii.String("name"),
+//   }
 //
 type CfnWebACL_ExcludedRuleProperty struct {
 	// The name of the rule to exclude.
@@ -4257,7 +9556,11 @@ type CfnWebACL_ExcludedRuleProperty struct {
 
 // The identifier of the username or password field, used in the `ManagedRuleGroupConfig` settings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   fieldIdentifierProperty := &fieldIdentifierProperty{
+//   	identifier: jsii.String("identifier"),
+//   }
 //
 type CfnWebACL_FieldIdentifierProperty struct {
 	// The name of the username or password field, used in the `ManagedRuleGroupConfig` settings.
@@ -4272,7 +9575,38 @@ type CfnWebACL_FieldIdentifierProperty struct {
 //
 // Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of a web request, create a separate rule statement for each component.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var uriPath interface{}
+//   fieldToMatchProperty := &fieldToMatchProperty{
+//   	allQueryArguments: allQueryArguments,
+//   	body: body,
+//   	jsonBody: &jsonBodyProperty{
+//   		matchPattern: &jsonMatchPatternProperty{
+//   			all: all,
+//   			includedPaths: []*string{
+//   				jsii.String("includedPaths"),
+//   			},
+//   		},
+//   		matchScope: jsii.String("matchScope"),
+//
+//   		// the properties below are optional
+//   		invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   	},
+//   	method: method,
+//   	queryString: queryString,
+//   	singleHeader: singleHeader,
+//   	singleQueryArgument: singleQueryArgument,
+//   	uriPath: uriPath,
+//   }
 //
 type CfnWebACL_FieldToMatchProperty struct {
 	// Inspect all query arguments.
@@ -4321,7 +9655,12 @@ type CfnWebACL_FieldToMatchProperty struct {
 //
 // AWS WAF only evaluates the first IP address found in the specified HTTP header.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   forwardedIPConfigurationProperty := &forwardedIPConfigurationProperty{
+//   	fallbackBehavior: jsii.String("fallbackBehavior"),
+//   	headerName: jsii.String("headerName"),
+//   }
 //
 type CfnWebACL_ForwardedIPConfigurationProperty struct {
 	// The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
@@ -4343,7 +9682,17 @@ type CfnWebACL_ForwardedIPConfigurationProperty struct {
 
 // A rule statement used to identify web requests based on country of origin.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   geoMatchStatementProperty := &geoMatchStatementProperty{
+//   	countryCodes: []*string{
+//   		jsii.String("countryCodes"),
+//   	},
+//   	forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   		fallbackBehavior: jsii.String("fallbackBehavior"),
+//   		headerName: jsii.String("headerName"),
+//   	},
+//   }
 //
 type CfnWebACL_GeoMatchStatementProperty struct {
 	// An array of two-character country codes, for example, `[ "US", "CN" ]` , from the alpha-2 country ISO codes of the ISO 3166 international standard.
@@ -4364,7 +9713,13 @@ type CfnWebACL_GeoMatchStatementProperty struct {
 //
 // This configuration is used only for `IPSetReferenceStatement` . For `GeoMatchStatement` and `RateBasedStatement` , use `ForwardedIPConfig` instead.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   iPSetForwardedIPConfigurationProperty := map[string]*string{
+//   	"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   	"headerName": jsii.String("headerName"),
+//   	"position": jsii.String("position"),
+//   }
 //
 type CfnWebACL_IPSetForwardedIPConfigurationProperty struct {
 	// The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
@@ -4400,7 +9755,18 @@ type CfnWebACL_IPSetForwardedIPConfigurationProperty struct {
 //
 // Each IP set rule statement references an IP set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   iPSetReferenceStatementProperty := map[string]interface{}{
+//   	"arn": jsii.String("arn"),
+//
+//   	// the properties below are optional
+//   	"ipSetForwardedIpConfig": map[string]*string{
+//   		"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   		"headerName": jsii.String("headerName"),
+//   		"position": jsii.String("position"),
+//   	},
+//   }
 //
 type CfnWebACL_IPSetReferenceStatementProperty struct {
 	// The Amazon Resource Name (ARN) of the IP set that this statement references.
@@ -4415,7 +9781,11 @@ type CfnWebACL_IPSetReferenceStatementProperty struct {
 
 // Determines how long a `CAPTCHA` token remains valid after the client successfully solves a `CAPTCHA` puzzle.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   immunityTimePropertyProperty := &immunityTimePropertyProperty{
+//   	immunityTime: jsii.Number(123),
+//   }
 //
 type CfnWebACL_ImmunityTimePropertyProperty struct {
 	// The amount of time, in seconds, that a `CAPTCHA` token is valid.
@@ -4430,7 +9800,22 @@ type CfnWebACL_ImmunityTimePropertyProperty struct {
 //
 // Use the specifications in this object to indicate which parts of the JSON body to inspect using the rule's inspection criteria. AWS WAF inspects only the parts of the JSON that result from the matches that you indicate.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   jsonBodyProperty := &jsonBodyProperty{
+//   	matchPattern: &jsonMatchPatternProperty{
+//   		all: all,
+//   		includedPaths: []*string{
+//   			jsii.String("includedPaths"),
+//   		},
+//   	},
+//   	matchScope: jsii.String("matchScope"),
+//
+//   	// the properties below are optional
+//   	invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   }
 //
 type CfnWebACL_JsonBodyProperty struct {
 	// The patterns to look for in the JSON body.
@@ -4441,7 +9826,7 @@ type CfnWebACL_JsonBodyProperty struct {
 	//
 	// If you specify `All` , AWS WAF matches against keys and values.
 	//
-	// Valid Values: `ALL` | `KEY` | `VALUE`
+	// Valid Values: `ALL` | `KEY` | `VALUE`.
 	MatchScope *string `json:"matchScope" yaml:"matchScope"`
 	// What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:.
 	//
@@ -4457,7 +9842,7 @@ type CfnWebACL_JsonBodyProperty struct {
 	//
 	// - Missing comma: `{"key1":"value1""key2":"value2"}`
 	// - Missing colon: `{"key1":"value1","key2""value2"}`
-	// - Extra colons: `{"key1"::"value1","key2""value2"}`
+	// - Extra colons: `{"key1"::"value1","key2""value2"}`.
 	InvalidFallbackBehavior *string `json:"invalidFallbackBehavior" yaml:"invalidFallbackBehavior"`
 }
 
@@ -4465,7 +9850,16 @@ type CfnWebACL_JsonBodyProperty struct {
 //
 // AWS WAF inspects the results of these pattern matches against the rule inspection criteria. This is used with the `FieldToMatch` option `JsonBody` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   jsonMatchPatternProperty := &jsonMatchPatternProperty{
+//   	all: all,
+//   	includedPaths: []*string{
+//   		jsii.String("includedPaths"),
+//   	},
+//   }
 //
 type CfnWebACL_JsonMatchPatternProperty struct {
 	// Match all of the elements. See also `MatchScope` in `JsonBody` .
@@ -4486,7 +9880,12 @@ type CfnWebACL_JsonMatchPatternProperty struct {
 //
 // The label match statement provides the label or namespace string to search for. The label string can represent a part or all of the fully qualified label name that had been added to the web request. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. If you do not provide the fully qualified name in your label match string, AWS WAF performs the search for labels that were added in the same context as the label match statement.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   labelMatchStatementProperty := &labelMatchStatementProperty{
+//   	key: jsii.String("key"),
+//   	scope: jsii.String("scope"),
+//   }
 //
 type CfnWebACL_LabelMatchStatementProperty struct {
 	// The string to match against. The setting you provide for this depends on the match statement's `Scope` setting:.
@@ -4504,7 +9903,11 @@ type CfnWebACL_LabelMatchStatementProperty struct {
 //
 // This is used as an element of a label array in `RuleLabels` inside a `Rule` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   labelProperty := &labelProperty{
+//   	name: jsii.String("name"),
+//   }
 //
 type CfnWebACL_LabelProperty struct {
 	// The label string.
@@ -4517,7 +9920,18 @@ type CfnWebACL_LabelProperty struct {
 //
 // You can provide multiple individual `ManagedRuleGroupConfig` objects for any rule group configuration, for example `UsernameField` and `PasswordField` . The configuration that you provide depends on the needs of the managed rule group. For the ATP managed rule group, you provide the following individual configuration objects: `LoginPath` , `PasswordField` , `PayloadType` and `UsernameField` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   managedRuleGroupConfigProperty := &managedRuleGroupConfigProperty{
+//   	loginPath: jsii.String("loginPath"),
+//   	passwordField: &fieldIdentifierProperty{
+//   		identifier: jsii.String("identifier"),
+//   	},
+//   	payloadType: jsii.String("payloadType"),
+//   	usernameField: &fieldIdentifierProperty{
+//   		identifier: jsii.String("identifier"),
+//   	},
+//   }
 //
 type CfnWebACL_ManagedRuleGroupConfigProperty struct {
 	// The path of the login endpoint for your application.
@@ -4538,7 +9952,309 @@ type CfnWebACL_ManagedRuleGroupConfigProperty struct {
 //
 // You can't nest a `ManagedRuleGroupStatement` , for example for use inside a `NotStatement` or `OrStatement` . It can only be referenced as a top-level statement within a rule.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var statementProperty_ statementProperty
+//   var uriPath interface{}
+//   managedRuleGroupStatementProperty := &managedRuleGroupStatementProperty{
+//   	name: jsii.String("name"),
+//   	vendorName: jsii.String("vendorName"),
+//
+//   	// the properties below are optional
+//   	excludedRules: []interface{}{
+//   		&excludedRuleProperty{
+//   			name: jsii.String("name"),
+//   		},
+//   	},
+//   	managedRuleGroupConfigs: []interface{}{
+//   		&managedRuleGroupConfigProperty{
+//   			loginPath: jsii.String("loginPath"),
+//   			passwordField: &fieldIdentifierProperty{
+//   				identifier: jsii.String("identifier"),
+//   			},
+//   			payloadType: jsii.String("payloadType"),
+//   			usernameField: &fieldIdentifierProperty{
+//   				identifier: jsii.String("identifier"),
+//   			},
+//   		},
+//   	},
+//   	scopeDownStatement: &statementProperty{
+//   		andStatement: &andStatementProperty{
+//   			statements: []interface{}{
+//   				statementProperty_,
+//   			},
+//   		},
+//   		byteMatchStatement: &byteMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			positionalConstraint: jsii.String("positionalConstraint"),
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			searchString: jsii.String("searchString"),
+//   			searchStringBase64: jsii.String("searchStringBase64"),
+//   		},
+//   		geoMatchStatement: &geoMatchStatementProperty{
+//   			countryCodes: []*string{
+//   				jsii.String("countryCodes"),
+//   			},
+//   			forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   				fallbackBehavior: jsii.String("fallbackBehavior"),
+//   				headerName: jsii.String("headerName"),
+//   			},
+//   		},
+//   		ipSetReferenceStatement: map[string]interface{}{
+//   			"arn": jsii.String("arn"),
+//
+//   			// the properties below are optional
+//   			"ipSetForwardedIpConfig": map[string]*string{
+//   				"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   				"headerName": jsii.String("headerName"),
+//   				"position": jsii.String("position"),
+//   			},
+//   		},
+//   		labelMatchStatement: &labelMatchStatementProperty{
+//   			key: jsii.String("key"),
+//   			scope: jsii.String("scope"),
+//   		},
+//   		managedRuleGroupStatement: &managedRuleGroupStatementProperty{
+//   			name: jsii.String("name"),
+//   			vendorName: jsii.String("vendorName"),
+//
+//   			// the properties below are optional
+//   			excludedRules: []interface{}{
+//   				&excludedRuleProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   			},
+//   			managedRuleGroupConfigs: []interface{}{
+//   				&managedRuleGroupConfigProperty{
+//   					loginPath: jsii.String("loginPath"),
+//   					passwordField: &fieldIdentifierProperty{
+//   						identifier: jsii.String("identifier"),
+//   					},
+//   					payloadType: jsii.String("payloadType"),
+//   					usernameField: &fieldIdentifierProperty{
+//   						identifier: jsii.String("identifier"),
+//   					},
+//   				},
+//   			},
+//   			scopeDownStatement: statementProperty_,
+//   			version: jsii.String("version"),
+//   		},
+//   		notStatement: &notStatementProperty{
+//   			statement: statementProperty_,
+//   		},
+//   		orStatement: &orStatementProperty{
+//   			statements: []interface{}{
+//   				statementProperty_,
+//   			},
+//   		},
+//   		rateBasedStatement: &rateBasedStatementProperty{
+//   			aggregateKeyType: jsii.String("aggregateKeyType"),
+//   			limit: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   				fallbackBehavior: jsii.String("fallbackBehavior"),
+//   				headerName: jsii.String("headerName"),
+//   			},
+//   			scopeDownStatement: statementProperty_,
+//   		},
+//   		regexMatchStatement: &regexMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			regexString: jsii.String("regexString"),
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   			arn: jsii.String("arn"),
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		ruleGroupReferenceStatement: &ruleGroupReferenceStatementProperty{
+//   			arn: jsii.String("arn"),
+//
+//   			// the properties below are optional
+//   			excludedRules: []interface{}{
+//   				&excludedRuleProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   			},
+//   		},
+//   		sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   			comparisonOperator: jsii.String("comparisonOperator"),
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			size: jsii.Number(123),
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		sqliMatchStatement: &sqliMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		xssMatchStatement: &xssMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	version: jsii.String("version"),
+//   }
 //
 type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 	// The name of the managed rule group.
@@ -4573,7 +10289,287 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 //
 // You provide one `Statement` within the `NotStatement` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var statementProperty_ statementProperty
+//   var uriPath interface{}
+//   notStatementProperty := &notStatementProperty{
+//   	statement: &statementProperty{
+//   		andStatement: &andStatementProperty{
+//   			statements: []interface{}{
+//   				statementProperty_,
+//   			},
+//   		},
+//   		byteMatchStatement: &byteMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			positionalConstraint: jsii.String("positionalConstraint"),
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			searchString: jsii.String("searchString"),
+//   			searchStringBase64: jsii.String("searchStringBase64"),
+//   		},
+//   		geoMatchStatement: &geoMatchStatementProperty{
+//   			countryCodes: []*string{
+//   				jsii.String("countryCodes"),
+//   			},
+//   			forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   				fallbackBehavior: jsii.String("fallbackBehavior"),
+//   				headerName: jsii.String("headerName"),
+//   			},
+//   		},
+//   		ipSetReferenceStatement: map[string]interface{}{
+//   			"arn": jsii.String("arn"),
+//
+//   			// the properties below are optional
+//   			"ipSetForwardedIpConfig": map[string]*string{
+//   				"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   				"headerName": jsii.String("headerName"),
+//   				"position": jsii.String("position"),
+//   			},
+//   		},
+//   		labelMatchStatement: &labelMatchStatementProperty{
+//   			key: jsii.String("key"),
+//   			scope: jsii.String("scope"),
+//   		},
+//   		managedRuleGroupStatement: &managedRuleGroupStatementProperty{
+//   			name: jsii.String("name"),
+//   			vendorName: jsii.String("vendorName"),
+//
+//   			// the properties below are optional
+//   			excludedRules: []interface{}{
+//   				&excludedRuleProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   			},
+//   			managedRuleGroupConfigs: []interface{}{
+//   				&managedRuleGroupConfigProperty{
+//   					loginPath: jsii.String("loginPath"),
+//   					passwordField: &fieldIdentifierProperty{
+//   						identifier: jsii.String("identifier"),
+//   					},
+//   					payloadType: jsii.String("payloadType"),
+//   					usernameField: &fieldIdentifierProperty{
+//   						identifier: jsii.String("identifier"),
+//   					},
+//   				},
+//   			},
+//   			scopeDownStatement: statementProperty_,
+//   			version: jsii.String("version"),
+//   		},
+//   		notStatement: &notStatementProperty{
+//   			statement: statementProperty_,
+//   		},
+//   		orStatement: &orStatementProperty{
+//   			statements: []interface{}{
+//   				statementProperty_,
+//   			},
+//   		},
+//   		rateBasedStatement: &rateBasedStatementProperty{
+//   			aggregateKeyType: jsii.String("aggregateKeyType"),
+//   			limit: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   				fallbackBehavior: jsii.String("fallbackBehavior"),
+//   				headerName: jsii.String("headerName"),
+//   			},
+//   			scopeDownStatement: statementProperty_,
+//   		},
+//   		regexMatchStatement: &regexMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			regexString: jsii.String("regexString"),
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   			arn: jsii.String("arn"),
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		ruleGroupReferenceStatement: &ruleGroupReferenceStatementProperty{
+//   			arn: jsii.String("arn"),
+//
+//   			// the properties below are optional
+//   			excludedRules: []interface{}{
+//   				&excludedRuleProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   			},
+//   		},
+//   		sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   			comparisonOperator: jsii.String("comparisonOperator"),
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			size: jsii.Number(123),
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		sqliMatchStatement: &sqliMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		xssMatchStatement: &xssMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnWebACL_NotStatementProperty struct {
 	// The statement to negate.
@@ -4586,7 +10582,289 @@ type CfnWebACL_NotStatementProperty struct {
 //
 // You provide more than one `Statement` within the `OrStatement` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var statementProperty_ statementProperty
+//   var uriPath interface{}
+//   orStatementProperty := &orStatementProperty{
+//   	statements: []interface{}{
+//   		&statementProperty{
+//   			andStatement: &andStatementProperty{
+//   				statements: []interface{}{
+//   					statementProperty_,
+//   				},
+//   			},
+//   			byteMatchStatement: &byteMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				positionalConstraint: jsii.String("positionalConstraint"),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				searchString: jsii.String("searchString"),
+//   				searchStringBase64: jsii.String("searchStringBase64"),
+//   			},
+//   			geoMatchStatement: &geoMatchStatementProperty{
+//   				countryCodes: []*string{
+//   					jsii.String("countryCodes"),
+//   				},
+//   				forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   					fallbackBehavior: jsii.String("fallbackBehavior"),
+//   					headerName: jsii.String("headerName"),
+//   				},
+//   			},
+//   			ipSetReferenceStatement: map[string]interface{}{
+//   				"arn": jsii.String("arn"),
+//
+//   				// the properties below are optional
+//   				"ipSetForwardedIpConfig": map[string]*string{
+//   					"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   					"headerName": jsii.String("headerName"),
+//   					"position": jsii.String("position"),
+//   				},
+//   			},
+//   			labelMatchStatement: &labelMatchStatementProperty{
+//   				key: jsii.String("key"),
+//   				scope: jsii.String("scope"),
+//   			},
+//   			managedRuleGroupStatement: &managedRuleGroupStatementProperty{
+//   				name: jsii.String("name"),
+//   				vendorName: jsii.String("vendorName"),
+//
+//   				// the properties below are optional
+//   				excludedRules: []interface{}{
+//   					&excludedRuleProperty{
+//   						name: jsii.String("name"),
+//   					},
+//   				},
+//   				managedRuleGroupConfigs: []interface{}{
+//   					&managedRuleGroupConfigProperty{
+//   						loginPath: jsii.String("loginPath"),
+//   						passwordField: &fieldIdentifierProperty{
+//   							identifier: jsii.String("identifier"),
+//   						},
+//   						payloadType: jsii.String("payloadType"),
+//   						usernameField: &fieldIdentifierProperty{
+//   							identifier: jsii.String("identifier"),
+//   						},
+//   					},
+//   				},
+//   				scopeDownStatement: statementProperty_,
+//   				version: jsii.String("version"),
+//   			},
+//   			notStatement: &notStatementProperty{
+//   				statement: statementProperty_,
+//   			},
+//   			orStatement: &orStatementProperty{
+//   				statements: []interface{}{
+//   					statementProperty_,
+//   				},
+//   			},
+//   			rateBasedStatement: &rateBasedStatementProperty{
+//   				aggregateKeyType: jsii.String("aggregateKeyType"),
+//   				limit: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   					fallbackBehavior: jsii.String("fallbackBehavior"),
+//   					headerName: jsii.String("headerName"),
+//   				},
+//   				scopeDownStatement: statementProperty_,
+//   			},
+//   			regexMatchStatement: &regexMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				regexString: jsii.String("regexString"),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   				arn: jsii.String("arn"),
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			ruleGroupReferenceStatement: &ruleGroupReferenceStatementProperty{
+//   				arn: jsii.String("arn"),
+//
+//   				// the properties below are optional
+//   				excludedRules: []interface{}{
+//   					&excludedRuleProperty{
+//   						name: jsii.String("name"),
+//   					},
+//   				},
+//   			},
+//   			sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   				comparisonOperator: jsii.String("comparisonOperator"),
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				size: jsii.Number(123),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			sqliMatchStatement: &sqliMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			xssMatchStatement: &xssMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnWebACL_OrStatementProperty struct {
 	// The statements to combine with OR logic.
@@ -4599,7 +10877,15 @@ type CfnWebACL_OrStatementProperty struct {
 //
 // You can use none, in which case the rule actions are in effect, or count, in which case, if a rule matches a web request, it only counts the match.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var count interface{}
+//   var none interface{}
+//   overrideActionProperty := &overrideActionProperty{
+//   	count: count,
+//   	none: none,
+//   }
 //
 type CfnWebACL_OverrideActionProperty struct {
 	// Override the rule action settings to count.
@@ -4623,7 +10909,295 @@ type CfnWebACL_OverrideActionProperty struct {
 //
 // You cannot nest a `RateBasedStatement` , for example for use inside a `NotStatement` or `OrStatement` . It can only be referenced as a top-level statement within a rule.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var statementProperty_ statementProperty
+//   var uriPath interface{}
+//   rateBasedStatementProperty := &rateBasedStatementProperty{
+//   	aggregateKeyType: jsii.String("aggregateKeyType"),
+//   	limit: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   		fallbackBehavior: jsii.String("fallbackBehavior"),
+//   		headerName: jsii.String("headerName"),
+//   	},
+//   	scopeDownStatement: &statementProperty{
+//   		andStatement: &andStatementProperty{
+//   			statements: []interface{}{
+//   				statementProperty_,
+//   			},
+//   		},
+//   		byteMatchStatement: &byteMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			positionalConstraint: jsii.String("positionalConstraint"),
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			searchString: jsii.String("searchString"),
+//   			searchStringBase64: jsii.String("searchStringBase64"),
+//   		},
+//   		geoMatchStatement: &geoMatchStatementProperty{
+//   			countryCodes: []*string{
+//   				jsii.String("countryCodes"),
+//   			},
+//   			forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   				fallbackBehavior: jsii.String("fallbackBehavior"),
+//   				headerName: jsii.String("headerName"),
+//   			},
+//   		},
+//   		ipSetReferenceStatement: map[string]interface{}{
+//   			"arn": jsii.String("arn"),
+//
+//   			// the properties below are optional
+//   			"ipSetForwardedIpConfig": map[string]*string{
+//   				"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   				"headerName": jsii.String("headerName"),
+//   				"position": jsii.String("position"),
+//   			},
+//   		},
+//   		labelMatchStatement: &labelMatchStatementProperty{
+//   			key: jsii.String("key"),
+//   			scope: jsii.String("scope"),
+//   		},
+//   		managedRuleGroupStatement: &managedRuleGroupStatementProperty{
+//   			name: jsii.String("name"),
+//   			vendorName: jsii.String("vendorName"),
+//
+//   			// the properties below are optional
+//   			excludedRules: []interface{}{
+//   				&excludedRuleProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   			},
+//   			managedRuleGroupConfigs: []interface{}{
+//   				&managedRuleGroupConfigProperty{
+//   					loginPath: jsii.String("loginPath"),
+//   					passwordField: &fieldIdentifierProperty{
+//   						identifier: jsii.String("identifier"),
+//   					},
+//   					payloadType: jsii.String("payloadType"),
+//   					usernameField: &fieldIdentifierProperty{
+//   						identifier: jsii.String("identifier"),
+//   					},
+//   				},
+//   			},
+//   			scopeDownStatement: statementProperty_,
+//   			version: jsii.String("version"),
+//   		},
+//   		notStatement: &notStatementProperty{
+//   			statement: statementProperty_,
+//   		},
+//   		orStatement: &orStatementProperty{
+//   			statements: []interface{}{
+//   				statementProperty_,
+//   			},
+//   		},
+//   		rateBasedStatement: &rateBasedStatementProperty{
+//   			aggregateKeyType: jsii.String("aggregateKeyType"),
+//   			limit: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   				fallbackBehavior: jsii.String("fallbackBehavior"),
+//   				headerName: jsii.String("headerName"),
+//   			},
+//   			scopeDownStatement: statementProperty_,
+//   		},
+//   		regexMatchStatement: &regexMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			regexString: jsii.String("regexString"),
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   			arn: jsii.String("arn"),
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		ruleGroupReferenceStatement: &ruleGroupReferenceStatementProperty{
+//   			arn: jsii.String("arn"),
+//
+//   			// the properties below are optional
+//   			excludedRules: []interface{}{
+//   				&excludedRuleProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   			},
+//   		},
+//   		sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   			comparisonOperator: jsii.String("comparisonOperator"),
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			size: jsii.Number(123),
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		sqliMatchStatement: &sqliMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		xssMatchStatement: &xssMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnWebACL_RateBasedStatementProperty struct {
 	// Setting that indicates how to aggregate the request counts. The options are the following:.
@@ -4651,7 +11225,47 @@ type CfnWebACL_RateBasedStatementProperty struct {
 
 // A rule statement used to search web request components for a match against a single regular expression.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var uriPath interface{}
+//   regexMatchStatementProperty := &regexMatchStatementProperty{
+//   	fieldToMatch: &fieldToMatchProperty{
+//   		allQueryArguments: allQueryArguments,
+//   		body: body,
+//   		jsonBody: &jsonBodyProperty{
+//   			matchPattern: &jsonMatchPatternProperty{
+//   				all: all,
+//   				includedPaths: []*string{
+//   					jsii.String("includedPaths"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//
+//   			// the properties below are optional
+//   			invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   		},
+//   		method: method,
+//   		queryString: queryString,
+//   		singleHeader: singleHeader,
+//   		singleQueryArgument: singleQueryArgument,
+//   		uriPath: uriPath,
+//   	},
+//   	regexString: jsii.String("regexString"),
+//   	textTransformations: []interface{}{
+//   		&textTransformationProperty{
+//   			priority: jsii.Number(123),
+//   			type: jsii.String("type"),
+//   		},
+//   	},
+//   }
 //
 type CfnWebACL_RegexMatchStatementProperty struct {
 	// The part of a web request that you want AWS WAF to inspect.
@@ -4672,7 +11286,47 @@ type CfnWebACL_RegexMatchStatementProperty struct {
 //
 // Each regex pattern set rule statement references a regex pattern set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var uriPath interface{}
+//   regexPatternSetReferenceStatementProperty := &regexPatternSetReferenceStatementProperty{
+//   	arn: jsii.String("arn"),
+//   	fieldToMatch: &fieldToMatchProperty{
+//   		allQueryArguments: allQueryArguments,
+//   		body: body,
+//   		jsonBody: &jsonBodyProperty{
+//   			matchPattern: &jsonMatchPatternProperty{
+//   				all: all,
+//   				includedPaths: []*string{
+//   					jsii.String("includedPaths"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//
+//   			// the properties below are optional
+//   			invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   		},
+//   		method: method,
+//   		queryString: queryString,
+//   		singleHeader: singleHeader,
+//   		singleQueryArgument: singleQueryArgument,
+//   		uriPath: uriPath,
+//   	},
+//   	textTransformations: []interface{}{
+//   		&textTransformationProperty{
+//   			priority: jsii.Number(123),
+//   			type: jsii.String("type"),
+//   		},
+//   	},
+//   }
 //
 type CfnWebACL_RegexPatternSetReferenceStatementProperty struct {
 	// The Amazon Resource Name (ARN) of the regular expression pattern set that this statement references.
@@ -4689,7 +11343,54 @@ type CfnWebACL_RegexPatternSetReferenceStatementProperty struct {
 //
 // Settings at the web ACL level can override the rule action setting.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   ruleActionProperty := &ruleActionProperty{
+//   	allow: &allowActionProperty{
+//   		customRequestHandling: &customRequestHandlingProperty{
+//   			insertHeaders: []interface{}{
+//   				&customHTTPHeaderProperty{
+//   					name: jsii.String("name"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	block: &blockActionProperty{
+//   		customResponse: &customResponseProperty{
+//   			responseCode: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			customResponseBodyKey: jsii.String("customResponseBodyKey"),
+//   			responseHeaders: []interface{}{
+//   				&customHTTPHeaderProperty{
+//   					name: jsii.String("name"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	captcha: &captchaActionProperty{
+//   		customRequestHandling: &customRequestHandlingProperty{
+//   			insertHeaders: []interface{}{
+//   				&customHTTPHeaderProperty{
+//   					name: jsii.String("name"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	count: &countActionProperty{
+//   		customRequestHandling: &customRequestHandlingProperty{
+//   			insertHeaders: []interface{}{
+//   				&customHTTPHeaderProperty{
+//   					name: jsii.String("name"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnWebACL_RuleActionProperty struct {
 	// Instructs AWS WAF to allow the web request.
@@ -4723,7 +11424,18 @@ type CfnWebACL_RuleActionProperty struct {
 //
 // You cannot nest a `RuleGroupReferenceStatement` , for example for use inside a `NotStatement` or `OrStatement` . You can only use a rule group reference statement at the top level inside a web ACL.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   ruleGroupReferenceStatementProperty := &ruleGroupReferenceStatementProperty{
+//   	arn: jsii.String("arn"),
+//
+//   	// the properties below are optional
+//   	excludedRules: []interface{}{
+//   		&excludedRuleProperty{
+//   			name: jsii.String("name"),
+//   		},
+//   	},
+//   }
 //
 type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 	// The Amazon Resource Name (ARN) of the entity.
@@ -4738,7 +11450,358 @@ type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 //
 // Each rule includes one top-level Statement that AWS WAF uses to identify matching web requests, and parameters that govern how AWS WAF handles them.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var count interface{}
+//   var method interface{}
+//   var none interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var statementProperty_ statementProperty
+//   var uriPath interface{}
+//   ruleProperty := &ruleProperty{
+//   	name: jsii.String("name"),
+//   	priority: jsii.Number(123),
+//   	statement: &statementProperty{
+//   		andStatement: &andStatementProperty{
+//   			statements: []interface{}{
+//   				statementProperty_,
+//   			},
+//   		},
+//   		byteMatchStatement: &byteMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			positionalConstraint: jsii.String("positionalConstraint"),
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			searchString: jsii.String("searchString"),
+//   			searchStringBase64: jsii.String("searchStringBase64"),
+//   		},
+//   		geoMatchStatement: &geoMatchStatementProperty{
+//   			countryCodes: []*string{
+//   				jsii.String("countryCodes"),
+//   			},
+//   			forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   				fallbackBehavior: jsii.String("fallbackBehavior"),
+//   				headerName: jsii.String("headerName"),
+//   			},
+//   		},
+//   		ipSetReferenceStatement: map[string]interface{}{
+//   			"arn": jsii.String("arn"),
+//
+//   			// the properties below are optional
+//   			"ipSetForwardedIpConfig": map[string]*string{
+//   				"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   				"headerName": jsii.String("headerName"),
+//   				"position": jsii.String("position"),
+//   			},
+//   		},
+//   		labelMatchStatement: &labelMatchStatementProperty{
+//   			key: jsii.String("key"),
+//   			scope: jsii.String("scope"),
+//   		},
+//   		managedRuleGroupStatement: &managedRuleGroupStatementProperty{
+//   			name: jsii.String("name"),
+//   			vendorName: jsii.String("vendorName"),
+//
+//   			// the properties below are optional
+//   			excludedRules: []interface{}{
+//   				&excludedRuleProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   			},
+//   			managedRuleGroupConfigs: []interface{}{
+//   				&managedRuleGroupConfigProperty{
+//   					loginPath: jsii.String("loginPath"),
+//   					passwordField: &fieldIdentifierProperty{
+//   						identifier: jsii.String("identifier"),
+//   					},
+//   					payloadType: jsii.String("payloadType"),
+//   					usernameField: &fieldIdentifierProperty{
+//   						identifier: jsii.String("identifier"),
+//   					},
+//   				},
+//   			},
+//   			scopeDownStatement: statementProperty_,
+//   			version: jsii.String("version"),
+//   		},
+//   		notStatement: &notStatementProperty{
+//   			statement: statementProperty_,
+//   		},
+//   		orStatement: &orStatementProperty{
+//   			statements: []interface{}{
+//   				statementProperty_,
+//   			},
+//   		},
+//   		rateBasedStatement: &rateBasedStatementProperty{
+//   			aggregateKeyType: jsii.String("aggregateKeyType"),
+//   			limit: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   				fallbackBehavior: jsii.String("fallbackBehavior"),
+//   				headerName: jsii.String("headerName"),
+//   			},
+//   			scopeDownStatement: statementProperty_,
+//   		},
+//   		regexMatchStatement: &regexMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			regexString: jsii.String("regexString"),
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   			arn: jsii.String("arn"),
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		ruleGroupReferenceStatement: &ruleGroupReferenceStatementProperty{
+//   			arn: jsii.String("arn"),
+//
+//   			// the properties below are optional
+//   			excludedRules: []interface{}{
+//   				&excludedRuleProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   			},
+//   		},
+//   		sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   			comparisonOperator: jsii.String("comparisonOperator"),
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			size: jsii.Number(123),
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		sqliMatchStatement: &sqliMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   		xssMatchStatement: &xssMatchStatementProperty{
+//   			fieldToMatch: &fieldToMatchProperty{
+//   				allQueryArguments: allQueryArguments,
+//   				body: body,
+//   				jsonBody: &jsonBodyProperty{
+//   					matchPattern: &jsonMatchPatternProperty{
+//   						all: all,
+//   						includedPaths: []*string{
+//   							jsii.String("includedPaths"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//
+//   					// the properties below are optional
+//   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				},
+//   				method: method,
+//   				queryString: queryString,
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
+//   				uriPath: uriPath,
+//   			},
+//   			textTransformations: []interface{}{
+//   				&textTransformationProperty{
+//   					priority: jsii.Number(123),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	visibilityConfig: &visibilityConfigProperty{
+//   		cloudWatchMetricsEnabled: jsii.Boolean(false),
+//   		metricName: jsii.String("metricName"),
+//   		sampledRequestsEnabled: jsii.Boolean(false),
+//   	},
+//
+//   	// the properties below are optional
+//   	action: &ruleActionProperty{
+//   		allow: &allowActionProperty{
+//   			customRequestHandling: &customRequestHandlingProperty{
+//   				insertHeaders: []interface{}{
+//   					&customHTTPHeaderProperty{
+//   						name: jsii.String("name"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		block: &blockActionProperty{
+//   			customResponse: &customResponseProperty{
+//   				responseCode: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				customResponseBodyKey: jsii.String("customResponseBodyKey"),
+//   				responseHeaders: []interface{}{
+//   					&customHTTPHeaderProperty{
+//   						name: jsii.String("name"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		captcha: &captchaActionProperty{
+//   			customRequestHandling: &customRequestHandlingProperty{
+//   				insertHeaders: []interface{}{
+//   					&customHTTPHeaderProperty{
+//   						name: jsii.String("name"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		count: &countActionProperty{
+//   			customRequestHandling: &customRequestHandlingProperty{
+//   				insertHeaders: []interface{}{
+//   					&customHTTPHeaderProperty{
+//   						name: jsii.String("name"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	captchaConfig: &captchaConfigProperty{
+//   		immunityTimeProperty: &immunityTimePropertyProperty{
+//   			immunityTime: jsii.Number(123),
+//   		},
+//   	},
+//   	overrideAction: &overrideActionProperty{
+//   		count: count,
+//   		none: none,
+//   	},
+//   	ruleLabels: []interface{}{
+//   		&labelProperty{
+//   			name: jsii.String("name"),
+//   		},
+//   	},
+//   }
 //
 type CfnWebACL_RuleProperty struct {
 	// The descriptive name of the rule.
@@ -4804,7 +11867,48 @@ type CfnWebACL_RuleProperty struct {
 //
 // If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI `/logo.jpg` is nine characters long.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var uriPath interface{}
+//   sizeConstraintStatementProperty := &sizeConstraintStatementProperty{
+//   	comparisonOperator: jsii.String("comparisonOperator"),
+//   	fieldToMatch: &fieldToMatchProperty{
+//   		allQueryArguments: allQueryArguments,
+//   		body: body,
+//   		jsonBody: &jsonBodyProperty{
+//   			matchPattern: &jsonMatchPatternProperty{
+//   				all: all,
+//   				includedPaths: []*string{
+//   					jsii.String("includedPaths"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//
+//   			// the properties below are optional
+//   			invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   		},
+//   		method: method,
+//   		queryString: queryString,
+//   		singleHeader: singleHeader,
+//   		singleQueryArgument: singleQueryArgument,
+//   		uriPath: uriPath,
+//   	},
+//   	size: jsii.Number(123),
+//   	textTransformations: []interface{}{
+//   		&textTransformationProperty{
+//   			priority: jsii.Number(123),
+//   			type: jsii.String("type"),
+//   		},
+//   	},
+//   }
 //
 type CfnWebACL_SizeConstraintStatementProperty struct {
 	// The operator to use to compare the request part to the size setting.
@@ -4823,7 +11927,46 @@ type CfnWebACL_SizeConstraintStatementProperty struct {
 //
 // To allow or block web requests that appear to contain malicious SQL code, create one or more SQL injection match conditions. An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. Later in the process, when you create a web ACL, you specify whether to allow or block requests that appear to contain malicious SQL code.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var uriPath interface{}
+//   sqliMatchStatementProperty := &sqliMatchStatementProperty{
+//   	fieldToMatch: &fieldToMatchProperty{
+//   		allQueryArguments: allQueryArguments,
+//   		body: body,
+//   		jsonBody: &jsonBodyProperty{
+//   			matchPattern: &jsonMatchPatternProperty{
+//   				all: all,
+//   				includedPaths: []*string{
+//   					jsii.String("includedPaths"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//
+//   			// the properties below are optional
+//   			invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   		},
+//   		method: method,
+//   		queryString: queryString,
+//   		singleHeader: singleHeader,
+//   		singleQueryArgument: singleQueryArgument,
+//   		uriPath: uriPath,
+//   	},
+//   	textTransformations: []interface{}{
+//   		&textTransformationProperty{
+//   			priority: jsii.Number(123),
+//   			type: jsii.String("type"),
+//   		},
+//   	},
+//   }
 //
 type CfnWebACL_SqliMatchStatementProperty struct {
 	// The part of a web request that you want AWS WAF to inspect.
@@ -4836,7 +11979,1576 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 
 // The processing guidance for a `Rule` , used by AWS WAF to determine whether a web request matches the rule.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var andStatementProperty_ andStatementProperty
+//   var body interface{}
+//   var managedRuleGroupStatementProperty_ managedRuleGroupStatementProperty
+//   var method interface{}
+//   var notStatementProperty_ notStatementProperty
+//   var orStatementProperty_ orStatementProperty
+//   var queryString interface{}
+//   var rateBasedStatementProperty_ rateBasedStatementProperty
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var statementProperty_ statementProperty
+//   var uriPath interface{}
+//   statementProperty := &statementProperty{
+//   	andStatement: &andStatementProperty{
+//   		statements: []interface{}{
+//   			&statementProperty{
+//   				andStatement: andStatementProperty_,
+//   				byteMatchStatement: &byteMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					positionalConstraint: jsii.String("positionalConstraint"),
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					searchString: jsii.String("searchString"),
+//   					searchStringBase64: jsii.String("searchStringBase64"),
+//   				},
+//   				geoMatchStatement: &geoMatchStatementProperty{
+//   					countryCodes: []*string{
+//   						jsii.String("countryCodes"),
+//   					},
+//   					forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   						fallbackBehavior: jsii.String("fallbackBehavior"),
+//   						headerName: jsii.String("headerName"),
+//   					},
+//   				},
+//   				ipSetReferenceStatement: map[string]interface{}{
+//   					"arn": jsii.String("arn"),
+//
+//   					// the properties below are optional
+//   					"ipSetForwardedIpConfig": map[string]*string{
+//   						"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   						"headerName": jsii.String("headerName"),
+//   						"position": jsii.String("position"),
+//   					},
+//   				},
+//   				labelMatchStatement: &labelMatchStatementProperty{
+//   					key: jsii.String("key"),
+//   					scope: jsii.String("scope"),
+//   				},
+//   				managedRuleGroupStatement: &managedRuleGroupStatementProperty{
+//   					name: jsii.String("name"),
+//   					vendorName: jsii.String("vendorName"),
+//
+//   					// the properties below are optional
+//   					excludedRules: []interface{}{
+//   						&excludedRuleProperty{
+//   							name: jsii.String("name"),
+//   						},
+//   					},
+//   					managedRuleGroupConfigs: []interface{}{
+//   						&managedRuleGroupConfigProperty{
+//   							loginPath: jsii.String("loginPath"),
+//   							passwordField: &fieldIdentifierProperty{
+//   								identifier: jsii.String("identifier"),
+//   							},
+//   							payloadType: jsii.String("payloadType"),
+//   							usernameField: &fieldIdentifierProperty{
+//   								identifier: jsii.String("identifier"),
+//   							},
+//   						},
+//   					},
+//   					scopeDownStatement: statementProperty_,
+//   					version: jsii.String("version"),
+//   				},
+//   				notStatement: &notStatementProperty{
+//   					statement: statementProperty_,
+//   				},
+//   				orStatement: &orStatementProperty{
+//   					statements: []interface{}{
+//   						statementProperty_,
+//   					},
+//   				},
+//   				rateBasedStatement: &rateBasedStatementProperty{
+//   					aggregateKeyType: jsii.String("aggregateKeyType"),
+//   					limit: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   						fallbackBehavior: jsii.String("fallbackBehavior"),
+//   						headerName: jsii.String("headerName"),
+//   					},
+//   					scopeDownStatement: statementProperty_,
+//   				},
+//   				regexMatchStatement: &regexMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					regexString: jsii.String("regexString"),
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   					arn: jsii.String("arn"),
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				ruleGroupReferenceStatement: &ruleGroupReferenceStatementProperty{
+//   					arn: jsii.String("arn"),
+//
+//   					// the properties below are optional
+//   					excludedRules: []interface{}{
+//   						&excludedRuleProperty{
+//   							name: jsii.String("name"),
+//   						},
+//   					},
+//   				},
+//   				sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   					comparisonOperator: jsii.String("comparisonOperator"),
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					size: jsii.Number(123),
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				sqliMatchStatement: &sqliMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				xssMatchStatement: &xssMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	byteMatchStatement: &byteMatchStatementProperty{
+//   		fieldToMatch: &fieldToMatchProperty{
+//   			allQueryArguments: allQueryArguments,
+//   			body: body,
+//   			jsonBody: &jsonBodyProperty{
+//   				matchPattern: &jsonMatchPatternProperty{
+//   					all: all,
+//   					includedPaths: []*string{
+//   						jsii.String("includedPaths"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//
+//   				// the properties below are optional
+//   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			},
+//   			method: method,
+//   			queryString: queryString,
+//   			singleHeader: singleHeader,
+//   			singleQueryArgument: singleQueryArgument,
+//   			uriPath: uriPath,
+//   		},
+//   		positionalConstraint: jsii.String("positionalConstraint"),
+//   		textTransformations: []interface{}{
+//   			&textTransformationProperty{
+//   				priority: jsii.Number(123),
+//   				type: jsii.String("type"),
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		searchString: jsii.String("searchString"),
+//   		searchStringBase64: jsii.String("searchStringBase64"),
+//   	},
+//   	geoMatchStatement: &geoMatchStatementProperty{
+//   		countryCodes: []*string{
+//   			jsii.String("countryCodes"),
+//   		},
+//   		forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   			fallbackBehavior: jsii.String("fallbackBehavior"),
+//   			headerName: jsii.String("headerName"),
+//   		},
+//   	},
+//   	ipSetReferenceStatement: map[string]interface{}{
+//   		"arn": jsii.String("arn"),
+//
+//   		// the properties below are optional
+//   		"ipSetForwardedIpConfig": map[string]*string{
+//   			"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   			"headerName": jsii.String("headerName"),
+//   			"position": jsii.String("position"),
+//   		},
+//   	},
+//   	labelMatchStatement: &labelMatchStatementProperty{
+//   		key: jsii.String("key"),
+//   		scope: jsii.String("scope"),
+//   	},
+//   	managedRuleGroupStatement: &managedRuleGroupStatementProperty{
+//   		name: jsii.String("name"),
+//   		vendorName: jsii.String("vendorName"),
+//
+//   		// the properties below are optional
+//   		excludedRules: []interface{}{
+//   			&excludedRuleProperty{
+//   				name: jsii.String("name"),
+//   			},
+//   		},
+//   		managedRuleGroupConfigs: []interface{}{
+//   			&managedRuleGroupConfigProperty{
+//   				loginPath: jsii.String("loginPath"),
+//   				passwordField: &fieldIdentifierProperty{
+//   					identifier: jsii.String("identifier"),
+//   				},
+//   				payloadType: jsii.String("payloadType"),
+//   				usernameField: &fieldIdentifierProperty{
+//   					identifier: jsii.String("identifier"),
+//   				},
+//   			},
+//   		},
+//   		scopeDownStatement: &statementProperty{
+//   			andStatement: &andStatementProperty{
+//   				statements: []interface{}{
+//   					statementProperty_,
+//   				},
+//   			},
+//   			byteMatchStatement: &byteMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				positionalConstraint: jsii.String("positionalConstraint"),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				searchString: jsii.String("searchString"),
+//   				searchStringBase64: jsii.String("searchStringBase64"),
+//   			},
+//   			geoMatchStatement: &geoMatchStatementProperty{
+//   				countryCodes: []*string{
+//   					jsii.String("countryCodes"),
+//   				},
+//   				forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   					fallbackBehavior: jsii.String("fallbackBehavior"),
+//   					headerName: jsii.String("headerName"),
+//   				},
+//   			},
+//   			ipSetReferenceStatement: map[string]interface{}{
+//   				"arn": jsii.String("arn"),
+//
+//   				// the properties below are optional
+//   				"ipSetForwardedIpConfig": map[string]*string{
+//   					"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   					"headerName": jsii.String("headerName"),
+//   					"position": jsii.String("position"),
+//   				},
+//   			},
+//   			labelMatchStatement: &labelMatchStatementProperty{
+//   				key: jsii.String("key"),
+//   				scope: jsii.String("scope"),
+//   			},
+//   			managedRuleGroupStatement: managedRuleGroupStatementProperty_,
+//   			notStatement: &notStatementProperty{
+//   				statement: statementProperty_,
+//   			},
+//   			orStatement: &orStatementProperty{
+//   				statements: []interface{}{
+//   					statementProperty_,
+//   				},
+//   			},
+//   			rateBasedStatement: &rateBasedStatementProperty{
+//   				aggregateKeyType: jsii.String("aggregateKeyType"),
+//   				limit: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   					fallbackBehavior: jsii.String("fallbackBehavior"),
+//   					headerName: jsii.String("headerName"),
+//   				},
+//   				scopeDownStatement: statementProperty_,
+//   			},
+//   			regexMatchStatement: &regexMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				regexString: jsii.String("regexString"),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   				arn: jsii.String("arn"),
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			ruleGroupReferenceStatement: &ruleGroupReferenceStatementProperty{
+//   				arn: jsii.String("arn"),
+//
+//   				// the properties below are optional
+//   				excludedRules: []interface{}{
+//   					&excludedRuleProperty{
+//   						name: jsii.String("name"),
+//   					},
+//   				},
+//   			},
+//   			sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   				comparisonOperator: jsii.String("comparisonOperator"),
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				size: jsii.Number(123),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			sqliMatchStatement: &sqliMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			xssMatchStatement: &xssMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		version: jsii.String("version"),
+//   	},
+//   	notStatement: &notStatementProperty{
+//   		statement: &statementProperty{
+//   			andStatement: &andStatementProperty{
+//   				statements: []interface{}{
+//   					statementProperty_,
+//   				},
+//   			},
+//   			byteMatchStatement: &byteMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				positionalConstraint: jsii.String("positionalConstraint"),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				searchString: jsii.String("searchString"),
+//   				searchStringBase64: jsii.String("searchStringBase64"),
+//   			},
+//   			geoMatchStatement: &geoMatchStatementProperty{
+//   				countryCodes: []*string{
+//   					jsii.String("countryCodes"),
+//   				},
+//   				forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   					fallbackBehavior: jsii.String("fallbackBehavior"),
+//   					headerName: jsii.String("headerName"),
+//   				},
+//   			},
+//   			ipSetReferenceStatement: map[string]interface{}{
+//   				"arn": jsii.String("arn"),
+//
+//   				// the properties below are optional
+//   				"ipSetForwardedIpConfig": map[string]*string{
+//   					"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   					"headerName": jsii.String("headerName"),
+//   					"position": jsii.String("position"),
+//   				},
+//   			},
+//   			labelMatchStatement: &labelMatchStatementProperty{
+//   				key: jsii.String("key"),
+//   				scope: jsii.String("scope"),
+//   			},
+//   			managedRuleGroupStatement: &managedRuleGroupStatementProperty{
+//   				name: jsii.String("name"),
+//   				vendorName: jsii.String("vendorName"),
+//
+//   				// the properties below are optional
+//   				excludedRules: []interface{}{
+//   					&excludedRuleProperty{
+//   						name: jsii.String("name"),
+//   					},
+//   				},
+//   				managedRuleGroupConfigs: []interface{}{
+//   					&managedRuleGroupConfigProperty{
+//   						loginPath: jsii.String("loginPath"),
+//   						passwordField: &fieldIdentifierProperty{
+//   							identifier: jsii.String("identifier"),
+//   						},
+//   						payloadType: jsii.String("payloadType"),
+//   						usernameField: &fieldIdentifierProperty{
+//   							identifier: jsii.String("identifier"),
+//   						},
+//   					},
+//   				},
+//   				scopeDownStatement: statementProperty_,
+//   				version: jsii.String("version"),
+//   			},
+//   			notStatement: notStatementProperty_,
+//   			orStatement: &orStatementProperty{
+//   				statements: []interface{}{
+//   					statementProperty_,
+//   				},
+//   			},
+//   			rateBasedStatement: &rateBasedStatementProperty{
+//   				aggregateKeyType: jsii.String("aggregateKeyType"),
+//   				limit: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   					fallbackBehavior: jsii.String("fallbackBehavior"),
+//   					headerName: jsii.String("headerName"),
+//   				},
+//   				scopeDownStatement: statementProperty_,
+//   			},
+//   			regexMatchStatement: &regexMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				regexString: jsii.String("regexString"),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   				arn: jsii.String("arn"),
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			ruleGroupReferenceStatement: &ruleGroupReferenceStatementProperty{
+//   				arn: jsii.String("arn"),
+//
+//   				// the properties below are optional
+//   				excludedRules: []interface{}{
+//   					&excludedRuleProperty{
+//   						name: jsii.String("name"),
+//   					},
+//   				},
+//   			},
+//   			sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   				comparisonOperator: jsii.String("comparisonOperator"),
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				size: jsii.Number(123),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			sqliMatchStatement: &sqliMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			xssMatchStatement: &xssMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	orStatement: &orStatementProperty{
+//   		statements: []interface{}{
+//   			&statementProperty{
+//   				andStatement: &andStatementProperty{
+//   					statements: []interface{}{
+//   						statementProperty_,
+//   					},
+//   				},
+//   				byteMatchStatement: &byteMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					positionalConstraint: jsii.String("positionalConstraint"),
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					searchString: jsii.String("searchString"),
+//   					searchStringBase64: jsii.String("searchStringBase64"),
+//   				},
+//   				geoMatchStatement: &geoMatchStatementProperty{
+//   					countryCodes: []*string{
+//   						jsii.String("countryCodes"),
+//   					},
+//   					forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   						fallbackBehavior: jsii.String("fallbackBehavior"),
+//   						headerName: jsii.String("headerName"),
+//   					},
+//   				},
+//   				ipSetReferenceStatement: map[string]interface{}{
+//   					"arn": jsii.String("arn"),
+//
+//   					// the properties below are optional
+//   					"ipSetForwardedIpConfig": map[string]*string{
+//   						"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   						"headerName": jsii.String("headerName"),
+//   						"position": jsii.String("position"),
+//   					},
+//   				},
+//   				labelMatchStatement: &labelMatchStatementProperty{
+//   					key: jsii.String("key"),
+//   					scope: jsii.String("scope"),
+//   				},
+//   				managedRuleGroupStatement: &managedRuleGroupStatementProperty{
+//   					name: jsii.String("name"),
+//   					vendorName: jsii.String("vendorName"),
+//
+//   					// the properties below are optional
+//   					excludedRules: []interface{}{
+//   						&excludedRuleProperty{
+//   							name: jsii.String("name"),
+//   						},
+//   					},
+//   					managedRuleGroupConfigs: []interface{}{
+//   						&managedRuleGroupConfigProperty{
+//   							loginPath: jsii.String("loginPath"),
+//   							passwordField: &fieldIdentifierProperty{
+//   								identifier: jsii.String("identifier"),
+//   							},
+//   							payloadType: jsii.String("payloadType"),
+//   							usernameField: &fieldIdentifierProperty{
+//   								identifier: jsii.String("identifier"),
+//   							},
+//   						},
+//   					},
+//   					scopeDownStatement: statementProperty_,
+//   					version: jsii.String("version"),
+//   				},
+//   				notStatement: &notStatementProperty{
+//   					statement: statementProperty_,
+//   				},
+//   				orStatement: orStatementProperty_,
+//   				rateBasedStatement: &rateBasedStatementProperty{
+//   					aggregateKeyType: jsii.String("aggregateKeyType"),
+//   					limit: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   						fallbackBehavior: jsii.String("fallbackBehavior"),
+//   						headerName: jsii.String("headerName"),
+//   					},
+//   					scopeDownStatement: statementProperty_,
+//   				},
+//   				regexMatchStatement: &regexMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					regexString: jsii.String("regexString"),
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   					arn: jsii.String("arn"),
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				ruleGroupReferenceStatement: &ruleGroupReferenceStatementProperty{
+//   					arn: jsii.String("arn"),
+//
+//   					// the properties below are optional
+//   					excludedRules: []interface{}{
+//   						&excludedRuleProperty{
+//   							name: jsii.String("name"),
+//   						},
+//   					},
+//   				},
+//   				sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   					comparisonOperator: jsii.String("comparisonOperator"),
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					size: jsii.Number(123),
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				sqliMatchStatement: &sqliMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				xssMatchStatement: &xssMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	rateBasedStatement: &rateBasedStatementProperty{
+//   		aggregateKeyType: jsii.String("aggregateKeyType"),
+//   		limit: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   			fallbackBehavior: jsii.String("fallbackBehavior"),
+//   			headerName: jsii.String("headerName"),
+//   		},
+//   		scopeDownStatement: &statementProperty{
+//   			andStatement: &andStatementProperty{
+//   				statements: []interface{}{
+//   					statementProperty_,
+//   				},
+//   			},
+//   			byteMatchStatement: &byteMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				positionalConstraint: jsii.String("positionalConstraint"),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				searchString: jsii.String("searchString"),
+//   				searchStringBase64: jsii.String("searchStringBase64"),
+//   			},
+//   			geoMatchStatement: &geoMatchStatementProperty{
+//   				countryCodes: []*string{
+//   					jsii.String("countryCodes"),
+//   				},
+//   				forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   					fallbackBehavior: jsii.String("fallbackBehavior"),
+//   					headerName: jsii.String("headerName"),
+//   				},
+//   			},
+//   			ipSetReferenceStatement: map[string]interface{}{
+//   				"arn": jsii.String("arn"),
+//
+//   				// the properties below are optional
+//   				"ipSetForwardedIpConfig": map[string]*string{
+//   					"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   					"headerName": jsii.String("headerName"),
+//   					"position": jsii.String("position"),
+//   				},
+//   			},
+//   			labelMatchStatement: &labelMatchStatementProperty{
+//   				key: jsii.String("key"),
+//   				scope: jsii.String("scope"),
+//   			},
+//   			managedRuleGroupStatement: &managedRuleGroupStatementProperty{
+//   				name: jsii.String("name"),
+//   				vendorName: jsii.String("vendorName"),
+//
+//   				// the properties below are optional
+//   				excludedRules: []interface{}{
+//   					&excludedRuleProperty{
+//   						name: jsii.String("name"),
+//   					},
+//   				},
+//   				managedRuleGroupConfigs: []interface{}{
+//   					&managedRuleGroupConfigProperty{
+//   						loginPath: jsii.String("loginPath"),
+//   						passwordField: &fieldIdentifierProperty{
+//   							identifier: jsii.String("identifier"),
+//   						},
+//   						payloadType: jsii.String("payloadType"),
+//   						usernameField: &fieldIdentifierProperty{
+//   							identifier: jsii.String("identifier"),
+//   						},
+//   					},
+//   				},
+//   				scopeDownStatement: statementProperty_,
+//   				version: jsii.String("version"),
+//   			},
+//   			notStatement: &notStatementProperty{
+//   				statement: statementProperty_,
+//   			},
+//   			orStatement: &orStatementProperty{
+//   				statements: []interface{}{
+//   					statementProperty_,
+//   				},
+//   			},
+//   			rateBasedStatement: rateBasedStatementProperty_,
+//   			regexMatchStatement: &regexMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				regexString: jsii.String("regexString"),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   				arn: jsii.String("arn"),
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			ruleGroupReferenceStatement: &ruleGroupReferenceStatementProperty{
+//   				arn: jsii.String("arn"),
+//
+//   				// the properties below are optional
+//   				excludedRules: []interface{}{
+//   					&excludedRuleProperty{
+//   						name: jsii.String("name"),
+//   					},
+//   				},
+//   			},
+//   			sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   				comparisonOperator: jsii.String("comparisonOperator"),
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				size: jsii.Number(123),
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			sqliMatchStatement: &sqliMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   			xssMatchStatement: &xssMatchStatementProperty{
+//   				fieldToMatch: &fieldToMatchProperty{
+//   					allQueryArguments: allQueryArguments,
+//   					body: body,
+//   					jsonBody: &jsonBodyProperty{
+//   						matchPattern: &jsonMatchPatternProperty{
+//   							all: all,
+//   							includedPaths: []*string{
+//   								jsii.String("includedPaths"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//
+//   						// the properties below are optional
+//   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					},
+//   					method: method,
+//   					queryString: queryString,
+//   					singleHeader: singleHeader,
+//   					singleQueryArgument: singleQueryArgument,
+//   					uriPath: uriPath,
+//   				},
+//   				textTransformations: []interface{}{
+//   					&textTransformationProperty{
+//   						priority: jsii.Number(123),
+//   						type: jsii.String("type"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	regexMatchStatement: &regexMatchStatementProperty{
+//   		fieldToMatch: &fieldToMatchProperty{
+//   			allQueryArguments: allQueryArguments,
+//   			body: body,
+//   			jsonBody: &jsonBodyProperty{
+//   				matchPattern: &jsonMatchPatternProperty{
+//   					all: all,
+//   					includedPaths: []*string{
+//   						jsii.String("includedPaths"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//
+//   				// the properties below are optional
+//   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			},
+//   			method: method,
+//   			queryString: queryString,
+//   			singleHeader: singleHeader,
+//   			singleQueryArgument: singleQueryArgument,
+//   			uriPath: uriPath,
+//   		},
+//   		regexString: jsii.String("regexString"),
+//   		textTransformations: []interface{}{
+//   			&textTransformationProperty{
+//   				priority: jsii.Number(123),
+//   				type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
+//   	regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   		arn: jsii.String("arn"),
+//   		fieldToMatch: &fieldToMatchProperty{
+//   			allQueryArguments: allQueryArguments,
+//   			body: body,
+//   			jsonBody: &jsonBodyProperty{
+//   				matchPattern: &jsonMatchPatternProperty{
+//   					all: all,
+//   					includedPaths: []*string{
+//   						jsii.String("includedPaths"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//
+//   				// the properties below are optional
+//   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			},
+//   			method: method,
+//   			queryString: queryString,
+//   			singleHeader: singleHeader,
+//   			singleQueryArgument: singleQueryArgument,
+//   			uriPath: uriPath,
+//   		},
+//   		textTransformations: []interface{}{
+//   			&textTransformationProperty{
+//   				priority: jsii.Number(123),
+//   				type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
+//   	ruleGroupReferenceStatement: &ruleGroupReferenceStatementProperty{
+//   		arn: jsii.String("arn"),
+//
+//   		// the properties below are optional
+//   		excludedRules: []interface{}{
+//   			&excludedRuleProperty{
+//   				name: jsii.String("name"),
+//   			},
+//   		},
+//   	},
+//   	sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   		comparisonOperator: jsii.String("comparisonOperator"),
+//   		fieldToMatch: &fieldToMatchProperty{
+//   			allQueryArguments: allQueryArguments,
+//   			body: body,
+//   			jsonBody: &jsonBodyProperty{
+//   				matchPattern: &jsonMatchPatternProperty{
+//   					all: all,
+//   					includedPaths: []*string{
+//   						jsii.String("includedPaths"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//
+//   				// the properties below are optional
+//   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			},
+//   			method: method,
+//   			queryString: queryString,
+//   			singleHeader: singleHeader,
+//   			singleQueryArgument: singleQueryArgument,
+//   			uriPath: uriPath,
+//   		},
+//   		size: jsii.Number(123),
+//   		textTransformations: []interface{}{
+//   			&textTransformationProperty{
+//   				priority: jsii.Number(123),
+//   				type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
+//   	sqliMatchStatement: &sqliMatchStatementProperty{
+//   		fieldToMatch: &fieldToMatchProperty{
+//   			allQueryArguments: allQueryArguments,
+//   			body: body,
+//   			jsonBody: &jsonBodyProperty{
+//   				matchPattern: &jsonMatchPatternProperty{
+//   					all: all,
+//   					includedPaths: []*string{
+//   						jsii.String("includedPaths"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//
+//   				// the properties below are optional
+//   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			},
+//   			method: method,
+//   			queryString: queryString,
+//   			singleHeader: singleHeader,
+//   			singleQueryArgument: singleQueryArgument,
+//   			uriPath: uriPath,
+//   		},
+//   		textTransformations: []interface{}{
+//   			&textTransformationProperty{
+//   				priority: jsii.Number(123),
+//   				type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
+//   	xssMatchStatement: &xssMatchStatementProperty{
+//   		fieldToMatch: &fieldToMatchProperty{
+//   			allQueryArguments: allQueryArguments,
+//   			body: body,
+//   			jsonBody: &jsonBodyProperty{
+//   				matchPattern: &jsonMatchPatternProperty{
+//   					all: all,
+//   					includedPaths: []*string{
+//   						jsii.String("includedPaths"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//
+//   				// the properties below are optional
+//   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			},
+//   			method: method,
+//   			queryString: queryString,
+//   			singleHeader: singleHeader,
+//   			singleQueryArgument: singleQueryArgument,
+//   			uriPath: uriPath,
+//   		},
+//   		textTransformations: []interface{}{
+//   			&textTransformationProperty{
+//   				priority: jsii.Number(123),
+//   				type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnWebACL_StatementProperty struct {
 	// A logical rule statement used to combine other rule statements with AND logic.
@@ -4922,7 +13634,12 @@ type CfnWebACL_StatementProperty struct {
 
 // Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   textTransformationProperty := &textTransformationProperty{
+//   	priority: jsii.Number(123),
+//   	type: jsii.String("type"),
+//   }
 //
 type CfnWebACL_TextTransformationProperty struct {
 	// Sets the relative processing order for multiple transformations that are defined for a rule statement.
@@ -4999,7 +13716,13 @@ type CfnWebACL_TextTransformationProperty struct {
 
 // Defines and enables Amazon CloudWatch metrics and web request sample collection.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   visibilityConfigProperty := &visibilityConfigProperty{
+//   	cloudWatchMetricsEnabled: jsii.Boolean(false),
+//   	metricName: jsii.String("metricName"),
+//   	sampledRequestsEnabled: jsii.Boolean(false),
+//   }
 //
 type CfnWebACL_VisibilityConfigProperty struct {
 	// A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch .
@@ -5020,7 +13743,46 @@ type CfnWebACL_VisibilityConfigProperty struct {
 //
 // XSS attacks are those where the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers. The XSS match statement provides the location in requests that you want AWS WAF to search and text transformations to use on the search area before AWS WAF searches for character sequences that are likely to be malicious strings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var method interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var uriPath interface{}
+//   xssMatchStatementProperty := &xssMatchStatementProperty{
+//   	fieldToMatch: &fieldToMatchProperty{
+//   		allQueryArguments: allQueryArguments,
+//   		body: body,
+//   		jsonBody: &jsonBodyProperty{
+//   			matchPattern: &jsonMatchPatternProperty{
+//   				all: all,
+//   				includedPaths: []*string{
+//   					jsii.String("includedPaths"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//
+//   			// the properties below are optional
+//   			invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   		},
+//   		method: method,
+//   		queryString: queryString,
+//   		singleHeader: singleHeader,
+//   		singleQueryArgument: singleQueryArgument,
+//   		uriPath: uriPath,
+//   	},
+//   	textTransformations: []interface{}{
+//   		&textTransformationProperty{
+//   			priority: jsii.Number(123),
+//   			type: jsii.String("type"),
+//   		},
+//   	},
+//   }
 //
 type CfnWebACL_XssMatchStatementProperty struct {
 	// The part of a web request that you want AWS WAF to inspect.
@@ -5039,38 +13801,236 @@ type CfnWebACL_XssMatchStatementProperty struct {
 //
 // For Amazon CloudFront , don't use this resource. Instead, use your CloudFront distribution configuration. To associate a web ACL with a distribution, provide the Amazon Resource Name (ARN) of the `WebACL` to your CloudFront distribution configuration. To disassociate a web ACL, provide an empty ARN. For information, see [AWS::CloudFront::Distribution](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html) .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   cfnWebACLAssociation := wafv2.NewCfnWebACLAssociation(this, jsii.String("MyCfnWebACLAssociation"), &cfnWebACLAssociationProps{
+//   	resourceArn: jsii.String("resourceArn"),
+//   	webAclArn: jsii.String("webAclArn"),
+//   })
 //
 type CfnWebACLAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The Amazon Resource Name (ARN) of the resource to associate with the web ACL.
+	//
+	// The ARN must be in one of the following formats:
+	//
+	// - For an Application Load Balancer : `arn:aws:elasticloadbalancing: *region* : *account-id* :loadbalancer/app/ *load-balancer-name* / *load-balancer-id*`
+	// - For an Amazon API Gateway REST API: `arn:aws:apigateway: *region* ::/restapis/ *api-id* /stages/ *stage-name*`
+	// - For an AWS AppSync GraphQL API: `arn:aws:appsync: *region* : *account-id* :apis/ *GraphQLApiId*`
+	//
+	// For Amazon CloudFront , define the association in your CloudFront distribution configuration. To associate a web ACL, provide the Amazon Resource Name (ARN) of the `WebACL` to your CloudFront distribution configuration. To disassociate a web ACL, provide an empty ARN. For information, see [AWS::CloudFront::Distribution](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html) .
 	ResourceArn() *string
 	SetResourceArn(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.
 	WebAclArn() *string
 	SetWebAclArn(val *string)
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -5130,8 +14090,8 @@ func (j *jsiiProxy_CfnWebACLAssociation) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWebACLAssociation) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnWebACLAssociation) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5192,13 +14152,13 @@ func (j *jsiiProxy_CfnWebACLAssociation) WebAclArn() *string {
 
 
 // Create a new `AWS::WAFv2::WebACLAssociation`.
-func NewCfnWebACLAssociation(scope constructs.Construct, id *string, props *CfnWebACLAssociationProps) CfnWebACLAssociation {
+func NewCfnWebACLAssociation(scope awscdk.Construct, id *string, props *CfnWebACLAssociationProps) CfnWebACLAssociation {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnWebACLAssociation{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wafv2.CfnWebACLAssociation",
+		"monocdk.aws_wafv2.CfnWebACLAssociation",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5207,11 +14167,11 @@ func NewCfnWebACLAssociation(scope constructs.Construct, id *string, props *CfnW
 }
 
 // Create a new `AWS::WAFv2::WebACLAssociation`.
-func NewCfnWebACLAssociation_Override(c CfnWebACLAssociation, scope constructs.Construct, id *string, props *CfnWebACLAssociationProps) {
+func NewCfnWebACLAssociation_Override(c CfnWebACLAssociation, scope awscdk.Construct, id *string, props *CfnWebACLAssociationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wafv2.CfnWebACLAssociation",
+		"monocdk.aws_wafv2.CfnWebACLAssociation",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5239,13 +14199,14 @@ func (j *jsiiProxy_CfnWebACLAssociation) SetWebAclArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnWebACLAssociation_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnWebACLAssociation",
+		"monocdk.aws_wafv2.CfnWebACLAssociation",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -5255,13 +14216,14 @@ func CfnWebACLAssociation_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnWebACLAssociation_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnWebACLAssociation",
+		"monocdk.aws_wafv2.CfnWebACLAssociation",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -5270,17 +14232,15 @@ func CfnWebACLAssociation_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnWebACLAssociation_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnWebACLAssociation",
+		"monocdk.aws_wafv2.CfnWebACLAssociation",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5293,14 +14253,13 @@ func CfnWebACLAssociation_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_wafv2.CfnWebACLAssociation",
+		"monocdk.aws_wafv2.CfnWebACLAssociation",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnWebACLAssociation) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5309,10 +14268,6 @@ func (c *jsiiProxy_CfnWebACLAssociation) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnWebACLAssociation) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5321,13 +14276,6 @@ func (c *jsiiProxy_CfnWebACLAssociation) AddDependsOn(target awscdk.CfnResource)
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnWebACLAssociation) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5336,49 +14284,6 @@ func (c *jsiiProxy_CfnWebACLAssociation) AddMetadata(key *string, value interfac
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnWebACLAssociation) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5387,7 +14292,6 @@ func (c *jsiiProxy_CfnWebACLAssociation) AddOverride(path *string, value interfa
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnWebACLAssociation) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5396,9 +14300,6 @@ func (c *jsiiProxy_CfnWebACLAssociation) AddPropertyDeletionOverride(propertyPat
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnWebACLAssociation) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5407,15 +14308,6 @@ func (c *jsiiProxy_CfnWebACLAssociation) AddPropertyOverride(propertyPath *strin
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnWebACLAssociation) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5424,10 +14316,6 @@ func (c *jsiiProxy_CfnWebACLAssociation) ApplyRemovalPolicy(policy awscdk.Remova
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnWebACLAssociation) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -5441,13 +14329,6 @@ func (c *jsiiProxy_CfnWebACLAssociation) GetAtt(attributeName *string) awscdk.Re
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnWebACLAssociation) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -5461,7 +14342,6 @@ func (c *jsiiProxy_CfnWebACLAssociation) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnWebACLAssociation) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5470,12 +14350,48 @@ func (c *jsiiProxy_CfnWebACLAssociation) Inspect(inspector awscdk.TreeInspector)
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnWebACLAssociation) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnWebACLAssociation) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnWebACLAssociation) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnWebACLAssociation) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnWebACLAssociation) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -5492,10 +14408,6 @@ func (c *jsiiProxy_CfnWebACLAssociation) RenderProperties(props *map[string]inte
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnWebACLAssociation) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -5509,15 +14421,33 @@ func (c *jsiiProxy_CfnWebACLAssociation) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnWebACLAssociation) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnWebACLAssociation) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnWebACLAssociation) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5535,7 +14465,12 @@ func (c *jsiiProxy_CfnWebACLAssociation) ValidateProperties(_properties interfac
 
 // Properties for defining a `CfnWebACLAssociation`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   cfnWebACLAssociationProps := &cfnWebACLAssociationProps{
+//   	resourceArn: jsii.String("resourceArn"),
+//   	webAclArn: jsii.String("webAclArn"),
+//   }
 //
 type CfnWebACLAssociationProps struct {
 	// The Amazon Resource Name (ARN) of the resource to associate with the web ACL.
@@ -5554,7 +14489,415 @@ type CfnWebACLAssociationProps struct {
 
 // Properties for defining a `CfnWebACL`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//
+//   var all interface{}
+//   var allQueryArguments interface{}
+//   var body interface{}
+//   var count interface{}
+//   var method interface{}
+//   var none interface{}
+//   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
+//   var statementProperty_ statementProperty
+//   var uriPath interface{}
+//   cfnWebACLProps := &cfnWebACLProps{
+//   	defaultAction: &defaultActionProperty{
+//   		allow: &allowActionProperty{
+//   			customRequestHandling: &customRequestHandlingProperty{
+//   				insertHeaders: []interface{}{
+//   					&customHTTPHeaderProperty{
+//   						name: jsii.String("name"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		block: &blockActionProperty{
+//   			customResponse: &customResponseProperty{
+//   				responseCode: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				customResponseBodyKey: jsii.String("customResponseBodyKey"),
+//   				responseHeaders: []interface{}{
+//   					&customHTTPHeaderProperty{
+//   						name: jsii.String("name"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	scope: jsii.String("scope"),
+//   	visibilityConfig: &visibilityConfigProperty{
+//   		cloudWatchMetricsEnabled: jsii.Boolean(false),
+//   		metricName: jsii.String("metricName"),
+//   		sampledRequestsEnabled: jsii.Boolean(false),
+//   	},
+//
+//   	// the properties below are optional
+//   	captchaConfig: &captchaConfigProperty{
+//   		immunityTimeProperty: &immunityTimePropertyProperty{
+//   			immunityTime: jsii.Number(123),
+//   		},
+//   	},
+//   	customResponseBodies: map[string]interface{}{
+//   		"customResponseBodiesKey": &CustomResponseBodyProperty{
+//   			"content": jsii.String("content"),
+//   			"contentType": jsii.String("contentType"),
+//   		},
+//   	},
+//   	description: jsii.String("description"),
+//   	name: jsii.String("name"),
+//   	rules: []interface{}{
+//   		&ruleProperty{
+//   			name: jsii.String("name"),
+//   			priority: jsii.Number(123),
+//   			statement: &statementProperty{
+//   				andStatement: &andStatementProperty{
+//   					statements: []interface{}{
+//   						statementProperty_,
+//   					},
+//   				},
+//   				byteMatchStatement: &byteMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					positionalConstraint: jsii.String("positionalConstraint"),
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					searchString: jsii.String("searchString"),
+//   					searchStringBase64: jsii.String("searchStringBase64"),
+//   				},
+//   				geoMatchStatement: &geoMatchStatementProperty{
+//   					countryCodes: []*string{
+//   						jsii.String("countryCodes"),
+//   					},
+//   					forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   						fallbackBehavior: jsii.String("fallbackBehavior"),
+//   						headerName: jsii.String("headerName"),
+//   					},
+//   				},
+//   				ipSetReferenceStatement: map[string]interface{}{
+//   					"arn": jsii.String("arn"),
+//
+//   					// the properties below are optional
+//   					"ipSetForwardedIpConfig": map[string]*string{
+//   						"fallbackBehavior": jsii.String("fallbackBehavior"),
+//   						"headerName": jsii.String("headerName"),
+//   						"position": jsii.String("position"),
+//   					},
+//   				},
+//   				labelMatchStatement: &labelMatchStatementProperty{
+//   					key: jsii.String("key"),
+//   					scope: jsii.String("scope"),
+//   				},
+//   				managedRuleGroupStatement: &managedRuleGroupStatementProperty{
+//   					name: jsii.String("name"),
+//   					vendorName: jsii.String("vendorName"),
+//
+//   					// the properties below are optional
+//   					excludedRules: []interface{}{
+//   						&excludedRuleProperty{
+//   							name: jsii.String("name"),
+//   						},
+//   					},
+//   					managedRuleGroupConfigs: []interface{}{
+//   						&managedRuleGroupConfigProperty{
+//   							loginPath: jsii.String("loginPath"),
+//   							passwordField: &fieldIdentifierProperty{
+//   								identifier: jsii.String("identifier"),
+//   							},
+//   							payloadType: jsii.String("payloadType"),
+//   							usernameField: &fieldIdentifierProperty{
+//   								identifier: jsii.String("identifier"),
+//   							},
+//   						},
+//   					},
+//   					scopeDownStatement: statementProperty_,
+//   					version: jsii.String("version"),
+//   				},
+//   				notStatement: &notStatementProperty{
+//   					statement: statementProperty_,
+//   				},
+//   				orStatement: &orStatementProperty{
+//   					statements: []interface{}{
+//   						statementProperty_,
+//   					},
+//   				},
+//   				rateBasedStatement: &rateBasedStatementProperty{
+//   					aggregateKeyType: jsii.String("aggregateKeyType"),
+//   					limit: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					forwardedIpConfig: &forwardedIPConfigurationProperty{
+//   						fallbackBehavior: jsii.String("fallbackBehavior"),
+//   						headerName: jsii.String("headerName"),
+//   					},
+//   					scopeDownStatement: statementProperty_,
+//   				},
+//   				regexMatchStatement: &regexMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					regexString: jsii.String("regexString"),
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				regexPatternSetReferenceStatement: &regexPatternSetReferenceStatementProperty{
+//   					arn: jsii.String("arn"),
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				ruleGroupReferenceStatement: &ruleGroupReferenceStatementProperty{
+//   					arn: jsii.String("arn"),
+//
+//   					// the properties below are optional
+//   					excludedRules: []interface{}{
+//   						&excludedRuleProperty{
+//   							name: jsii.String("name"),
+//   						},
+//   					},
+//   				},
+//   				sizeConstraintStatement: &sizeConstraintStatementProperty{
+//   					comparisonOperator: jsii.String("comparisonOperator"),
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					size: jsii.Number(123),
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				sqliMatchStatement: &sqliMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				xssMatchStatement: &xssMatchStatementProperty{
+//   					fieldToMatch: &fieldToMatchProperty{
+//   						allQueryArguments: allQueryArguments,
+//   						body: body,
+//   						jsonBody: &jsonBodyProperty{
+//   							matchPattern: &jsonMatchPatternProperty{
+//   								all: all,
+//   								includedPaths: []*string{
+//   									jsii.String("includedPaths"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//
+//   							// the properties below are optional
+//   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						},
+//   						method: method,
+//   						queryString: queryString,
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
+//   						uriPath: uriPath,
+//   					},
+//   					textTransformations: []interface{}{
+//   						&textTransformationProperty{
+//   							priority: jsii.Number(123),
+//   							type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			visibilityConfig: &visibilityConfigProperty{
+//   				cloudWatchMetricsEnabled: jsii.Boolean(false),
+//   				metricName: jsii.String("metricName"),
+//   				sampledRequestsEnabled: jsii.Boolean(false),
+//   			},
+//
+//   			// the properties below are optional
+//   			action: &ruleActionProperty{
+//   				allow: &allowActionProperty{
+//   					customRequestHandling: &customRequestHandlingProperty{
+//   						insertHeaders: []interface{}{
+//   							&customHTTPHeaderProperty{
+//   								name: jsii.String("name"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				block: &blockActionProperty{
+//   					customResponse: &customResponseProperty{
+//   						responseCode: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						customResponseBodyKey: jsii.String("customResponseBodyKey"),
+//   						responseHeaders: []interface{}{
+//   							&customHTTPHeaderProperty{
+//   								name: jsii.String("name"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				captcha: &captchaActionProperty{
+//   					customRequestHandling: &customRequestHandlingProperty{
+//   						insertHeaders: []interface{}{
+//   							&customHTTPHeaderProperty{
+//   								name: jsii.String("name"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				count: &countActionProperty{
+//   					customRequestHandling: &customRequestHandlingProperty{
+//   						insertHeaders: []interface{}{
+//   							&customHTTPHeaderProperty{
+//   								name: jsii.String("name"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   			captchaConfig: &captchaConfigProperty{
+//   				immunityTimeProperty: &immunityTimePropertyProperty{
+//   					immunityTime: jsii.Number(123),
+//   				},
+//   			},
+//   			overrideAction: &overrideActionProperty{
+//   				count: count,
+//   				none: none,
+//   			},
+//   			ruleLabels: []interface{}{
+//   				&labelProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnWebACLProps struct {
 	// The action to perform if none of the `Rules` contained in the `WebACL` match.

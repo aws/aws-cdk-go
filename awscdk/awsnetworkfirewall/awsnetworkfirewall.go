@@ -1,12 +1,12 @@
 package awsnetworkfirewall
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsnetworkfirewall/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsnetworkfirewall/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::NetworkFirewall::Firewall`.
@@ -15,54 +15,290 @@ import (
 //
 // The firewall defines the configuration settings for an AWS Network Firewall firewall. The settings include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall AWS resource.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   cfnFirewall := networkfirewall.NewCfnFirewall(this, jsii.String("MyCfnFirewall"), &cfnFirewallProps{
+//   	firewallName: jsii.String("firewallName"),
+//   	firewallPolicyArn: jsii.String("firewallPolicyArn"),
+//   	subnetMappings: []interface{}{
+//   		&subnetMappingProperty{
+//   			subnetId: jsii.String("subnetId"),
+//   		},
+//   	},
+//   	vpcId: jsii.String("vpcId"),
+//
+//   	// the properties below are optional
+//   	deleteProtection: jsii.Boolean(false),
+//   	description: jsii.String("description"),
+//   	firewallPolicyChangeProtection: jsii.Boolean(false),
+//   	subnetChangeProtection: jsii.Boolean(false),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   })
 //
 type CfnFirewall interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The unique IDs of the firewall endpoints for all of the subnets that you attached to the firewall.
+	//
+	// The subnets are not listed in any particular order. For example: `["us-west-2c:vpce-111122223333", "us-west-2a:vpce-987654321098", "us-west-2b:vpce-012345678901"]` .
 	AttrEndpointIds() *[]*string
+	// The Amazon Resource Name (ARN) of the `Firewall` .
 	AttrFirewallArn() *string
+	// The name of the `Firewall` resource.
 	AttrFirewallId() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// A flag indicating whether it is possible to delete the firewall.
+	//
+	// A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
 	DeleteProtection() interface{}
 	SetDeleteProtection(val interface{})
+	// A description of the firewall.
 	Description() *string
 	SetDescription(val *string)
+	// The descriptive name of the firewall.
+	//
+	// You can't change the name of a firewall after you create it.
 	FirewallName() *string
 	SetFirewallName(val *string)
+	// The Amazon Resource Name (ARN) of the firewall policy.
+	//
+	// The relationship of firewall to firewall policy is many to one. Each firewall requires one firewall policy association, and you can use the same firewall policy for multiple firewalls.
 	FirewallPolicyArn() *string
 	SetFirewallPolicyArn(val *string)
+	// A setting indicating whether the firewall is protected against a change to the firewall policy association.
+	//
+	// Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
 	FirewallPolicyChangeProtection() interface{}
 	SetFirewallPolicyChangeProtection(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// A setting indicating whether the firewall is protected against changes to the subnet associations.
+	//
+	// Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
 	SubnetChangeProtection() interface{}
 	SetSubnetChangeProtection(val interface{})
+	// The public subnets that Network Firewall is using for the firewall.
+	//
+	// Each subnet must belong to a different Availability Zone.
 	SubnetMappings() interface{}
 	SetSubnetMappings(val interface{})
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// The unique identifier of the VPC where the firewall is in use.
+	//
+	// You can't change the VPC of a firewall after you create the firewall.
 	VpcId() *string
 	SetVpcId(val *string)
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -202,8 +438,8 @@ func (j *jsiiProxy_CfnFirewall) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFirewall) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnFirewall) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -284,13 +520,13 @@ func (j *jsiiProxy_CfnFirewall) VpcId() *string {
 
 
 // Create a new `AWS::NetworkFirewall::Firewall`.
-func NewCfnFirewall(scope constructs.Construct, id *string, props *CfnFirewallProps) CfnFirewall {
+func NewCfnFirewall(scope awscdk.Construct, id *string, props *CfnFirewallProps) CfnFirewall {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnFirewall{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_networkfirewall.CfnFirewall",
+		"monocdk.aws_networkfirewall.CfnFirewall",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -299,11 +535,11 @@ func NewCfnFirewall(scope constructs.Construct, id *string, props *CfnFirewallPr
 }
 
 // Create a new `AWS::NetworkFirewall::Firewall`.
-func NewCfnFirewall_Override(c CfnFirewall, scope constructs.Construct, id *string, props *CfnFirewallProps) {
+func NewCfnFirewall_Override(c CfnFirewall, scope awscdk.Construct, id *string, props *CfnFirewallProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_networkfirewall.CfnFirewall",
+		"monocdk.aws_networkfirewall.CfnFirewall",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -379,13 +615,14 @@ func (j *jsiiProxy_CfnFirewall) SetVpcId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnFirewall_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkfirewall.CfnFirewall",
+		"monocdk.aws_networkfirewall.CfnFirewall",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -395,13 +632,14 @@ func CfnFirewall_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnFirewall_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkfirewall.CfnFirewall",
+		"monocdk.aws_networkfirewall.CfnFirewall",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -410,17 +648,15 @@ func CfnFirewall_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnFirewall_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkfirewall.CfnFirewall",
+		"monocdk.aws_networkfirewall.CfnFirewall",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -433,14 +669,13 @@ func CfnFirewall_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_networkfirewall.CfnFirewall",
+		"monocdk.aws_networkfirewall.CfnFirewall",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnFirewall) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -449,10 +684,6 @@ func (c *jsiiProxy_CfnFirewall) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnFirewall) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -461,13 +692,6 @@ func (c *jsiiProxy_CfnFirewall) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnFirewall) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -476,49 +700,6 @@ func (c *jsiiProxy_CfnFirewall) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnFirewall) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -527,7 +708,6 @@ func (c *jsiiProxy_CfnFirewall) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnFirewall) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -536,9 +716,6 @@ func (c *jsiiProxy_CfnFirewall) AddPropertyDeletionOverride(propertyPath *string
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnFirewall) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -547,15 +724,6 @@ func (c *jsiiProxy_CfnFirewall) AddPropertyOverride(propertyPath *string, value 
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnFirewall) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -564,10 +732,6 @@ func (c *jsiiProxy_CfnFirewall) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnFirewall) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -581,13 +745,6 @@ func (c *jsiiProxy_CfnFirewall) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnFirewall) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -601,7 +758,6 @@ func (c *jsiiProxy_CfnFirewall) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnFirewall) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -610,12 +766,48 @@ func (c *jsiiProxy_CfnFirewall) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnFirewall) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnFirewall) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnFirewall) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnFirewall) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnFirewall) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -632,10 +824,6 @@ func (c *jsiiProxy_CfnFirewall) RenderProperties(props *map[string]interface{}) 
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnFirewall) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -649,15 +837,33 @@ func (c *jsiiProxy_CfnFirewall) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnFirewall) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnFirewall) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnFirewall) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -677,7 +883,11 @@ func (c *jsiiProxy_CfnFirewall) ValidateProperties(_properties interface{}) {
 //
 // AWS Network Firewall creates an instance of the associated firewall in each subnet that you specify, to filter traffic in the subnet's Availability Zone.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   subnetMappingProperty := &subnetMappingProperty{
+//   	subnetId: jsii.String("subnetId"),
+//   }
 //
 type CfnFirewall_SubnetMappingProperty struct {
 	// The unique identifier for the subnet.
@@ -688,43 +898,293 @@ type CfnFirewall_SubnetMappingProperty struct {
 //
 // Use the `FirewallPolicy` to define the stateless and stateful network traffic filtering behavior for your `Firewall` . You can use one firewall policy for multiple firewalls.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   cfnFirewallPolicy := networkfirewall.NewCfnFirewallPolicy(this, jsii.String("MyCfnFirewallPolicy"), &cfnFirewallPolicyProps{
+//   	firewallPolicy: &firewallPolicyProperty{
+//   		statelessDefaultActions: []*string{
+//   			jsii.String("statelessDefaultActions"),
+//   		},
+//   		statelessFragmentDefaultActions: []*string{
+//   			jsii.String("statelessFragmentDefaultActions"),
+//   		},
+//
+//   		// the properties below are optional
+//   		statefulDefaultActions: []*string{
+//   			jsii.String("statefulDefaultActions"),
+//   		},
+//   		statefulEngineOptions: &statefulEngineOptionsProperty{
+//   			ruleOrder: jsii.String("ruleOrder"),
+//   		},
+//   		statefulRuleGroupReferences: []interface{}{
+//   			&statefulRuleGroupReferenceProperty{
+//   				resourceArn: jsii.String("resourceArn"),
+//
+//   				// the properties below are optional
+//   				priority: jsii.Number(123),
+//   			},
+//   		},
+//   		statelessCustomActions: []interface{}{
+//   			&customActionProperty{
+//   				actionDefinition: &actionDefinitionProperty{
+//   					publishMetricAction: &publishMetricActionProperty{
+//   						dimensions: []interface{}{
+//   							&dimensionProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				actionName: jsii.String("actionName"),
+//   			},
+//   		},
+//   		statelessRuleGroupReferences: []interface{}{
+//   			&statelessRuleGroupReferenceProperty{
+//   				priority: jsii.Number(123),
+//   				resourceArn: jsii.String("resourceArn"),
+//   			},
+//   		},
+//   	},
+//   	firewallPolicyName: jsii.String("firewallPolicyName"),
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   })
 //
 type CfnFirewallPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the `FirewallPolicy` .
 	AttrFirewallPolicyArn() *string
+	// The unique ID of the `FirewallPolicy` resource.
 	AttrFirewallPolicyId() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// A description of the firewall policy.
 	Description() *string
 	SetDescription(val *string)
+	// The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
 	FirewallPolicy() interface{}
 	SetFirewallPolicy(val interface{})
+	// The descriptive name of the firewall policy.
+	//
+	// You can't change the name of a firewall policy after you create it.
 	FirewallPolicyName() *string
 	SetFirewallPolicyName(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -834,8 +1294,8 @@ func (j *jsiiProxy_CfnFirewallPolicy) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFirewallPolicy) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnFirewallPolicy) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -886,13 +1346,13 @@ func (j *jsiiProxy_CfnFirewallPolicy) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::NetworkFirewall::FirewallPolicy`.
-func NewCfnFirewallPolicy(scope constructs.Construct, id *string, props *CfnFirewallPolicyProps) CfnFirewallPolicy {
+func NewCfnFirewallPolicy(scope awscdk.Construct, id *string, props *CfnFirewallPolicyProps) CfnFirewallPolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnFirewallPolicy{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_networkfirewall.CfnFirewallPolicy",
+		"monocdk.aws_networkfirewall.CfnFirewallPolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -901,11 +1361,11 @@ func NewCfnFirewallPolicy(scope constructs.Construct, id *string, props *CfnFire
 }
 
 // Create a new `AWS::NetworkFirewall::FirewallPolicy`.
-func NewCfnFirewallPolicy_Override(c CfnFirewallPolicy, scope constructs.Construct, id *string, props *CfnFirewallPolicyProps) {
+func NewCfnFirewallPolicy_Override(c CfnFirewallPolicy, scope awscdk.Construct, id *string, props *CfnFirewallPolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_networkfirewall.CfnFirewallPolicy",
+		"monocdk.aws_networkfirewall.CfnFirewallPolicy",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -941,13 +1401,14 @@ func (j *jsiiProxy_CfnFirewallPolicy) SetFirewallPolicyName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnFirewallPolicy_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkfirewall.CfnFirewallPolicy",
+		"monocdk.aws_networkfirewall.CfnFirewallPolicy",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -957,13 +1418,14 @@ func CfnFirewallPolicy_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnFirewallPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkfirewall.CfnFirewallPolicy",
+		"monocdk.aws_networkfirewall.CfnFirewallPolicy",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -972,17 +1434,15 @@ func CfnFirewallPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnFirewallPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkfirewall.CfnFirewallPolicy",
+		"monocdk.aws_networkfirewall.CfnFirewallPolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -995,14 +1455,13 @@ func CfnFirewallPolicy_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_networkfirewall.CfnFirewallPolicy",
+		"monocdk.aws_networkfirewall.CfnFirewallPolicy",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnFirewallPolicy) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1011,10 +1470,6 @@ func (c *jsiiProxy_CfnFirewallPolicy) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnFirewallPolicy) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1023,13 +1478,6 @@ func (c *jsiiProxy_CfnFirewallPolicy) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnFirewallPolicy) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1038,49 +1486,6 @@ func (c *jsiiProxy_CfnFirewallPolicy) AddMetadata(key *string, value interface{}
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnFirewallPolicy) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1089,7 +1494,6 @@ func (c *jsiiProxy_CfnFirewallPolicy) AddOverride(path *string, value interface{
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnFirewallPolicy) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1098,9 +1502,6 @@ func (c *jsiiProxy_CfnFirewallPolicy) AddPropertyDeletionOverride(propertyPath *
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnFirewallPolicy) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1109,15 +1510,6 @@ func (c *jsiiProxy_CfnFirewallPolicy) AddPropertyOverride(propertyPath *string, 
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnFirewallPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1126,10 +1518,6 @@ func (c *jsiiProxy_CfnFirewallPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPo
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnFirewallPolicy) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1143,13 +1531,6 @@ func (c *jsiiProxy_CfnFirewallPolicy) GetAtt(attributeName *string) awscdk.Refer
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnFirewallPolicy) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1163,7 +1544,6 @@ func (c *jsiiProxy_CfnFirewallPolicy) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnFirewallPolicy) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1172,12 +1552,48 @@ func (c *jsiiProxy_CfnFirewallPolicy) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnFirewallPolicy) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnFirewallPolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnFirewallPolicy) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnFirewallPolicy) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnFirewallPolicy) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1194,10 +1610,6 @@ func (c *jsiiProxy_CfnFirewallPolicy) RenderProperties(props *map[string]interfa
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnFirewallPolicy) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1211,15 +1623,33 @@ func (c *jsiiProxy_CfnFirewallPolicy) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnFirewallPolicy) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnFirewallPolicy) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnFirewallPolicy) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1237,7 +1667,17 @@ func (c *jsiiProxy_CfnFirewallPolicy) ValidateProperties(_properties interface{}
 
 // A custom action to use in stateless rule actions settings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   actionDefinitionProperty := &actionDefinitionProperty{
+//   	publishMetricAction: &publishMetricActionProperty{
+//   		dimensions: []interface{}{
+//   			&dimensionProperty{
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnFirewallPolicy_ActionDefinitionProperty struct {
 	// Stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet.
@@ -1259,7 +1699,20 @@ type CfnFirewallPolicy_ActionDefinitionProperty struct {
 // - In an `RuleGroup.StatelessRulesAndCustomActions` . The custom actions are available for use by name inside the `StatelessRulesAndCustomActions` where you define them. You can use them for your stateless rule actions to specify what to do with a packet that matches the rule's match attributes.
 // - In an `FirewallPolicy` specification, in `StatelessCustomActions` . The custom actions are available for use inside the policy where you define them. You can use them for the policy's default stateless actions settings to specify what to do with packets that don't match any of the policy's stateless rules.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   customActionProperty := &customActionProperty{
+//   	actionDefinition: &actionDefinitionProperty{
+//   		publishMetricAction: &publishMetricActionProperty{
+//   			dimensions: []interface{}{
+//   				&dimensionProperty{
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	actionName: jsii.String("actionName"),
+//   }
 //
 type CfnFirewallPolicy_CustomActionProperty struct {
 	// The custom action associated with the action name.
@@ -1278,7 +1731,11 @@ type CfnFirewallPolicy_CustomActionProperty struct {
 //
 // For more information about CloudWatch custom metric dimensions, see [Publishing Custom Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html#usingDimensions) in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   dimensionProperty := &dimensionProperty{
+//   	value: jsii.String("value"),
+//   }
 //
 type CfnFirewallPolicy_DimensionProperty struct {
 	// The value to use in the custom metric dimension.
@@ -1287,7 +1744,52 @@ type CfnFirewallPolicy_DimensionProperty struct {
 
 // The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   firewallPolicyProperty := &firewallPolicyProperty{
+//   	statelessDefaultActions: []*string{
+//   		jsii.String("statelessDefaultActions"),
+//   	},
+//   	statelessFragmentDefaultActions: []*string{
+//   		jsii.String("statelessFragmentDefaultActions"),
+//   	},
+//
+//   	// the properties below are optional
+//   	statefulDefaultActions: []*string{
+//   		jsii.String("statefulDefaultActions"),
+//   	},
+//   	statefulEngineOptions: &statefulEngineOptionsProperty{
+//   		ruleOrder: jsii.String("ruleOrder"),
+//   	},
+//   	statefulRuleGroupReferences: []interface{}{
+//   		&statefulRuleGroupReferenceProperty{
+//   			resourceArn: jsii.String("resourceArn"),
+//
+//   			// the properties below are optional
+//   			priority: jsii.Number(123),
+//   		},
+//   	},
+//   	statelessCustomActions: []interface{}{
+//   		&customActionProperty{
+//   			actionDefinition: &actionDefinitionProperty{
+//   				publishMetricAction: &publishMetricActionProperty{
+//   					dimensions: []interface{}{
+//   						&dimensionProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			actionName: jsii.String("actionName"),
+//   		},
+//   	},
+//   	statelessRuleGroupReferences: []interface{}{
+//   		&statelessRuleGroupReferenceProperty{
+//   			priority: jsii.Number(123),
+//   			resourceArn: jsii.String("resourceArn"),
+//   		},
+//   	},
+//   }
 //
 type CfnFirewallPolicy_FirewallPolicyProperty struct {
 	// The actions to take on a packet if it doesn't match any of the stateless rules in the policy.
@@ -1341,7 +1843,15 @@ type CfnFirewallPolicy_FirewallPolicyProperty struct {
 //
 // This setting defines a CloudWatch dimension value to be published.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   publishMetricActionProperty := &publishMetricActionProperty{
+//   	dimensions: []interface{}{
+//   		&dimensionProperty{
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnFirewallPolicy_PublishMetricActionProperty struct {
 	// `CfnFirewallPolicy.PublishMetricActionProperty.Dimensions`.
@@ -1350,7 +1860,11 @@ type CfnFirewallPolicy_PublishMetricActionProperty struct {
 
 // Configuration settings for the handling of the stateful rule groups in a firewall policy.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   statefulEngineOptionsProperty := &statefulEngineOptionsProperty{
+//   	ruleOrder: jsii.String("ruleOrder"),
+//   }
 //
 type CfnFirewallPolicy_StatefulEngineOptionsProperty struct {
 	// Indicates how to manage the order of stateful rule evaluation for the policy.
@@ -1361,7 +1875,14 @@ type CfnFirewallPolicy_StatefulEngineOptionsProperty struct {
 
 // Identifier for a single stateful rule group, used in a firewall policy to refer to a rule group.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   statefulRuleGroupReferenceProperty := &statefulRuleGroupReferenceProperty{
+//   	resourceArn: jsii.String("resourceArn"),
+//
+//   	// the properties below are optional
+//   	priority: jsii.Number(123),
+//   }
 //
 type CfnFirewallPolicy_StatefulRuleGroupReferenceProperty struct {
 	// The Amazon Resource Name (ARN) of the stateful rule group.
@@ -1378,7 +1899,12 @@ type CfnFirewallPolicy_StatefulRuleGroupReferenceProperty struct {
 
 // Identifier for a single stateless rule group, used in a firewall policy to refer to the rule group.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   statelessRuleGroupReferenceProperty := &statelessRuleGroupReferenceProperty{
+//   	priority: jsii.Number(123),
+//   	resourceArn: jsii.String("resourceArn"),
+//   }
 //
 type CfnFirewallPolicy_StatelessRuleGroupReferenceProperty struct {
 	// An integer setting that indicates the order in which to run the stateless rule groups in a single `FirewallPolicy` .
@@ -1391,7 +1917,64 @@ type CfnFirewallPolicy_StatelessRuleGroupReferenceProperty struct {
 
 // Properties for defining a `CfnFirewallPolicy`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   cfnFirewallPolicyProps := &cfnFirewallPolicyProps{
+//   	firewallPolicy: &firewallPolicyProperty{
+//   		statelessDefaultActions: []*string{
+//   			jsii.String("statelessDefaultActions"),
+//   		},
+//   		statelessFragmentDefaultActions: []*string{
+//   			jsii.String("statelessFragmentDefaultActions"),
+//   		},
+//
+//   		// the properties below are optional
+//   		statefulDefaultActions: []*string{
+//   			jsii.String("statefulDefaultActions"),
+//   		},
+//   		statefulEngineOptions: &statefulEngineOptionsProperty{
+//   			ruleOrder: jsii.String("ruleOrder"),
+//   		},
+//   		statefulRuleGroupReferences: []interface{}{
+//   			&statefulRuleGroupReferenceProperty{
+//   				resourceArn: jsii.String("resourceArn"),
+//
+//   				// the properties below are optional
+//   				priority: jsii.Number(123),
+//   			},
+//   		},
+//   		statelessCustomActions: []interface{}{
+//   			&customActionProperty{
+//   				actionDefinition: &actionDefinitionProperty{
+//   					publishMetricAction: &publishMetricActionProperty{
+//   						dimensions: []interface{}{
+//   							&dimensionProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				actionName: jsii.String("actionName"),
+//   			},
+//   		},
+//   		statelessRuleGroupReferences: []interface{}{
+//   			&statelessRuleGroupReferenceProperty{
+//   				priority: jsii.Number(123),
+//   				resourceArn: jsii.String("resourceArn"),
+//   			},
+//   		},
+//   	},
+//   	firewallPolicyName: jsii.String("firewallPolicyName"),
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnFirewallPolicyProps struct {
 	// The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
@@ -1410,7 +1993,30 @@ type CfnFirewallPolicyProps struct {
 
 // Properties for defining a `CfnFirewall`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   cfnFirewallProps := &cfnFirewallProps{
+//   	firewallName: jsii.String("firewallName"),
+//   	firewallPolicyArn: jsii.String("firewallPolicyArn"),
+//   	subnetMappings: []interface{}{
+//   		&subnetMappingProperty{
+//   			subnetId: jsii.String("subnetId"),
+//   		},
+//   	},
+//   	vpcId: jsii.String("vpcId"),
+//
+//   	// the properties below are optional
+//   	deleteProtection: jsii.Boolean(false),
+//   	description: jsii.String("description"),
+//   	firewallPolicyChangeProtection: jsii.Boolean(false),
+//   	subnetChangeProtection: jsii.Boolean(false),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnFirewallProps struct {
 	// The descriptive name of the firewall.
@@ -1463,40 +2069,248 @@ type CfnFirewallProps struct {
 //
 // You can't change the `LogDestinationType` or `LogType` in a `LogDestinationConfig` . To change these settings, delete the existing `LogDestinationConfig` object and create a new one, in two separate modifications.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   cfnLoggingConfiguration := networkfirewall.NewCfnLoggingConfiguration(this, jsii.String("MyCfnLoggingConfiguration"), &cfnLoggingConfigurationProps{
+//   	firewallArn: jsii.String("firewallArn"),
+//   	loggingConfiguration: &loggingConfigurationProperty{
+//   		logDestinationConfigs: []interface{}{
+//   			&logDestinationConfigProperty{
+//   				logDestination: map[string]*string{
+//   					"logDestinationKey": jsii.String("logDestination"),
+//   				},
+//   				logDestinationType: jsii.String("logDestinationType"),
+//   				logType: jsii.String("logType"),
+//   			},
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	firewallName: jsii.String("firewallName"),
+//   })
 //
 type CfnLoggingConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with.
+	//
+	// You can't change the firewall specification after you create the logging configuration.
 	FirewallArn() *string
 	SetFirewallArn(val *string)
+	// The name of the firewall that the logging configuration is associated with.
+	//
+	// You can't change the firewall specification after you create the logging configuration.
 	FirewallName() *string
 	SetFirewallName(val *string)
+	// Defines how AWS Network Firewall performs logging for a `Firewall` .
 	LoggingConfiguration() interface{}
 	SetLoggingConfiguration(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1586,8 +2400,8 @@ func (j *jsiiProxy_CfnLoggingConfiguration) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoggingConfiguration) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnLoggingConfiguration) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1628,13 +2442,13 @@ func (j *jsiiProxy_CfnLoggingConfiguration) UpdatedProperites() *map[string]inte
 
 
 // Create a new `AWS::NetworkFirewall::LoggingConfiguration`.
-func NewCfnLoggingConfiguration(scope constructs.Construct, id *string, props *CfnLoggingConfigurationProps) CfnLoggingConfiguration {
+func NewCfnLoggingConfiguration(scope awscdk.Construct, id *string, props *CfnLoggingConfigurationProps) CfnLoggingConfiguration {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLoggingConfiguration{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_networkfirewall.CfnLoggingConfiguration",
+		"monocdk.aws_networkfirewall.CfnLoggingConfiguration",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1643,11 +2457,11 @@ func NewCfnLoggingConfiguration(scope constructs.Construct, id *string, props *C
 }
 
 // Create a new `AWS::NetworkFirewall::LoggingConfiguration`.
-func NewCfnLoggingConfiguration_Override(c CfnLoggingConfiguration, scope constructs.Construct, id *string, props *CfnLoggingConfigurationProps) {
+func NewCfnLoggingConfiguration_Override(c CfnLoggingConfiguration, scope awscdk.Construct, id *string, props *CfnLoggingConfigurationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_networkfirewall.CfnLoggingConfiguration",
+		"monocdk.aws_networkfirewall.CfnLoggingConfiguration",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1683,13 +2497,14 @@ func (j *jsiiProxy_CfnLoggingConfiguration) SetLoggingConfiguration(val interfac
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnLoggingConfiguration_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkfirewall.CfnLoggingConfiguration",
+		"monocdk.aws_networkfirewall.CfnLoggingConfiguration",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1699,13 +2514,14 @@ func CfnLoggingConfiguration_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnLoggingConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkfirewall.CfnLoggingConfiguration",
+		"monocdk.aws_networkfirewall.CfnLoggingConfiguration",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1714,17 +2530,15 @@ func CfnLoggingConfiguration_IsCfnResource(construct constructs.IConstruct) *boo
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnLoggingConfiguration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkfirewall.CfnLoggingConfiguration",
+		"monocdk.aws_networkfirewall.CfnLoggingConfiguration",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1737,14 +2551,13 @@ func CfnLoggingConfiguration_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_networkfirewall.CfnLoggingConfiguration",
+		"monocdk.aws_networkfirewall.CfnLoggingConfiguration",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnLoggingConfiguration) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1753,10 +2566,6 @@ func (c *jsiiProxy_CfnLoggingConfiguration) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnLoggingConfiguration) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1765,13 +2574,6 @@ func (c *jsiiProxy_CfnLoggingConfiguration) AddDependsOn(target awscdk.CfnResour
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnLoggingConfiguration) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1780,49 +2582,6 @@ func (c *jsiiProxy_CfnLoggingConfiguration) AddMetadata(key *string, value inter
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnLoggingConfiguration) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1831,7 +2590,6 @@ func (c *jsiiProxy_CfnLoggingConfiguration) AddOverride(path *string, value inte
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnLoggingConfiguration) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1840,9 +2598,6 @@ func (c *jsiiProxy_CfnLoggingConfiguration) AddPropertyDeletionOverride(property
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnLoggingConfiguration) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1851,15 +2606,6 @@ func (c *jsiiProxy_CfnLoggingConfiguration) AddPropertyOverride(propertyPath *st
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnLoggingConfiguration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1868,10 +2614,6 @@ func (c *jsiiProxy_CfnLoggingConfiguration) ApplyRemovalPolicy(policy awscdk.Rem
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnLoggingConfiguration) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1885,13 +2627,6 @@ func (c *jsiiProxy_CfnLoggingConfiguration) GetAtt(attributeName *string) awscdk
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnLoggingConfiguration) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1905,7 +2640,6 @@ func (c *jsiiProxy_CfnLoggingConfiguration) GetMetadata(key *string) interface{}
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnLoggingConfiguration) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1914,12 +2648,48 @@ func (c *jsiiProxy_CfnLoggingConfiguration) Inspect(inspector awscdk.TreeInspect
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnLoggingConfiguration) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnLoggingConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnLoggingConfiguration) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnLoggingConfiguration) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnLoggingConfiguration) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1936,10 +2706,6 @@ func (c *jsiiProxy_CfnLoggingConfiguration) RenderProperties(props *map[string]i
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnLoggingConfiguration) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1953,15 +2719,33 @@ func (c *jsiiProxy_CfnLoggingConfiguration) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnLoggingConfiguration) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnLoggingConfiguration) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnLoggingConfiguration) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1983,7 +2767,15 @@ func (c *jsiiProxy_CfnLoggingConfiguration) ValidateProperties(_properties inter
 //
 // Network Firewall generates logs for stateful rule groups. You can save alert and flow log types. The stateful rules engine records flow logs for all network traffic that it receives. It records alert logs for traffic that matches stateful rules that have the rule action set to `DROP` or `ALERT` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   logDestinationConfigProperty := &logDestinationConfigProperty{
+//   	logDestination: map[string]*string{
+//   		"logDestinationKey": jsii.String("logDestination"),
+//   	},
+//   	logDestinationType: jsii.String("logDestinationType"),
+//   	logType: jsii.String("logType"),
+//   }
 //
 type CfnLoggingConfiguration_LogDestinationConfigProperty struct {
 	// The named location for the logs, provided in a key:value mapping that is specific to the chosen destination type.
@@ -1996,7 +2788,7 @@ type CfnLoggingConfiguration_LogDestinationConfigProperty struct {
 	// `"LogDestination": { "logGroup": "alert-log-group" }`
 	// - For a Kinesis Data Firehose delivery stream, provide the name of the delivery stream, with key `deliveryStream` . The following example specifies a delivery stream named `alert-delivery-stream` :
 	//
-	// `"LogDestination": { "deliveryStream": "alert-delivery-stream" }`
+	// `"LogDestination": { "deliveryStream": "alert-delivery-stream" }`.
 	LogDestination interface{} `json:"logDestination" yaml:"logDestination"`
 	// The type of storage destination to send these logs to.
 	//
@@ -2010,7 +2802,19 @@ type CfnLoggingConfiguration_LogDestinationConfigProperty struct {
 
 // Defines how AWS Network Firewall performs logging for a `Firewall` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   loggingConfigurationProperty := &loggingConfigurationProperty{
+//   	logDestinationConfigs: []interface{}{
+//   		&logDestinationConfigProperty{
+//   			logDestination: map[string]*string{
+//   				"logDestinationKey": jsii.String("logDestination"),
+//   			},
+//   			logDestinationType: jsii.String("logDestinationType"),
+//   			logType: jsii.String("logType"),
+//   		},
+//   	},
+//   }
 //
 type CfnLoggingConfiguration_LoggingConfigurationProperty struct {
 	// Defines the logging destinations for the logs for a firewall.
@@ -2021,7 +2825,25 @@ type CfnLoggingConfiguration_LoggingConfigurationProperty struct {
 
 // Properties for defining a `CfnLoggingConfiguration`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   cfnLoggingConfigurationProps := &cfnLoggingConfigurationProps{
+//   	firewallArn: jsii.String("firewallArn"),
+//   	loggingConfiguration: &loggingConfigurationProperty{
+//   		logDestinationConfigs: []interface{}{
+//   			&logDestinationConfigProperty{
+//   				logDestination: map[string]*string{
+//   					"logDestinationKey": jsii.String("logDestination"),
+//   				},
+//   				logDestinationType: jsii.String("logDestinationType"),
+//   				logType: jsii.String("logType"),
+//   			},
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	firewallName: jsii.String("firewallName"),
+//   }
 //
 type CfnLoggingConfigurationProps struct {
 	// The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with.
@@ -2040,47 +2862,386 @@ type CfnLoggingConfigurationProps struct {
 //
 // Use the `RuleGroup` to define a reusable collection of stateless or stateful network traffic filtering rules. You use rule groups in an `FirewallPolicy` to specify the filtering behavior of an `Firewall` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   cfnRuleGroup := networkfirewall.NewCfnRuleGroup(this, jsii.String("MyCfnRuleGroup"), &cfnRuleGroupProps{
+//   	capacity: jsii.Number(123),
+//   	ruleGroupName: jsii.String("ruleGroupName"),
+//   	type: jsii.String("type"),
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   	ruleGroup: &ruleGroupProperty{
+//   		rulesSource: &rulesSourceProperty{
+//   			rulesSourceList: &rulesSourceListProperty{
+//   				generatedRulesType: jsii.String("generatedRulesType"),
+//   				targets: []*string{
+//   					jsii.String("targets"),
+//   				},
+//   				targetTypes: []*string{
+//   					jsii.String("targetTypes"),
+//   				},
+//   			},
+//   			rulesString: jsii.String("rulesString"),
+//   			statefulRules: []interface{}{
+//   				&statefulRuleProperty{
+//   					action: jsii.String("action"),
+//   					header: &headerProperty{
+//   						destination: jsii.String("destination"),
+//   						destinationPort: jsii.String("destinationPort"),
+//   						direction: jsii.String("direction"),
+//   						protocol: jsii.String("protocol"),
+//   						source: jsii.String("source"),
+//   						sourcePort: jsii.String("sourcePort"),
+//   					},
+//   					ruleOptions: []interface{}{
+//   						&ruleOptionProperty{
+//   							keyword: jsii.String("keyword"),
+//
+//   							// the properties below are optional
+//   							settings: []*string{
+//   								jsii.String("settings"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   			statelessRulesAndCustomActions: &statelessRulesAndCustomActionsProperty{
+//   				statelessRules: []interface{}{
+//   					&statelessRuleProperty{
+//   						priority: jsii.Number(123),
+//   						ruleDefinition: &ruleDefinitionProperty{
+//   							actions: []*string{
+//   								jsii.String("actions"),
+//   							},
+//   							matchAttributes: &matchAttributesProperty{
+//   								destinationPorts: []interface{}{
+//   									&portRangeProperty{
+//   										fromPort: jsii.Number(123),
+//   										toPort: jsii.Number(123),
+//   									},
+//   								},
+//   								destinations: []interface{}{
+//   									&addressProperty{
+//   										addressDefinition: jsii.String("addressDefinition"),
+//   									},
+//   								},
+//   								protocols: []interface{}{
+//   									jsii.Number(123),
+//   								},
+//   								sourcePorts: []interface{}{
+//   									&portRangeProperty{
+//   										fromPort: jsii.Number(123),
+//   										toPort: jsii.Number(123),
+//   									},
+//   								},
+//   								sources: []interface{}{
+//   									&addressProperty{
+//   										addressDefinition: jsii.String("addressDefinition"),
+//   									},
+//   								},
+//   								tcpFlags: []interface{}{
+//   									&tCPFlagFieldProperty{
+//   										flags: []*string{
+//   											jsii.String("flags"),
+//   										},
+//
+//   										// the properties below are optional
+//   										masks: []*string{
+//   											jsii.String("masks"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				customActions: []interface{}{
+//   					&customActionProperty{
+//   						actionDefinition: &actionDefinitionProperty{
+//   							publishMetricAction: &publishMetricActionProperty{
+//   								dimensions: []interface{}{
+//   									&dimensionProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   						actionName: jsii.String("actionName"),
+//   					},
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		ruleVariables: &ruleVariablesProperty{
+//   			ipSets: map[string]interface{}{
+//   				"ipSetsKey": map[string][]*string{
+//   					"definition": []*string{
+//   						jsii.String("definition"),
+//   					},
+//   				},
+//   			},
+//   			portSets: map[string]interface{}{
+//   				"portSetsKey": &PortSetProperty{
+//   					"definition": []*string{
+//   						jsii.String("definition"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		statefulRuleOptions: &statefulRuleOptionsProperty{
+//   			ruleOrder: jsii.String("ruleOrder"),
+//   		},
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   })
 //
 type CfnRuleGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the `RuleGroup` .
 	AttrRuleGroupArn() *string
+	// The unique ID of the `RuleGroup` resource.
 	AttrRuleGroupId() *string
+	// The maximum operating resources that this rule group can use.
+	//
+	// You can't change a rule group's capacity setting after you create the rule group. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, Network Firewall reserves this capacity for the rule group.
 	Capacity() *float64
 	SetCapacity(val *float64)
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// A description of the rule group.
 	Description() *string
 	SetDescription(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// An object that defines the rule group rules.
 	RuleGroup() interface{}
 	SetRuleGroup(val interface{})
+	// The descriptive name of the rule group.
+	//
+	// You can't change the name of a rule group after you create it.
 	RuleGroupName() *string
 	SetRuleGroupName(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
+	// Indicates whether the rule group is stateless or stateful.
+	//
+	// If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules.
 	Type() *string
 	SetType(val *string)
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2180,8 +3341,8 @@ func (j *jsiiProxy_CfnRuleGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRuleGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnRuleGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2262,13 +3423,13 @@ func (j *jsiiProxy_CfnRuleGroup) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::NetworkFirewall::RuleGroup`.
-func NewCfnRuleGroup(scope constructs.Construct, id *string, props *CfnRuleGroupProps) CfnRuleGroup {
+func NewCfnRuleGroup(scope awscdk.Construct, id *string, props *CfnRuleGroupProps) CfnRuleGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnRuleGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_networkfirewall.CfnRuleGroup",
+		"monocdk.aws_networkfirewall.CfnRuleGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2277,11 +3438,11 @@ func NewCfnRuleGroup(scope constructs.Construct, id *string, props *CfnRuleGroup
 }
 
 // Create a new `AWS::NetworkFirewall::RuleGroup`.
-func NewCfnRuleGroup_Override(c CfnRuleGroup, scope constructs.Construct, id *string, props *CfnRuleGroupProps) {
+func NewCfnRuleGroup_Override(c CfnRuleGroup, scope awscdk.Construct, id *string, props *CfnRuleGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_networkfirewall.CfnRuleGroup",
+		"monocdk.aws_networkfirewall.CfnRuleGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2333,13 +3494,14 @@ func (j *jsiiProxy_CfnRuleGroup) SetType(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnRuleGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkfirewall.CfnRuleGroup",
+		"monocdk.aws_networkfirewall.CfnRuleGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2349,13 +3511,14 @@ func CfnRuleGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnRuleGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkfirewall.CfnRuleGroup",
+		"monocdk.aws_networkfirewall.CfnRuleGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2364,17 +3527,15 @@ func CfnRuleGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnRuleGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkfirewall.CfnRuleGroup",
+		"monocdk.aws_networkfirewall.CfnRuleGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2387,14 +3548,13 @@ func CfnRuleGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_networkfirewall.CfnRuleGroup",
+		"monocdk.aws_networkfirewall.CfnRuleGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnRuleGroup) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2403,10 +3563,6 @@ func (c *jsiiProxy_CfnRuleGroup) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnRuleGroup) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2415,13 +3571,6 @@ func (c *jsiiProxy_CfnRuleGroup) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnRuleGroup) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2430,49 +3579,6 @@ func (c *jsiiProxy_CfnRuleGroup) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnRuleGroup) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2481,7 +3587,6 @@ func (c *jsiiProxy_CfnRuleGroup) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnRuleGroup) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2490,9 +3595,6 @@ func (c *jsiiProxy_CfnRuleGroup) AddPropertyDeletionOverride(propertyPath *strin
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnRuleGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2501,15 +3603,6 @@ func (c *jsiiProxy_CfnRuleGroup) AddPropertyOverride(propertyPath *string, value
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnRuleGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2518,10 +3611,6 @@ func (c *jsiiProxy_CfnRuleGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnRuleGroup) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2535,13 +3624,6 @@ func (c *jsiiProxy_CfnRuleGroup) GetAtt(attributeName *string) awscdk.Reference 
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnRuleGroup) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2555,7 +3637,6 @@ func (c *jsiiProxy_CfnRuleGroup) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnRuleGroup) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2564,12 +3645,48 @@ func (c *jsiiProxy_CfnRuleGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnRuleGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnRuleGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnRuleGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnRuleGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnRuleGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2586,10 +3703,6 @@ func (c *jsiiProxy_CfnRuleGroup) RenderProperties(props *map[string]interface{})
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnRuleGroup) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2603,15 +3716,33 @@ func (c *jsiiProxy_CfnRuleGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnRuleGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnRuleGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnRuleGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2629,7 +3760,17 @@ func (c *jsiiProxy_CfnRuleGroup) ValidateProperties(_properties interface{}) {
 
 // A custom action to use in stateless rule actions settings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   actionDefinitionProperty := &actionDefinitionProperty{
+//   	publishMetricAction: &publishMetricActionProperty{
+//   		dimensions: []interface{}{
+//   			&dimensionProperty{
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnRuleGroup_ActionDefinitionProperty struct {
 	// Stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet.
@@ -2644,7 +3785,11 @@ type CfnRuleGroup_ActionDefinitionProperty struct {
 //
 // This is used in the `RuleGroup.MatchAttributes` source and destination specifications.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   addressProperty := &addressProperty{
+//   	addressDefinition: jsii.String("addressDefinition"),
+//   }
 //
 type CfnRuleGroup_AddressProperty struct {
 	// Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
@@ -2671,7 +3816,20 @@ type CfnRuleGroup_AddressProperty struct {
 // - In an `RuleGroup.StatelessRulesAndCustomActions` . The custom actions are available for use by name inside the `StatelessRulesAndCustomActions` where you define them. You can use them for your stateless rule actions to specify what to do with a packet that matches the rule's match attributes.
 // - In an `FirewallPolicy` specification, in `StatelessCustomActions` . The custom actions are available for use inside the policy where you define them. You can use them for the policy's default stateless actions settings to specify what to do with packets that don't match any of the policy's stateless rules.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   customActionProperty := &customActionProperty{
+//   	actionDefinition: &actionDefinitionProperty{
+//   		publishMetricAction: &publishMetricActionProperty{
+//   			dimensions: []interface{}{
+//   				&dimensionProperty{
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	actionName: jsii.String("actionName"),
+//   }
 //
 type CfnRuleGroup_CustomActionProperty struct {
 	// The custom action associated with the action name.
@@ -2690,7 +3848,11 @@ type CfnRuleGroup_CustomActionProperty struct {
 //
 // For more information about CloudWatch custom metric dimensions, see [Publishing Custom Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html#usingDimensions) in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   dimensionProperty := &dimensionProperty{
+//   	value: jsii.String("value"),
+//   }
 //
 type CfnRuleGroup_DimensionProperty struct {
 	// The value to use in the custom metric dimension.
@@ -2701,7 +3863,16 @@ type CfnRuleGroup_DimensionProperty struct {
 //
 // Traffic flows that match the criteria are a match for the corresponding stateful rule.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   headerProperty := &headerProperty{
+//   	destination: jsii.String("destination"),
+//   	destinationPort: jsii.String("destinationPort"),
+//   	direction: jsii.String("direction"),
+//   	protocol: jsii.String("protocol"),
+//   	source: jsii.String("source"),
+//   	sourcePort: jsii.String("sourcePort"),
+//   }
 //
 type CfnRuleGroup_HeaderProperty struct {
 	// The destination IP address or address range to inspect for, in CIDR notation.
@@ -2752,7 +3923,13 @@ type CfnRuleGroup_HeaderProperty struct {
 //
 // This is part of a `RuleGroup.RuleVariables` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   iPSetProperty := map[string][]*string{
+//   	"definition": []*string{
+//   		jsii.String("definition"),
+//   	},
+//   }
 //
 type CfnRuleGroup_IPSetProperty struct {
 	// The list of IP addresses and address ranges, in CIDR notation.
@@ -2763,7 +3940,47 @@ type CfnRuleGroup_IPSetProperty struct {
 //
 // Each match attributes set can include one or more items such as IP address, CIDR range, port number, protocol, and TCP flags.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   matchAttributesProperty := &matchAttributesProperty{
+//   	destinationPorts: []interface{}{
+//   		&portRangeProperty{
+//   			fromPort: jsii.Number(123),
+//   			toPort: jsii.Number(123),
+//   		},
+//   	},
+//   	destinations: []interface{}{
+//   		&addressProperty{
+//   			addressDefinition: jsii.String("addressDefinition"),
+//   		},
+//   	},
+//   	protocols: []interface{}{
+//   		jsii.Number(123),
+//   	},
+//   	sourcePorts: []interface{}{
+//   		&portRangeProperty{
+//   			fromPort: jsii.Number(123),
+//   			toPort: jsii.Number(123),
+//   		},
+//   	},
+//   	sources: []interface{}{
+//   		&addressProperty{
+//   			addressDefinition: jsii.String("addressDefinition"),
+//   		},
+//   	},
+//   	tcpFlags: []interface{}{
+//   		&tCPFlagFieldProperty{
+//   			flags: []*string{
+//   				jsii.String("flags"),
+//   			},
+//
+//   			// the properties below are optional
+//   			masks: []*string{
+//   				jsii.String("masks"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnRuleGroup_MatchAttributesProperty struct {
 	// The destination ports to inspect for.
@@ -2800,7 +4017,12 @@ type CfnRuleGroup_MatchAttributesProperty struct {
 //
 // This is used for source and destination port ranges in the stateless `RuleGroup.MatchAttributes` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   portRangeProperty := &portRangeProperty{
+//   	fromPort: jsii.Number(123),
+//   	toPort: jsii.Number(123),
+//   }
 //
 type CfnRuleGroup_PortRangeProperty struct {
 	// The lower limit of the port range.
@@ -2815,7 +4037,13 @@ type CfnRuleGroup_PortRangeProperty struct {
 
 // A set of port ranges for use in the rules in a rule group.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   portSetProperty := &portSetProperty{
+//   	definition: []*string{
+//   		jsii.String("definition"),
+//   	},
+//   }
 //
 type CfnRuleGroup_PortSetProperty struct {
 	// The set of port ranges.
@@ -2826,7 +4054,15 @@ type CfnRuleGroup_PortSetProperty struct {
 //
 // This setting defines a CloudWatch dimension value to be published.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   publishMetricActionProperty := &publishMetricActionProperty{
+//   	dimensions: []interface{}{
+//   		&dimensionProperty{
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnRuleGroup_PublishMetricActionProperty struct {
 	// `CfnRuleGroup.PublishMetricActionProperty.Dimensions`.
@@ -2837,7 +4073,52 @@ type CfnRuleGroup_PublishMetricActionProperty struct {
 //
 // AWS Network Firewall inspects each packet for the specified matching criteria. When a packet matches the criteria, Network Firewall performs the rule's actions on the packet.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   ruleDefinitionProperty := &ruleDefinitionProperty{
+//   	actions: []*string{
+//   		jsii.String("actions"),
+//   	},
+//   	matchAttributes: &matchAttributesProperty{
+//   		destinationPorts: []interface{}{
+//   			&portRangeProperty{
+//   				fromPort: jsii.Number(123),
+//   				toPort: jsii.Number(123),
+//   			},
+//   		},
+//   		destinations: []interface{}{
+//   			&addressProperty{
+//   				addressDefinition: jsii.String("addressDefinition"),
+//   			},
+//   		},
+//   		protocols: []interface{}{
+//   			jsii.Number(123),
+//   		},
+//   		sourcePorts: []interface{}{
+//   			&portRangeProperty{
+//   				fromPort: jsii.Number(123),
+//   				toPort: jsii.Number(123),
+//   			},
+//   		},
+//   		sources: []interface{}{
+//   			&addressProperty{
+//   				addressDefinition: jsii.String("addressDefinition"),
+//   			},
+//   		},
+//   		tcpFlags: []interface{}{
+//   			&tCPFlagFieldProperty{
+//   				flags: []*string{
+//   					jsii.String("flags"),
+//   				},
+//
+//   				// the properties below are optional
+//   				masks: []*string{
+//   					jsii.String("masks"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnRuleGroup_RuleDefinitionProperty struct {
 	// The actions to take on a packet that matches one of the stateless rule definition's match attributes.
@@ -2868,7 +4149,133 @@ type CfnRuleGroup_RuleDefinitionProperty struct {
 //
 // To use a rule group, you include it by reference in an Network Firewall firewall policy, then you use the policy in a firewall. You can reference a rule group from more than one firewall policy, and you can use a firewall policy in more than one firewall.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   ruleGroupProperty := &ruleGroupProperty{
+//   	rulesSource: &rulesSourceProperty{
+//   		rulesSourceList: &rulesSourceListProperty{
+//   			generatedRulesType: jsii.String("generatedRulesType"),
+//   			targets: []*string{
+//   				jsii.String("targets"),
+//   			},
+//   			targetTypes: []*string{
+//   				jsii.String("targetTypes"),
+//   			},
+//   		},
+//   		rulesString: jsii.String("rulesString"),
+//   		statefulRules: []interface{}{
+//   			&statefulRuleProperty{
+//   				action: jsii.String("action"),
+//   				header: &headerProperty{
+//   					destination: jsii.String("destination"),
+//   					destinationPort: jsii.String("destinationPort"),
+//   					direction: jsii.String("direction"),
+//   					protocol: jsii.String("protocol"),
+//   					source: jsii.String("source"),
+//   					sourcePort: jsii.String("sourcePort"),
+//   				},
+//   				ruleOptions: []interface{}{
+//   					&ruleOptionProperty{
+//   						keyword: jsii.String("keyword"),
+//
+//   						// the properties below are optional
+//   						settings: []*string{
+//   							jsii.String("settings"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   		statelessRulesAndCustomActions: &statelessRulesAndCustomActionsProperty{
+//   			statelessRules: []interface{}{
+//   				&statelessRuleProperty{
+//   					priority: jsii.Number(123),
+//   					ruleDefinition: &ruleDefinitionProperty{
+//   						actions: []*string{
+//   							jsii.String("actions"),
+//   						},
+//   						matchAttributes: &matchAttributesProperty{
+//   							destinationPorts: []interface{}{
+//   								&portRangeProperty{
+//   									fromPort: jsii.Number(123),
+//   									toPort: jsii.Number(123),
+//   								},
+//   							},
+//   							destinations: []interface{}{
+//   								&addressProperty{
+//   									addressDefinition: jsii.String("addressDefinition"),
+//   								},
+//   							},
+//   							protocols: []interface{}{
+//   								jsii.Number(123),
+//   							},
+//   							sourcePorts: []interface{}{
+//   								&portRangeProperty{
+//   									fromPort: jsii.Number(123),
+//   									toPort: jsii.Number(123),
+//   								},
+//   							},
+//   							sources: []interface{}{
+//   								&addressProperty{
+//   									addressDefinition: jsii.String("addressDefinition"),
+//   								},
+//   							},
+//   							tcpFlags: []interface{}{
+//   								&tCPFlagFieldProperty{
+//   									flags: []*string{
+//   										jsii.String("flags"),
+//   									},
+//
+//   									// the properties below are optional
+//   									masks: []*string{
+//   										jsii.String("masks"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			customActions: []interface{}{
+//   				&customActionProperty{
+//   					actionDefinition: &actionDefinitionProperty{
+//   						publishMetricAction: &publishMetricActionProperty{
+//   							dimensions: []interface{}{
+//   								&dimensionProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   					actionName: jsii.String("actionName"),
+//   				},
+//   			},
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	ruleVariables: &ruleVariablesProperty{
+//   		ipSets: map[string]interface{}{
+//   			"ipSetsKey": map[string][]*string{
+//   				"definition": []*string{
+//   					jsii.String("definition"),
+//   				},
+//   			},
+//   		},
+//   		portSets: map[string]interface{}{
+//   			"portSetsKey": &PortSetProperty{
+//   				"definition": []*string{
+//   					jsii.String("definition"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	statefulRuleOptions: &statefulRuleOptionsProperty{
+//   		ruleOrder: jsii.String("ruleOrder"),
+//   	},
+//   }
 //
 type CfnRuleGroup_RuleGroupProperty struct {
 	// The stateful rules or stateless rules for the rule group.
@@ -2885,7 +4292,16 @@ type CfnRuleGroup_RuleGroupProperty struct {
 
 // Additional settings for a stateful rule.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   ruleOptionProperty := &ruleOptionProperty{
+//   	keyword: jsii.String("keyword"),
+//
+//   	// the properties below are optional
+//   	settings: []*string{
+//   		jsii.String("settings"),
+//   	},
+//   }
 //
 type CfnRuleGroup_RuleOptionProperty struct {
 	// `CfnRuleGroup.RuleOptionProperty.Keyword`.
@@ -2896,7 +4312,24 @@ type CfnRuleGroup_RuleOptionProperty struct {
 
 // Settings that are available for use in the rules in the `RuleGroup` where this is defined.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   ruleVariablesProperty := &ruleVariablesProperty{
+//   	ipSets: map[string]interface{}{
+//   		"ipSetsKey": map[string][]*string{
+//   			"definition": []*string{
+//   				jsii.String("definition"),
+//   			},
+//   		},
+//   	},
+//   	portSets: map[string]interface{}{
+//   		"portSetsKey": &PortSetProperty{
+//   			"definition": []*string{
+//   				jsii.String("definition"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnRuleGroup_RuleVariablesProperty struct {
 	// A list of IP addresses and address ranges, in CIDR notation.
@@ -2911,7 +4344,17 @@ type CfnRuleGroup_RuleVariablesProperty struct {
 //
 // By default, Network Firewall domain list inspection only includes traffic coming from the VPC where you deploy the firewall. To inspect traffic from IP addresses outside of the deployment VPC, you set the `HOME_NET` rule variable to include the CIDR range of the deployment VPC plus the other CIDR ranges. For more information, see `RuleGroup.RuleVariables` in this guide and [Stateful domain list rule groups in AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/stateful-rule-groups-domain-names.html) in the *Network Firewall Developer Guide*
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   rulesSourceListProperty := &rulesSourceListProperty{
+//   	generatedRulesType: jsii.String("generatedRulesType"),
+//   	targets: []*string{
+//   		jsii.String("targets"),
+//   	},
+//   	targetTypes: []*string{
+//   		jsii.String("targetTypes"),
+//   	},
+//   }
 //
 type CfnRuleGroup_RulesSourceListProperty struct {
 	// Whether you want to allow or deny access to the domains in your target list.
@@ -2931,7 +4374,110 @@ type CfnRuleGroup_RulesSourceListProperty struct {
 //
 // Each rule group requires a single `RulesSource` . You can use an instance of this for either stateless rules or stateful rules.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   rulesSourceProperty := &rulesSourceProperty{
+//   	rulesSourceList: &rulesSourceListProperty{
+//   		generatedRulesType: jsii.String("generatedRulesType"),
+//   		targets: []*string{
+//   			jsii.String("targets"),
+//   		},
+//   		targetTypes: []*string{
+//   			jsii.String("targetTypes"),
+//   		},
+//   	},
+//   	rulesString: jsii.String("rulesString"),
+//   	statefulRules: []interface{}{
+//   		&statefulRuleProperty{
+//   			action: jsii.String("action"),
+//   			header: &headerProperty{
+//   				destination: jsii.String("destination"),
+//   				destinationPort: jsii.String("destinationPort"),
+//   				direction: jsii.String("direction"),
+//   				protocol: jsii.String("protocol"),
+//   				source: jsii.String("source"),
+//   				sourcePort: jsii.String("sourcePort"),
+//   			},
+//   			ruleOptions: []interface{}{
+//   				&ruleOptionProperty{
+//   					keyword: jsii.String("keyword"),
+//
+//   					// the properties below are optional
+//   					settings: []*string{
+//   						jsii.String("settings"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	statelessRulesAndCustomActions: &statelessRulesAndCustomActionsProperty{
+//   		statelessRules: []interface{}{
+//   			&statelessRuleProperty{
+//   				priority: jsii.Number(123),
+//   				ruleDefinition: &ruleDefinitionProperty{
+//   					actions: []*string{
+//   						jsii.String("actions"),
+//   					},
+//   					matchAttributes: &matchAttributesProperty{
+//   						destinationPorts: []interface{}{
+//   							&portRangeProperty{
+//   								fromPort: jsii.Number(123),
+//   								toPort: jsii.Number(123),
+//   							},
+//   						},
+//   						destinations: []interface{}{
+//   							&addressProperty{
+//   								addressDefinition: jsii.String("addressDefinition"),
+//   							},
+//   						},
+//   						protocols: []interface{}{
+//   							jsii.Number(123),
+//   						},
+//   						sourcePorts: []interface{}{
+//   							&portRangeProperty{
+//   								fromPort: jsii.Number(123),
+//   								toPort: jsii.Number(123),
+//   							},
+//   						},
+//   						sources: []interface{}{
+//   							&addressProperty{
+//   								addressDefinition: jsii.String("addressDefinition"),
+//   							},
+//   						},
+//   						tcpFlags: []interface{}{
+//   							&tCPFlagFieldProperty{
+//   								flags: []*string{
+//   									jsii.String("flags"),
+//   								},
+//
+//   								// the properties below are optional
+//   								masks: []*string{
+//   									jsii.String("masks"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		customActions: []interface{}{
+//   			&customActionProperty{
+//   				actionDefinition: &actionDefinitionProperty{
+//   					publishMetricAction: &publishMetricActionProperty{
+//   						dimensions: []interface{}{
+//   							&dimensionProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				actionName: jsii.String("actionName"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnRuleGroup_RulesSourceProperty struct {
 	// Stateful inspection criteria for a domain list rule group.
@@ -2954,7 +4500,11 @@ type CfnRuleGroup_RulesSourceProperty struct {
 //
 // You can only use these for stateful rule groups.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   statefulRuleOptionsProperty := &statefulRuleOptionsProperty{
+//   	ruleOrder: jsii.String("ruleOrder"),
+//   }
 //
 type CfnRuleGroup_StatefulRuleOptionsProperty struct {
 	// Indicates how to manage the order of the rule evaluation for the rule group.
@@ -2967,7 +4517,29 @@ type CfnRuleGroup_StatefulRuleOptionsProperty struct {
 //
 // Use this option to specify a simple Suricata rule with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-5.0.0/rules/intro.html#) .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   statefulRuleProperty := &statefulRuleProperty{
+//   	action: jsii.String("action"),
+//   	header: &headerProperty{
+//   		destination: jsii.String("destination"),
+//   		destinationPort: jsii.String("destinationPort"),
+//   		direction: jsii.String("direction"),
+//   		protocol: jsii.String("protocol"),
+//   		source: jsii.String("source"),
+//   		sourcePort: jsii.String("sourcePort"),
+//   	},
+//   	ruleOptions: []interface{}{
+//   		&ruleOptionProperty{
+//   			keyword: jsii.String("keyword"),
+//
+//   			// the properties below are optional
+//   			settings: []*string{
+//   				jsii.String("settings"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnRuleGroup_StatefulRuleProperty struct {
 	// Defines what Network Firewall should do with the packets in a traffic flow when the flow matches the stateful rule criteria.
@@ -2992,7 +4564,55 @@ type CfnRuleGroup_StatefulRuleProperty struct {
 //
 // This is used in `RuleGroup.StatelessRulesAndCustomActions` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   statelessRuleProperty := &statelessRuleProperty{
+//   	priority: jsii.Number(123),
+//   	ruleDefinition: &ruleDefinitionProperty{
+//   		actions: []*string{
+//   			jsii.String("actions"),
+//   		},
+//   		matchAttributes: &matchAttributesProperty{
+//   			destinationPorts: []interface{}{
+//   				&portRangeProperty{
+//   					fromPort: jsii.Number(123),
+//   					toPort: jsii.Number(123),
+//   				},
+//   			},
+//   			destinations: []interface{}{
+//   				&addressProperty{
+//   					addressDefinition: jsii.String("addressDefinition"),
+//   				},
+//   			},
+//   			protocols: []interface{}{
+//   				jsii.Number(123),
+//   			},
+//   			sourcePorts: []interface{}{
+//   				&portRangeProperty{
+//   					fromPort: jsii.Number(123),
+//   					toPort: jsii.Number(123),
+//   				},
+//   			},
+//   			sources: []interface{}{
+//   				&addressProperty{
+//   					addressDefinition: jsii.String("addressDefinition"),
+//   				},
+//   			},
+//   			tcpFlags: []interface{}{
+//   				&tCPFlagFieldProperty{
+//   					flags: []*string{
+//   						jsii.String("flags"),
+//   					},
+//
+//   					// the properties below are optional
+//   					masks: []*string{
+//   						jsii.String("masks"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnRuleGroup_StatelessRuleProperty struct {
 	// Indicates the order in which to run this rule relative to all of the rules that are defined for a stateless rule group.
@@ -3011,7 +4631,75 @@ type CfnRuleGroup_StatelessRuleProperty struct {
 //
 // Each stateless rule group uses exactly one of these data types to define its stateless rules.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   statelessRulesAndCustomActionsProperty := &statelessRulesAndCustomActionsProperty{
+//   	statelessRules: []interface{}{
+//   		&statelessRuleProperty{
+//   			priority: jsii.Number(123),
+//   			ruleDefinition: &ruleDefinitionProperty{
+//   				actions: []*string{
+//   					jsii.String("actions"),
+//   				},
+//   				matchAttributes: &matchAttributesProperty{
+//   					destinationPorts: []interface{}{
+//   						&portRangeProperty{
+//   							fromPort: jsii.Number(123),
+//   							toPort: jsii.Number(123),
+//   						},
+//   					},
+//   					destinations: []interface{}{
+//   						&addressProperty{
+//   							addressDefinition: jsii.String("addressDefinition"),
+//   						},
+//   					},
+//   					protocols: []interface{}{
+//   						jsii.Number(123),
+//   					},
+//   					sourcePorts: []interface{}{
+//   						&portRangeProperty{
+//   							fromPort: jsii.Number(123),
+//   							toPort: jsii.Number(123),
+//   						},
+//   					},
+//   					sources: []interface{}{
+//   						&addressProperty{
+//   							addressDefinition: jsii.String("addressDefinition"),
+//   						},
+//   					},
+//   					tcpFlags: []interface{}{
+//   						&tCPFlagFieldProperty{
+//   							flags: []*string{
+//   								jsii.String("flags"),
+//   							},
+//
+//   							// the properties below are optional
+//   							masks: []*string{
+//   								jsii.String("masks"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	customActions: []interface{}{
+//   		&customActionProperty{
+//   			actionDefinition: &actionDefinitionProperty{
+//   				publishMetricAction: &publishMetricActionProperty{
+//   					dimensions: []interface{}{
+//   						&dimensionProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			actionName: jsii.String("actionName"),
+//   		},
+//   	},
+//   }
 //
 type CfnRuleGroup_StatelessRulesAndCustomActionsProperty struct {
 	// Defines the set of stateless rules for use in a stateless rule group.
@@ -3026,9 +4714,20 @@ type CfnRuleGroup_StatelessRulesAndCustomActionsProperty struct {
 //
 // For example:
 //
-// `"TCPFlags": [ { "Flags": [ "ECE", "SYN" ], "Masks": [ "SYN", "ECE" ] } ]`
+// `"TCPFlags": [ { "Flags": [ "ECE", "SYN" ], "Masks": [ "SYN", "ECE" ] } ]`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   tCPFlagFieldProperty := &tCPFlagFieldProperty{
+//   	flags: []*string{
+//   		jsii.String("flags"),
+//   	},
+//
+//   	// the properties below are optional
+//   	masks: []*string{
+//   		jsii.String("masks"),
+//   	},
+//   }
 //
 type CfnRuleGroup_TCPFlagFieldProperty struct {
 	// Used in conjunction with the `Masks` setting to define the flags that must be set and flags that must not be set in order for the packet to match.
@@ -3048,7 +4747,147 @@ type CfnRuleGroup_TCPFlagFieldProperty struct {
 
 // Properties for defining a `CfnRuleGroup`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   cfnRuleGroupProps := &cfnRuleGroupProps{
+//   	capacity: jsii.Number(123),
+//   	ruleGroupName: jsii.String("ruleGroupName"),
+//   	type: jsii.String("type"),
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   	ruleGroup: &ruleGroupProperty{
+//   		rulesSource: &rulesSourceProperty{
+//   			rulesSourceList: &rulesSourceListProperty{
+//   				generatedRulesType: jsii.String("generatedRulesType"),
+//   				targets: []*string{
+//   					jsii.String("targets"),
+//   				},
+//   				targetTypes: []*string{
+//   					jsii.String("targetTypes"),
+//   				},
+//   			},
+//   			rulesString: jsii.String("rulesString"),
+//   			statefulRules: []interface{}{
+//   				&statefulRuleProperty{
+//   					action: jsii.String("action"),
+//   					header: &headerProperty{
+//   						destination: jsii.String("destination"),
+//   						destinationPort: jsii.String("destinationPort"),
+//   						direction: jsii.String("direction"),
+//   						protocol: jsii.String("protocol"),
+//   						source: jsii.String("source"),
+//   						sourcePort: jsii.String("sourcePort"),
+//   					},
+//   					ruleOptions: []interface{}{
+//   						&ruleOptionProperty{
+//   							keyword: jsii.String("keyword"),
+//
+//   							// the properties below are optional
+//   							settings: []*string{
+//   								jsii.String("settings"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   			statelessRulesAndCustomActions: &statelessRulesAndCustomActionsProperty{
+//   				statelessRules: []interface{}{
+//   					&statelessRuleProperty{
+//   						priority: jsii.Number(123),
+//   						ruleDefinition: &ruleDefinitionProperty{
+//   							actions: []*string{
+//   								jsii.String("actions"),
+//   							},
+//   							matchAttributes: &matchAttributesProperty{
+//   								destinationPorts: []interface{}{
+//   									&portRangeProperty{
+//   										fromPort: jsii.Number(123),
+//   										toPort: jsii.Number(123),
+//   									},
+//   								},
+//   								destinations: []interface{}{
+//   									&addressProperty{
+//   										addressDefinition: jsii.String("addressDefinition"),
+//   									},
+//   								},
+//   								protocols: []interface{}{
+//   									jsii.Number(123),
+//   								},
+//   								sourcePorts: []interface{}{
+//   									&portRangeProperty{
+//   										fromPort: jsii.Number(123),
+//   										toPort: jsii.Number(123),
+//   									},
+//   								},
+//   								sources: []interface{}{
+//   									&addressProperty{
+//   										addressDefinition: jsii.String("addressDefinition"),
+//   									},
+//   								},
+//   								tcpFlags: []interface{}{
+//   									&tCPFlagFieldProperty{
+//   										flags: []*string{
+//   											jsii.String("flags"),
+//   										},
+//
+//   										// the properties below are optional
+//   										masks: []*string{
+//   											jsii.String("masks"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				customActions: []interface{}{
+//   					&customActionProperty{
+//   						actionDefinition: &actionDefinitionProperty{
+//   							publishMetricAction: &publishMetricActionProperty{
+//   								dimensions: []interface{}{
+//   									&dimensionProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   						actionName: jsii.String("actionName"),
+//   					},
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		ruleVariables: &ruleVariablesProperty{
+//   			ipSets: map[string]interface{}{
+//   				"ipSetsKey": map[string][]*string{
+//   					"definition": []*string{
+//   						jsii.String("definition"),
+//   					},
+//   				},
+//   			},
+//   			portSets: map[string]interface{}{
+//   				"portSetsKey": &PortSetProperty{
+//   					"definition": []*string{
+//   						jsii.String("definition"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		statefulRuleOptions: &statefulRuleOptionsProperty{
+//   			ruleOrder: jsii.String("ruleOrder"),
+//   		},
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnRuleGroupProps struct {
 	// The maximum operating resources that this rule group can use.

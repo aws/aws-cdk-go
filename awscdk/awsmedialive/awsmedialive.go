@@ -1,12 +1,12 @@
 package awsmedialive
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsmedialive/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsmedialive/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::MediaLive::Channel`.
@@ -15,57 +15,1245 @@ import (
 //
 // A MediaLive channel ingests and transcodes (decodes and encodes) source content from the inputs that are attached to that channel, and packages the new content into outputs.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//
+//   var tags interface{}
+//   cfnChannel := medialive.NewCfnChannel(this, jsii.String("MyCfnChannel"), &cfnChannelProps{
+//   	cdiInputSpecification: &cdiInputSpecificationProperty{
+//   		resolution: jsii.String("resolution"),
+//   	},
+//   	channelClass: jsii.String("channelClass"),
+//   	destinations: []interface{}{
+//   		&outputDestinationProperty{
+//   			id: jsii.String("id"),
+//   			mediaPackageSettings: []interface{}{
+//   				&mediaPackageOutputDestinationSettingsProperty{
+//   					channelId: jsii.String("channelId"),
+//   				},
+//   			},
+//   			multiplexSettings: &multiplexProgramChannelDestinationSettingsProperty{
+//   				multiplexId: jsii.String("multiplexId"),
+//   				programName: jsii.String("programName"),
+//   			},
+//   			settings: []interface{}{
+//   				&outputDestinationSettingsProperty{
+//   					passwordParam: jsii.String("passwordParam"),
+//   					streamName: jsii.String("streamName"),
+//   					url: jsii.String("url"),
+//   					username: jsii.String("username"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	encoderSettings: &encoderSettingsProperty{
+//   		audioDescriptions: []interface{}{
+//   			&audioDescriptionProperty{
+//   				audioNormalizationSettings: &audioNormalizationSettingsProperty{
+//   					algorithm: jsii.String("algorithm"),
+//   					algorithmControl: jsii.String("algorithmControl"),
+//   					targetLkfs: jsii.Number(123),
+//   				},
+//   				audioSelectorName: jsii.String("audioSelectorName"),
+//   				audioType: jsii.String("audioType"),
+//   				audioTypeControl: jsii.String("audioTypeControl"),
+//   				audioWatermarkingSettings: &audioWatermarkSettingsProperty{
+//   					nielsenWatermarksSettings: &nielsenWatermarksSettingsProperty{
+//   						nielsenCbetSettings: &nielsenCBETProperty{
+//   							cbetCheckDigitString: jsii.String("cbetCheckDigitString"),
+//   							cbetStepaside: jsii.String("cbetStepaside"),
+//   							csid: jsii.String("csid"),
+//   						},
+//   						nielsenDistributionType: jsii.String("nielsenDistributionType"),
+//   						nielsenNaesIiNwSettings: &nielsenNaesIiNwProperty{
+//   							checkDigitString: jsii.String("checkDigitString"),
+//   							sid: jsii.Number(123),
+//   						},
+//   					},
+//   				},
+//   				codecSettings: &audioCodecSettingsProperty{
+//   					aacSettings: &aacSettingsProperty{
+//   						bitrate: jsii.Number(123),
+//   						codingMode: jsii.String("codingMode"),
+//   						inputType: jsii.String("inputType"),
+//   						profile: jsii.String("profile"),
+//   						rateControlMode: jsii.String("rateControlMode"),
+//   						rawFormat: jsii.String("rawFormat"),
+//   						sampleRate: jsii.Number(123),
+//   						spec: jsii.String("spec"),
+//   						vbrQuality: jsii.String("vbrQuality"),
+//   					},
+//   					ac3Settings: &ac3SettingsProperty{
+//   						bitrate: jsii.Number(123),
+//   						bitstreamMode: jsii.String("bitstreamMode"),
+//   						codingMode: jsii.String("codingMode"),
+//   						dialnorm: jsii.Number(123),
+//   						drcProfile: jsii.String("drcProfile"),
+//   						lfeFilter: jsii.String("lfeFilter"),
+//   						metadataControl: jsii.String("metadataControl"),
+//   					},
+//   					eac3Settings: &eac3SettingsProperty{
+//   						attenuationControl: jsii.String("attenuationControl"),
+//   						bitrate: jsii.Number(123),
+//   						bitstreamMode: jsii.String("bitstreamMode"),
+//   						codingMode: jsii.String("codingMode"),
+//   						dcFilter: jsii.String("dcFilter"),
+//   						dialnorm: jsii.Number(123),
+//   						drcLine: jsii.String("drcLine"),
+//   						drcRf: jsii.String("drcRf"),
+//   						lfeControl: jsii.String("lfeControl"),
+//   						lfeFilter: jsii.String("lfeFilter"),
+//   						loRoCenterMixLevel: jsii.Number(123),
+//   						loRoSurroundMixLevel: jsii.Number(123),
+//   						ltRtCenterMixLevel: jsii.Number(123),
+//   						ltRtSurroundMixLevel: jsii.Number(123),
+//   						metadataControl: jsii.String("metadataControl"),
+//   						passthroughControl: jsii.String("passthroughControl"),
+//   						phaseControl: jsii.String("phaseControl"),
+//   						stereoDownmix: jsii.String("stereoDownmix"),
+//   						surroundExMode: jsii.String("surroundExMode"),
+//   						surroundMode: jsii.String("surroundMode"),
+//   					},
+//   					mp2Settings: &mp2SettingsProperty{
+//   						bitrate: jsii.Number(123),
+//   						codingMode: jsii.String("codingMode"),
+//   						sampleRate: jsii.Number(123),
+//   					},
+//   					passThroughSettings: &passThroughSettingsProperty{
+//   					},
+//   					wavSettings: &wavSettingsProperty{
+//   						bitDepth: jsii.Number(123),
+//   						codingMode: jsii.String("codingMode"),
+//   						sampleRate: jsii.Number(123),
+//   					},
+//   				},
+//   				languageCode: jsii.String("languageCode"),
+//   				languageCodeControl: jsii.String("languageCodeControl"),
+//   				name: jsii.String("name"),
+//   				remixSettings: &remixSettingsProperty{
+//   					channelMappings: []interface{}{
+//   						&audioChannelMappingProperty{
+//   							inputChannelLevels: []interface{}{
+//   								&inputChannelLevelProperty{
+//   									gain: jsii.Number(123),
+//   									inputChannel: jsii.Number(123),
+//   								},
+//   							},
+//   							outputChannel: jsii.Number(123),
+//   						},
+//   					},
+//   					channelsIn: jsii.Number(123),
+//   					channelsOut: jsii.Number(123),
+//   				},
+//   				streamName: jsii.String("streamName"),
+//   			},
+//   		},
+//   		availBlanking: &availBlankingProperty{
+//   			availBlankingImage: &inputLocationProperty{
+//   				passwordParam: jsii.String("passwordParam"),
+//   				uri: jsii.String("uri"),
+//   				username: jsii.String("username"),
+//   			},
+//   			state: jsii.String("state"),
+//   		},
+//   		availConfiguration: &availConfigurationProperty{
+//   			availSettings: &availSettingsProperty{
+//   				scte35SpliceInsert: &scte35SpliceInsertProperty{
+//   					adAvailOffset: jsii.Number(123),
+//   					noRegionalBlackoutFlag: jsii.String("noRegionalBlackoutFlag"),
+//   					webDeliveryAllowedFlag: jsii.String("webDeliveryAllowedFlag"),
+//   				},
+//   				scte35TimeSignalApos: &scte35TimeSignalAposProperty{
+//   					adAvailOffset: jsii.Number(123),
+//   					noRegionalBlackoutFlag: jsii.String("noRegionalBlackoutFlag"),
+//   					webDeliveryAllowedFlag: jsii.String("webDeliveryAllowedFlag"),
+//   				},
+//   			},
+//   		},
+//   		blackoutSlate: &blackoutSlateProperty{
+//   			blackoutSlateImage: &inputLocationProperty{
+//   				passwordParam: jsii.String("passwordParam"),
+//   				uri: jsii.String("uri"),
+//   				username: jsii.String("username"),
+//   			},
+//   			networkEndBlackout: jsii.String("networkEndBlackout"),
+//   			networkEndBlackoutImage: &inputLocationProperty{
+//   				passwordParam: jsii.String("passwordParam"),
+//   				uri: jsii.String("uri"),
+//   				username: jsii.String("username"),
+//   			},
+//   			networkId: jsii.String("networkId"),
+//   			state: jsii.String("state"),
+//   		},
+//   		captionDescriptions: []interface{}{
+//   			&captionDescriptionProperty{
+//   				captionSelectorName: jsii.String("captionSelectorName"),
+//   				destinationSettings: &captionDestinationSettingsProperty{
+//   					aribDestinationSettings: &aribDestinationSettingsProperty{
+//   					},
+//   					burnInDestinationSettings: &burnInDestinationSettingsProperty{
+//   						alignment: jsii.String("alignment"),
+//   						backgroundColor: jsii.String("backgroundColor"),
+//   						backgroundOpacity: jsii.Number(123),
+//   						font: &inputLocationProperty{
+//   							passwordParam: jsii.String("passwordParam"),
+//   							uri: jsii.String("uri"),
+//   							username: jsii.String("username"),
+//   						},
+//   						fontColor: jsii.String("fontColor"),
+//   						fontOpacity: jsii.Number(123),
+//   						fontResolution: jsii.Number(123),
+//   						fontSize: jsii.String("fontSize"),
+//   						outlineColor: jsii.String("outlineColor"),
+//   						outlineSize: jsii.Number(123),
+//   						shadowColor: jsii.String("shadowColor"),
+//   						shadowOpacity: jsii.Number(123),
+//   						shadowXOffset: jsii.Number(123),
+//   						shadowYOffset: jsii.Number(123),
+//   						teletextGridControl: jsii.String("teletextGridControl"),
+//   						xPosition: jsii.Number(123),
+//   						yPosition: jsii.Number(123),
+//   					},
+//   					dvbSubDestinationSettings: &dvbSubDestinationSettingsProperty{
+//   						alignment: jsii.String("alignment"),
+//   						backgroundColor: jsii.String("backgroundColor"),
+//   						backgroundOpacity: jsii.Number(123),
+//   						font: &inputLocationProperty{
+//   							passwordParam: jsii.String("passwordParam"),
+//   							uri: jsii.String("uri"),
+//   							username: jsii.String("username"),
+//   						},
+//   						fontColor: jsii.String("fontColor"),
+//   						fontOpacity: jsii.Number(123),
+//   						fontResolution: jsii.Number(123),
+//   						fontSize: jsii.String("fontSize"),
+//   						outlineColor: jsii.String("outlineColor"),
+//   						outlineSize: jsii.Number(123),
+//   						shadowColor: jsii.String("shadowColor"),
+//   						shadowOpacity: jsii.Number(123),
+//   						shadowXOffset: jsii.Number(123),
+//   						shadowYOffset: jsii.Number(123),
+//   						teletextGridControl: jsii.String("teletextGridControl"),
+//   						xPosition: jsii.Number(123),
+//   						yPosition: jsii.Number(123),
+//   					},
+//   					ebuTtDDestinationSettings: &ebuTtDDestinationSettingsProperty{
+//   						copyrightHolder: jsii.String("copyrightHolder"),
+//   						fillLineGap: jsii.String("fillLineGap"),
+//   						fontFamily: jsii.String("fontFamily"),
+//   						styleControl: jsii.String("styleControl"),
+//   					},
+//   					embeddedDestinationSettings: &embeddedDestinationSettingsProperty{
+//   					},
+//   					embeddedPlusScte20DestinationSettings: &embeddedPlusScte20DestinationSettingsProperty{
+//   					},
+//   					rtmpCaptionInfoDestinationSettings: &rtmpCaptionInfoDestinationSettingsProperty{
+//   					},
+//   					scte20PlusEmbeddedDestinationSettings: &scte20PlusEmbeddedDestinationSettingsProperty{
+//   					},
+//   					scte27DestinationSettings: &scte27DestinationSettingsProperty{
+//   					},
+//   					smpteTtDestinationSettings: &smpteTtDestinationSettingsProperty{
+//   					},
+//   					teletextDestinationSettings: &teletextDestinationSettingsProperty{
+//   					},
+//   					ttmlDestinationSettings: &ttmlDestinationSettingsProperty{
+//   						styleControl: jsii.String("styleControl"),
+//   					},
+//   					webvttDestinationSettings: &webvttDestinationSettingsProperty{
+//   						styleControl: jsii.String("styleControl"),
+//   					},
+//   				},
+//   				languageCode: jsii.String("languageCode"),
+//   				languageDescription: jsii.String("languageDescription"),
+//   				name: jsii.String("name"),
+//   			},
+//   		},
+//   		featureActivations: &featureActivationsProperty{
+//   			inputPrepareScheduleActions: jsii.String("inputPrepareScheduleActions"),
+//   		},
+//   		globalConfiguration: &globalConfigurationProperty{
+//   			initialAudioGain: jsii.Number(123),
+//   			inputEndAction: jsii.String("inputEndAction"),
+//   			inputLossBehavior: &inputLossBehaviorProperty{
+//   				blackFrameMsec: jsii.Number(123),
+//   				inputLossImageColor: jsii.String("inputLossImageColor"),
+//   				inputLossImageSlate: &inputLocationProperty{
+//   					passwordParam: jsii.String("passwordParam"),
+//   					uri: jsii.String("uri"),
+//   					username: jsii.String("username"),
+//   				},
+//   				inputLossImageType: jsii.String("inputLossImageType"),
+//   				repeatFrameMsec: jsii.Number(123),
+//   			},
+//   			outputLockingMode: jsii.String("outputLockingMode"),
+//   			outputTimingSource: jsii.String("outputTimingSource"),
+//   			supportLowFramerateInputs: jsii.String("supportLowFramerateInputs"),
+//   		},
+//   		motionGraphicsConfiguration: &motionGraphicsConfigurationProperty{
+//   			motionGraphicsInsertion: jsii.String("motionGraphicsInsertion"),
+//   			motionGraphicsSettings: &motionGraphicsSettingsProperty{
+//   				htmlMotionGraphicsSettings: &htmlMotionGraphicsSettingsProperty{
+//   				},
+//   			},
+//   		},
+//   		nielsenConfiguration: &nielsenConfigurationProperty{
+//   			distributorId: jsii.String("distributorId"),
+//   			nielsenPcmToId3Tagging: jsii.String("nielsenPcmToId3Tagging"),
+//   		},
+//   		outputGroups: []interface{}{
+//   			&outputGroupProperty{
+//   				name: jsii.String("name"),
+//   				outputGroupSettings: &outputGroupSettingsProperty{
+//   					archiveGroupSettings: &archiveGroupSettingsProperty{
+//   						archiveCdnSettings: &archiveCdnSettingsProperty{
+//   							archiveS3Settings: &archiveS3SettingsProperty{
+//   								cannedAcl: jsii.String("cannedAcl"),
+//   							},
+//   						},
+//   						destination: &outputLocationRefProperty{
+//   							destinationRefId: jsii.String("destinationRefId"),
+//   						},
+//   						rolloverInterval: jsii.Number(123),
+//   					},
+//   					frameCaptureGroupSettings: &frameCaptureGroupSettingsProperty{
+//   						destination: &outputLocationRefProperty{
+//   							destinationRefId: jsii.String("destinationRefId"),
+//   						},
+//   						frameCaptureCdnSettings: &frameCaptureCdnSettingsProperty{
+//   							frameCaptureS3Settings: &frameCaptureS3SettingsProperty{
+//   								cannedAcl: jsii.String("cannedAcl"),
+//   							},
+//   						},
+//   					},
+//   					hlsGroupSettings: &hlsGroupSettingsProperty{
+//   						adMarkers: []*string{
+//   							jsii.String("adMarkers"),
+//   						},
+//   						baseUrlContent: jsii.String("baseUrlContent"),
+//   						baseUrlContent1: jsii.String("baseUrlContent1"),
+//   						baseUrlManifest: jsii.String("baseUrlManifest"),
+//   						baseUrlManifest1: jsii.String("baseUrlManifest1"),
+//   						captionLanguageMappings: []interface{}{
+//   							&captionLanguageMappingProperty{
+//   								captionChannel: jsii.Number(123),
+//   								languageCode: jsii.String("languageCode"),
+//   								languageDescription: jsii.String("languageDescription"),
+//   							},
+//   						},
+//   						captionLanguageSetting: jsii.String("captionLanguageSetting"),
+//   						clientCache: jsii.String("clientCache"),
+//   						codecSpecification: jsii.String("codecSpecification"),
+//   						constantIv: jsii.String("constantIv"),
+//   						destination: &outputLocationRefProperty{
+//   							destinationRefId: jsii.String("destinationRefId"),
+//   						},
+//   						directoryStructure: jsii.String("directoryStructure"),
+//   						discontinuityTags: jsii.String("discontinuityTags"),
+//   						encryptionType: jsii.String("encryptionType"),
+//   						hlsCdnSettings: &hlsCdnSettingsProperty{
+//   							hlsAkamaiSettings: &hlsAkamaiSettingsProperty{
+//   								connectionRetryInterval: jsii.Number(123),
+//   								filecacheDuration: jsii.Number(123),
+//   								httpTransferMode: jsii.String("httpTransferMode"),
+//   								numRetries: jsii.Number(123),
+//   								restartDelay: jsii.Number(123),
+//   								salt: jsii.String("salt"),
+//   								token: jsii.String("token"),
+//   							},
+//   							hlsBasicPutSettings: &hlsBasicPutSettingsProperty{
+//   								connectionRetryInterval: jsii.Number(123),
+//   								filecacheDuration: jsii.Number(123),
+//   								numRetries: jsii.Number(123),
+//   								restartDelay: jsii.Number(123),
+//   							},
+//   							hlsMediaStoreSettings: &hlsMediaStoreSettingsProperty{
+//   								connectionRetryInterval: jsii.Number(123),
+//   								filecacheDuration: jsii.Number(123),
+//   								mediaStoreStorageClass: jsii.String("mediaStoreStorageClass"),
+//   								numRetries: jsii.Number(123),
+//   								restartDelay: jsii.Number(123),
+//   							},
+//   							hlsS3Settings: &hlsS3SettingsProperty{
+//   								cannedAcl: jsii.String("cannedAcl"),
+//   							},
+//   							hlsWebdavSettings: &hlsWebdavSettingsProperty{
+//   								connectionRetryInterval: jsii.Number(123),
+//   								filecacheDuration: jsii.Number(123),
+//   								httpTransferMode: jsii.String("httpTransferMode"),
+//   								numRetries: jsii.Number(123),
+//   								restartDelay: jsii.Number(123),
+//   							},
+//   						},
+//   						hlsId3SegmentTagging: jsii.String("hlsId3SegmentTagging"),
+//   						iFrameOnlyPlaylists: jsii.String("iFrameOnlyPlaylists"),
+//   						incompleteSegmentBehavior: jsii.String("incompleteSegmentBehavior"),
+//   						indexNSegments: jsii.Number(123),
+//   						inputLossAction: jsii.String("inputLossAction"),
+//   						ivInManifest: jsii.String("ivInManifest"),
+//   						ivSource: jsii.String("ivSource"),
+//   						keepSegments: jsii.Number(123),
+//   						keyFormat: jsii.String("keyFormat"),
+//   						keyFormatVersions: jsii.String("keyFormatVersions"),
+//   						keyProviderSettings: &keyProviderSettingsProperty{
+//   							staticKeySettings: &staticKeySettingsProperty{
+//   								keyProviderServer: &inputLocationProperty{
+//   									passwordParam: jsii.String("passwordParam"),
+//   									uri: jsii.String("uri"),
+//   									username: jsii.String("username"),
+//   								},
+//   								staticKeyValue: jsii.String("staticKeyValue"),
+//   							},
+//   						},
+//   						manifestCompression: jsii.String("manifestCompression"),
+//   						manifestDurationFormat: jsii.String("manifestDurationFormat"),
+//   						minSegmentLength: jsii.Number(123),
+//   						mode: jsii.String("mode"),
+//   						outputSelection: jsii.String("outputSelection"),
+//   						programDateTime: jsii.String("programDateTime"),
+//   						programDateTimeClock: jsii.String("programDateTimeClock"),
+//   						programDateTimePeriod: jsii.Number(123),
+//   						redundantManifest: jsii.String("redundantManifest"),
+//   						segmentationMode: jsii.String("segmentationMode"),
+//   						segmentLength: jsii.Number(123),
+//   						segmentsPerSubdirectory: jsii.Number(123),
+//   						streamInfResolution: jsii.String("streamInfResolution"),
+//   						timedMetadataId3Frame: jsii.String("timedMetadataId3Frame"),
+//   						timedMetadataId3Period: jsii.Number(123),
+//   						timestampDeltaMilliseconds: jsii.Number(123),
+//   						tsFileMode: jsii.String("tsFileMode"),
+//   					},
+//   					mediaPackageGroupSettings: &mediaPackageGroupSettingsProperty{
+//   						destination: &outputLocationRefProperty{
+//   							destinationRefId: jsii.String("destinationRefId"),
+//   						},
+//   					},
+//   					msSmoothGroupSettings: &msSmoothGroupSettingsProperty{
+//   						acquisitionPointId: jsii.String("acquisitionPointId"),
+//   						audioOnlyTimecodeControl: jsii.String("audioOnlyTimecodeControl"),
+//   						certificateMode: jsii.String("certificateMode"),
+//   						connectionRetryInterval: jsii.Number(123),
+//   						destination: &outputLocationRefProperty{
+//   							destinationRefId: jsii.String("destinationRefId"),
+//   						},
+//   						eventId: jsii.String("eventId"),
+//   						eventIdMode: jsii.String("eventIdMode"),
+//   						eventStopBehavior: jsii.String("eventStopBehavior"),
+//   						filecacheDuration: jsii.Number(123),
+//   						fragmentLength: jsii.Number(123),
+//   						inputLossAction: jsii.String("inputLossAction"),
+//   						numRetries: jsii.Number(123),
+//   						restartDelay: jsii.Number(123),
+//   						segmentationMode: jsii.String("segmentationMode"),
+//   						sendDelayMs: jsii.Number(123),
+//   						sparseTrackType: jsii.String("sparseTrackType"),
+//   						streamManifestBehavior: jsii.String("streamManifestBehavior"),
+//   						timestampOffset: jsii.String("timestampOffset"),
+//   						timestampOffsetMode: jsii.String("timestampOffsetMode"),
+//   					},
+//   					multiplexGroupSettings: &multiplexGroupSettingsProperty{
+//   					},
+//   					rtmpGroupSettings: &rtmpGroupSettingsProperty{
+//   						adMarkers: []*string{
+//   							jsii.String("adMarkers"),
+//   						},
+//   						authenticationScheme: jsii.String("authenticationScheme"),
+//   						cacheFullBehavior: jsii.String("cacheFullBehavior"),
+//   						cacheLength: jsii.Number(123),
+//   						captionData: jsii.String("captionData"),
+//   						inputLossAction: jsii.String("inputLossAction"),
+//   						restartDelay: jsii.Number(123),
+//   					},
+//   					udpGroupSettings: &udpGroupSettingsProperty{
+//   						inputLossAction: jsii.String("inputLossAction"),
+//   						timedMetadataId3Frame: jsii.String("timedMetadataId3Frame"),
+//   						timedMetadataId3Period: jsii.Number(123),
+//   					},
+//   				},
+//   				outputs: []interface{}{
+//   					&outputProperty{
+//   						audioDescriptionNames: []*string{
+//   							jsii.String("audioDescriptionNames"),
+//   						},
+//   						captionDescriptionNames: []*string{
+//   							jsii.String("captionDescriptionNames"),
+//   						},
+//   						outputName: jsii.String("outputName"),
+//   						outputSettings: &outputSettingsProperty{
+//   							archiveOutputSettings: &archiveOutputSettingsProperty{
+//   								containerSettings: &archiveContainerSettingsProperty{
+//   									m2TsSettings: &m2tsSettingsProperty{
+//   										absentInputAudioBehavior: jsii.String("absentInputAudioBehavior"),
+//   										arib: jsii.String("arib"),
+//   										aribCaptionsPid: jsii.String("aribCaptionsPid"),
+//   										aribCaptionsPidControl: jsii.String("aribCaptionsPidControl"),
+//   										audioBufferModel: jsii.String("audioBufferModel"),
+//   										audioFramesPerPes: jsii.Number(123),
+//   										audioPids: jsii.String("audioPids"),
+//   										audioStreamType: jsii.String("audioStreamType"),
+//   										bitrate: jsii.Number(123),
+//   										bufferModel: jsii.String("bufferModel"),
+//   										ccDescriptor: jsii.String("ccDescriptor"),
+//   										dvbNitSettings: &dvbNitSettingsProperty{
+//   											networkId: jsii.Number(123),
+//   											networkName: jsii.String("networkName"),
+//   											repInterval: jsii.Number(123),
+//   										},
+//   										dvbSdtSettings: &dvbSdtSettingsProperty{
+//   											outputSdt: jsii.String("outputSdt"),
+//   											repInterval: jsii.Number(123),
+//   											serviceName: jsii.String("serviceName"),
+//   											serviceProviderName: jsii.String("serviceProviderName"),
+//   										},
+//   										dvbSubPids: jsii.String("dvbSubPids"),
+//   										dvbTdtSettings: &dvbTdtSettingsProperty{
+//   											repInterval: jsii.Number(123),
+//   										},
+//   										dvbTeletextPid: jsii.String("dvbTeletextPid"),
+//   										ebif: jsii.String("ebif"),
+//   										ebpAudioInterval: jsii.String("ebpAudioInterval"),
+//   										ebpLookaheadMs: jsii.Number(123),
+//   										ebpPlacement: jsii.String("ebpPlacement"),
+//   										ecmPid: jsii.String("ecmPid"),
+//   										esRateInPes: jsii.String("esRateInPes"),
+//   										etvPlatformPid: jsii.String("etvPlatformPid"),
+//   										etvSignalPid: jsii.String("etvSignalPid"),
+//   										fragmentTime: jsii.Number(123),
+//   										klv: jsii.String("klv"),
+//   										klvDataPids: jsii.String("klvDataPids"),
+//   										nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   										nullPacketBitrate: jsii.Number(123),
+//   										patInterval: jsii.Number(123),
+//   										pcrControl: jsii.String("pcrControl"),
+//   										pcrPeriod: jsii.Number(123),
+//   										pcrPid: jsii.String("pcrPid"),
+//   										pmtInterval: jsii.Number(123),
+//   										pmtPid: jsii.String("pmtPid"),
+//   										programNum: jsii.Number(123),
+//   										rateMode: jsii.String("rateMode"),
+//   										scte27Pids: jsii.String("scte27Pids"),
+//   										scte35Control: jsii.String("scte35Control"),
+//   										scte35Pid: jsii.String("scte35Pid"),
+//   										segmentationMarkers: jsii.String("segmentationMarkers"),
+//   										segmentationStyle: jsii.String("segmentationStyle"),
+//   										segmentationTime: jsii.Number(123),
+//   										timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   										timedMetadataPid: jsii.String("timedMetadataPid"),
+//   										transportStreamId: jsii.Number(123),
+//   										videoPid: jsii.String("videoPid"),
+//   									},
+//   									rawSettings: &rawSettingsProperty{
+//   									},
+//   								},
+//   								extension: jsii.String("extension"),
+//   								nameModifier: jsii.String("nameModifier"),
+//   							},
+//   							frameCaptureOutputSettings: &frameCaptureOutputSettingsProperty{
+//   								nameModifier: jsii.String("nameModifier"),
+//   							},
+//   							hlsOutputSettings: &hlsOutputSettingsProperty{
+//   								h265PackagingType: jsii.String("h265PackagingType"),
+//   								hlsSettings: &hlsSettingsProperty{
+//   									audioOnlyHlsSettings: &audioOnlyHlsSettingsProperty{
+//   										audioGroupId: jsii.String("audioGroupId"),
+//   										audioOnlyImage: &inputLocationProperty{
+//   											passwordParam: jsii.String("passwordParam"),
+//   											uri: jsii.String("uri"),
+//   											username: jsii.String("username"),
+//   										},
+//   										audioTrackType: jsii.String("audioTrackType"),
+//   										segmentType: jsii.String("segmentType"),
+//   									},
+//   									fmp4HlsSettings: &fmp4HlsSettingsProperty{
+//   										audioRenditionSets: jsii.String("audioRenditionSets"),
+//   										nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   										timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   									},
+//   									frameCaptureHlsSettings: &frameCaptureHlsSettingsProperty{
+//   									},
+//   									standardHlsSettings: &standardHlsSettingsProperty{
+//   										audioRenditionSets: jsii.String("audioRenditionSets"),
+//   										m3U8Settings: &m3u8SettingsProperty{
+//   											audioFramesPerPes: jsii.Number(123),
+//   											audioPids: jsii.String("audioPids"),
+//   											ecmPid: jsii.String("ecmPid"),
+//   											nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   											patInterval: jsii.Number(123),
+//   											pcrControl: jsii.String("pcrControl"),
+//   											pcrPeriod: jsii.Number(123),
+//   											pcrPid: jsii.String("pcrPid"),
+//   											pmtInterval: jsii.Number(123),
+//   											pmtPid: jsii.String("pmtPid"),
+//   											programNum: jsii.Number(123),
+//   											scte35Behavior: jsii.String("scte35Behavior"),
+//   											scte35Pid: jsii.String("scte35Pid"),
+//   											timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   											timedMetadataPid: jsii.String("timedMetadataPid"),
+//   											transportStreamId: jsii.Number(123),
+//   											videoPid: jsii.String("videoPid"),
+//   										},
+//   									},
+//   								},
+//   								nameModifier: jsii.String("nameModifier"),
+//   								segmentModifier: jsii.String("segmentModifier"),
+//   							},
+//   							mediaPackageOutputSettings: &mediaPackageOutputSettingsProperty{
+//   							},
+//   							msSmoothOutputSettings: &msSmoothOutputSettingsProperty{
+//   								h265PackagingType: jsii.String("h265PackagingType"),
+//   								nameModifier: jsii.String("nameModifier"),
+//   							},
+//   							multiplexOutputSettings: &multiplexOutputSettingsProperty{
+//   								destination: &outputLocationRefProperty{
+//   									destinationRefId: jsii.String("destinationRefId"),
+//   								},
+//   							},
+//   							rtmpOutputSettings: &rtmpOutputSettingsProperty{
+//   								certificateMode: jsii.String("certificateMode"),
+//   								connectionRetryInterval: jsii.Number(123),
+//   								destination: &outputLocationRefProperty{
+//   									destinationRefId: jsii.String("destinationRefId"),
+//   								},
+//   								numRetries: jsii.Number(123),
+//   							},
+//   							udpOutputSettings: &udpOutputSettingsProperty{
+//   								bufferMsec: jsii.Number(123),
+//   								containerSettings: &udpContainerSettingsProperty{
+//   									m2TsSettings: &m2tsSettingsProperty{
+//   										absentInputAudioBehavior: jsii.String("absentInputAudioBehavior"),
+//   										arib: jsii.String("arib"),
+//   										aribCaptionsPid: jsii.String("aribCaptionsPid"),
+//   										aribCaptionsPidControl: jsii.String("aribCaptionsPidControl"),
+//   										audioBufferModel: jsii.String("audioBufferModel"),
+//   										audioFramesPerPes: jsii.Number(123),
+//   										audioPids: jsii.String("audioPids"),
+//   										audioStreamType: jsii.String("audioStreamType"),
+//   										bitrate: jsii.Number(123),
+//   										bufferModel: jsii.String("bufferModel"),
+//   										ccDescriptor: jsii.String("ccDescriptor"),
+//   										dvbNitSettings: &dvbNitSettingsProperty{
+//   											networkId: jsii.Number(123),
+//   											networkName: jsii.String("networkName"),
+//   											repInterval: jsii.Number(123),
+//   										},
+//   										dvbSdtSettings: &dvbSdtSettingsProperty{
+//   											outputSdt: jsii.String("outputSdt"),
+//   											repInterval: jsii.Number(123),
+//   											serviceName: jsii.String("serviceName"),
+//   											serviceProviderName: jsii.String("serviceProviderName"),
+//   										},
+//   										dvbSubPids: jsii.String("dvbSubPids"),
+//   										dvbTdtSettings: &dvbTdtSettingsProperty{
+//   											repInterval: jsii.Number(123),
+//   										},
+//   										dvbTeletextPid: jsii.String("dvbTeletextPid"),
+//   										ebif: jsii.String("ebif"),
+//   										ebpAudioInterval: jsii.String("ebpAudioInterval"),
+//   										ebpLookaheadMs: jsii.Number(123),
+//   										ebpPlacement: jsii.String("ebpPlacement"),
+//   										ecmPid: jsii.String("ecmPid"),
+//   										esRateInPes: jsii.String("esRateInPes"),
+//   										etvPlatformPid: jsii.String("etvPlatformPid"),
+//   										etvSignalPid: jsii.String("etvSignalPid"),
+//   										fragmentTime: jsii.Number(123),
+//   										klv: jsii.String("klv"),
+//   										klvDataPids: jsii.String("klvDataPids"),
+//   										nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   										nullPacketBitrate: jsii.Number(123),
+//   										patInterval: jsii.Number(123),
+//   										pcrControl: jsii.String("pcrControl"),
+//   										pcrPeriod: jsii.Number(123),
+//   										pcrPid: jsii.String("pcrPid"),
+//   										pmtInterval: jsii.Number(123),
+//   										pmtPid: jsii.String("pmtPid"),
+//   										programNum: jsii.Number(123),
+//   										rateMode: jsii.String("rateMode"),
+//   										scte27Pids: jsii.String("scte27Pids"),
+//   										scte35Control: jsii.String("scte35Control"),
+//   										scte35Pid: jsii.String("scte35Pid"),
+//   										segmentationMarkers: jsii.String("segmentationMarkers"),
+//   										segmentationStyle: jsii.String("segmentationStyle"),
+//   										segmentationTime: jsii.Number(123),
+//   										timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   										timedMetadataPid: jsii.String("timedMetadataPid"),
+//   										transportStreamId: jsii.Number(123),
+//   										videoPid: jsii.String("videoPid"),
+//   									},
+//   								},
+//   								destination: &outputLocationRefProperty{
+//   									destinationRefId: jsii.String("destinationRefId"),
+//   								},
+//   								fecOutputSettings: &fecOutputSettingsProperty{
+//   									columnDepth: jsii.Number(123),
+//   									includeFec: jsii.String("includeFec"),
+//   									rowLength: jsii.Number(123),
+//   								},
+//   							},
+//   						},
+//   						videoDescriptionName: jsii.String("videoDescriptionName"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		timecodeConfig: &timecodeConfigProperty{
+//   			source: jsii.String("source"),
+//   			syncThreshold: jsii.Number(123),
+//   		},
+//   		videoDescriptions: []interface{}{
+//   			&videoDescriptionProperty{
+//   				codecSettings: &videoCodecSettingsProperty{
+//   					frameCaptureSettings: &frameCaptureSettingsProperty{
+//   						captureInterval: jsii.Number(123),
+//   						captureIntervalUnits: jsii.String("captureIntervalUnits"),
+//   					},
+//   					h264Settings: &h264SettingsProperty{
+//   						adaptiveQuantization: jsii.String("adaptiveQuantization"),
+//   						afdSignaling: jsii.String("afdSignaling"),
+//   						bitrate: jsii.Number(123),
+//   						bufFillPct: jsii.Number(123),
+//   						bufSize: jsii.Number(123),
+//   						colorMetadata: jsii.String("colorMetadata"),
+//   						colorSpaceSettings: &h264ColorSpaceSettingsProperty{
+//   							colorSpacePassthroughSettings: &colorSpacePassthroughSettingsProperty{
+//   							},
+//   							rec601Settings: &rec601SettingsProperty{
+//   							},
+//   							rec709Settings: &rec709SettingsProperty{
+//   							},
+//   						},
+//   						entropyEncoding: jsii.String("entropyEncoding"),
+//   						filterSettings: &h264FilterSettingsProperty{
+//   							temporalFilterSettings: &temporalFilterSettingsProperty{
+//   								postFilterSharpening: jsii.String("postFilterSharpening"),
+//   								strength: jsii.String("strength"),
+//   							},
+//   						},
+//   						fixedAfd: jsii.String("fixedAfd"),
+//   						flickerAq: jsii.String("flickerAq"),
+//   						forceFieldPictures: jsii.String("forceFieldPictures"),
+//   						framerateControl: jsii.String("framerateControl"),
+//   						framerateDenominator: jsii.Number(123),
+//   						framerateNumerator: jsii.Number(123),
+//   						gopBReference: jsii.String("gopBReference"),
+//   						gopClosedCadence: jsii.Number(123),
+//   						gopNumBFrames: jsii.Number(123),
+//   						gopSize: jsii.Number(123),
+//   						gopSizeUnits: jsii.String("gopSizeUnits"),
+//   						level: jsii.String("level"),
+//   						lookAheadRateControl: jsii.String("lookAheadRateControl"),
+//   						maxBitrate: jsii.Number(123),
+//   						minIInterval: jsii.Number(123),
+//   						numRefFrames: jsii.Number(123),
+//   						parControl: jsii.String("parControl"),
+//   						parDenominator: jsii.Number(123),
+//   						parNumerator: jsii.Number(123),
+//   						profile: jsii.String("profile"),
+//   						qualityLevel: jsii.String("qualityLevel"),
+//   						qvbrQualityLevel: jsii.Number(123),
+//   						rateControlMode: jsii.String("rateControlMode"),
+//   						scanType: jsii.String("scanType"),
+//   						sceneChangeDetect: jsii.String("sceneChangeDetect"),
+//   						slices: jsii.Number(123),
+//   						softness: jsii.Number(123),
+//   						spatialAq: jsii.String("spatialAq"),
+//   						subgopLength: jsii.String("subgopLength"),
+//   						syntax: jsii.String("syntax"),
+//   						temporalAq: jsii.String("temporalAq"),
+//   						timecodeInsertion: jsii.String("timecodeInsertion"),
+//   					},
+//   					h265Settings: &h265SettingsProperty{
+//   						adaptiveQuantization: jsii.String("adaptiveQuantization"),
+//   						afdSignaling: jsii.String("afdSignaling"),
+//   						alternativeTransferFunction: jsii.String("alternativeTransferFunction"),
+//   						bitrate: jsii.Number(123),
+//   						bufSize: jsii.Number(123),
+//   						colorMetadata: jsii.String("colorMetadata"),
+//   						colorSpaceSettings: &h265ColorSpaceSettingsProperty{
+//   							colorSpacePassthroughSettings: &colorSpacePassthroughSettingsProperty{
+//   							},
+//   							hdr10Settings: &hdr10SettingsProperty{
+//   								maxCll: jsii.Number(123),
+//   								maxFall: jsii.Number(123),
+//   							},
+//   							rec601Settings: &rec601SettingsProperty{
+//   							},
+//   							rec709Settings: &rec709SettingsProperty{
+//   							},
+//   						},
+//   						filterSettings: &h265FilterSettingsProperty{
+//   							temporalFilterSettings: &temporalFilterSettingsProperty{
+//   								postFilterSharpening: jsii.String("postFilterSharpening"),
+//   								strength: jsii.String("strength"),
+//   							},
+//   						},
+//   						fixedAfd: jsii.String("fixedAfd"),
+//   						flickerAq: jsii.String("flickerAq"),
+//   						framerateDenominator: jsii.Number(123),
+//   						framerateNumerator: jsii.Number(123),
+//   						gopClosedCadence: jsii.Number(123),
+//   						gopSize: jsii.Number(123),
+//   						gopSizeUnits: jsii.String("gopSizeUnits"),
+//   						level: jsii.String("level"),
+//   						lookAheadRateControl: jsii.String("lookAheadRateControl"),
+//   						maxBitrate: jsii.Number(123),
+//   						minIInterval: jsii.Number(123),
+//   						parDenominator: jsii.Number(123),
+//   						parNumerator: jsii.Number(123),
+//   						profile: jsii.String("profile"),
+//   						qvbrQualityLevel: jsii.Number(123),
+//   						rateControlMode: jsii.String("rateControlMode"),
+//   						scanType: jsii.String("scanType"),
+//   						sceneChangeDetect: jsii.String("sceneChangeDetect"),
+//   						slices: jsii.Number(123),
+//   						tier: jsii.String("tier"),
+//   						timecodeInsertion: jsii.String("timecodeInsertion"),
+//   					},
+//   					mpeg2Settings: &mpeg2SettingsProperty{
+//   						adaptiveQuantization: jsii.String("adaptiveQuantization"),
+//   						afdSignaling: jsii.String("afdSignaling"),
+//   						colorMetadata: jsii.String("colorMetadata"),
+//   						colorSpace: jsii.String("colorSpace"),
+//   						displayAspectRatio: jsii.String("displayAspectRatio"),
+//   						filterSettings: &mpeg2FilterSettingsProperty{
+//   							temporalFilterSettings: &temporalFilterSettingsProperty{
+//   								postFilterSharpening: jsii.String("postFilterSharpening"),
+//   								strength: jsii.String("strength"),
+//   							},
+//   						},
+//   						fixedAfd: jsii.String("fixedAfd"),
+//   						framerateDenominator: jsii.Number(123),
+//   						framerateNumerator: jsii.Number(123),
+//   						gopClosedCadence: jsii.Number(123),
+//   						gopNumBFrames: jsii.Number(123),
+//   						gopSize: jsii.Number(123),
+//   						gopSizeUnits: jsii.String("gopSizeUnits"),
+//   						scanType: jsii.String("scanType"),
+//   						subgopLength: jsii.String("subgopLength"),
+//   						timecodeInsertion: jsii.String("timecodeInsertion"),
+//   					},
+//   				},
+//   				height: jsii.Number(123),
+//   				name: jsii.String("name"),
+//   				respondToAfd: jsii.String("respondToAfd"),
+//   				scalingBehavior: jsii.String("scalingBehavior"),
+//   				sharpness: jsii.Number(123),
+//   				width: jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   	inputAttachments: []interface{}{
+//   		&inputAttachmentProperty{
+//   			automaticInputFailoverSettings: &automaticInputFailoverSettingsProperty{
+//   				errorClearTimeMsec: jsii.Number(123),
+//   				failoverConditions: []interface{}{
+//   					&failoverConditionProperty{
+//   						failoverConditionSettings: &failoverConditionSettingsProperty{
+//   							audioSilenceSettings: &audioSilenceFailoverSettingsProperty{
+//   								audioSelectorName: jsii.String("audioSelectorName"),
+//   								audioSilenceThresholdMsec: jsii.Number(123),
+//   							},
+//   							inputLossSettings: &inputLossFailoverSettingsProperty{
+//   								inputLossThresholdMsec: jsii.Number(123),
+//   							},
+//   							videoBlackSettings: &videoBlackFailoverSettingsProperty{
+//   								blackDetectThreshold: jsii.Number(123),
+//   								videoBlackThresholdMsec: jsii.Number(123),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				inputPreference: jsii.String("inputPreference"),
+//   				secondaryInputId: jsii.String("secondaryInputId"),
+//   			},
+//   			inputAttachmentName: jsii.String("inputAttachmentName"),
+//   			inputId: jsii.String("inputId"),
+//   			inputSettings: &inputSettingsProperty{
+//   				audioSelectors: []interface{}{
+//   					&audioSelectorProperty{
+//   						name: jsii.String("name"),
+//   						selectorSettings: &audioSelectorSettingsProperty{
+//   							audioHlsRenditionSelection: &audioHlsRenditionSelectionProperty{
+//   								groupId: jsii.String("groupId"),
+//   								name: jsii.String("name"),
+//   							},
+//   							audioLanguageSelection: &audioLanguageSelectionProperty{
+//   								languageCode: jsii.String("languageCode"),
+//   								languageSelectionPolicy: jsii.String("languageSelectionPolicy"),
+//   							},
+//   							audioPidSelection: &audioPidSelectionProperty{
+//   								pid: jsii.Number(123),
+//   							},
+//   							audioTrackSelection: &audioTrackSelectionProperty{
+//   								tracks: []interface{}{
+//   									&audioTrackProperty{
+//   										track: jsii.Number(123),
+//   									},
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   				captionSelectors: []interface{}{
+//   					&captionSelectorProperty{
+//   						languageCode: jsii.String("languageCode"),
+//   						name: jsii.String("name"),
+//   						selectorSettings: &captionSelectorSettingsProperty{
+//   							ancillarySourceSettings: &ancillarySourceSettingsProperty{
+//   								sourceAncillaryChannelNumber: jsii.Number(123),
+//   							},
+//   							aribSourceSettings: &aribSourceSettingsProperty{
+//   							},
+//   							dvbSubSourceSettings: &dvbSubSourceSettingsProperty{
+//   								ocrLanguage: jsii.String("ocrLanguage"),
+//   								pid: jsii.Number(123),
+//   							},
+//   							embeddedSourceSettings: &embeddedSourceSettingsProperty{
+//   								convert608To708: jsii.String("convert608To708"),
+//   								scte20Detection: jsii.String("scte20Detection"),
+//   								source608ChannelNumber: jsii.Number(123),
+//   								source608TrackNumber: jsii.Number(123),
+//   							},
+//   							scte20SourceSettings: &scte20SourceSettingsProperty{
+//   								convert608To708: jsii.String("convert608To708"),
+//   								source608ChannelNumber: jsii.Number(123),
+//   							},
+//   							scte27SourceSettings: &scte27SourceSettingsProperty{
+//   								ocrLanguage: jsii.String("ocrLanguage"),
+//   								pid: jsii.Number(123),
+//   							},
+//   							teletextSourceSettings: &teletextSourceSettingsProperty{
+//   								outputRectangle: &captionRectangleProperty{
+//   									height: jsii.Number(123),
+//   									leftOffset: jsii.Number(123),
+//   									topOffset: jsii.Number(123),
+//   									width: jsii.Number(123),
+//   								},
+//   								pageNumber: jsii.String("pageNumber"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				deblockFilter: jsii.String("deblockFilter"),
+//   				denoiseFilter: jsii.String("denoiseFilter"),
+//   				filterStrength: jsii.Number(123),
+//   				inputFilter: jsii.String("inputFilter"),
+//   				networkInputSettings: &networkInputSettingsProperty{
+//   					hlsInputSettings: &hlsInputSettingsProperty{
+//   						bandwidth: jsii.Number(123),
+//   						bufferSegments: jsii.Number(123),
+//   						retries: jsii.Number(123),
+//   						retryInterval: jsii.Number(123),
+//   						scte35Source: jsii.String("scte35Source"),
+//   					},
+//   					serverValidation: jsii.String("serverValidation"),
+//   				},
+//   				scte35Pid: jsii.Number(123),
+//   				smpte2038DataPreference: jsii.String("smpte2038DataPreference"),
+//   				sourceEndBehavior: jsii.String("sourceEndBehavior"),
+//   				videoSelector: &videoSelectorProperty{
+//   					colorSpace: jsii.String("colorSpace"),
+//   					colorSpaceSettings: &videoSelectorColorSpaceSettingsProperty{
+//   						hdr10Settings: &hdr10SettingsProperty{
+//   							maxCll: jsii.Number(123),
+//   							maxFall: jsii.Number(123),
+//   						},
+//   					},
+//   					colorSpaceUsage: jsii.String("colorSpaceUsage"),
+//   					selectorSettings: &videoSelectorSettingsProperty{
+//   						videoSelectorPid: &videoSelectorPidProperty{
+//   							pid: jsii.Number(123),
+//   						},
+//   						videoSelectorProgramId: &videoSelectorProgramIdProperty{
+//   							programId: jsii.Number(123),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	inputSpecification: &inputSpecificationProperty{
+//   		codec: jsii.String("codec"),
+//   		maximumBitrate: jsii.String("maximumBitrate"),
+//   		resolution: jsii.String("resolution"),
+//   	},
+//   	logLevel: jsii.String("logLevel"),
+//   	name: jsii.String("name"),
+//   	roleArn: jsii.String("roleArn"),
+//   	tags: tags,
+//   	vpc: &vpcOutputSettingsProperty{
+//   		publicAddressAllocationIds: []*string{
+//   			jsii.String("publicAddressAllocationIds"),
+//   		},
+//   		securityGroupIds: []*string{
+//   			jsii.String("securityGroupIds"),
+//   		},
+//   		subnetIds: []*string{
+//   			jsii.String("subnetIds"),
+//   		},
+//   	},
+//   })
 //
 type CfnChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ARN of the MediaLive channel.
+	//
+	// For example: arn:aws:medialive:us-west-1:111122223333:medialive:channel:1234567.
 	AttrArn() *string
+	// The inputs that are attached to this channel.
+	//
+	// The inputs are identified by their IDs (not by their names or their ARNs).
 	AttrInputs() *[]*string
+	// Specification of CDI inputs for this channel.
 	CdiInputSpecification() interface{}
 	SetCdiInputSpecification(val interface{})
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// The class for this channel.
+	//
+	// For a channel with two pipelines, the class is STANDARD. For a channel with one pipeline, the class is SINGLE_PIPELINE.
 	ChannelClass() *string
 	SetChannelClass(val *string)
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The settings that identify the destination for the outputs in this MediaLive output package.
 	Destinations() interface{}
 	SetDestinations(val interface{})
+	// The encoding configuration for the output content.
 	EncoderSettings() interface{}
 	SetEncoderSettings(val interface{})
+	// The list of input attachments for the channel.
 	InputAttachments() interface{}
 	SetInputAttachments(val interface{})
+	// The input specification for this channel.
+	//
+	// It specifies the key characteristics of the inputs for this channel: the maximum bitrate, the resolution, and the codec.
 	InputSpecification() interface{}
 	SetInputSpecification(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The verbosity for logging activity for this channel.
+	//
+	// Charges for logging (which are generated through Amazon CloudWatch Logging) are higher for higher verbosities.
 	LogLevel() *string
 	SetLogLevel(val *string)
+	// A name for this audio selector.
+	//
+	// The AudioDescription (in an output) references this name in order to identify a specific input audio to include in that output.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The IAM role for MediaLive to assume when running this channel.
+	//
+	// The role is identified by its ARN.
 	RoleArn() *string
 	SetRoleArn(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// A collection of tags for this channel.
+	//
+	// Each tag is a key-value pair.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Settings to enable VPC mode in the channel, so that the endpoints for all outputs are in your VPC.
 	Vpc() interface{}
 	SetVpc(val interface{})
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -225,8 +1413,8 @@ func (j *jsiiProxy_CfnChannel) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnChannel) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnChannel) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -297,13 +1485,13 @@ func (j *jsiiProxy_CfnChannel) Vpc() interface{} {
 
 
 // Create a new `AWS::MediaLive::Channel`.
-func NewCfnChannel(scope constructs.Construct, id *string, props *CfnChannelProps) CfnChannel {
+func NewCfnChannel(scope awscdk.Construct, id *string, props *CfnChannelProps) CfnChannel {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnChannel{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_medialive.CfnChannel",
+		"monocdk.aws_medialive.CfnChannel",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -312,11 +1500,11 @@ func NewCfnChannel(scope constructs.Construct, id *string, props *CfnChannelProp
 }
 
 // Create a new `AWS::MediaLive::Channel`.
-func NewCfnChannel_Override(c CfnChannel, scope constructs.Construct, id *string, props *CfnChannelProps) {
+func NewCfnChannel_Override(c CfnChannel, scope awscdk.Construct, id *string, props *CfnChannelProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_medialive.CfnChannel",
+		"monocdk.aws_medialive.CfnChannel",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -408,13 +1596,14 @@ func (j *jsiiProxy_CfnChannel) SetVpc(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnChannel_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnChannel",
+		"monocdk.aws_medialive.CfnChannel",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -424,13 +1613,14 @@ func CfnChannel_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnChannel_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnChannel",
+		"monocdk.aws_medialive.CfnChannel",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -439,17 +1629,15 @@ func CfnChannel_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnChannel_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnChannel",
+		"monocdk.aws_medialive.CfnChannel",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -462,14 +1650,13 @@ func CfnChannel_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_medialive.CfnChannel",
+		"monocdk.aws_medialive.CfnChannel",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnChannel) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -478,10 +1665,6 @@ func (c *jsiiProxy_CfnChannel) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnChannel) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -490,13 +1673,6 @@ func (c *jsiiProxy_CfnChannel) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnChannel) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -505,49 +1681,6 @@ func (c *jsiiProxy_CfnChannel) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnChannel) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -556,7 +1689,6 @@ func (c *jsiiProxy_CfnChannel) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnChannel) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -565,9 +1697,6 @@ func (c *jsiiProxy_CfnChannel) AddPropertyDeletionOverride(propertyPath *string)
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnChannel) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -576,15 +1705,6 @@ func (c *jsiiProxy_CfnChannel) AddPropertyOverride(propertyPath *string, value i
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnChannel) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -593,10 +1713,6 @@ func (c *jsiiProxy_CfnChannel) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnChannel) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -610,13 +1726,6 @@ func (c *jsiiProxy_CfnChannel) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnChannel) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -630,7 +1739,6 @@ func (c *jsiiProxy_CfnChannel) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnChannel) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -639,12 +1747,48 @@ func (c *jsiiProxy_CfnChannel) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnChannel) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnChannel) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnChannel) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnChannel) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnChannel) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -661,10 +1805,6 @@ func (c *jsiiProxy_CfnChannel) RenderProperties(props *map[string]interface{}) *
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnChannel) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -678,15 +1818,33 @@ func (c *jsiiProxy_CfnChannel) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnChannel) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnChannel) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnChannel) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -706,7 +1864,19 @@ func (c *jsiiProxy_CfnChannel) ValidateProperties(_properties interface{}) {
 //
 // The parent of this entity is AudioCodecSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   aacSettingsProperty := &aacSettingsProperty{
+//   	bitrate: jsii.Number(123),
+//   	codingMode: jsii.String("codingMode"),
+//   	inputType: jsii.String("inputType"),
+//   	profile: jsii.String("profile"),
+//   	rateControlMode: jsii.String("rateControlMode"),
+//   	rawFormat: jsii.String("rawFormat"),
+//   	sampleRate: jsii.Number(123),
+//   	spec: jsii.String("spec"),
+//   	vbrQuality: jsii.String("vbrQuality"),
+//   }
 //
 type CfnChannel_AacSettingsProperty struct {
 	// The average bitrate in bits/second.
@@ -741,7 +1911,17 @@ type CfnChannel_AacSettingsProperty struct {
 //
 // The parent of this entity is AudioCodecSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   ac3SettingsProperty := &ac3SettingsProperty{
+//   	bitrate: jsii.Number(123),
+//   	bitstreamMode: jsii.String("bitstreamMode"),
+//   	codingMode: jsii.String("codingMode"),
+//   	dialnorm: jsii.Number(123),
+//   	drcProfile: jsii.String("drcProfile"),
+//   	lfeFilter: jsii.String("lfeFilter"),
+//   	metadataControl: jsii.String("metadataControl"),
+//   }
 //
 type CfnChannel_Ac3SettingsProperty struct {
 	// The average bitrate in bits/second.
@@ -776,7 +1956,11 @@ type CfnChannel_Ac3SettingsProperty struct {
 //
 // The parent of this entity is CaptionSelectorSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   ancillarySourceSettingsProperty := &ancillarySourceSettingsProperty{
+//   	sourceAncillaryChannelNumber: jsii.Number(123),
+//   }
 //
 type CfnChannel_AncillarySourceSettingsProperty struct {
 	// Specifies the number (1 to 4) of the captions channel you want to extract from the ancillary captions.
@@ -789,7 +1973,13 @@ type CfnChannel_AncillarySourceSettingsProperty struct {
 //
 // The parent of this entity is ArchiveGroupSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   archiveCdnSettingsProperty := &archiveCdnSettingsProperty{
+//   	archiveS3Settings: &archiveS3SettingsProperty{
+//   		cannedAcl: jsii.String("cannedAcl"),
+//   	},
+//   }
 //
 type CfnChannel_ArchiveCdnSettingsProperty struct {
 	// Sets up Amazon S3 as the destination for this Archive output.
@@ -800,7 +1990,72 @@ type CfnChannel_ArchiveCdnSettingsProperty struct {
 //
 // The parent of this entity is ArchiveOutputSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   archiveContainerSettingsProperty := &archiveContainerSettingsProperty{
+//   	m2TsSettings: &m2tsSettingsProperty{
+//   		absentInputAudioBehavior: jsii.String("absentInputAudioBehavior"),
+//   		arib: jsii.String("arib"),
+//   		aribCaptionsPid: jsii.String("aribCaptionsPid"),
+//   		aribCaptionsPidControl: jsii.String("aribCaptionsPidControl"),
+//   		audioBufferModel: jsii.String("audioBufferModel"),
+//   		audioFramesPerPes: jsii.Number(123),
+//   		audioPids: jsii.String("audioPids"),
+//   		audioStreamType: jsii.String("audioStreamType"),
+//   		bitrate: jsii.Number(123),
+//   		bufferModel: jsii.String("bufferModel"),
+//   		ccDescriptor: jsii.String("ccDescriptor"),
+//   		dvbNitSettings: &dvbNitSettingsProperty{
+//   			networkId: jsii.Number(123),
+//   			networkName: jsii.String("networkName"),
+//   			repInterval: jsii.Number(123),
+//   		},
+//   		dvbSdtSettings: &dvbSdtSettingsProperty{
+//   			outputSdt: jsii.String("outputSdt"),
+//   			repInterval: jsii.Number(123),
+//   			serviceName: jsii.String("serviceName"),
+//   			serviceProviderName: jsii.String("serviceProviderName"),
+//   		},
+//   		dvbSubPids: jsii.String("dvbSubPids"),
+//   		dvbTdtSettings: &dvbTdtSettingsProperty{
+//   			repInterval: jsii.Number(123),
+//   		},
+//   		dvbTeletextPid: jsii.String("dvbTeletextPid"),
+//   		ebif: jsii.String("ebif"),
+//   		ebpAudioInterval: jsii.String("ebpAudioInterval"),
+//   		ebpLookaheadMs: jsii.Number(123),
+//   		ebpPlacement: jsii.String("ebpPlacement"),
+//   		ecmPid: jsii.String("ecmPid"),
+//   		esRateInPes: jsii.String("esRateInPes"),
+//   		etvPlatformPid: jsii.String("etvPlatformPid"),
+//   		etvSignalPid: jsii.String("etvSignalPid"),
+//   		fragmentTime: jsii.Number(123),
+//   		klv: jsii.String("klv"),
+//   		klvDataPids: jsii.String("klvDataPids"),
+//   		nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   		nullPacketBitrate: jsii.Number(123),
+//   		patInterval: jsii.Number(123),
+//   		pcrControl: jsii.String("pcrControl"),
+//   		pcrPeriod: jsii.Number(123),
+//   		pcrPid: jsii.String("pcrPid"),
+//   		pmtInterval: jsii.Number(123),
+//   		pmtPid: jsii.String("pmtPid"),
+//   		programNum: jsii.Number(123),
+//   		rateMode: jsii.String("rateMode"),
+//   		scte27Pids: jsii.String("scte27Pids"),
+//   		scte35Control: jsii.String("scte35Control"),
+//   		scte35Pid: jsii.String("scte35Pid"),
+//   		segmentationMarkers: jsii.String("segmentationMarkers"),
+//   		segmentationStyle: jsii.String("segmentationStyle"),
+//   		segmentationTime: jsii.Number(123),
+//   		timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   		timedMetadataPid: jsii.String("timedMetadataPid"),
+//   		transportStreamId: jsii.Number(123),
+//   		videoPid: jsii.String("videoPid"),
+//   	},
+//   	rawSettings: &rawSettingsProperty{
+//   	},
+//   }
 //
 type CfnChannel_ArchiveContainerSettingsProperty struct {
 	// The settings for the M2TS in the archive output.
@@ -813,7 +2068,19 @@ type CfnChannel_ArchiveContainerSettingsProperty struct {
 //
 // The parent of this entity is OutputGroupSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   archiveGroupSettingsProperty := &archiveGroupSettingsProperty{
+//   	archiveCdnSettings: &archiveCdnSettingsProperty{
+//   		archiveS3Settings: &archiveS3SettingsProperty{
+//   			cannedAcl: jsii.String("cannedAcl"),
+//   		},
+//   	},
+//   	destination: &outputLocationRefProperty{
+//   		destinationRefId: jsii.String("destinationRefId"),
+//   	},
+//   	rolloverInterval: jsii.Number(123),
+//   }
 //
 type CfnChannel_ArchiveGroupSettingsProperty struct {
 	// Settings to configure the destination of an Archive output.
@@ -828,7 +2095,76 @@ type CfnChannel_ArchiveGroupSettingsProperty struct {
 //
 // The parent of this entity is OutputSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   archiveOutputSettingsProperty := &archiveOutputSettingsProperty{
+//   	containerSettings: &archiveContainerSettingsProperty{
+//   		m2TsSettings: &m2tsSettingsProperty{
+//   			absentInputAudioBehavior: jsii.String("absentInputAudioBehavior"),
+//   			arib: jsii.String("arib"),
+//   			aribCaptionsPid: jsii.String("aribCaptionsPid"),
+//   			aribCaptionsPidControl: jsii.String("aribCaptionsPidControl"),
+//   			audioBufferModel: jsii.String("audioBufferModel"),
+//   			audioFramesPerPes: jsii.Number(123),
+//   			audioPids: jsii.String("audioPids"),
+//   			audioStreamType: jsii.String("audioStreamType"),
+//   			bitrate: jsii.Number(123),
+//   			bufferModel: jsii.String("bufferModel"),
+//   			ccDescriptor: jsii.String("ccDescriptor"),
+//   			dvbNitSettings: &dvbNitSettingsProperty{
+//   				networkId: jsii.Number(123),
+//   				networkName: jsii.String("networkName"),
+//   				repInterval: jsii.Number(123),
+//   			},
+//   			dvbSdtSettings: &dvbSdtSettingsProperty{
+//   				outputSdt: jsii.String("outputSdt"),
+//   				repInterval: jsii.Number(123),
+//   				serviceName: jsii.String("serviceName"),
+//   				serviceProviderName: jsii.String("serviceProviderName"),
+//   			},
+//   			dvbSubPids: jsii.String("dvbSubPids"),
+//   			dvbTdtSettings: &dvbTdtSettingsProperty{
+//   				repInterval: jsii.Number(123),
+//   			},
+//   			dvbTeletextPid: jsii.String("dvbTeletextPid"),
+//   			ebif: jsii.String("ebif"),
+//   			ebpAudioInterval: jsii.String("ebpAudioInterval"),
+//   			ebpLookaheadMs: jsii.Number(123),
+//   			ebpPlacement: jsii.String("ebpPlacement"),
+//   			ecmPid: jsii.String("ecmPid"),
+//   			esRateInPes: jsii.String("esRateInPes"),
+//   			etvPlatformPid: jsii.String("etvPlatformPid"),
+//   			etvSignalPid: jsii.String("etvSignalPid"),
+//   			fragmentTime: jsii.Number(123),
+//   			klv: jsii.String("klv"),
+//   			klvDataPids: jsii.String("klvDataPids"),
+//   			nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   			nullPacketBitrate: jsii.Number(123),
+//   			patInterval: jsii.Number(123),
+//   			pcrControl: jsii.String("pcrControl"),
+//   			pcrPeriod: jsii.Number(123),
+//   			pcrPid: jsii.String("pcrPid"),
+//   			pmtInterval: jsii.Number(123),
+//   			pmtPid: jsii.String("pmtPid"),
+//   			programNum: jsii.Number(123),
+//   			rateMode: jsii.String("rateMode"),
+//   			scte27Pids: jsii.String("scte27Pids"),
+//   			scte35Control: jsii.String("scte35Control"),
+//   			scte35Pid: jsii.String("scte35Pid"),
+//   			segmentationMarkers: jsii.String("segmentationMarkers"),
+//   			segmentationStyle: jsii.String("segmentationStyle"),
+//   			segmentationTime: jsii.Number(123),
+//   			timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   			timedMetadataPid: jsii.String("timedMetadataPid"),
+//   			transportStreamId: jsii.Number(123),
+//   			videoPid: jsii.String("videoPid"),
+//   		},
+//   		rawSettings: &rawSettingsProperty{
+//   		},
+//   	},
+//   	extension: jsii.String("extension"),
+//   	nameModifier: jsii.String("nameModifier"),
+//   }
 //
 type CfnChannel_ArchiveOutputSettingsProperty struct {
 	// The settings that are specific to the container type of the file.
@@ -847,7 +2183,11 @@ type CfnChannel_ArchiveOutputSettingsProperty struct {
 //
 // The parent of this entity is ArchiveCdnSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   archiveS3SettingsProperty := &archiveS3SettingsProperty{
+//   	cannedAcl: jsii.String("cannedAcl"),
+//   }
 //
 type CfnChannel_ArchiveS3SettingsProperty struct {
 	// Specify the canned ACL to apply to each S3 request.
@@ -860,7 +2200,10 @@ type CfnChannel_ArchiveS3SettingsProperty struct {
 //
 // The parent of this entity is CaptionDestinationSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   aribDestinationSettingsProperty := &aribDestinationSettingsProperty{
+//   }
 //
 type CfnChannel_AribDestinationSettingsProperty struct {
 }
@@ -869,7 +2212,10 @@ type CfnChannel_AribDestinationSettingsProperty struct {
 //
 // The parent of this entity is CaptionSelectorSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   aribSourceSettingsProperty := &aribSourceSettingsProperty{
+//   }
 //
 type CfnChannel_AribSourceSettingsProperty struct {
 }
@@ -878,7 +2224,17 @@ type CfnChannel_AribSourceSettingsProperty struct {
 //
 // The parent of this entity is RemixSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   audioChannelMappingProperty := &audioChannelMappingProperty{
+//   	inputChannelLevels: []interface{}{
+//   		&inputChannelLevelProperty{
+//   			gain: jsii.Number(123),
+//   			inputChannel: jsii.Number(123),
+//   		},
+//   	},
+//   	outputChannel: jsii.Number(123),
+//   }
 //
 type CfnChannel_AudioChannelMappingProperty struct {
 	// The indices and gain values for each input channel that should be remixed into this output channel.
@@ -891,7 +2247,64 @@ type CfnChannel_AudioChannelMappingProperty struct {
 //
 // The parent of this entity is AudioDescription.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   audioCodecSettingsProperty := &audioCodecSettingsProperty{
+//   	aacSettings: &aacSettingsProperty{
+//   		bitrate: jsii.Number(123),
+//   		codingMode: jsii.String("codingMode"),
+//   		inputType: jsii.String("inputType"),
+//   		profile: jsii.String("profile"),
+//   		rateControlMode: jsii.String("rateControlMode"),
+//   		rawFormat: jsii.String("rawFormat"),
+//   		sampleRate: jsii.Number(123),
+//   		spec: jsii.String("spec"),
+//   		vbrQuality: jsii.String("vbrQuality"),
+//   	},
+//   	ac3Settings: &ac3SettingsProperty{
+//   		bitrate: jsii.Number(123),
+//   		bitstreamMode: jsii.String("bitstreamMode"),
+//   		codingMode: jsii.String("codingMode"),
+//   		dialnorm: jsii.Number(123),
+//   		drcProfile: jsii.String("drcProfile"),
+//   		lfeFilter: jsii.String("lfeFilter"),
+//   		metadataControl: jsii.String("metadataControl"),
+//   	},
+//   	eac3Settings: &eac3SettingsProperty{
+//   		attenuationControl: jsii.String("attenuationControl"),
+//   		bitrate: jsii.Number(123),
+//   		bitstreamMode: jsii.String("bitstreamMode"),
+//   		codingMode: jsii.String("codingMode"),
+//   		dcFilter: jsii.String("dcFilter"),
+//   		dialnorm: jsii.Number(123),
+//   		drcLine: jsii.String("drcLine"),
+//   		drcRf: jsii.String("drcRf"),
+//   		lfeControl: jsii.String("lfeControl"),
+//   		lfeFilter: jsii.String("lfeFilter"),
+//   		loRoCenterMixLevel: jsii.Number(123),
+//   		loRoSurroundMixLevel: jsii.Number(123),
+//   		ltRtCenterMixLevel: jsii.Number(123),
+//   		ltRtSurroundMixLevel: jsii.Number(123),
+//   		metadataControl: jsii.String("metadataControl"),
+//   		passthroughControl: jsii.String("passthroughControl"),
+//   		phaseControl: jsii.String("phaseControl"),
+//   		stereoDownmix: jsii.String("stereoDownmix"),
+//   		surroundExMode: jsii.String("surroundExMode"),
+//   		surroundMode: jsii.String("surroundMode"),
+//   	},
+//   	mp2Settings: &mp2SettingsProperty{
+//   		bitrate: jsii.Number(123),
+//   		codingMode: jsii.String("codingMode"),
+//   		sampleRate: jsii.Number(123),
+//   	},
+//   	passThroughSettings: &passThroughSettingsProperty{
+//   	},
+//   	wavSettings: &wavSettingsProperty{
+//   		bitDepth: jsii.Number(123),
+//   		codingMode: jsii.String("codingMode"),
+//   		sampleRate: jsii.Number(123),
+//   	},
+//   }
 //
 type CfnChannel_AudioCodecSettingsProperty struct {
 	// The setup of the AAC audio codec in the output.
@@ -912,7 +2325,107 @@ type CfnChannel_AudioCodecSettingsProperty struct {
 //
 // The parent of this entity is EncoderSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   audioDescriptionProperty := &audioDescriptionProperty{
+//   	audioNormalizationSettings: &audioNormalizationSettingsProperty{
+//   		algorithm: jsii.String("algorithm"),
+//   		algorithmControl: jsii.String("algorithmControl"),
+//   		targetLkfs: jsii.Number(123),
+//   	},
+//   	audioSelectorName: jsii.String("audioSelectorName"),
+//   	audioType: jsii.String("audioType"),
+//   	audioTypeControl: jsii.String("audioTypeControl"),
+//   	audioWatermarkingSettings: &audioWatermarkSettingsProperty{
+//   		nielsenWatermarksSettings: &nielsenWatermarksSettingsProperty{
+//   			nielsenCbetSettings: &nielsenCBETProperty{
+//   				cbetCheckDigitString: jsii.String("cbetCheckDigitString"),
+//   				cbetStepaside: jsii.String("cbetStepaside"),
+//   				csid: jsii.String("csid"),
+//   			},
+//   			nielsenDistributionType: jsii.String("nielsenDistributionType"),
+//   			nielsenNaesIiNwSettings: &nielsenNaesIiNwProperty{
+//   				checkDigitString: jsii.String("checkDigitString"),
+//   				sid: jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   	codecSettings: &audioCodecSettingsProperty{
+//   		aacSettings: &aacSettingsProperty{
+//   			bitrate: jsii.Number(123),
+//   			codingMode: jsii.String("codingMode"),
+//   			inputType: jsii.String("inputType"),
+//   			profile: jsii.String("profile"),
+//   			rateControlMode: jsii.String("rateControlMode"),
+//   			rawFormat: jsii.String("rawFormat"),
+//   			sampleRate: jsii.Number(123),
+//   			spec: jsii.String("spec"),
+//   			vbrQuality: jsii.String("vbrQuality"),
+//   		},
+//   		ac3Settings: &ac3SettingsProperty{
+//   			bitrate: jsii.Number(123),
+//   			bitstreamMode: jsii.String("bitstreamMode"),
+//   			codingMode: jsii.String("codingMode"),
+//   			dialnorm: jsii.Number(123),
+//   			drcProfile: jsii.String("drcProfile"),
+//   			lfeFilter: jsii.String("lfeFilter"),
+//   			metadataControl: jsii.String("metadataControl"),
+//   		},
+//   		eac3Settings: &eac3SettingsProperty{
+//   			attenuationControl: jsii.String("attenuationControl"),
+//   			bitrate: jsii.Number(123),
+//   			bitstreamMode: jsii.String("bitstreamMode"),
+//   			codingMode: jsii.String("codingMode"),
+//   			dcFilter: jsii.String("dcFilter"),
+//   			dialnorm: jsii.Number(123),
+//   			drcLine: jsii.String("drcLine"),
+//   			drcRf: jsii.String("drcRf"),
+//   			lfeControl: jsii.String("lfeControl"),
+//   			lfeFilter: jsii.String("lfeFilter"),
+//   			loRoCenterMixLevel: jsii.Number(123),
+//   			loRoSurroundMixLevel: jsii.Number(123),
+//   			ltRtCenterMixLevel: jsii.Number(123),
+//   			ltRtSurroundMixLevel: jsii.Number(123),
+//   			metadataControl: jsii.String("metadataControl"),
+//   			passthroughControl: jsii.String("passthroughControl"),
+//   			phaseControl: jsii.String("phaseControl"),
+//   			stereoDownmix: jsii.String("stereoDownmix"),
+//   			surroundExMode: jsii.String("surroundExMode"),
+//   			surroundMode: jsii.String("surroundMode"),
+//   		},
+//   		mp2Settings: &mp2SettingsProperty{
+//   			bitrate: jsii.Number(123),
+//   			codingMode: jsii.String("codingMode"),
+//   			sampleRate: jsii.Number(123),
+//   		},
+//   		passThroughSettings: &passThroughSettingsProperty{
+//   		},
+//   		wavSettings: &wavSettingsProperty{
+//   			bitDepth: jsii.Number(123),
+//   			codingMode: jsii.String("codingMode"),
+//   			sampleRate: jsii.Number(123),
+//   		},
+//   	},
+//   	languageCode: jsii.String("languageCode"),
+//   	languageCodeControl: jsii.String("languageCodeControl"),
+//   	name: jsii.String("name"),
+//   	remixSettings: &remixSettingsProperty{
+//   		channelMappings: []interface{}{
+//   			&audioChannelMappingProperty{
+//   				inputChannelLevels: []interface{}{
+//   					&inputChannelLevelProperty{
+//   						gain: jsii.Number(123),
+//   						inputChannel: jsii.Number(123),
+//   					},
+//   				},
+//   				outputChannel: jsii.Number(123),
+//   			},
+//   		},
+//   		channelsIn: jsii.Number(123),
+//   		channelsOut: jsii.Number(123),
+//   	},
+//   	streamName: jsii.String("streamName"),
+//   }
 //
 type CfnChannel_AudioDescriptionProperty struct {
 	// The advanced audio normalization settings.
@@ -955,7 +2468,12 @@ type CfnChannel_AudioDescriptionProperty struct {
 //
 // The parent of this entity is AudioSelectorSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   audioHlsRenditionSelectionProperty := &audioHlsRenditionSelectionProperty{
+//   	groupId: jsii.String("groupId"),
+//   	name: jsii.String("name"),
+//   }
 //
 type CfnChannel_AudioHlsRenditionSelectionProperty struct {
 	// Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
@@ -968,7 +2486,12 @@ type CfnChannel_AudioHlsRenditionSelectionProperty struct {
 //
 // The parent of this entity is AudioSelectorSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   audioLanguageSelectionProperty := &audioLanguageSelectionProperty{
+//   	languageCode: jsii.String("languageCode"),
+//   	languageSelectionPolicy: jsii.String("languageSelectionPolicy"),
+//   }
 //
 type CfnChannel_AudioLanguageSelectionProperty struct {
 	// Selects a specific three-letter language code from within an audio source.
@@ -983,7 +2506,13 @@ type CfnChannel_AudioLanguageSelectionProperty struct {
 //
 // The parent of this entity is AudioDescription.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   audioNormalizationSettingsProperty := &audioNormalizationSettingsProperty{
+//   	algorithm: jsii.String("algorithm"),
+//   	algorithmControl: jsii.String("algorithmControl"),
+//   	targetLkfs: jsii.Number(123),
+//   }
 //
 type CfnChannel_AudioNormalizationSettingsProperty struct {
 	// The audio normalization algorithm to use.
@@ -1004,7 +2533,18 @@ type CfnChannel_AudioNormalizationSettingsProperty struct {
 //
 // The parent of this entity is HlsSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   audioOnlyHlsSettingsProperty := &audioOnlyHlsSettingsProperty{
+//   	audioGroupId: jsii.String("audioGroupId"),
+//   	audioOnlyImage: &inputLocationProperty{
+//   		passwordParam: jsii.String("passwordParam"),
+//   		uri: jsii.String("uri"),
+//   		username: jsii.String("username"),
+//   	},
+//   	audioTrackType: jsii.String("audioTrackType"),
+//   	segmentType: jsii.String("segmentType"),
+//   }
 //
 type CfnChannel_AudioOnlyHlsSettingsProperty struct {
 	// Specifies the group that the audio rendition belongs to.
@@ -1025,7 +2565,11 @@ type CfnChannel_AudioOnlyHlsSettingsProperty struct {
 //
 // The parent of this entity is AudioSelectorSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   audioPidSelectionProperty := &audioPidSelectionProperty{
+//   	pid: jsii.Number(123),
+//   }
 //
 type CfnChannel_AudioPidSelectionProperty struct {
 	// Select the audio by this PID.
@@ -1036,7 +2580,31 @@ type CfnChannel_AudioPidSelectionProperty struct {
 //
 // The parent of this entity is InputSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   audioSelectorProperty := &audioSelectorProperty{
+//   	name: jsii.String("name"),
+//   	selectorSettings: &audioSelectorSettingsProperty{
+//   		audioHlsRenditionSelection: &audioHlsRenditionSelectionProperty{
+//   			groupId: jsii.String("groupId"),
+//   			name: jsii.String("name"),
+//   		},
+//   		audioLanguageSelection: &audioLanguageSelectionProperty{
+//   			languageCode: jsii.String("languageCode"),
+//   			languageSelectionPolicy: jsii.String("languageSelectionPolicy"),
+//   		},
+//   		audioPidSelection: &audioPidSelectionProperty{
+//   			pid: jsii.Number(123),
+//   		},
+//   		audioTrackSelection: &audioTrackSelectionProperty{
+//   			tracks: []interface{}{
+//   				&audioTrackProperty{
+//   					track: jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnChannel_AudioSelectorProperty struct {
 	// A name for this AudioSelector.
@@ -1049,7 +2617,28 @@ type CfnChannel_AudioSelectorProperty struct {
 //
 // The parent of this entity is AudioSelector.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   audioSelectorSettingsProperty := &audioSelectorSettingsProperty{
+//   	audioHlsRenditionSelection: &audioHlsRenditionSelectionProperty{
+//   		groupId: jsii.String("groupId"),
+//   		name: jsii.String("name"),
+//   	},
+//   	audioLanguageSelection: &audioLanguageSelectionProperty{
+//   		languageCode: jsii.String("languageCode"),
+//   		languageSelectionPolicy: jsii.String("languageSelectionPolicy"),
+//   	},
+//   	audioPidSelection: &audioPidSelectionProperty{
+//   		pid: jsii.Number(123),
+//   	},
+//   	audioTrackSelection: &audioTrackSelectionProperty{
+//   		tracks: []interface{}{
+//   			&audioTrackProperty{
+//   				track: jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnChannel_AudioSelectorSettingsProperty struct {
 	// Selector for HLS audio rendition.
@@ -1066,7 +2655,12 @@ type CfnChannel_AudioSelectorSettingsProperty struct {
 //
 // The parent of this entity is FailoverConditionSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   audioSilenceFailoverSettingsProperty := &audioSilenceFailoverSettingsProperty{
+//   	audioSelectorName: jsii.String("audioSelectorName"),
+//   	audioSilenceThresholdMsec: jsii.Number(123),
+//   }
 //
 type CfnChannel_AudioSilenceFailoverSettingsProperty struct {
 	// The name of the audio selector in the input that MediaLive should monitor to detect silence.
@@ -1083,7 +2677,11 @@ type CfnChannel_AudioSilenceFailoverSettingsProperty struct {
 //
 // The parent of this entity is AudioTrackSelection.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   audioTrackProperty := &audioTrackProperty{
+//   	track: jsii.Number(123),
+//   }
 //
 type CfnChannel_AudioTrackProperty struct {
 	// 1-based integer value that maps to a specific audio track.
@@ -1094,7 +2692,15 @@ type CfnChannel_AudioTrackProperty struct {
 //
 // The parent of this entity is AudioSelectorSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   audioTrackSelectionProperty := &audioTrackSelectionProperty{
+//   	tracks: []interface{}{
+//   		&audioTrackProperty{
+//   			track: jsii.Number(123),
+//   		},
+//   	},
+//   }
 //
 type CfnChannel_AudioTrackSelectionProperty struct {
 	// Selects one or more unique audio tracks from within a source.
@@ -1105,7 +2711,22 @@ type CfnChannel_AudioTrackSelectionProperty struct {
 //
 // The parent of this entity is AudioDescription.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   audioWatermarkSettingsProperty := &audioWatermarkSettingsProperty{
+//   	nielsenWatermarksSettings: &nielsenWatermarksSettingsProperty{
+//   		nielsenCbetSettings: &nielsenCBETProperty{
+//   			cbetCheckDigitString: jsii.String("cbetCheckDigitString"),
+//   			cbetStepaside: jsii.String("cbetStepaside"),
+//   			csid: jsii.String("csid"),
+//   		},
+//   		nielsenDistributionType: jsii.String("nielsenDistributionType"),
+//   		nielsenNaesIiNwSettings: &nielsenNaesIiNwProperty{
+//   			checkDigitString: jsii.String("checkDigitString"),
+//   			sid: jsii.Number(123),
+//   		},
+//   	},
+//   }
 //
 type CfnChannel_AudioWatermarkSettingsProperty struct {
 	// Settings to configure Nielsen Watermarks in the audio encode.
@@ -1116,7 +2737,30 @@ type CfnChannel_AudioWatermarkSettingsProperty struct {
 //
 // The parent of this entity is InputAttachment.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   automaticInputFailoverSettingsProperty := &automaticInputFailoverSettingsProperty{
+//   	errorClearTimeMsec: jsii.Number(123),
+//   	failoverConditions: []interface{}{
+//   		&failoverConditionProperty{
+//   			failoverConditionSettings: &failoverConditionSettingsProperty{
+//   				audioSilenceSettings: &audioSilenceFailoverSettingsProperty{
+//   					audioSelectorName: jsii.String("audioSelectorName"),
+//   					audioSilenceThresholdMsec: jsii.Number(123),
+//   				},
+//   				inputLossSettings: &inputLossFailoverSettingsProperty{
+//   					inputLossThresholdMsec: jsii.Number(123),
+//   				},
+//   				videoBlackSettings: &videoBlackFailoverSettingsProperty{
+//   					blackDetectThreshold: jsii.Number(123),
+//   					videoBlackThresholdMsec: jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	inputPreference: jsii.String("inputPreference"),
+//   	secondaryInputId: jsii.String("secondaryInputId"),
+//   }
 //
 type CfnChannel_AutomaticInputFailoverSettingsProperty struct {
 	// This clear time defines the requirement a recovered input must meet to be considered healthy.
@@ -1137,7 +2781,16 @@ type CfnChannel_AutomaticInputFailoverSettingsProperty struct {
 //
 // The parent of this entity is EncoderSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   availBlankingProperty := &availBlankingProperty{
+//   	availBlankingImage: &inputLocationProperty{
+//   		passwordParam: jsii.String("passwordParam"),
+//   		uri: jsii.String("uri"),
+//   		username: jsii.String("username"),
+//   	},
+//   	state: jsii.String("state"),
+//   }
 //
 type CfnChannel_AvailBlankingProperty struct {
 	// The blanking image to be used.
@@ -1152,7 +2805,22 @@ type CfnChannel_AvailBlankingProperty struct {
 //
 // The parent of this entity is EncoderSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   availConfigurationProperty := &availConfigurationProperty{
+//   	availSettings: &availSettingsProperty{
+//   		scte35SpliceInsert: &scte35SpliceInsertProperty{
+//   			adAvailOffset: jsii.Number(123),
+//   			noRegionalBlackoutFlag: jsii.String("noRegionalBlackoutFlag"),
+//   			webDeliveryAllowedFlag: jsii.String("webDeliveryAllowedFlag"),
+//   		},
+//   		scte35TimeSignalApos: &scte35TimeSignalAposProperty{
+//   			adAvailOffset: jsii.Number(123),
+//   			noRegionalBlackoutFlag: jsii.String("noRegionalBlackoutFlag"),
+//   			webDeliveryAllowedFlag: jsii.String("webDeliveryAllowedFlag"),
+//   		},
+//   	},
+//   }
 //
 type CfnChannel_AvailConfigurationProperty struct {
 	// The setup of ad avail handling in the output.
@@ -1163,7 +2831,20 @@ type CfnChannel_AvailConfigurationProperty struct {
 //
 // The parent of this entity is AvailConfiguration.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   availSettingsProperty := &availSettingsProperty{
+//   	scte35SpliceInsert: &scte35SpliceInsertProperty{
+//   		adAvailOffset: jsii.Number(123),
+//   		noRegionalBlackoutFlag: jsii.String("noRegionalBlackoutFlag"),
+//   		webDeliveryAllowedFlag: jsii.String("webDeliveryAllowedFlag"),
+//   	},
+//   	scte35TimeSignalApos: &scte35TimeSignalAposProperty{
+//   		adAvailOffset: jsii.Number(123),
+//   		noRegionalBlackoutFlag: jsii.String("noRegionalBlackoutFlag"),
+//   		webDeliveryAllowedFlag: jsii.String("webDeliveryAllowedFlag"),
+//   	},
+//   }
 //
 type CfnChannel_AvailSettingsProperty struct {
 	// The setup for SCTE-35 splice insert handling.
@@ -1176,7 +2857,23 @@ type CfnChannel_AvailSettingsProperty struct {
 //
 // The parent of this entity is EncoderSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   blackoutSlateProperty := &blackoutSlateProperty{
+//   	blackoutSlateImage: &inputLocationProperty{
+//   		passwordParam: jsii.String("passwordParam"),
+//   		uri: jsii.String("uri"),
+//   		username: jsii.String("username"),
+//   	},
+//   	networkEndBlackout: jsii.String("networkEndBlackout"),
+//   	networkEndBlackoutImage: &inputLocationProperty{
+//   		passwordParam: jsii.String("passwordParam"),
+//   		uri: jsii.String("uri"),
+//   		username: jsii.String("username"),
+//   	},
+//   	networkId: jsii.String("networkId"),
+//   	state: jsii.String("state"),
+//   }
 //
 type CfnChannel_BlackoutSlateProperty struct {
 	// The blackout slate image to be used.
@@ -1201,7 +2898,31 @@ type CfnChannel_BlackoutSlateProperty struct {
 //
 // The parent of this entity is CaptionDestinationSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   burnInDestinationSettingsProperty := &burnInDestinationSettingsProperty{
+//   	alignment: jsii.String("alignment"),
+//   	backgroundColor: jsii.String("backgroundColor"),
+//   	backgroundOpacity: jsii.Number(123),
+//   	font: &inputLocationProperty{
+//   		passwordParam: jsii.String("passwordParam"),
+//   		uri: jsii.String("uri"),
+//   		username: jsii.String("username"),
+//   	},
+//   	fontColor: jsii.String("fontColor"),
+//   	fontOpacity: jsii.Number(123),
+//   	fontResolution: jsii.Number(123),
+//   	fontSize: jsii.String("fontSize"),
+//   	outlineColor: jsii.String("outlineColor"),
+//   	outlineSize: jsii.Number(123),
+//   	shadowColor: jsii.String("shadowColor"),
+//   	shadowOpacity: jsii.Number(123),
+//   	shadowXOffset: jsii.Number(123),
+//   	shadowYOffset: jsii.Number(123),
+//   	teletextGridControl: jsii.String("teletextGridControl"),
+//   	xPosition: jsii.Number(123),
+//   	yPosition: jsii.Number(123),
+//   }
 //
 type CfnChannel_BurnInDestinationSettingsProperty struct {
 	// If no explicit xPosition or yPosition is provided, setting alignment to centered places the captions at the bottom center of the output.
@@ -1278,7 +2999,90 @@ type CfnChannel_BurnInDestinationSettingsProperty struct {
 //
 // The parent of this entity is EncoderSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   captionDescriptionProperty := &captionDescriptionProperty{
+//   	captionSelectorName: jsii.String("captionSelectorName"),
+//   	destinationSettings: &captionDestinationSettingsProperty{
+//   		aribDestinationSettings: &aribDestinationSettingsProperty{
+//   		},
+//   		burnInDestinationSettings: &burnInDestinationSettingsProperty{
+//   			alignment: jsii.String("alignment"),
+//   			backgroundColor: jsii.String("backgroundColor"),
+//   			backgroundOpacity: jsii.Number(123),
+//   			font: &inputLocationProperty{
+//   				passwordParam: jsii.String("passwordParam"),
+//   				uri: jsii.String("uri"),
+//   				username: jsii.String("username"),
+//   			},
+//   			fontColor: jsii.String("fontColor"),
+//   			fontOpacity: jsii.Number(123),
+//   			fontResolution: jsii.Number(123),
+//   			fontSize: jsii.String("fontSize"),
+//   			outlineColor: jsii.String("outlineColor"),
+//   			outlineSize: jsii.Number(123),
+//   			shadowColor: jsii.String("shadowColor"),
+//   			shadowOpacity: jsii.Number(123),
+//   			shadowXOffset: jsii.Number(123),
+//   			shadowYOffset: jsii.Number(123),
+//   			teletextGridControl: jsii.String("teletextGridControl"),
+//   			xPosition: jsii.Number(123),
+//   			yPosition: jsii.Number(123),
+//   		},
+//   		dvbSubDestinationSettings: &dvbSubDestinationSettingsProperty{
+//   			alignment: jsii.String("alignment"),
+//   			backgroundColor: jsii.String("backgroundColor"),
+//   			backgroundOpacity: jsii.Number(123),
+//   			font: &inputLocationProperty{
+//   				passwordParam: jsii.String("passwordParam"),
+//   				uri: jsii.String("uri"),
+//   				username: jsii.String("username"),
+//   			},
+//   			fontColor: jsii.String("fontColor"),
+//   			fontOpacity: jsii.Number(123),
+//   			fontResolution: jsii.Number(123),
+//   			fontSize: jsii.String("fontSize"),
+//   			outlineColor: jsii.String("outlineColor"),
+//   			outlineSize: jsii.Number(123),
+//   			shadowColor: jsii.String("shadowColor"),
+//   			shadowOpacity: jsii.Number(123),
+//   			shadowXOffset: jsii.Number(123),
+//   			shadowYOffset: jsii.Number(123),
+//   			teletextGridControl: jsii.String("teletextGridControl"),
+//   			xPosition: jsii.Number(123),
+//   			yPosition: jsii.Number(123),
+//   		},
+//   		ebuTtDDestinationSettings: &ebuTtDDestinationSettingsProperty{
+//   			copyrightHolder: jsii.String("copyrightHolder"),
+//   			fillLineGap: jsii.String("fillLineGap"),
+//   			fontFamily: jsii.String("fontFamily"),
+//   			styleControl: jsii.String("styleControl"),
+//   		},
+//   		embeddedDestinationSettings: &embeddedDestinationSettingsProperty{
+//   		},
+//   		embeddedPlusScte20DestinationSettings: &embeddedPlusScte20DestinationSettingsProperty{
+//   		},
+//   		rtmpCaptionInfoDestinationSettings: &rtmpCaptionInfoDestinationSettingsProperty{
+//   		},
+//   		scte20PlusEmbeddedDestinationSettings: &scte20PlusEmbeddedDestinationSettingsProperty{
+//   		},
+//   		scte27DestinationSettings: &scte27DestinationSettingsProperty{
+//   		},
+//   		smpteTtDestinationSettings: &smpteTtDestinationSettingsProperty{
+//   		},
+//   		teletextDestinationSettings: &teletextDestinationSettingsProperty{
+//   		},
+//   		ttmlDestinationSettings: &ttmlDestinationSettingsProperty{
+//   			styleControl: jsii.String("styleControl"),
+//   		},
+//   		webvttDestinationSettings: &webvttDestinationSettingsProperty{
+//   			styleControl: jsii.String("styleControl"),
+//   		},
+//   	},
+//   	languageCode: jsii.String("languageCode"),
+//   	languageDescription: jsii.String("languageDescription"),
+//   	name: jsii.String("name"),
+//   }
 //
 type CfnChannel_CaptionDescriptionProperty struct {
 	// Specifies which input captions selector to use as a captions source when generating output captions.
@@ -1303,7 +3107,84 @@ type CfnChannel_CaptionDescriptionProperty struct {
 //
 // The parent of this entity is CaptionDescription.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   captionDestinationSettingsProperty := &captionDestinationSettingsProperty{
+//   	aribDestinationSettings: &aribDestinationSettingsProperty{
+//   	},
+//   	burnInDestinationSettings: &burnInDestinationSettingsProperty{
+//   		alignment: jsii.String("alignment"),
+//   		backgroundColor: jsii.String("backgroundColor"),
+//   		backgroundOpacity: jsii.Number(123),
+//   		font: &inputLocationProperty{
+//   			passwordParam: jsii.String("passwordParam"),
+//   			uri: jsii.String("uri"),
+//   			username: jsii.String("username"),
+//   		},
+//   		fontColor: jsii.String("fontColor"),
+//   		fontOpacity: jsii.Number(123),
+//   		fontResolution: jsii.Number(123),
+//   		fontSize: jsii.String("fontSize"),
+//   		outlineColor: jsii.String("outlineColor"),
+//   		outlineSize: jsii.Number(123),
+//   		shadowColor: jsii.String("shadowColor"),
+//   		shadowOpacity: jsii.Number(123),
+//   		shadowXOffset: jsii.Number(123),
+//   		shadowYOffset: jsii.Number(123),
+//   		teletextGridControl: jsii.String("teletextGridControl"),
+//   		xPosition: jsii.Number(123),
+//   		yPosition: jsii.Number(123),
+//   	},
+//   	dvbSubDestinationSettings: &dvbSubDestinationSettingsProperty{
+//   		alignment: jsii.String("alignment"),
+//   		backgroundColor: jsii.String("backgroundColor"),
+//   		backgroundOpacity: jsii.Number(123),
+//   		font: &inputLocationProperty{
+//   			passwordParam: jsii.String("passwordParam"),
+//   			uri: jsii.String("uri"),
+//   			username: jsii.String("username"),
+//   		},
+//   		fontColor: jsii.String("fontColor"),
+//   		fontOpacity: jsii.Number(123),
+//   		fontResolution: jsii.Number(123),
+//   		fontSize: jsii.String("fontSize"),
+//   		outlineColor: jsii.String("outlineColor"),
+//   		outlineSize: jsii.Number(123),
+//   		shadowColor: jsii.String("shadowColor"),
+//   		shadowOpacity: jsii.Number(123),
+//   		shadowXOffset: jsii.Number(123),
+//   		shadowYOffset: jsii.Number(123),
+//   		teletextGridControl: jsii.String("teletextGridControl"),
+//   		xPosition: jsii.Number(123),
+//   		yPosition: jsii.Number(123),
+//   	},
+//   	ebuTtDDestinationSettings: &ebuTtDDestinationSettingsProperty{
+//   		copyrightHolder: jsii.String("copyrightHolder"),
+//   		fillLineGap: jsii.String("fillLineGap"),
+//   		fontFamily: jsii.String("fontFamily"),
+//   		styleControl: jsii.String("styleControl"),
+//   	},
+//   	embeddedDestinationSettings: &embeddedDestinationSettingsProperty{
+//   	},
+//   	embeddedPlusScte20DestinationSettings: &embeddedPlusScte20DestinationSettingsProperty{
+//   	},
+//   	rtmpCaptionInfoDestinationSettings: &rtmpCaptionInfoDestinationSettingsProperty{
+//   	},
+//   	scte20PlusEmbeddedDestinationSettings: &scte20PlusEmbeddedDestinationSettingsProperty{
+//   	},
+//   	scte27DestinationSettings: &scte27DestinationSettingsProperty{
+//   	},
+//   	smpteTtDestinationSettings: &smpteTtDestinationSettingsProperty{
+//   	},
+//   	teletextDestinationSettings: &teletextDestinationSettingsProperty{
+//   	},
+//   	ttmlDestinationSettings: &ttmlDestinationSettingsProperty{
+//   		styleControl: jsii.String("styleControl"),
+//   	},
+//   	webvttDestinationSettings: &webvttDestinationSettingsProperty{
+//   		styleControl: jsii.String("styleControl"),
+//   	},
+//   }
 //
 type CfnChannel_CaptionDestinationSettingsProperty struct {
 	// The configuration of one ARIB captions encode in the output.
@@ -1338,7 +3219,13 @@ type CfnChannel_CaptionDestinationSettingsProperty struct {
 //
 // The parent of this entity is HlsGroupSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   captionLanguageMappingProperty := &captionLanguageMappingProperty{
+//   	captionChannel: jsii.Number(123),
+//   	languageCode: jsii.String("languageCode"),
+//   	languageDescription: jsii.String("languageDescription"),
+//   }
 //
 type CfnChannel_CaptionLanguageMappingProperty struct {
 	// The closed caption channel being described by this CaptionLanguageMapping.
@@ -1355,7 +3242,14 @@ type CfnChannel_CaptionLanguageMappingProperty struct {
 //
 // The parent of this entity is TeletextSourceSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   captionRectangleProperty := &captionRectangleProperty{
+//   	height: jsii.Number(123),
+//   	leftOffset: jsii.Number(123),
+//   	topOffset: jsii.Number(123),
+//   	width: jsii.Number(123),
+//   }
 //
 type CfnChannel_CaptionRectangleProperty struct {
 	// See the description in leftOffset.
@@ -1382,7 +3276,46 @@ type CfnChannel_CaptionRectangleProperty struct {
 //
 // The parent of this entity is InputSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   captionSelectorProperty := &captionSelectorProperty{
+//   	languageCode: jsii.String("languageCode"),
+//   	name: jsii.String("name"),
+//   	selectorSettings: &captionSelectorSettingsProperty{
+//   		ancillarySourceSettings: &ancillarySourceSettingsProperty{
+//   			sourceAncillaryChannelNumber: jsii.Number(123),
+//   		},
+//   		aribSourceSettings: &aribSourceSettingsProperty{
+//   		},
+//   		dvbSubSourceSettings: &dvbSubSourceSettingsProperty{
+//   			ocrLanguage: jsii.String("ocrLanguage"),
+//   			pid: jsii.Number(123),
+//   		},
+//   		embeddedSourceSettings: &embeddedSourceSettingsProperty{
+//   			convert608To708: jsii.String("convert608To708"),
+//   			scte20Detection: jsii.String("scte20Detection"),
+//   			source608ChannelNumber: jsii.Number(123),
+//   			source608TrackNumber: jsii.Number(123),
+//   		},
+//   		scte20SourceSettings: &scte20SourceSettingsProperty{
+//   			convert608To708: jsii.String("convert608To708"),
+//   			source608ChannelNumber: jsii.Number(123),
+//   		},
+//   		scte27SourceSettings: &scte27SourceSettingsProperty{
+//   			ocrLanguage: jsii.String("ocrLanguage"),
+//   			pid: jsii.Number(123),
+//   		},
+//   		teletextSourceSettings: &teletextSourceSettingsProperty{
+//   			outputRectangle: &captionRectangleProperty{
+//   				height: jsii.Number(123),
+//   				leftOffset: jsii.Number(123),
+//   				topOffset: jsii.Number(123),
+//   				width: jsii.Number(123),
+//   			},
+//   			pageNumber: jsii.String("pageNumber"),
+//   		},
+//   	},
+//   }
 //
 type CfnChannel_CaptionSelectorProperty struct {
 	// When specified, this field indicates the three-letter language code of the captions track to extract from the source.
@@ -1399,7 +3332,42 @@ type CfnChannel_CaptionSelectorProperty struct {
 //
 // The parent of this entity is CaptionSelector.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   captionSelectorSettingsProperty := &captionSelectorSettingsProperty{
+//   	ancillarySourceSettings: &ancillarySourceSettingsProperty{
+//   		sourceAncillaryChannelNumber: jsii.Number(123),
+//   	},
+//   	aribSourceSettings: &aribSourceSettingsProperty{
+//   	},
+//   	dvbSubSourceSettings: &dvbSubSourceSettingsProperty{
+//   		ocrLanguage: jsii.String("ocrLanguage"),
+//   		pid: jsii.Number(123),
+//   	},
+//   	embeddedSourceSettings: &embeddedSourceSettingsProperty{
+//   		convert608To708: jsii.String("convert608To708"),
+//   		scte20Detection: jsii.String("scte20Detection"),
+//   		source608ChannelNumber: jsii.Number(123),
+//   		source608TrackNumber: jsii.Number(123),
+//   	},
+//   	scte20SourceSettings: &scte20SourceSettingsProperty{
+//   		convert608To708: jsii.String("convert608To708"),
+//   		source608ChannelNumber: jsii.Number(123),
+//   	},
+//   	scte27SourceSettings: &scte27SourceSettingsProperty{
+//   		ocrLanguage: jsii.String("ocrLanguage"),
+//   		pid: jsii.Number(123),
+//   	},
+//   	teletextSourceSettings: &teletextSourceSettingsProperty{
+//   		outputRectangle: &captionRectangleProperty{
+//   			height: jsii.Number(123),
+//   			leftOffset: jsii.Number(123),
+//   			topOffset: jsii.Number(123),
+//   			width: jsii.Number(123),
+//   		},
+//   		pageNumber: jsii.String("pageNumber"),
+//   	},
+//   }
 //
 type CfnChannel_CaptionSelectorSettingsProperty struct {
 	// Information about the ancillary captions to extract from the input.
@@ -1424,7 +3392,11 @@ type CfnChannel_CaptionSelectorSettingsProperty struct {
 //
 // This entity is at the top level in the channel.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   cdiInputSpecificationProperty := &cdiInputSpecificationProperty{
+//   	resolution: jsii.String("resolution"),
+//   }
 //
 type CfnChannel_CdiInputSpecificationProperty struct {
 	// Maximum CDI input resolution.
@@ -1435,7 +3407,10 @@ type CfnChannel_CdiInputSpecificationProperty struct {
 //
 // The parents of this entity are H264ColorSpaceSettings and H265ColorSpaceSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   colorSpacePassthroughSettingsProperty := &colorSpacePassthroughSettingsProperty{
+//   }
 //
 type CfnChannel_ColorSpacePassthroughSettingsProperty struct {
 }
@@ -1444,7 +3419,13 @@ type CfnChannel_ColorSpacePassthroughSettingsProperty struct {
 //
 // The parent of this entity is M2tsSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   dvbNitSettingsProperty := &dvbNitSettingsProperty{
+//   	networkId: jsii.Number(123),
+//   	networkName: jsii.String("networkName"),
+//   	repInterval: jsii.Number(123),
+//   }
 //
 type CfnChannel_DvbNitSettingsProperty struct {
 	// The numeric value placed in the Network Information Table (NIT).
@@ -1461,7 +3442,14 @@ type CfnChannel_DvbNitSettingsProperty struct {
 //
 // The parent of this entity is M2tsSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   dvbSdtSettingsProperty := &dvbSdtSettingsProperty{
+//   	outputSdt: jsii.String("outputSdt"),
+//   	repInterval: jsii.Number(123),
+//   	serviceName: jsii.String("serviceName"),
+//   	serviceProviderName: jsii.String("serviceProviderName"),
+//   }
 //
 type CfnChannel_DvbSdtSettingsProperty struct {
 	// Selects a method of inserting SDT information into an output stream.
@@ -1484,7 +3472,31 @@ type CfnChannel_DvbSdtSettingsProperty struct {
 //
 // The parent of this entity is CaptionDestinationSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   dvbSubDestinationSettingsProperty := &dvbSubDestinationSettingsProperty{
+//   	alignment: jsii.String("alignment"),
+//   	backgroundColor: jsii.String("backgroundColor"),
+//   	backgroundOpacity: jsii.Number(123),
+//   	font: &inputLocationProperty{
+//   		passwordParam: jsii.String("passwordParam"),
+//   		uri: jsii.String("uri"),
+//   		username: jsii.String("username"),
+//   	},
+//   	fontColor: jsii.String("fontColor"),
+//   	fontOpacity: jsii.Number(123),
+//   	fontResolution: jsii.Number(123),
+//   	fontSize: jsii.String("fontSize"),
+//   	outlineColor: jsii.String("outlineColor"),
+//   	outlineSize: jsii.Number(123),
+//   	shadowColor: jsii.String("shadowColor"),
+//   	shadowOpacity: jsii.Number(123),
+//   	shadowXOffset: jsii.Number(123),
+//   	shadowYOffset: jsii.Number(123),
+//   	teletextGridControl: jsii.String("teletextGridControl"),
+//   	xPosition: jsii.Number(123),
+//   	yPosition: jsii.Number(123),
+//   }
 //
 type CfnChannel_DvbSubDestinationSettingsProperty struct {
 	// If no explicit xPosition or yPosition is provided, setting the alignment to centered places the captions at the bottom center of the output.
@@ -1561,7 +3573,12 @@ type CfnChannel_DvbSubDestinationSettingsProperty struct {
 //
 // The parent of this entity is CaptionSelectorSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   dvbSubSourceSettingsProperty := &dvbSubSourceSettingsProperty{
+//   	ocrLanguage: jsii.String("ocrLanguage"),
+//   	pid: jsii.Number(123),
+//   }
 //
 type CfnChannel_DvbSubSourceSettingsProperty struct {
 	// If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
@@ -1576,7 +3593,11 @@ type CfnChannel_DvbSubSourceSettingsProperty struct {
 //
 // The parent of this entity is M2tsSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   dvbTdtSettingsProperty := &dvbTdtSettingsProperty{
+//   	repInterval: jsii.Number(123),
+//   }
 //
 type CfnChannel_DvbTdtSettingsProperty struct {
 	// The number of milliseconds between instances of this table in the output transport stream.
@@ -1587,7 +3608,30 @@ type CfnChannel_DvbTdtSettingsProperty struct {
 //
 // The parent of this entity is AudioCodecSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   eac3SettingsProperty := &eac3SettingsProperty{
+//   	attenuationControl: jsii.String("attenuationControl"),
+//   	bitrate: jsii.Number(123),
+//   	bitstreamMode: jsii.String("bitstreamMode"),
+//   	codingMode: jsii.String("codingMode"),
+//   	dcFilter: jsii.String("dcFilter"),
+//   	dialnorm: jsii.Number(123),
+//   	drcLine: jsii.String("drcLine"),
+//   	drcRf: jsii.String("drcRf"),
+//   	lfeControl: jsii.String("lfeControl"),
+//   	lfeFilter: jsii.String("lfeFilter"),
+//   	loRoCenterMixLevel: jsii.Number(123),
+//   	loRoSurroundMixLevel: jsii.Number(123),
+//   	ltRtCenterMixLevel: jsii.Number(123),
+//   	ltRtSurroundMixLevel: jsii.Number(123),
+//   	metadataControl: jsii.String("metadataControl"),
+//   	passthroughControl: jsii.String("passthroughControl"),
+//   	phaseControl: jsii.String("phaseControl"),
+//   	stereoDownmix: jsii.String("stereoDownmix"),
+//   	surroundExMode: jsii.String("surroundExMode"),
+//   	surroundMode: jsii.String("surroundMode"),
+//   }
 //
 type CfnChannel_Eac3SettingsProperty struct {
 	// When set to attenuate3Db, applies a 3 dB attenuation to the surround channels.
@@ -1664,12 +3708,19 @@ type CfnChannel_Eac3SettingsProperty struct {
 //
 // The parent of this entity is CaptionDestinationSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   ebuTtDDestinationSettingsProperty := &ebuTtDDestinationSettingsProperty{
+//   	copyrightHolder: jsii.String("copyrightHolder"),
+//   	fillLineGap: jsii.String("fillLineGap"),
+//   	fontFamily: jsii.String("fontFamily"),
+//   	styleControl: jsii.String("styleControl"),
+//   }
 //
 type CfnChannel_EbuTtDDestinationSettingsProperty struct {
 	// Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output.
 	//
-	// Complete this field if you want to include the name of the copyright holder in the copyright metadata tag in the TTML
+	// Complete this field if you want to include the name of the copyright holder in the copyright metadata tag in the TTML.
 	CopyrightHolder *string `json:"copyrightHolder" yaml:"copyrightHolder"`
 	// Specifies how to handle the gap between the lines (in multi-line captions).
 	//
@@ -1692,7 +3743,10 @@ type CfnChannel_EbuTtDDestinationSettingsProperty struct {
 //
 // The parent of this entity is CaptionDestinationSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   embeddedDestinationSettingsProperty := &embeddedDestinationSettingsProperty{
+//   }
 //
 type CfnChannel_EmbeddedDestinationSettingsProperty struct {
 }
@@ -1701,7 +3755,10 @@ type CfnChannel_EmbeddedDestinationSettingsProperty struct {
 //
 // The parent of this entity is CaptionDestinationSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   embeddedPlusScte20DestinationSettingsProperty := &embeddedPlusScte20DestinationSettingsProperty{
+//   }
 //
 type CfnChannel_EmbeddedPlusScte20DestinationSettingsProperty struct {
 }
@@ -1710,7 +3767,14 @@ type CfnChannel_EmbeddedPlusScte20DestinationSettingsProperty struct {
 //
 // The parent of this entity is CaptionSelectorSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   embeddedSourceSettingsProperty := &embeddedSourceSettingsProperty{
+//   	convert608To708: jsii.String("convert608To708"),
+//   	scte20Detection: jsii.String("scte20Detection"),
+//   	source608ChannelNumber: jsii.Number(123),
+//   	source608TrackNumber: jsii.Number(123),
+//   }
 //
 type CfnChannel_EmbeddedSourceSettingsProperty struct {
 	// If this is upconvert, 608 data is both passed through the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708.
@@ -1731,7 +3795,803 @@ type CfnChannel_EmbeddedSourceSettingsProperty struct {
 //
 // This entity is at the top level in the channel.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   encoderSettingsProperty := &encoderSettingsProperty{
+//   	audioDescriptions: []interface{}{
+//   		&audioDescriptionProperty{
+//   			audioNormalizationSettings: &audioNormalizationSettingsProperty{
+//   				algorithm: jsii.String("algorithm"),
+//   				algorithmControl: jsii.String("algorithmControl"),
+//   				targetLkfs: jsii.Number(123),
+//   			},
+//   			audioSelectorName: jsii.String("audioSelectorName"),
+//   			audioType: jsii.String("audioType"),
+//   			audioTypeControl: jsii.String("audioTypeControl"),
+//   			audioWatermarkingSettings: &audioWatermarkSettingsProperty{
+//   				nielsenWatermarksSettings: &nielsenWatermarksSettingsProperty{
+//   					nielsenCbetSettings: &nielsenCBETProperty{
+//   						cbetCheckDigitString: jsii.String("cbetCheckDigitString"),
+//   						cbetStepaside: jsii.String("cbetStepaside"),
+//   						csid: jsii.String("csid"),
+//   					},
+//   					nielsenDistributionType: jsii.String("nielsenDistributionType"),
+//   					nielsenNaesIiNwSettings: &nielsenNaesIiNwProperty{
+//   						checkDigitString: jsii.String("checkDigitString"),
+//   						sid: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   			codecSettings: &audioCodecSettingsProperty{
+//   				aacSettings: &aacSettingsProperty{
+//   					bitrate: jsii.Number(123),
+//   					codingMode: jsii.String("codingMode"),
+//   					inputType: jsii.String("inputType"),
+//   					profile: jsii.String("profile"),
+//   					rateControlMode: jsii.String("rateControlMode"),
+//   					rawFormat: jsii.String("rawFormat"),
+//   					sampleRate: jsii.Number(123),
+//   					spec: jsii.String("spec"),
+//   					vbrQuality: jsii.String("vbrQuality"),
+//   				},
+//   				ac3Settings: &ac3SettingsProperty{
+//   					bitrate: jsii.Number(123),
+//   					bitstreamMode: jsii.String("bitstreamMode"),
+//   					codingMode: jsii.String("codingMode"),
+//   					dialnorm: jsii.Number(123),
+//   					drcProfile: jsii.String("drcProfile"),
+//   					lfeFilter: jsii.String("lfeFilter"),
+//   					metadataControl: jsii.String("metadataControl"),
+//   				},
+//   				eac3Settings: &eac3SettingsProperty{
+//   					attenuationControl: jsii.String("attenuationControl"),
+//   					bitrate: jsii.Number(123),
+//   					bitstreamMode: jsii.String("bitstreamMode"),
+//   					codingMode: jsii.String("codingMode"),
+//   					dcFilter: jsii.String("dcFilter"),
+//   					dialnorm: jsii.Number(123),
+//   					drcLine: jsii.String("drcLine"),
+//   					drcRf: jsii.String("drcRf"),
+//   					lfeControl: jsii.String("lfeControl"),
+//   					lfeFilter: jsii.String("lfeFilter"),
+//   					loRoCenterMixLevel: jsii.Number(123),
+//   					loRoSurroundMixLevel: jsii.Number(123),
+//   					ltRtCenterMixLevel: jsii.Number(123),
+//   					ltRtSurroundMixLevel: jsii.Number(123),
+//   					metadataControl: jsii.String("metadataControl"),
+//   					passthroughControl: jsii.String("passthroughControl"),
+//   					phaseControl: jsii.String("phaseControl"),
+//   					stereoDownmix: jsii.String("stereoDownmix"),
+//   					surroundExMode: jsii.String("surroundExMode"),
+//   					surroundMode: jsii.String("surroundMode"),
+//   				},
+//   				mp2Settings: &mp2SettingsProperty{
+//   					bitrate: jsii.Number(123),
+//   					codingMode: jsii.String("codingMode"),
+//   					sampleRate: jsii.Number(123),
+//   				},
+//   				passThroughSettings: &passThroughSettingsProperty{
+//   				},
+//   				wavSettings: &wavSettingsProperty{
+//   					bitDepth: jsii.Number(123),
+//   					codingMode: jsii.String("codingMode"),
+//   					sampleRate: jsii.Number(123),
+//   				},
+//   			},
+//   			languageCode: jsii.String("languageCode"),
+//   			languageCodeControl: jsii.String("languageCodeControl"),
+//   			name: jsii.String("name"),
+//   			remixSettings: &remixSettingsProperty{
+//   				channelMappings: []interface{}{
+//   					&audioChannelMappingProperty{
+//   						inputChannelLevels: []interface{}{
+//   							&inputChannelLevelProperty{
+//   								gain: jsii.Number(123),
+//   								inputChannel: jsii.Number(123),
+//   							},
+//   						},
+//   						outputChannel: jsii.Number(123),
+//   					},
+//   				},
+//   				channelsIn: jsii.Number(123),
+//   				channelsOut: jsii.Number(123),
+//   			},
+//   			streamName: jsii.String("streamName"),
+//   		},
+//   	},
+//   	availBlanking: &availBlankingProperty{
+//   		availBlankingImage: &inputLocationProperty{
+//   			passwordParam: jsii.String("passwordParam"),
+//   			uri: jsii.String("uri"),
+//   			username: jsii.String("username"),
+//   		},
+//   		state: jsii.String("state"),
+//   	},
+//   	availConfiguration: &availConfigurationProperty{
+//   		availSettings: &availSettingsProperty{
+//   			scte35SpliceInsert: &scte35SpliceInsertProperty{
+//   				adAvailOffset: jsii.Number(123),
+//   				noRegionalBlackoutFlag: jsii.String("noRegionalBlackoutFlag"),
+//   				webDeliveryAllowedFlag: jsii.String("webDeliveryAllowedFlag"),
+//   			},
+//   			scte35TimeSignalApos: &scte35TimeSignalAposProperty{
+//   				adAvailOffset: jsii.Number(123),
+//   				noRegionalBlackoutFlag: jsii.String("noRegionalBlackoutFlag"),
+//   				webDeliveryAllowedFlag: jsii.String("webDeliveryAllowedFlag"),
+//   			},
+//   		},
+//   	},
+//   	blackoutSlate: &blackoutSlateProperty{
+//   		blackoutSlateImage: &inputLocationProperty{
+//   			passwordParam: jsii.String("passwordParam"),
+//   			uri: jsii.String("uri"),
+//   			username: jsii.String("username"),
+//   		},
+//   		networkEndBlackout: jsii.String("networkEndBlackout"),
+//   		networkEndBlackoutImage: &inputLocationProperty{
+//   			passwordParam: jsii.String("passwordParam"),
+//   			uri: jsii.String("uri"),
+//   			username: jsii.String("username"),
+//   		},
+//   		networkId: jsii.String("networkId"),
+//   		state: jsii.String("state"),
+//   	},
+//   	captionDescriptions: []interface{}{
+//   		&captionDescriptionProperty{
+//   			captionSelectorName: jsii.String("captionSelectorName"),
+//   			destinationSettings: &captionDestinationSettingsProperty{
+//   				aribDestinationSettings: &aribDestinationSettingsProperty{
+//   				},
+//   				burnInDestinationSettings: &burnInDestinationSettingsProperty{
+//   					alignment: jsii.String("alignment"),
+//   					backgroundColor: jsii.String("backgroundColor"),
+//   					backgroundOpacity: jsii.Number(123),
+//   					font: &inputLocationProperty{
+//   						passwordParam: jsii.String("passwordParam"),
+//   						uri: jsii.String("uri"),
+//   						username: jsii.String("username"),
+//   					},
+//   					fontColor: jsii.String("fontColor"),
+//   					fontOpacity: jsii.Number(123),
+//   					fontResolution: jsii.Number(123),
+//   					fontSize: jsii.String("fontSize"),
+//   					outlineColor: jsii.String("outlineColor"),
+//   					outlineSize: jsii.Number(123),
+//   					shadowColor: jsii.String("shadowColor"),
+//   					shadowOpacity: jsii.Number(123),
+//   					shadowXOffset: jsii.Number(123),
+//   					shadowYOffset: jsii.Number(123),
+//   					teletextGridControl: jsii.String("teletextGridControl"),
+//   					xPosition: jsii.Number(123),
+//   					yPosition: jsii.Number(123),
+//   				},
+//   				dvbSubDestinationSettings: &dvbSubDestinationSettingsProperty{
+//   					alignment: jsii.String("alignment"),
+//   					backgroundColor: jsii.String("backgroundColor"),
+//   					backgroundOpacity: jsii.Number(123),
+//   					font: &inputLocationProperty{
+//   						passwordParam: jsii.String("passwordParam"),
+//   						uri: jsii.String("uri"),
+//   						username: jsii.String("username"),
+//   					},
+//   					fontColor: jsii.String("fontColor"),
+//   					fontOpacity: jsii.Number(123),
+//   					fontResolution: jsii.Number(123),
+//   					fontSize: jsii.String("fontSize"),
+//   					outlineColor: jsii.String("outlineColor"),
+//   					outlineSize: jsii.Number(123),
+//   					shadowColor: jsii.String("shadowColor"),
+//   					shadowOpacity: jsii.Number(123),
+//   					shadowXOffset: jsii.Number(123),
+//   					shadowYOffset: jsii.Number(123),
+//   					teletextGridControl: jsii.String("teletextGridControl"),
+//   					xPosition: jsii.Number(123),
+//   					yPosition: jsii.Number(123),
+//   				},
+//   				ebuTtDDestinationSettings: &ebuTtDDestinationSettingsProperty{
+//   					copyrightHolder: jsii.String("copyrightHolder"),
+//   					fillLineGap: jsii.String("fillLineGap"),
+//   					fontFamily: jsii.String("fontFamily"),
+//   					styleControl: jsii.String("styleControl"),
+//   				},
+//   				embeddedDestinationSettings: &embeddedDestinationSettingsProperty{
+//   				},
+//   				embeddedPlusScte20DestinationSettings: &embeddedPlusScte20DestinationSettingsProperty{
+//   				},
+//   				rtmpCaptionInfoDestinationSettings: &rtmpCaptionInfoDestinationSettingsProperty{
+//   				},
+//   				scte20PlusEmbeddedDestinationSettings: &scte20PlusEmbeddedDestinationSettingsProperty{
+//   				},
+//   				scte27DestinationSettings: &scte27DestinationSettingsProperty{
+//   				},
+//   				smpteTtDestinationSettings: &smpteTtDestinationSettingsProperty{
+//   				},
+//   				teletextDestinationSettings: &teletextDestinationSettingsProperty{
+//   				},
+//   				ttmlDestinationSettings: &ttmlDestinationSettingsProperty{
+//   					styleControl: jsii.String("styleControl"),
+//   				},
+//   				webvttDestinationSettings: &webvttDestinationSettingsProperty{
+//   					styleControl: jsii.String("styleControl"),
+//   				},
+//   			},
+//   			languageCode: jsii.String("languageCode"),
+//   			languageDescription: jsii.String("languageDescription"),
+//   			name: jsii.String("name"),
+//   		},
+//   	},
+//   	featureActivations: &featureActivationsProperty{
+//   		inputPrepareScheduleActions: jsii.String("inputPrepareScheduleActions"),
+//   	},
+//   	globalConfiguration: &globalConfigurationProperty{
+//   		initialAudioGain: jsii.Number(123),
+//   		inputEndAction: jsii.String("inputEndAction"),
+//   		inputLossBehavior: &inputLossBehaviorProperty{
+//   			blackFrameMsec: jsii.Number(123),
+//   			inputLossImageColor: jsii.String("inputLossImageColor"),
+//   			inputLossImageSlate: &inputLocationProperty{
+//   				passwordParam: jsii.String("passwordParam"),
+//   				uri: jsii.String("uri"),
+//   				username: jsii.String("username"),
+//   			},
+//   			inputLossImageType: jsii.String("inputLossImageType"),
+//   			repeatFrameMsec: jsii.Number(123),
+//   		},
+//   		outputLockingMode: jsii.String("outputLockingMode"),
+//   		outputTimingSource: jsii.String("outputTimingSource"),
+//   		supportLowFramerateInputs: jsii.String("supportLowFramerateInputs"),
+//   	},
+//   	motionGraphicsConfiguration: &motionGraphicsConfigurationProperty{
+//   		motionGraphicsInsertion: jsii.String("motionGraphicsInsertion"),
+//   		motionGraphicsSettings: &motionGraphicsSettingsProperty{
+//   			htmlMotionGraphicsSettings: &htmlMotionGraphicsSettingsProperty{
+//   			},
+//   		},
+//   	},
+//   	nielsenConfiguration: &nielsenConfigurationProperty{
+//   		distributorId: jsii.String("distributorId"),
+//   		nielsenPcmToId3Tagging: jsii.String("nielsenPcmToId3Tagging"),
+//   	},
+//   	outputGroups: []interface{}{
+//   		&outputGroupProperty{
+//   			name: jsii.String("name"),
+//   			outputGroupSettings: &outputGroupSettingsProperty{
+//   				archiveGroupSettings: &archiveGroupSettingsProperty{
+//   					archiveCdnSettings: &archiveCdnSettingsProperty{
+//   						archiveS3Settings: &archiveS3SettingsProperty{
+//   							cannedAcl: jsii.String("cannedAcl"),
+//   						},
+//   					},
+//   					destination: &outputLocationRefProperty{
+//   						destinationRefId: jsii.String("destinationRefId"),
+//   					},
+//   					rolloverInterval: jsii.Number(123),
+//   				},
+//   				frameCaptureGroupSettings: &frameCaptureGroupSettingsProperty{
+//   					destination: &outputLocationRefProperty{
+//   						destinationRefId: jsii.String("destinationRefId"),
+//   					},
+//   					frameCaptureCdnSettings: &frameCaptureCdnSettingsProperty{
+//   						frameCaptureS3Settings: &frameCaptureS3SettingsProperty{
+//   							cannedAcl: jsii.String("cannedAcl"),
+//   						},
+//   					},
+//   				},
+//   				hlsGroupSettings: &hlsGroupSettingsProperty{
+//   					adMarkers: []*string{
+//   						jsii.String("adMarkers"),
+//   					},
+//   					baseUrlContent: jsii.String("baseUrlContent"),
+//   					baseUrlContent1: jsii.String("baseUrlContent1"),
+//   					baseUrlManifest: jsii.String("baseUrlManifest"),
+//   					baseUrlManifest1: jsii.String("baseUrlManifest1"),
+//   					captionLanguageMappings: []interface{}{
+//   						&captionLanguageMappingProperty{
+//   							captionChannel: jsii.Number(123),
+//   							languageCode: jsii.String("languageCode"),
+//   							languageDescription: jsii.String("languageDescription"),
+//   						},
+//   					},
+//   					captionLanguageSetting: jsii.String("captionLanguageSetting"),
+//   					clientCache: jsii.String("clientCache"),
+//   					codecSpecification: jsii.String("codecSpecification"),
+//   					constantIv: jsii.String("constantIv"),
+//   					destination: &outputLocationRefProperty{
+//   						destinationRefId: jsii.String("destinationRefId"),
+//   					},
+//   					directoryStructure: jsii.String("directoryStructure"),
+//   					discontinuityTags: jsii.String("discontinuityTags"),
+//   					encryptionType: jsii.String("encryptionType"),
+//   					hlsCdnSettings: &hlsCdnSettingsProperty{
+//   						hlsAkamaiSettings: &hlsAkamaiSettingsProperty{
+//   							connectionRetryInterval: jsii.Number(123),
+//   							filecacheDuration: jsii.Number(123),
+//   							httpTransferMode: jsii.String("httpTransferMode"),
+//   							numRetries: jsii.Number(123),
+//   							restartDelay: jsii.Number(123),
+//   							salt: jsii.String("salt"),
+//   							token: jsii.String("token"),
+//   						},
+//   						hlsBasicPutSettings: &hlsBasicPutSettingsProperty{
+//   							connectionRetryInterval: jsii.Number(123),
+//   							filecacheDuration: jsii.Number(123),
+//   							numRetries: jsii.Number(123),
+//   							restartDelay: jsii.Number(123),
+//   						},
+//   						hlsMediaStoreSettings: &hlsMediaStoreSettingsProperty{
+//   							connectionRetryInterval: jsii.Number(123),
+//   							filecacheDuration: jsii.Number(123),
+//   							mediaStoreStorageClass: jsii.String("mediaStoreStorageClass"),
+//   							numRetries: jsii.Number(123),
+//   							restartDelay: jsii.Number(123),
+//   						},
+//   						hlsS3Settings: &hlsS3SettingsProperty{
+//   							cannedAcl: jsii.String("cannedAcl"),
+//   						},
+//   						hlsWebdavSettings: &hlsWebdavSettingsProperty{
+//   							connectionRetryInterval: jsii.Number(123),
+//   							filecacheDuration: jsii.Number(123),
+//   							httpTransferMode: jsii.String("httpTransferMode"),
+//   							numRetries: jsii.Number(123),
+//   							restartDelay: jsii.Number(123),
+//   						},
+//   					},
+//   					hlsId3SegmentTagging: jsii.String("hlsId3SegmentTagging"),
+//   					iFrameOnlyPlaylists: jsii.String("iFrameOnlyPlaylists"),
+//   					incompleteSegmentBehavior: jsii.String("incompleteSegmentBehavior"),
+//   					indexNSegments: jsii.Number(123),
+//   					inputLossAction: jsii.String("inputLossAction"),
+//   					ivInManifest: jsii.String("ivInManifest"),
+//   					ivSource: jsii.String("ivSource"),
+//   					keepSegments: jsii.Number(123),
+//   					keyFormat: jsii.String("keyFormat"),
+//   					keyFormatVersions: jsii.String("keyFormatVersions"),
+//   					keyProviderSettings: &keyProviderSettingsProperty{
+//   						staticKeySettings: &staticKeySettingsProperty{
+//   							keyProviderServer: &inputLocationProperty{
+//   								passwordParam: jsii.String("passwordParam"),
+//   								uri: jsii.String("uri"),
+//   								username: jsii.String("username"),
+//   							},
+//   							staticKeyValue: jsii.String("staticKeyValue"),
+//   						},
+//   					},
+//   					manifestCompression: jsii.String("manifestCompression"),
+//   					manifestDurationFormat: jsii.String("manifestDurationFormat"),
+//   					minSegmentLength: jsii.Number(123),
+//   					mode: jsii.String("mode"),
+//   					outputSelection: jsii.String("outputSelection"),
+//   					programDateTime: jsii.String("programDateTime"),
+//   					programDateTimeClock: jsii.String("programDateTimeClock"),
+//   					programDateTimePeriod: jsii.Number(123),
+//   					redundantManifest: jsii.String("redundantManifest"),
+//   					segmentationMode: jsii.String("segmentationMode"),
+//   					segmentLength: jsii.Number(123),
+//   					segmentsPerSubdirectory: jsii.Number(123),
+//   					streamInfResolution: jsii.String("streamInfResolution"),
+//   					timedMetadataId3Frame: jsii.String("timedMetadataId3Frame"),
+//   					timedMetadataId3Period: jsii.Number(123),
+//   					timestampDeltaMilliseconds: jsii.Number(123),
+//   					tsFileMode: jsii.String("tsFileMode"),
+//   				},
+//   				mediaPackageGroupSettings: &mediaPackageGroupSettingsProperty{
+//   					destination: &outputLocationRefProperty{
+//   						destinationRefId: jsii.String("destinationRefId"),
+//   					},
+//   				},
+//   				msSmoothGroupSettings: &msSmoothGroupSettingsProperty{
+//   					acquisitionPointId: jsii.String("acquisitionPointId"),
+//   					audioOnlyTimecodeControl: jsii.String("audioOnlyTimecodeControl"),
+//   					certificateMode: jsii.String("certificateMode"),
+//   					connectionRetryInterval: jsii.Number(123),
+//   					destination: &outputLocationRefProperty{
+//   						destinationRefId: jsii.String("destinationRefId"),
+//   					},
+//   					eventId: jsii.String("eventId"),
+//   					eventIdMode: jsii.String("eventIdMode"),
+//   					eventStopBehavior: jsii.String("eventStopBehavior"),
+//   					filecacheDuration: jsii.Number(123),
+//   					fragmentLength: jsii.Number(123),
+//   					inputLossAction: jsii.String("inputLossAction"),
+//   					numRetries: jsii.Number(123),
+//   					restartDelay: jsii.Number(123),
+//   					segmentationMode: jsii.String("segmentationMode"),
+//   					sendDelayMs: jsii.Number(123),
+//   					sparseTrackType: jsii.String("sparseTrackType"),
+//   					streamManifestBehavior: jsii.String("streamManifestBehavior"),
+//   					timestampOffset: jsii.String("timestampOffset"),
+//   					timestampOffsetMode: jsii.String("timestampOffsetMode"),
+//   				},
+//   				multiplexGroupSettings: &multiplexGroupSettingsProperty{
+//   				},
+//   				rtmpGroupSettings: &rtmpGroupSettingsProperty{
+//   					adMarkers: []*string{
+//   						jsii.String("adMarkers"),
+//   					},
+//   					authenticationScheme: jsii.String("authenticationScheme"),
+//   					cacheFullBehavior: jsii.String("cacheFullBehavior"),
+//   					cacheLength: jsii.Number(123),
+//   					captionData: jsii.String("captionData"),
+//   					inputLossAction: jsii.String("inputLossAction"),
+//   					restartDelay: jsii.Number(123),
+//   				},
+//   				udpGroupSettings: &udpGroupSettingsProperty{
+//   					inputLossAction: jsii.String("inputLossAction"),
+//   					timedMetadataId3Frame: jsii.String("timedMetadataId3Frame"),
+//   					timedMetadataId3Period: jsii.Number(123),
+//   				},
+//   			},
+//   			outputs: []interface{}{
+//   				&outputProperty{
+//   					audioDescriptionNames: []*string{
+//   						jsii.String("audioDescriptionNames"),
+//   					},
+//   					captionDescriptionNames: []*string{
+//   						jsii.String("captionDescriptionNames"),
+//   					},
+//   					outputName: jsii.String("outputName"),
+//   					outputSettings: &outputSettingsProperty{
+//   						archiveOutputSettings: &archiveOutputSettingsProperty{
+//   							containerSettings: &archiveContainerSettingsProperty{
+//   								m2TsSettings: &m2tsSettingsProperty{
+//   									absentInputAudioBehavior: jsii.String("absentInputAudioBehavior"),
+//   									arib: jsii.String("arib"),
+//   									aribCaptionsPid: jsii.String("aribCaptionsPid"),
+//   									aribCaptionsPidControl: jsii.String("aribCaptionsPidControl"),
+//   									audioBufferModel: jsii.String("audioBufferModel"),
+//   									audioFramesPerPes: jsii.Number(123),
+//   									audioPids: jsii.String("audioPids"),
+//   									audioStreamType: jsii.String("audioStreamType"),
+//   									bitrate: jsii.Number(123),
+//   									bufferModel: jsii.String("bufferModel"),
+//   									ccDescriptor: jsii.String("ccDescriptor"),
+//   									dvbNitSettings: &dvbNitSettingsProperty{
+//   										networkId: jsii.Number(123),
+//   										networkName: jsii.String("networkName"),
+//   										repInterval: jsii.Number(123),
+//   									},
+//   									dvbSdtSettings: &dvbSdtSettingsProperty{
+//   										outputSdt: jsii.String("outputSdt"),
+//   										repInterval: jsii.Number(123),
+//   										serviceName: jsii.String("serviceName"),
+//   										serviceProviderName: jsii.String("serviceProviderName"),
+//   									},
+//   									dvbSubPids: jsii.String("dvbSubPids"),
+//   									dvbTdtSettings: &dvbTdtSettingsProperty{
+//   										repInterval: jsii.Number(123),
+//   									},
+//   									dvbTeletextPid: jsii.String("dvbTeletextPid"),
+//   									ebif: jsii.String("ebif"),
+//   									ebpAudioInterval: jsii.String("ebpAudioInterval"),
+//   									ebpLookaheadMs: jsii.Number(123),
+//   									ebpPlacement: jsii.String("ebpPlacement"),
+//   									ecmPid: jsii.String("ecmPid"),
+//   									esRateInPes: jsii.String("esRateInPes"),
+//   									etvPlatformPid: jsii.String("etvPlatformPid"),
+//   									etvSignalPid: jsii.String("etvSignalPid"),
+//   									fragmentTime: jsii.Number(123),
+//   									klv: jsii.String("klv"),
+//   									klvDataPids: jsii.String("klvDataPids"),
+//   									nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   									nullPacketBitrate: jsii.Number(123),
+//   									patInterval: jsii.Number(123),
+//   									pcrControl: jsii.String("pcrControl"),
+//   									pcrPeriod: jsii.Number(123),
+//   									pcrPid: jsii.String("pcrPid"),
+//   									pmtInterval: jsii.Number(123),
+//   									pmtPid: jsii.String("pmtPid"),
+//   									programNum: jsii.Number(123),
+//   									rateMode: jsii.String("rateMode"),
+//   									scte27Pids: jsii.String("scte27Pids"),
+//   									scte35Control: jsii.String("scte35Control"),
+//   									scte35Pid: jsii.String("scte35Pid"),
+//   									segmentationMarkers: jsii.String("segmentationMarkers"),
+//   									segmentationStyle: jsii.String("segmentationStyle"),
+//   									segmentationTime: jsii.Number(123),
+//   									timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   									timedMetadataPid: jsii.String("timedMetadataPid"),
+//   									transportStreamId: jsii.Number(123),
+//   									videoPid: jsii.String("videoPid"),
+//   								},
+//   								rawSettings: &rawSettingsProperty{
+//   								},
+//   							},
+//   							extension: jsii.String("extension"),
+//   							nameModifier: jsii.String("nameModifier"),
+//   						},
+//   						frameCaptureOutputSettings: &frameCaptureOutputSettingsProperty{
+//   							nameModifier: jsii.String("nameModifier"),
+//   						},
+//   						hlsOutputSettings: &hlsOutputSettingsProperty{
+//   							h265PackagingType: jsii.String("h265PackagingType"),
+//   							hlsSettings: &hlsSettingsProperty{
+//   								audioOnlyHlsSettings: &audioOnlyHlsSettingsProperty{
+//   									audioGroupId: jsii.String("audioGroupId"),
+//   									audioOnlyImage: &inputLocationProperty{
+//   										passwordParam: jsii.String("passwordParam"),
+//   										uri: jsii.String("uri"),
+//   										username: jsii.String("username"),
+//   									},
+//   									audioTrackType: jsii.String("audioTrackType"),
+//   									segmentType: jsii.String("segmentType"),
+//   								},
+//   								fmp4HlsSettings: &fmp4HlsSettingsProperty{
+//   									audioRenditionSets: jsii.String("audioRenditionSets"),
+//   									nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   									timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   								},
+//   								frameCaptureHlsSettings: &frameCaptureHlsSettingsProperty{
+//   								},
+//   								standardHlsSettings: &standardHlsSettingsProperty{
+//   									audioRenditionSets: jsii.String("audioRenditionSets"),
+//   									m3U8Settings: &m3u8SettingsProperty{
+//   										audioFramesPerPes: jsii.Number(123),
+//   										audioPids: jsii.String("audioPids"),
+//   										ecmPid: jsii.String("ecmPid"),
+//   										nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   										patInterval: jsii.Number(123),
+//   										pcrControl: jsii.String("pcrControl"),
+//   										pcrPeriod: jsii.Number(123),
+//   										pcrPid: jsii.String("pcrPid"),
+//   										pmtInterval: jsii.Number(123),
+//   										pmtPid: jsii.String("pmtPid"),
+//   										programNum: jsii.Number(123),
+//   										scte35Behavior: jsii.String("scte35Behavior"),
+//   										scte35Pid: jsii.String("scte35Pid"),
+//   										timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   										timedMetadataPid: jsii.String("timedMetadataPid"),
+//   										transportStreamId: jsii.Number(123),
+//   										videoPid: jsii.String("videoPid"),
+//   									},
+//   								},
+//   							},
+//   							nameModifier: jsii.String("nameModifier"),
+//   							segmentModifier: jsii.String("segmentModifier"),
+//   						},
+//   						mediaPackageOutputSettings: &mediaPackageOutputSettingsProperty{
+//   						},
+//   						msSmoothOutputSettings: &msSmoothOutputSettingsProperty{
+//   							h265PackagingType: jsii.String("h265PackagingType"),
+//   							nameModifier: jsii.String("nameModifier"),
+//   						},
+//   						multiplexOutputSettings: &multiplexOutputSettingsProperty{
+//   							destination: &outputLocationRefProperty{
+//   								destinationRefId: jsii.String("destinationRefId"),
+//   							},
+//   						},
+//   						rtmpOutputSettings: &rtmpOutputSettingsProperty{
+//   							certificateMode: jsii.String("certificateMode"),
+//   							connectionRetryInterval: jsii.Number(123),
+//   							destination: &outputLocationRefProperty{
+//   								destinationRefId: jsii.String("destinationRefId"),
+//   							},
+//   							numRetries: jsii.Number(123),
+//   						},
+//   						udpOutputSettings: &udpOutputSettingsProperty{
+//   							bufferMsec: jsii.Number(123),
+//   							containerSettings: &udpContainerSettingsProperty{
+//   								m2TsSettings: &m2tsSettingsProperty{
+//   									absentInputAudioBehavior: jsii.String("absentInputAudioBehavior"),
+//   									arib: jsii.String("arib"),
+//   									aribCaptionsPid: jsii.String("aribCaptionsPid"),
+//   									aribCaptionsPidControl: jsii.String("aribCaptionsPidControl"),
+//   									audioBufferModel: jsii.String("audioBufferModel"),
+//   									audioFramesPerPes: jsii.Number(123),
+//   									audioPids: jsii.String("audioPids"),
+//   									audioStreamType: jsii.String("audioStreamType"),
+//   									bitrate: jsii.Number(123),
+//   									bufferModel: jsii.String("bufferModel"),
+//   									ccDescriptor: jsii.String("ccDescriptor"),
+//   									dvbNitSettings: &dvbNitSettingsProperty{
+//   										networkId: jsii.Number(123),
+//   										networkName: jsii.String("networkName"),
+//   										repInterval: jsii.Number(123),
+//   									},
+//   									dvbSdtSettings: &dvbSdtSettingsProperty{
+//   										outputSdt: jsii.String("outputSdt"),
+//   										repInterval: jsii.Number(123),
+//   										serviceName: jsii.String("serviceName"),
+//   										serviceProviderName: jsii.String("serviceProviderName"),
+//   									},
+//   									dvbSubPids: jsii.String("dvbSubPids"),
+//   									dvbTdtSettings: &dvbTdtSettingsProperty{
+//   										repInterval: jsii.Number(123),
+//   									},
+//   									dvbTeletextPid: jsii.String("dvbTeletextPid"),
+//   									ebif: jsii.String("ebif"),
+//   									ebpAudioInterval: jsii.String("ebpAudioInterval"),
+//   									ebpLookaheadMs: jsii.Number(123),
+//   									ebpPlacement: jsii.String("ebpPlacement"),
+//   									ecmPid: jsii.String("ecmPid"),
+//   									esRateInPes: jsii.String("esRateInPes"),
+//   									etvPlatformPid: jsii.String("etvPlatformPid"),
+//   									etvSignalPid: jsii.String("etvSignalPid"),
+//   									fragmentTime: jsii.Number(123),
+//   									klv: jsii.String("klv"),
+//   									klvDataPids: jsii.String("klvDataPids"),
+//   									nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   									nullPacketBitrate: jsii.Number(123),
+//   									patInterval: jsii.Number(123),
+//   									pcrControl: jsii.String("pcrControl"),
+//   									pcrPeriod: jsii.Number(123),
+//   									pcrPid: jsii.String("pcrPid"),
+//   									pmtInterval: jsii.Number(123),
+//   									pmtPid: jsii.String("pmtPid"),
+//   									programNum: jsii.Number(123),
+//   									rateMode: jsii.String("rateMode"),
+//   									scte27Pids: jsii.String("scte27Pids"),
+//   									scte35Control: jsii.String("scte35Control"),
+//   									scte35Pid: jsii.String("scte35Pid"),
+//   									segmentationMarkers: jsii.String("segmentationMarkers"),
+//   									segmentationStyle: jsii.String("segmentationStyle"),
+//   									segmentationTime: jsii.Number(123),
+//   									timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   									timedMetadataPid: jsii.String("timedMetadataPid"),
+//   									transportStreamId: jsii.Number(123),
+//   									videoPid: jsii.String("videoPid"),
+//   								},
+//   							},
+//   							destination: &outputLocationRefProperty{
+//   								destinationRefId: jsii.String("destinationRefId"),
+//   							},
+//   							fecOutputSettings: &fecOutputSettingsProperty{
+//   								columnDepth: jsii.Number(123),
+//   								includeFec: jsii.String("includeFec"),
+//   								rowLength: jsii.Number(123),
+//   							},
+//   						},
+//   					},
+//   					videoDescriptionName: jsii.String("videoDescriptionName"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	timecodeConfig: &timecodeConfigProperty{
+//   		source: jsii.String("source"),
+//   		syncThreshold: jsii.Number(123),
+//   	},
+//   	videoDescriptions: []interface{}{
+//   		&videoDescriptionProperty{
+//   			codecSettings: &videoCodecSettingsProperty{
+//   				frameCaptureSettings: &frameCaptureSettingsProperty{
+//   					captureInterval: jsii.Number(123),
+//   					captureIntervalUnits: jsii.String("captureIntervalUnits"),
+//   				},
+//   				h264Settings: &h264SettingsProperty{
+//   					adaptiveQuantization: jsii.String("adaptiveQuantization"),
+//   					afdSignaling: jsii.String("afdSignaling"),
+//   					bitrate: jsii.Number(123),
+//   					bufFillPct: jsii.Number(123),
+//   					bufSize: jsii.Number(123),
+//   					colorMetadata: jsii.String("colorMetadata"),
+//   					colorSpaceSettings: &h264ColorSpaceSettingsProperty{
+//   						colorSpacePassthroughSettings: &colorSpacePassthroughSettingsProperty{
+//   						},
+//   						rec601Settings: &rec601SettingsProperty{
+//   						},
+//   						rec709Settings: &rec709SettingsProperty{
+//   						},
+//   					},
+//   					entropyEncoding: jsii.String("entropyEncoding"),
+//   					filterSettings: &h264FilterSettingsProperty{
+//   						temporalFilterSettings: &temporalFilterSettingsProperty{
+//   							postFilterSharpening: jsii.String("postFilterSharpening"),
+//   							strength: jsii.String("strength"),
+//   						},
+//   					},
+//   					fixedAfd: jsii.String("fixedAfd"),
+//   					flickerAq: jsii.String("flickerAq"),
+//   					forceFieldPictures: jsii.String("forceFieldPictures"),
+//   					framerateControl: jsii.String("framerateControl"),
+//   					framerateDenominator: jsii.Number(123),
+//   					framerateNumerator: jsii.Number(123),
+//   					gopBReference: jsii.String("gopBReference"),
+//   					gopClosedCadence: jsii.Number(123),
+//   					gopNumBFrames: jsii.Number(123),
+//   					gopSize: jsii.Number(123),
+//   					gopSizeUnits: jsii.String("gopSizeUnits"),
+//   					level: jsii.String("level"),
+//   					lookAheadRateControl: jsii.String("lookAheadRateControl"),
+//   					maxBitrate: jsii.Number(123),
+//   					minIInterval: jsii.Number(123),
+//   					numRefFrames: jsii.Number(123),
+//   					parControl: jsii.String("parControl"),
+//   					parDenominator: jsii.Number(123),
+//   					parNumerator: jsii.Number(123),
+//   					profile: jsii.String("profile"),
+//   					qualityLevel: jsii.String("qualityLevel"),
+//   					qvbrQualityLevel: jsii.Number(123),
+//   					rateControlMode: jsii.String("rateControlMode"),
+//   					scanType: jsii.String("scanType"),
+//   					sceneChangeDetect: jsii.String("sceneChangeDetect"),
+//   					slices: jsii.Number(123),
+//   					softness: jsii.Number(123),
+//   					spatialAq: jsii.String("spatialAq"),
+//   					subgopLength: jsii.String("subgopLength"),
+//   					syntax: jsii.String("syntax"),
+//   					temporalAq: jsii.String("temporalAq"),
+//   					timecodeInsertion: jsii.String("timecodeInsertion"),
+//   				},
+//   				h265Settings: &h265SettingsProperty{
+//   					adaptiveQuantization: jsii.String("adaptiveQuantization"),
+//   					afdSignaling: jsii.String("afdSignaling"),
+//   					alternativeTransferFunction: jsii.String("alternativeTransferFunction"),
+//   					bitrate: jsii.Number(123),
+//   					bufSize: jsii.Number(123),
+//   					colorMetadata: jsii.String("colorMetadata"),
+//   					colorSpaceSettings: &h265ColorSpaceSettingsProperty{
+//   						colorSpacePassthroughSettings: &colorSpacePassthroughSettingsProperty{
+//   						},
+//   						hdr10Settings: &hdr10SettingsProperty{
+//   							maxCll: jsii.Number(123),
+//   							maxFall: jsii.Number(123),
+//   						},
+//   						rec601Settings: &rec601SettingsProperty{
+//   						},
+//   						rec709Settings: &rec709SettingsProperty{
+//   						},
+//   					},
+//   					filterSettings: &h265FilterSettingsProperty{
+//   						temporalFilterSettings: &temporalFilterSettingsProperty{
+//   							postFilterSharpening: jsii.String("postFilterSharpening"),
+//   							strength: jsii.String("strength"),
+//   						},
+//   					},
+//   					fixedAfd: jsii.String("fixedAfd"),
+//   					flickerAq: jsii.String("flickerAq"),
+//   					framerateDenominator: jsii.Number(123),
+//   					framerateNumerator: jsii.Number(123),
+//   					gopClosedCadence: jsii.Number(123),
+//   					gopSize: jsii.Number(123),
+//   					gopSizeUnits: jsii.String("gopSizeUnits"),
+//   					level: jsii.String("level"),
+//   					lookAheadRateControl: jsii.String("lookAheadRateControl"),
+//   					maxBitrate: jsii.Number(123),
+//   					minIInterval: jsii.Number(123),
+//   					parDenominator: jsii.Number(123),
+//   					parNumerator: jsii.Number(123),
+//   					profile: jsii.String("profile"),
+//   					qvbrQualityLevel: jsii.Number(123),
+//   					rateControlMode: jsii.String("rateControlMode"),
+//   					scanType: jsii.String("scanType"),
+//   					sceneChangeDetect: jsii.String("sceneChangeDetect"),
+//   					slices: jsii.Number(123),
+//   					tier: jsii.String("tier"),
+//   					timecodeInsertion: jsii.String("timecodeInsertion"),
+//   				},
+//   				mpeg2Settings: &mpeg2SettingsProperty{
+//   					adaptiveQuantization: jsii.String("adaptiveQuantization"),
+//   					afdSignaling: jsii.String("afdSignaling"),
+//   					colorMetadata: jsii.String("colorMetadata"),
+//   					colorSpace: jsii.String("colorSpace"),
+//   					displayAspectRatio: jsii.String("displayAspectRatio"),
+//   					filterSettings: &mpeg2FilterSettingsProperty{
+//   						temporalFilterSettings: &temporalFilterSettingsProperty{
+//   							postFilterSharpening: jsii.String("postFilterSharpening"),
+//   							strength: jsii.String("strength"),
+//   						},
+//   					},
+//   					fixedAfd: jsii.String("fixedAfd"),
+//   					framerateDenominator: jsii.Number(123),
+//   					framerateNumerator: jsii.Number(123),
+//   					gopClosedCadence: jsii.Number(123),
+//   					gopNumBFrames: jsii.Number(123),
+//   					gopSize: jsii.Number(123),
+//   					gopSizeUnits: jsii.String("gopSizeUnits"),
+//   					scanType: jsii.String("scanType"),
+//   					subgopLength: jsii.String("subgopLength"),
+//   					timecodeInsertion: jsii.String("timecodeInsertion"),
+//   				},
+//   			},
+//   			height: jsii.Number(123),
+//   			name: jsii.String("name"),
+//   			respondToAfd: jsii.String("respondToAfd"),
+//   			scalingBehavior: jsii.String("scalingBehavior"),
+//   			sharpness: jsii.Number(123),
+//   			width: jsii.Number(123),
+//   		},
+//   	},
+//   }
 //
 type CfnChannel_EncoderSettingsProperty struct {
 	// The encoding information for output audio.
@@ -1764,7 +4624,23 @@ type CfnChannel_EncoderSettingsProperty struct {
 //
 // The parent of this entity is AutomaticInputFailoverSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   failoverConditionProperty := &failoverConditionProperty{
+//   	failoverConditionSettings: &failoverConditionSettingsProperty{
+//   		audioSilenceSettings: &audioSilenceFailoverSettingsProperty{
+//   			audioSelectorName: jsii.String("audioSelectorName"),
+//   			audioSilenceThresholdMsec: jsii.Number(123),
+//   		},
+//   		inputLossSettings: &inputLossFailoverSettingsProperty{
+//   			inputLossThresholdMsec: jsii.Number(123),
+//   		},
+//   		videoBlackSettings: &videoBlackFailoverSettingsProperty{
+//   			blackDetectThreshold: jsii.Number(123),
+//   			videoBlackThresholdMsec: jsii.Number(123),
+//   		},
+//   	},
+//   }
 //
 type CfnChannel_FailoverConditionProperty struct {
 	// Settings for a specific failover condition.
@@ -1775,7 +4651,21 @@ type CfnChannel_FailoverConditionProperty struct {
 //
 // The parent of this entity is FailoverCondition.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   failoverConditionSettingsProperty := &failoverConditionSettingsProperty{
+//   	audioSilenceSettings: &audioSilenceFailoverSettingsProperty{
+//   		audioSelectorName: jsii.String("audioSelectorName"),
+//   		audioSilenceThresholdMsec: jsii.Number(123),
+//   	},
+//   	inputLossSettings: &inputLossFailoverSettingsProperty{
+//   		inputLossThresholdMsec: jsii.Number(123),
+//   	},
+//   	videoBlackSettings: &videoBlackFailoverSettingsProperty{
+//   		blackDetectThreshold: jsii.Number(123),
+//   		videoBlackThresholdMsec: jsii.Number(123),
+//   	},
+//   }
 //
 type CfnChannel_FailoverConditionSettingsProperty struct {
 	// MediaLive will perform a failover if the specified audio selector is silent for the specified period.
@@ -1790,7 +4680,11 @@ type CfnChannel_FailoverConditionSettingsProperty struct {
 //
 // The parent of this entity is EncoderSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   featureActivationsProperty := &featureActivationsProperty{
+//   	inputPrepareScheduleActions: jsii.String("inputPrepareScheduleActions"),
+//   }
 //
 type CfnChannel_FeatureActivationsProperty struct {
 	// Enables the Input Prepare feature.
@@ -1804,7 +4698,13 @@ type CfnChannel_FeatureActivationsProperty struct {
 //
 // The parent of this entity is UdpOutputSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   fecOutputSettingsProperty := &fecOutputSettingsProperty{
+//   	columnDepth: jsii.Number(123),
+//   	includeFec: jsii.String("includeFec"),
+//   	rowLength: jsii.Number(123),
+//   }
 //
 type CfnChannel_FecOutputSettingsProperty struct {
 	// The parameter D from SMPTE 2022-1.
@@ -1823,7 +4723,13 @@ type CfnChannel_FecOutputSettingsProperty struct {
 //
 // The parent of this entity is HlsSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   fmp4HlsSettingsProperty := &fmp4HlsSettingsProperty{
+//   	audioRenditionSets: jsii.String("audioRenditionSets"),
+//   	nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   	timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   }
 //
 type CfnChannel_Fmp4HlsSettingsProperty struct {
 	// List all the audio groups that are used with the video output stream.
@@ -1840,7 +4746,13 @@ type CfnChannel_Fmp4HlsSettingsProperty struct {
 //
 // The parent of this entity is FrameCaptureGroupSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   frameCaptureCdnSettingsProperty := &frameCaptureCdnSettingsProperty{
+//   	frameCaptureS3Settings: &frameCaptureS3SettingsProperty{
+//   		cannedAcl: jsii.String("cannedAcl"),
+//   	},
+//   }
 //
 type CfnChannel_FrameCaptureCdnSettingsProperty struct {
 	// Sets up Amazon S3 as the destination for this Frame Capture output.
@@ -1851,7 +4763,18 @@ type CfnChannel_FrameCaptureCdnSettingsProperty struct {
 //
 // The parent of this entity is OutputGroupSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   frameCaptureGroupSettingsProperty := &frameCaptureGroupSettingsProperty{
+//   	destination: &outputLocationRefProperty{
+//   		destinationRefId: jsii.String("destinationRefId"),
+//   	},
+//   	frameCaptureCdnSettings: &frameCaptureCdnSettingsProperty{
+//   		frameCaptureS3Settings: &frameCaptureS3SettingsProperty{
+//   			cannedAcl: jsii.String("cannedAcl"),
+//   		},
+//   	},
+//   }
 //
 type CfnChannel_FrameCaptureGroupSettingsProperty struct {
 	// The destination for the frame capture files.
@@ -1866,7 +4789,10 @@ type CfnChannel_FrameCaptureGroupSettingsProperty struct {
 //
 // The parent of this entity is HlsSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   frameCaptureHlsSettingsProperty := &frameCaptureHlsSettingsProperty{
+//   }
 //
 type CfnChannel_FrameCaptureHlsSettingsProperty struct {
 }
@@ -1875,7 +4801,11 @@ type CfnChannel_FrameCaptureHlsSettingsProperty struct {
 //
 // The parent of this entity is OutputSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   frameCaptureOutputSettingsProperty := &frameCaptureOutputSettingsProperty{
+//   	nameModifier: jsii.String("nameModifier"),
+//   }
 //
 type CfnChannel_FrameCaptureOutputSettingsProperty struct {
 	// Required if the output group contains more than one output.
@@ -1888,7 +4818,11 @@ type CfnChannel_FrameCaptureOutputSettingsProperty struct {
 //
 // The parent of this entity is FrameCaptureCdnSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   frameCaptureS3SettingsProperty := &frameCaptureS3SettingsProperty{
+//   	cannedAcl: jsii.String("cannedAcl"),
+//   }
 //
 type CfnChannel_FrameCaptureS3SettingsProperty struct {
 	// Specify the canned ACL to apply to each S3 request.
@@ -1901,7 +4835,12 @@ type CfnChannel_FrameCaptureS3SettingsProperty struct {
 //
 // The parent of this entity is VideoCodecSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   frameCaptureSettingsProperty := &frameCaptureSettingsProperty{
+//   	captureInterval: jsii.Number(123),
+//   	captureIntervalUnits: jsii.String("captureIntervalUnits"),
+//   }
 //
 type CfnChannel_FrameCaptureSettingsProperty struct {
 	// The frequency, in seconds, for capturing frames for inclusion in the output.
@@ -1916,7 +4855,26 @@ type CfnChannel_FrameCaptureSettingsProperty struct {
 //
 // The parent of this entity is EncoderSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   globalConfigurationProperty := &globalConfigurationProperty{
+//   	initialAudioGain: jsii.Number(123),
+//   	inputEndAction: jsii.String("inputEndAction"),
+//   	inputLossBehavior: &inputLossBehaviorProperty{
+//   		blackFrameMsec: jsii.Number(123),
+//   		inputLossImageColor: jsii.String("inputLossImageColor"),
+//   		inputLossImageSlate: &inputLocationProperty{
+//   			passwordParam: jsii.String("passwordParam"),
+//   			uri: jsii.String("uri"),
+//   			username: jsii.String("username"),
+//   		},
+//   		inputLossImageType: jsii.String("inputLossImageType"),
+//   		repeatFrameMsec: jsii.Number(123),
+//   	},
+//   	outputLockingMode: jsii.String("outputLockingMode"),
+//   	outputTimingSource: jsii.String("outputTimingSource"),
+//   	supportLowFramerateInputs: jsii.String("supportLowFramerateInputs"),
+//   }
 //
 type CfnChannel_GlobalConfigurationProperty struct {
 	// The value to set the initial audio gain for the channel.
@@ -1943,7 +4901,16 @@ type CfnChannel_GlobalConfigurationProperty struct {
 //
 // The parent of this entity is H264Settings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   h264ColorSpaceSettingsProperty := &h264ColorSpaceSettingsProperty{
+//   	colorSpacePassthroughSettings: &colorSpacePassthroughSettingsProperty{
+//   	},
+//   	rec601Settings: &rec601SettingsProperty{
+//   	},
+//   	rec709Settings: &rec709SettingsProperty{
+//   	},
+//   }
 //
 type CfnChannel_H264ColorSpaceSettingsProperty struct {
 	// Passthrough applies no color space conversion to the output.
@@ -1958,7 +4925,14 @@ type CfnChannel_H264ColorSpaceSettingsProperty struct {
 //
 // The parent of this entity is H264Settings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   h264FilterSettingsProperty := &h264FilterSettingsProperty{
+//   	temporalFilterSettings: &temporalFilterSettingsProperty{
+//   		postFilterSharpening: jsii.String("postFilterSharpening"),
+//   		strength: jsii.String("strength"),
+//   	},
+//   }
 //
 type CfnChannel_H264FilterSettingsProperty struct {
 	// Settings for applying the temporal filter to the video.
@@ -1969,7 +4943,63 @@ type CfnChannel_H264FilterSettingsProperty struct {
 //
 // The parent of this entity is VideoCodecSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   h264SettingsProperty := &h264SettingsProperty{
+//   	adaptiveQuantization: jsii.String("adaptiveQuantization"),
+//   	afdSignaling: jsii.String("afdSignaling"),
+//   	bitrate: jsii.Number(123),
+//   	bufFillPct: jsii.Number(123),
+//   	bufSize: jsii.Number(123),
+//   	colorMetadata: jsii.String("colorMetadata"),
+//   	colorSpaceSettings: &h264ColorSpaceSettingsProperty{
+//   		colorSpacePassthroughSettings: &colorSpacePassthroughSettingsProperty{
+//   		},
+//   		rec601Settings: &rec601SettingsProperty{
+//   		},
+//   		rec709Settings: &rec709SettingsProperty{
+//   		},
+//   	},
+//   	entropyEncoding: jsii.String("entropyEncoding"),
+//   	filterSettings: &h264FilterSettingsProperty{
+//   		temporalFilterSettings: &temporalFilterSettingsProperty{
+//   			postFilterSharpening: jsii.String("postFilterSharpening"),
+//   			strength: jsii.String("strength"),
+//   		},
+//   	},
+//   	fixedAfd: jsii.String("fixedAfd"),
+//   	flickerAq: jsii.String("flickerAq"),
+//   	forceFieldPictures: jsii.String("forceFieldPictures"),
+//   	framerateControl: jsii.String("framerateControl"),
+//   	framerateDenominator: jsii.Number(123),
+//   	framerateNumerator: jsii.Number(123),
+//   	gopBReference: jsii.String("gopBReference"),
+//   	gopClosedCadence: jsii.Number(123),
+//   	gopNumBFrames: jsii.Number(123),
+//   	gopSize: jsii.Number(123),
+//   	gopSizeUnits: jsii.String("gopSizeUnits"),
+//   	level: jsii.String("level"),
+//   	lookAheadRateControl: jsii.String("lookAheadRateControl"),
+//   	maxBitrate: jsii.Number(123),
+//   	minIInterval: jsii.Number(123),
+//   	numRefFrames: jsii.Number(123),
+//   	parControl: jsii.String("parControl"),
+//   	parDenominator: jsii.Number(123),
+//   	parNumerator: jsii.Number(123),
+//   	profile: jsii.String("profile"),
+//   	qualityLevel: jsii.String("qualityLevel"),
+//   	qvbrQualityLevel: jsii.Number(123),
+//   	rateControlMode: jsii.String("rateControlMode"),
+//   	scanType: jsii.String("scanType"),
+//   	sceneChangeDetect: jsii.String("sceneChangeDetect"),
+//   	slices: jsii.Number(123),
+//   	softness: jsii.Number(123),
+//   	spatialAq: jsii.String("spatialAq"),
+//   	subgopLength: jsii.String("subgopLength"),
+//   	syntax: jsii.String("syntax"),
+//   	temporalAq: jsii.String("temporalAq"),
+//   	timecodeInsertion: jsii.String("timecodeInsertion"),
+//   }
 //
 type CfnChannel_H264SettingsProperty struct {
 	// The adaptive quantization.
@@ -2107,7 +5137,20 @@ type CfnChannel_H264SettingsProperty struct {
 //
 // The parent of this entity is H265Settings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   h265ColorSpaceSettingsProperty := &h265ColorSpaceSettingsProperty{
+//   	colorSpacePassthroughSettings: &colorSpacePassthroughSettingsProperty{
+//   	},
+//   	hdr10Settings: &hdr10SettingsProperty{
+//   		maxCll: jsii.Number(123),
+//   		maxFall: jsii.Number(123),
+//   	},
+//   	rec601Settings: &rec601SettingsProperty{
+//   	},
+//   	rec709Settings: &rec709SettingsProperty{
+//   	},
+//   }
 //
 type CfnChannel_H265ColorSpaceSettingsProperty struct {
 	// Passthrough applies no color space conversion to the output.
@@ -2124,7 +5167,14 @@ type CfnChannel_H265ColorSpaceSettingsProperty struct {
 //
 // The parent of this entity is H265Settings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   h265FilterSettingsProperty := &h265FilterSettingsProperty{
+//   	temporalFilterSettings: &temporalFilterSettingsProperty{
+//   		postFilterSharpening: jsii.String("postFilterSharpening"),
+//   		strength: jsii.String("strength"),
+//   	},
+//   }
 //
 type CfnChannel_H265FilterSettingsProperty struct {
 	// Settings for applying the temporal filter to the video.
@@ -2135,7 +5185,55 @@ type CfnChannel_H265FilterSettingsProperty struct {
 //
 // The parent of this entity is VideoCodecSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   h265SettingsProperty := &h265SettingsProperty{
+//   	adaptiveQuantization: jsii.String("adaptiveQuantization"),
+//   	afdSignaling: jsii.String("afdSignaling"),
+//   	alternativeTransferFunction: jsii.String("alternativeTransferFunction"),
+//   	bitrate: jsii.Number(123),
+//   	bufSize: jsii.Number(123),
+//   	colorMetadata: jsii.String("colorMetadata"),
+//   	colorSpaceSettings: &h265ColorSpaceSettingsProperty{
+//   		colorSpacePassthroughSettings: &colorSpacePassthroughSettingsProperty{
+//   		},
+//   		hdr10Settings: &hdr10SettingsProperty{
+//   			maxCll: jsii.Number(123),
+//   			maxFall: jsii.Number(123),
+//   		},
+//   		rec601Settings: &rec601SettingsProperty{
+//   		},
+//   		rec709Settings: &rec709SettingsProperty{
+//   		},
+//   	},
+//   	filterSettings: &h265FilterSettingsProperty{
+//   		temporalFilterSettings: &temporalFilterSettingsProperty{
+//   			postFilterSharpening: jsii.String("postFilterSharpening"),
+//   			strength: jsii.String("strength"),
+//   		},
+//   	},
+//   	fixedAfd: jsii.String("fixedAfd"),
+//   	flickerAq: jsii.String("flickerAq"),
+//   	framerateDenominator: jsii.Number(123),
+//   	framerateNumerator: jsii.Number(123),
+//   	gopClosedCadence: jsii.Number(123),
+//   	gopSize: jsii.Number(123),
+//   	gopSizeUnits: jsii.String("gopSizeUnits"),
+//   	level: jsii.String("level"),
+//   	lookAheadRateControl: jsii.String("lookAheadRateControl"),
+//   	maxBitrate: jsii.Number(123),
+//   	minIInterval: jsii.Number(123),
+//   	parDenominator: jsii.Number(123),
+//   	parNumerator: jsii.Number(123),
+//   	profile: jsii.String("profile"),
+//   	qvbrQualityLevel: jsii.Number(123),
+//   	rateControlMode: jsii.String("rateControlMode"),
+//   	scanType: jsii.String("scanType"),
+//   	sceneChangeDetect: jsii.String("sceneChangeDetect"),
+//   	slices: jsii.Number(123),
+//   	tier: jsii.String("tier"),
+//   	timecodeInsertion: jsii.String("timecodeInsertion"),
+//   }
 //
 type CfnChannel_H265SettingsProperty struct {
 	// Adaptive quantization.
@@ -2230,7 +5328,7 @@ type CfnChannel_H265SettingsProperty struct {
 	// Determines how timecodes should be inserted into the video elementary stream.
 	//
 	// - 'disabled': Do not include timecodes
-	// - 'picTimingSei': Pass through picture timing SEI messages from the source specified in Timecode Config
+	// - 'picTimingSei': Pass through picture timing SEI messages from the source specified in Timecode Config.
 	TimecodeInsertion *string `json:"timecodeInsertion" yaml:"timecodeInsertion"`
 }
 
@@ -2238,7 +5336,12 @@ type CfnChannel_H265SettingsProperty struct {
 //
 // The parents of this entity are H265ColorSpaceSettings (for color space settings in the output) and VideoSelectorColorSpaceSettings (for color space settings in the input).
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   hdr10SettingsProperty := &hdr10SettingsProperty{
+//   	maxCll: jsii.Number(123),
+//   	maxFall: jsii.Number(123),
+//   }
 //
 type CfnChannel_Hdr10SettingsProperty struct {
 	// Maximum Content Light Level An integer metadata value defining the maximum light level, in nits, of any single pixel within an encoded HDR video stream or file.
@@ -2251,7 +5354,17 @@ type CfnChannel_Hdr10SettingsProperty struct {
 //
 // The parent of this entity is HlsCdnSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   hlsAkamaiSettingsProperty := &hlsAkamaiSettingsProperty{
+//   	connectionRetryInterval: jsii.Number(123),
+//   	filecacheDuration: jsii.Number(123),
+//   	httpTransferMode: jsii.String("httpTransferMode"),
+//   	numRetries: jsii.Number(123),
+//   	restartDelay: jsii.Number(123),
+//   	salt: jsii.String("salt"),
+//   	token: jsii.String("token"),
+//   }
 //
 type CfnChannel_HlsAkamaiSettingsProperty struct {
 	// The number of seconds to wait before retrying a connection to the CDN if the connection is lost.
@@ -2280,7 +5393,14 @@ type CfnChannel_HlsAkamaiSettingsProperty struct {
 //
 // The parent of this entity is HlsCdnSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   hlsBasicPutSettingsProperty := &hlsBasicPutSettingsProperty{
+//   	connectionRetryInterval: jsii.Number(123),
+//   	filecacheDuration: jsii.Number(123),
+//   	numRetries: jsii.Number(123),
+//   	restartDelay: jsii.Number(123),
+//   }
 //
 type CfnChannel_HlsBasicPutSettingsProperty struct {
 	// The number of seconds to wait before retrying a connection to the CDN if the connection is lost.
@@ -2299,7 +5419,42 @@ type CfnChannel_HlsBasicPutSettingsProperty struct {
 //
 // The parent of this entity is HlsGroupSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   hlsCdnSettingsProperty := &hlsCdnSettingsProperty{
+//   	hlsAkamaiSettings: &hlsAkamaiSettingsProperty{
+//   		connectionRetryInterval: jsii.Number(123),
+//   		filecacheDuration: jsii.Number(123),
+//   		httpTransferMode: jsii.String("httpTransferMode"),
+//   		numRetries: jsii.Number(123),
+//   		restartDelay: jsii.Number(123),
+//   		salt: jsii.String("salt"),
+//   		token: jsii.String("token"),
+//   	},
+//   	hlsBasicPutSettings: &hlsBasicPutSettingsProperty{
+//   		connectionRetryInterval: jsii.Number(123),
+//   		filecacheDuration: jsii.Number(123),
+//   		numRetries: jsii.Number(123),
+//   		restartDelay: jsii.Number(123),
+//   	},
+//   	hlsMediaStoreSettings: &hlsMediaStoreSettingsProperty{
+//   		connectionRetryInterval: jsii.Number(123),
+//   		filecacheDuration: jsii.Number(123),
+//   		mediaStoreStorageClass: jsii.String("mediaStoreStorageClass"),
+//   		numRetries: jsii.Number(123),
+//   		restartDelay: jsii.Number(123),
+//   	},
+//   	hlsS3Settings: &hlsS3SettingsProperty{
+//   		cannedAcl: jsii.String("cannedAcl"),
+//   	},
+//   	hlsWebdavSettings: &hlsWebdavSettingsProperty{
+//   		connectionRetryInterval: jsii.Number(123),
+//   		filecacheDuration: jsii.Number(123),
+//   		httpTransferMode: jsii.String("httpTransferMode"),
+//   		numRetries: jsii.Number(123),
+//   		restartDelay: jsii.Number(123),
+//   	},
+//   }
 //
 type CfnChannel_HlsCdnSettingsProperty struct {
 	// Sets up Akamai as the downstream system for the HLS output group.
@@ -2320,7 +5475,105 @@ type CfnChannel_HlsCdnSettingsProperty struct {
 //
 // The parent of this entity is OutputGroupSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   hlsGroupSettingsProperty := &hlsGroupSettingsProperty{
+//   	adMarkers: []*string{
+//   		jsii.String("adMarkers"),
+//   	},
+//   	baseUrlContent: jsii.String("baseUrlContent"),
+//   	baseUrlContent1: jsii.String("baseUrlContent1"),
+//   	baseUrlManifest: jsii.String("baseUrlManifest"),
+//   	baseUrlManifest1: jsii.String("baseUrlManifest1"),
+//   	captionLanguageMappings: []interface{}{
+//   		&captionLanguageMappingProperty{
+//   			captionChannel: jsii.Number(123),
+//   			languageCode: jsii.String("languageCode"),
+//   			languageDescription: jsii.String("languageDescription"),
+//   		},
+//   	},
+//   	captionLanguageSetting: jsii.String("captionLanguageSetting"),
+//   	clientCache: jsii.String("clientCache"),
+//   	codecSpecification: jsii.String("codecSpecification"),
+//   	constantIv: jsii.String("constantIv"),
+//   	destination: &outputLocationRefProperty{
+//   		destinationRefId: jsii.String("destinationRefId"),
+//   	},
+//   	directoryStructure: jsii.String("directoryStructure"),
+//   	discontinuityTags: jsii.String("discontinuityTags"),
+//   	encryptionType: jsii.String("encryptionType"),
+//   	hlsCdnSettings: &hlsCdnSettingsProperty{
+//   		hlsAkamaiSettings: &hlsAkamaiSettingsProperty{
+//   			connectionRetryInterval: jsii.Number(123),
+//   			filecacheDuration: jsii.Number(123),
+//   			httpTransferMode: jsii.String("httpTransferMode"),
+//   			numRetries: jsii.Number(123),
+//   			restartDelay: jsii.Number(123),
+//   			salt: jsii.String("salt"),
+//   			token: jsii.String("token"),
+//   		},
+//   		hlsBasicPutSettings: &hlsBasicPutSettingsProperty{
+//   			connectionRetryInterval: jsii.Number(123),
+//   			filecacheDuration: jsii.Number(123),
+//   			numRetries: jsii.Number(123),
+//   			restartDelay: jsii.Number(123),
+//   		},
+//   		hlsMediaStoreSettings: &hlsMediaStoreSettingsProperty{
+//   			connectionRetryInterval: jsii.Number(123),
+//   			filecacheDuration: jsii.Number(123),
+//   			mediaStoreStorageClass: jsii.String("mediaStoreStorageClass"),
+//   			numRetries: jsii.Number(123),
+//   			restartDelay: jsii.Number(123),
+//   		},
+//   		hlsS3Settings: &hlsS3SettingsProperty{
+//   			cannedAcl: jsii.String("cannedAcl"),
+//   		},
+//   		hlsWebdavSettings: &hlsWebdavSettingsProperty{
+//   			connectionRetryInterval: jsii.Number(123),
+//   			filecacheDuration: jsii.Number(123),
+//   			httpTransferMode: jsii.String("httpTransferMode"),
+//   			numRetries: jsii.Number(123),
+//   			restartDelay: jsii.Number(123),
+//   		},
+//   	},
+//   	hlsId3SegmentTagging: jsii.String("hlsId3SegmentTagging"),
+//   	iFrameOnlyPlaylists: jsii.String("iFrameOnlyPlaylists"),
+//   	incompleteSegmentBehavior: jsii.String("incompleteSegmentBehavior"),
+//   	indexNSegments: jsii.Number(123),
+//   	inputLossAction: jsii.String("inputLossAction"),
+//   	ivInManifest: jsii.String("ivInManifest"),
+//   	ivSource: jsii.String("ivSource"),
+//   	keepSegments: jsii.Number(123),
+//   	keyFormat: jsii.String("keyFormat"),
+//   	keyFormatVersions: jsii.String("keyFormatVersions"),
+//   	keyProviderSettings: &keyProviderSettingsProperty{
+//   		staticKeySettings: &staticKeySettingsProperty{
+//   			keyProviderServer: &inputLocationProperty{
+//   				passwordParam: jsii.String("passwordParam"),
+//   				uri: jsii.String("uri"),
+//   				username: jsii.String("username"),
+//   			},
+//   			staticKeyValue: jsii.String("staticKeyValue"),
+//   		},
+//   	},
+//   	manifestCompression: jsii.String("manifestCompression"),
+//   	manifestDurationFormat: jsii.String("manifestDurationFormat"),
+//   	minSegmentLength: jsii.Number(123),
+//   	mode: jsii.String("mode"),
+//   	outputSelection: jsii.String("outputSelection"),
+//   	programDateTime: jsii.String("programDateTime"),
+//   	programDateTimeClock: jsii.String("programDateTimeClock"),
+//   	programDateTimePeriod: jsii.Number(123),
+//   	redundantManifest: jsii.String("redundantManifest"),
+//   	segmentationMode: jsii.String("segmentationMode"),
+//   	segmentLength: jsii.Number(123),
+//   	segmentsPerSubdirectory: jsii.Number(123),
+//   	streamInfResolution: jsii.String("streamInfResolution"),
+//   	timedMetadataId3Frame: jsii.String("timedMetadataId3Frame"),
+//   	timedMetadataId3Period: jsii.Number(123),
+//   	timestampDeltaMilliseconds: jsii.Number(123),
+//   	tsFileMode: jsii.String("tsFileMode"),
+//   }
 //
 type CfnChannel_HlsGroupSettingsProperty struct {
 	// Chooses one or more ad marker types to pass SCTE35 signals through to this group of Apple HLS outputs.
@@ -2455,7 +5708,15 @@ type CfnChannel_HlsGroupSettingsProperty struct {
 //
 // The parent of this entity is NetworkInputSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   hlsInputSettingsProperty := &hlsInputSettingsProperty{
+//   	bandwidth: jsii.Number(123),
+//   	bufferSegments: jsii.Number(123),
+//   	retries: jsii.Number(123),
+//   	retryInterval: jsii.Number(123),
+//   	scte35Source: jsii.String("scte35Source"),
+//   }
 //
 type CfnChannel_HlsInputSettingsProperty struct {
 	// When specified, the HLS stream with the m3u8 bandwidth that most closely matches this value is chosen.
@@ -2480,7 +5741,15 @@ type CfnChannel_HlsInputSettingsProperty struct {
 //
 // The parent of this entity is HlsCdnSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   hlsMediaStoreSettingsProperty := &hlsMediaStoreSettingsProperty{
+//   	connectionRetryInterval: jsii.Number(123),
+//   	filecacheDuration: jsii.Number(123),
+//   	mediaStoreStorageClass: jsii.String("mediaStoreStorageClass"),
+//   	numRetries: jsii.Number(123),
+//   	restartDelay: jsii.Number(123),
+//   }
 //
 type CfnChannel_HlsMediaStoreSettingsProperty struct {
 	// The number of seconds to wait before retrying a connection to the CDN if the connection is lost.
@@ -2501,7 +5770,54 @@ type CfnChannel_HlsMediaStoreSettingsProperty struct {
 //
 // The parent of this entity is OutputSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   hlsOutputSettingsProperty := &hlsOutputSettingsProperty{
+//   	h265PackagingType: jsii.String("h265PackagingType"),
+//   	hlsSettings: &hlsSettingsProperty{
+//   		audioOnlyHlsSettings: &audioOnlyHlsSettingsProperty{
+//   			audioGroupId: jsii.String("audioGroupId"),
+//   			audioOnlyImage: &inputLocationProperty{
+//   				passwordParam: jsii.String("passwordParam"),
+//   				uri: jsii.String("uri"),
+//   				username: jsii.String("username"),
+//   			},
+//   			audioTrackType: jsii.String("audioTrackType"),
+//   			segmentType: jsii.String("segmentType"),
+//   		},
+//   		fmp4HlsSettings: &fmp4HlsSettingsProperty{
+//   			audioRenditionSets: jsii.String("audioRenditionSets"),
+//   			nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   			timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   		},
+//   		frameCaptureHlsSettings: &frameCaptureHlsSettingsProperty{
+//   		},
+//   		standardHlsSettings: &standardHlsSettingsProperty{
+//   			audioRenditionSets: jsii.String("audioRenditionSets"),
+//   			m3U8Settings: &m3u8SettingsProperty{
+//   				audioFramesPerPes: jsii.Number(123),
+//   				audioPids: jsii.String("audioPids"),
+//   				ecmPid: jsii.String("ecmPid"),
+//   				nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   				patInterval: jsii.Number(123),
+//   				pcrControl: jsii.String("pcrControl"),
+//   				pcrPeriod: jsii.Number(123),
+//   				pcrPid: jsii.String("pcrPid"),
+//   				pmtInterval: jsii.Number(123),
+//   				pmtPid: jsii.String("pmtPid"),
+//   				programNum: jsii.Number(123),
+//   				scte35Behavior: jsii.String("scte35Behavior"),
+//   				scte35Pid: jsii.String("scte35Pid"),
+//   				timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   				timedMetadataPid: jsii.String("timedMetadataPid"),
+//   				transportStreamId: jsii.Number(123),
+//   				videoPid: jsii.String("videoPid"),
+//   			},
+//   		},
+//   	},
+//   	nameModifier: jsii.String("nameModifier"),
+//   	segmentModifier: jsii.String("segmentModifier"),
+//   }
 //
 type CfnChannel_HlsOutputSettingsProperty struct {
 	// Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
@@ -2522,7 +5838,11 @@ type CfnChannel_HlsOutputSettingsProperty struct {
 //
 // The parent of this entity is HlsCdnSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   hlsS3SettingsProperty := &hlsS3SettingsProperty{
+//   	cannedAcl: jsii.String("cannedAcl"),
+//   }
 //
 type CfnChannel_HlsS3SettingsProperty struct {
 	// Specify the canned ACL to apply to each S3 request.
@@ -2535,7 +5855,49 @@ type CfnChannel_HlsS3SettingsProperty struct {
 //
 // The parent of this entity is HlsOutputSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   hlsSettingsProperty := &hlsSettingsProperty{
+//   	audioOnlyHlsSettings: &audioOnlyHlsSettingsProperty{
+//   		audioGroupId: jsii.String("audioGroupId"),
+//   		audioOnlyImage: &inputLocationProperty{
+//   			passwordParam: jsii.String("passwordParam"),
+//   			uri: jsii.String("uri"),
+//   			username: jsii.String("username"),
+//   		},
+//   		audioTrackType: jsii.String("audioTrackType"),
+//   		segmentType: jsii.String("segmentType"),
+//   	},
+//   	fmp4HlsSettings: &fmp4HlsSettingsProperty{
+//   		audioRenditionSets: jsii.String("audioRenditionSets"),
+//   		nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   		timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   	},
+//   	frameCaptureHlsSettings: &frameCaptureHlsSettingsProperty{
+//   	},
+//   	standardHlsSettings: &standardHlsSettingsProperty{
+//   		audioRenditionSets: jsii.String("audioRenditionSets"),
+//   		m3U8Settings: &m3u8SettingsProperty{
+//   			audioFramesPerPes: jsii.Number(123),
+//   			audioPids: jsii.String("audioPids"),
+//   			ecmPid: jsii.String("ecmPid"),
+//   			nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   			patInterval: jsii.Number(123),
+//   			pcrControl: jsii.String("pcrControl"),
+//   			pcrPeriod: jsii.Number(123),
+//   			pcrPid: jsii.String("pcrPid"),
+//   			pmtInterval: jsii.Number(123),
+//   			pmtPid: jsii.String("pmtPid"),
+//   			programNum: jsii.Number(123),
+//   			scte35Behavior: jsii.String("scte35Behavior"),
+//   			scte35Pid: jsii.String("scte35Pid"),
+//   			timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   			timedMetadataPid: jsii.String("timedMetadataPid"),
+//   			transportStreamId: jsii.Number(123),
+//   			videoPid: jsii.String("videoPid"),
+//   		},
+//   	},
+//   }
 //
 type CfnChannel_HlsSettingsProperty struct {
 	// The settings for an audio-only output.
@@ -2552,7 +5914,15 @@ type CfnChannel_HlsSettingsProperty struct {
 //
 // The parent of this entity is HlsCdnSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   hlsWebdavSettingsProperty := &hlsWebdavSettingsProperty{
+//   	connectionRetryInterval: jsii.Number(123),
+//   	filecacheDuration: jsii.Number(123),
+//   	httpTransferMode: jsii.String("httpTransferMode"),
+//   	numRetries: jsii.Number(123),
+//   	restartDelay: jsii.Number(123),
+//   }
 //
 type CfnChannel_HlsWebdavSettingsProperty struct {
 	// The number of seconds to wait before retrying a connection to the CDN if the connection is lost.
@@ -2573,7 +5943,10 @@ type CfnChannel_HlsWebdavSettingsProperty struct {
 //
 // The parent of this entity is MotionGraphicsSetting.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   htmlMotionGraphicsSettingsProperty := &htmlMotionGraphicsSettingsProperty{
+//   }
 //
 type CfnChannel_HtmlMotionGraphicsSettingsProperty struct {
 }
@@ -2582,7 +5955,136 @@ type CfnChannel_HtmlMotionGraphicsSettingsProperty struct {
 //
 // This entity is at the top level in the channel.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   inputAttachmentProperty := &inputAttachmentProperty{
+//   	automaticInputFailoverSettings: &automaticInputFailoverSettingsProperty{
+//   		errorClearTimeMsec: jsii.Number(123),
+//   		failoverConditions: []interface{}{
+//   			&failoverConditionProperty{
+//   				failoverConditionSettings: &failoverConditionSettingsProperty{
+//   					audioSilenceSettings: &audioSilenceFailoverSettingsProperty{
+//   						audioSelectorName: jsii.String("audioSelectorName"),
+//   						audioSilenceThresholdMsec: jsii.Number(123),
+//   					},
+//   					inputLossSettings: &inputLossFailoverSettingsProperty{
+//   						inputLossThresholdMsec: jsii.Number(123),
+//   					},
+//   					videoBlackSettings: &videoBlackFailoverSettingsProperty{
+//   						blackDetectThreshold: jsii.Number(123),
+//   						videoBlackThresholdMsec: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		inputPreference: jsii.String("inputPreference"),
+//   		secondaryInputId: jsii.String("secondaryInputId"),
+//   	},
+//   	inputAttachmentName: jsii.String("inputAttachmentName"),
+//   	inputId: jsii.String("inputId"),
+//   	inputSettings: &inputSettingsProperty{
+//   		audioSelectors: []interface{}{
+//   			&audioSelectorProperty{
+//   				name: jsii.String("name"),
+//   				selectorSettings: &audioSelectorSettingsProperty{
+//   					audioHlsRenditionSelection: &audioHlsRenditionSelectionProperty{
+//   						groupId: jsii.String("groupId"),
+//   						name: jsii.String("name"),
+//   					},
+//   					audioLanguageSelection: &audioLanguageSelectionProperty{
+//   						languageCode: jsii.String("languageCode"),
+//   						languageSelectionPolicy: jsii.String("languageSelectionPolicy"),
+//   					},
+//   					audioPidSelection: &audioPidSelectionProperty{
+//   						pid: jsii.Number(123),
+//   					},
+//   					audioTrackSelection: &audioTrackSelectionProperty{
+//   						tracks: []interface{}{
+//   							&audioTrackProperty{
+//   								track: jsii.Number(123),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   		captionSelectors: []interface{}{
+//   			&captionSelectorProperty{
+//   				languageCode: jsii.String("languageCode"),
+//   				name: jsii.String("name"),
+//   				selectorSettings: &captionSelectorSettingsProperty{
+//   					ancillarySourceSettings: &ancillarySourceSettingsProperty{
+//   						sourceAncillaryChannelNumber: jsii.Number(123),
+//   					},
+//   					aribSourceSettings: &aribSourceSettingsProperty{
+//   					},
+//   					dvbSubSourceSettings: &dvbSubSourceSettingsProperty{
+//   						ocrLanguage: jsii.String("ocrLanguage"),
+//   						pid: jsii.Number(123),
+//   					},
+//   					embeddedSourceSettings: &embeddedSourceSettingsProperty{
+//   						convert608To708: jsii.String("convert608To708"),
+//   						scte20Detection: jsii.String("scte20Detection"),
+//   						source608ChannelNumber: jsii.Number(123),
+//   						source608TrackNumber: jsii.Number(123),
+//   					},
+//   					scte20SourceSettings: &scte20SourceSettingsProperty{
+//   						convert608To708: jsii.String("convert608To708"),
+//   						source608ChannelNumber: jsii.Number(123),
+//   					},
+//   					scte27SourceSettings: &scte27SourceSettingsProperty{
+//   						ocrLanguage: jsii.String("ocrLanguage"),
+//   						pid: jsii.Number(123),
+//   					},
+//   					teletextSourceSettings: &teletextSourceSettingsProperty{
+//   						outputRectangle: &captionRectangleProperty{
+//   							height: jsii.Number(123),
+//   							leftOffset: jsii.Number(123),
+//   							topOffset: jsii.Number(123),
+//   							width: jsii.Number(123),
+//   						},
+//   						pageNumber: jsii.String("pageNumber"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		deblockFilter: jsii.String("deblockFilter"),
+//   		denoiseFilter: jsii.String("denoiseFilter"),
+//   		filterStrength: jsii.Number(123),
+//   		inputFilter: jsii.String("inputFilter"),
+//   		networkInputSettings: &networkInputSettingsProperty{
+//   			hlsInputSettings: &hlsInputSettingsProperty{
+//   				bandwidth: jsii.Number(123),
+//   				bufferSegments: jsii.Number(123),
+//   				retries: jsii.Number(123),
+//   				retryInterval: jsii.Number(123),
+//   				scte35Source: jsii.String("scte35Source"),
+//   			},
+//   			serverValidation: jsii.String("serverValidation"),
+//   		},
+//   		scte35Pid: jsii.Number(123),
+//   		smpte2038DataPreference: jsii.String("smpte2038DataPreference"),
+//   		sourceEndBehavior: jsii.String("sourceEndBehavior"),
+//   		videoSelector: &videoSelectorProperty{
+//   			colorSpace: jsii.String("colorSpace"),
+//   			colorSpaceSettings: &videoSelectorColorSpaceSettingsProperty{
+//   				hdr10Settings: &hdr10SettingsProperty{
+//   					maxCll: jsii.Number(123),
+//   					maxFall: jsii.Number(123),
+//   				},
+//   			},
+//   			colorSpaceUsage: jsii.String("colorSpaceUsage"),
+//   			selectorSettings: &videoSelectorSettingsProperty{
+//   				videoSelectorPid: &videoSelectorPidProperty{
+//   					pid: jsii.Number(123),
+//   				},
+//   				videoSelectorProgramId: &videoSelectorProgramIdProperty{
+//   					programId: jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnChannel_InputAttachmentProperty struct {
 	// Settings to implement automatic input failover in this input.
@@ -2601,7 +6103,12 @@ type CfnChannel_InputAttachmentProperty struct {
 //
 // The parent of this entity is AudioChannelMappings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   inputChannelLevelProperty := &inputChannelLevelProperty{
+//   	gain: jsii.Number(123),
+//   	inputChannel: jsii.Number(123),
+//   }
 //
 type CfnChannel_InputChannelLevelProperty struct {
 	// The remixing value.
@@ -2616,7 +6123,13 @@ type CfnChannel_InputChannelLevelProperty struct {
 //
 // The parent of this entity is InputLossBehavior.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   inputLocationProperty := &inputLocationProperty{
+//   	passwordParam: jsii.String("passwordParam"),
+//   	uri: jsii.String("uri"),
+//   	username: jsii.String("username"),
+//   }
 //
 type CfnChannel_InputLocationProperty struct {
 	// The password parameter that holds the password for accessing the downstream system.
@@ -2637,7 +6150,19 @@ type CfnChannel_InputLocationProperty struct {
 //
 // The parent of this entity is GlobalConfiguration.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   inputLossBehaviorProperty := &inputLossBehaviorProperty{
+//   	blackFrameMsec: jsii.Number(123),
+//   	inputLossImageColor: jsii.String("inputLossImageColor"),
+//   	inputLossImageSlate: &inputLocationProperty{
+//   		passwordParam: jsii.String("passwordParam"),
+//   		uri: jsii.String("uri"),
+//   		username: jsii.String("username"),
+//   	},
+//   	inputLossImageType: jsii.String("inputLossImageType"),
+//   	repeatFrameMsec: jsii.Number(123),
+//   }
 //
 type CfnChannel_InputLossBehaviorProperty struct {
 	// On input loss, the number of milliseconds to substitute black into the output before switching to the frame specified by inputLossImageType.
@@ -2662,7 +6187,11 @@ type CfnChannel_InputLossBehaviorProperty struct {
 //
 // The parent of this entity is FailoverConditionSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   inputLossFailoverSettingsProperty := &inputLossFailoverSettingsProperty{
+//   	inputLossThresholdMsec: jsii.Number(123),
+//   }
 //
 type CfnChannel_InputLossFailoverSettingsProperty struct {
 	// The amount of time (in milliseconds) that no input is detected.
@@ -2675,7 +6204,110 @@ type CfnChannel_InputLossFailoverSettingsProperty struct {
 //
 // The parent of this entity is InputAttachment.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   inputSettingsProperty := &inputSettingsProperty{
+//   	audioSelectors: []interface{}{
+//   		&audioSelectorProperty{
+//   			name: jsii.String("name"),
+//   			selectorSettings: &audioSelectorSettingsProperty{
+//   				audioHlsRenditionSelection: &audioHlsRenditionSelectionProperty{
+//   					groupId: jsii.String("groupId"),
+//   					name: jsii.String("name"),
+//   				},
+//   				audioLanguageSelection: &audioLanguageSelectionProperty{
+//   					languageCode: jsii.String("languageCode"),
+//   					languageSelectionPolicy: jsii.String("languageSelectionPolicy"),
+//   				},
+//   				audioPidSelection: &audioPidSelectionProperty{
+//   					pid: jsii.Number(123),
+//   				},
+//   				audioTrackSelection: &audioTrackSelectionProperty{
+//   					tracks: []interface{}{
+//   						&audioTrackProperty{
+//   							track: jsii.Number(123),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	captionSelectors: []interface{}{
+//   		&captionSelectorProperty{
+//   			languageCode: jsii.String("languageCode"),
+//   			name: jsii.String("name"),
+//   			selectorSettings: &captionSelectorSettingsProperty{
+//   				ancillarySourceSettings: &ancillarySourceSettingsProperty{
+//   					sourceAncillaryChannelNumber: jsii.Number(123),
+//   				},
+//   				aribSourceSettings: &aribSourceSettingsProperty{
+//   				},
+//   				dvbSubSourceSettings: &dvbSubSourceSettingsProperty{
+//   					ocrLanguage: jsii.String("ocrLanguage"),
+//   					pid: jsii.Number(123),
+//   				},
+//   				embeddedSourceSettings: &embeddedSourceSettingsProperty{
+//   					convert608To708: jsii.String("convert608To708"),
+//   					scte20Detection: jsii.String("scte20Detection"),
+//   					source608ChannelNumber: jsii.Number(123),
+//   					source608TrackNumber: jsii.Number(123),
+//   				},
+//   				scte20SourceSettings: &scte20SourceSettingsProperty{
+//   					convert608To708: jsii.String("convert608To708"),
+//   					source608ChannelNumber: jsii.Number(123),
+//   				},
+//   				scte27SourceSettings: &scte27SourceSettingsProperty{
+//   					ocrLanguage: jsii.String("ocrLanguage"),
+//   					pid: jsii.Number(123),
+//   				},
+//   				teletextSourceSettings: &teletextSourceSettingsProperty{
+//   					outputRectangle: &captionRectangleProperty{
+//   						height: jsii.Number(123),
+//   						leftOffset: jsii.Number(123),
+//   						topOffset: jsii.Number(123),
+//   						width: jsii.Number(123),
+//   					},
+//   					pageNumber: jsii.String("pageNumber"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	deblockFilter: jsii.String("deblockFilter"),
+//   	denoiseFilter: jsii.String("denoiseFilter"),
+//   	filterStrength: jsii.Number(123),
+//   	inputFilter: jsii.String("inputFilter"),
+//   	networkInputSettings: &networkInputSettingsProperty{
+//   		hlsInputSettings: &hlsInputSettingsProperty{
+//   			bandwidth: jsii.Number(123),
+//   			bufferSegments: jsii.Number(123),
+//   			retries: jsii.Number(123),
+//   			retryInterval: jsii.Number(123),
+//   			scte35Source: jsii.String("scte35Source"),
+//   		},
+//   		serverValidation: jsii.String("serverValidation"),
+//   	},
+//   	scte35Pid: jsii.Number(123),
+//   	smpte2038DataPreference: jsii.String("smpte2038DataPreference"),
+//   	sourceEndBehavior: jsii.String("sourceEndBehavior"),
+//   	videoSelector: &videoSelectorProperty{
+//   		colorSpace: jsii.String("colorSpace"),
+//   		colorSpaceSettings: &videoSelectorColorSpaceSettingsProperty{
+//   			hdr10Settings: &hdr10SettingsProperty{
+//   				maxCll: jsii.Number(123),
+//   				maxFall: jsii.Number(123),
+//   			},
+//   		},
+//   		colorSpaceUsage: jsii.String("colorSpaceUsage"),
+//   		selectorSettings: &videoSelectorSettingsProperty{
+//   			videoSelectorPid: &videoSelectorPidProperty{
+//   				pid: jsii.Number(123),
+//   			},
+//   			videoSelectorProgramId: &videoSelectorProgramIdProperty{
+//   				programId: jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnChannel_InputSettingsProperty struct {
 	// Information about the specific audio to extract from the input.
@@ -2716,7 +6348,13 @@ type CfnChannel_InputSettingsProperty struct {
 //
 // This entity is at the top level in the channel.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   inputSpecificationProperty := &inputSpecificationProperty{
+//   	codec: jsii.String("codec"),
+//   	maximumBitrate: jsii.String("maximumBitrate"),
+//   	resolution: jsii.String("resolution"),
+//   }
 //
 type CfnChannel_InputSpecificationProperty struct {
 	// The codec to include in the input specification for this channel.
@@ -2731,7 +6369,18 @@ type CfnChannel_InputSpecificationProperty struct {
 //
 // The parent of this entity is HlsGroupSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   keyProviderSettingsProperty := &keyProviderSettingsProperty{
+//   	staticKeySettings: &staticKeySettingsProperty{
+//   		keyProviderServer: &inputLocationProperty{
+//   			passwordParam: jsii.String("passwordParam"),
+//   			uri: jsii.String("uri"),
+//   			username: jsii.String("username"),
+//   		},
+//   		staticKeyValue: jsii.String("staticKeyValue"),
+//   	},
+//   }
 //
 type CfnChannel_KeyProviderSettingsProperty struct {
 	// The configuration of static key settings.
@@ -2742,7 +6391,68 @@ type CfnChannel_KeyProviderSettingsProperty struct {
 //
 // The parents of this entity are ArchiveContainerSettings and UdpContainerSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   m2tsSettingsProperty := &m2tsSettingsProperty{
+//   	absentInputAudioBehavior: jsii.String("absentInputAudioBehavior"),
+//   	arib: jsii.String("arib"),
+//   	aribCaptionsPid: jsii.String("aribCaptionsPid"),
+//   	aribCaptionsPidControl: jsii.String("aribCaptionsPidControl"),
+//   	audioBufferModel: jsii.String("audioBufferModel"),
+//   	audioFramesPerPes: jsii.Number(123),
+//   	audioPids: jsii.String("audioPids"),
+//   	audioStreamType: jsii.String("audioStreamType"),
+//   	bitrate: jsii.Number(123),
+//   	bufferModel: jsii.String("bufferModel"),
+//   	ccDescriptor: jsii.String("ccDescriptor"),
+//   	dvbNitSettings: &dvbNitSettingsProperty{
+//   		networkId: jsii.Number(123),
+//   		networkName: jsii.String("networkName"),
+//   		repInterval: jsii.Number(123),
+//   	},
+//   	dvbSdtSettings: &dvbSdtSettingsProperty{
+//   		outputSdt: jsii.String("outputSdt"),
+//   		repInterval: jsii.Number(123),
+//   		serviceName: jsii.String("serviceName"),
+//   		serviceProviderName: jsii.String("serviceProviderName"),
+//   	},
+//   	dvbSubPids: jsii.String("dvbSubPids"),
+//   	dvbTdtSettings: &dvbTdtSettingsProperty{
+//   		repInterval: jsii.Number(123),
+//   	},
+//   	dvbTeletextPid: jsii.String("dvbTeletextPid"),
+//   	ebif: jsii.String("ebif"),
+//   	ebpAudioInterval: jsii.String("ebpAudioInterval"),
+//   	ebpLookaheadMs: jsii.Number(123),
+//   	ebpPlacement: jsii.String("ebpPlacement"),
+//   	ecmPid: jsii.String("ecmPid"),
+//   	esRateInPes: jsii.String("esRateInPes"),
+//   	etvPlatformPid: jsii.String("etvPlatformPid"),
+//   	etvSignalPid: jsii.String("etvSignalPid"),
+//   	fragmentTime: jsii.Number(123),
+//   	klv: jsii.String("klv"),
+//   	klvDataPids: jsii.String("klvDataPids"),
+//   	nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   	nullPacketBitrate: jsii.Number(123),
+//   	patInterval: jsii.Number(123),
+//   	pcrControl: jsii.String("pcrControl"),
+//   	pcrPeriod: jsii.Number(123),
+//   	pcrPid: jsii.String("pcrPid"),
+//   	pmtInterval: jsii.Number(123),
+//   	pmtPid: jsii.String("pmtPid"),
+//   	programNum: jsii.Number(123),
+//   	rateMode: jsii.String("rateMode"),
+//   	scte27Pids: jsii.String("scte27Pids"),
+//   	scte35Control: jsii.String("scte35Control"),
+//   	scte35Pid: jsii.String("scte35Pid"),
+//   	segmentationMarkers: jsii.String("segmentationMarkers"),
+//   	segmentationStyle: jsii.String("segmentationStyle"),
+//   	segmentationTime: jsii.Number(123),
+//   	timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   	timedMetadataPid: jsii.String("timedMetadataPid"),
+//   	transportStreamId: jsii.Number(123),
+//   	videoPid: jsii.String("videoPid"),
+//   }
 //
 type CfnChannel_M2tsSettingsProperty struct {
 	// When set to drop, the output audio streams are removed from the program if the selected input audio stream is removed from the input.
@@ -2907,7 +6617,27 @@ type CfnChannel_M2tsSettingsProperty struct {
 //
 // The parent of this entity is StandardHlsSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   m3u8SettingsProperty := &m3u8SettingsProperty{
+//   	audioFramesPerPes: jsii.Number(123),
+//   	audioPids: jsii.String("audioPids"),
+//   	ecmPid: jsii.String("ecmPid"),
+//   	nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   	patInterval: jsii.Number(123),
+//   	pcrControl: jsii.String("pcrControl"),
+//   	pcrPeriod: jsii.Number(123),
+//   	pcrPid: jsii.String("pcrPid"),
+//   	pmtInterval: jsii.Number(123),
+//   	pmtPid: jsii.String("pmtPid"),
+//   	programNum: jsii.Number(123),
+//   	scte35Behavior: jsii.String("scte35Behavior"),
+//   	scte35Pid: jsii.String("scte35Pid"),
+//   	timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   	timedMetadataPid: jsii.String("timedMetadataPid"),
+//   	transportStreamId: jsii.Number(123),
+//   	videoPid: jsii.String("videoPid"),
+//   }
 //
 type CfnChannel_M3u8SettingsProperty struct {
 	// The number of audio frames to insert for each PES packet.
@@ -2968,7 +6698,13 @@ type CfnChannel_M3u8SettingsProperty struct {
 //
 // The parent of this entity is OutputGroupSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   mediaPackageGroupSettingsProperty := &mediaPackageGroupSettingsProperty{
+//   	destination: &outputLocationRefProperty{
+//   		destinationRefId: jsii.String("destinationRefId"),
+//   	},
+//   }
 //
 type CfnChannel_MediaPackageGroupSettingsProperty struct {
 	// The MediaPackage channel destination.
@@ -2979,7 +6715,11 @@ type CfnChannel_MediaPackageGroupSettingsProperty struct {
 //
 // The parent of this entity is OutputDestination.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   mediaPackageOutputDestinationSettingsProperty := &mediaPackageOutputDestinationSettingsProperty{
+//   	channelId: jsii.String("channelId"),
+//   }
 //
 type CfnChannel_MediaPackageOutputDestinationSettingsProperty struct {
 	// The ID of the channel in MediaPackage that is the destination for this output group.
@@ -2992,7 +6732,10 @@ type CfnChannel_MediaPackageOutputDestinationSettingsProperty struct {
 //
 // The parent of this entity is OutputSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   mediaPackageOutputSettingsProperty := &mediaPackageOutputSettingsProperty{
+//   }
 //
 type CfnChannel_MediaPackageOutputSettingsProperty struct {
 }
@@ -3001,7 +6744,15 @@ type CfnChannel_MediaPackageOutputSettingsProperty struct {
 //
 // The parent of this entity is EncoderSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   motionGraphicsConfigurationProperty := &motionGraphicsConfigurationProperty{
+//   	motionGraphicsInsertion: jsii.String("motionGraphicsInsertion"),
+//   	motionGraphicsSettings: &motionGraphicsSettingsProperty{
+//   		htmlMotionGraphicsSettings: &htmlMotionGraphicsSettingsProperty{
+//   		},
+//   	},
+//   }
 //
 type CfnChannel_MotionGraphicsConfigurationProperty struct {
 	// Enables or disables the motion graphics overlay feature in the channel.
@@ -3014,7 +6765,12 @@ type CfnChannel_MotionGraphicsConfigurationProperty struct {
 //
 // The parent of this entity is MotionGraphicsConfiguration.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   motionGraphicsSettingsProperty := &motionGraphicsSettingsProperty{
+//   	htmlMotionGraphicsSettings: &htmlMotionGraphicsSettingsProperty{
+//   	},
+//   }
 //
 type CfnChannel_MotionGraphicsSettingsProperty struct {
 	// Settings to configure the motion graphics overlay to use an HTML asset.
@@ -3025,7 +6781,13 @@ type CfnChannel_MotionGraphicsSettingsProperty struct {
 //
 // The parent of this entity is AudioCodecSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   mp2SettingsProperty := &mp2SettingsProperty{
+//   	bitrate: jsii.Number(123),
+//   	codingMode: jsii.String("codingMode"),
+//   	sampleRate: jsii.Number(123),
+//   }
 //
 type CfnChannel_Mp2SettingsProperty struct {
 	// The average bitrate in bits/second.
@@ -3042,7 +6804,14 @@ type CfnChannel_Mp2SettingsProperty struct {
 //
 // The parent of this entity is Mpeg2FilterSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   mpeg2FilterSettingsProperty := &mpeg2FilterSettingsProperty{
+//   	temporalFilterSettings: &temporalFilterSettingsProperty{
+//   		postFilterSharpening: jsii.String("postFilterSharpening"),
+//   		strength: jsii.String("strength"),
+//   	},
+//   }
 //
 type CfnChannel_Mpeg2FilterSettingsProperty struct {
 	// Settings for applying the temporal filter to the video.
@@ -3053,7 +6822,31 @@ type CfnChannel_Mpeg2FilterSettingsProperty struct {
 //
 // The parent of this entity is VideoCodecSetting.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   mpeg2SettingsProperty := &mpeg2SettingsProperty{
+//   	adaptiveQuantization: jsii.String("adaptiveQuantization"),
+//   	afdSignaling: jsii.String("afdSignaling"),
+//   	colorMetadata: jsii.String("colorMetadata"),
+//   	colorSpace: jsii.String("colorSpace"),
+//   	displayAspectRatio: jsii.String("displayAspectRatio"),
+//   	filterSettings: &mpeg2FilterSettingsProperty{
+//   		temporalFilterSettings: &temporalFilterSettingsProperty{
+//   			postFilterSharpening: jsii.String("postFilterSharpening"),
+//   			strength: jsii.String("strength"),
+//   		},
+//   	},
+//   	fixedAfd: jsii.String("fixedAfd"),
+//   	framerateDenominator: jsii.Number(123),
+//   	framerateNumerator: jsii.Number(123),
+//   	gopClosedCadence: jsii.Number(123),
+//   	gopNumBFrames: jsii.Number(123),
+//   	gopSize: jsii.Number(123),
+//   	gopSizeUnits: jsii.String("gopSizeUnits"),
+//   	scanType: jsii.String("scanType"),
+//   	subgopLength: jsii.String("subgopLength"),
+//   	timecodeInsertion: jsii.String("timecodeInsertion"),
+//   }
 //
 type CfnChannel_Mpeg2SettingsProperty struct {
 	// Choose Off to disable adaptive quantization.
@@ -3133,7 +6926,31 @@ type CfnChannel_Mpeg2SettingsProperty struct {
 //
 // The parent of this entity is OutputGroupSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   msSmoothGroupSettingsProperty := &msSmoothGroupSettingsProperty{
+//   	acquisitionPointId: jsii.String("acquisitionPointId"),
+//   	audioOnlyTimecodeControl: jsii.String("audioOnlyTimecodeControl"),
+//   	certificateMode: jsii.String("certificateMode"),
+//   	connectionRetryInterval: jsii.Number(123),
+//   	destination: &outputLocationRefProperty{
+//   		destinationRefId: jsii.String("destinationRefId"),
+//   	},
+//   	eventId: jsii.String("eventId"),
+//   	eventIdMode: jsii.String("eventIdMode"),
+//   	eventStopBehavior: jsii.String("eventStopBehavior"),
+//   	filecacheDuration: jsii.Number(123),
+//   	fragmentLength: jsii.Number(123),
+//   	inputLossAction: jsii.String("inputLossAction"),
+//   	numRetries: jsii.Number(123),
+//   	restartDelay: jsii.Number(123),
+//   	segmentationMode: jsii.String("segmentationMode"),
+//   	sendDelayMs: jsii.Number(123),
+//   	sparseTrackType: jsii.String("sparseTrackType"),
+//   	streamManifestBehavior: jsii.String("streamManifestBehavior"),
+//   	timestampOffset: jsii.String("timestampOffset"),
+//   	timestampOffsetMode: jsii.String("timestampOffsetMode"),
+//   }
 //
 type CfnChannel_MsSmoothGroupSettingsProperty struct {
 	// The value of the Acquisition Point Identity element that is used in each message placed in the sparse track.
@@ -3202,7 +7019,12 @@ type CfnChannel_MsSmoothGroupSettingsProperty struct {
 //
 // The parent of this entity is OutputSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   msSmoothOutputSettingsProperty := &msSmoothOutputSettingsProperty{
+//   	h265PackagingType: jsii.String("h265PackagingType"),
+//   	nameModifier: jsii.String("nameModifier"),
+//   }
 //
 type CfnChannel_MsSmoothOutputSettingsProperty struct {
 	// Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
@@ -3217,7 +7039,10 @@ type CfnChannel_MsSmoothOutputSettingsProperty struct {
 //
 // The parent of this entity is OutputGroupSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   multiplexGroupSettingsProperty := &multiplexGroupSettingsProperty{
+//   }
 //
 type CfnChannel_MultiplexGroupSettingsProperty struct {
 }
@@ -3226,7 +7051,13 @@ type CfnChannel_MultiplexGroupSettingsProperty struct {
 //
 // The parent of this entity is OutputSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   multiplexOutputSettingsProperty := &multiplexOutputSettingsProperty{
+//   	destination: &outputLocationRefProperty{
+//   		destinationRefId: jsii.String("destinationRefId"),
+//   	},
+//   }
 //
 type CfnChannel_MultiplexOutputSettingsProperty struct {
 	// Destination is a Multiplex.
@@ -3237,7 +7068,12 @@ type CfnChannel_MultiplexOutputSettingsProperty struct {
 //
 // The parent of this entity is OutputDestination.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   multiplexProgramChannelDestinationSettingsProperty := &multiplexProgramChannelDestinationSettingsProperty{
+//   	multiplexId: jsii.String("multiplexId"),
+//   	programName: jsii.String("programName"),
+//   }
 //
 type CfnChannel_MultiplexProgramChannelDestinationSettingsProperty struct {
 	// The ID of the Multiplex that the encoder is providing output to.
@@ -3253,7 +7089,18 @@ type CfnChannel_MultiplexProgramChannelDestinationSettingsProperty struct {
 //
 // The parent of this entity is InputSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   networkInputSettingsProperty := &networkInputSettingsProperty{
+//   	hlsInputSettings: &hlsInputSettingsProperty{
+//   		bandwidth: jsii.Number(123),
+//   		bufferSegments: jsii.Number(123),
+//   		retries: jsii.Number(123),
+//   		retryInterval: jsii.Number(123),
+//   		scte35Source: jsii.String("scte35Source"),
+//   	},
+//   	serverValidation: jsii.String("serverValidation"),
+//   }
 //
 type CfnChannel_NetworkInputSettingsProperty struct {
 	// Information about how to connect to the upstream system.
@@ -3266,9 +7113,15 @@ type CfnChannel_NetworkInputSettingsProperty struct {
 
 // Complete these fields only if you want to insert watermarks of type Nielsen CBET.
 //
-// The parent of this entity is NielsenWatermarksSettings
+// The parent of this entity is NielsenWatermarksSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   nielsenCBETProperty := &nielsenCBETProperty{
+//   	cbetCheckDigitString: jsii.String("cbetCheckDigitString"),
+//   	cbetStepaside: jsii.String("cbetStepaside"),
+//   	csid: jsii.String("csid"),
+//   }
 //
 type CfnChannel_NielsenCBETProperty struct {
 	// Enter the CBET check digits to use in the watermark.
@@ -3283,7 +7136,12 @@ type CfnChannel_NielsenCBETProperty struct {
 //
 // The parent of this entity is EncoderSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   nielsenConfigurationProperty := &nielsenConfigurationProperty{
+//   	distributorId: jsii.String("distributorId"),
+//   	nielsenPcmToId3Tagging: jsii.String("nielsenPcmToId3Tagging"),
+//   }
 //
 type CfnChannel_NielsenConfigurationProperty struct {
 	// Enter the Distributor ID assigned to your organization by Nielsen.
@@ -3296,7 +7154,12 @@ type CfnChannel_NielsenConfigurationProperty struct {
 //
 // The parent of this entity is NielsenWatermarksSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   nielsenNaesIiNwProperty := &nielsenNaesIiNwProperty{
+//   	checkDigitString: jsii.String("checkDigitString"),
+//   	sid: jsii.Number(123),
+//   }
 //
 type CfnChannel_NielsenNaesIiNwProperty struct {
 	// Enter the check digit string for the watermark.
@@ -3309,7 +7172,20 @@ type CfnChannel_NielsenNaesIiNwProperty struct {
 //
 // The parent of this entity is AudioWatermarkSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   nielsenWatermarksSettingsProperty := &nielsenWatermarksSettingsProperty{
+//   	nielsenCbetSettings: &nielsenCBETProperty{
+//   		cbetCheckDigitString: jsii.String("cbetCheckDigitString"),
+//   		cbetStepaside: jsii.String("cbetStepaside"),
+//   		csid: jsii.String("csid"),
+//   	},
+//   	nielsenDistributionType: jsii.String("nielsenDistributionType"),
+//   	nielsenNaesIiNwSettings: &nielsenNaesIiNwProperty{
+//   		checkDigitString: jsii.String("checkDigitString"),
+//   		sid: jsii.Number(123),
+//   	},
+//   }
 //
 type CfnChannel_NielsenWatermarksSettingsProperty struct {
 	// Complete these fields only if you want to insert watermarks of type Nielsen CBET.
@@ -3324,7 +7200,28 @@ type CfnChannel_NielsenWatermarksSettingsProperty struct {
 //
 // This entity is at the top level in the channel.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   outputDestinationProperty := &outputDestinationProperty{
+//   	id: jsii.String("id"),
+//   	mediaPackageSettings: []interface{}{
+//   		&mediaPackageOutputDestinationSettingsProperty{
+//   			channelId: jsii.String("channelId"),
+//   		},
+//   	},
+//   	multiplexSettings: &multiplexProgramChannelDestinationSettingsProperty{
+//   		multiplexId: jsii.String("multiplexId"),
+//   		programName: jsii.String("programName"),
+//   	},
+//   	settings: []interface{}{
+//   		&outputDestinationSettingsProperty{
+//   			passwordParam: jsii.String("passwordParam"),
+//   			streamName: jsii.String("streamName"),
+//   			url: jsii.String("url"),
+//   			username: jsii.String("username"),
+//   		},
+//   	},
+//   }
 //
 type CfnChannel_OutputDestinationProperty struct {
 	// The ID for this destination.
@@ -3343,7 +7240,14 @@ type CfnChannel_OutputDestinationProperty struct {
 //
 // The parent of this entity is OutputDestination.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   outputDestinationSettingsProperty := &outputDestinationSettingsProperty{
+//   	passwordParam: jsii.String("passwordParam"),
+//   	streamName: jsii.String("streamName"),
+//   	url: jsii.String("url"),
+//   	username: jsii.String("username"),
+//   }
 //
 type CfnChannel_OutputDestinationSettingsProperty struct {
 	// The password parameter that holds the password for accessing the downstream system.
@@ -3366,7 +7270,400 @@ type CfnChannel_OutputDestinationSettingsProperty struct {
 //
 // The parent of this entity is EncoderSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   outputGroupProperty := &outputGroupProperty{
+//   	name: jsii.String("name"),
+//   	outputGroupSettings: &outputGroupSettingsProperty{
+//   		archiveGroupSettings: &archiveGroupSettingsProperty{
+//   			archiveCdnSettings: &archiveCdnSettingsProperty{
+//   				archiveS3Settings: &archiveS3SettingsProperty{
+//   					cannedAcl: jsii.String("cannedAcl"),
+//   				},
+//   			},
+//   			destination: &outputLocationRefProperty{
+//   				destinationRefId: jsii.String("destinationRefId"),
+//   			},
+//   			rolloverInterval: jsii.Number(123),
+//   		},
+//   		frameCaptureGroupSettings: &frameCaptureGroupSettingsProperty{
+//   			destination: &outputLocationRefProperty{
+//   				destinationRefId: jsii.String("destinationRefId"),
+//   			},
+//   			frameCaptureCdnSettings: &frameCaptureCdnSettingsProperty{
+//   				frameCaptureS3Settings: &frameCaptureS3SettingsProperty{
+//   					cannedAcl: jsii.String("cannedAcl"),
+//   				},
+//   			},
+//   		},
+//   		hlsGroupSettings: &hlsGroupSettingsProperty{
+//   			adMarkers: []*string{
+//   				jsii.String("adMarkers"),
+//   			},
+//   			baseUrlContent: jsii.String("baseUrlContent"),
+//   			baseUrlContent1: jsii.String("baseUrlContent1"),
+//   			baseUrlManifest: jsii.String("baseUrlManifest"),
+//   			baseUrlManifest1: jsii.String("baseUrlManifest1"),
+//   			captionLanguageMappings: []interface{}{
+//   				&captionLanguageMappingProperty{
+//   					captionChannel: jsii.Number(123),
+//   					languageCode: jsii.String("languageCode"),
+//   					languageDescription: jsii.String("languageDescription"),
+//   				},
+//   			},
+//   			captionLanguageSetting: jsii.String("captionLanguageSetting"),
+//   			clientCache: jsii.String("clientCache"),
+//   			codecSpecification: jsii.String("codecSpecification"),
+//   			constantIv: jsii.String("constantIv"),
+//   			destination: &outputLocationRefProperty{
+//   				destinationRefId: jsii.String("destinationRefId"),
+//   			},
+//   			directoryStructure: jsii.String("directoryStructure"),
+//   			discontinuityTags: jsii.String("discontinuityTags"),
+//   			encryptionType: jsii.String("encryptionType"),
+//   			hlsCdnSettings: &hlsCdnSettingsProperty{
+//   				hlsAkamaiSettings: &hlsAkamaiSettingsProperty{
+//   					connectionRetryInterval: jsii.Number(123),
+//   					filecacheDuration: jsii.Number(123),
+//   					httpTransferMode: jsii.String("httpTransferMode"),
+//   					numRetries: jsii.Number(123),
+//   					restartDelay: jsii.Number(123),
+//   					salt: jsii.String("salt"),
+//   					token: jsii.String("token"),
+//   				},
+//   				hlsBasicPutSettings: &hlsBasicPutSettingsProperty{
+//   					connectionRetryInterval: jsii.Number(123),
+//   					filecacheDuration: jsii.Number(123),
+//   					numRetries: jsii.Number(123),
+//   					restartDelay: jsii.Number(123),
+//   				},
+//   				hlsMediaStoreSettings: &hlsMediaStoreSettingsProperty{
+//   					connectionRetryInterval: jsii.Number(123),
+//   					filecacheDuration: jsii.Number(123),
+//   					mediaStoreStorageClass: jsii.String("mediaStoreStorageClass"),
+//   					numRetries: jsii.Number(123),
+//   					restartDelay: jsii.Number(123),
+//   				},
+//   				hlsS3Settings: &hlsS3SettingsProperty{
+//   					cannedAcl: jsii.String("cannedAcl"),
+//   				},
+//   				hlsWebdavSettings: &hlsWebdavSettingsProperty{
+//   					connectionRetryInterval: jsii.Number(123),
+//   					filecacheDuration: jsii.Number(123),
+//   					httpTransferMode: jsii.String("httpTransferMode"),
+//   					numRetries: jsii.Number(123),
+//   					restartDelay: jsii.Number(123),
+//   				},
+//   			},
+//   			hlsId3SegmentTagging: jsii.String("hlsId3SegmentTagging"),
+//   			iFrameOnlyPlaylists: jsii.String("iFrameOnlyPlaylists"),
+//   			incompleteSegmentBehavior: jsii.String("incompleteSegmentBehavior"),
+//   			indexNSegments: jsii.Number(123),
+//   			inputLossAction: jsii.String("inputLossAction"),
+//   			ivInManifest: jsii.String("ivInManifest"),
+//   			ivSource: jsii.String("ivSource"),
+//   			keepSegments: jsii.Number(123),
+//   			keyFormat: jsii.String("keyFormat"),
+//   			keyFormatVersions: jsii.String("keyFormatVersions"),
+//   			keyProviderSettings: &keyProviderSettingsProperty{
+//   				staticKeySettings: &staticKeySettingsProperty{
+//   					keyProviderServer: &inputLocationProperty{
+//   						passwordParam: jsii.String("passwordParam"),
+//   						uri: jsii.String("uri"),
+//   						username: jsii.String("username"),
+//   					},
+//   					staticKeyValue: jsii.String("staticKeyValue"),
+//   				},
+//   			},
+//   			manifestCompression: jsii.String("manifestCompression"),
+//   			manifestDurationFormat: jsii.String("manifestDurationFormat"),
+//   			minSegmentLength: jsii.Number(123),
+//   			mode: jsii.String("mode"),
+//   			outputSelection: jsii.String("outputSelection"),
+//   			programDateTime: jsii.String("programDateTime"),
+//   			programDateTimeClock: jsii.String("programDateTimeClock"),
+//   			programDateTimePeriod: jsii.Number(123),
+//   			redundantManifest: jsii.String("redundantManifest"),
+//   			segmentationMode: jsii.String("segmentationMode"),
+//   			segmentLength: jsii.Number(123),
+//   			segmentsPerSubdirectory: jsii.Number(123),
+//   			streamInfResolution: jsii.String("streamInfResolution"),
+//   			timedMetadataId3Frame: jsii.String("timedMetadataId3Frame"),
+//   			timedMetadataId3Period: jsii.Number(123),
+//   			timestampDeltaMilliseconds: jsii.Number(123),
+//   			tsFileMode: jsii.String("tsFileMode"),
+//   		},
+//   		mediaPackageGroupSettings: &mediaPackageGroupSettingsProperty{
+//   			destination: &outputLocationRefProperty{
+//   				destinationRefId: jsii.String("destinationRefId"),
+//   			},
+//   		},
+//   		msSmoothGroupSettings: &msSmoothGroupSettingsProperty{
+//   			acquisitionPointId: jsii.String("acquisitionPointId"),
+//   			audioOnlyTimecodeControl: jsii.String("audioOnlyTimecodeControl"),
+//   			certificateMode: jsii.String("certificateMode"),
+//   			connectionRetryInterval: jsii.Number(123),
+//   			destination: &outputLocationRefProperty{
+//   				destinationRefId: jsii.String("destinationRefId"),
+//   			},
+//   			eventId: jsii.String("eventId"),
+//   			eventIdMode: jsii.String("eventIdMode"),
+//   			eventStopBehavior: jsii.String("eventStopBehavior"),
+//   			filecacheDuration: jsii.Number(123),
+//   			fragmentLength: jsii.Number(123),
+//   			inputLossAction: jsii.String("inputLossAction"),
+//   			numRetries: jsii.Number(123),
+//   			restartDelay: jsii.Number(123),
+//   			segmentationMode: jsii.String("segmentationMode"),
+//   			sendDelayMs: jsii.Number(123),
+//   			sparseTrackType: jsii.String("sparseTrackType"),
+//   			streamManifestBehavior: jsii.String("streamManifestBehavior"),
+//   			timestampOffset: jsii.String("timestampOffset"),
+//   			timestampOffsetMode: jsii.String("timestampOffsetMode"),
+//   		},
+//   		multiplexGroupSettings: &multiplexGroupSettingsProperty{
+//   		},
+//   		rtmpGroupSettings: &rtmpGroupSettingsProperty{
+//   			adMarkers: []*string{
+//   				jsii.String("adMarkers"),
+//   			},
+//   			authenticationScheme: jsii.String("authenticationScheme"),
+//   			cacheFullBehavior: jsii.String("cacheFullBehavior"),
+//   			cacheLength: jsii.Number(123),
+//   			captionData: jsii.String("captionData"),
+//   			inputLossAction: jsii.String("inputLossAction"),
+//   			restartDelay: jsii.Number(123),
+//   		},
+//   		udpGroupSettings: &udpGroupSettingsProperty{
+//   			inputLossAction: jsii.String("inputLossAction"),
+//   			timedMetadataId3Frame: jsii.String("timedMetadataId3Frame"),
+//   			timedMetadataId3Period: jsii.Number(123),
+//   		},
+//   	},
+//   	outputs: []interface{}{
+//   		&outputProperty{
+//   			audioDescriptionNames: []*string{
+//   				jsii.String("audioDescriptionNames"),
+//   			},
+//   			captionDescriptionNames: []*string{
+//   				jsii.String("captionDescriptionNames"),
+//   			},
+//   			outputName: jsii.String("outputName"),
+//   			outputSettings: &outputSettingsProperty{
+//   				archiveOutputSettings: &archiveOutputSettingsProperty{
+//   					containerSettings: &archiveContainerSettingsProperty{
+//   						m2TsSettings: &m2tsSettingsProperty{
+//   							absentInputAudioBehavior: jsii.String("absentInputAudioBehavior"),
+//   							arib: jsii.String("arib"),
+//   							aribCaptionsPid: jsii.String("aribCaptionsPid"),
+//   							aribCaptionsPidControl: jsii.String("aribCaptionsPidControl"),
+//   							audioBufferModel: jsii.String("audioBufferModel"),
+//   							audioFramesPerPes: jsii.Number(123),
+//   							audioPids: jsii.String("audioPids"),
+//   							audioStreamType: jsii.String("audioStreamType"),
+//   							bitrate: jsii.Number(123),
+//   							bufferModel: jsii.String("bufferModel"),
+//   							ccDescriptor: jsii.String("ccDescriptor"),
+//   							dvbNitSettings: &dvbNitSettingsProperty{
+//   								networkId: jsii.Number(123),
+//   								networkName: jsii.String("networkName"),
+//   								repInterval: jsii.Number(123),
+//   							},
+//   							dvbSdtSettings: &dvbSdtSettingsProperty{
+//   								outputSdt: jsii.String("outputSdt"),
+//   								repInterval: jsii.Number(123),
+//   								serviceName: jsii.String("serviceName"),
+//   								serviceProviderName: jsii.String("serviceProviderName"),
+//   							},
+//   							dvbSubPids: jsii.String("dvbSubPids"),
+//   							dvbTdtSettings: &dvbTdtSettingsProperty{
+//   								repInterval: jsii.Number(123),
+//   							},
+//   							dvbTeletextPid: jsii.String("dvbTeletextPid"),
+//   							ebif: jsii.String("ebif"),
+//   							ebpAudioInterval: jsii.String("ebpAudioInterval"),
+//   							ebpLookaheadMs: jsii.Number(123),
+//   							ebpPlacement: jsii.String("ebpPlacement"),
+//   							ecmPid: jsii.String("ecmPid"),
+//   							esRateInPes: jsii.String("esRateInPes"),
+//   							etvPlatformPid: jsii.String("etvPlatformPid"),
+//   							etvSignalPid: jsii.String("etvSignalPid"),
+//   							fragmentTime: jsii.Number(123),
+//   							klv: jsii.String("klv"),
+//   							klvDataPids: jsii.String("klvDataPids"),
+//   							nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   							nullPacketBitrate: jsii.Number(123),
+//   							patInterval: jsii.Number(123),
+//   							pcrControl: jsii.String("pcrControl"),
+//   							pcrPeriod: jsii.Number(123),
+//   							pcrPid: jsii.String("pcrPid"),
+//   							pmtInterval: jsii.Number(123),
+//   							pmtPid: jsii.String("pmtPid"),
+//   							programNum: jsii.Number(123),
+//   							rateMode: jsii.String("rateMode"),
+//   							scte27Pids: jsii.String("scte27Pids"),
+//   							scte35Control: jsii.String("scte35Control"),
+//   							scte35Pid: jsii.String("scte35Pid"),
+//   							segmentationMarkers: jsii.String("segmentationMarkers"),
+//   							segmentationStyle: jsii.String("segmentationStyle"),
+//   							segmentationTime: jsii.Number(123),
+//   							timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   							timedMetadataPid: jsii.String("timedMetadataPid"),
+//   							transportStreamId: jsii.Number(123),
+//   							videoPid: jsii.String("videoPid"),
+//   						},
+//   						rawSettings: &rawSettingsProperty{
+//   						},
+//   					},
+//   					extension: jsii.String("extension"),
+//   					nameModifier: jsii.String("nameModifier"),
+//   				},
+//   				frameCaptureOutputSettings: &frameCaptureOutputSettingsProperty{
+//   					nameModifier: jsii.String("nameModifier"),
+//   				},
+//   				hlsOutputSettings: &hlsOutputSettingsProperty{
+//   					h265PackagingType: jsii.String("h265PackagingType"),
+//   					hlsSettings: &hlsSettingsProperty{
+//   						audioOnlyHlsSettings: &audioOnlyHlsSettingsProperty{
+//   							audioGroupId: jsii.String("audioGroupId"),
+//   							audioOnlyImage: &inputLocationProperty{
+//   								passwordParam: jsii.String("passwordParam"),
+//   								uri: jsii.String("uri"),
+//   								username: jsii.String("username"),
+//   							},
+//   							audioTrackType: jsii.String("audioTrackType"),
+//   							segmentType: jsii.String("segmentType"),
+//   						},
+//   						fmp4HlsSettings: &fmp4HlsSettingsProperty{
+//   							audioRenditionSets: jsii.String("audioRenditionSets"),
+//   							nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   							timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   						},
+//   						frameCaptureHlsSettings: &frameCaptureHlsSettingsProperty{
+//   						},
+//   						standardHlsSettings: &standardHlsSettingsProperty{
+//   							audioRenditionSets: jsii.String("audioRenditionSets"),
+//   							m3U8Settings: &m3u8SettingsProperty{
+//   								audioFramesPerPes: jsii.Number(123),
+//   								audioPids: jsii.String("audioPids"),
+//   								ecmPid: jsii.String("ecmPid"),
+//   								nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   								patInterval: jsii.Number(123),
+//   								pcrControl: jsii.String("pcrControl"),
+//   								pcrPeriod: jsii.Number(123),
+//   								pcrPid: jsii.String("pcrPid"),
+//   								pmtInterval: jsii.Number(123),
+//   								pmtPid: jsii.String("pmtPid"),
+//   								programNum: jsii.Number(123),
+//   								scte35Behavior: jsii.String("scte35Behavior"),
+//   								scte35Pid: jsii.String("scte35Pid"),
+//   								timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   								timedMetadataPid: jsii.String("timedMetadataPid"),
+//   								transportStreamId: jsii.Number(123),
+//   								videoPid: jsii.String("videoPid"),
+//   							},
+//   						},
+//   					},
+//   					nameModifier: jsii.String("nameModifier"),
+//   					segmentModifier: jsii.String("segmentModifier"),
+//   				},
+//   				mediaPackageOutputSettings: &mediaPackageOutputSettingsProperty{
+//   				},
+//   				msSmoothOutputSettings: &msSmoothOutputSettingsProperty{
+//   					h265PackagingType: jsii.String("h265PackagingType"),
+//   					nameModifier: jsii.String("nameModifier"),
+//   				},
+//   				multiplexOutputSettings: &multiplexOutputSettingsProperty{
+//   					destination: &outputLocationRefProperty{
+//   						destinationRefId: jsii.String("destinationRefId"),
+//   					},
+//   				},
+//   				rtmpOutputSettings: &rtmpOutputSettingsProperty{
+//   					certificateMode: jsii.String("certificateMode"),
+//   					connectionRetryInterval: jsii.Number(123),
+//   					destination: &outputLocationRefProperty{
+//   						destinationRefId: jsii.String("destinationRefId"),
+//   					},
+//   					numRetries: jsii.Number(123),
+//   				},
+//   				udpOutputSettings: &udpOutputSettingsProperty{
+//   					bufferMsec: jsii.Number(123),
+//   					containerSettings: &udpContainerSettingsProperty{
+//   						m2TsSettings: &m2tsSettingsProperty{
+//   							absentInputAudioBehavior: jsii.String("absentInputAudioBehavior"),
+//   							arib: jsii.String("arib"),
+//   							aribCaptionsPid: jsii.String("aribCaptionsPid"),
+//   							aribCaptionsPidControl: jsii.String("aribCaptionsPidControl"),
+//   							audioBufferModel: jsii.String("audioBufferModel"),
+//   							audioFramesPerPes: jsii.Number(123),
+//   							audioPids: jsii.String("audioPids"),
+//   							audioStreamType: jsii.String("audioStreamType"),
+//   							bitrate: jsii.Number(123),
+//   							bufferModel: jsii.String("bufferModel"),
+//   							ccDescriptor: jsii.String("ccDescriptor"),
+//   							dvbNitSettings: &dvbNitSettingsProperty{
+//   								networkId: jsii.Number(123),
+//   								networkName: jsii.String("networkName"),
+//   								repInterval: jsii.Number(123),
+//   							},
+//   							dvbSdtSettings: &dvbSdtSettingsProperty{
+//   								outputSdt: jsii.String("outputSdt"),
+//   								repInterval: jsii.Number(123),
+//   								serviceName: jsii.String("serviceName"),
+//   								serviceProviderName: jsii.String("serviceProviderName"),
+//   							},
+//   							dvbSubPids: jsii.String("dvbSubPids"),
+//   							dvbTdtSettings: &dvbTdtSettingsProperty{
+//   								repInterval: jsii.Number(123),
+//   							},
+//   							dvbTeletextPid: jsii.String("dvbTeletextPid"),
+//   							ebif: jsii.String("ebif"),
+//   							ebpAudioInterval: jsii.String("ebpAudioInterval"),
+//   							ebpLookaheadMs: jsii.Number(123),
+//   							ebpPlacement: jsii.String("ebpPlacement"),
+//   							ecmPid: jsii.String("ecmPid"),
+//   							esRateInPes: jsii.String("esRateInPes"),
+//   							etvPlatformPid: jsii.String("etvPlatformPid"),
+//   							etvSignalPid: jsii.String("etvSignalPid"),
+//   							fragmentTime: jsii.Number(123),
+//   							klv: jsii.String("klv"),
+//   							klvDataPids: jsii.String("klvDataPids"),
+//   							nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   							nullPacketBitrate: jsii.Number(123),
+//   							patInterval: jsii.Number(123),
+//   							pcrControl: jsii.String("pcrControl"),
+//   							pcrPeriod: jsii.Number(123),
+//   							pcrPid: jsii.String("pcrPid"),
+//   							pmtInterval: jsii.Number(123),
+//   							pmtPid: jsii.String("pmtPid"),
+//   							programNum: jsii.Number(123),
+//   							rateMode: jsii.String("rateMode"),
+//   							scte27Pids: jsii.String("scte27Pids"),
+//   							scte35Control: jsii.String("scte35Control"),
+//   							scte35Pid: jsii.String("scte35Pid"),
+//   							segmentationMarkers: jsii.String("segmentationMarkers"),
+//   							segmentationStyle: jsii.String("segmentationStyle"),
+//   							segmentationTime: jsii.Number(123),
+//   							timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   							timedMetadataPid: jsii.String("timedMetadataPid"),
+//   							transportStreamId: jsii.Number(123),
+//   							videoPid: jsii.String("videoPid"),
+//   						},
+//   					},
+//   					destination: &outputLocationRefProperty{
+//   						destinationRefId: jsii.String("destinationRefId"),
+//   					},
+//   					fecOutputSettings: &fecOutputSettingsProperty{
+//   						columnDepth: jsii.Number(123),
+//   						includeFec: jsii.String("includeFec"),
+//   						rowLength: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   			videoDescriptionName: jsii.String("videoDescriptionName"),
+//   		},
+//   	},
+//   }
 //
 type CfnChannel_OutputGroupProperty struct {
 	// A custom output group name that you can optionally define.
@@ -3383,7 +7680,174 @@ type CfnChannel_OutputGroupProperty struct {
 //
 // The parent of this entity is OutputGroup.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   outputGroupSettingsProperty := &outputGroupSettingsProperty{
+//   	archiveGroupSettings: &archiveGroupSettingsProperty{
+//   		archiveCdnSettings: &archiveCdnSettingsProperty{
+//   			archiveS3Settings: &archiveS3SettingsProperty{
+//   				cannedAcl: jsii.String("cannedAcl"),
+//   			},
+//   		},
+//   		destination: &outputLocationRefProperty{
+//   			destinationRefId: jsii.String("destinationRefId"),
+//   		},
+//   		rolloverInterval: jsii.Number(123),
+//   	},
+//   	frameCaptureGroupSettings: &frameCaptureGroupSettingsProperty{
+//   		destination: &outputLocationRefProperty{
+//   			destinationRefId: jsii.String("destinationRefId"),
+//   		},
+//   		frameCaptureCdnSettings: &frameCaptureCdnSettingsProperty{
+//   			frameCaptureS3Settings: &frameCaptureS3SettingsProperty{
+//   				cannedAcl: jsii.String("cannedAcl"),
+//   			},
+//   		},
+//   	},
+//   	hlsGroupSettings: &hlsGroupSettingsProperty{
+//   		adMarkers: []*string{
+//   			jsii.String("adMarkers"),
+//   		},
+//   		baseUrlContent: jsii.String("baseUrlContent"),
+//   		baseUrlContent1: jsii.String("baseUrlContent1"),
+//   		baseUrlManifest: jsii.String("baseUrlManifest"),
+//   		baseUrlManifest1: jsii.String("baseUrlManifest1"),
+//   		captionLanguageMappings: []interface{}{
+//   			&captionLanguageMappingProperty{
+//   				captionChannel: jsii.Number(123),
+//   				languageCode: jsii.String("languageCode"),
+//   				languageDescription: jsii.String("languageDescription"),
+//   			},
+//   		},
+//   		captionLanguageSetting: jsii.String("captionLanguageSetting"),
+//   		clientCache: jsii.String("clientCache"),
+//   		codecSpecification: jsii.String("codecSpecification"),
+//   		constantIv: jsii.String("constantIv"),
+//   		destination: &outputLocationRefProperty{
+//   			destinationRefId: jsii.String("destinationRefId"),
+//   		},
+//   		directoryStructure: jsii.String("directoryStructure"),
+//   		discontinuityTags: jsii.String("discontinuityTags"),
+//   		encryptionType: jsii.String("encryptionType"),
+//   		hlsCdnSettings: &hlsCdnSettingsProperty{
+//   			hlsAkamaiSettings: &hlsAkamaiSettingsProperty{
+//   				connectionRetryInterval: jsii.Number(123),
+//   				filecacheDuration: jsii.Number(123),
+//   				httpTransferMode: jsii.String("httpTransferMode"),
+//   				numRetries: jsii.Number(123),
+//   				restartDelay: jsii.Number(123),
+//   				salt: jsii.String("salt"),
+//   				token: jsii.String("token"),
+//   			},
+//   			hlsBasicPutSettings: &hlsBasicPutSettingsProperty{
+//   				connectionRetryInterval: jsii.Number(123),
+//   				filecacheDuration: jsii.Number(123),
+//   				numRetries: jsii.Number(123),
+//   				restartDelay: jsii.Number(123),
+//   			},
+//   			hlsMediaStoreSettings: &hlsMediaStoreSettingsProperty{
+//   				connectionRetryInterval: jsii.Number(123),
+//   				filecacheDuration: jsii.Number(123),
+//   				mediaStoreStorageClass: jsii.String("mediaStoreStorageClass"),
+//   				numRetries: jsii.Number(123),
+//   				restartDelay: jsii.Number(123),
+//   			},
+//   			hlsS3Settings: &hlsS3SettingsProperty{
+//   				cannedAcl: jsii.String("cannedAcl"),
+//   			},
+//   			hlsWebdavSettings: &hlsWebdavSettingsProperty{
+//   				connectionRetryInterval: jsii.Number(123),
+//   				filecacheDuration: jsii.Number(123),
+//   				httpTransferMode: jsii.String("httpTransferMode"),
+//   				numRetries: jsii.Number(123),
+//   				restartDelay: jsii.Number(123),
+//   			},
+//   		},
+//   		hlsId3SegmentTagging: jsii.String("hlsId3SegmentTagging"),
+//   		iFrameOnlyPlaylists: jsii.String("iFrameOnlyPlaylists"),
+//   		incompleteSegmentBehavior: jsii.String("incompleteSegmentBehavior"),
+//   		indexNSegments: jsii.Number(123),
+//   		inputLossAction: jsii.String("inputLossAction"),
+//   		ivInManifest: jsii.String("ivInManifest"),
+//   		ivSource: jsii.String("ivSource"),
+//   		keepSegments: jsii.Number(123),
+//   		keyFormat: jsii.String("keyFormat"),
+//   		keyFormatVersions: jsii.String("keyFormatVersions"),
+//   		keyProviderSettings: &keyProviderSettingsProperty{
+//   			staticKeySettings: &staticKeySettingsProperty{
+//   				keyProviderServer: &inputLocationProperty{
+//   					passwordParam: jsii.String("passwordParam"),
+//   					uri: jsii.String("uri"),
+//   					username: jsii.String("username"),
+//   				},
+//   				staticKeyValue: jsii.String("staticKeyValue"),
+//   			},
+//   		},
+//   		manifestCompression: jsii.String("manifestCompression"),
+//   		manifestDurationFormat: jsii.String("manifestDurationFormat"),
+//   		minSegmentLength: jsii.Number(123),
+//   		mode: jsii.String("mode"),
+//   		outputSelection: jsii.String("outputSelection"),
+//   		programDateTime: jsii.String("programDateTime"),
+//   		programDateTimeClock: jsii.String("programDateTimeClock"),
+//   		programDateTimePeriod: jsii.Number(123),
+//   		redundantManifest: jsii.String("redundantManifest"),
+//   		segmentationMode: jsii.String("segmentationMode"),
+//   		segmentLength: jsii.Number(123),
+//   		segmentsPerSubdirectory: jsii.Number(123),
+//   		streamInfResolution: jsii.String("streamInfResolution"),
+//   		timedMetadataId3Frame: jsii.String("timedMetadataId3Frame"),
+//   		timedMetadataId3Period: jsii.Number(123),
+//   		timestampDeltaMilliseconds: jsii.Number(123),
+//   		tsFileMode: jsii.String("tsFileMode"),
+//   	},
+//   	mediaPackageGroupSettings: &mediaPackageGroupSettingsProperty{
+//   		destination: &outputLocationRefProperty{
+//   			destinationRefId: jsii.String("destinationRefId"),
+//   		},
+//   	},
+//   	msSmoothGroupSettings: &msSmoothGroupSettingsProperty{
+//   		acquisitionPointId: jsii.String("acquisitionPointId"),
+//   		audioOnlyTimecodeControl: jsii.String("audioOnlyTimecodeControl"),
+//   		certificateMode: jsii.String("certificateMode"),
+//   		connectionRetryInterval: jsii.Number(123),
+//   		destination: &outputLocationRefProperty{
+//   			destinationRefId: jsii.String("destinationRefId"),
+//   		},
+//   		eventId: jsii.String("eventId"),
+//   		eventIdMode: jsii.String("eventIdMode"),
+//   		eventStopBehavior: jsii.String("eventStopBehavior"),
+//   		filecacheDuration: jsii.Number(123),
+//   		fragmentLength: jsii.Number(123),
+//   		inputLossAction: jsii.String("inputLossAction"),
+//   		numRetries: jsii.Number(123),
+//   		restartDelay: jsii.Number(123),
+//   		segmentationMode: jsii.String("segmentationMode"),
+//   		sendDelayMs: jsii.Number(123),
+//   		sparseTrackType: jsii.String("sparseTrackType"),
+//   		streamManifestBehavior: jsii.String("streamManifestBehavior"),
+//   		timestampOffset: jsii.String("timestampOffset"),
+//   		timestampOffsetMode: jsii.String("timestampOffsetMode"),
+//   	},
+//   	multiplexGroupSettings: &multiplexGroupSettingsProperty{
+//   	},
+//   	rtmpGroupSettings: &rtmpGroupSettingsProperty{
+//   		adMarkers: []*string{
+//   			jsii.String("adMarkers"),
+//   		},
+//   		authenticationScheme: jsii.String("authenticationScheme"),
+//   		cacheFullBehavior: jsii.String("cacheFullBehavior"),
+//   		cacheLength: jsii.Number(123),
+//   		captionData: jsii.String("captionData"),
+//   		inputLossAction: jsii.String("inputLossAction"),
+//   		restartDelay: jsii.Number(123),
+//   	},
+//   	udpGroupSettings: &udpGroupSettingsProperty{
+//   		inputLossAction: jsii.String("inputLossAction"),
+//   		timedMetadataId3Frame: jsii.String("timedMetadataId3Frame"),
+//   		timedMetadataId3Period: jsii.Number(123),
+//   	},
+//   }
 //
 type CfnChannel_OutputGroupSettingsProperty struct {
 	// The configuration of an archive output group.
@@ -3410,7 +7874,11 @@ type CfnChannel_OutputGroupSettingsProperty struct {
 //
 // This entity is used by ArchiveGroupSettings, FrameCaptureGroupSettings, HlsGroupSettings, MediaPackageGroupSettings, MSSmoothGroupSettings, RtmpOutputSettings, and UdpOutputSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   outputLocationRefProperty := &outputLocationRefProperty{
+//   	destinationRefId: jsii.String("destinationRefId"),
+//   }
 //
 type CfnChannel_OutputLocationRefProperty struct {
 	// A reference ID for this destination.
@@ -3421,7 +7889,229 @@ type CfnChannel_OutputLocationRefProperty struct {
 //
 // The parent of this entity is OutputGroup.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   outputProperty := &outputProperty{
+//   	audioDescriptionNames: []*string{
+//   		jsii.String("audioDescriptionNames"),
+//   	},
+//   	captionDescriptionNames: []*string{
+//   		jsii.String("captionDescriptionNames"),
+//   	},
+//   	outputName: jsii.String("outputName"),
+//   	outputSettings: &outputSettingsProperty{
+//   		archiveOutputSettings: &archiveOutputSettingsProperty{
+//   			containerSettings: &archiveContainerSettingsProperty{
+//   				m2TsSettings: &m2tsSettingsProperty{
+//   					absentInputAudioBehavior: jsii.String("absentInputAudioBehavior"),
+//   					arib: jsii.String("arib"),
+//   					aribCaptionsPid: jsii.String("aribCaptionsPid"),
+//   					aribCaptionsPidControl: jsii.String("aribCaptionsPidControl"),
+//   					audioBufferModel: jsii.String("audioBufferModel"),
+//   					audioFramesPerPes: jsii.Number(123),
+//   					audioPids: jsii.String("audioPids"),
+//   					audioStreamType: jsii.String("audioStreamType"),
+//   					bitrate: jsii.Number(123),
+//   					bufferModel: jsii.String("bufferModel"),
+//   					ccDescriptor: jsii.String("ccDescriptor"),
+//   					dvbNitSettings: &dvbNitSettingsProperty{
+//   						networkId: jsii.Number(123),
+//   						networkName: jsii.String("networkName"),
+//   						repInterval: jsii.Number(123),
+//   					},
+//   					dvbSdtSettings: &dvbSdtSettingsProperty{
+//   						outputSdt: jsii.String("outputSdt"),
+//   						repInterval: jsii.Number(123),
+//   						serviceName: jsii.String("serviceName"),
+//   						serviceProviderName: jsii.String("serviceProviderName"),
+//   					},
+//   					dvbSubPids: jsii.String("dvbSubPids"),
+//   					dvbTdtSettings: &dvbTdtSettingsProperty{
+//   						repInterval: jsii.Number(123),
+//   					},
+//   					dvbTeletextPid: jsii.String("dvbTeletextPid"),
+//   					ebif: jsii.String("ebif"),
+//   					ebpAudioInterval: jsii.String("ebpAudioInterval"),
+//   					ebpLookaheadMs: jsii.Number(123),
+//   					ebpPlacement: jsii.String("ebpPlacement"),
+//   					ecmPid: jsii.String("ecmPid"),
+//   					esRateInPes: jsii.String("esRateInPes"),
+//   					etvPlatformPid: jsii.String("etvPlatformPid"),
+//   					etvSignalPid: jsii.String("etvSignalPid"),
+//   					fragmentTime: jsii.Number(123),
+//   					klv: jsii.String("klv"),
+//   					klvDataPids: jsii.String("klvDataPids"),
+//   					nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   					nullPacketBitrate: jsii.Number(123),
+//   					patInterval: jsii.Number(123),
+//   					pcrControl: jsii.String("pcrControl"),
+//   					pcrPeriod: jsii.Number(123),
+//   					pcrPid: jsii.String("pcrPid"),
+//   					pmtInterval: jsii.Number(123),
+//   					pmtPid: jsii.String("pmtPid"),
+//   					programNum: jsii.Number(123),
+//   					rateMode: jsii.String("rateMode"),
+//   					scte27Pids: jsii.String("scte27Pids"),
+//   					scte35Control: jsii.String("scte35Control"),
+//   					scte35Pid: jsii.String("scte35Pid"),
+//   					segmentationMarkers: jsii.String("segmentationMarkers"),
+//   					segmentationStyle: jsii.String("segmentationStyle"),
+//   					segmentationTime: jsii.Number(123),
+//   					timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   					timedMetadataPid: jsii.String("timedMetadataPid"),
+//   					transportStreamId: jsii.Number(123),
+//   					videoPid: jsii.String("videoPid"),
+//   				},
+//   				rawSettings: &rawSettingsProperty{
+//   				},
+//   			},
+//   			extension: jsii.String("extension"),
+//   			nameModifier: jsii.String("nameModifier"),
+//   		},
+//   		frameCaptureOutputSettings: &frameCaptureOutputSettingsProperty{
+//   			nameModifier: jsii.String("nameModifier"),
+//   		},
+//   		hlsOutputSettings: &hlsOutputSettingsProperty{
+//   			h265PackagingType: jsii.String("h265PackagingType"),
+//   			hlsSettings: &hlsSettingsProperty{
+//   				audioOnlyHlsSettings: &audioOnlyHlsSettingsProperty{
+//   					audioGroupId: jsii.String("audioGroupId"),
+//   					audioOnlyImage: &inputLocationProperty{
+//   						passwordParam: jsii.String("passwordParam"),
+//   						uri: jsii.String("uri"),
+//   						username: jsii.String("username"),
+//   					},
+//   					audioTrackType: jsii.String("audioTrackType"),
+//   					segmentType: jsii.String("segmentType"),
+//   				},
+//   				fmp4HlsSettings: &fmp4HlsSettingsProperty{
+//   					audioRenditionSets: jsii.String("audioRenditionSets"),
+//   					nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   					timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   				},
+//   				frameCaptureHlsSettings: &frameCaptureHlsSettingsProperty{
+//   				},
+//   				standardHlsSettings: &standardHlsSettingsProperty{
+//   					audioRenditionSets: jsii.String("audioRenditionSets"),
+//   					m3U8Settings: &m3u8SettingsProperty{
+//   						audioFramesPerPes: jsii.Number(123),
+//   						audioPids: jsii.String("audioPids"),
+//   						ecmPid: jsii.String("ecmPid"),
+//   						nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   						patInterval: jsii.Number(123),
+//   						pcrControl: jsii.String("pcrControl"),
+//   						pcrPeriod: jsii.Number(123),
+//   						pcrPid: jsii.String("pcrPid"),
+//   						pmtInterval: jsii.Number(123),
+//   						pmtPid: jsii.String("pmtPid"),
+//   						programNum: jsii.Number(123),
+//   						scte35Behavior: jsii.String("scte35Behavior"),
+//   						scte35Pid: jsii.String("scte35Pid"),
+//   						timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   						timedMetadataPid: jsii.String("timedMetadataPid"),
+//   						transportStreamId: jsii.Number(123),
+//   						videoPid: jsii.String("videoPid"),
+//   					},
+//   				},
+//   			},
+//   			nameModifier: jsii.String("nameModifier"),
+//   			segmentModifier: jsii.String("segmentModifier"),
+//   		},
+//   		mediaPackageOutputSettings: &mediaPackageOutputSettingsProperty{
+//   		},
+//   		msSmoothOutputSettings: &msSmoothOutputSettingsProperty{
+//   			h265PackagingType: jsii.String("h265PackagingType"),
+//   			nameModifier: jsii.String("nameModifier"),
+//   		},
+//   		multiplexOutputSettings: &multiplexOutputSettingsProperty{
+//   			destination: &outputLocationRefProperty{
+//   				destinationRefId: jsii.String("destinationRefId"),
+//   			},
+//   		},
+//   		rtmpOutputSettings: &rtmpOutputSettingsProperty{
+//   			certificateMode: jsii.String("certificateMode"),
+//   			connectionRetryInterval: jsii.Number(123),
+//   			destination: &outputLocationRefProperty{
+//   				destinationRefId: jsii.String("destinationRefId"),
+//   			},
+//   			numRetries: jsii.Number(123),
+//   		},
+//   		udpOutputSettings: &udpOutputSettingsProperty{
+//   			bufferMsec: jsii.Number(123),
+//   			containerSettings: &udpContainerSettingsProperty{
+//   				m2TsSettings: &m2tsSettingsProperty{
+//   					absentInputAudioBehavior: jsii.String("absentInputAudioBehavior"),
+//   					arib: jsii.String("arib"),
+//   					aribCaptionsPid: jsii.String("aribCaptionsPid"),
+//   					aribCaptionsPidControl: jsii.String("aribCaptionsPidControl"),
+//   					audioBufferModel: jsii.String("audioBufferModel"),
+//   					audioFramesPerPes: jsii.Number(123),
+//   					audioPids: jsii.String("audioPids"),
+//   					audioStreamType: jsii.String("audioStreamType"),
+//   					bitrate: jsii.Number(123),
+//   					bufferModel: jsii.String("bufferModel"),
+//   					ccDescriptor: jsii.String("ccDescriptor"),
+//   					dvbNitSettings: &dvbNitSettingsProperty{
+//   						networkId: jsii.Number(123),
+//   						networkName: jsii.String("networkName"),
+//   						repInterval: jsii.Number(123),
+//   					},
+//   					dvbSdtSettings: &dvbSdtSettingsProperty{
+//   						outputSdt: jsii.String("outputSdt"),
+//   						repInterval: jsii.Number(123),
+//   						serviceName: jsii.String("serviceName"),
+//   						serviceProviderName: jsii.String("serviceProviderName"),
+//   					},
+//   					dvbSubPids: jsii.String("dvbSubPids"),
+//   					dvbTdtSettings: &dvbTdtSettingsProperty{
+//   						repInterval: jsii.Number(123),
+//   					},
+//   					dvbTeletextPid: jsii.String("dvbTeletextPid"),
+//   					ebif: jsii.String("ebif"),
+//   					ebpAudioInterval: jsii.String("ebpAudioInterval"),
+//   					ebpLookaheadMs: jsii.Number(123),
+//   					ebpPlacement: jsii.String("ebpPlacement"),
+//   					ecmPid: jsii.String("ecmPid"),
+//   					esRateInPes: jsii.String("esRateInPes"),
+//   					etvPlatformPid: jsii.String("etvPlatformPid"),
+//   					etvSignalPid: jsii.String("etvSignalPid"),
+//   					fragmentTime: jsii.Number(123),
+//   					klv: jsii.String("klv"),
+//   					klvDataPids: jsii.String("klvDataPids"),
+//   					nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   					nullPacketBitrate: jsii.Number(123),
+//   					patInterval: jsii.Number(123),
+//   					pcrControl: jsii.String("pcrControl"),
+//   					pcrPeriod: jsii.Number(123),
+//   					pcrPid: jsii.String("pcrPid"),
+//   					pmtInterval: jsii.Number(123),
+//   					pmtPid: jsii.String("pmtPid"),
+//   					programNum: jsii.Number(123),
+//   					rateMode: jsii.String("rateMode"),
+//   					scte27Pids: jsii.String("scte27Pids"),
+//   					scte35Control: jsii.String("scte35Control"),
+//   					scte35Pid: jsii.String("scte35Pid"),
+//   					segmentationMarkers: jsii.String("segmentationMarkers"),
+//   					segmentationStyle: jsii.String("segmentationStyle"),
+//   					segmentationTime: jsii.Number(123),
+//   					timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   					timedMetadataPid: jsii.String("timedMetadataPid"),
+//   					transportStreamId: jsii.Number(123),
+//   					videoPid: jsii.String("videoPid"),
+//   				},
+//   			},
+//   			destination: &outputLocationRefProperty{
+//   				destinationRefId: jsii.String("destinationRefId"),
+//   			},
+//   			fecOutputSettings: &fecOutputSettingsProperty{
+//   				columnDepth: jsii.Number(123),
+//   				includeFec: jsii.String("includeFec"),
+//   				rowLength: jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   	videoDescriptionName: jsii.String("videoDescriptionName"),
+//   }
 //
 type CfnChannel_OutputProperty struct {
 	// The names of the audio descriptions that are used as audio sources for this output.
@@ -3440,7 +8130,219 @@ type CfnChannel_OutputProperty struct {
 //
 // The parent of this entity is Output.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   outputSettingsProperty := &outputSettingsProperty{
+//   	archiveOutputSettings: &archiveOutputSettingsProperty{
+//   		containerSettings: &archiveContainerSettingsProperty{
+//   			m2TsSettings: &m2tsSettingsProperty{
+//   				absentInputAudioBehavior: jsii.String("absentInputAudioBehavior"),
+//   				arib: jsii.String("arib"),
+//   				aribCaptionsPid: jsii.String("aribCaptionsPid"),
+//   				aribCaptionsPidControl: jsii.String("aribCaptionsPidControl"),
+//   				audioBufferModel: jsii.String("audioBufferModel"),
+//   				audioFramesPerPes: jsii.Number(123),
+//   				audioPids: jsii.String("audioPids"),
+//   				audioStreamType: jsii.String("audioStreamType"),
+//   				bitrate: jsii.Number(123),
+//   				bufferModel: jsii.String("bufferModel"),
+//   				ccDescriptor: jsii.String("ccDescriptor"),
+//   				dvbNitSettings: &dvbNitSettingsProperty{
+//   					networkId: jsii.Number(123),
+//   					networkName: jsii.String("networkName"),
+//   					repInterval: jsii.Number(123),
+//   				},
+//   				dvbSdtSettings: &dvbSdtSettingsProperty{
+//   					outputSdt: jsii.String("outputSdt"),
+//   					repInterval: jsii.Number(123),
+//   					serviceName: jsii.String("serviceName"),
+//   					serviceProviderName: jsii.String("serviceProviderName"),
+//   				},
+//   				dvbSubPids: jsii.String("dvbSubPids"),
+//   				dvbTdtSettings: &dvbTdtSettingsProperty{
+//   					repInterval: jsii.Number(123),
+//   				},
+//   				dvbTeletextPid: jsii.String("dvbTeletextPid"),
+//   				ebif: jsii.String("ebif"),
+//   				ebpAudioInterval: jsii.String("ebpAudioInterval"),
+//   				ebpLookaheadMs: jsii.Number(123),
+//   				ebpPlacement: jsii.String("ebpPlacement"),
+//   				ecmPid: jsii.String("ecmPid"),
+//   				esRateInPes: jsii.String("esRateInPes"),
+//   				etvPlatformPid: jsii.String("etvPlatformPid"),
+//   				etvSignalPid: jsii.String("etvSignalPid"),
+//   				fragmentTime: jsii.Number(123),
+//   				klv: jsii.String("klv"),
+//   				klvDataPids: jsii.String("klvDataPids"),
+//   				nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   				nullPacketBitrate: jsii.Number(123),
+//   				patInterval: jsii.Number(123),
+//   				pcrControl: jsii.String("pcrControl"),
+//   				pcrPeriod: jsii.Number(123),
+//   				pcrPid: jsii.String("pcrPid"),
+//   				pmtInterval: jsii.Number(123),
+//   				pmtPid: jsii.String("pmtPid"),
+//   				programNum: jsii.Number(123),
+//   				rateMode: jsii.String("rateMode"),
+//   				scte27Pids: jsii.String("scte27Pids"),
+//   				scte35Control: jsii.String("scte35Control"),
+//   				scte35Pid: jsii.String("scte35Pid"),
+//   				segmentationMarkers: jsii.String("segmentationMarkers"),
+//   				segmentationStyle: jsii.String("segmentationStyle"),
+//   				segmentationTime: jsii.Number(123),
+//   				timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   				timedMetadataPid: jsii.String("timedMetadataPid"),
+//   				transportStreamId: jsii.Number(123),
+//   				videoPid: jsii.String("videoPid"),
+//   			},
+//   			rawSettings: &rawSettingsProperty{
+//   			},
+//   		},
+//   		extension: jsii.String("extension"),
+//   		nameModifier: jsii.String("nameModifier"),
+//   	},
+//   	frameCaptureOutputSettings: &frameCaptureOutputSettingsProperty{
+//   		nameModifier: jsii.String("nameModifier"),
+//   	},
+//   	hlsOutputSettings: &hlsOutputSettingsProperty{
+//   		h265PackagingType: jsii.String("h265PackagingType"),
+//   		hlsSettings: &hlsSettingsProperty{
+//   			audioOnlyHlsSettings: &audioOnlyHlsSettingsProperty{
+//   				audioGroupId: jsii.String("audioGroupId"),
+//   				audioOnlyImage: &inputLocationProperty{
+//   					passwordParam: jsii.String("passwordParam"),
+//   					uri: jsii.String("uri"),
+//   					username: jsii.String("username"),
+//   				},
+//   				audioTrackType: jsii.String("audioTrackType"),
+//   				segmentType: jsii.String("segmentType"),
+//   			},
+//   			fmp4HlsSettings: &fmp4HlsSettingsProperty{
+//   				audioRenditionSets: jsii.String("audioRenditionSets"),
+//   				nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   				timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   			},
+//   			frameCaptureHlsSettings: &frameCaptureHlsSettingsProperty{
+//   			},
+//   			standardHlsSettings: &standardHlsSettingsProperty{
+//   				audioRenditionSets: jsii.String("audioRenditionSets"),
+//   				m3U8Settings: &m3u8SettingsProperty{
+//   					audioFramesPerPes: jsii.Number(123),
+//   					audioPids: jsii.String("audioPids"),
+//   					ecmPid: jsii.String("ecmPid"),
+//   					nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   					patInterval: jsii.Number(123),
+//   					pcrControl: jsii.String("pcrControl"),
+//   					pcrPeriod: jsii.Number(123),
+//   					pcrPid: jsii.String("pcrPid"),
+//   					pmtInterval: jsii.Number(123),
+//   					pmtPid: jsii.String("pmtPid"),
+//   					programNum: jsii.Number(123),
+//   					scte35Behavior: jsii.String("scte35Behavior"),
+//   					scte35Pid: jsii.String("scte35Pid"),
+//   					timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   					timedMetadataPid: jsii.String("timedMetadataPid"),
+//   					transportStreamId: jsii.Number(123),
+//   					videoPid: jsii.String("videoPid"),
+//   				},
+//   			},
+//   		},
+//   		nameModifier: jsii.String("nameModifier"),
+//   		segmentModifier: jsii.String("segmentModifier"),
+//   	},
+//   	mediaPackageOutputSettings: &mediaPackageOutputSettingsProperty{
+//   	},
+//   	msSmoothOutputSettings: &msSmoothOutputSettingsProperty{
+//   		h265PackagingType: jsii.String("h265PackagingType"),
+//   		nameModifier: jsii.String("nameModifier"),
+//   	},
+//   	multiplexOutputSettings: &multiplexOutputSettingsProperty{
+//   		destination: &outputLocationRefProperty{
+//   			destinationRefId: jsii.String("destinationRefId"),
+//   		},
+//   	},
+//   	rtmpOutputSettings: &rtmpOutputSettingsProperty{
+//   		certificateMode: jsii.String("certificateMode"),
+//   		connectionRetryInterval: jsii.Number(123),
+//   		destination: &outputLocationRefProperty{
+//   			destinationRefId: jsii.String("destinationRefId"),
+//   		},
+//   		numRetries: jsii.Number(123),
+//   	},
+//   	udpOutputSettings: &udpOutputSettingsProperty{
+//   		bufferMsec: jsii.Number(123),
+//   		containerSettings: &udpContainerSettingsProperty{
+//   			m2TsSettings: &m2tsSettingsProperty{
+//   				absentInputAudioBehavior: jsii.String("absentInputAudioBehavior"),
+//   				arib: jsii.String("arib"),
+//   				aribCaptionsPid: jsii.String("aribCaptionsPid"),
+//   				aribCaptionsPidControl: jsii.String("aribCaptionsPidControl"),
+//   				audioBufferModel: jsii.String("audioBufferModel"),
+//   				audioFramesPerPes: jsii.Number(123),
+//   				audioPids: jsii.String("audioPids"),
+//   				audioStreamType: jsii.String("audioStreamType"),
+//   				bitrate: jsii.Number(123),
+//   				bufferModel: jsii.String("bufferModel"),
+//   				ccDescriptor: jsii.String("ccDescriptor"),
+//   				dvbNitSettings: &dvbNitSettingsProperty{
+//   					networkId: jsii.Number(123),
+//   					networkName: jsii.String("networkName"),
+//   					repInterval: jsii.Number(123),
+//   				},
+//   				dvbSdtSettings: &dvbSdtSettingsProperty{
+//   					outputSdt: jsii.String("outputSdt"),
+//   					repInterval: jsii.Number(123),
+//   					serviceName: jsii.String("serviceName"),
+//   					serviceProviderName: jsii.String("serviceProviderName"),
+//   				},
+//   				dvbSubPids: jsii.String("dvbSubPids"),
+//   				dvbTdtSettings: &dvbTdtSettingsProperty{
+//   					repInterval: jsii.Number(123),
+//   				},
+//   				dvbTeletextPid: jsii.String("dvbTeletextPid"),
+//   				ebif: jsii.String("ebif"),
+//   				ebpAudioInterval: jsii.String("ebpAudioInterval"),
+//   				ebpLookaheadMs: jsii.Number(123),
+//   				ebpPlacement: jsii.String("ebpPlacement"),
+//   				ecmPid: jsii.String("ecmPid"),
+//   				esRateInPes: jsii.String("esRateInPes"),
+//   				etvPlatformPid: jsii.String("etvPlatformPid"),
+//   				etvSignalPid: jsii.String("etvSignalPid"),
+//   				fragmentTime: jsii.Number(123),
+//   				klv: jsii.String("klv"),
+//   				klvDataPids: jsii.String("klvDataPids"),
+//   				nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   				nullPacketBitrate: jsii.Number(123),
+//   				patInterval: jsii.Number(123),
+//   				pcrControl: jsii.String("pcrControl"),
+//   				pcrPeriod: jsii.Number(123),
+//   				pcrPid: jsii.String("pcrPid"),
+//   				pmtInterval: jsii.Number(123),
+//   				pmtPid: jsii.String("pmtPid"),
+//   				programNum: jsii.Number(123),
+//   				rateMode: jsii.String("rateMode"),
+//   				scte27Pids: jsii.String("scte27Pids"),
+//   				scte35Control: jsii.String("scte35Control"),
+//   				scte35Pid: jsii.String("scte35Pid"),
+//   				segmentationMarkers: jsii.String("segmentationMarkers"),
+//   				segmentationStyle: jsii.String("segmentationStyle"),
+//   				segmentationTime: jsii.Number(123),
+//   				timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   				timedMetadataPid: jsii.String("timedMetadataPid"),
+//   				transportStreamId: jsii.Number(123),
+//   				videoPid: jsii.String("videoPid"),
+//   			},
+//   		},
+//   		destination: &outputLocationRefProperty{
+//   			destinationRefId: jsii.String("destinationRefId"),
+//   		},
+//   		fecOutputSettings: &fecOutputSettingsProperty{
+//   			columnDepth: jsii.Number(123),
+//   			includeFec: jsii.String("includeFec"),
+//   			rowLength: jsii.Number(123),
+//   		},
+//   	},
+//   }
 //
 type CfnChannel_OutputSettingsProperty struct {
 	// The settings for an archive output.
@@ -3475,7 +8377,10 @@ type CfnChannel_OutputSettingsProperty struct {
 //
 // The parent of this entity is AudioCodecSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   passThroughSettingsProperty := &passThroughSettingsProperty{
+//   }
 //
 type CfnChannel_PassThroughSettingsProperty struct {
 }
@@ -3484,7 +8389,10 @@ type CfnChannel_PassThroughSettingsProperty struct {
 //
 // The parent of this entity is ArchiveContainerSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   rawSettingsProperty := &rawSettingsProperty{
+//   }
 //
 type CfnChannel_RawSettingsProperty struct {
 }
@@ -3493,7 +8401,10 @@ type CfnChannel_RawSettingsProperty struct {
 //
 // The parents of this entity are H264ColorSpaceSettings and H265ColorSpaceSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   rec601SettingsProperty := &rec601SettingsProperty{
+//   }
 //
 type CfnChannel_Rec601SettingsProperty struct {
 }
@@ -3502,7 +8413,10 @@ type CfnChannel_Rec601SettingsProperty struct {
 //
 // The parents of this entity are H264ColorSpaceSettings and H265ColorSpaceSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   rec709SettingsProperty := &rec709SettingsProperty{
+//   }
 //
 type CfnChannel_Rec709SettingsProperty struct {
 }
@@ -3511,7 +8425,23 @@ type CfnChannel_Rec709SettingsProperty struct {
 //
 // The parent of this entity is AudioDescription.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   remixSettingsProperty := &remixSettingsProperty{
+//   	channelMappings: []interface{}{
+//   		&audioChannelMappingProperty{
+//   			inputChannelLevels: []interface{}{
+//   				&inputChannelLevelProperty{
+//   					gain: jsii.Number(123),
+//   					inputChannel: jsii.Number(123),
+//   				},
+//   			},
+//   			outputChannel: jsii.Number(123),
+//   		},
+//   	},
+//   	channelsIn: jsii.Number(123),
+//   	channelsOut: jsii.Number(123),
+//   }
 //
 type CfnChannel_RemixSettingsProperty struct {
 	// A mapping of input channels to output channels, with appropriate gain adjustments.
@@ -3528,7 +8458,10 @@ type CfnChannel_RemixSettingsProperty struct {
 //
 // The parent of this entity is CaptionDestinationSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   rtmpCaptionInfoDestinationSettingsProperty := &rtmpCaptionInfoDestinationSettingsProperty{
+//   }
 //
 type CfnChannel_RtmpCaptionInfoDestinationSettingsProperty struct {
 }
@@ -3537,7 +8470,19 @@ type CfnChannel_RtmpCaptionInfoDestinationSettingsProperty struct {
 //
 // The parent of this entity is OutputGroupSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   rtmpGroupSettingsProperty := &rtmpGroupSettingsProperty{
+//   	adMarkers: []*string{
+//   		jsii.String("adMarkers"),
+//   	},
+//   	authenticationScheme: jsii.String("authenticationScheme"),
+//   	cacheFullBehavior: jsii.String("cacheFullBehavior"),
+//   	cacheLength: jsii.Number(123),
+//   	captionData: jsii.String("captionData"),
+//   	inputLossAction: jsii.String("inputLossAction"),
+//   	restartDelay: jsii.Number(123),
+//   }
 //
 type CfnChannel_RtmpGroupSettingsProperty struct {
 	// Choose the ad marker type for this output group.
@@ -3570,7 +8515,16 @@ type CfnChannel_RtmpGroupSettingsProperty struct {
 //
 // The parent of this entity is OutputSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   rtmpOutputSettingsProperty := &rtmpOutputSettingsProperty{
+//   	certificateMode: jsii.String("certificateMode"),
+//   	connectionRetryInterval: jsii.Number(123),
+//   	destination: &outputLocationRefProperty{
+//   		destinationRefId: jsii.String("destinationRefId"),
+//   	},
+//   	numRetries: jsii.Number(123),
+//   }
 //
 type CfnChannel_RtmpOutputSettingsProperty struct {
 	// If set to verifyAuthenticity, verifies the TLS certificate chain to a trusted certificate authority (CA).
@@ -3589,7 +8543,10 @@ type CfnChannel_RtmpOutputSettingsProperty struct {
 //
 // The parent of this entity is CaptionDestinationSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   scte20PlusEmbeddedDestinationSettingsProperty := &scte20PlusEmbeddedDestinationSettingsProperty{
+//   }
 //
 type CfnChannel_Scte20PlusEmbeddedDestinationSettingsProperty struct {
 }
@@ -3598,7 +8555,12 @@ type CfnChannel_Scte20PlusEmbeddedDestinationSettingsProperty struct {
 //
 // The parent of this entity is CaptionSelectorSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   scte20SourceSettingsProperty := &scte20SourceSettingsProperty{
+//   	convert608To708: jsii.String("convert608To708"),
+//   	source608ChannelNumber: jsii.Number(123),
+//   }
 //
 type CfnChannel_Scte20SourceSettingsProperty struct {
 	// If upconvert, 608 data is both passed through the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708.
@@ -3613,7 +8575,10 @@ type CfnChannel_Scte20SourceSettingsProperty struct {
 //
 // The parent of this entity is CaptionDestinationSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   scte27DestinationSettingsProperty := &scte27DestinationSettingsProperty{
+//   }
 //
 type CfnChannel_Scte27DestinationSettingsProperty struct {
 }
@@ -3622,7 +8587,12 @@ type CfnChannel_Scte27DestinationSettingsProperty struct {
 //
 // The parent of this entity is CaptionSelectorSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   scte27SourceSettingsProperty := &scte27SourceSettingsProperty{
+//   	ocrLanguage: jsii.String("ocrLanguage"),
+//   	pid: jsii.Number(123),
+//   }
 //
 type CfnChannel_Scte27SourceSettingsProperty struct {
 	// If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
@@ -3637,7 +8607,13 @@ type CfnChannel_Scte27SourceSettingsProperty struct {
 //
 // The parent of this entity is AvailSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   scte35SpliceInsertProperty := &scte35SpliceInsertProperty{
+//   	adAvailOffset: jsii.Number(123),
+//   	noRegionalBlackoutFlag: jsii.String("noRegionalBlackoutFlag"),
+//   	webDeliveryAllowedFlag: jsii.String("webDeliveryAllowedFlag"),
+//   }
 //
 type CfnChannel_Scte35SpliceInsertProperty struct {
 	// When specified, this offset (in milliseconds) is added to the input ad avail PTS time.
@@ -3654,7 +8630,13 @@ type CfnChannel_Scte35SpliceInsertProperty struct {
 //
 // The parent of this entity is AvailSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   scte35TimeSignalAposProperty := &scte35TimeSignalAposProperty{
+//   	adAvailOffset: jsii.Number(123),
+//   	noRegionalBlackoutFlag: jsii.String("noRegionalBlackoutFlag"),
+//   	webDeliveryAllowedFlag: jsii.String("webDeliveryAllowedFlag"),
+//   }
 //
 type CfnChannel_Scte35TimeSignalAposProperty struct {
 	// When specified, this offset (in milliseconds) is added to the input ad avail PTS time.
@@ -3671,7 +8653,10 @@ type CfnChannel_Scte35TimeSignalAposProperty struct {
 //
 // The parent of this entity is CaptionDestinationSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   smpteTtDestinationSettingsProperty := &smpteTtDestinationSettingsProperty{
+//   }
 //
 type CfnChannel_SmpteTtDestinationSettingsProperty struct {
 }
@@ -3680,7 +8665,30 @@ type CfnChannel_SmpteTtDestinationSettingsProperty struct {
 //
 // The parent of this entity is HlsSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   standardHlsSettingsProperty := &standardHlsSettingsProperty{
+//   	audioRenditionSets: jsii.String("audioRenditionSets"),
+//   	m3U8Settings: &m3u8SettingsProperty{
+//   		audioFramesPerPes: jsii.Number(123),
+//   		audioPids: jsii.String("audioPids"),
+//   		ecmPid: jsii.String("ecmPid"),
+//   		nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   		patInterval: jsii.Number(123),
+//   		pcrControl: jsii.String("pcrControl"),
+//   		pcrPeriod: jsii.Number(123),
+//   		pcrPid: jsii.String("pcrPid"),
+//   		pmtInterval: jsii.Number(123),
+//   		pmtPid: jsii.String("pmtPid"),
+//   		programNum: jsii.Number(123),
+//   		scte35Behavior: jsii.String("scte35Behavior"),
+//   		scte35Pid: jsii.String("scte35Pid"),
+//   		timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   		timedMetadataPid: jsii.String("timedMetadataPid"),
+//   		transportStreamId: jsii.Number(123),
+//   		videoPid: jsii.String("videoPid"),
+//   	},
+//   }
 //
 type CfnChannel_StandardHlsSettingsProperty struct {
 	// Lists all the audio groups that are used with the video output stream.
@@ -3695,7 +8703,16 @@ type CfnChannel_StandardHlsSettingsProperty struct {
 //
 // The parent of this entity is KeyProviderSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   staticKeySettingsProperty := &staticKeySettingsProperty{
+//   	keyProviderServer: &inputLocationProperty{
+//   		passwordParam: jsii.String("passwordParam"),
+//   		uri: jsii.String("uri"),
+//   		username: jsii.String("username"),
+//   	},
+//   	staticKeyValue: jsii.String("staticKeyValue"),
+//   }
 //
 type CfnChannel_StaticKeySettingsProperty struct {
 	// The URL of the license server that is used for protecting content.
@@ -3708,7 +8725,10 @@ type CfnChannel_StaticKeySettingsProperty struct {
 //
 // The parent of this entity is CaptionDestinationSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   teletextDestinationSettingsProperty := &teletextDestinationSettingsProperty{
+//   }
 //
 type CfnChannel_TeletextDestinationSettingsProperty struct {
 }
@@ -3717,7 +8737,17 @@ type CfnChannel_TeletextDestinationSettingsProperty struct {
 //
 // The parent of this entity is CaptionSelectorSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   teletextSourceSettingsProperty := &teletextSourceSettingsProperty{
+//   	outputRectangle: &captionRectangleProperty{
+//   		height: jsii.Number(123),
+//   		leftOffset: jsii.Number(123),
+//   		topOffset: jsii.Number(123),
+//   		width: jsii.Number(123),
+//   	},
+//   	pageNumber: jsii.String("pageNumber"),
+//   }
 //
 type CfnChannel_TeletextSourceSettingsProperty struct {
 	// Settings to configure the caption rectangle for an output captions that will be created using this Teletext source captions.
@@ -3732,7 +8762,12 @@ type CfnChannel_TeletextSourceSettingsProperty struct {
 //
 // The parents of this entity are H264FilterSettings, H265FilterSettings, and Mpeg2FilterSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   temporalFilterSettingsProperty := &temporalFilterSettingsProperty{
+//   	postFilterSharpening: jsii.String("postFilterSharpening"),
+//   	strength: jsii.String("strength"),
+//   }
 //
 type CfnChannel_TemporalFilterSettingsProperty struct {
 	// If you enable this filter, the results are the following: - If the source content is noisy (it contains excessive digital artifacts), the filter cleans up the source.
@@ -3749,7 +8784,12 @@ type CfnChannel_TemporalFilterSettingsProperty struct {
 //
 // The parent of this entity is EncoderSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   timecodeConfigProperty := &timecodeConfigProperty{
+//   	source: jsii.String("source"),
+//   	syncThreshold: jsii.Number(123),
+//   }
 //
 type CfnChannel_TimecodeConfigProperty struct {
 	// Identifies the source for the timecode that will be associated with the channel outputs.
@@ -3766,7 +8806,11 @@ type CfnChannel_TimecodeConfigProperty struct {
 //
 // The parent of this entity is CaptionDestinationSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   ttmlDestinationSettingsProperty := &ttmlDestinationSettingsProperty{
+//   	styleControl: jsii.String("styleControl"),
+//   }
 //
 type CfnChannel_TtmlDestinationSettingsProperty struct {
 	// When set to passthrough, passes through style and position information from a TTML-like input source (TTML, SMPTE-TT, CFF-TT) to the CFF-TT output or TTML output.
@@ -3777,7 +8821,70 @@ type CfnChannel_TtmlDestinationSettingsProperty struct {
 //
 // The parent of this entity is UdpOutputSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   udpContainerSettingsProperty := &udpContainerSettingsProperty{
+//   	m2TsSettings: &m2tsSettingsProperty{
+//   		absentInputAudioBehavior: jsii.String("absentInputAudioBehavior"),
+//   		arib: jsii.String("arib"),
+//   		aribCaptionsPid: jsii.String("aribCaptionsPid"),
+//   		aribCaptionsPidControl: jsii.String("aribCaptionsPidControl"),
+//   		audioBufferModel: jsii.String("audioBufferModel"),
+//   		audioFramesPerPes: jsii.Number(123),
+//   		audioPids: jsii.String("audioPids"),
+//   		audioStreamType: jsii.String("audioStreamType"),
+//   		bitrate: jsii.Number(123),
+//   		bufferModel: jsii.String("bufferModel"),
+//   		ccDescriptor: jsii.String("ccDescriptor"),
+//   		dvbNitSettings: &dvbNitSettingsProperty{
+//   			networkId: jsii.Number(123),
+//   			networkName: jsii.String("networkName"),
+//   			repInterval: jsii.Number(123),
+//   		},
+//   		dvbSdtSettings: &dvbSdtSettingsProperty{
+//   			outputSdt: jsii.String("outputSdt"),
+//   			repInterval: jsii.Number(123),
+//   			serviceName: jsii.String("serviceName"),
+//   			serviceProviderName: jsii.String("serviceProviderName"),
+//   		},
+//   		dvbSubPids: jsii.String("dvbSubPids"),
+//   		dvbTdtSettings: &dvbTdtSettingsProperty{
+//   			repInterval: jsii.Number(123),
+//   		},
+//   		dvbTeletextPid: jsii.String("dvbTeletextPid"),
+//   		ebif: jsii.String("ebif"),
+//   		ebpAudioInterval: jsii.String("ebpAudioInterval"),
+//   		ebpLookaheadMs: jsii.Number(123),
+//   		ebpPlacement: jsii.String("ebpPlacement"),
+//   		ecmPid: jsii.String("ecmPid"),
+//   		esRateInPes: jsii.String("esRateInPes"),
+//   		etvPlatformPid: jsii.String("etvPlatformPid"),
+//   		etvSignalPid: jsii.String("etvSignalPid"),
+//   		fragmentTime: jsii.Number(123),
+//   		klv: jsii.String("klv"),
+//   		klvDataPids: jsii.String("klvDataPids"),
+//   		nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   		nullPacketBitrate: jsii.Number(123),
+//   		patInterval: jsii.Number(123),
+//   		pcrControl: jsii.String("pcrControl"),
+//   		pcrPeriod: jsii.Number(123),
+//   		pcrPid: jsii.String("pcrPid"),
+//   		pmtInterval: jsii.Number(123),
+//   		pmtPid: jsii.String("pmtPid"),
+//   		programNum: jsii.Number(123),
+//   		rateMode: jsii.String("rateMode"),
+//   		scte27Pids: jsii.String("scte27Pids"),
+//   		scte35Control: jsii.String("scte35Control"),
+//   		scte35Pid: jsii.String("scte35Pid"),
+//   		segmentationMarkers: jsii.String("segmentationMarkers"),
+//   		segmentationStyle: jsii.String("segmentationStyle"),
+//   		segmentationTime: jsii.Number(123),
+//   		timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   		timedMetadataPid: jsii.String("timedMetadataPid"),
+//   		transportStreamId: jsii.Number(123),
+//   		videoPid: jsii.String("videoPid"),
+//   	},
+//   }
 //
 type CfnChannel_UdpContainerSettingsProperty struct {
 	// The M2TS configuration for this UDP output.
@@ -3788,7 +8895,13 @@ type CfnChannel_UdpContainerSettingsProperty struct {
 //
 // The parent of this entity is OutputGroupSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   udpGroupSettingsProperty := &udpGroupSettingsProperty{
+//   	inputLossAction: jsii.String("inputLossAction"),
+//   	timedMetadataId3Frame: jsii.String("timedMetadataId3Frame"),
+//   	timedMetadataId3Period: jsii.Number(123),
+//   }
 //
 type CfnChannel_UdpGroupSettingsProperty struct {
 	// Specifies the behavior of the last resort when the input video is lost, and no more backup inputs are available.
@@ -3805,7 +8918,81 @@ type CfnChannel_UdpGroupSettingsProperty struct {
 //
 // The parent of this entity is OutputSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   udpOutputSettingsProperty := &udpOutputSettingsProperty{
+//   	bufferMsec: jsii.Number(123),
+//   	containerSettings: &udpContainerSettingsProperty{
+//   		m2TsSettings: &m2tsSettingsProperty{
+//   			absentInputAudioBehavior: jsii.String("absentInputAudioBehavior"),
+//   			arib: jsii.String("arib"),
+//   			aribCaptionsPid: jsii.String("aribCaptionsPid"),
+//   			aribCaptionsPidControl: jsii.String("aribCaptionsPidControl"),
+//   			audioBufferModel: jsii.String("audioBufferModel"),
+//   			audioFramesPerPes: jsii.Number(123),
+//   			audioPids: jsii.String("audioPids"),
+//   			audioStreamType: jsii.String("audioStreamType"),
+//   			bitrate: jsii.Number(123),
+//   			bufferModel: jsii.String("bufferModel"),
+//   			ccDescriptor: jsii.String("ccDescriptor"),
+//   			dvbNitSettings: &dvbNitSettingsProperty{
+//   				networkId: jsii.Number(123),
+//   				networkName: jsii.String("networkName"),
+//   				repInterval: jsii.Number(123),
+//   			},
+//   			dvbSdtSettings: &dvbSdtSettingsProperty{
+//   				outputSdt: jsii.String("outputSdt"),
+//   				repInterval: jsii.Number(123),
+//   				serviceName: jsii.String("serviceName"),
+//   				serviceProviderName: jsii.String("serviceProviderName"),
+//   			},
+//   			dvbSubPids: jsii.String("dvbSubPids"),
+//   			dvbTdtSettings: &dvbTdtSettingsProperty{
+//   				repInterval: jsii.Number(123),
+//   			},
+//   			dvbTeletextPid: jsii.String("dvbTeletextPid"),
+//   			ebif: jsii.String("ebif"),
+//   			ebpAudioInterval: jsii.String("ebpAudioInterval"),
+//   			ebpLookaheadMs: jsii.Number(123),
+//   			ebpPlacement: jsii.String("ebpPlacement"),
+//   			ecmPid: jsii.String("ecmPid"),
+//   			esRateInPes: jsii.String("esRateInPes"),
+//   			etvPlatformPid: jsii.String("etvPlatformPid"),
+//   			etvSignalPid: jsii.String("etvSignalPid"),
+//   			fragmentTime: jsii.Number(123),
+//   			klv: jsii.String("klv"),
+//   			klvDataPids: jsii.String("klvDataPids"),
+//   			nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   			nullPacketBitrate: jsii.Number(123),
+//   			patInterval: jsii.Number(123),
+//   			pcrControl: jsii.String("pcrControl"),
+//   			pcrPeriod: jsii.Number(123),
+//   			pcrPid: jsii.String("pcrPid"),
+//   			pmtInterval: jsii.Number(123),
+//   			pmtPid: jsii.String("pmtPid"),
+//   			programNum: jsii.Number(123),
+//   			rateMode: jsii.String("rateMode"),
+//   			scte27Pids: jsii.String("scte27Pids"),
+//   			scte35Control: jsii.String("scte35Control"),
+//   			scte35Pid: jsii.String("scte35Pid"),
+//   			segmentationMarkers: jsii.String("segmentationMarkers"),
+//   			segmentationStyle: jsii.String("segmentationStyle"),
+//   			segmentationTime: jsii.Number(123),
+//   			timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   			timedMetadataPid: jsii.String("timedMetadataPid"),
+//   			transportStreamId: jsii.Number(123),
+//   			videoPid: jsii.String("videoPid"),
+//   		},
+//   	},
+//   	destination: &outputLocationRefProperty{
+//   		destinationRefId: jsii.String("destinationRefId"),
+//   	},
+//   	fecOutputSettings: &fecOutputSettingsProperty{
+//   		columnDepth: jsii.Number(123),
+//   		includeFec: jsii.String("includeFec"),
+//   		rowLength: jsii.Number(123),
+//   	},
+//   }
 //
 type CfnChannel_UdpOutputSettingsProperty struct {
 	// The UDP output buffering in milliseconds.
@@ -3826,7 +9013,12 @@ type CfnChannel_UdpOutputSettingsProperty struct {
 //
 // The parent of this entity is FailoverConditionSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   videoBlackFailoverSettingsProperty := &videoBlackFailoverSettingsProperty{
+//   	blackDetectThreshold: jsii.Number(123),
+//   	videoBlackThresholdMsec: jsii.Number(123),
+//   }
 //
 type CfnChannel_VideoBlackFailoverSettingsProperty struct {
 	// A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'.
@@ -3841,7 +9033,139 @@ type CfnChannel_VideoBlackFailoverSettingsProperty struct {
 //
 // The parent of this entity is VideoDescription.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   videoCodecSettingsProperty := &videoCodecSettingsProperty{
+//   	frameCaptureSettings: &frameCaptureSettingsProperty{
+//   		captureInterval: jsii.Number(123),
+//   		captureIntervalUnits: jsii.String("captureIntervalUnits"),
+//   	},
+//   	h264Settings: &h264SettingsProperty{
+//   		adaptiveQuantization: jsii.String("adaptiveQuantization"),
+//   		afdSignaling: jsii.String("afdSignaling"),
+//   		bitrate: jsii.Number(123),
+//   		bufFillPct: jsii.Number(123),
+//   		bufSize: jsii.Number(123),
+//   		colorMetadata: jsii.String("colorMetadata"),
+//   		colorSpaceSettings: &h264ColorSpaceSettingsProperty{
+//   			colorSpacePassthroughSettings: &colorSpacePassthroughSettingsProperty{
+//   			},
+//   			rec601Settings: &rec601SettingsProperty{
+//   			},
+//   			rec709Settings: &rec709SettingsProperty{
+//   			},
+//   		},
+//   		entropyEncoding: jsii.String("entropyEncoding"),
+//   		filterSettings: &h264FilterSettingsProperty{
+//   			temporalFilterSettings: &temporalFilterSettingsProperty{
+//   				postFilterSharpening: jsii.String("postFilterSharpening"),
+//   				strength: jsii.String("strength"),
+//   			},
+//   		},
+//   		fixedAfd: jsii.String("fixedAfd"),
+//   		flickerAq: jsii.String("flickerAq"),
+//   		forceFieldPictures: jsii.String("forceFieldPictures"),
+//   		framerateControl: jsii.String("framerateControl"),
+//   		framerateDenominator: jsii.Number(123),
+//   		framerateNumerator: jsii.Number(123),
+//   		gopBReference: jsii.String("gopBReference"),
+//   		gopClosedCadence: jsii.Number(123),
+//   		gopNumBFrames: jsii.Number(123),
+//   		gopSize: jsii.Number(123),
+//   		gopSizeUnits: jsii.String("gopSizeUnits"),
+//   		level: jsii.String("level"),
+//   		lookAheadRateControl: jsii.String("lookAheadRateControl"),
+//   		maxBitrate: jsii.Number(123),
+//   		minIInterval: jsii.Number(123),
+//   		numRefFrames: jsii.Number(123),
+//   		parControl: jsii.String("parControl"),
+//   		parDenominator: jsii.Number(123),
+//   		parNumerator: jsii.Number(123),
+//   		profile: jsii.String("profile"),
+//   		qualityLevel: jsii.String("qualityLevel"),
+//   		qvbrQualityLevel: jsii.Number(123),
+//   		rateControlMode: jsii.String("rateControlMode"),
+//   		scanType: jsii.String("scanType"),
+//   		sceneChangeDetect: jsii.String("sceneChangeDetect"),
+//   		slices: jsii.Number(123),
+//   		softness: jsii.Number(123),
+//   		spatialAq: jsii.String("spatialAq"),
+//   		subgopLength: jsii.String("subgopLength"),
+//   		syntax: jsii.String("syntax"),
+//   		temporalAq: jsii.String("temporalAq"),
+//   		timecodeInsertion: jsii.String("timecodeInsertion"),
+//   	},
+//   	h265Settings: &h265SettingsProperty{
+//   		adaptiveQuantization: jsii.String("adaptiveQuantization"),
+//   		afdSignaling: jsii.String("afdSignaling"),
+//   		alternativeTransferFunction: jsii.String("alternativeTransferFunction"),
+//   		bitrate: jsii.Number(123),
+//   		bufSize: jsii.Number(123),
+//   		colorMetadata: jsii.String("colorMetadata"),
+//   		colorSpaceSettings: &h265ColorSpaceSettingsProperty{
+//   			colorSpacePassthroughSettings: &colorSpacePassthroughSettingsProperty{
+//   			},
+//   			hdr10Settings: &hdr10SettingsProperty{
+//   				maxCll: jsii.Number(123),
+//   				maxFall: jsii.Number(123),
+//   			},
+//   			rec601Settings: &rec601SettingsProperty{
+//   			},
+//   			rec709Settings: &rec709SettingsProperty{
+//   			},
+//   		},
+//   		filterSettings: &h265FilterSettingsProperty{
+//   			temporalFilterSettings: &temporalFilterSettingsProperty{
+//   				postFilterSharpening: jsii.String("postFilterSharpening"),
+//   				strength: jsii.String("strength"),
+//   			},
+//   		},
+//   		fixedAfd: jsii.String("fixedAfd"),
+//   		flickerAq: jsii.String("flickerAq"),
+//   		framerateDenominator: jsii.Number(123),
+//   		framerateNumerator: jsii.Number(123),
+//   		gopClosedCadence: jsii.Number(123),
+//   		gopSize: jsii.Number(123),
+//   		gopSizeUnits: jsii.String("gopSizeUnits"),
+//   		level: jsii.String("level"),
+//   		lookAheadRateControl: jsii.String("lookAheadRateControl"),
+//   		maxBitrate: jsii.Number(123),
+//   		minIInterval: jsii.Number(123),
+//   		parDenominator: jsii.Number(123),
+//   		parNumerator: jsii.Number(123),
+//   		profile: jsii.String("profile"),
+//   		qvbrQualityLevel: jsii.Number(123),
+//   		rateControlMode: jsii.String("rateControlMode"),
+//   		scanType: jsii.String("scanType"),
+//   		sceneChangeDetect: jsii.String("sceneChangeDetect"),
+//   		slices: jsii.Number(123),
+//   		tier: jsii.String("tier"),
+//   		timecodeInsertion: jsii.String("timecodeInsertion"),
+//   	},
+//   	mpeg2Settings: &mpeg2SettingsProperty{
+//   		adaptiveQuantization: jsii.String("adaptiveQuantization"),
+//   		afdSignaling: jsii.String("afdSignaling"),
+//   		colorMetadata: jsii.String("colorMetadata"),
+//   		colorSpace: jsii.String("colorSpace"),
+//   		displayAspectRatio: jsii.String("displayAspectRatio"),
+//   		filterSettings: &mpeg2FilterSettingsProperty{
+//   			temporalFilterSettings: &temporalFilterSettingsProperty{
+//   				postFilterSharpening: jsii.String("postFilterSharpening"),
+//   				strength: jsii.String("strength"),
+//   			},
+//   		},
+//   		fixedAfd: jsii.String("fixedAfd"),
+//   		framerateDenominator: jsii.Number(123),
+//   		framerateNumerator: jsii.Number(123),
+//   		gopClosedCadence: jsii.Number(123),
+//   		gopNumBFrames: jsii.Number(123),
+//   		gopSize: jsii.Number(123),
+//   		gopSizeUnits: jsii.String("gopSizeUnits"),
+//   		scanType: jsii.String("scanType"),
+//   		subgopLength: jsii.String("subgopLength"),
+//   		timecodeInsertion: jsii.String("timecodeInsertion"),
+//   	},
+//   }
 //
 type CfnChannel_VideoCodecSettingsProperty struct {
 	// The settings for the video codec in a frame capture output.
@@ -3858,7 +9182,147 @@ type CfnChannel_VideoCodecSettingsProperty struct {
 //
 // The parent of this entity is EncoderSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   videoDescriptionProperty := &videoDescriptionProperty{
+//   	codecSettings: &videoCodecSettingsProperty{
+//   		frameCaptureSettings: &frameCaptureSettingsProperty{
+//   			captureInterval: jsii.Number(123),
+//   			captureIntervalUnits: jsii.String("captureIntervalUnits"),
+//   		},
+//   		h264Settings: &h264SettingsProperty{
+//   			adaptiveQuantization: jsii.String("adaptiveQuantization"),
+//   			afdSignaling: jsii.String("afdSignaling"),
+//   			bitrate: jsii.Number(123),
+//   			bufFillPct: jsii.Number(123),
+//   			bufSize: jsii.Number(123),
+//   			colorMetadata: jsii.String("colorMetadata"),
+//   			colorSpaceSettings: &h264ColorSpaceSettingsProperty{
+//   				colorSpacePassthroughSettings: &colorSpacePassthroughSettingsProperty{
+//   				},
+//   				rec601Settings: &rec601SettingsProperty{
+//   				},
+//   				rec709Settings: &rec709SettingsProperty{
+//   				},
+//   			},
+//   			entropyEncoding: jsii.String("entropyEncoding"),
+//   			filterSettings: &h264FilterSettingsProperty{
+//   				temporalFilterSettings: &temporalFilterSettingsProperty{
+//   					postFilterSharpening: jsii.String("postFilterSharpening"),
+//   					strength: jsii.String("strength"),
+//   				},
+//   			},
+//   			fixedAfd: jsii.String("fixedAfd"),
+//   			flickerAq: jsii.String("flickerAq"),
+//   			forceFieldPictures: jsii.String("forceFieldPictures"),
+//   			framerateControl: jsii.String("framerateControl"),
+//   			framerateDenominator: jsii.Number(123),
+//   			framerateNumerator: jsii.Number(123),
+//   			gopBReference: jsii.String("gopBReference"),
+//   			gopClosedCadence: jsii.Number(123),
+//   			gopNumBFrames: jsii.Number(123),
+//   			gopSize: jsii.Number(123),
+//   			gopSizeUnits: jsii.String("gopSizeUnits"),
+//   			level: jsii.String("level"),
+//   			lookAheadRateControl: jsii.String("lookAheadRateControl"),
+//   			maxBitrate: jsii.Number(123),
+//   			minIInterval: jsii.Number(123),
+//   			numRefFrames: jsii.Number(123),
+//   			parControl: jsii.String("parControl"),
+//   			parDenominator: jsii.Number(123),
+//   			parNumerator: jsii.Number(123),
+//   			profile: jsii.String("profile"),
+//   			qualityLevel: jsii.String("qualityLevel"),
+//   			qvbrQualityLevel: jsii.Number(123),
+//   			rateControlMode: jsii.String("rateControlMode"),
+//   			scanType: jsii.String("scanType"),
+//   			sceneChangeDetect: jsii.String("sceneChangeDetect"),
+//   			slices: jsii.Number(123),
+//   			softness: jsii.Number(123),
+//   			spatialAq: jsii.String("spatialAq"),
+//   			subgopLength: jsii.String("subgopLength"),
+//   			syntax: jsii.String("syntax"),
+//   			temporalAq: jsii.String("temporalAq"),
+//   			timecodeInsertion: jsii.String("timecodeInsertion"),
+//   		},
+//   		h265Settings: &h265SettingsProperty{
+//   			adaptiveQuantization: jsii.String("adaptiveQuantization"),
+//   			afdSignaling: jsii.String("afdSignaling"),
+//   			alternativeTransferFunction: jsii.String("alternativeTransferFunction"),
+//   			bitrate: jsii.Number(123),
+//   			bufSize: jsii.Number(123),
+//   			colorMetadata: jsii.String("colorMetadata"),
+//   			colorSpaceSettings: &h265ColorSpaceSettingsProperty{
+//   				colorSpacePassthroughSettings: &colorSpacePassthroughSettingsProperty{
+//   				},
+//   				hdr10Settings: &hdr10SettingsProperty{
+//   					maxCll: jsii.Number(123),
+//   					maxFall: jsii.Number(123),
+//   				},
+//   				rec601Settings: &rec601SettingsProperty{
+//   				},
+//   				rec709Settings: &rec709SettingsProperty{
+//   				},
+//   			},
+//   			filterSettings: &h265FilterSettingsProperty{
+//   				temporalFilterSettings: &temporalFilterSettingsProperty{
+//   					postFilterSharpening: jsii.String("postFilterSharpening"),
+//   					strength: jsii.String("strength"),
+//   				},
+//   			},
+//   			fixedAfd: jsii.String("fixedAfd"),
+//   			flickerAq: jsii.String("flickerAq"),
+//   			framerateDenominator: jsii.Number(123),
+//   			framerateNumerator: jsii.Number(123),
+//   			gopClosedCadence: jsii.Number(123),
+//   			gopSize: jsii.Number(123),
+//   			gopSizeUnits: jsii.String("gopSizeUnits"),
+//   			level: jsii.String("level"),
+//   			lookAheadRateControl: jsii.String("lookAheadRateControl"),
+//   			maxBitrate: jsii.Number(123),
+//   			minIInterval: jsii.Number(123),
+//   			parDenominator: jsii.Number(123),
+//   			parNumerator: jsii.Number(123),
+//   			profile: jsii.String("profile"),
+//   			qvbrQualityLevel: jsii.Number(123),
+//   			rateControlMode: jsii.String("rateControlMode"),
+//   			scanType: jsii.String("scanType"),
+//   			sceneChangeDetect: jsii.String("sceneChangeDetect"),
+//   			slices: jsii.Number(123),
+//   			tier: jsii.String("tier"),
+//   			timecodeInsertion: jsii.String("timecodeInsertion"),
+//   		},
+//   		mpeg2Settings: &mpeg2SettingsProperty{
+//   			adaptiveQuantization: jsii.String("adaptiveQuantization"),
+//   			afdSignaling: jsii.String("afdSignaling"),
+//   			colorMetadata: jsii.String("colorMetadata"),
+//   			colorSpace: jsii.String("colorSpace"),
+//   			displayAspectRatio: jsii.String("displayAspectRatio"),
+//   			filterSettings: &mpeg2FilterSettingsProperty{
+//   				temporalFilterSettings: &temporalFilterSettingsProperty{
+//   					postFilterSharpening: jsii.String("postFilterSharpening"),
+//   					strength: jsii.String("strength"),
+//   				},
+//   			},
+//   			fixedAfd: jsii.String("fixedAfd"),
+//   			framerateDenominator: jsii.Number(123),
+//   			framerateNumerator: jsii.Number(123),
+//   			gopClosedCadence: jsii.Number(123),
+//   			gopNumBFrames: jsii.Number(123),
+//   			gopSize: jsii.Number(123),
+//   			gopSizeUnits: jsii.String("gopSizeUnits"),
+//   			scanType: jsii.String("scanType"),
+//   			subgopLength: jsii.String("subgopLength"),
+//   			timecodeInsertion: jsii.String("timecodeInsertion"),
+//   		},
+//   	},
+//   	height: jsii.Number(123),
+//   	name: jsii.String("name"),
+//   	respondToAfd: jsii.String("respondToAfd"),
+//   	scalingBehavior: jsii.String("scalingBehavior"),
+//   	sharpness: jsii.Number(123),
+//   	width: jsii.Number(123),
+//   }
 //
 type CfnChannel_VideoDescriptionProperty struct {
 	// The video codec settings.
@@ -3893,7 +9357,14 @@ type CfnChannel_VideoDescriptionProperty struct {
 //
 // The parent of this entity is VideoSelector.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   videoSelectorColorSpaceSettingsProperty := &videoSelectorColorSpaceSettingsProperty{
+//   	hdr10Settings: &hdr10SettingsProperty{
+//   		maxCll: jsii.Number(123),
+//   		maxFall: jsii.Number(123),
+//   	},
+//   }
 //
 type CfnChannel_VideoSelectorColorSpaceSettingsProperty struct {
 	// Settings to configure color space settings in the incoming video.
@@ -3904,7 +9375,11 @@ type CfnChannel_VideoSelectorColorSpaceSettingsProperty struct {
 //
 // The parent of this entity is VideoSelectorSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   videoSelectorPidProperty := &videoSelectorPidProperty{
+//   	pid: jsii.Number(123),
+//   }
 //
 type CfnChannel_VideoSelectorPidProperty struct {
 	// Selects a specific PID from within a video source.
@@ -3915,7 +9390,11 @@ type CfnChannel_VideoSelectorPidProperty struct {
 //
 // The parent of this entity is VideoSelectorSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   videoSelectorProgramIdProperty := &videoSelectorProgramIdProperty{
+//   	programId: jsii.Number(123),
+//   }
 //
 type CfnChannel_VideoSelectorProgramIdProperty struct {
 	// Selects a specific program from within a multi-program transport stream.
@@ -3928,7 +9407,26 @@ type CfnChannel_VideoSelectorProgramIdProperty struct {
 //
 // The parent of this entity is InputSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   videoSelectorProperty := &videoSelectorProperty{
+//   	colorSpace: jsii.String("colorSpace"),
+//   	colorSpaceSettings: &videoSelectorColorSpaceSettingsProperty{
+//   		hdr10Settings: &hdr10SettingsProperty{
+//   			maxCll: jsii.Number(123),
+//   			maxFall: jsii.Number(123),
+//   		},
+//   	},
+//   	colorSpaceUsage: jsii.String("colorSpaceUsage"),
+//   	selectorSettings: &videoSelectorSettingsProperty{
+//   		videoSelectorPid: &videoSelectorPidProperty{
+//   			pid: jsii.Number(123),
+//   		},
+//   		videoSelectorProgramId: &videoSelectorProgramIdProperty{
+//   			programId: jsii.Number(123),
+//   		},
+//   	},
+//   }
 //
 type CfnChannel_VideoSelectorProperty struct {
 	// Specifies the color space of an input.
@@ -3949,7 +9447,16 @@ type CfnChannel_VideoSelectorProperty struct {
 //
 // The parent of this entity is VideoSelector.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   videoSelectorSettingsProperty := &videoSelectorSettingsProperty{
+//   	videoSelectorPid: &videoSelectorPidProperty{
+//   		pid: jsii.Number(123),
+//   	},
+//   	videoSelectorProgramId: &videoSelectorProgramIdProperty{
+//   		programId: jsii.Number(123),
+//   	},
+//   }
 //
 type CfnChannel_VideoSelectorSettingsProperty struct {
 	// Used to extract video by PID.
@@ -3962,16 +9469,28 @@ type CfnChannel_VideoSelectorSettingsProperty struct {
 //
 // This entity is at the top level in the channel.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   vpcOutputSettingsProperty := &vpcOutputSettingsProperty{
+//   	publicAddressAllocationIds: []*string{
+//   		jsii.String("publicAddressAllocationIds"),
+//   	},
+//   	securityGroupIds: []*string{
+//   		jsii.String("securityGroupIds"),
+//   	},
+//   	subnetIds: []*string{
+//   		jsii.String("subnetIds"),
+//   	},
+//   }
 //
 type CfnChannel_VpcOutputSettingsProperty struct {
 	// List of public address allocation IDs to associate with ENIs that will be created in Output VPC.
 	//
-	// Must specify one for SINGLE_PIPELINE, two for STANDARD channels
+	// Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
 	PublicAddressAllocationIds *[]*string `json:"publicAddressAllocationIds" yaml:"publicAddressAllocationIds"`
 	// A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces.
 	//
-	// If none are specified then the VPC default security group will be used
+	// If none are specified then the VPC default security group will be used.
 	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
 	// A list of VPC subnet IDs from the same VPC.
 	//
@@ -3983,7 +9502,13 @@ type CfnChannel_VpcOutputSettingsProperty struct {
 //
 // The parent of this entity is AudioCodecSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   wavSettingsProperty := &wavSettingsProperty{
+//   	bitDepth: jsii.Number(123),
+//   	codingMode: jsii.String("codingMode"),
+//   	sampleRate: jsii.Number(123),
+//   }
 //
 type CfnChannel_WavSettingsProperty struct {
 	// Bits per sample.
@@ -4000,7 +9525,11 @@ type CfnChannel_WavSettingsProperty struct {
 //
 // The parent of this entity is CaptionDestinationSettings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   webvttDestinationSettingsProperty := &webvttDestinationSettingsProperty{
+//   	styleControl: jsii.String("styleControl"),
+//   }
 //
 type CfnChannel_WebvttDestinationSettingsProperty struct {
 	// Controls whether the color and position of the source captions is passed through to the WebVTT output captions.
@@ -4011,7 +9540,983 @@ type CfnChannel_WebvttDestinationSettingsProperty struct {
 
 // Properties for defining a `CfnChannel`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//
+//   var tags interface{}
+//   cfnChannelProps := &cfnChannelProps{
+//   	cdiInputSpecification: &cdiInputSpecificationProperty{
+//   		resolution: jsii.String("resolution"),
+//   	},
+//   	channelClass: jsii.String("channelClass"),
+//   	destinations: []interface{}{
+//   		&outputDestinationProperty{
+//   			id: jsii.String("id"),
+//   			mediaPackageSettings: []interface{}{
+//   				&mediaPackageOutputDestinationSettingsProperty{
+//   					channelId: jsii.String("channelId"),
+//   				},
+//   			},
+//   			multiplexSettings: &multiplexProgramChannelDestinationSettingsProperty{
+//   				multiplexId: jsii.String("multiplexId"),
+//   				programName: jsii.String("programName"),
+//   			},
+//   			settings: []interface{}{
+//   				&outputDestinationSettingsProperty{
+//   					passwordParam: jsii.String("passwordParam"),
+//   					streamName: jsii.String("streamName"),
+//   					url: jsii.String("url"),
+//   					username: jsii.String("username"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	encoderSettings: &encoderSettingsProperty{
+//   		audioDescriptions: []interface{}{
+//   			&audioDescriptionProperty{
+//   				audioNormalizationSettings: &audioNormalizationSettingsProperty{
+//   					algorithm: jsii.String("algorithm"),
+//   					algorithmControl: jsii.String("algorithmControl"),
+//   					targetLkfs: jsii.Number(123),
+//   				},
+//   				audioSelectorName: jsii.String("audioSelectorName"),
+//   				audioType: jsii.String("audioType"),
+//   				audioTypeControl: jsii.String("audioTypeControl"),
+//   				audioWatermarkingSettings: &audioWatermarkSettingsProperty{
+//   					nielsenWatermarksSettings: &nielsenWatermarksSettingsProperty{
+//   						nielsenCbetSettings: &nielsenCBETProperty{
+//   							cbetCheckDigitString: jsii.String("cbetCheckDigitString"),
+//   							cbetStepaside: jsii.String("cbetStepaside"),
+//   							csid: jsii.String("csid"),
+//   						},
+//   						nielsenDistributionType: jsii.String("nielsenDistributionType"),
+//   						nielsenNaesIiNwSettings: &nielsenNaesIiNwProperty{
+//   							checkDigitString: jsii.String("checkDigitString"),
+//   							sid: jsii.Number(123),
+//   						},
+//   					},
+//   				},
+//   				codecSettings: &audioCodecSettingsProperty{
+//   					aacSettings: &aacSettingsProperty{
+//   						bitrate: jsii.Number(123),
+//   						codingMode: jsii.String("codingMode"),
+//   						inputType: jsii.String("inputType"),
+//   						profile: jsii.String("profile"),
+//   						rateControlMode: jsii.String("rateControlMode"),
+//   						rawFormat: jsii.String("rawFormat"),
+//   						sampleRate: jsii.Number(123),
+//   						spec: jsii.String("spec"),
+//   						vbrQuality: jsii.String("vbrQuality"),
+//   					},
+//   					ac3Settings: &ac3SettingsProperty{
+//   						bitrate: jsii.Number(123),
+//   						bitstreamMode: jsii.String("bitstreamMode"),
+//   						codingMode: jsii.String("codingMode"),
+//   						dialnorm: jsii.Number(123),
+//   						drcProfile: jsii.String("drcProfile"),
+//   						lfeFilter: jsii.String("lfeFilter"),
+//   						metadataControl: jsii.String("metadataControl"),
+//   					},
+//   					eac3Settings: &eac3SettingsProperty{
+//   						attenuationControl: jsii.String("attenuationControl"),
+//   						bitrate: jsii.Number(123),
+//   						bitstreamMode: jsii.String("bitstreamMode"),
+//   						codingMode: jsii.String("codingMode"),
+//   						dcFilter: jsii.String("dcFilter"),
+//   						dialnorm: jsii.Number(123),
+//   						drcLine: jsii.String("drcLine"),
+//   						drcRf: jsii.String("drcRf"),
+//   						lfeControl: jsii.String("lfeControl"),
+//   						lfeFilter: jsii.String("lfeFilter"),
+//   						loRoCenterMixLevel: jsii.Number(123),
+//   						loRoSurroundMixLevel: jsii.Number(123),
+//   						ltRtCenterMixLevel: jsii.Number(123),
+//   						ltRtSurroundMixLevel: jsii.Number(123),
+//   						metadataControl: jsii.String("metadataControl"),
+//   						passthroughControl: jsii.String("passthroughControl"),
+//   						phaseControl: jsii.String("phaseControl"),
+//   						stereoDownmix: jsii.String("stereoDownmix"),
+//   						surroundExMode: jsii.String("surroundExMode"),
+//   						surroundMode: jsii.String("surroundMode"),
+//   					},
+//   					mp2Settings: &mp2SettingsProperty{
+//   						bitrate: jsii.Number(123),
+//   						codingMode: jsii.String("codingMode"),
+//   						sampleRate: jsii.Number(123),
+//   					},
+//   					passThroughSettings: &passThroughSettingsProperty{
+//   					},
+//   					wavSettings: &wavSettingsProperty{
+//   						bitDepth: jsii.Number(123),
+//   						codingMode: jsii.String("codingMode"),
+//   						sampleRate: jsii.Number(123),
+//   					},
+//   				},
+//   				languageCode: jsii.String("languageCode"),
+//   				languageCodeControl: jsii.String("languageCodeControl"),
+//   				name: jsii.String("name"),
+//   				remixSettings: &remixSettingsProperty{
+//   					channelMappings: []interface{}{
+//   						&audioChannelMappingProperty{
+//   							inputChannelLevels: []interface{}{
+//   								&inputChannelLevelProperty{
+//   									gain: jsii.Number(123),
+//   									inputChannel: jsii.Number(123),
+//   								},
+//   							},
+//   							outputChannel: jsii.Number(123),
+//   						},
+//   					},
+//   					channelsIn: jsii.Number(123),
+//   					channelsOut: jsii.Number(123),
+//   				},
+//   				streamName: jsii.String("streamName"),
+//   			},
+//   		},
+//   		availBlanking: &availBlankingProperty{
+//   			availBlankingImage: &inputLocationProperty{
+//   				passwordParam: jsii.String("passwordParam"),
+//   				uri: jsii.String("uri"),
+//   				username: jsii.String("username"),
+//   			},
+//   			state: jsii.String("state"),
+//   		},
+//   		availConfiguration: &availConfigurationProperty{
+//   			availSettings: &availSettingsProperty{
+//   				scte35SpliceInsert: &scte35SpliceInsertProperty{
+//   					adAvailOffset: jsii.Number(123),
+//   					noRegionalBlackoutFlag: jsii.String("noRegionalBlackoutFlag"),
+//   					webDeliveryAllowedFlag: jsii.String("webDeliveryAllowedFlag"),
+//   				},
+//   				scte35TimeSignalApos: &scte35TimeSignalAposProperty{
+//   					adAvailOffset: jsii.Number(123),
+//   					noRegionalBlackoutFlag: jsii.String("noRegionalBlackoutFlag"),
+//   					webDeliveryAllowedFlag: jsii.String("webDeliveryAllowedFlag"),
+//   				},
+//   			},
+//   		},
+//   		blackoutSlate: &blackoutSlateProperty{
+//   			blackoutSlateImage: &inputLocationProperty{
+//   				passwordParam: jsii.String("passwordParam"),
+//   				uri: jsii.String("uri"),
+//   				username: jsii.String("username"),
+//   			},
+//   			networkEndBlackout: jsii.String("networkEndBlackout"),
+//   			networkEndBlackoutImage: &inputLocationProperty{
+//   				passwordParam: jsii.String("passwordParam"),
+//   				uri: jsii.String("uri"),
+//   				username: jsii.String("username"),
+//   			},
+//   			networkId: jsii.String("networkId"),
+//   			state: jsii.String("state"),
+//   		},
+//   		captionDescriptions: []interface{}{
+//   			&captionDescriptionProperty{
+//   				captionSelectorName: jsii.String("captionSelectorName"),
+//   				destinationSettings: &captionDestinationSettingsProperty{
+//   					aribDestinationSettings: &aribDestinationSettingsProperty{
+//   					},
+//   					burnInDestinationSettings: &burnInDestinationSettingsProperty{
+//   						alignment: jsii.String("alignment"),
+//   						backgroundColor: jsii.String("backgroundColor"),
+//   						backgroundOpacity: jsii.Number(123),
+//   						font: &inputLocationProperty{
+//   							passwordParam: jsii.String("passwordParam"),
+//   							uri: jsii.String("uri"),
+//   							username: jsii.String("username"),
+//   						},
+//   						fontColor: jsii.String("fontColor"),
+//   						fontOpacity: jsii.Number(123),
+//   						fontResolution: jsii.Number(123),
+//   						fontSize: jsii.String("fontSize"),
+//   						outlineColor: jsii.String("outlineColor"),
+//   						outlineSize: jsii.Number(123),
+//   						shadowColor: jsii.String("shadowColor"),
+//   						shadowOpacity: jsii.Number(123),
+//   						shadowXOffset: jsii.Number(123),
+//   						shadowYOffset: jsii.Number(123),
+//   						teletextGridControl: jsii.String("teletextGridControl"),
+//   						xPosition: jsii.Number(123),
+//   						yPosition: jsii.Number(123),
+//   					},
+//   					dvbSubDestinationSettings: &dvbSubDestinationSettingsProperty{
+//   						alignment: jsii.String("alignment"),
+//   						backgroundColor: jsii.String("backgroundColor"),
+//   						backgroundOpacity: jsii.Number(123),
+//   						font: &inputLocationProperty{
+//   							passwordParam: jsii.String("passwordParam"),
+//   							uri: jsii.String("uri"),
+//   							username: jsii.String("username"),
+//   						},
+//   						fontColor: jsii.String("fontColor"),
+//   						fontOpacity: jsii.Number(123),
+//   						fontResolution: jsii.Number(123),
+//   						fontSize: jsii.String("fontSize"),
+//   						outlineColor: jsii.String("outlineColor"),
+//   						outlineSize: jsii.Number(123),
+//   						shadowColor: jsii.String("shadowColor"),
+//   						shadowOpacity: jsii.Number(123),
+//   						shadowXOffset: jsii.Number(123),
+//   						shadowYOffset: jsii.Number(123),
+//   						teletextGridControl: jsii.String("teletextGridControl"),
+//   						xPosition: jsii.Number(123),
+//   						yPosition: jsii.Number(123),
+//   					},
+//   					ebuTtDDestinationSettings: &ebuTtDDestinationSettingsProperty{
+//   						copyrightHolder: jsii.String("copyrightHolder"),
+//   						fillLineGap: jsii.String("fillLineGap"),
+//   						fontFamily: jsii.String("fontFamily"),
+//   						styleControl: jsii.String("styleControl"),
+//   					},
+//   					embeddedDestinationSettings: &embeddedDestinationSettingsProperty{
+//   					},
+//   					embeddedPlusScte20DestinationSettings: &embeddedPlusScte20DestinationSettingsProperty{
+//   					},
+//   					rtmpCaptionInfoDestinationSettings: &rtmpCaptionInfoDestinationSettingsProperty{
+//   					},
+//   					scte20PlusEmbeddedDestinationSettings: &scte20PlusEmbeddedDestinationSettingsProperty{
+//   					},
+//   					scte27DestinationSettings: &scte27DestinationSettingsProperty{
+//   					},
+//   					smpteTtDestinationSettings: &smpteTtDestinationSettingsProperty{
+//   					},
+//   					teletextDestinationSettings: &teletextDestinationSettingsProperty{
+//   					},
+//   					ttmlDestinationSettings: &ttmlDestinationSettingsProperty{
+//   						styleControl: jsii.String("styleControl"),
+//   					},
+//   					webvttDestinationSettings: &webvttDestinationSettingsProperty{
+//   						styleControl: jsii.String("styleControl"),
+//   					},
+//   				},
+//   				languageCode: jsii.String("languageCode"),
+//   				languageDescription: jsii.String("languageDescription"),
+//   				name: jsii.String("name"),
+//   			},
+//   		},
+//   		featureActivations: &featureActivationsProperty{
+//   			inputPrepareScheduleActions: jsii.String("inputPrepareScheduleActions"),
+//   		},
+//   		globalConfiguration: &globalConfigurationProperty{
+//   			initialAudioGain: jsii.Number(123),
+//   			inputEndAction: jsii.String("inputEndAction"),
+//   			inputLossBehavior: &inputLossBehaviorProperty{
+//   				blackFrameMsec: jsii.Number(123),
+//   				inputLossImageColor: jsii.String("inputLossImageColor"),
+//   				inputLossImageSlate: &inputLocationProperty{
+//   					passwordParam: jsii.String("passwordParam"),
+//   					uri: jsii.String("uri"),
+//   					username: jsii.String("username"),
+//   				},
+//   				inputLossImageType: jsii.String("inputLossImageType"),
+//   				repeatFrameMsec: jsii.Number(123),
+//   			},
+//   			outputLockingMode: jsii.String("outputLockingMode"),
+//   			outputTimingSource: jsii.String("outputTimingSource"),
+//   			supportLowFramerateInputs: jsii.String("supportLowFramerateInputs"),
+//   		},
+//   		motionGraphicsConfiguration: &motionGraphicsConfigurationProperty{
+//   			motionGraphicsInsertion: jsii.String("motionGraphicsInsertion"),
+//   			motionGraphicsSettings: &motionGraphicsSettingsProperty{
+//   				htmlMotionGraphicsSettings: &htmlMotionGraphicsSettingsProperty{
+//   				},
+//   			},
+//   		},
+//   		nielsenConfiguration: &nielsenConfigurationProperty{
+//   			distributorId: jsii.String("distributorId"),
+//   			nielsenPcmToId3Tagging: jsii.String("nielsenPcmToId3Tagging"),
+//   		},
+//   		outputGroups: []interface{}{
+//   			&outputGroupProperty{
+//   				name: jsii.String("name"),
+//   				outputGroupSettings: &outputGroupSettingsProperty{
+//   					archiveGroupSettings: &archiveGroupSettingsProperty{
+//   						archiveCdnSettings: &archiveCdnSettingsProperty{
+//   							archiveS3Settings: &archiveS3SettingsProperty{
+//   								cannedAcl: jsii.String("cannedAcl"),
+//   							},
+//   						},
+//   						destination: &outputLocationRefProperty{
+//   							destinationRefId: jsii.String("destinationRefId"),
+//   						},
+//   						rolloverInterval: jsii.Number(123),
+//   					},
+//   					frameCaptureGroupSettings: &frameCaptureGroupSettingsProperty{
+//   						destination: &outputLocationRefProperty{
+//   							destinationRefId: jsii.String("destinationRefId"),
+//   						},
+//   						frameCaptureCdnSettings: &frameCaptureCdnSettingsProperty{
+//   							frameCaptureS3Settings: &frameCaptureS3SettingsProperty{
+//   								cannedAcl: jsii.String("cannedAcl"),
+//   							},
+//   						},
+//   					},
+//   					hlsGroupSettings: &hlsGroupSettingsProperty{
+//   						adMarkers: []*string{
+//   							jsii.String("adMarkers"),
+//   						},
+//   						baseUrlContent: jsii.String("baseUrlContent"),
+//   						baseUrlContent1: jsii.String("baseUrlContent1"),
+//   						baseUrlManifest: jsii.String("baseUrlManifest"),
+//   						baseUrlManifest1: jsii.String("baseUrlManifest1"),
+//   						captionLanguageMappings: []interface{}{
+//   							&captionLanguageMappingProperty{
+//   								captionChannel: jsii.Number(123),
+//   								languageCode: jsii.String("languageCode"),
+//   								languageDescription: jsii.String("languageDescription"),
+//   							},
+//   						},
+//   						captionLanguageSetting: jsii.String("captionLanguageSetting"),
+//   						clientCache: jsii.String("clientCache"),
+//   						codecSpecification: jsii.String("codecSpecification"),
+//   						constantIv: jsii.String("constantIv"),
+//   						destination: &outputLocationRefProperty{
+//   							destinationRefId: jsii.String("destinationRefId"),
+//   						},
+//   						directoryStructure: jsii.String("directoryStructure"),
+//   						discontinuityTags: jsii.String("discontinuityTags"),
+//   						encryptionType: jsii.String("encryptionType"),
+//   						hlsCdnSettings: &hlsCdnSettingsProperty{
+//   							hlsAkamaiSettings: &hlsAkamaiSettingsProperty{
+//   								connectionRetryInterval: jsii.Number(123),
+//   								filecacheDuration: jsii.Number(123),
+//   								httpTransferMode: jsii.String("httpTransferMode"),
+//   								numRetries: jsii.Number(123),
+//   								restartDelay: jsii.Number(123),
+//   								salt: jsii.String("salt"),
+//   								token: jsii.String("token"),
+//   							},
+//   							hlsBasicPutSettings: &hlsBasicPutSettingsProperty{
+//   								connectionRetryInterval: jsii.Number(123),
+//   								filecacheDuration: jsii.Number(123),
+//   								numRetries: jsii.Number(123),
+//   								restartDelay: jsii.Number(123),
+//   							},
+//   							hlsMediaStoreSettings: &hlsMediaStoreSettingsProperty{
+//   								connectionRetryInterval: jsii.Number(123),
+//   								filecacheDuration: jsii.Number(123),
+//   								mediaStoreStorageClass: jsii.String("mediaStoreStorageClass"),
+//   								numRetries: jsii.Number(123),
+//   								restartDelay: jsii.Number(123),
+//   							},
+//   							hlsS3Settings: &hlsS3SettingsProperty{
+//   								cannedAcl: jsii.String("cannedAcl"),
+//   							},
+//   							hlsWebdavSettings: &hlsWebdavSettingsProperty{
+//   								connectionRetryInterval: jsii.Number(123),
+//   								filecacheDuration: jsii.Number(123),
+//   								httpTransferMode: jsii.String("httpTransferMode"),
+//   								numRetries: jsii.Number(123),
+//   								restartDelay: jsii.Number(123),
+//   							},
+//   						},
+//   						hlsId3SegmentTagging: jsii.String("hlsId3SegmentTagging"),
+//   						iFrameOnlyPlaylists: jsii.String("iFrameOnlyPlaylists"),
+//   						incompleteSegmentBehavior: jsii.String("incompleteSegmentBehavior"),
+//   						indexNSegments: jsii.Number(123),
+//   						inputLossAction: jsii.String("inputLossAction"),
+//   						ivInManifest: jsii.String("ivInManifest"),
+//   						ivSource: jsii.String("ivSource"),
+//   						keepSegments: jsii.Number(123),
+//   						keyFormat: jsii.String("keyFormat"),
+//   						keyFormatVersions: jsii.String("keyFormatVersions"),
+//   						keyProviderSettings: &keyProviderSettingsProperty{
+//   							staticKeySettings: &staticKeySettingsProperty{
+//   								keyProviderServer: &inputLocationProperty{
+//   									passwordParam: jsii.String("passwordParam"),
+//   									uri: jsii.String("uri"),
+//   									username: jsii.String("username"),
+//   								},
+//   								staticKeyValue: jsii.String("staticKeyValue"),
+//   							},
+//   						},
+//   						manifestCompression: jsii.String("manifestCompression"),
+//   						manifestDurationFormat: jsii.String("manifestDurationFormat"),
+//   						minSegmentLength: jsii.Number(123),
+//   						mode: jsii.String("mode"),
+//   						outputSelection: jsii.String("outputSelection"),
+//   						programDateTime: jsii.String("programDateTime"),
+//   						programDateTimeClock: jsii.String("programDateTimeClock"),
+//   						programDateTimePeriod: jsii.Number(123),
+//   						redundantManifest: jsii.String("redundantManifest"),
+//   						segmentationMode: jsii.String("segmentationMode"),
+//   						segmentLength: jsii.Number(123),
+//   						segmentsPerSubdirectory: jsii.Number(123),
+//   						streamInfResolution: jsii.String("streamInfResolution"),
+//   						timedMetadataId3Frame: jsii.String("timedMetadataId3Frame"),
+//   						timedMetadataId3Period: jsii.Number(123),
+//   						timestampDeltaMilliseconds: jsii.Number(123),
+//   						tsFileMode: jsii.String("tsFileMode"),
+//   					},
+//   					mediaPackageGroupSettings: &mediaPackageGroupSettingsProperty{
+//   						destination: &outputLocationRefProperty{
+//   							destinationRefId: jsii.String("destinationRefId"),
+//   						},
+//   					},
+//   					msSmoothGroupSettings: &msSmoothGroupSettingsProperty{
+//   						acquisitionPointId: jsii.String("acquisitionPointId"),
+//   						audioOnlyTimecodeControl: jsii.String("audioOnlyTimecodeControl"),
+//   						certificateMode: jsii.String("certificateMode"),
+//   						connectionRetryInterval: jsii.Number(123),
+//   						destination: &outputLocationRefProperty{
+//   							destinationRefId: jsii.String("destinationRefId"),
+//   						},
+//   						eventId: jsii.String("eventId"),
+//   						eventIdMode: jsii.String("eventIdMode"),
+//   						eventStopBehavior: jsii.String("eventStopBehavior"),
+//   						filecacheDuration: jsii.Number(123),
+//   						fragmentLength: jsii.Number(123),
+//   						inputLossAction: jsii.String("inputLossAction"),
+//   						numRetries: jsii.Number(123),
+//   						restartDelay: jsii.Number(123),
+//   						segmentationMode: jsii.String("segmentationMode"),
+//   						sendDelayMs: jsii.Number(123),
+//   						sparseTrackType: jsii.String("sparseTrackType"),
+//   						streamManifestBehavior: jsii.String("streamManifestBehavior"),
+//   						timestampOffset: jsii.String("timestampOffset"),
+//   						timestampOffsetMode: jsii.String("timestampOffsetMode"),
+//   					},
+//   					multiplexGroupSettings: &multiplexGroupSettingsProperty{
+//   					},
+//   					rtmpGroupSettings: &rtmpGroupSettingsProperty{
+//   						adMarkers: []*string{
+//   							jsii.String("adMarkers"),
+//   						},
+//   						authenticationScheme: jsii.String("authenticationScheme"),
+//   						cacheFullBehavior: jsii.String("cacheFullBehavior"),
+//   						cacheLength: jsii.Number(123),
+//   						captionData: jsii.String("captionData"),
+//   						inputLossAction: jsii.String("inputLossAction"),
+//   						restartDelay: jsii.Number(123),
+//   					},
+//   					udpGroupSettings: &udpGroupSettingsProperty{
+//   						inputLossAction: jsii.String("inputLossAction"),
+//   						timedMetadataId3Frame: jsii.String("timedMetadataId3Frame"),
+//   						timedMetadataId3Period: jsii.Number(123),
+//   					},
+//   				},
+//   				outputs: []interface{}{
+//   					&outputProperty{
+//   						audioDescriptionNames: []*string{
+//   							jsii.String("audioDescriptionNames"),
+//   						},
+//   						captionDescriptionNames: []*string{
+//   							jsii.String("captionDescriptionNames"),
+//   						},
+//   						outputName: jsii.String("outputName"),
+//   						outputSettings: &outputSettingsProperty{
+//   							archiveOutputSettings: &archiveOutputSettingsProperty{
+//   								containerSettings: &archiveContainerSettingsProperty{
+//   									m2TsSettings: &m2tsSettingsProperty{
+//   										absentInputAudioBehavior: jsii.String("absentInputAudioBehavior"),
+//   										arib: jsii.String("arib"),
+//   										aribCaptionsPid: jsii.String("aribCaptionsPid"),
+//   										aribCaptionsPidControl: jsii.String("aribCaptionsPidControl"),
+//   										audioBufferModel: jsii.String("audioBufferModel"),
+//   										audioFramesPerPes: jsii.Number(123),
+//   										audioPids: jsii.String("audioPids"),
+//   										audioStreamType: jsii.String("audioStreamType"),
+//   										bitrate: jsii.Number(123),
+//   										bufferModel: jsii.String("bufferModel"),
+//   										ccDescriptor: jsii.String("ccDescriptor"),
+//   										dvbNitSettings: &dvbNitSettingsProperty{
+//   											networkId: jsii.Number(123),
+//   											networkName: jsii.String("networkName"),
+//   											repInterval: jsii.Number(123),
+//   										},
+//   										dvbSdtSettings: &dvbSdtSettingsProperty{
+//   											outputSdt: jsii.String("outputSdt"),
+//   											repInterval: jsii.Number(123),
+//   											serviceName: jsii.String("serviceName"),
+//   											serviceProviderName: jsii.String("serviceProviderName"),
+//   										},
+//   										dvbSubPids: jsii.String("dvbSubPids"),
+//   										dvbTdtSettings: &dvbTdtSettingsProperty{
+//   											repInterval: jsii.Number(123),
+//   										},
+//   										dvbTeletextPid: jsii.String("dvbTeletextPid"),
+//   										ebif: jsii.String("ebif"),
+//   										ebpAudioInterval: jsii.String("ebpAudioInterval"),
+//   										ebpLookaheadMs: jsii.Number(123),
+//   										ebpPlacement: jsii.String("ebpPlacement"),
+//   										ecmPid: jsii.String("ecmPid"),
+//   										esRateInPes: jsii.String("esRateInPes"),
+//   										etvPlatformPid: jsii.String("etvPlatformPid"),
+//   										etvSignalPid: jsii.String("etvSignalPid"),
+//   										fragmentTime: jsii.Number(123),
+//   										klv: jsii.String("klv"),
+//   										klvDataPids: jsii.String("klvDataPids"),
+//   										nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   										nullPacketBitrate: jsii.Number(123),
+//   										patInterval: jsii.Number(123),
+//   										pcrControl: jsii.String("pcrControl"),
+//   										pcrPeriod: jsii.Number(123),
+//   										pcrPid: jsii.String("pcrPid"),
+//   										pmtInterval: jsii.Number(123),
+//   										pmtPid: jsii.String("pmtPid"),
+//   										programNum: jsii.Number(123),
+//   										rateMode: jsii.String("rateMode"),
+//   										scte27Pids: jsii.String("scte27Pids"),
+//   										scte35Control: jsii.String("scte35Control"),
+//   										scte35Pid: jsii.String("scte35Pid"),
+//   										segmentationMarkers: jsii.String("segmentationMarkers"),
+//   										segmentationStyle: jsii.String("segmentationStyle"),
+//   										segmentationTime: jsii.Number(123),
+//   										timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   										timedMetadataPid: jsii.String("timedMetadataPid"),
+//   										transportStreamId: jsii.Number(123),
+//   										videoPid: jsii.String("videoPid"),
+//   									},
+//   									rawSettings: &rawSettingsProperty{
+//   									},
+//   								},
+//   								extension: jsii.String("extension"),
+//   								nameModifier: jsii.String("nameModifier"),
+//   							},
+//   							frameCaptureOutputSettings: &frameCaptureOutputSettingsProperty{
+//   								nameModifier: jsii.String("nameModifier"),
+//   							},
+//   							hlsOutputSettings: &hlsOutputSettingsProperty{
+//   								h265PackagingType: jsii.String("h265PackagingType"),
+//   								hlsSettings: &hlsSettingsProperty{
+//   									audioOnlyHlsSettings: &audioOnlyHlsSettingsProperty{
+//   										audioGroupId: jsii.String("audioGroupId"),
+//   										audioOnlyImage: &inputLocationProperty{
+//   											passwordParam: jsii.String("passwordParam"),
+//   											uri: jsii.String("uri"),
+//   											username: jsii.String("username"),
+//   										},
+//   										audioTrackType: jsii.String("audioTrackType"),
+//   										segmentType: jsii.String("segmentType"),
+//   									},
+//   									fmp4HlsSettings: &fmp4HlsSettingsProperty{
+//   										audioRenditionSets: jsii.String("audioRenditionSets"),
+//   										nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   										timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   									},
+//   									frameCaptureHlsSettings: &frameCaptureHlsSettingsProperty{
+//   									},
+//   									standardHlsSettings: &standardHlsSettingsProperty{
+//   										audioRenditionSets: jsii.String("audioRenditionSets"),
+//   										m3U8Settings: &m3u8SettingsProperty{
+//   											audioFramesPerPes: jsii.Number(123),
+//   											audioPids: jsii.String("audioPids"),
+//   											ecmPid: jsii.String("ecmPid"),
+//   											nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   											patInterval: jsii.Number(123),
+//   											pcrControl: jsii.String("pcrControl"),
+//   											pcrPeriod: jsii.Number(123),
+//   											pcrPid: jsii.String("pcrPid"),
+//   											pmtInterval: jsii.Number(123),
+//   											pmtPid: jsii.String("pmtPid"),
+//   											programNum: jsii.Number(123),
+//   											scte35Behavior: jsii.String("scte35Behavior"),
+//   											scte35Pid: jsii.String("scte35Pid"),
+//   											timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   											timedMetadataPid: jsii.String("timedMetadataPid"),
+//   											transportStreamId: jsii.Number(123),
+//   											videoPid: jsii.String("videoPid"),
+//   										},
+//   									},
+//   								},
+//   								nameModifier: jsii.String("nameModifier"),
+//   								segmentModifier: jsii.String("segmentModifier"),
+//   							},
+//   							mediaPackageOutputSettings: &mediaPackageOutputSettingsProperty{
+//   							},
+//   							msSmoothOutputSettings: &msSmoothOutputSettingsProperty{
+//   								h265PackagingType: jsii.String("h265PackagingType"),
+//   								nameModifier: jsii.String("nameModifier"),
+//   							},
+//   							multiplexOutputSettings: &multiplexOutputSettingsProperty{
+//   								destination: &outputLocationRefProperty{
+//   									destinationRefId: jsii.String("destinationRefId"),
+//   								},
+//   							},
+//   							rtmpOutputSettings: &rtmpOutputSettingsProperty{
+//   								certificateMode: jsii.String("certificateMode"),
+//   								connectionRetryInterval: jsii.Number(123),
+//   								destination: &outputLocationRefProperty{
+//   									destinationRefId: jsii.String("destinationRefId"),
+//   								},
+//   								numRetries: jsii.Number(123),
+//   							},
+//   							udpOutputSettings: &udpOutputSettingsProperty{
+//   								bufferMsec: jsii.Number(123),
+//   								containerSettings: &udpContainerSettingsProperty{
+//   									m2TsSettings: &m2tsSettingsProperty{
+//   										absentInputAudioBehavior: jsii.String("absentInputAudioBehavior"),
+//   										arib: jsii.String("arib"),
+//   										aribCaptionsPid: jsii.String("aribCaptionsPid"),
+//   										aribCaptionsPidControl: jsii.String("aribCaptionsPidControl"),
+//   										audioBufferModel: jsii.String("audioBufferModel"),
+//   										audioFramesPerPes: jsii.Number(123),
+//   										audioPids: jsii.String("audioPids"),
+//   										audioStreamType: jsii.String("audioStreamType"),
+//   										bitrate: jsii.Number(123),
+//   										bufferModel: jsii.String("bufferModel"),
+//   										ccDescriptor: jsii.String("ccDescriptor"),
+//   										dvbNitSettings: &dvbNitSettingsProperty{
+//   											networkId: jsii.Number(123),
+//   											networkName: jsii.String("networkName"),
+//   											repInterval: jsii.Number(123),
+//   										},
+//   										dvbSdtSettings: &dvbSdtSettingsProperty{
+//   											outputSdt: jsii.String("outputSdt"),
+//   											repInterval: jsii.Number(123),
+//   											serviceName: jsii.String("serviceName"),
+//   											serviceProviderName: jsii.String("serviceProviderName"),
+//   										},
+//   										dvbSubPids: jsii.String("dvbSubPids"),
+//   										dvbTdtSettings: &dvbTdtSettingsProperty{
+//   											repInterval: jsii.Number(123),
+//   										},
+//   										dvbTeletextPid: jsii.String("dvbTeletextPid"),
+//   										ebif: jsii.String("ebif"),
+//   										ebpAudioInterval: jsii.String("ebpAudioInterval"),
+//   										ebpLookaheadMs: jsii.Number(123),
+//   										ebpPlacement: jsii.String("ebpPlacement"),
+//   										ecmPid: jsii.String("ecmPid"),
+//   										esRateInPes: jsii.String("esRateInPes"),
+//   										etvPlatformPid: jsii.String("etvPlatformPid"),
+//   										etvSignalPid: jsii.String("etvSignalPid"),
+//   										fragmentTime: jsii.Number(123),
+//   										klv: jsii.String("klv"),
+//   										klvDataPids: jsii.String("klvDataPids"),
+//   										nielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   										nullPacketBitrate: jsii.Number(123),
+//   										patInterval: jsii.Number(123),
+//   										pcrControl: jsii.String("pcrControl"),
+//   										pcrPeriod: jsii.Number(123),
+//   										pcrPid: jsii.String("pcrPid"),
+//   										pmtInterval: jsii.Number(123),
+//   										pmtPid: jsii.String("pmtPid"),
+//   										programNum: jsii.Number(123),
+//   										rateMode: jsii.String("rateMode"),
+//   										scte27Pids: jsii.String("scte27Pids"),
+//   										scte35Control: jsii.String("scte35Control"),
+//   										scte35Pid: jsii.String("scte35Pid"),
+//   										segmentationMarkers: jsii.String("segmentationMarkers"),
+//   										segmentationStyle: jsii.String("segmentationStyle"),
+//   										segmentationTime: jsii.Number(123),
+//   										timedMetadataBehavior: jsii.String("timedMetadataBehavior"),
+//   										timedMetadataPid: jsii.String("timedMetadataPid"),
+//   										transportStreamId: jsii.Number(123),
+//   										videoPid: jsii.String("videoPid"),
+//   									},
+//   								},
+//   								destination: &outputLocationRefProperty{
+//   									destinationRefId: jsii.String("destinationRefId"),
+//   								},
+//   								fecOutputSettings: &fecOutputSettingsProperty{
+//   									columnDepth: jsii.Number(123),
+//   									includeFec: jsii.String("includeFec"),
+//   									rowLength: jsii.Number(123),
+//   								},
+//   							},
+//   						},
+//   						videoDescriptionName: jsii.String("videoDescriptionName"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		timecodeConfig: &timecodeConfigProperty{
+//   			source: jsii.String("source"),
+//   			syncThreshold: jsii.Number(123),
+//   		},
+//   		videoDescriptions: []interface{}{
+//   			&videoDescriptionProperty{
+//   				codecSettings: &videoCodecSettingsProperty{
+//   					frameCaptureSettings: &frameCaptureSettingsProperty{
+//   						captureInterval: jsii.Number(123),
+//   						captureIntervalUnits: jsii.String("captureIntervalUnits"),
+//   					},
+//   					h264Settings: &h264SettingsProperty{
+//   						adaptiveQuantization: jsii.String("adaptiveQuantization"),
+//   						afdSignaling: jsii.String("afdSignaling"),
+//   						bitrate: jsii.Number(123),
+//   						bufFillPct: jsii.Number(123),
+//   						bufSize: jsii.Number(123),
+//   						colorMetadata: jsii.String("colorMetadata"),
+//   						colorSpaceSettings: &h264ColorSpaceSettingsProperty{
+//   							colorSpacePassthroughSettings: &colorSpacePassthroughSettingsProperty{
+//   							},
+//   							rec601Settings: &rec601SettingsProperty{
+//   							},
+//   							rec709Settings: &rec709SettingsProperty{
+//   							},
+//   						},
+//   						entropyEncoding: jsii.String("entropyEncoding"),
+//   						filterSettings: &h264FilterSettingsProperty{
+//   							temporalFilterSettings: &temporalFilterSettingsProperty{
+//   								postFilterSharpening: jsii.String("postFilterSharpening"),
+//   								strength: jsii.String("strength"),
+//   							},
+//   						},
+//   						fixedAfd: jsii.String("fixedAfd"),
+//   						flickerAq: jsii.String("flickerAq"),
+//   						forceFieldPictures: jsii.String("forceFieldPictures"),
+//   						framerateControl: jsii.String("framerateControl"),
+//   						framerateDenominator: jsii.Number(123),
+//   						framerateNumerator: jsii.Number(123),
+//   						gopBReference: jsii.String("gopBReference"),
+//   						gopClosedCadence: jsii.Number(123),
+//   						gopNumBFrames: jsii.Number(123),
+//   						gopSize: jsii.Number(123),
+//   						gopSizeUnits: jsii.String("gopSizeUnits"),
+//   						level: jsii.String("level"),
+//   						lookAheadRateControl: jsii.String("lookAheadRateControl"),
+//   						maxBitrate: jsii.Number(123),
+//   						minIInterval: jsii.Number(123),
+//   						numRefFrames: jsii.Number(123),
+//   						parControl: jsii.String("parControl"),
+//   						parDenominator: jsii.Number(123),
+//   						parNumerator: jsii.Number(123),
+//   						profile: jsii.String("profile"),
+//   						qualityLevel: jsii.String("qualityLevel"),
+//   						qvbrQualityLevel: jsii.Number(123),
+//   						rateControlMode: jsii.String("rateControlMode"),
+//   						scanType: jsii.String("scanType"),
+//   						sceneChangeDetect: jsii.String("sceneChangeDetect"),
+//   						slices: jsii.Number(123),
+//   						softness: jsii.Number(123),
+//   						spatialAq: jsii.String("spatialAq"),
+//   						subgopLength: jsii.String("subgopLength"),
+//   						syntax: jsii.String("syntax"),
+//   						temporalAq: jsii.String("temporalAq"),
+//   						timecodeInsertion: jsii.String("timecodeInsertion"),
+//   					},
+//   					h265Settings: &h265SettingsProperty{
+//   						adaptiveQuantization: jsii.String("adaptiveQuantization"),
+//   						afdSignaling: jsii.String("afdSignaling"),
+//   						alternativeTransferFunction: jsii.String("alternativeTransferFunction"),
+//   						bitrate: jsii.Number(123),
+//   						bufSize: jsii.Number(123),
+//   						colorMetadata: jsii.String("colorMetadata"),
+//   						colorSpaceSettings: &h265ColorSpaceSettingsProperty{
+//   							colorSpacePassthroughSettings: &colorSpacePassthroughSettingsProperty{
+//   							},
+//   							hdr10Settings: &hdr10SettingsProperty{
+//   								maxCll: jsii.Number(123),
+//   								maxFall: jsii.Number(123),
+//   							},
+//   							rec601Settings: &rec601SettingsProperty{
+//   							},
+//   							rec709Settings: &rec709SettingsProperty{
+//   							},
+//   						},
+//   						filterSettings: &h265FilterSettingsProperty{
+//   							temporalFilterSettings: &temporalFilterSettingsProperty{
+//   								postFilterSharpening: jsii.String("postFilterSharpening"),
+//   								strength: jsii.String("strength"),
+//   							},
+//   						},
+//   						fixedAfd: jsii.String("fixedAfd"),
+//   						flickerAq: jsii.String("flickerAq"),
+//   						framerateDenominator: jsii.Number(123),
+//   						framerateNumerator: jsii.Number(123),
+//   						gopClosedCadence: jsii.Number(123),
+//   						gopSize: jsii.Number(123),
+//   						gopSizeUnits: jsii.String("gopSizeUnits"),
+//   						level: jsii.String("level"),
+//   						lookAheadRateControl: jsii.String("lookAheadRateControl"),
+//   						maxBitrate: jsii.Number(123),
+//   						minIInterval: jsii.Number(123),
+//   						parDenominator: jsii.Number(123),
+//   						parNumerator: jsii.Number(123),
+//   						profile: jsii.String("profile"),
+//   						qvbrQualityLevel: jsii.Number(123),
+//   						rateControlMode: jsii.String("rateControlMode"),
+//   						scanType: jsii.String("scanType"),
+//   						sceneChangeDetect: jsii.String("sceneChangeDetect"),
+//   						slices: jsii.Number(123),
+//   						tier: jsii.String("tier"),
+//   						timecodeInsertion: jsii.String("timecodeInsertion"),
+//   					},
+//   					mpeg2Settings: &mpeg2SettingsProperty{
+//   						adaptiveQuantization: jsii.String("adaptiveQuantization"),
+//   						afdSignaling: jsii.String("afdSignaling"),
+//   						colorMetadata: jsii.String("colorMetadata"),
+//   						colorSpace: jsii.String("colorSpace"),
+//   						displayAspectRatio: jsii.String("displayAspectRatio"),
+//   						filterSettings: &mpeg2FilterSettingsProperty{
+//   							temporalFilterSettings: &temporalFilterSettingsProperty{
+//   								postFilterSharpening: jsii.String("postFilterSharpening"),
+//   								strength: jsii.String("strength"),
+//   							},
+//   						},
+//   						fixedAfd: jsii.String("fixedAfd"),
+//   						framerateDenominator: jsii.Number(123),
+//   						framerateNumerator: jsii.Number(123),
+//   						gopClosedCadence: jsii.Number(123),
+//   						gopNumBFrames: jsii.Number(123),
+//   						gopSize: jsii.Number(123),
+//   						gopSizeUnits: jsii.String("gopSizeUnits"),
+//   						scanType: jsii.String("scanType"),
+//   						subgopLength: jsii.String("subgopLength"),
+//   						timecodeInsertion: jsii.String("timecodeInsertion"),
+//   					},
+//   				},
+//   				height: jsii.Number(123),
+//   				name: jsii.String("name"),
+//   				respondToAfd: jsii.String("respondToAfd"),
+//   				scalingBehavior: jsii.String("scalingBehavior"),
+//   				sharpness: jsii.Number(123),
+//   				width: jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   	inputAttachments: []interface{}{
+//   		&inputAttachmentProperty{
+//   			automaticInputFailoverSettings: &automaticInputFailoverSettingsProperty{
+//   				errorClearTimeMsec: jsii.Number(123),
+//   				failoverConditions: []interface{}{
+//   					&failoverConditionProperty{
+//   						failoverConditionSettings: &failoverConditionSettingsProperty{
+//   							audioSilenceSettings: &audioSilenceFailoverSettingsProperty{
+//   								audioSelectorName: jsii.String("audioSelectorName"),
+//   								audioSilenceThresholdMsec: jsii.Number(123),
+//   							},
+//   							inputLossSettings: &inputLossFailoverSettingsProperty{
+//   								inputLossThresholdMsec: jsii.Number(123),
+//   							},
+//   							videoBlackSettings: &videoBlackFailoverSettingsProperty{
+//   								blackDetectThreshold: jsii.Number(123),
+//   								videoBlackThresholdMsec: jsii.Number(123),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				inputPreference: jsii.String("inputPreference"),
+//   				secondaryInputId: jsii.String("secondaryInputId"),
+//   			},
+//   			inputAttachmentName: jsii.String("inputAttachmentName"),
+//   			inputId: jsii.String("inputId"),
+//   			inputSettings: &inputSettingsProperty{
+//   				audioSelectors: []interface{}{
+//   					&audioSelectorProperty{
+//   						name: jsii.String("name"),
+//   						selectorSettings: &audioSelectorSettingsProperty{
+//   							audioHlsRenditionSelection: &audioHlsRenditionSelectionProperty{
+//   								groupId: jsii.String("groupId"),
+//   								name: jsii.String("name"),
+//   							},
+//   							audioLanguageSelection: &audioLanguageSelectionProperty{
+//   								languageCode: jsii.String("languageCode"),
+//   								languageSelectionPolicy: jsii.String("languageSelectionPolicy"),
+//   							},
+//   							audioPidSelection: &audioPidSelectionProperty{
+//   								pid: jsii.Number(123),
+//   							},
+//   							audioTrackSelection: &audioTrackSelectionProperty{
+//   								tracks: []interface{}{
+//   									&audioTrackProperty{
+//   										track: jsii.Number(123),
+//   									},
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   				captionSelectors: []interface{}{
+//   					&captionSelectorProperty{
+//   						languageCode: jsii.String("languageCode"),
+//   						name: jsii.String("name"),
+//   						selectorSettings: &captionSelectorSettingsProperty{
+//   							ancillarySourceSettings: &ancillarySourceSettingsProperty{
+//   								sourceAncillaryChannelNumber: jsii.Number(123),
+//   							},
+//   							aribSourceSettings: &aribSourceSettingsProperty{
+//   							},
+//   							dvbSubSourceSettings: &dvbSubSourceSettingsProperty{
+//   								ocrLanguage: jsii.String("ocrLanguage"),
+//   								pid: jsii.Number(123),
+//   							},
+//   							embeddedSourceSettings: &embeddedSourceSettingsProperty{
+//   								convert608To708: jsii.String("convert608To708"),
+//   								scte20Detection: jsii.String("scte20Detection"),
+//   								source608ChannelNumber: jsii.Number(123),
+//   								source608TrackNumber: jsii.Number(123),
+//   							},
+//   							scte20SourceSettings: &scte20SourceSettingsProperty{
+//   								convert608To708: jsii.String("convert608To708"),
+//   								source608ChannelNumber: jsii.Number(123),
+//   							},
+//   							scte27SourceSettings: &scte27SourceSettingsProperty{
+//   								ocrLanguage: jsii.String("ocrLanguage"),
+//   								pid: jsii.Number(123),
+//   							},
+//   							teletextSourceSettings: &teletextSourceSettingsProperty{
+//   								outputRectangle: &captionRectangleProperty{
+//   									height: jsii.Number(123),
+//   									leftOffset: jsii.Number(123),
+//   									topOffset: jsii.Number(123),
+//   									width: jsii.Number(123),
+//   								},
+//   								pageNumber: jsii.String("pageNumber"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				deblockFilter: jsii.String("deblockFilter"),
+//   				denoiseFilter: jsii.String("denoiseFilter"),
+//   				filterStrength: jsii.Number(123),
+//   				inputFilter: jsii.String("inputFilter"),
+//   				networkInputSettings: &networkInputSettingsProperty{
+//   					hlsInputSettings: &hlsInputSettingsProperty{
+//   						bandwidth: jsii.Number(123),
+//   						bufferSegments: jsii.Number(123),
+//   						retries: jsii.Number(123),
+//   						retryInterval: jsii.Number(123),
+//   						scte35Source: jsii.String("scte35Source"),
+//   					},
+//   					serverValidation: jsii.String("serverValidation"),
+//   				},
+//   				scte35Pid: jsii.Number(123),
+//   				smpte2038DataPreference: jsii.String("smpte2038DataPreference"),
+//   				sourceEndBehavior: jsii.String("sourceEndBehavior"),
+//   				videoSelector: &videoSelectorProperty{
+//   					colorSpace: jsii.String("colorSpace"),
+//   					colorSpaceSettings: &videoSelectorColorSpaceSettingsProperty{
+//   						hdr10Settings: &hdr10SettingsProperty{
+//   							maxCll: jsii.Number(123),
+//   							maxFall: jsii.Number(123),
+//   						},
+//   					},
+//   					colorSpaceUsage: jsii.String("colorSpaceUsage"),
+//   					selectorSettings: &videoSelectorSettingsProperty{
+//   						videoSelectorPid: &videoSelectorPidProperty{
+//   							pid: jsii.Number(123),
+//   						},
+//   						videoSelectorProgramId: &videoSelectorProgramIdProperty{
+//   							programId: jsii.Number(123),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	inputSpecification: &inputSpecificationProperty{
+//   		codec: jsii.String("codec"),
+//   		maximumBitrate: jsii.String("maximumBitrate"),
+//   		resolution: jsii.String("resolution"),
+//   	},
+//   	logLevel: jsii.String("logLevel"),
+//   	name: jsii.String("name"),
+//   	roleArn: jsii.String("roleArn"),
+//   	tags: tags,
+//   	vpc: &vpcOutputSettingsProperty{
+//   		publicAddressAllocationIds: []*string{
+//   			jsii.String("publicAddressAllocationIds"),
+//   		},
+//   		securityGroupIds: []*string{
+//   			jsii.String("securityGroupIds"),
+//   		},
+//   		subnetIds: []*string{
+//   			jsii.String("subnetIds"),
+//   		},
+//   	},
+//   }
 //
 type CfnChannelProps struct {
 	// Specification of CDI inputs for this channel.
@@ -4056,56 +10561,304 @@ type CfnChannelProps struct {
 //
 // A MediaLive input holds information that describes how the MediaLive channel is connected to the upstream system that is providing the source content that is to be transcoded.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//
+//   var tags interface{}
+//   cfnInput := medialive.NewCfnInput(this, jsii.String("MyCfnInput"), &cfnInputProps{
+//   	destinations: []interface{}{
+//   		&inputDestinationRequestProperty{
+//   			streamName: jsii.String("streamName"),
+//   		},
+//   	},
+//   	inputDevices: []interface{}{
+//   		&inputDeviceSettingsProperty{
+//   			id: jsii.String("id"),
+//   		},
+//   	},
+//   	inputSecurityGroups: []*string{
+//   		jsii.String("inputSecurityGroups"),
+//   	},
+//   	mediaConnectFlows: []interface{}{
+//   		&mediaConnectFlowRequestProperty{
+//   			flowArn: jsii.String("flowArn"),
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//   	roleArn: jsii.String("roleArn"),
+//   	sources: []interface{}{
+//   		&inputSourceRequestProperty{
+//   			passwordParam: jsii.String("passwordParam"),
+//   			url: jsii.String("url"),
+//   			username: jsii.String("username"),
+//   		},
+//   	},
+//   	tags: tags,
+//   	type: jsii.String("type"),
+//   	vpc: &inputVpcRequestProperty{
+//   		securityGroupIds: []*string{
+//   			jsii.String("securityGroupIds"),
+//   		},
+//   		subnetIds: []*string{
+//   			jsii.String("subnetIds"),
+//   		},
+//   	},
+//   })
 //
 type CfnInput interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ARN of the MediaLive input.
+	//
+	// For example: arn:aws:medialive:us-west-1:111122223333:medialive:input:1234567. MediaLive creates this ARN when it creates the input.
 	AttrArn() *string
+	// For a push input, the the destination or destinations for the input.
+	//
+	// The destinations are the URLs of locations on MediaLive where the upstream system pushes the content to, for this input. MediaLive creates these addresses when it creates the input.
 	AttrDestinations() *[]*string
+	// For a pull input, the source or sources for the input.
+	//
+	// The sources are the URLs of locations on the upstream system where MediaLive pulls the content from, for this input. You included these URLs in the create request.
 	AttrSources() *[]*string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// Settings that apply only if the input is a push type of input.
 	Destinations() interface{}
 	SetDestinations(val interface{})
+	// Settings that apply only if the input is an Elemental Link input.
 	InputDevices() interface{}
 	SetInputDevices(val interface{})
+	// The list of input security groups (referenced by IDs) to attach to the input if the input is a push type.
 	InputSecurityGroups() *[]*string
 	SetInputSecurityGroups(val *[]*string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// Settings that apply only if the input is a MediaConnect input.
 	MediaConnectFlows() interface{}
 	SetMediaConnectFlows(val interface{})
+	// A name for the input.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The IAM role for MediaLive to assume when creating a MediaConnect input or Amazon VPC input.
+	//
+	// This doesn't apply to other types of inputs. The role is identified by its ARN.
 	RoleArn() *string
 	SetRoleArn(val *string)
+	// Settings that apply only if the input is a pull type of input.
 	Sources() interface{}
 	SetSources(val interface{})
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// A collection of tags for this input.
+	//
+	// Each tag is a key-value pair.
 	Tags() awscdk.TagManager
+	// The type for this input.
 	Type() *string
 	SetType(val *string)
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Settings that apply only if the input is an push input where the source is on Amazon VPC.
 	Vpc() interface{}
 	SetVpc(val interface{})
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -4245,8 +10998,8 @@ func (j *jsiiProxy_CfnInput) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInput) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnInput) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4337,13 +11090,13 @@ func (j *jsiiProxy_CfnInput) Vpc() interface{} {
 
 
 // Create a new `AWS::MediaLive::Input`.
-func NewCfnInput(scope constructs.Construct, id *string, props *CfnInputProps) CfnInput {
+func NewCfnInput(scope awscdk.Construct, id *string, props *CfnInputProps) CfnInput {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnInput{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_medialive.CfnInput",
+		"monocdk.aws_medialive.CfnInput",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4352,11 +11105,11 @@ func NewCfnInput(scope constructs.Construct, id *string, props *CfnInputProps) C
 }
 
 // Create a new `AWS::MediaLive::Input`.
-func NewCfnInput_Override(c CfnInput, scope constructs.Construct, id *string, props *CfnInputProps) {
+func NewCfnInput_Override(c CfnInput, scope awscdk.Construct, id *string, props *CfnInputProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_medialive.CfnInput",
+		"monocdk.aws_medialive.CfnInput",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4440,13 +11193,14 @@ func (j *jsiiProxy_CfnInput) SetVpc(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnInput_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnInput",
+		"monocdk.aws_medialive.CfnInput",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4456,13 +11210,14 @@ func CfnInput_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnInput_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnInput",
+		"monocdk.aws_medialive.CfnInput",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4471,17 +11226,15 @@ func CfnInput_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnInput_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnInput",
+		"monocdk.aws_medialive.CfnInput",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4494,14 +11247,13 @@ func CfnInput_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_medialive.CfnInput",
+		"monocdk.aws_medialive.CfnInput",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnInput) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4510,10 +11262,6 @@ func (c *jsiiProxy_CfnInput) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnInput) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4522,13 +11270,6 @@ func (c *jsiiProxy_CfnInput) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnInput) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4537,49 +11278,6 @@ func (c *jsiiProxy_CfnInput) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnInput) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4588,7 +11286,6 @@ func (c *jsiiProxy_CfnInput) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnInput) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4597,9 +11294,6 @@ func (c *jsiiProxy_CfnInput) AddPropertyDeletionOverride(propertyPath *string) {
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnInput) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4608,15 +11302,6 @@ func (c *jsiiProxy_CfnInput) AddPropertyOverride(propertyPath *string, value int
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnInput) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4625,10 +11310,6 @@ func (c *jsiiProxy_CfnInput) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnInput) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4642,13 +11323,6 @@ func (c *jsiiProxy_CfnInput) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnInput) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4662,7 +11336,6 @@ func (c *jsiiProxy_CfnInput) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnInput) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4671,12 +11344,48 @@ func (c *jsiiProxy_CfnInput) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnInput) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnInput) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnInput) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnInput) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnInput) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -4693,10 +11402,6 @@ func (c *jsiiProxy_CfnInput) RenderProperties(props *map[string]interface{}) *ma
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnInput) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4710,15 +11415,33 @@ func (c *jsiiProxy_CfnInput) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnInput) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnInput) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnInput) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4738,7 +11461,11 @@ func (c *jsiiProxy_CfnInput) ValidateProperties(_properties interface{}) {
 //
 // The parent of this entity is Input.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   inputDestinationRequestProperty := &inputDestinationRequestProperty{
+//   	streamName: jsii.String("streamName"),
+//   }
 //
 type CfnInput_InputDestinationRequestProperty struct {
 	// The stream name (application name/application instance) for the location the RTMP source content will be pushed to in MediaLive.
@@ -4749,7 +11476,11 @@ type CfnInput_InputDestinationRequestProperty struct {
 //
 // Ignore it.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   inputDeviceRequestProperty := &inputDeviceRequestProperty{
+//   	id: jsii.String("id"),
+//   }
 //
 type CfnInput_InputDeviceRequestProperty struct {
 	// This property is not used.
@@ -4762,7 +11493,11 @@ type CfnInput_InputDeviceRequestProperty struct {
 //
 // The parent of this entity is Input.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   inputDeviceSettingsProperty := &inputDeviceSettingsProperty{
+//   	id: jsii.String("id"),
+//   }
 //
 type CfnInput_InputDeviceSettingsProperty struct {
 	// The unique ID for the device.
@@ -4773,7 +11508,13 @@ type CfnInput_InputDeviceSettingsProperty struct {
 //
 // The parent of this entity is Input.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   inputSourceRequestProperty := &inputSourceRequestProperty{
+//   	passwordParam: jsii.String("passwordParam"),
+//   	url: jsii.String("url"),
+//   	username: jsii.String("username"),
+//   }
 //
 type CfnInput_InputSourceRequestProperty struct {
 	// The password parameter that holds the password for accessing the upstream system.
@@ -4792,7 +11533,16 @@ type CfnInput_InputSourceRequestProperty struct {
 //
 // The parent of this entity is Input.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   inputVpcRequestProperty := &inputVpcRequestProperty{
+//   	securityGroupIds: []*string{
+//   		jsii.String("securityGroupIds"),
+//   	},
+//   	subnetIds: []*string{
+//   		jsii.String("subnetIds"),
+//   	},
+//   }
 //
 type CfnInput_InputVpcRequestProperty struct {
 	// The list of up to five VPC security group IDs to attach to the input VPC network interfaces.
@@ -4809,7 +11559,11 @@ type CfnInput_InputVpcRequestProperty struct {
 //
 // The parent of this entity is Input.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   mediaConnectFlowRequestProperty := &mediaConnectFlowRequestProperty{
+//   	flowArn: jsii.String("flowArn"),
+//   }
 //
 type CfnInput_MediaConnectFlowRequestProperty struct {
 	// The ARN of one or two MediaConnect flows that are the sources for this MediaConnect input.
@@ -4818,7 +11572,49 @@ type CfnInput_MediaConnectFlowRequestProperty struct {
 
 // Properties for defining a `CfnInput`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//
+//   var tags interface{}
+//   cfnInputProps := &cfnInputProps{
+//   	destinations: []interface{}{
+//   		&inputDestinationRequestProperty{
+//   			streamName: jsii.String("streamName"),
+//   		},
+//   	},
+//   	inputDevices: []interface{}{
+//   		&inputDeviceSettingsProperty{
+//   			id: jsii.String("id"),
+//   		},
+//   	},
+//   	inputSecurityGroups: []*string{
+//   		jsii.String("inputSecurityGroups"),
+//   	},
+//   	mediaConnectFlows: []interface{}{
+//   		&mediaConnectFlowRequestProperty{
+//   			flowArn: jsii.String("flowArn"),
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//   	roleArn: jsii.String("roleArn"),
+//   	sources: []interface{}{
+//   		&inputSourceRequestProperty{
+//   			passwordParam: jsii.String("passwordParam"),
+//   			url: jsii.String("url"),
+//   			username: jsii.String("username"),
+//   		},
+//   	},
+//   	tags: tags,
+//   	type: jsii.String("type"),
+//   	vpc: &inputVpcRequestProperty{
+//   		securityGroupIds: []*string{
+//   			jsii.String("securityGroupIds"),
+//   		},
+//   		subnetIds: []*string{
+//   			jsii.String("subnetIds"),
+//   		},
+//   	},
+//   }
 //
 type CfnInputProps struct {
 	// Settings that apply only if the input is a push type of input.
@@ -4853,38 +11649,239 @@ type CfnInputProps struct {
 //
 // A MediaLive input security group is associated with a MediaLive input. The input security group is an "allow list" of IP addresses that controls whether an external IP address can push content to the associated MediaLive input.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//
+//   var tags interface{}
+//   cfnInputSecurityGroup := medialive.NewCfnInputSecurityGroup(this, jsii.String("MyCfnInputSecurityGroup"), &cfnInputSecurityGroupProps{
+//   	tags: tags,
+//   	whitelistRules: []interface{}{
+//   		&inputWhitelistRuleCidrProperty{
+//   			cidr: jsii.String("cidr"),
+//   		},
+//   	},
+//   })
 //
 type CfnInputSecurityGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ARN of the MediaLive input security group.
+	//
+	// For example: arn:aws:medialive:us-west-1:111122223333:medialive:inputSecurityGroup:1234567.
 	AttrArn() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// A collection of tags for this input security group.
+	//
+	// Each tag is a key-value pair.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// The list of IPv4 CIDR addresses to include in the input security group as "allowed" addresses.
 	WhitelistRules() interface{}
 	SetWhitelistRules(val interface{})
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -4954,8 +11951,8 @@ func (j *jsiiProxy_CfnInputSecurityGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInputSecurityGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnInputSecurityGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5016,13 +12013,13 @@ func (j *jsiiProxy_CfnInputSecurityGroup) WhitelistRules() interface{} {
 
 
 // Create a new `AWS::MediaLive::InputSecurityGroup`.
-func NewCfnInputSecurityGroup(scope constructs.Construct, id *string, props *CfnInputSecurityGroupProps) CfnInputSecurityGroup {
+func NewCfnInputSecurityGroup(scope awscdk.Construct, id *string, props *CfnInputSecurityGroupProps) CfnInputSecurityGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnInputSecurityGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_medialive.CfnInputSecurityGroup",
+		"monocdk.aws_medialive.CfnInputSecurityGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5031,11 +12028,11 @@ func NewCfnInputSecurityGroup(scope constructs.Construct, id *string, props *Cfn
 }
 
 // Create a new `AWS::MediaLive::InputSecurityGroup`.
-func NewCfnInputSecurityGroup_Override(c CfnInputSecurityGroup, scope constructs.Construct, id *string, props *CfnInputSecurityGroupProps) {
+func NewCfnInputSecurityGroup_Override(c CfnInputSecurityGroup, scope awscdk.Construct, id *string, props *CfnInputSecurityGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_medialive.CfnInputSecurityGroup",
+		"monocdk.aws_medialive.CfnInputSecurityGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5055,13 +12052,14 @@ func (j *jsiiProxy_CfnInputSecurityGroup) SetWhitelistRules(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnInputSecurityGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnInputSecurityGroup",
+		"monocdk.aws_medialive.CfnInputSecurityGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -5071,13 +12069,14 @@ func CfnInputSecurityGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnInputSecurityGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnInputSecurityGroup",
+		"monocdk.aws_medialive.CfnInputSecurityGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -5086,17 +12085,15 @@ func CfnInputSecurityGroup_IsCfnResource(construct constructs.IConstruct) *bool 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnInputSecurityGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnInputSecurityGroup",
+		"monocdk.aws_medialive.CfnInputSecurityGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5109,14 +12106,13 @@ func CfnInputSecurityGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_medialive.CfnInputSecurityGroup",
+		"monocdk.aws_medialive.CfnInputSecurityGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnInputSecurityGroup) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5125,10 +12121,6 @@ func (c *jsiiProxy_CfnInputSecurityGroup) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnInputSecurityGroup) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5137,13 +12129,6 @@ func (c *jsiiProxy_CfnInputSecurityGroup) AddDependsOn(target awscdk.CfnResource
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnInputSecurityGroup) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5152,49 +12137,6 @@ func (c *jsiiProxy_CfnInputSecurityGroup) AddMetadata(key *string, value interfa
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnInputSecurityGroup) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5203,7 +12145,6 @@ func (c *jsiiProxy_CfnInputSecurityGroup) AddOverride(path *string, value interf
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnInputSecurityGroup) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5212,9 +12153,6 @@ func (c *jsiiProxy_CfnInputSecurityGroup) AddPropertyDeletionOverride(propertyPa
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnInputSecurityGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5223,15 +12161,6 @@ func (c *jsiiProxy_CfnInputSecurityGroup) AddPropertyOverride(propertyPath *stri
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnInputSecurityGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5240,10 +12169,6 @@ func (c *jsiiProxy_CfnInputSecurityGroup) ApplyRemovalPolicy(policy awscdk.Remov
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnInputSecurityGroup) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -5257,13 +12182,6 @@ func (c *jsiiProxy_CfnInputSecurityGroup) GetAtt(attributeName *string) awscdk.R
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnInputSecurityGroup) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -5277,7 +12195,6 @@ func (c *jsiiProxy_CfnInputSecurityGroup) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnInputSecurityGroup) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5286,12 +12203,48 @@ func (c *jsiiProxy_CfnInputSecurityGroup) Inspect(inspector awscdk.TreeInspector
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnInputSecurityGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnInputSecurityGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnInputSecurityGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnInputSecurityGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnInputSecurityGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -5308,10 +12261,6 @@ func (c *jsiiProxy_CfnInputSecurityGroup) RenderProperties(props *map[string]int
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnInputSecurityGroup) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -5325,15 +12274,33 @@ func (c *jsiiProxy_CfnInputSecurityGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnInputSecurityGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnInputSecurityGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnInputSecurityGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5353,7 +12320,11 @@ func (c *jsiiProxy_CfnInputSecurityGroup) ValidateProperties(_properties interfa
 //
 // The parent of this entity is InputSecurityGroup.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//   inputWhitelistRuleCidrProperty := &inputWhitelistRuleCidrProperty{
+//   	cidr: jsii.String("cidr"),
+//   }
 //
 type CfnInputSecurityGroup_InputWhitelistRuleCidrProperty struct {
 	// An IPv4 CIDR range to include in this input security group.
@@ -5362,7 +12333,18 @@ type CfnInputSecurityGroup_InputWhitelistRuleCidrProperty struct {
 
 // Properties for defining a `CfnInputSecurityGroup`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import medialive "github.com/aws/aws-cdk-go/awscdk/aws_medialive"
+//
+//   var tags interface{}
+//   cfnInputSecurityGroupProps := &cfnInputSecurityGroupProps{
+//   	tags: tags,
+//   	whitelistRules: []interface{}{
+//   		&inputWhitelistRuleCidrProperty{
+//   			cidr: jsii.String("cidr"),
+//   		},
+//   	},
+//   }
 //
 type CfnInputSecurityGroupProps struct {
 	// A collection of tags for this input security group.

@@ -1,64 +1,487 @@
 package awsapplicationinsights
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationinsights/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsapplicationinsights/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::ApplicationInsights::Application`.
 //
 // The `AWS::ApplicationInsights::Application` resource adds an application that is created from a resource group.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import applicationinsights "github.com/aws/aws-cdk-go/awscdk/aws_applicationinsights"
+//   cfnApplication := applicationinsights.NewCfnApplication(this, jsii.String("MyCfnApplication"), &cfnApplicationProps{
+//   	resourceGroupName: jsii.String("resourceGroupName"),
+//
+//   	// the properties below are optional
+//   	autoConfigurationEnabled: jsii.Boolean(false),
+//   	componentMonitoringSettings: []interface{}{
+//   		&componentMonitoringSettingProperty{
+//   			componentConfigurationMode: jsii.String("componentConfigurationMode"),
+//   			tier: jsii.String("tier"),
+//
+//   			// the properties below are optional
+//   			componentArn: jsii.String("componentArn"),
+//   			componentName: jsii.String("componentName"),
+//   			customComponentConfiguration: &componentConfigurationProperty{
+//   				configurationDetails: &configurationDetailsProperty{
+//   					alarmMetrics: []interface{}{
+//   						&alarmMetricProperty{
+//   							alarmMetricName: jsii.String("alarmMetricName"),
+//   						},
+//   					},
+//   					alarms: []interface{}{
+//   						&alarmProperty{
+//   							alarmName: jsii.String("alarmName"),
+//
+//   							// the properties below are optional
+//   							severity: jsii.String("severity"),
+//   						},
+//   					},
+//   					haClusterPrometheusExporter: &hAClusterPrometheusExporterProperty{
+//   						prometheusPort: jsii.String("prometheusPort"),
+//   					},
+//   					hanaPrometheusExporter: &hANAPrometheusExporterProperty{
+//   						agreeToInstallHanadbClient: jsii.Boolean(false),
+//   						hanaPort: jsii.String("hanaPort"),
+//   						hanaSecretName: jsii.String("hanaSecretName"),
+//   						hanasid: jsii.String("hanasid"),
+//
+//   						// the properties below are optional
+//   						prometheusPort: jsii.String("prometheusPort"),
+//   					},
+//   					jmxPrometheusExporter: &jMXPrometheusExporterProperty{
+//   						hostPort: jsii.String("hostPort"),
+//   						jmxurl: jsii.String("jmxurl"),
+//   						prometheusPort: jsii.String("prometheusPort"),
+//   					},
+//   					logs: []interface{}{
+//   						&logProperty{
+//   							logType: jsii.String("logType"),
+//
+//   							// the properties below are optional
+//   							encoding: jsii.String("encoding"),
+//   							logGroupName: jsii.String("logGroupName"),
+//   							logPath: jsii.String("logPath"),
+//   							patternSet: jsii.String("patternSet"),
+//   						},
+//   					},
+//   					windowsEvents: []interface{}{
+//   						&windowsEventProperty{
+//   							eventLevels: []*string{
+//   								jsii.String("eventLevels"),
+//   							},
+//   							eventName: jsii.String("eventName"),
+//   							logGroupName: jsii.String("logGroupName"),
+//
+//   							// the properties below are optional
+//   							patternSet: jsii.String("patternSet"),
+//   						},
+//   					},
+//   				},
+//   				subComponentTypeConfigurations: []interface{}{
+//   					&subComponentTypeConfigurationProperty{
+//   						subComponentConfigurationDetails: &subComponentConfigurationDetailsProperty{
+//   							alarmMetrics: []interface{}{
+//   								&alarmMetricProperty{
+//   									alarmMetricName: jsii.String("alarmMetricName"),
+//   								},
+//   							},
+//   							logs: []interface{}{
+//   								&logProperty{
+//   									logType: jsii.String("logType"),
+//
+//   									// the properties below are optional
+//   									encoding: jsii.String("encoding"),
+//   									logGroupName: jsii.String("logGroupName"),
+//   									logPath: jsii.String("logPath"),
+//   									patternSet: jsii.String("patternSet"),
+//   								},
+//   							},
+//   							windowsEvents: []interface{}{
+//   								&windowsEventProperty{
+//   									eventLevels: []*string{
+//   										jsii.String("eventLevels"),
+//   									},
+//   									eventName: jsii.String("eventName"),
+//   									logGroupName: jsii.String("logGroupName"),
+//
+//   									// the properties below are optional
+//   									patternSet: jsii.String("patternSet"),
+//   								},
+//   							},
+//   						},
+//   						subComponentType: jsii.String("subComponentType"),
+//   					},
+//   				},
+//   			},
+//   			defaultOverwriteComponentConfiguration: &componentConfigurationProperty{
+//   				configurationDetails: &configurationDetailsProperty{
+//   					alarmMetrics: []interface{}{
+//   						&alarmMetricProperty{
+//   							alarmMetricName: jsii.String("alarmMetricName"),
+//   						},
+//   					},
+//   					alarms: []interface{}{
+//   						&alarmProperty{
+//   							alarmName: jsii.String("alarmName"),
+//
+//   							// the properties below are optional
+//   							severity: jsii.String("severity"),
+//   						},
+//   					},
+//   					haClusterPrometheusExporter: &hAClusterPrometheusExporterProperty{
+//   						prometheusPort: jsii.String("prometheusPort"),
+//   					},
+//   					hanaPrometheusExporter: &hANAPrometheusExporterProperty{
+//   						agreeToInstallHanadbClient: jsii.Boolean(false),
+//   						hanaPort: jsii.String("hanaPort"),
+//   						hanaSecretName: jsii.String("hanaSecretName"),
+//   						hanasid: jsii.String("hanasid"),
+//
+//   						// the properties below are optional
+//   						prometheusPort: jsii.String("prometheusPort"),
+//   					},
+//   					jmxPrometheusExporter: &jMXPrometheusExporterProperty{
+//   						hostPort: jsii.String("hostPort"),
+//   						jmxurl: jsii.String("jmxurl"),
+//   						prometheusPort: jsii.String("prometheusPort"),
+//   					},
+//   					logs: []interface{}{
+//   						&logProperty{
+//   							logType: jsii.String("logType"),
+//
+//   							// the properties below are optional
+//   							encoding: jsii.String("encoding"),
+//   							logGroupName: jsii.String("logGroupName"),
+//   							logPath: jsii.String("logPath"),
+//   							patternSet: jsii.String("patternSet"),
+//   						},
+//   					},
+//   					windowsEvents: []interface{}{
+//   						&windowsEventProperty{
+//   							eventLevels: []*string{
+//   								jsii.String("eventLevels"),
+//   							},
+//   							eventName: jsii.String("eventName"),
+//   							logGroupName: jsii.String("logGroupName"),
+//
+//   							// the properties below are optional
+//   							patternSet: jsii.String("patternSet"),
+//   						},
+//   					},
+//   				},
+//   				subComponentTypeConfigurations: []interface{}{
+//   					&subComponentTypeConfigurationProperty{
+//   						subComponentConfigurationDetails: &subComponentConfigurationDetailsProperty{
+//   							alarmMetrics: []interface{}{
+//   								&alarmMetricProperty{
+//   									alarmMetricName: jsii.String("alarmMetricName"),
+//   								},
+//   							},
+//   							logs: []interface{}{
+//   								&logProperty{
+//   									logType: jsii.String("logType"),
+//
+//   									// the properties below are optional
+//   									encoding: jsii.String("encoding"),
+//   									logGroupName: jsii.String("logGroupName"),
+//   									logPath: jsii.String("logPath"),
+//   									patternSet: jsii.String("patternSet"),
+//   								},
+//   							},
+//   							windowsEvents: []interface{}{
+//   								&windowsEventProperty{
+//   									eventLevels: []*string{
+//   										jsii.String("eventLevels"),
+//   									},
+//   									eventName: jsii.String("eventName"),
+//   									logGroupName: jsii.String("logGroupName"),
+//
+//   									// the properties below are optional
+//   									patternSet: jsii.String("patternSet"),
+//   								},
+//   							},
+//   						},
+//   						subComponentType: jsii.String("subComponentType"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	customComponents: []interface{}{
+//   		&customComponentProperty{
+//   			componentName: jsii.String("componentName"),
+//   			resourceList: []*string{
+//   				jsii.String("resourceList"),
+//   			},
+//   		},
+//   	},
+//   	cweMonitorEnabled: jsii.Boolean(false),
+//   	logPatternSets: []interface{}{
+//   		&logPatternSetProperty{
+//   			logPatterns: []interface{}{
+//   				&logPatternProperty{
+//   					pattern: jsii.String("pattern"),
+//   					patternName: jsii.String("patternName"),
+//   					rank: jsii.Number(123),
+//   				},
+//   			},
+//   			patternSetName: jsii.String("patternSetName"),
+//   		},
+//   	},
+//   	opsCenterEnabled: jsii.Boolean(false),
+//   	opsItemSnsTopicArn: jsii.String("opsItemSnsTopicArn"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   })
 //
 type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns the Amazon Resource Name (ARN) of the application, such as `arn:aws:applicationinsights:us-east-1:123456789012:application/resource-group/my_resource_group` .
 	AttrApplicationArn() *string
+	// If set to `true` , the application components will be configured with the monitoring configuration recommended by Application Insights.
 	AutoConfigurationEnabled() interface{}
 	SetAutoConfigurationEnabled(val interface{})
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// The monitoring settings of the components.
 	ComponentMonitoringSettings() interface{}
 	SetComponentMonitoringSettings(val interface{})
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// Describes a custom component by grouping similar standalone instances to monitor.
 	CustomComponents() interface{}
 	SetCustomComponents(val interface{})
+	// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as `instance terminated` , `failed deployment` , and others.
 	CweMonitorEnabled() interface{}
 	SetCweMonitorEnabled(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The log pattern sets.
 	LogPatternSets() interface{}
 	SetLogPatternSets(val interface{})
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Indicates whether Application Insights will create OpsItems for any problem that is detected by Application Insights for an application.
 	OpsCenterEnabled() interface{}
 	SetOpsCenterEnabled(val interface{})
+	// The SNS topic provided to Application Insights that is associated with the created OpsItems to receive SNS notifications for opsItem updates.
 	OpsItemSnsTopicArn() *string
 	SetOpsItemSnsTopicArn(val *string)
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The name of the resource group used for the application.
 	ResourceGroupName() *string
 	SetResourceGroupName(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// An array of `Tags` .
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -178,8 +601,8 @@ func (j *jsiiProxy_CfnApplication) LogPatternSets() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplication) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnApplication) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -260,13 +683,13 @@ func (j *jsiiProxy_CfnApplication) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::ApplicationInsights::Application`.
-func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplicationProps) CfnApplication {
+func NewCfnApplication(scope awscdk.Construct, id *string, props *CfnApplicationProps) CfnApplication {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnApplication{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication",
+		"monocdk.aws_applicationinsights.CfnApplication",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -275,11 +698,11 @@ func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplica
 }
 
 // Create a new `AWS::ApplicationInsights::Application`.
-func NewCfnApplication_Override(c CfnApplication, scope constructs.Construct, id *string, props *CfnApplicationProps) {
+func NewCfnApplication_Override(c CfnApplication, scope awscdk.Construct, id *string, props *CfnApplicationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication",
+		"monocdk.aws_applicationinsights.CfnApplication",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -355,13 +778,14 @@ func (j *jsiiProxy_CfnApplication) SetResourceGroupName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnApplication_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication",
+		"monocdk.aws_applicationinsights.CfnApplication",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -371,13 +795,14 @@ func CfnApplication_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnApplication_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication",
+		"monocdk.aws_applicationinsights.CfnApplication",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -386,17 +811,15 @@ func CfnApplication_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnApplication_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication",
+		"monocdk.aws_applicationinsights.CfnApplication",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -409,14 +832,13 @@ func CfnApplication_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication",
+		"monocdk.aws_applicationinsights.CfnApplication",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnApplication) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -425,10 +847,6 @@ func (c *jsiiProxy_CfnApplication) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnApplication) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -437,13 +855,6 @@ func (c *jsiiProxy_CfnApplication) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnApplication) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -452,49 +863,6 @@ func (c *jsiiProxy_CfnApplication) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnApplication) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -503,7 +871,6 @@ func (c *jsiiProxy_CfnApplication) AddOverride(path *string, value interface{}) 
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnApplication) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -512,9 +879,6 @@ func (c *jsiiProxy_CfnApplication) AddPropertyDeletionOverride(propertyPath *str
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnApplication) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -523,15 +887,6 @@ func (c *jsiiProxy_CfnApplication) AddPropertyOverride(propertyPath *string, val
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnApplication) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -540,10 +895,6 @@ func (c *jsiiProxy_CfnApplication) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnApplication) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -557,13 +908,6 @@ func (c *jsiiProxy_CfnApplication) GetAtt(attributeName *string) awscdk.Referenc
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnApplication) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -577,7 +921,6 @@ func (c *jsiiProxy_CfnApplication) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnApplication) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -586,12 +929,48 @@ func (c *jsiiProxy_CfnApplication) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnApplication) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnApplication) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnApplication) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnApplication) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnApplication) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -608,10 +987,6 @@ func (c *jsiiProxy_CfnApplication) RenderProperties(props *map[string]interface{
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnApplication) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -625,15 +1000,33 @@ func (c *jsiiProxy_CfnApplication) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnApplication) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnApplication) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnApplication) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -651,7 +1044,11 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 
 // The `AWS::ApplicationInsights::Application AlarmMetric` property type defines a metric to monitor for the component.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import applicationinsights "github.com/aws/aws-cdk-go/awscdk/aws_applicationinsights"
+//   alarmMetricProperty := &alarmMetricProperty{
+//   	alarmMetricName: jsii.String("alarmMetricName"),
+//   }
 //
 type CfnApplication_AlarmMetricProperty struct {
 	// The name of the metric to be monitored for the component.
@@ -662,7 +1059,14 @@ type CfnApplication_AlarmMetricProperty struct {
 
 // The `AWS::ApplicationInsights::Application Alarm` property type defines a CloudWatch alarm to be monitored for the component.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import applicationinsights "github.com/aws/aws-cdk-go/awscdk/aws_applicationinsights"
+//   alarmProperty := &alarmProperty{
+//   	alarmName: jsii.String("alarmName"),
+//
+//   	// the properties below are optional
+//   	severity: jsii.String("severity"),
+//   }
 //
 type CfnApplication_AlarmProperty struct {
 	// The name of the CloudWatch alarm to be monitored for the component.
@@ -673,7 +1077,100 @@ type CfnApplication_AlarmProperty struct {
 
 // The `AWS::ApplicationInsights::Application ComponentConfiguration` property type defines the configuration settings of the component.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import applicationinsights "github.com/aws/aws-cdk-go/awscdk/aws_applicationinsights"
+//   componentConfigurationProperty := &componentConfigurationProperty{
+//   	configurationDetails: &configurationDetailsProperty{
+//   		alarmMetrics: []interface{}{
+//   			&alarmMetricProperty{
+//   				alarmMetricName: jsii.String("alarmMetricName"),
+//   			},
+//   		},
+//   		alarms: []interface{}{
+//   			&alarmProperty{
+//   				alarmName: jsii.String("alarmName"),
+//
+//   				// the properties below are optional
+//   				severity: jsii.String("severity"),
+//   			},
+//   		},
+//   		haClusterPrometheusExporter: &hAClusterPrometheusExporterProperty{
+//   			prometheusPort: jsii.String("prometheusPort"),
+//   		},
+//   		hanaPrometheusExporter: &hANAPrometheusExporterProperty{
+//   			agreeToInstallHanadbClient: jsii.Boolean(false),
+//   			hanaPort: jsii.String("hanaPort"),
+//   			hanaSecretName: jsii.String("hanaSecretName"),
+//   			hanasid: jsii.String("hanasid"),
+//
+//   			// the properties below are optional
+//   			prometheusPort: jsii.String("prometheusPort"),
+//   		},
+//   		jmxPrometheusExporter: &jMXPrometheusExporterProperty{
+//   			hostPort: jsii.String("hostPort"),
+//   			jmxurl: jsii.String("jmxurl"),
+//   			prometheusPort: jsii.String("prometheusPort"),
+//   		},
+//   		logs: []interface{}{
+//   			&logProperty{
+//   				logType: jsii.String("logType"),
+//
+//   				// the properties below are optional
+//   				encoding: jsii.String("encoding"),
+//   				logGroupName: jsii.String("logGroupName"),
+//   				logPath: jsii.String("logPath"),
+//   				patternSet: jsii.String("patternSet"),
+//   			},
+//   		},
+//   		windowsEvents: []interface{}{
+//   			&windowsEventProperty{
+//   				eventLevels: []*string{
+//   					jsii.String("eventLevels"),
+//   				},
+//   				eventName: jsii.String("eventName"),
+//   				logGroupName: jsii.String("logGroupName"),
+//
+//   				// the properties below are optional
+//   				patternSet: jsii.String("patternSet"),
+//   			},
+//   		},
+//   	},
+//   	subComponentTypeConfigurations: []interface{}{
+//   		&subComponentTypeConfigurationProperty{
+//   			subComponentConfigurationDetails: &subComponentConfigurationDetailsProperty{
+//   				alarmMetrics: []interface{}{
+//   					&alarmMetricProperty{
+//   						alarmMetricName: jsii.String("alarmMetricName"),
+//   					},
+//   				},
+//   				logs: []interface{}{
+//   					&logProperty{
+//   						logType: jsii.String("logType"),
+//
+//   						// the properties below are optional
+//   						encoding: jsii.String("encoding"),
+//   						logGroupName: jsii.String("logGroupName"),
+//   						logPath: jsii.String("logPath"),
+//   						patternSet: jsii.String("patternSet"),
+//   					},
+//   				},
+//   				windowsEvents: []interface{}{
+//   					&windowsEventProperty{
+//   						eventLevels: []*string{
+//   							jsii.String("eventLevels"),
+//   						},
+//   						eventName: jsii.String("eventName"),
+//   						logGroupName: jsii.String("logGroupName"),
+//
+//   						// the properties below are optional
+//   						patternSet: jsii.String("patternSet"),
+//   					},
+//   				},
+//   			},
+//   			subComponentType: jsii.String("subComponentType"),
+//   		},
+//   	},
+//   }
 //
 type CfnApplication_ComponentConfigurationProperty struct {
 	// The configuration settings.
@@ -684,7 +1181,200 @@ type CfnApplication_ComponentConfigurationProperty struct {
 
 // The `AWS::ApplicationInsights::Application ComponentMonitoringSetting` property type defines the monitoring setting of the component.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import applicationinsights "github.com/aws/aws-cdk-go/awscdk/aws_applicationinsights"
+//   componentMonitoringSettingProperty := &componentMonitoringSettingProperty{
+//   	componentConfigurationMode: jsii.String("componentConfigurationMode"),
+//   	tier: jsii.String("tier"),
+//
+//   	// the properties below are optional
+//   	componentArn: jsii.String("componentArn"),
+//   	componentName: jsii.String("componentName"),
+//   	customComponentConfiguration: &componentConfigurationProperty{
+//   		configurationDetails: &configurationDetailsProperty{
+//   			alarmMetrics: []interface{}{
+//   				&alarmMetricProperty{
+//   					alarmMetricName: jsii.String("alarmMetricName"),
+//   				},
+//   			},
+//   			alarms: []interface{}{
+//   				&alarmProperty{
+//   					alarmName: jsii.String("alarmName"),
+//
+//   					// the properties below are optional
+//   					severity: jsii.String("severity"),
+//   				},
+//   			},
+//   			haClusterPrometheusExporter: &hAClusterPrometheusExporterProperty{
+//   				prometheusPort: jsii.String("prometheusPort"),
+//   			},
+//   			hanaPrometheusExporter: &hANAPrometheusExporterProperty{
+//   				agreeToInstallHanadbClient: jsii.Boolean(false),
+//   				hanaPort: jsii.String("hanaPort"),
+//   				hanaSecretName: jsii.String("hanaSecretName"),
+//   				hanasid: jsii.String("hanasid"),
+//
+//   				// the properties below are optional
+//   				prometheusPort: jsii.String("prometheusPort"),
+//   			},
+//   			jmxPrometheusExporter: &jMXPrometheusExporterProperty{
+//   				hostPort: jsii.String("hostPort"),
+//   				jmxurl: jsii.String("jmxurl"),
+//   				prometheusPort: jsii.String("prometheusPort"),
+//   			},
+//   			logs: []interface{}{
+//   				&logProperty{
+//   					logType: jsii.String("logType"),
+//
+//   					// the properties below are optional
+//   					encoding: jsii.String("encoding"),
+//   					logGroupName: jsii.String("logGroupName"),
+//   					logPath: jsii.String("logPath"),
+//   					patternSet: jsii.String("patternSet"),
+//   				},
+//   			},
+//   			windowsEvents: []interface{}{
+//   				&windowsEventProperty{
+//   					eventLevels: []*string{
+//   						jsii.String("eventLevels"),
+//   					},
+//   					eventName: jsii.String("eventName"),
+//   					logGroupName: jsii.String("logGroupName"),
+//
+//   					// the properties below are optional
+//   					patternSet: jsii.String("patternSet"),
+//   				},
+//   			},
+//   		},
+//   		subComponentTypeConfigurations: []interface{}{
+//   			&subComponentTypeConfigurationProperty{
+//   				subComponentConfigurationDetails: &subComponentConfigurationDetailsProperty{
+//   					alarmMetrics: []interface{}{
+//   						&alarmMetricProperty{
+//   							alarmMetricName: jsii.String("alarmMetricName"),
+//   						},
+//   					},
+//   					logs: []interface{}{
+//   						&logProperty{
+//   							logType: jsii.String("logType"),
+//
+//   							// the properties below are optional
+//   							encoding: jsii.String("encoding"),
+//   							logGroupName: jsii.String("logGroupName"),
+//   							logPath: jsii.String("logPath"),
+//   							patternSet: jsii.String("patternSet"),
+//   						},
+//   					},
+//   					windowsEvents: []interface{}{
+//   						&windowsEventProperty{
+//   							eventLevels: []*string{
+//   								jsii.String("eventLevels"),
+//   							},
+//   							eventName: jsii.String("eventName"),
+//   							logGroupName: jsii.String("logGroupName"),
+//
+//   							// the properties below are optional
+//   							patternSet: jsii.String("patternSet"),
+//   						},
+//   					},
+//   				},
+//   				subComponentType: jsii.String("subComponentType"),
+//   			},
+//   		},
+//   	},
+//   	defaultOverwriteComponentConfiguration: &componentConfigurationProperty{
+//   		configurationDetails: &configurationDetailsProperty{
+//   			alarmMetrics: []interface{}{
+//   				&alarmMetricProperty{
+//   					alarmMetricName: jsii.String("alarmMetricName"),
+//   				},
+//   			},
+//   			alarms: []interface{}{
+//   				&alarmProperty{
+//   					alarmName: jsii.String("alarmName"),
+//
+//   					// the properties below are optional
+//   					severity: jsii.String("severity"),
+//   				},
+//   			},
+//   			haClusterPrometheusExporter: &hAClusterPrometheusExporterProperty{
+//   				prometheusPort: jsii.String("prometheusPort"),
+//   			},
+//   			hanaPrometheusExporter: &hANAPrometheusExporterProperty{
+//   				agreeToInstallHanadbClient: jsii.Boolean(false),
+//   				hanaPort: jsii.String("hanaPort"),
+//   				hanaSecretName: jsii.String("hanaSecretName"),
+//   				hanasid: jsii.String("hanasid"),
+//
+//   				// the properties below are optional
+//   				prometheusPort: jsii.String("prometheusPort"),
+//   			},
+//   			jmxPrometheusExporter: &jMXPrometheusExporterProperty{
+//   				hostPort: jsii.String("hostPort"),
+//   				jmxurl: jsii.String("jmxurl"),
+//   				prometheusPort: jsii.String("prometheusPort"),
+//   			},
+//   			logs: []interface{}{
+//   				&logProperty{
+//   					logType: jsii.String("logType"),
+//
+//   					// the properties below are optional
+//   					encoding: jsii.String("encoding"),
+//   					logGroupName: jsii.String("logGroupName"),
+//   					logPath: jsii.String("logPath"),
+//   					patternSet: jsii.String("patternSet"),
+//   				},
+//   			},
+//   			windowsEvents: []interface{}{
+//   				&windowsEventProperty{
+//   					eventLevels: []*string{
+//   						jsii.String("eventLevels"),
+//   					},
+//   					eventName: jsii.String("eventName"),
+//   					logGroupName: jsii.String("logGroupName"),
+//
+//   					// the properties below are optional
+//   					patternSet: jsii.String("patternSet"),
+//   				},
+//   			},
+//   		},
+//   		subComponentTypeConfigurations: []interface{}{
+//   			&subComponentTypeConfigurationProperty{
+//   				subComponentConfigurationDetails: &subComponentConfigurationDetailsProperty{
+//   					alarmMetrics: []interface{}{
+//   						&alarmMetricProperty{
+//   							alarmMetricName: jsii.String("alarmMetricName"),
+//   						},
+//   					},
+//   					logs: []interface{}{
+//   						&logProperty{
+//   							logType: jsii.String("logType"),
+//
+//   							// the properties below are optional
+//   							encoding: jsii.String("encoding"),
+//   							logGroupName: jsii.String("logGroupName"),
+//   							logPath: jsii.String("logPath"),
+//   							patternSet: jsii.String("patternSet"),
+//   						},
+//   					},
+//   					windowsEvents: []interface{}{
+//   						&windowsEventProperty{
+//   							eventLevels: []*string{
+//   								jsii.String("eventLevels"),
+//   							},
+//   							eventName: jsii.String("eventName"),
+//   							logGroupName: jsii.String("logGroupName"),
+//
+//   							// the properties below are optional
+//   							patternSet: jsii.String("patternSet"),
+//   						},
+//   					},
+//   				},
+//   				subComponentType: jsii.String("subComponentType"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnApplication_ComponentMonitoringSettingProperty struct {
 	// Component monitoring can be configured in one of the following three modes:.
@@ -713,7 +1403,63 @@ type CfnApplication_ComponentMonitoringSettingProperty struct {
 
 // The `AWS::ApplicationInsights::Application ConfigurationDetails` property type specifies the configuration settings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import applicationinsights "github.com/aws/aws-cdk-go/awscdk/aws_applicationinsights"
+//   configurationDetailsProperty := &configurationDetailsProperty{
+//   	alarmMetrics: []interface{}{
+//   		&alarmMetricProperty{
+//   			alarmMetricName: jsii.String("alarmMetricName"),
+//   		},
+//   	},
+//   	alarms: []interface{}{
+//   		&alarmProperty{
+//   			alarmName: jsii.String("alarmName"),
+//
+//   			// the properties below are optional
+//   			severity: jsii.String("severity"),
+//   		},
+//   	},
+//   	haClusterPrometheusExporter: &hAClusterPrometheusExporterProperty{
+//   		prometheusPort: jsii.String("prometheusPort"),
+//   	},
+//   	hanaPrometheusExporter: &hANAPrometheusExporterProperty{
+//   		agreeToInstallHanadbClient: jsii.Boolean(false),
+//   		hanaPort: jsii.String("hanaPort"),
+//   		hanaSecretName: jsii.String("hanaSecretName"),
+//   		hanasid: jsii.String("hanasid"),
+//
+//   		// the properties below are optional
+//   		prometheusPort: jsii.String("prometheusPort"),
+//   	},
+//   	jmxPrometheusExporter: &jMXPrometheusExporterProperty{
+//   		hostPort: jsii.String("hostPort"),
+//   		jmxurl: jsii.String("jmxurl"),
+//   		prometheusPort: jsii.String("prometheusPort"),
+//   	},
+//   	logs: []interface{}{
+//   		&logProperty{
+//   			logType: jsii.String("logType"),
+//
+//   			// the properties below are optional
+//   			encoding: jsii.String("encoding"),
+//   			logGroupName: jsii.String("logGroupName"),
+//   			logPath: jsii.String("logPath"),
+//   			patternSet: jsii.String("patternSet"),
+//   		},
+//   	},
+//   	windowsEvents: []interface{}{
+//   		&windowsEventProperty{
+//   			eventLevels: []*string{
+//   				jsii.String("eventLevels"),
+//   			},
+//   			eventName: jsii.String("eventName"),
+//   			logGroupName: jsii.String("logGroupName"),
+//
+//   			// the properties below are optional
+//   			patternSet: jsii.String("patternSet"),
+//   		},
+//   	},
+//   }
 //
 type CfnApplication_ConfigurationDetailsProperty struct {
 	// A list of metrics to monitor for the component.
@@ -742,7 +1488,14 @@ type CfnApplication_ConfigurationDetailsProperty struct {
 
 // The `AWS::ApplicationInsights::Application CustomComponent` property type describes a custom component by grouping similar standalone instances to monitor.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import applicationinsights "github.com/aws/aws-cdk-go/awscdk/aws_applicationinsights"
+//   customComponentProperty := &customComponentProperty{
+//   	componentName: jsii.String("componentName"),
+//   	resourceList: []*string{
+//   		jsii.String("resourceList"),
+//   	},
+//   }
 //
 type CfnApplication_CustomComponentProperty struct {
 	// The name of the component.
@@ -755,7 +1508,11 @@ type CfnApplication_CustomComponentProperty struct {
 //
 // For more information, see the [component configuration](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/component-config-sections.html#component-configuration-prometheus) in the CloudWatch Application Insights documentation.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import applicationinsights "github.com/aws/aws-cdk-go/awscdk/aws_applicationinsights"
+//   hAClusterPrometheusExporterProperty := &hAClusterPrometheusExporterProperty{
+//   	prometheusPort: jsii.String("prometheusPort"),
+//   }
 //
 type CfnApplication_HAClusterPrometheusExporterProperty struct {
 	// The target port to which Prometheus sends metrics.
@@ -768,7 +1525,17 @@ type CfnApplication_HAClusterPrometheusExporterProperty struct {
 //
 // For more information, see the [component configuration](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/component-config-sections.html#component-configuration-prometheus) in the CloudWatch Application Insights documentation.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import applicationinsights "github.com/aws/aws-cdk-go/awscdk/aws_applicationinsights"
+//   hANAPrometheusExporterProperty := &hANAPrometheusExporterProperty{
+//   	agreeToInstallHanadbClient: jsii.Boolean(false),
+//   	hanaPort: jsii.String("hanaPort"),
+//   	hanaSecretName: jsii.String("hanaSecretName"),
+//   	hanasid: jsii.String("hanasid"),
+//
+//   	// the properties below are optional
+//   	prometheusPort: jsii.String("prometheusPort"),
+//   }
 //
 type CfnApplication_HANAPrometheusExporterProperty struct {
 	// Designates whether you agree to install the HANA DB client.
@@ -791,7 +1558,13 @@ type CfnApplication_HANAPrometheusExporterProperty struct {
 //
 // For more information, see the [component configuration](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/component-config-sections.html#component-configuration-prometheus) in the CloudWatch Application Insights documentation.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import applicationinsights "github.com/aws/aws-cdk-go/awscdk/aws_applicationinsights"
+//   jMXPrometheusExporterProperty := &jMXPrometheusExporterProperty{
+//   	hostPort: jsii.String("hostPort"),
+//   	jmxurl: jsii.String("jmxurl"),
+//   	prometheusPort: jsii.String("prometheusPort"),
+//   }
 //
 type CfnApplication_JMXPrometheusExporterProperty struct {
 	// The host and port to connect to through remote JMX.
@@ -808,7 +1581,13 @@ type CfnApplication_JMXPrometheusExporterProperty struct {
 
 // The `AWS::ApplicationInsights::Application LogPattern` property type specifies an object that defines the log patterns that belong to a `LogPatternSet` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import applicationinsights "github.com/aws/aws-cdk-go/awscdk/aws_applicationinsights"
+//   logPatternProperty := &logPatternProperty{
+//   	pattern: jsii.String("pattern"),
+//   	patternName: jsii.String("patternName"),
+//   	rank: jsii.Number(123),
+//   }
 //
 type CfnApplication_LogPatternProperty struct {
 	// A regular expression that defines the log pattern.
@@ -825,7 +1604,18 @@ type CfnApplication_LogPatternProperty struct {
 
 // The `AWS::ApplicationInsights::Application LogPatternSet` property type specifies the log pattern set.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import applicationinsights "github.com/aws/aws-cdk-go/awscdk/aws_applicationinsights"
+//   logPatternSetProperty := &logPatternSetProperty{
+//   	logPatterns: []interface{}{
+//   		&logPatternProperty{
+//   			pattern: jsii.String("pattern"),
+//   			patternName: jsii.String("patternName"),
+//   			rank: jsii.Number(123),
+//   		},
+//   	},
+//   	patternSetName: jsii.String("patternSetName"),
+//   }
 //
 type CfnApplication_LogPatternSetProperty struct {
 	// A list of objects that define the log patterns that belong to `LogPatternSet` .
@@ -838,7 +1628,17 @@ type CfnApplication_LogPatternSetProperty struct {
 
 // The `AWS::ApplicationInsights::Application Log` property type specifies a log to monitor for the component.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import applicationinsights "github.com/aws/aws-cdk-go/awscdk/aws_applicationinsights"
+//   logProperty := &logProperty{
+//   	logType: jsii.String("logType"),
+//
+//   	// the properties below are optional
+//   	encoding: jsii.String("encoding"),
+//   	logGroupName: jsii.String("logGroupName"),
+//   	logPath: jsii.String("logPath"),
+//   	patternSet: jsii.String("patternSet"),
+//   }
 //
 type CfnApplication_LogProperty struct {
 	// The log type decides the log patterns against which Application Insights analyzes the log.
@@ -851,7 +1651,7 @@ type CfnApplication_LogProperty struct {
 	//
 	// - `APPLICATION/DEFAULT` : utf-8 encoding
 	// - `SQL_SERVER` : utf-16 encoding
-	// - `IIS` : ascii encoding
+	// - `IIS` : ascii encoding.
 	Encoding *string `json:"encoding" yaml:"encoding"`
 	// The CloudWatch log group name to be associated with the monitored log.
 	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
@@ -865,7 +1665,38 @@ type CfnApplication_LogProperty struct {
 
 // The `AWS::ApplicationInsights::Application SubComponentConfigurationDetails` property type specifies the configuration settings of the sub-components.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import applicationinsights "github.com/aws/aws-cdk-go/awscdk/aws_applicationinsights"
+//   subComponentConfigurationDetailsProperty := &subComponentConfigurationDetailsProperty{
+//   	alarmMetrics: []interface{}{
+//   		&alarmMetricProperty{
+//   			alarmMetricName: jsii.String("alarmMetricName"),
+//   		},
+//   	},
+//   	logs: []interface{}{
+//   		&logProperty{
+//   			logType: jsii.String("logType"),
+//
+//   			// the properties below are optional
+//   			encoding: jsii.String("encoding"),
+//   			logGroupName: jsii.String("logGroupName"),
+//   			logPath: jsii.String("logPath"),
+//   			patternSet: jsii.String("patternSet"),
+//   		},
+//   	},
+//   	windowsEvents: []interface{}{
+//   		&windowsEventProperty{
+//   			eventLevels: []*string{
+//   				jsii.String("eventLevels"),
+//   			},
+//   			eventName: jsii.String("eventName"),
+//   			logGroupName: jsii.String("logGroupName"),
+//
+//   			// the properties below are optional
+//   			patternSet: jsii.String("patternSet"),
+//   		},
+//   	},
+//   }
 //
 type CfnApplication_SubComponentConfigurationDetailsProperty struct {
 	// A list of metrics to monitor for the component.
@@ -884,7 +1715,41 @@ type CfnApplication_SubComponentConfigurationDetailsProperty struct {
 
 // The `AWS::ApplicationInsights::Application SubComponentTypeConfiguration` property type specifies the sub-component configurations for a component.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import applicationinsights "github.com/aws/aws-cdk-go/awscdk/aws_applicationinsights"
+//   subComponentTypeConfigurationProperty := &subComponentTypeConfigurationProperty{
+//   	subComponentConfigurationDetails: &subComponentConfigurationDetailsProperty{
+//   		alarmMetrics: []interface{}{
+//   			&alarmMetricProperty{
+//   				alarmMetricName: jsii.String("alarmMetricName"),
+//   			},
+//   		},
+//   		logs: []interface{}{
+//   			&logProperty{
+//   				logType: jsii.String("logType"),
+//
+//   				// the properties below are optional
+//   				encoding: jsii.String("encoding"),
+//   				logGroupName: jsii.String("logGroupName"),
+//   				logPath: jsii.String("logPath"),
+//   				patternSet: jsii.String("patternSet"),
+//   			},
+//   		},
+//   		windowsEvents: []interface{}{
+//   			&windowsEventProperty{
+//   				eventLevels: []*string{
+//   					jsii.String("eventLevels"),
+//   				},
+//   				eventName: jsii.String("eventName"),
+//   				logGroupName: jsii.String("logGroupName"),
+//
+//   				// the properties below are optional
+//   				patternSet: jsii.String("patternSet"),
+//   			},
+//   		},
+//   	},
+//   	subComponentType: jsii.String("subComponentType"),
+//   }
 //
 type CfnApplication_SubComponentTypeConfigurationProperty struct {
 	// The configuration settings of the sub-components.
@@ -895,7 +1760,18 @@ type CfnApplication_SubComponentTypeConfigurationProperty struct {
 
 // The `AWS::ApplicationInsights::Application WindowsEvent` property type specifies a Windows Event to monitor for the component.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import applicationinsights "github.com/aws/aws-cdk-go/awscdk/aws_applicationinsights"
+//   windowsEventProperty := &windowsEventProperty{
+//   	eventLevels: []*string{
+//   		jsii.String("eventLevels"),
+//   	},
+//   	eventName: jsii.String("eventName"),
+//   	logGroupName: jsii.String("logGroupName"),
+//
+//   	// the properties below are optional
+//   	patternSet: jsii.String("patternSet"),
+//   }
 //
 type CfnApplication_WindowsEventProperty struct {
 	// The levels of event to log.
@@ -914,7 +1790,237 @@ type CfnApplication_WindowsEventProperty struct {
 
 // Properties for defining a `CfnApplication`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import applicationinsights "github.com/aws/aws-cdk-go/awscdk/aws_applicationinsights"
+//   cfnApplicationProps := &cfnApplicationProps{
+//   	resourceGroupName: jsii.String("resourceGroupName"),
+//
+//   	// the properties below are optional
+//   	autoConfigurationEnabled: jsii.Boolean(false),
+//   	componentMonitoringSettings: []interface{}{
+//   		&componentMonitoringSettingProperty{
+//   			componentConfigurationMode: jsii.String("componentConfigurationMode"),
+//   			tier: jsii.String("tier"),
+//
+//   			// the properties below are optional
+//   			componentArn: jsii.String("componentArn"),
+//   			componentName: jsii.String("componentName"),
+//   			customComponentConfiguration: &componentConfigurationProperty{
+//   				configurationDetails: &configurationDetailsProperty{
+//   					alarmMetrics: []interface{}{
+//   						&alarmMetricProperty{
+//   							alarmMetricName: jsii.String("alarmMetricName"),
+//   						},
+//   					},
+//   					alarms: []interface{}{
+//   						&alarmProperty{
+//   							alarmName: jsii.String("alarmName"),
+//
+//   							// the properties below are optional
+//   							severity: jsii.String("severity"),
+//   						},
+//   					},
+//   					haClusterPrometheusExporter: &hAClusterPrometheusExporterProperty{
+//   						prometheusPort: jsii.String("prometheusPort"),
+//   					},
+//   					hanaPrometheusExporter: &hANAPrometheusExporterProperty{
+//   						agreeToInstallHanadbClient: jsii.Boolean(false),
+//   						hanaPort: jsii.String("hanaPort"),
+//   						hanaSecretName: jsii.String("hanaSecretName"),
+//   						hanasid: jsii.String("hanasid"),
+//
+//   						// the properties below are optional
+//   						prometheusPort: jsii.String("prometheusPort"),
+//   					},
+//   					jmxPrometheusExporter: &jMXPrometheusExporterProperty{
+//   						hostPort: jsii.String("hostPort"),
+//   						jmxurl: jsii.String("jmxurl"),
+//   						prometheusPort: jsii.String("prometheusPort"),
+//   					},
+//   					logs: []interface{}{
+//   						&logProperty{
+//   							logType: jsii.String("logType"),
+//
+//   							// the properties below are optional
+//   							encoding: jsii.String("encoding"),
+//   							logGroupName: jsii.String("logGroupName"),
+//   							logPath: jsii.String("logPath"),
+//   							patternSet: jsii.String("patternSet"),
+//   						},
+//   					},
+//   					windowsEvents: []interface{}{
+//   						&windowsEventProperty{
+//   							eventLevels: []*string{
+//   								jsii.String("eventLevels"),
+//   							},
+//   							eventName: jsii.String("eventName"),
+//   							logGroupName: jsii.String("logGroupName"),
+//
+//   							// the properties below are optional
+//   							patternSet: jsii.String("patternSet"),
+//   						},
+//   					},
+//   				},
+//   				subComponentTypeConfigurations: []interface{}{
+//   					&subComponentTypeConfigurationProperty{
+//   						subComponentConfigurationDetails: &subComponentConfigurationDetailsProperty{
+//   							alarmMetrics: []interface{}{
+//   								&alarmMetricProperty{
+//   									alarmMetricName: jsii.String("alarmMetricName"),
+//   								},
+//   							},
+//   							logs: []interface{}{
+//   								&logProperty{
+//   									logType: jsii.String("logType"),
+//
+//   									// the properties below are optional
+//   									encoding: jsii.String("encoding"),
+//   									logGroupName: jsii.String("logGroupName"),
+//   									logPath: jsii.String("logPath"),
+//   									patternSet: jsii.String("patternSet"),
+//   								},
+//   							},
+//   							windowsEvents: []interface{}{
+//   								&windowsEventProperty{
+//   									eventLevels: []*string{
+//   										jsii.String("eventLevels"),
+//   									},
+//   									eventName: jsii.String("eventName"),
+//   									logGroupName: jsii.String("logGroupName"),
+//
+//   									// the properties below are optional
+//   									patternSet: jsii.String("patternSet"),
+//   								},
+//   							},
+//   						},
+//   						subComponentType: jsii.String("subComponentType"),
+//   					},
+//   				},
+//   			},
+//   			defaultOverwriteComponentConfiguration: &componentConfigurationProperty{
+//   				configurationDetails: &configurationDetailsProperty{
+//   					alarmMetrics: []interface{}{
+//   						&alarmMetricProperty{
+//   							alarmMetricName: jsii.String("alarmMetricName"),
+//   						},
+//   					},
+//   					alarms: []interface{}{
+//   						&alarmProperty{
+//   							alarmName: jsii.String("alarmName"),
+//
+//   							// the properties below are optional
+//   							severity: jsii.String("severity"),
+//   						},
+//   					},
+//   					haClusterPrometheusExporter: &hAClusterPrometheusExporterProperty{
+//   						prometheusPort: jsii.String("prometheusPort"),
+//   					},
+//   					hanaPrometheusExporter: &hANAPrometheusExporterProperty{
+//   						agreeToInstallHanadbClient: jsii.Boolean(false),
+//   						hanaPort: jsii.String("hanaPort"),
+//   						hanaSecretName: jsii.String("hanaSecretName"),
+//   						hanasid: jsii.String("hanasid"),
+//
+//   						// the properties below are optional
+//   						prometheusPort: jsii.String("prometheusPort"),
+//   					},
+//   					jmxPrometheusExporter: &jMXPrometheusExporterProperty{
+//   						hostPort: jsii.String("hostPort"),
+//   						jmxurl: jsii.String("jmxurl"),
+//   						prometheusPort: jsii.String("prometheusPort"),
+//   					},
+//   					logs: []interface{}{
+//   						&logProperty{
+//   							logType: jsii.String("logType"),
+//
+//   							// the properties below are optional
+//   							encoding: jsii.String("encoding"),
+//   							logGroupName: jsii.String("logGroupName"),
+//   							logPath: jsii.String("logPath"),
+//   							patternSet: jsii.String("patternSet"),
+//   						},
+//   					},
+//   					windowsEvents: []interface{}{
+//   						&windowsEventProperty{
+//   							eventLevels: []*string{
+//   								jsii.String("eventLevels"),
+//   							},
+//   							eventName: jsii.String("eventName"),
+//   							logGroupName: jsii.String("logGroupName"),
+//
+//   							// the properties below are optional
+//   							patternSet: jsii.String("patternSet"),
+//   						},
+//   					},
+//   				},
+//   				subComponentTypeConfigurations: []interface{}{
+//   					&subComponentTypeConfigurationProperty{
+//   						subComponentConfigurationDetails: &subComponentConfigurationDetailsProperty{
+//   							alarmMetrics: []interface{}{
+//   								&alarmMetricProperty{
+//   									alarmMetricName: jsii.String("alarmMetricName"),
+//   								},
+//   							},
+//   							logs: []interface{}{
+//   								&logProperty{
+//   									logType: jsii.String("logType"),
+//
+//   									// the properties below are optional
+//   									encoding: jsii.String("encoding"),
+//   									logGroupName: jsii.String("logGroupName"),
+//   									logPath: jsii.String("logPath"),
+//   									patternSet: jsii.String("patternSet"),
+//   								},
+//   							},
+//   							windowsEvents: []interface{}{
+//   								&windowsEventProperty{
+//   									eventLevels: []*string{
+//   										jsii.String("eventLevels"),
+//   									},
+//   									eventName: jsii.String("eventName"),
+//   									logGroupName: jsii.String("logGroupName"),
+//
+//   									// the properties below are optional
+//   									patternSet: jsii.String("patternSet"),
+//   								},
+//   							},
+//   						},
+//   						subComponentType: jsii.String("subComponentType"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	customComponents: []interface{}{
+//   		&customComponentProperty{
+//   			componentName: jsii.String("componentName"),
+//   			resourceList: []*string{
+//   				jsii.String("resourceList"),
+//   			},
+//   		},
+//   	},
+//   	cweMonitorEnabled: jsii.Boolean(false),
+//   	logPatternSets: []interface{}{
+//   		&logPatternSetProperty{
+//   			logPatterns: []interface{}{
+//   				&logPatternProperty{
+//   					pattern: jsii.String("pattern"),
+//   					patternName: jsii.String("patternName"),
+//   					rank: jsii.Number(123),
+//   				},
+//   			},
+//   			patternSetName: jsii.String("patternSetName"),
+//   		},
+//   	},
+//   	opsCenterEnabled: jsii.Boolean(false),
+//   	opsItemSnsTopicArn: jsii.String("opsItemSnsTopicArn"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnApplicationProps struct {
 	// The name of the resource group used for the application.

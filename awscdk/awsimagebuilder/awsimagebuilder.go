@@ -1,69 +1,305 @@
 package awsimagebuilder
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsimagebuilder/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsimagebuilder/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::ImageBuilder::Component`.
 //
 // Components are orchestration documents that define a sequence of steps for downloading, installing, and configuring software packages or for defining tests to run on software packages. They also define validation and security hardening steps. A component is defined using a YAML document format. For more information, see [Using Documents in Image Builder](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-application-documents.html) .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   cfnComponent := imagebuilder.NewCfnComponent(this, jsii.String("MyCfnComponent"), &cfnComponentProps{
+//   	name: jsii.String("name"),
+//   	platform: jsii.String("platform"),
+//   	version: jsii.String("version"),
+//
+//   	// the properties below are optional
+//   	changeDescription: jsii.String("changeDescription"),
+//   	data: jsii.String("data"),
+//   	description: jsii.String("description"),
+//   	kmsKeyId: jsii.String("kmsKeyId"),
+//   	supportedOsVersions: []*string{
+//   		jsii.String("supportedOsVersions"),
+//   	},
+//   	tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   	uri: jsii.String("uri"),
+//   })
 //
 type CfnComponent interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns the Amazon Resource Name (ARN) of the component.
+	//
+	// The following pattern is applied: `^arn:aws[^:]*:imagebuilder:[^:]+:(?:\d{12}|aws):(?:image-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline)/[a-z0-9-_]+(?:/(?:(?:x|\d+)\.(?:x|\d+)\.(?:x|\d+))(?:/\d+)?)?$` .
 	AttrArn() *string
+	// Returns the encryption status of the component.
+	//
+	// For example `true` or `false` .
 	AttrEncrypted() awscdk.IResolvable
+	// Returns the name of the component.
 	AttrName() *string
+	// Returns the component type.
+	//
+	// For example, `BUILD` or `TEST` .
 	AttrType() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// A change description of the component.
+	//
+	// For example `initial version` .
 	ChangeDescription() *string
 	SetChangeDescription(val *string)
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The data of the component.
+	//
+	// For example, `name: HelloWorldTestingDocument\ndescription: This is hello world testing document.\nschemaVersion: 1.0\n\nphases:\n - name: test\n steps:\n - name: HelloWorldStep\n action: ExecuteBash\n inputs:\n commands:\n - echo \"Hello World! Test.\"\n` . See Examples below for the schema for creating a component using Data.
 	Data() *string
 	SetData(val *string)
+	// The description of the component.
 	Description() *string
 	SetDescription(val *string)
+	// The KMS key identifier used to encrypt the component.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The name of the component.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// The platform of the component.
+	//
+	// For example, `Windows` .
 	Platform() *string
 	SetPlatform(val *string)
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// The operating system (OS) version supported by the component.
+	//
+	// If the OS information is available, a prefix match is performed against the base image OS version during image recipe creation.
 	SupportedOsVersions() *[]*string
 	SetSupportedOsVersions(val *[]*string)
+	// The tags associated with the component.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// The `uri` of a YAML component document file.
+	//
+	// This must be an S3 URL ( `s3://bucket/key` ), and the requester must have permission to access the S3 bucket it points to. If you use Amazon S3, you can specify component content up to your service quota.
+	//
+	// Alternatively, you can specify the YAML document inline, using the component `data` property. You cannot specify both properties.
 	Uri() *string
 	SetUri(val *string)
+	// The component version.
+	//
+	// For example, `1.0.0` .
 	Version() *string
 	SetVersion(val *string)
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -213,8 +449,8 @@ func (j *jsiiProxy_CfnComponent) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnComponent) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnComponent) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -305,13 +541,13 @@ func (j *jsiiProxy_CfnComponent) Version() *string {
 
 
 // Create a new `AWS::ImageBuilder::Component`.
-func NewCfnComponent(scope constructs.Construct, id *string, props *CfnComponentProps) CfnComponent {
+func NewCfnComponent(scope awscdk.Construct, id *string, props *CfnComponentProps) CfnComponent {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnComponent{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_imagebuilder.CfnComponent",
+		"monocdk.aws_imagebuilder.CfnComponent",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -320,11 +556,11 @@ func NewCfnComponent(scope constructs.Construct, id *string, props *CfnComponent
 }
 
 // Create a new `AWS::ImageBuilder::Component`.
-func NewCfnComponent_Override(c CfnComponent, scope constructs.Construct, id *string, props *CfnComponentProps) {
+func NewCfnComponent_Override(c CfnComponent, scope awscdk.Construct, id *string, props *CfnComponentProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_imagebuilder.CfnComponent",
+		"monocdk.aws_imagebuilder.CfnComponent",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -408,13 +644,14 @@ func (j *jsiiProxy_CfnComponent) SetVersion(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnComponent_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_imagebuilder.CfnComponent",
+		"monocdk.aws_imagebuilder.CfnComponent",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -424,13 +661,14 @@ func CfnComponent_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnComponent_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_imagebuilder.CfnComponent",
+		"monocdk.aws_imagebuilder.CfnComponent",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -439,17 +677,15 @@ func CfnComponent_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnComponent_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_imagebuilder.CfnComponent",
+		"monocdk.aws_imagebuilder.CfnComponent",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -462,14 +698,13 @@ func CfnComponent_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_imagebuilder.CfnComponent",
+		"monocdk.aws_imagebuilder.CfnComponent",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnComponent) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -478,10 +713,6 @@ func (c *jsiiProxy_CfnComponent) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnComponent) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -490,13 +721,6 @@ func (c *jsiiProxy_CfnComponent) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnComponent) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -505,49 +729,6 @@ func (c *jsiiProxy_CfnComponent) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnComponent) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -556,7 +737,6 @@ func (c *jsiiProxy_CfnComponent) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnComponent) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -565,9 +745,6 @@ func (c *jsiiProxy_CfnComponent) AddPropertyDeletionOverride(propertyPath *strin
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnComponent) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -576,15 +753,6 @@ func (c *jsiiProxy_CfnComponent) AddPropertyOverride(propertyPath *string, value
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnComponent) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -593,10 +761,6 @@ func (c *jsiiProxy_CfnComponent) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnComponent) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -610,13 +774,6 @@ func (c *jsiiProxy_CfnComponent) GetAtt(attributeName *string) awscdk.Reference 
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnComponent) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -630,7 +787,6 @@ func (c *jsiiProxy_CfnComponent) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnComponent) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -639,12 +795,48 @@ func (c *jsiiProxy_CfnComponent) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnComponent) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnComponent) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnComponent) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnComponent) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnComponent) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -661,10 +853,6 @@ func (c *jsiiProxy_CfnComponent) RenderProperties(props *map[string]interface{})
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnComponent) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -678,15 +866,33 @@ func (c *jsiiProxy_CfnComponent) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnComponent) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnComponent) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnComponent) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -704,7 +910,26 @@ func (c *jsiiProxy_CfnComponent) ValidateProperties(_properties interface{}) {
 
 // Properties for defining a `CfnComponent`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   cfnComponentProps := &cfnComponentProps{
+//   	name: jsii.String("name"),
+//   	platform: jsii.String("platform"),
+//   	version: jsii.String("version"),
+//
+//   	// the properties below are optional
+//   	changeDescription: jsii.String("changeDescription"),
+//   	data: jsii.String("data"),
+//   	description: jsii.String("description"),
+//   	kmsKeyId: jsii.String("kmsKeyId"),
+//   	supportedOsVersions: []*string{
+//   		jsii.String("supportedOsVersions"),
+//   	},
+//   	tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   	uri: jsii.String("uri"),
+//   }
 //
 type CfnComponentProps struct {
 	// The name of the component.
@@ -747,65 +972,325 @@ type CfnComponentProps struct {
 //
 // Creates a new container recipe. Container recipes define how images are configured, tested, and assessed.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   cfnContainerRecipe := imagebuilder.NewCfnContainerRecipe(this, jsii.String("MyCfnContainerRecipe"), &cfnContainerRecipeProps{
+//   	components: []interface{}{
+//   		&componentConfigurationProperty{
+//   			componentArn: jsii.String("componentArn"),
+//   		},
+//   	},
+//   	containerType: jsii.String("containerType"),
+//   	name: jsii.String("name"),
+//   	parentImage: jsii.String("parentImage"),
+//   	targetRepository: &targetContainerRepositoryProperty{
+//   		repositoryName: jsii.String("repositoryName"),
+//   		service: jsii.String("service"),
+//   	},
+//   	version: jsii.String("version"),
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   	dockerfileTemplateData: jsii.String("dockerfileTemplateData"),
+//   	dockerfileTemplateUri: jsii.String("dockerfileTemplateUri"),
+//   	imageOsVersionOverride: jsii.String("imageOsVersionOverride"),
+//   	instanceConfiguration: &instanceConfigurationProperty{
+//   		blockDeviceMappings: []interface{}{
+//   			&instanceBlockDeviceMappingProperty{
+//   				deviceName: jsii.String("deviceName"),
+//   				ebs: &ebsInstanceBlockDeviceSpecificationProperty{
+//   					deleteOnTermination: jsii.Boolean(false),
+//   					encrypted: jsii.Boolean(false),
+//   					iops: jsii.Number(123),
+//   					kmsKeyId: jsii.String("kmsKeyId"),
+//   					snapshotId: jsii.String("snapshotId"),
+//   					throughput: jsii.Number(123),
+//   					volumeSize: jsii.Number(123),
+//   					volumeType: jsii.String("volumeType"),
+//   				},
+//   				noDevice: jsii.String("noDevice"),
+//   				virtualName: jsii.String("virtualName"),
+//   			},
+//   		},
+//   		image: jsii.String("image"),
+//   	},
+//   	kmsKeyId: jsii.String("kmsKeyId"),
+//   	platformOverride: jsii.String("platformOverride"),
+//   	tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   	workingDirectory: jsii.String("workingDirectory"),
+//   })
 //
 type CfnContainerRecipe interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns the Amazon Resource Name (ARN) of the container recipe.
+	//
+	// For example, `arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/mybasicrecipe/2020.12.17` .
 	AttrArn() *string
+	// Returns the name of the container recipe.
 	AttrName() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Components for build and test that are included in the container recipe.
 	Components() interface{}
 	SetComponents(val interface{})
+	// Specifies the type of container, such as Docker.
 	ContainerType() *string
 	SetContainerType(val *string)
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The description of the container recipe.
 	Description() *string
 	SetDescription(val *string)
+	// Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside.
+	//
+	// The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.
 	DockerfileTemplateData() *string
 	SetDockerfileTemplateData(val *string)
+	// The S3 URI for the Dockerfile that will be used to build your container image.
 	DockerfileTemplateUri() *string
 	SetDockerfileTemplateUri(val *string)
+	// Specifies the operating system version for the source image.
 	ImageOsVersionOverride() *string
 	SetImageOsVersionOverride(val *string)
+	// A group of options that can be used to configure an instance for building and testing container images.
 	InstanceConfiguration() interface{}
 	SetInstanceConfiguration(val interface{})
+	// Identifies which KMS key is used to encrypt the container image for distribution to the target Region.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The name of the container recipe.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// The base image for the container recipe.
 	ParentImage() *string
 	SetParentImage(val *string)
+	// Specifies the operating system platform when you use a custom source image.
 	PlatformOverride() *string
 	SetPlatformOverride(val *string)
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Tags that are attached to the container recipe.
 	Tags() awscdk.TagManager
+	// The destination repository for the container image.
 	TargetRepository() interface{}
 	SetTargetRepository(val interface{})
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// The semantic version of the container recipe.
+	//
+	// > The semantic version has four nodes: <major>.<minor>.<patch>/<build>. You can assign values for the first three, and can filter on all of them.
+	// >
+	// > *Assignment:* For the first three nodes you can assign any positive integer value, including zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the build number to the fourth node.
+	// >
+	// > *Patterns:* You can use any numeric pattern that adheres to the assignment requirements for the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or a date, such as 2021.01.01.
+	// >
+	// > *Filtering:* With semantic versioning, you have the flexibility to use wildcards (x) to specify the most recent versions or nodes when selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be wildcards.
 	Version() *string
 	SetVersion(val *string)
+	// The working directory for use during build and test workflows.
 	WorkingDirectory() *string
 	SetWorkingDirectory(val *string)
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -975,8 +1460,8 @@ func (j *jsiiProxy_CfnContainerRecipe) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContainerRecipe) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnContainerRecipe) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1077,13 +1562,13 @@ func (j *jsiiProxy_CfnContainerRecipe) WorkingDirectory() *string {
 
 
 // Create a new `AWS::ImageBuilder::ContainerRecipe`.
-func NewCfnContainerRecipe(scope constructs.Construct, id *string, props *CfnContainerRecipeProps) CfnContainerRecipe {
+func NewCfnContainerRecipe(scope awscdk.Construct, id *string, props *CfnContainerRecipeProps) CfnContainerRecipe {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnContainerRecipe{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_imagebuilder.CfnContainerRecipe",
+		"monocdk.aws_imagebuilder.CfnContainerRecipe",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1092,11 +1577,11 @@ func NewCfnContainerRecipe(scope constructs.Construct, id *string, props *CfnCon
 }
 
 // Create a new `AWS::ImageBuilder::ContainerRecipe`.
-func NewCfnContainerRecipe_Override(c CfnContainerRecipe, scope constructs.Construct, id *string, props *CfnContainerRecipeProps) {
+func NewCfnContainerRecipe_Override(c CfnContainerRecipe, scope awscdk.Construct, id *string, props *CfnContainerRecipeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_imagebuilder.CfnContainerRecipe",
+		"monocdk.aws_imagebuilder.CfnContainerRecipe",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1220,13 +1705,14 @@ func (j *jsiiProxy_CfnContainerRecipe) SetWorkingDirectory(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnContainerRecipe_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_imagebuilder.CfnContainerRecipe",
+		"monocdk.aws_imagebuilder.CfnContainerRecipe",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1236,13 +1722,14 @@ func CfnContainerRecipe_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnContainerRecipe_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_imagebuilder.CfnContainerRecipe",
+		"monocdk.aws_imagebuilder.CfnContainerRecipe",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1251,17 +1738,15 @@ func CfnContainerRecipe_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnContainerRecipe_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_imagebuilder.CfnContainerRecipe",
+		"monocdk.aws_imagebuilder.CfnContainerRecipe",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1274,14 +1759,13 @@ func CfnContainerRecipe_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_imagebuilder.CfnContainerRecipe",
+		"monocdk.aws_imagebuilder.CfnContainerRecipe",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnContainerRecipe) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1290,10 +1774,6 @@ func (c *jsiiProxy_CfnContainerRecipe) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnContainerRecipe) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1302,13 +1782,6 @@ func (c *jsiiProxy_CfnContainerRecipe) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnContainerRecipe) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1317,49 +1790,6 @@ func (c *jsiiProxy_CfnContainerRecipe) AddMetadata(key *string, value interface{
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnContainerRecipe) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1368,7 +1798,6 @@ func (c *jsiiProxy_CfnContainerRecipe) AddOverride(path *string, value interface
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnContainerRecipe) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1377,9 +1806,6 @@ func (c *jsiiProxy_CfnContainerRecipe) AddPropertyDeletionOverride(propertyPath 
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnContainerRecipe) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1388,15 +1814,6 @@ func (c *jsiiProxy_CfnContainerRecipe) AddPropertyOverride(propertyPath *string,
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnContainerRecipe) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1405,10 +1822,6 @@ func (c *jsiiProxy_CfnContainerRecipe) ApplyRemovalPolicy(policy awscdk.RemovalP
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnContainerRecipe) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1422,13 +1835,6 @@ func (c *jsiiProxy_CfnContainerRecipe) GetAtt(attributeName *string) awscdk.Refe
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnContainerRecipe) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1442,7 +1848,6 @@ func (c *jsiiProxy_CfnContainerRecipe) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnContainerRecipe) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1451,12 +1856,48 @@ func (c *jsiiProxy_CfnContainerRecipe) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnContainerRecipe) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnContainerRecipe) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnContainerRecipe) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnContainerRecipe) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnContainerRecipe) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1473,10 +1914,6 @@ func (c *jsiiProxy_CfnContainerRecipe) RenderProperties(props *map[string]interf
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnContainerRecipe) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1490,15 +1927,33 @@ func (c *jsiiProxy_CfnContainerRecipe) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnContainerRecipe) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnContainerRecipe) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnContainerRecipe) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1516,7 +1971,11 @@ func (c *jsiiProxy_CfnContainerRecipe) ValidateProperties(_properties interface{
 
 // Configuration details of the component.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   componentConfigurationProperty := &componentConfigurationProperty{
+//   	componentArn: jsii.String("componentArn"),
+//   }
 //
 type CfnContainerRecipe_ComponentConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the component.
@@ -1525,7 +1984,18 @@ type CfnContainerRecipe_ComponentConfigurationProperty struct {
 
 // Amazon EBS-specific block device mapping specifications.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   ebsInstanceBlockDeviceSpecificationProperty := &ebsInstanceBlockDeviceSpecificationProperty{
+//   	deleteOnTermination: jsii.Boolean(false),
+//   	encrypted: jsii.Boolean(false),
+//   	iops: jsii.Number(123),
+//   	kmsKeyId: jsii.String("kmsKeyId"),
+//   	snapshotId: jsii.String("snapshotId"),
+//   	throughput: jsii.Number(123),
+//   	volumeSize: jsii.Number(123),
+//   	volumeType: jsii.String("volumeType"),
+//   }
 //
 type CfnContainerRecipe_EbsInstanceBlockDeviceSpecificationProperty struct {
 	// Use to configure delete on termination of the associated device.
@@ -1548,7 +2018,23 @@ type CfnContainerRecipe_EbsInstanceBlockDeviceSpecificationProperty struct {
 
 // Defines block device mappings for the instance used to configure your image.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   instanceBlockDeviceMappingProperty := &instanceBlockDeviceMappingProperty{
+//   	deviceName: jsii.String("deviceName"),
+//   	ebs: &ebsInstanceBlockDeviceSpecificationProperty{
+//   		deleteOnTermination: jsii.Boolean(false),
+//   		encrypted: jsii.Boolean(false),
+//   		iops: jsii.Number(123),
+//   		kmsKeyId: jsii.String("kmsKeyId"),
+//   		snapshotId: jsii.String("snapshotId"),
+//   		throughput: jsii.Number(123),
+//   		volumeSize: jsii.Number(123),
+//   		volumeType: jsii.String("volumeType"),
+//   	},
+//   	noDevice: jsii.String("noDevice"),
+//   	virtualName: jsii.String("virtualName"),
+//   }
 //
 type CfnContainerRecipe_InstanceBlockDeviceMappingProperty struct {
 	// The device to which these mappings apply.
@@ -1563,7 +2049,28 @@ type CfnContainerRecipe_InstanceBlockDeviceMappingProperty struct {
 
 // Defines a custom source AMI and block device mapping configurations of an instance used for building and testing container images.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   instanceConfigurationProperty := &instanceConfigurationProperty{
+//   	blockDeviceMappings: []interface{}{
+//   		&instanceBlockDeviceMappingProperty{
+//   			deviceName: jsii.String("deviceName"),
+//   			ebs: &ebsInstanceBlockDeviceSpecificationProperty{
+//   				deleteOnTermination: jsii.Boolean(false),
+//   				encrypted: jsii.Boolean(false),
+//   				iops: jsii.Number(123),
+//   				kmsKeyId: jsii.String("kmsKeyId"),
+//   				snapshotId: jsii.String("snapshotId"),
+//   				throughput: jsii.Number(123),
+//   				volumeSize: jsii.Number(123),
+//   				volumeType: jsii.String("volumeType"),
+//   			},
+//   			noDevice: jsii.String("noDevice"),
+//   			virtualName: jsii.String("virtualName"),
+//   		},
+//   	},
+//   	image: jsii.String("image"),
+//   }
 //
 type CfnContainerRecipe_InstanceConfigurationProperty struct {
 	// Defines the block devices to attach for building an instance from this Image Builder AMI.
@@ -1576,7 +2083,12 @@ type CfnContainerRecipe_InstanceConfigurationProperty struct {
 
 // The container repository where the output container image is stored.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   targetContainerRepositoryProperty := &targetContainerRepositoryProperty{
+//   	repositoryName: jsii.String("repositoryName"),
+//   	service: jsii.String("service"),
+//   }
 //
 type CfnContainerRecipe_TargetContainerRepositoryProperty struct {
 	// The name of the container repository where the output container image is stored.
@@ -1589,7 +2101,55 @@ type CfnContainerRecipe_TargetContainerRepositoryProperty struct {
 
 // Properties for defining a `CfnContainerRecipe`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   cfnContainerRecipeProps := &cfnContainerRecipeProps{
+//   	components: []interface{}{
+//   		&componentConfigurationProperty{
+//   			componentArn: jsii.String("componentArn"),
+//   		},
+//   	},
+//   	containerType: jsii.String("containerType"),
+//   	name: jsii.String("name"),
+//   	parentImage: jsii.String("parentImage"),
+//   	targetRepository: &targetContainerRepositoryProperty{
+//   		repositoryName: jsii.String("repositoryName"),
+//   		service: jsii.String("service"),
+//   	},
+//   	version: jsii.String("version"),
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   	dockerfileTemplateData: jsii.String("dockerfileTemplateData"),
+//   	dockerfileTemplateUri: jsii.String("dockerfileTemplateUri"),
+//   	imageOsVersionOverride: jsii.String("imageOsVersionOverride"),
+//   	instanceConfiguration: &instanceConfigurationProperty{
+//   		blockDeviceMappings: []interface{}{
+//   			&instanceBlockDeviceMappingProperty{
+//   				deviceName: jsii.String("deviceName"),
+//   				ebs: &ebsInstanceBlockDeviceSpecificationProperty{
+//   					deleteOnTermination: jsii.Boolean(false),
+//   					encrypted: jsii.Boolean(false),
+//   					iops: jsii.Number(123),
+//   					kmsKeyId: jsii.String("kmsKeyId"),
+//   					snapshotId: jsii.String("snapshotId"),
+//   					throughput: jsii.Number(123),
+//   					volumeSize: jsii.Number(123),
+//   					volumeType: jsii.String("volumeType"),
+//   				},
+//   				noDevice: jsii.String("noDevice"),
+//   				virtualName: jsii.String("virtualName"),
+//   			},
+//   		},
+//   		image: jsii.String("image"),
+//   	},
+//   	kmsKeyId: jsii.String("kmsKeyId"),
+//   	platformOverride: jsii.String("platformOverride"),
+//   	tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   	workingDirectory: jsii.String("workingDirectory"),
+//   }
 //
 type CfnContainerRecipeProps struct {
 	// Components for build and test that are included in the container recipe.
@@ -1638,43 +2198,266 @@ type CfnContainerRecipeProps struct {
 //
 // A distribution configuration allows you to specify the name and description of your output AMI, authorize other AWS account s to launch the AMI, and replicate the AMI to other AWS Regions . It also allows you to export the AMI to Amazon S3 .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//
+//   var amiDistributionConfiguration interface{}
+//   var containerDistributionConfiguration interface{}
+//   cfnDistributionConfiguration := imagebuilder.NewCfnDistributionConfiguration(this, jsii.String("MyCfnDistributionConfiguration"), &cfnDistributionConfigurationProps{
+//   	distributions: []interface{}{
+//   		&distributionProperty{
+//   			region: jsii.String("region"),
+//
+//   			// the properties below are optional
+//   			amiDistributionConfiguration: amiDistributionConfiguration,
+//   			containerDistributionConfiguration: containerDistributionConfiguration,
+//   			launchTemplateConfigurations: []interface{}{
+//   				&launchTemplateConfigurationProperty{
+//   					accountId: jsii.String("accountId"),
+//   					launchTemplateId: jsii.String("launchTemplateId"),
+//   					setDefaultVersion: jsii.Boolean(false),
+//   				},
+//   			},
+//   			licenseConfigurationArns: []*string{
+//   				jsii.String("licenseConfigurationArns"),
+//   			},
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   	tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   })
 //
 type CfnDistributionConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns the Amazon Resource Name (ARN) of this distribution configuration.
+	//
+	// The following pattern is applied: `^arn:aws[^:]*:imagebuilder:[^:]+:(?:\d{12}|aws):(?:image-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline)/[a-z0-9-_]+(?:/(?:(?:x|\d+)\.(?:x|\d+)\.(?:x|\d+))(?:/\d+)?)?$` .
 	AttrArn() *string
+	// Returns the name of the distribution configuration.
 	AttrName() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The description of this distribution configuration.
 	Description() *string
 	SetDescription(val *string)
+	// The distributions of this distribution configuration formatted as an array of Distribution objects.
 	Distributions() interface{}
 	SetDistributions(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The name of this distribution configuration.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// The tags of this distribution configuration.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1784,8 +2567,8 @@ func (j *jsiiProxy_CfnDistributionConfiguration) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDistributionConfiguration) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDistributionConfiguration) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1836,13 +2619,13 @@ func (j *jsiiProxy_CfnDistributionConfiguration) UpdatedProperites() *map[string
 
 
 // Create a new `AWS::ImageBuilder::DistributionConfiguration`.
-func NewCfnDistributionConfiguration(scope constructs.Construct, id *string, props *CfnDistributionConfigurationProps) CfnDistributionConfiguration {
+func NewCfnDistributionConfiguration(scope awscdk.Construct, id *string, props *CfnDistributionConfigurationProps) CfnDistributionConfiguration {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDistributionConfiguration{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_imagebuilder.CfnDistributionConfiguration",
+		"monocdk.aws_imagebuilder.CfnDistributionConfiguration",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1851,11 +2634,11 @@ func NewCfnDistributionConfiguration(scope constructs.Construct, id *string, pro
 }
 
 // Create a new `AWS::ImageBuilder::DistributionConfiguration`.
-func NewCfnDistributionConfiguration_Override(c CfnDistributionConfiguration, scope constructs.Construct, id *string, props *CfnDistributionConfigurationProps) {
+func NewCfnDistributionConfiguration_Override(c CfnDistributionConfiguration, scope awscdk.Construct, id *string, props *CfnDistributionConfigurationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_imagebuilder.CfnDistributionConfiguration",
+		"monocdk.aws_imagebuilder.CfnDistributionConfiguration",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1891,13 +2674,14 @@ func (j *jsiiProxy_CfnDistributionConfiguration) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDistributionConfiguration_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_imagebuilder.CfnDistributionConfiguration",
+		"monocdk.aws_imagebuilder.CfnDistributionConfiguration",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1907,13 +2691,14 @@ func CfnDistributionConfiguration_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDistributionConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_imagebuilder.CfnDistributionConfiguration",
+		"monocdk.aws_imagebuilder.CfnDistributionConfiguration",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1922,17 +2707,15 @@ func CfnDistributionConfiguration_IsCfnResource(construct constructs.IConstruct)
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDistributionConfiguration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_imagebuilder.CfnDistributionConfiguration",
+		"monocdk.aws_imagebuilder.CfnDistributionConfiguration",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1945,14 +2728,13 @@ func CfnDistributionConfiguration_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_imagebuilder.CfnDistributionConfiguration",
+		"monocdk.aws_imagebuilder.CfnDistributionConfiguration",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnDistributionConfiguration) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1961,10 +2743,6 @@ func (c *jsiiProxy_CfnDistributionConfiguration) AddDeletionOverride(path *strin
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnDistributionConfiguration) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1973,13 +2751,6 @@ func (c *jsiiProxy_CfnDistributionConfiguration) AddDependsOn(target awscdk.CfnR
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnDistributionConfiguration) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1988,49 +2759,6 @@ func (c *jsiiProxy_CfnDistributionConfiguration) AddMetadata(key *string, value 
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnDistributionConfiguration) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2039,7 +2767,6 @@ func (c *jsiiProxy_CfnDistributionConfiguration) AddOverride(path *string, value
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnDistributionConfiguration) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2048,9 +2775,6 @@ func (c *jsiiProxy_CfnDistributionConfiguration) AddPropertyDeletionOverride(pro
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnDistributionConfiguration) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2059,15 +2783,6 @@ func (c *jsiiProxy_CfnDistributionConfiguration) AddPropertyOverride(propertyPat
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnDistributionConfiguration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2076,10 +2791,6 @@ func (c *jsiiProxy_CfnDistributionConfiguration) ApplyRemovalPolicy(policy awscd
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnDistributionConfiguration) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2093,13 +2804,6 @@ func (c *jsiiProxy_CfnDistributionConfiguration) GetAtt(attributeName *string) a
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnDistributionConfiguration) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2113,7 +2817,6 @@ func (c *jsiiProxy_CfnDistributionConfiguration) GetMetadata(key *string) interf
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnDistributionConfiguration) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2122,12 +2825,48 @@ func (c *jsiiProxy_CfnDistributionConfiguration) Inspect(inspector awscdk.TreeIn
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnDistributionConfiguration) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnDistributionConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnDistributionConfiguration) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnDistributionConfiguration) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnDistributionConfiguration) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2144,10 +2883,6 @@ func (c *jsiiProxy_CfnDistributionConfiguration) RenderProperties(props *map[str
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnDistributionConfiguration) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2161,15 +2896,33 @@ func (c *jsiiProxy_CfnDistributionConfiguration) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnDistributionConfiguration) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnDistributionConfiguration) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDistributionConfiguration) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2190,9 +2943,30 @@ func (c *jsiiProxy_CfnDistributionConfiguration) ValidateProperties(_properties 
 // You must specify whether the distribution is for an AMI or a container image. To do so, include exactly one of the following data types for your distribution:
 //
 // - amiDistributionConfiguration
-// - containerDistributionConfiguration
+// - containerDistributionConfiguration.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//
+//   var amiDistributionConfiguration interface{}
+//   var containerDistributionConfiguration interface{}
+//   distributionProperty := &distributionProperty{
+//   	region: jsii.String("region"),
+//
+//   	// the properties below are optional
+//   	amiDistributionConfiguration: amiDistributionConfiguration,
+//   	containerDistributionConfiguration: containerDistributionConfiguration,
+//   	launchTemplateConfigurations: []interface{}{
+//   		&launchTemplateConfigurationProperty{
+//   			accountId: jsii.String("accountId"),
+//   			launchTemplateId: jsii.String("launchTemplateId"),
+//   			setDefaultVersion: jsii.Boolean(false),
+//   		},
+//   	},
+//   	licenseConfigurationArns: []*string{
+//   		jsii.String("licenseConfigurationArns"),
+//   	},
+//   }
 //
 type CfnDistributionConfiguration_DistributionProperty struct {
 	// The target Region for the Distribution Configuration.
@@ -2217,7 +2991,13 @@ type CfnDistributionConfiguration_DistributionProperty struct {
 
 // Identifies an Amazon EC2 launch template to use for a specific account.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   launchTemplateConfigurationProperty := &launchTemplateConfigurationProperty{
+//   	accountId: jsii.String("accountId"),
+//   	launchTemplateId: jsii.String("launchTemplateId"),
+//   	setDefaultVersion: jsii.Boolean(false),
+//   }
 //
 type CfnDistributionConfiguration_LaunchTemplateConfigurationProperty struct {
 	// The account ID that this configuration applies to.
@@ -2230,7 +3010,39 @@ type CfnDistributionConfiguration_LaunchTemplateConfigurationProperty struct {
 
 // Properties for defining a `CfnDistributionConfiguration`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//
+//   var amiDistributionConfiguration interface{}
+//   var containerDistributionConfiguration interface{}
+//   cfnDistributionConfigurationProps := &cfnDistributionConfigurationProps{
+//   	distributions: []interface{}{
+//   		&distributionProperty{
+//   			region: jsii.String("region"),
+//
+//   			// the properties below are optional
+//   			amiDistributionConfiguration: amiDistributionConfiguration,
+//   			containerDistributionConfiguration: containerDistributionConfiguration,
+//   			launchTemplateConfigurations: []interface{}{
+//   				&launchTemplateConfigurationProperty{
+//   					accountId: jsii.String("accountId"),
+//   					launchTemplateId: jsii.String("launchTemplateId"),
+//   					setDefaultVersion: jsii.Boolean(false),
+//   				},
+//   			},
+//   			licenseConfigurationArns: []*string{
+//   				jsii.String("licenseConfigurationArns"),
+//   			},
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   	tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   }
 //
 type CfnDistributionConfigurationProps struct {
 	// The distributions of this distribution configuration formatted as an array of Distribution objects.
@@ -2247,51 +3059,265 @@ type CfnDistributionConfigurationProps struct {
 //
 // An image build version. An image is a customized, secure, and up-to-date “golden” server image that is pre-installed and pre-configured with software and settings to meet specific IT standards.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   cfnImage := imagebuilder.NewCfnImage(this, jsii.String("MyCfnImage"), &cfnImageProps{
+//   	infrastructureConfigurationArn: jsii.String("infrastructureConfigurationArn"),
+//
+//   	// the properties below are optional
+//   	containerRecipeArn: jsii.String("containerRecipeArn"),
+//   	distributionConfigurationArn: jsii.String("distributionConfigurationArn"),
+//   	enhancedImageMetadataEnabled: jsii.Boolean(false),
+//   	imageRecipeArn: jsii.String("imageRecipeArn"),
+//   	imageTestsConfiguration: &imageTestsConfigurationProperty{
+//   		imageTestsEnabled: jsii.Boolean(false),
+//   		timeoutMinutes: jsii.Number(123),
+//   	},
+//   	tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   })
 //
 type CfnImage interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns the Amazon Resource Name (ARN) of the image.
+	//
+	// For example, `arn:aws:imagebuilder:us-west-2:123456789012:image/mybasicrecipe/2019.12.03/1` .
 	AttrArn() *string
+	// Returns the AMI ID of the Amazon EC2 AMI in the Region in which you are using Image Builder.
 	AttrImageId() *string
 	AttrImageUri() *string
+	// Returns the name of the image.
 	AttrName() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// The Amazon Resource Name (ARN) of the container recipe that is used for this pipeline.
 	ContainerRecipeArn() *string
 	SetContainerRecipeArn(val *string)
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The Amazon Resource Name (ARN) of the distribution configuration.
 	DistributionConfigurationArn() *string
 	SetDistributionConfigurationArn(val *string)
+	// Collects additional information about the image being created, including the operating system (OS) version and package list.
+	//
+	// This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default.
 	EnhancedImageMetadataEnabled() interface{}
 	SetEnhancedImageMetadataEnabled(val interface{})
+	// The Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn() *string
 	SetImageRecipeArn(val *string)
+	// The configuration settings for your image test components, which includes a toggle that allows you to turn off tests, and a timeout setting.
 	ImageTestsConfiguration() interface{}
 	SetImageTestsConfiguration(val interface{})
+	// The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
 	InfrastructureConfigurationArn() *string
 	SetInfrastructureConfigurationArn(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// The tags of the image.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2451,8 +3477,8 @@ func (j *jsiiProxy_CfnImage) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnImage) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnImage) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2503,13 +3529,13 @@ func (j *jsiiProxy_CfnImage) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::ImageBuilder::Image`.
-func NewCfnImage(scope constructs.Construct, id *string, props *CfnImageProps) CfnImage {
+func NewCfnImage(scope awscdk.Construct, id *string, props *CfnImageProps) CfnImage {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnImage{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_imagebuilder.CfnImage",
+		"monocdk.aws_imagebuilder.CfnImage",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2518,11 +3544,11 @@ func NewCfnImage(scope constructs.Construct, id *string, props *CfnImageProps) C
 }
 
 // Create a new `AWS::ImageBuilder::Image`.
-func NewCfnImage_Override(c CfnImage, scope constructs.Construct, id *string, props *CfnImageProps) {
+func NewCfnImage_Override(c CfnImage, scope awscdk.Construct, id *string, props *CfnImageProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_imagebuilder.CfnImage",
+		"monocdk.aws_imagebuilder.CfnImage",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2582,13 +3608,14 @@ func (j *jsiiProxy_CfnImage) SetInfrastructureConfigurationArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnImage_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_imagebuilder.CfnImage",
+		"monocdk.aws_imagebuilder.CfnImage",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2598,13 +3625,14 @@ func CfnImage_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnImage_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_imagebuilder.CfnImage",
+		"monocdk.aws_imagebuilder.CfnImage",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2613,17 +3641,15 @@ func CfnImage_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnImage_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_imagebuilder.CfnImage",
+		"monocdk.aws_imagebuilder.CfnImage",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2636,14 +3662,13 @@ func CfnImage_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_imagebuilder.CfnImage",
+		"monocdk.aws_imagebuilder.CfnImage",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnImage) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2652,10 +3677,6 @@ func (c *jsiiProxy_CfnImage) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnImage) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2664,13 +3685,6 @@ func (c *jsiiProxy_CfnImage) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnImage) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2679,49 +3693,6 @@ func (c *jsiiProxy_CfnImage) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnImage) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2730,7 +3701,6 @@ func (c *jsiiProxy_CfnImage) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnImage) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2739,9 +3709,6 @@ func (c *jsiiProxy_CfnImage) AddPropertyDeletionOverride(propertyPath *string) {
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnImage) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2750,15 +3717,6 @@ func (c *jsiiProxy_CfnImage) AddPropertyOverride(propertyPath *string, value int
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnImage) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2767,10 +3725,6 @@ func (c *jsiiProxy_CfnImage) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnImage) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2784,13 +3738,6 @@ func (c *jsiiProxy_CfnImage) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnImage) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2804,7 +3751,6 @@ func (c *jsiiProxy_CfnImage) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnImage) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2813,12 +3759,48 @@ func (c *jsiiProxy_CfnImage) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnImage) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnImage) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnImage) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnImage) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnImage) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2835,10 +3817,6 @@ func (c *jsiiProxy_CfnImage) RenderProperties(props *map[string]interface{}) *ma
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnImage) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2852,15 +3830,33 @@ func (c *jsiiProxy_CfnImage) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnImage) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnImage) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnImage) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2880,7 +3876,12 @@ func (c *jsiiProxy_CfnImage) ValidateProperties(_properties interface{}) {
 //
 // You must have at least one build component to create a recipe, but test components are not required. If you have added tests, they run after the image is created, to ensure that the target image is functional and can be used reliably for launching Amazon EC2 instances.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   imageTestsConfigurationProperty := &imageTestsConfigurationProperty{
+//   	imageTestsEnabled: jsii.Boolean(false),
+//   	timeoutMinutes: jsii.Number(123),
+//   }
 //
 type CfnImage_ImageTestsConfigurationProperty struct {
 	// Determines if tests should run after building the image.
@@ -2895,57 +3896,283 @@ type CfnImage_ImageTestsConfigurationProperty struct {
 //
 // An image pipeline is the automation configuration for building secure OS images on AWS . The Image Builder image pipeline is associated with an image recipe that defines the build, validation, and test phases for an image build lifecycle. An image pipeline can be associated with an infrastructure configuration that defines where your image is built. You can define attributes, such as instance type, subnets, security groups, logging, and other infrastructure-related configurations. You can also associate your image pipeline with a distribution configuration to define how you would like to deploy your image.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   cfnImagePipeline := imagebuilder.NewCfnImagePipeline(this, jsii.String("MyCfnImagePipeline"), &cfnImagePipelineProps{
+//   	infrastructureConfigurationArn: jsii.String("infrastructureConfigurationArn"),
+//   	name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	containerRecipeArn: jsii.String("containerRecipeArn"),
+//   	description: jsii.String("description"),
+//   	distributionConfigurationArn: jsii.String("distributionConfigurationArn"),
+//   	enhancedImageMetadataEnabled: jsii.Boolean(false),
+//   	imageRecipeArn: jsii.String("imageRecipeArn"),
+//   	imageTestsConfiguration: &imageTestsConfigurationProperty{
+//   		imageTestsEnabled: jsii.Boolean(false),
+//   		timeoutMinutes: jsii.Number(123),
+//   	},
+//   	schedule: &scheduleProperty{
+//   		pipelineExecutionStartCondition: jsii.String("pipelineExecutionStartCondition"),
+//   		scheduleExpression: jsii.String("scheduleExpression"),
+//   	},
+//   	status: jsii.String("status"),
+//   	tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   })
 //
 type CfnImagePipeline interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns the Amazon Resource Name (ARN) of the image pipeline.
+	//
+	// For example, `arn:aws:imagebuilder:us-west-2:123456789012:image-pipeline/mywindows2016pipeline` .
 	AttrArn() *string
+	// Returns the name of the image pipeline.
 	AttrName() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// The Amazon Resource Name (ARN) of the container recipe that is used for this pipeline.
 	ContainerRecipeArn() *string
 	SetContainerRecipeArn(val *string)
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The description of this image pipeline.
 	Description() *string
 	SetDescription(val *string)
+	// The Amazon Resource Name (ARN) of the distribution configuration associated with this image pipeline.
 	DistributionConfigurationArn() *string
 	SetDistributionConfigurationArn(val *string)
+	// Collects additional information about the image being created, including the operating system (OS) version and package list.
+	//
+	// This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default.
 	EnhancedImageMetadataEnabled() interface{}
 	SetEnhancedImageMetadataEnabled(val interface{})
+	// The Amazon Resource Name (ARN) of the image recipe associated with this image pipeline.
 	ImageRecipeArn() *string
 	SetImageRecipeArn(val *string)
+	// The configuration of the image tests that run after image creation to ensure the quality of the image that was created.
 	ImageTestsConfiguration() interface{}
 	SetImageTestsConfiguration(val interface{})
+	// The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
 	InfrastructureConfigurationArn() *string
 	SetInfrastructureConfigurationArn(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The name of the image pipeline.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The schedule of the image pipeline.
+	//
+	// A schedule configures how often and when a pipeline automatically creates a new image.
 	Schedule() interface{}
 	SetSchedule(val interface{})
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// The status of the image pipeline.
 	Status() *string
 	SetStatus(val *string)
+	// The tags of this image pipeline.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -3105,8 +4332,8 @@ func (j *jsiiProxy_CfnImagePipeline) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnImagePipeline) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnImagePipeline) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3177,13 +4404,13 @@ func (j *jsiiProxy_CfnImagePipeline) UpdatedProperites() *map[string]interface{}
 
 
 // Create a new `AWS::ImageBuilder::ImagePipeline`.
-func NewCfnImagePipeline(scope constructs.Construct, id *string, props *CfnImagePipelineProps) CfnImagePipeline {
+func NewCfnImagePipeline(scope awscdk.Construct, id *string, props *CfnImagePipelineProps) CfnImagePipeline {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnImagePipeline{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_imagebuilder.CfnImagePipeline",
+		"monocdk.aws_imagebuilder.CfnImagePipeline",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3192,11 +4419,11 @@ func NewCfnImagePipeline(scope constructs.Construct, id *string, props *CfnImage
 }
 
 // Create a new `AWS::ImageBuilder::ImagePipeline`.
-func NewCfnImagePipeline_Override(c CfnImagePipeline, scope constructs.Construct, id *string, props *CfnImagePipelineProps) {
+func NewCfnImagePipeline_Override(c CfnImagePipeline, scope awscdk.Construct, id *string, props *CfnImagePipelineProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_imagebuilder.CfnImagePipeline",
+		"monocdk.aws_imagebuilder.CfnImagePipeline",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3288,13 +4515,14 @@ func (j *jsiiProxy_CfnImagePipeline) SetStatus(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnImagePipeline_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_imagebuilder.CfnImagePipeline",
+		"monocdk.aws_imagebuilder.CfnImagePipeline",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3304,13 +4532,14 @@ func CfnImagePipeline_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnImagePipeline_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_imagebuilder.CfnImagePipeline",
+		"monocdk.aws_imagebuilder.CfnImagePipeline",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3319,17 +4548,15 @@ func CfnImagePipeline_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnImagePipeline_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_imagebuilder.CfnImagePipeline",
+		"monocdk.aws_imagebuilder.CfnImagePipeline",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3342,14 +4569,13 @@ func CfnImagePipeline_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_imagebuilder.CfnImagePipeline",
+		"monocdk.aws_imagebuilder.CfnImagePipeline",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnImagePipeline) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3358,10 +4584,6 @@ func (c *jsiiProxy_CfnImagePipeline) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnImagePipeline) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3370,13 +4592,6 @@ func (c *jsiiProxy_CfnImagePipeline) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnImagePipeline) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3385,49 +4600,6 @@ func (c *jsiiProxy_CfnImagePipeline) AddMetadata(key *string, value interface{})
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnImagePipeline) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3436,7 +4608,6 @@ func (c *jsiiProxy_CfnImagePipeline) AddOverride(path *string, value interface{}
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnImagePipeline) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3445,9 +4616,6 @@ func (c *jsiiProxy_CfnImagePipeline) AddPropertyDeletionOverride(propertyPath *s
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnImagePipeline) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3456,15 +4624,6 @@ func (c *jsiiProxy_CfnImagePipeline) AddPropertyOverride(propertyPath *string, v
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnImagePipeline) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3473,10 +4632,6 @@ func (c *jsiiProxy_CfnImagePipeline) ApplyRemovalPolicy(policy awscdk.RemovalPol
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnImagePipeline) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3490,13 +4645,6 @@ func (c *jsiiProxy_CfnImagePipeline) GetAtt(attributeName *string) awscdk.Refere
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnImagePipeline) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3510,7 +4658,6 @@ func (c *jsiiProxy_CfnImagePipeline) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnImagePipeline) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3519,12 +4666,48 @@ func (c *jsiiProxy_CfnImagePipeline) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnImagePipeline) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnImagePipeline) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnImagePipeline) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnImagePipeline) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnImagePipeline) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3541,10 +4724,6 @@ func (c *jsiiProxy_CfnImagePipeline) RenderProperties(props *map[string]interfac
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnImagePipeline) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3558,15 +4737,33 @@ func (c *jsiiProxy_CfnImagePipeline) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnImagePipeline) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnImagePipeline) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnImagePipeline) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3586,7 +4783,12 @@ func (c *jsiiProxy_CfnImagePipeline) ValidateProperties(_properties interface{})
 //
 // You must have at least one build component to create a recipe, but test components are not required. Your pipeline runs tests after it builds the image, to ensure that the target image is functional and can be used reliably for launching Amazon EC2 instances.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   imageTestsConfigurationProperty := &imageTestsConfigurationProperty{
+//   	imageTestsEnabled: jsii.Boolean(false),
+//   	timeoutMinutes: jsii.Number(123),
+//   }
 //
 type CfnImagePipeline_ImageTestsConfigurationProperty struct {
 	// Defines if tests should be executed when building this image.
@@ -3599,7 +4801,12 @@ type CfnImagePipeline_ImageTestsConfigurationProperty struct {
 
 // A schedule configures how often and when a pipeline will automatically create a new image.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   scheduleProperty := &scheduleProperty{
+//   	pipelineExecutionStartCondition: jsii.String("pipelineExecutionStartCondition"),
+//   	scheduleExpression: jsii.String("scheduleExpression"),
+//   }
 //
 type CfnImagePipeline_ScheduleProperty struct {
 	// The condition configures when the pipeline should trigger a new image build.
@@ -3614,7 +4821,31 @@ type CfnImagePipeline_ScheduleProperty struct {
 
 // Properties for defining a `CfnImagePipeline`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   cfnImagePipelineProps := &cfnImagePipelineProps{
+//   	infrastructureConfigurationArn: jsii.String("infrastructureConfigurationArn"),
+//   	name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	containerRecipeArn: jsii.String("containerRecipeArn"),
+//   	description: jsii.String("description"),
+//   	distributionConfigurationArn: jsii.String("distributionConfigurationArn"),
+//   	enhancedImageMetadataEnabled: jsii.Boolean(false),
+//   	imageRecipeArn: jsii.String("imageRecipeArn"),
+//   	imageTestsConfiguration: &imageTestsConfigurationProperty{
+//   		imageTestsEnabled: jsii.Boolean(false),
+//   		timeoutMinutes: jsii.Number(123),
+//   	},
+//   	schedule: &scheduleProperty{
+//   		pipelineExecutionStartCondition: jsii.String("pipelineExecutionStartCondition"),
+//   		scheduleExpression: jsii.String("scheduleExpression"),
+//   	},
+//   	status: jsii.String("status"),
+//   	tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   }
 //
 type CfnImagePipelineProps struct {
 	// The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
@@ -3647,7 +4878,24 @@ type CfnImagePipelineProps struct {
 
 // Properties for defining a `CfnImage`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   cfnImageProps := &cfnImageProps{
+//   	infrastructureConfigurationArn: jsii.String("infrastructureConfigurationArn"),
+//
+//   	// the properties below are optional
+//   	containerRecipeArn: jsii.String("containerRecipeArn"),
+//   	distributionConfigurationArn: jsii.String("distributionConfigurationArn"),
+//   	enhancedImageMetadataEnabled: jsii.Boolean(false),
+//   	imageRecipeArn: jsii.String("imageRecipeArn"),
+//   	imageTestsConfiguration: &imageTestsConfigurationProperty{
+//   		imageTestsEnabled: jsii.Boolean(false),
+//   		timeoutMinutes: jsii.Number(123),
+//   	},
+//   	tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   }
 //
 type CfnImageProps struct {
 	// The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
@@ -3672,53 +4920,304 @@ type CfnImageProps struct {
 //
 // An Image Builder image recipe is a document that defines the source image and the components to be applied to the source image to produce the desired configuration for the output image. You can use an image recipe to duplicate builds. Image Builder image recipes can be shared, branched, and edited using the console wizard, the AWS CLI , or the API. You can use image recipes with your version control software to maintain shareable versioned image recipes.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   cfnImageRecipe := imagebuilder.NewCfnImageRecipe(this, jsii.String("MyCfnImageRecipe"), &cfnImageRecipeProps{
+//   	components: []interface{}{
+//   		&componentConfigurationProperty{
+//   			componentArn: jsii.String("componentArn"),
+//   			parameters: []interface{}{
+//   				&componentParameterProperty{
+//   					name: jsii.String("name"),
+//   					value: []*string{
+//   						jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//   	parentImage: jsii.String("parentImage"),
+//   	version: jsii.String("version"),
+//
+//   	// the properties below are optional
+//   	additionalInstanceConfiguration: &additionalInstanceConfigurationProperty{
+//   		systemsManagerAgent: &systemsManagerAgentProperty{
+//   			uninstallAfterBuild: jsii.Boolean(false),
+//   		},
+//   		userDataOverride: jsii.String("userDataOverride"),
+//   	},
+//   	blockDeviceMappings: []interface{}{
+//   		&instanceBlockDeviceMappingProperty{
+//   			deviceName: jsii.String("deviceName"),
+//   			ebs: &ebsInstanceBlockDeviceSpecificationProperty{
+//   				deleteOnTermination: jsii.Boolean(false),
+//   				encrypted: jsii.Boolean(false),
+//   				iops: jsii.Number(123),
+//   				kmsKeyId: jsii.String("kmsKeyId"),
+//   				snapshotId: jsii.String("snapshotId"),
+//   				throughput: jsii.Number(123),
+//   				volumeSize: jsii.Number(123),
+//   				volumeType: jsii.String("volumeType"),
+//   			},
+//   			noDevice: jsii.String("noDevice"),
+//   			virtualName: jsii.String("virtualName"),
+//   		},
+//   	},
+//   	description: jsii.String("description"),
+//   	tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   	workingDirectory: jsii.String("workingDirectory"),
+//   })
 //
 type CfnImageRecipe interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Before you create a new AMI, Image Builder launches temporary Amazon EC2 instances to build and test your image configuration.
+	//
+	// Instance configuration adds a layer of control over those instances. You can define settings and add scripts to run when an instance is launched from your AMI.
 	AdditionalInstanceConfiguration() interface{}
 	SetAdditionalInstanceConfiguration(val interface{})
+	// Returns the Amazon Resource Name (ARN) of the image recipe.
+	//
+	// For example, `arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/mybasicrecipe/2019.12.03` .
 	AttrArn() *string
+	// The name of the image recipe.
 	AttrName() *string
+	// The block device mappings to apply when creating images from this recipe.
 	BlockDeviceMappings() interface{}
 	SetBlockDeviceMappings(val interface{})
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// The components of the image recipe.
+	//
+	// Components are orchestration documents that define a sequence of steps for downloading, installing, configuring, and testing software packages. They also define validation and security hardening steps. A component is defined using a YAML document format.
 	Components() interface{}
 	SetComponents(val interface{})
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The description of the image recipe.
 	Description() *string
 	SetDescription(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The name of the image recipe.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// The parent image of the image recipe.
+	//
+	// The string must be either an Image ARN (SemVers is ok) or an AMI ID.
 	ParentImage() *string
 	SetParentImage(val *string)
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// The tags of the image recipe.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// The semantic version of the image recipe.
 	Version() *string
 	SetVersion(val *string)
+	// The working directory to be used during build and test workflows.
 	WorkingDirectory() *string
 	SetWorkingDirectory(val *string)
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -3848,8 +5347,8 @@ func (j *jsiiProxy_CfnImageRecipe) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnImageRecipe) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnImageRecipe) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3930,13 +5429,13 @@ func (j *jsiiProxy_CfnImageRecipe) WorkingDirectory() *string {
 
 
 // Create a new `AWS::ImageBuilder::ImageRecipe`.
-func NewCfnImageRecipe(scope constructs.Construct, id *string, props *CfnImageRecipeProps) CfnImageRecipe {
+func NewCfnImageRecipe(scope awscdk.Construct, id *string, props *CfnImageRecipeProps) CfnImageRecipe {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnImageRecipe{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_imagebuilder.CfnImageRecipe",
+		"monocdk.aws_imagebuilder.CfnImageRecipe",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3945,11 +5444,11 @@ func NewCfnImageRecipe(scope constructs.Construct, id *string, props *CfnImageRe
 }
 
 // Create a new `AWS::ImageBuilder::ImageRecipe`.
-func NewCfnImageRecipe_Override(c CfnImageRecipe, scope constructs.Construct, id *string, props *CfnImageRecipeProps) {
+func NewCfnImageRecipe_Override(c CfnImageRecipe, scope awscdk.Construct, id *string, props *CfnImageRecipeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_imagebuilder.CfnImageRecipe",
+		"monocdk.aws_imagebuilder.CfnImageRecipe",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4025,13 +5524,14 @@ func (j *jsiiProxy_CfnImageRecipe) SetWorkingDirectory(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnImageRecipe_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_imagebuilder.CfnImageRecipe",
+		"monocdk.aws_imagebuilder.CfnImageRecipe",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4041,13 +5541,14 @@ func CfnImageRecipe_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnImageRecipe_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_imagebuilder.CfnImageRecipe",
+		"monocdk.aws_imagebuilder.CfnImageRecipe",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4056,17 +5557,15 @@ func CfnImageRecipe_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnImageRecipe_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_imagebuilder.CfnImageRecipe",
+		"monocdk.aws_imagebuilder.CfnImageRecipe",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4079,14 +5578,13 @@ func CfnImageRecipe_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_imagebuilder.CfnImageRecipe",
+		"monocdk.aws_imagebuilder.CfnImageRecipe",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnImageRecipe) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4095,10 +5593,6 @@ func (c *jsiiProxy_CfnImageRecipe) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnImageRecipe) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4107,13 +5601,6 @@ func (c *jsiiProxy_CfnImageRecipe) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnImageRecipe) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4122,49 +5609,6 @@ func (c *jsiiProxy_CfnImageRecipe) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnImageRecipe) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4173,7 +5617,6 @@ func (c *jsiiProxy_CfnImageRecipe) AddOverride(path *string, value interface{}) 
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnImageRecipe) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4182,9 +5625,6 @@ func (c *jsiiProxy_CfnImageRecipe) AddPropertyDeletionOverride(propertyPath *str
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnImageRecipe) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4193,15 +5633,6 @@ func (c *jsiiProxy_CfnImageRecipe) AddPropertyOverride(propertyPath *string, val
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnImageRecipe) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4210,10 +5641,6 @@ func (c *jsiiProxy_CfnImageRecipe) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnImageRecipe) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4227,13 +5654,6 @@ func (c *jsiiProxy_CfnImageRecipe) GetAtt(attributeName *string) awscdk.Referenc
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnImageRecipe) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4247,7 +5667,6 @@ func (c *jsiiProxy_CfnImageRecipe) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnImageRecipe) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4256,12 +5675,48 @@ func (c *jsiiProxy_CfnImageRecipe) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnImageRecipe) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnImageRecipe) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnImageRecipe) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnImageRecipe) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnImageRecipe) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -4278,10 +5733,6 @@ func (c *jsiiProxy_CfnImageRecipe) RenderProperties(props *map[string]interface{
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnImageRecipe) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4295,15 +5746,33 @@ func (c *jsiiProxy_CfnImageRecipe) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnImageRecipe) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnImageRecipe) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnImageRecipe) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4323,7 +5792,14 @@ func (c *jsiiProxy_CfnImageRecipe) ValidateProperties(_properties interface{}) {
 //
 // For instances where Image Builder installs the Systems Manager agent, you can choose whether to keep it for the AMI that you create. You can also specify commands to run on launch for all of your build instances.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   additionalInstanceConfigurationProperty := &additionalInstanceConfigurationProperty{
+//   	systemsManagerAgent: &systemsManagerAgentProperty{
+//   		uninstallAfterBuild: jsii.Boolean(false),
+//   	},
+//   	userDataOverride: jsii.String("userDataOverride"),
+//   }
 //
 type CfnImageRecipe_AdditionalInstanceConfigurationProperty struct {
 	// Contains settings for the Systems Manager agent on your build instance.
@@ -4338,13 +5814,25 @@ type CfnImageRecipe_AdditionalInstanceConfigurationProperty struct {
 	// >
 	// > mkdir -p /var/bb/
 	// >
-	// > touch /var
+	// > touch /var.
 	UserDataOverride *string `json:"userDataOverride" yaml:"userDataOverride"`
 }
 
 // Configuration details of the component.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   componentConfigurationProperty := &componentConfigurationProperty{
+//   	componentArn: jsii.String("componentArn"),
+//   	parameters: []interface{}{
+//   		&componentParameterProperty{
+//   			name: jsii.String("name"),
+//   			value: []*string{
+//   				jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnImageRecipe_ComponentConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the component.
@@ -4355,7 +5843,14 @@ type CfnImageRecipe_ComponentConfigurationProperty struct {
 
 // Contains a key/value pair that sets the named component parameter.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   componentParameterProperty := &componentParameterProperty{
+//   	name: jsii.String("name"),
+//   	value: []*string{
+//   		jsii.String("value"),
+//   	},
+//   }
 //
 type CfnImageRecipe_ComponentParameterProperty struct {
 	// The name of the component parameter to set.
@@ -4366,7 +5861,18 @@ type CfnImageRecipe_ComponentParameterProperty struct {
 
 // The image recipe EBS instance block device specification includes the Amazon EBS-specific block device mapping specifications for the image.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   ebsInstanceBlockDeviceSpecificationProperty := &ebsInstanceBlockDeviceSpecificationProperty{
+//   	deleteOnTermination: jsii.Boolean(false),
+//   	encrypted: jsii.Boolean(false),
+//   	iops: jsii.Number(123),
+//   	kmsKeyId: jsii.String("kmsKeyId"),
+//   	snapshotId: jsii.String("snapshotId"),
+//   	throughput: jsii.Number(123),
+//   	volumeSize: jsii.Number(123),
+//   	volumeType: jsii.String("volumeType"),
+//   }
 //
 type CfnImageRecipe_EbsInstanceBlockDeviceSpecificationProperty struct {
 	// Configures delete on termination of the associated device.
@@ -4389,7 +5895,23 @@ type CfnImageRecipe_EbsInstanceBlockDeviceSpecificationProperty struct {
 
 // Defines block device mappings for the instance used to configure your image.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   instanceBlockDeviceMappingProperty := &instanceBlockDeviceMappingProperty{
+//   	deviceName: jsii.String("deviceName"),
+//   	ebs: &ebsInstanceBlockDeviceSpecificationProperty{
+//   		deleteOnTermination: jsii.Boolean(false),
+//   		encrypted: jsii.Boolean(false),
+//   		iops: jsii.Number(123),
+//   		kmsKeyId: jsii.String("kmsKeyId"),
+//   		snapshotId: jsii.String("snapshotId"),
+//   		throughput: jsii.Number(123),
+//   		volumeSize: jsii.Number(123),
+//   		volumeType: jsii.String("volumeType"),
+//   	},
+//   	noDevice: jsii.String("noDevice"),
+//   	virtualName: jsii.String("virtualName"),
+//   }
 //
 type CfnImageRecipe_InstanceBlockDeviceMappingProperty struct {
 	// The device to which these mappings apply.
@@ -4400,7 +5922,7 @@ type CfnImageRecipe_InstanceBlockDeviceMappingProperty struct {
 	//
 	// The following is an example of an empty string value in the `NoDevice` field.
 	//
-	// `NoDevice:""`
+	// `NoDevice:""`.
 	NoDevice *string `json:"noDevice" yaml:"noDevice"`
 	// Manages the instance ephemeral devices.
 	VirtualName *string `json:"virtualName" yaml:"virtualName"`
@@ -4408,7 +5930,11 @@ type CfnImageRecipe_InstanceBlockDeviceMappingProperty struct {
 
 // Contains settings for the Systems Manager agent on your build instance.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   systemsManagerAgentProperty := &systemsManagerAgentProperty{
+//   	uninstallAfterBuild: jsii.Boolean(false),
+//   }
 //
 type CfnImageRecipe_SystemsManagerAgentProperty struct {
 	// Controls whether the Systems Manager agent is removed from your final build image, prior to creating the new AMI.
@@ -4419,7 +5945,56 @@ type CfnImageRecipe_SystemsManagerAgentProperty struct {
 
 // Properties for defining a `CfnImageRecipe`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   cfnImageRecipeProps := &cfnImageRecipeProps{
+//   	components: []interface{}{
+//   		&componentConfigurationProperty{
+//   			componentArn: jsii.String("componentArn"),
+//   			parameters: []interface{}{
+//   				&componentParameterProperty{
+//   					name: jsii.String("name"),
+//   					value: []*string{
+//   						jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//   	parentImage: jsii.String("parentImage"),
+//   	version: jsii.String("version"),
+//
+//   	// the properties below are optional
+//   	additionalInstanceConfiguration: &additionalInstanceConfigurationProperty{
+//   		systemsManagerAgent: &systemsManagerAgentProperty{
+//   			uninstallAfterBuild: jsii.Boolean(false),
+//   		},
+//   		userDataOverride: jsii.String("userDataOverride"),
+//   	},
+//   	blockDeviceMappings: []interface{}{
+//   		&instanceBlockDeviceMappingProperty{
+//   			deviceName: jsii.String("deviceName"),
+//   			ebs: &ebsInstanceBlockDeviceSpecificationProperty{
+//   				deleteOnTermination: jsii.Boolean(false),
+//   				encrypted: jsii.Boolean(false),
+//   				iops: jsii.Number(123),
+//   				kmsKeyId: jsii.String("kmsKeyId"),
+//   				snapshotId: jsii.String("snapshotId"),
+//   				throughput: jsii.Number(123),
+//   				volumeSize: jsii.Number(123),
+//   				volumeType: jsii.String("volumeType"),
+//   			},
+//   			noDevice: jsii.String("noDevice"),
+//   			virtualName: jsii.String("virtualName"),
+//   		},
+//   	},
+//   	description: jsii.String("description"),
+//   	tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   	workingDirectory: jsii.String("workingDirectory"),
+//   }
 //
 type CfnImageRecipeProps struct {
 	// The components of the image recipe.
@@ -4452,61 +6027,295 @@ type CfnImageRecipeProps struct {
 //
 // The infrastructure configuration allows you to specify the infrastructure within which to build and test your image. In the infrastructure configuration, you can specify instance types, subnets, and security groups to associate with your instance. You can also associate an Amazon EC2 key pair with the instance used to build your image. This allows you to log on to your instance to troubleshoot if your build fails and you set terminateInstanceOnFailure to false.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   cfnInfrastructureConfiguration := imagebuilder.NewCfnInfrastructureConfiguration(this, jsii.String("MyCfnInfrastructureConfiguration"), &cfnInfrastructureConfigurationProps{
+//   	instanceProfileName: jsii.String("instanceProfileName"),
+//   	name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   	instanceMetadataOptions: &instanceMetadataOptionsProperty{
+//   		httpPutResponseHopLimit: jsii.Number(123),
+//   		httpTokens: jsii.String("httpTokens"),
+//   	},
+//   	instanceTypes: []*string{
+//   		jsii.String("instanceTypes"),
+//   	},
+//   	keyPair: jsii.String("keyPair"),
+//   	logging: &loggingProperty{
+//   		s3Logs: &s3LogsProperty{
+//   			s3BucketName: jsii.String("s3BucketName"),
+//   			s3KeyPrefix: jsii.String("s3KeyPrefix"),
+//   		},
+//   	},
+//   	resourceTags: map[string]*string{
+//   		"resourceTagsKey": jsii.String("resourceTags"),
+//   	},
+//   	securityGroupIds: []*string{
+//   		jsii.String("securityGroupIds"),
+//   	},
+//   	snsTopicArn: jsii.String("snsTopicArn"),
+//   	subnetId: jsii.String("subnetId"),
+//   	tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   	terminateInstanceOnFailure: jsii.Boolean(false),
+//   })
 //
 type CfnInfrastructureConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns the Amazon Resource Name (ARN) of the infrastructure configuration.
+	//
+	// The following pattern is applied: `^arn:aws[^:]*:imagebuilder:[^:]+:(?:\d{12}|aws):(?:image-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline)/[a-z0-9-_]+(?:/(?:(?:x|\d+)\.(?:x|\d+)\.(?:x|\d+))(?:/\d+)?)?$` .
 	AttrArn() *string
+	// The name of the infrastructure configuration.
 	AttrName() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The description of the infrastructure configuration.
 	Description() *string
 	SetDescription(val *string)
+	// The instance metadata option settings for the infrastructure configuration.
 	InstanceMetadataOptions() interface{}
 	SetInstanceMetadataOptions(val interface{})
+	// The instance profile of the infrastructure configuration.
 	InstanceProfileName() *string
 	SetInstanceProfileName(val *string)
+	// The instance types of the infrastructure configuration.
 	InstanceTypes() *[]*string
 	SetInstanceTypes(val *[]*string)
+	// The Amazon EC2 key pair of the infrastructure configuration.
 	KeyPair() *string
 	SetKeyPair(val *string)
+	// The logging configuration defines where Image Builder uploads your logs.
 	Logging() interface{}
 	SetLogging(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The name of the infrastructure configuration.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The tags attached to the resource created by Image Builder.
 	ResourceTags() interface{}
 	SetResourceTags(val interface{})
+	// The security group IDs of the infrastructure configuration.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
+	// The Amazon Resource Name (ARN) of the SNS topic for the infrastructure configuration.
 	SnsTopicArn() *string
 	SetSnsTopicArn(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// The subnet ID of the infrastructure configuration.
 	SubnetId() *string
 	SetSubnetId(val *string)
+	// The tags of the infrastructure configuration.
 	Tags() awscdk.TagManager
+	// The terminate instance on failure configuration of the infrastructure configuration.
 	TerminateInstanceOnFailure() interface{}
 	SetTerminateInstanceOnFailure(val interface{})
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -4656,8 +6465,8 @@ func (j *jsiiProxy_CfnInfrastructureConfiguration) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInfrastructureConfiguration) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnInfrastructureConfiguration) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4758,13 +6567,13 @@ func (j *jsiiProxy_CfnInfrastructureConfiguration) UpdatedProperites() *map[stri
 
 
 // Create a new `AWS::ImageBuilder::InfrastructureConfiguration`.
-func NewCfnInfrastructureConfiguration(scope constructs.Construct, id *string, props *CfnInfrastructureConfigurationProps) CfnInfrastructureConfiguration {
+func NewCfnInfrastructureConfiguration(scope awscdk.Construct, id *string, props *CfnInfrastructureConfigurationProps) CfnInfrastructureConfiguration {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnInfrastructureConfiguration{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_imagebuilder.CfnInfrastructureConfiguration",
+		"monocdk.aws_imagebuilder.CfnInfrastructureConfiguration",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4773,11 +6582,11 @@ func NewCfnInfrastructureConfiguration(scope constructs.Construct, id *string, p
 }
 
 // Create a new `AWS::ImageBuilder::InfrastructureConfiguration`.
-func NewCfnInfrastructureConfiguration_Override(c CfnInfrastructureConfiguration, scope constructs.Construct, id *string, props *CfnInfrastructureConfigurationProps) {
+func NewCfnInfrastructureConfiguration_Override(c CfnInfrastructureConfiguration, scope awscdk.Construct, id *string, props *CfnInfrastructureConfigurationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_imagebuilder.CfnInfrastructureConfiguration",
+		"monocdk.aws_imagebuilder.CfnInfrastructureConfiguration",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4885,13 +6694,14 @@ func (j *jsiiProxy_CfnInfrastructureConfiguration) SetTerminateInstanceOnFailure
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnInfrastructureConfiguration_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_imagebuilder.CfnInfrastructureConfiguration",
+		"monocdk.aws_imagebuilder.CfnInfrastructureConfiguration",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4901,13 +6711,14 @@ func CfnInfrastructureConfiguration_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnInfrastructureConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_imagebuilder.CfnInfrastructureConfiguration",
+		"monocdk.aws_imagebuilder.CfnInfrastructureConfiguration",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4916,17 +6727,15 @@ func CfnInfrastructureConfiguration_IsCfnResource(construct constructs.IConstruc
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnInfrastructureConfiguration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_imagebuilder.CfnInfrastructureConfiguration",
+		"monocdk.aws_imagebuilder.CfnInfrastructureConfiguration",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4939,14 +6748,13 @@ func CfnInfrastructureConfiguration_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_imagebuilder.CfnInfrastructureConfiguration",
+		"monocdk.aws_imagebuilder.CfnInfrastructureConfiguration",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnInfrastructureConfiguration) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4955,10 +6763,6 @@ func (c *jsiiProxy_CfnInfrastructureConfiguration) AddDeletionOverride(path *str
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnInfrastructureConfiguration) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4967,13 +6771,6 @@ func (c *jsiiProxy_CfnInfrastructureConfiguration) AddDependsOn(target awscdk.Cf
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnInfrastructureConfiguration) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4982,49 +6779,6 @@ func (c *jsiiProxy_CfnInfrastructureConfiguration) AddMetadata(key *string, valu
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnInfrastructureConfiguration) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5033,7 +6787,6 @@ func (c *jsiiProxy_CfnInfrastructureConfiguration) AddOverride(path *string, val
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnInfrastructureConfiguration) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5042,9 +6795,6 @@ func (c *jsiiProxy_CfnInfrastructureConfiguration) AddPropertyDeletionOverride(p
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnInfrastructureConfiguration) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5053,15 +6803,6 @@ func (c *jsiiProxy_CfnInfrastructureConfiguration) AddPropertyOverride(propertyP
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnInfrastructureConfiguration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5070,10 +6811,6 @@ func (c *jsiiProxy_CfnInfrastructureConfiguration) ApplyRemovalPolicy(policy aws
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnInfrastructureConfiguration) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -5087,13 +6824,6 @@ func (c *jsiiProxy_CfnInfrastructureConfiguration) GetAtt(attributeName *string)
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnInfrastructureConfiguration) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -5107,7 +6837,6 @@ func (c *jsiiProxy_CfnInfrastructureConfiguration) GetMetadata(key *string) inte
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnInfrastructureConfiguration) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5116,12 +6845,48 @@ func (c *jsiiProxy_CfnInfrastructureConfiguration) Inspect(inspector awscdk.Tree
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnInfrastructureConfiguration) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnInfrastructureConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnInfrastructureConfiguration) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnInfrastructureConfiguration) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnInfrastructureConfiguration) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -5138,10 +6903,6 @@ func (c *jsiiProxy_CfnInfrastructureConfiguration) RenderProperties(props *map[s
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnInfrastructureConfiguration) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -5155,15 +6916,33 @@ func (c *jsiiProxy_CfnInfrastructureConfiguration) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnInfrastructureConfiguration) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnInfrastructureConfiguration) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnInfrastructureConfiguration) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5183,7 +6962,12 @@ func (c *jsiiProxy_CfnInfrastructureConfiguration) ValidateProperties(_propertie
 //
 // For more information about instance metadata options, see [Configure the instance metadata options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html) in the **Amazon EC2 User Guide** for Linux instances, or [Configure the instance metadata options](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/configuring-instance-metadata-options.html) in the **Amazon EC2 Windows Guide** for Windows instances.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   instanceMetadataOptionsProperty := &instanceMetadataOptionsProperty{
+//   	httpPutResponseHopLimit: jsii.Number(123),
+//   	httpTokens: jsii.String("httpTokens"),
+//   }
 //
 type CfnInfrastructureConfiguration_InstanceMetadataOptionsProperty struct {
 	// Limit the number of hops that an instance metadata request can traverse to reach its destination.
@@ -5201,7 +6985,14 @@ type CfnInfrastructureConfiguration_InstanceMetadataOptionsProperty struct {
 
 // Logging configuration defines where Image Builder uploads your logs.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   loggingProperty := &loggingProperty{
+//   	s3Logs: &s3LogsProperty{
+//   		s3BucketName: jsii.String("s3BucketName"),
+//   		s3KeyPrefix: jsii.String("s3KeyPrefix"),
+//   	},
+//   }
 //
 type CfnInfrastructureConfiguration_LoggingProperty struct {
 	// The Amazon S3 logging configuration.
@@ -5210,7 +7001,12 @@ type CfnInfrastructureConfiguration_LoggingProperty struct {
 
 // Amazon S3 logging configuration.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   s3LogsProperty := &s3LogsProperty{
+//   	s3BucketName: jsii.String("s3BucketName"),
+//   	s3KeyPrefix: jsii.String("s3KeyPrefix"),
+//   }
 //
 type CfnInfrastructureConfiguration_S3LogsProperty struct {
 	// The S3 bucket in which to store the logs.
@@ -5221,7 +7017,41 @@ type CfnInfrastructureConfiguration_S3LogsProperty struct {
 
 // Properties for defining a `CfnInfrastructureConfiguration`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   cfnInfrastructureConfigurationProps := &cfnInfrastructureConfigurationProps{
+//   	instanceProfileName: jsii.String("instanceProfileName"),
+//   	name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   	instanceMetadataOptions: &instanceMetadataOptionsProperty{
+//   		httpPutResponseHopLimit: jsii.Number(123),
+//   		httpTokens: jsii.String("httpTokens"),
+//   	},
+//   	instanceTypes: []*string{
+//   		jsii.String("instanceTypes"),
+//   	},
+//   	keyPair: jsii.String("keyPair"),
+//   	logging: &loggingProperty{
+//   		s3Logs: &s3LogsProperty{
+//   			s3BucketName: jsii.String("s3BucketName"),
+//   			s3KeyPrefix: jsii.String("s3KeyPrefix"),
+//   		},
+//   	},
+//   	resourceTags: map[string]*string{
+//   		"resourceTagsKey": jsii.String("resourceTags"),
+//   	},
+//   	securityGroupIds: []*string{
+//   		jsii.String("securityGroupIds"),
+//   	},
+//   	snsTopicArn: jsii.String("snsTopicArn"),
+//   	subnetId: jsii.String("subnetId"),
+//   	tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   	terminateInstanceOnFailure: jsii.Boolean(false),
+//   }
 //
 type CfnInfrastructureConfigurationProps struct {
 	// The instance profile of the infrastructure configuration.

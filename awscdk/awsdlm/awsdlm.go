@@ -1,12 +1,12 @@
 package awsdlm
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsdlm/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsdlm/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::DLM::LifecyclePolicy`.
@@ -15,44 +15,375 @@ import (
 //
 // The properties are required when you add a lifecycle policy and optional when you update a lifecycle policy.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   cfnLifecyclePolicy := dlm.NewCfnLifecyclePolicy(this, jsii.String("MyCfnLifecyclePolicy"), &cfnLifecyclePolicyProps{
+//   	description: jsii.String("description"),
+//   	executionRoleArn: jsii.String("executionRoleArn"),
+//   	policyDetails: &policyDetailsProperty{
+//   		actions: []interface{}{
+//   			&actionProperty{
+//   				crossRegionCopy: []interface{}{
+//   					&crossRegionCopyActionProperty{
+//   						encryptionConfiguration: &encryptionConfigurationProperty{
+//   							encrypted: jsii.Boolean(false),
+//
+//   							// the properties below are optional
+//   							cmkArn: jsii.String("cmkArn"),
+//   						},
+//   						target: jsii.String("target"),
+//
+//   						// the properties below are optional
+//   						retainRule: &crossRegionCopyRetainRuleProperty{
+//   							interval: jsii.Number(123),
+//   							intervalUnit: jsii.String("intervalUnit"),
+//   						},
+//   					},
+//   				},
+//   				name: jsii.String("name"),
+//   			},
+//   		},
+//   		eventSource: &eventSourceProperty{
+//   			type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			parameters: &eventParametersProperty{
+//   				eventType: jsii.String("eventType"),
+//   				snapshotOwner: []*string{
+//   					jsii.String("snapshotOwner"),
+//   				},
+//
+//   				// the properties below are optional
+//   				descriptionRegex: jsii.String("descriptionRegex"),
+//   			},
+//   		},
+//   		parameters: &parametersProperty{
+//   			excludeBootVolume: jsii.Boolean(false),
+//   			noReboot: jsii.Boolean(false),
+//   		},
+//   		policyType: jsii.String("policyType"),
+//   		resourceLocations: []*string{
+//   			jsii.String("resourceLocations"),
+//   		},
+//   		resourceTypes: []*string{
+//   			jsii.String("resourceTypes"),
+//   		},
+//   		schedules: []interface{}{
+//   			&scheduleProperty{
+//   				copyTags: jsii.Boolean(false),
+//   				createRule: &createRuleProperty{
+//   					cronExpression: jsii.String("cronExpression"),
+//   					interval: jsii.Number(123),
+//   					intervalUnit: jsii.String("intervalUnit"),
+//   					location: jsii.String("location"),
+//   					times: []*string{
+//   						jsii.String("times"),
+//   					},
+//   				},
+//   				crossRegionCopyRules: []interface{}{
+//   					&crossRegionCopyRuleProperty{
+//   						encrypted: jsii.Boolean(false),
+//
+//   						// the properties below are optional
+//   						cmkArn: jsii.String("cmkArn"),
+//   						copyTags: jsii.Boolean(false),
+//   						deprecateRule: &crossRegionCopyDeprecateRuleProperty{
+//   							interval: jsii.Number(123),
+//   							intervalUnit: jsii.String("intervalUnit"),
+//   						},
+//   						retainRule: &crossRegionCopyRetainRuleProperty{
+//   							interval: jsii.Number(123),
+//   							intervalUnit: jsii.String("intervalUnit"),
+//   						},
+//   						target: jsii.String("target"),
+//   						targetRegion: jsii.String("targetRegion"),
+//   					},
+//   				},
+//   				deprecateRule: &deprecateRuleProperty{
+//   					count: jsii.Number(123),
+//   					interval: jsii.Number(123),
+//   					intervalUnit: jsii.String("intervalUnit"),
+//   				},
+//   				fastRestoreRule: &fastRestoreRuleProperty{
+//   					availabilityZones: []*string{
+//   						jsii.String("availabilityZones"),
+//   					},
+//   					count: jsii.Number(123),
+//   					interval: jsii.Number(123),
+//   					intervalUnit: jsii.String("intervalUnit"),
+//   				},
+//   				name: jsii.String("name"),
+//   				retainRule: &retainRuleProperty{
+//   					count: jsii.Number(123),
+//   					interval: jsii.Number(123),
+//   					intervalUnit: jsii.String("intervalUnit"),
+//   				},
+//   				shareRules: []interface{}{
+//   					&shareRuleProperty{
+//   						targetAccounts: []*string{
+//   							jsii.String("targetAccounts"),
+//   						},
+//   						unshareInterval: jsii.Number(123),
+//   						unshareIntervalUnit: jsii.String("unshareIntervalUnit"),
+//   					},
+//   				},
+//   				tagsToAdd: []interface{}{
+//   					&cfnTag{
+//   						key: jsii.String("key"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   				variableTags: []interface{}{
+//   					&cfnTag{
+//   						key: jsii.String("key"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		targetTags: []interface{}{
+//   			&cfnTag{
+//   				key: jsii.String("key"),
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   	state: jsii.String("state"),
+//   	tags: []*cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   })
 //
 type CfnLifecyclePolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the lifecycle policy.
 	AttrArn() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// A description of the lifecycle policy.
+	//
+	// The characters ^[0-9A-Za-z _-]+$ are supported.
 	Description() *string
 	SetDescription(val *string)
+	// The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// The configuration details of the lifecycle policy.
 	PolicyDetails() interface{}
 	SetPolicyDetails(val interface{})
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// The activation state of the lifecycle policy.
 	State() *string
 	SetState(val *string)
+	// The tags to apply to the lifecycle policy during creation.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -142,8 +473,8 @@ func (j *jsiiProxy_CfnLifecyclePolicy) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLifecyclePolicy) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnLifecyclePolicy) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -214,13 +545,13 @@ func (j *jsiiProxy_CfnLifecyclePolicy) UpdatedProperites() *map[string]interface
 
 
 // Create a new `AWS::DLM::LifecyclePolicy`.
-func NewCfnLifecyclePolicy(scope constructs.Construct, id *string, props *CfnLifecyclePolicyProps) CfnLifecyclePolicy {
+func NewCfnLifecyclePolicy(scope awscdk.Construct, id *string, props *CfnLifecyclePolicyProps) CfnLifecyclePolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLifecyclePolicy{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy",
+		"monocdk.aws_dlm.CfnLifecyclePolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -229,11 +560,11 @@ func NewCfnLifecyclePolicy(scope constructs.Construct, id *string, props *CfnLif
 }
 
 // Create a new `AWS::DLM::LifecyclePolicy`.
-func NewCfnLifecyclePolicy_Override(c CfnLifecyclePolicy, scope constructs.Construct, id *string, props *CfnLifecyclePolicyProps) {
+func NewCfnLifecyclePolicy_Override(c CfnLifecyclePolicy, scope awscdk.Construct, id *string, props *CfnLifecyclePolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy",
+		"monocdk.aws_dlm.CfnLifecyclePolicy",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -277,13 +608,14 @@ func (j *jsiiProxy_CfnLifecyclePolicy) SetState(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnLifecyclePolicy_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy",
+		"monocdk.aws_dlm.CfnLifecyclePolicy",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -293,13 +625,14 @@ func CfnLifecyclePolicy_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnLifecyclePolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy",
+		"monocdk.aws_dlm.CfnLifecyclePolicy",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -308,17 +641,15 @@ func CfnLifecyclePolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnLifecyclePolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy",
+		"monocdk.aws_dlm.CfnLifecyclePolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -331,14 +662,13 @@ func CfnLifecyclePolicy_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy",
+		"monocdk.aws_dlm.CfnLifecyclePolicy",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnLifecyclePolicy) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -347,10 +677,6 @@ func (c *jsiiProxy_CfnLifecyclePolicy) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnLifecyclePolicy) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -359,13 +685,6 @@ func (c *jsiiProxy_CfnLifecyclePolicy) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnLifecyclePolicy) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -374,49 +693,6 @@ func (c *jsiiProxy_CfnLifecyclePolicy) AddMetadata(key *string, value interface{
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnLifecyclePolicy) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -425,7 +701,6 @@ func (c *jsiiProxy_CfnLifecyclePolicy) AddOverride(path *string, value interface
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnLifecyclePolicy) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -434,9 +709,6 @@ func (c *jsiiProxy_CfnLifecyclePolicy) AddPropertyDeletionOverride(propertyPath 
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnLifecyclePolicy) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -445,15 +717,6 @@ func (c *jsiiProxy_CfnLifecyclePolicy) AddPropertyOverride(propertyPath *string,
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnLifecyclePolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -462,10 +725,6 @@ func (c *jsiiProxy_CfnLifecyclePolicy) ApplyRemovalPolicy(policy awscdk.RemovalP
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnLifecyclePolicy) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -479,13 +738,6 @@ func (c *jsiiProxy_CfnLifecyclePolicy) GetAtt(attributeName *string) awscdk.Refe
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnLifecyclePolicy) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -499,7 +751,6 @@ func (c *jsiiProxy_CfnLifecyclePolicy) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnLifecyclePolicy) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -508,12 +759,48 @@ func (c *jsiiProxy_CfnLifecyclePolicy) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnLifecyclePolicy) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnLifecyclePolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnLifecyclePolicy) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnLifecyclePolicy) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnLifecyclePolicy) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -530,10 +817,6 @@ func (c *jsiiProxy_CfnLifecyclePolicy) RenderProperties(props *map[string]interf
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnLifecyclePolicy) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -547,15 +830,33 @@ func (c *jsiiProxy_CfnLifecyclePolicy) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnLifecyclePolicy) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnLifecyclePolicy) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnLifecyclePolicy) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -573,7 +874,28 @@ func (c *jsiiProxy_CfnLifecyclePolicy) ValidateProperties(_properties interface{
 
 // Specifies an action for an event-based policy.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   actionProperty := &actionProperty{
+//   	crossRegionCopy: []interface{}{
+//   		&crossRegionCopyActionProperty{
+//   			encryptionConfiguration: &encryptionConfigurationProperty{
+//   				encrypted: jsii.Boolean(false),
+//
+//   				// the properties below are optional
+//   				cmkArn: jsii.String("cmkArn"),
+//   			},
+//   			target: jsii.String("target"),
+//
+//   			// the properties below are optional
+//   			retainRule: &crossRegionCopyRetainRuleProperty{
+//   				interval: jsii.Number(123),
+//   				intervalUnit: jsii.String("intervalUnit"),
+//   			},
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//   }
 //
 type CfnLifecyclePolicy_ActionProperty struct {
 	// The rule for copying shared snapshots across Regions.
@@ -586,7 +908,17 @@ type CfnLifecyclePolicy_ActionProperty struct {
 //
 // You must specify either a Cron expression or an interval, interval unit, and start time. You cannot specify both.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   createRuleProperty := &createRuleProperty{
+//   	cronExpression: jsii.String("cronExpression"),
+//   	interval: jsii.Number(123),
+//   	intervalUnit: jsii.String("intervalUnit"),
+//   	location: jsii.String("location"),
+//   	times: []*string{
+//   		jsii.String("times"),
+//   	},
+//   }
 //
 type CfnLifecyclePolicy_CreateRuleProperty struct {
 	// The schedule, as a Cron expression.
@@ -615,7 +947,23 @@ type CfnLifecyclePolicy_CreateRuleProperty struct {
 
 // Specifies a rule for copying shared snapshots across Regions.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   crossRegionCopyActionProperty := &crossRegionCopyActionProperty{
+//   	encryptionConfiguration: &encryptionConfigurationProperty{
+//   		encrypted: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		cmkArn: jsii.String("cmkArn"),
+//   	},
+//   	target: jsii.String("target"),
+//
+//   	// the properties below are optional
+//   	retainRule: &crossRegionCopyRetainRuleProperty{
+//   		interval: jsii.Number(123),
+//   		intervalUnit: jsii.String("intervalUnit"),
+//   	},
+//   }
 //
 type CfnLifecyclePolicy_CrossRegionCopyActionProperty struct {
 	// The encryption settings for the copied snapshot.
@@ -628,7 +976,12 @@ type CfnLifecyclePolicy_CrossRegionCopyActionProperty struct {
 
 // Specifies an AMI deprecation rule for cross-Region AMI copies created by a cross-Region copy rule.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   crossRegionCopyDeprecateRuleProperty := &crossRegionCopyDeprecateRuleProperty{
+//   	interval: jsii.Number(123),
+//   	intervalUnit: jsii.String("intervalUnit"),
+//   }
 //
 type CfnLifecyclePolicy_CrossRegionCopyDeprecateRuleProperty struct {
 	// The period after which to deprecate the cross-Region AMI copies.
@@ -641,7 +994,12 @@ type CfnLifecyclePolicy_CrossRegionCopyDeprecateRuleProperty struct {
 
 // Specifies the retention rule for cross-Region snapshot copies.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   crossRegionCopyRetainRuleProperty := &crossRegionCopyRetainRuleProperty{
+//   	interval: jsii.Number(123),
+//   	intervalUnit: jsii.String("intervalUnit"),
+//   }
 //
 type CfnLifecyclePolicy_CrossRegionCopyRetainRuleProperty struct {
 	// The amount of time to retain each snapshot.
@@ -654,7 +1012,25 @@ type CfnLifecyclePolicy_CrossRegionCopyRetainRuleProperty struct {
 
 // Specifies a rule for cross-Region snapshot copies.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   crossRegionCopyRuleProperty := &crossRegionCopyRuleProperty{
+//   	encrypted: jsii.Boolean(false),
+//
+//   	// the properties below are optional
+//   	cmkArn: jsii.String("cmkArn"),
+//   	copyTags: jsii.Boolean(false),
+//   	deprecateRule: &crossRegionCopyDeprecateRuleProperty{
+//   		interval: jsii.Number(123),
+//   		intervalUnit: jsii.String("intervalUnit"),
+//   	},
+//   	retainRule: &crossRegionCopyRetainRuleProperty{
+//   		interval: jsii.Number(123),
+//   		intervalUnit: jsii.String("intervalUnit"),
+//   	},
+//   	target: jsii.String("target"),
+//   	targetRegion: jsii.String("targetRegion"),
+//   }
 //
 type CfnLifecyclePolicy_CrossRegionCopyRuleProperty struct {
 	// To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter.
@@ -685,7 +1061,13 @@ type CfnLifecyclePolicy_CrossRegionCopyRuleProperty struct {
 
 // Specifies an AMI deprecation rule for a schedule.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   deprecateRuleProperty := &deprecateRuleProperty{
+//   	count: jsii.Number(123),
+//   	interval: jsii.Number(123),
+//   	intervalUnit: jsii.String("intervalUnit"),
+//   }
 //
 type CfnLifecyclePolicy_DeprecateRuleProperty struct {
 	// If the schedule has a count-based retention rule, this parameter specifies the number of oldest AMIs to deprecate.
@@ -702,7 +1084,14 @@ type CfnLifecyclePolicy_DeprecateRuleProperty struct {
 
 // Specifies the encryption settings for shared snapshots that are copied across Regions.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   encryptionConfigurationProperty := &encryptionConfigurationProperty{
+//   	encrypted: jsii.Boolean(false),
+//
+//   	// the properties below are optional
+//   	cmkArn: jsii.String("cmkArn"),
+//   }
 //
 type CfnLifecyclePolicy_EncryptionConfigurationProperty struct {
 	// To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter.
@@ -717,7 +1106,17 @@ type CfnLifecyclePolicy_EncryptionConfigurationProperty struct {
 
 // Specifies an event that triggers an event-based policy.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   eventParametersProperty := &eventParametersProperty{
+//   	eventType: jsii.String("eventType"),
+//   	snapshotOwner: []*string{
+//   		jsii.String("snapshotOwner"),
+//   	},
+//
+//   	// the properties below are optional
+//   	descriptionRegex: jsii.String("descriptionRegex"),
+//   }
 //
 type CfnLifecyclePolicy_EventParametersProperty struct {
 	// The type of event.
@@ -738,7 +1137,22 @@ type CfnLifecyclePolicy_EventParametersProperty struct {
 
 // Specifies an event that triggers an event-based policy.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   eventSourceProperty := &eventSourceProperty{
+//   	type: jsii.String("type"),
+//
+//   	// the properties below are optional
+//   	parameters: &eventParametersProperty{
+//   		eventType: jsii.String("eventType"),
+//   		snapshotOwner: []*string{
+//   			jsii.String("snapshotOwner"),
+//   		},
+//
+//   		// the properties below are optional
+//   		descriptionRegex: jsii.String("descriptionRegex"),
+//   	},
+//   }
 //
 type CfnLifecyclePolicy_EventSourceProperty struct {
 	// The source of the event.
@@ -753,7 +1167,16 @@ type CfnLifecyclePolicy_EventSourceProperty struct {
 //
 // You can enable fast snapshot restore based on either a count or a time interval.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   fastRestoreRuleProperty := &fastRestoreRuleProperty{
+//   	availabilityZones: []*string{
+//   		jsii.String("availabilityZones"),
+//   	},
+//   	count: jsii.Number(123),
+//   	interval: jsii.Number(123),
+//   	intervalUnit: jsii.String("intervalUnit"),
+//   }
 //
 type CfnLifecyclePolicy_FastRestoreRuleProperty struct {
 	// The Availability Zones in which to enable fast snapshot restore.
@@ -772,7 +1195,12 @@ type CfnLifecyclePolicy_FastRestoreRuleProperty struct {
 //
 // The set of valid parameters depends on the combination of policy type and resource type.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   parametersProperty := &parametersProperty{
+//   	excludeBootVolume: jsii.Boolean(false),
+//   	noReboot: jsii.Boolean(false),
+//   }
 //
 type CfnLifecyclePolicy_ParametersProperty struct {
 	// [EBS Snapshot Management – Instance policies only] Indicates whether to exclude the root volume from snapshots created using [CreateSnapshots](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSnapshots.html) . The default is false.
@@ -785,7 +1213,136 @@ type CfnLifecyclePolicy_ParametersProperty struct {
 
 // Specifies the configuration of a lifecycle policy.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   policyDetailsProperty := &policyDetailsProperty{
+//   	actions: []interface{}{
+//   		&actionProperty{
+//   			crossRegionCopy: []interface{}{
+//   				&crossRegionCopyActionProperty{
+//   					encryptionConfiguration: &encryptionConfigurationProperty{
+//   						encrypted: jsii.Boolean(false),
+//
+//   						// the properties below are optional
+//   						cmkArn: jsii.String("cmkArn"),
+//   					},
+//   					target: jsii.String("target"),
+//
+//   					// the properties below are optional
+//   					retainRule: &crossRegionCopyRetainRuleProperty{
+//   						interval: jsii.Number(123),
+//   						intervalUnit: jsii.String("intervalUnit"),
+//   					},
+//   				},
+//   			},
+//   			name: jsii.String("name"),
+//   		},
+//   	},
+//   	eventSource: &eventSourceProperty{
+//   		type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		parameters: &eventParametersProperty{
+//   			eventType: jsii.String("eventType"),
+//   			snapshotOwner: []*string{
+//   				jsii.String("snapshotOwner"),
+//   			},
+//
+//   			// the properties below are optional
+//   			descriptionRegex: jsii.String("descriptionRegex"),
+//   		},
+//   	},
+//   	parameters: &parametersProperty{
+//   		excludeBootVolume: jsii.Boolean(false),
+//   		noReboot: jsii.Boolean(false),
+//   	},
+//   	policyType: jsii.String("policyType"),
+//   	resourceLocations: []*string{
+//   		jsii.String("resourceLocations"),
+//   	},
+//   	resourceTypes: []*string{
+//   		jsii.String("resourceTypes"),
+//   	},
+//   	schedules: []interface{}{
+//   		&scheduleProperty{
+//   			copyTags: jsii.Boolean(false),
+//   			createRule: &createRuleProperty{
+//   				cronExpression: jsii.String("cronExpression"),
+//   				interval: jsii.Number(123),
+//   				intervalUnit: jsii.String("intervalUnit"),
+//   				location: jsii.String("location"),
+//   				times: []*string{
+//   					jsii.String("times"),
+//   				},
+//   			},
+//   			crossRegionCopyRules: []interface{}{
+//   				&crossRegionCopyRuleProperty{
+//   					encrypted: jsii.Boolean(false),
+//
+//   					// the properties below are optional
+//   					cmkArn: jsii.String("cmkArn"),
+//   					copyTags: jsii.Boolean(false),
+//   					deprecateRule: &crossRegionCopyDeprecateRuleProperty{
+//   						interval: jsii.Number(123),
+//   						intervalUnit: jsii.String("intervalUnit"),
+//   					},
+//   					retainRule: &crossRegionCopyRetainRuleProperty{
+//   						interval: jsii.Number(123),
+//   						intervalUnit: jsii.String("intervalUnit"),
+//   					},
+//   					target: jsii.String("target"),
+//   					targetRegion: jsii.String("targetRegion"),
+//   				},
+//   			},
+//   			deprecateRule: &deprecateRuleProperty{
+//   				count: jsii.Number(123),
+//   				interval: jsii.Number(123),
+//   				intervalUnit: jsii.String("intervalUnit"),
+//   			},
+//   			fastRestoreRule: &fastRestoreRuleProperty{
+//   				availabilityZones: []*string{
+//   					jsii.String("availabilityZones"),
+//   				},
+//   				count: jsii.Number(123),
+//   				interval: jsii.Number(123),
+//   				intervalUnit: jsii.String("intervalUnit"),
+//   			},
+//   			name: jsii.String("name"),
+//   			retainRule: &retainRuleProperty{
+//   				count: jsii.Number(123),
+//   				interval: jsii.Number(123),
+//   				intervalUnit: jsii.String("intervalUnit"),
+//   			},
+//   			shareRules: []interface{}{
+//   				&shareRuleProperty{
+//   					targetAccounts: []*string{
+//   						jsii.String("targetAccounts"),
+//   					},
+//   					unshareInterval: jsii.Number(123),
+//   					unshareIntervalUnit: jsii.String("unshareIntervalUnit"),
+//   				},
+//   			},
+//   			tagsToAdd: []interface{}{
+//   				&cfnTag{
+//   					key: jsii.String("key"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   			variableTags: []interface{}{
+//   				&cfnTag{
+//   					key: jsii.String("key"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	targetTags: []interface{}{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnLifecyclePolicy_PolicyDetailsProperty struct {
 	// The actions to be performed when the event-based policy is triggered. You can specify only one action per policy.
@@ -836,7 +1393,13 @@ type CfnLifecyclePolicy_PolicyDetailsProperty struct {
 //
 // You can retain snapshots based on either a count or a time interval.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   retainRuleProperty := &retainRuleProperty{
+//   	count: jsii.Number(123),
+//   	interval: jsii.Number(123),
+//   	intervalUnit: jsii.String("intervalUnit"),
+//   }
 //
 type CfnLifecyclePolicy_RetainRuleProperty struct {
 	// The number of snapshots to retain for each volume, up to a maximum of 1000.
@@ -851,7 +1414,79 @@ type CfnLifecyclePolicy_RetainRuleProperty struct {
 
 // Specifies a backup schedule for a snapshot or AMI lifecycle policy.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   scheduleProperty := &scheduleProperty{
+//   	copyTags: jsii.Boolean(false),
+//   	createRule: &createRuleProperty{
+//   		cronExpression: jsii.String("cronExpression"),
+//   		interval: jsii.Number(123),
+//   		intervalUnit: jsii.String("intervalUnit"),
+//   		location: jsii.String("location"),
+//   		times: []*string{
+//   			jsii.String("times"),
+//   		},
+//   	},
+//   	crossRegionCopyRules: []interface{}{
+//   		&crossRegionCopyRuleProperty{
+//   			encrypted: jsii.Boolean(false),
+//
+//   			// the properties below are optional
+//   			cmkArn: jsii.String("cmkArn"),
+//   			copyTags: jsii.Boolean(false),
+//   			deprecateRule: &crossRegionCopyDeprecateRuleProperty{
+//   				interval: jsii.Number(123),
+//   				intervalUnit: jsii.String("intervalUnit"),
+//   			},
+//   			retainRule: &crossRegionCopyRetainRuleProperty{
+//   				interval: jsii.Number(123),
+//   				intervalUnit: jsii.String("intervalUnit"),
+//   			},
+//   			target: jsii.String("target"),
+//   			targetRegion: jsii.String("targetRegion"),
+//   		},
+//   	},
+//   	deprecateRule: &deprecateRuleProperty{
+//   		count: jsii.Number(123),
+//   		interval: jsii.Number(123),
+//   		intervalUnit: jsii.String("intervalUnit"),
+//   	},
+//   	fastRestoreRule: &fastRestoreRuleProperty{
+//   		availabilityZones: []*string{
+//   			jsii.String("availabilityZones"),
+//   		},
+//   		count: jsii.Number(123),
+//   		interval: jsii.Number(123),
+//   		intervalUnit: jsii.String("intervalUnit"),
+//   	},
+//   	name: jsii.String("name"),
+//   	retainRule: &retainRuleProperty{
+//   		count: jsii.Number(123),
+//   		interval: jsii.Number(123),
+//   		intervalUnit: jsii.String("intervalUnit"),
+//   	},
+//   	shareRules: []interface{}{
+//   		&shareRuleProperty{
+//   			targetAccounts: []*string{
+//   				jsii.String("targetAccounts"),
+//   			},
+//   			unshareInterval: jsii.Number(123),
+//   			unshareIntervalUnit: jsii.String("unshareIntervalUnit"),
+//   		},
+//   	},
+//   	tagsToAdd: []interface{}{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	variableTags: []interface{}{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnLifecyclePolicy_ScheduleProperty struct {
 	// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
@@ -884,7 +1519,15 @@ type CfnLifecyclePolicy_ScheduleProperty struct {
 
 // Specifies a rule for sharing snapshots across AWS accounts .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   shareRuleProperty := &shareRuleProperty{
+//   	targetAccounts: []*string{
+//   		jsii.String("targetAccounts"),
+//   	},
+//   	unshareInterval: jsii.Number(123),
+//   	unshareIntervalUnit: jsii.String("unshareIntervalUnit"),
+//   }
 //
 type CfnLifecyclePolicy_ShareRuleProperty struct {
 	// The IDs of the AWS accounts with which to share the snapshots.
@@ -897,7 +1540,147 @@ type CfnLifecyclePolicy_ShareRuleProperty struct {
 
 // Properties for defining a `CfnLifecyclePolicy`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   cfnLifecyclePolicyProps := &cfnLifecyclePolicyProps{
+//   	description: jsii.String("description"),
+//   	executionRoleArn: jsii.String("executionRoleArn"),
+//   	policyDetails: &policyDetailsProperty{
+//   		actions: []interface{}{
+//   			&actionProperty{
+//   				crossRegionCopy: []interface{}{
+//   					&crossRegionCopyActionProperty{
+//   						encryptionConfiguration: &encryptionConfigurationProperty{
+//   							encrypted: jsii.Boolean(false),
+//
+//   							// the properties below are optional
+//   							cmkArn: jsii.String("cmkArn"),
+//   						},
+//   						target: jsii.String("target"),
+//
+//   						// the properties below are optional
+//   						retainRule: &crossRegionCopyRetainRuleProperty{
+//   							interval: jsii.Number(123),
+//   							intervalUnit: jsii.String("intervalUnit"),
+//   						},
+//   					},
+//   				},
+//   				name: jsii.String("name"),
+//   			},
+//   		},
+//   		eventSource: &eventSourceProperty{
+//   			type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			parameters: &eventParametersProperty{
+//   				eventType: jsii.String("eventType"),
+//   				snapshotOwner: []*string{
+//   					jsii.String("snapshotOwner"),
+//   				},
+//
+//   				// the properties below are optional
+//   				descriptionRegex: jsii.String("descriptionRegex"),
+//   			},
+//   		},
+//   		parameters: &parametersProperty{
+//   			excludeBootVolume: jsii.Boolean(false),
+//   			noReboot: jsii.Boolean(false),
+//   		},
+//   		policyType: jsii.String("policyType"),
+//   		resourceLocations: []*string{
+//   			jsii.String("resourceLocations"),
+//   		},
+//   		resourceTypes: []*string{
+//   			jsii.String("resourceTypes"),
+//   		},
+//   		schedules: []interface{}{
+//   			&scheduleProperty{
+//   				copyTags: jsii.Boolean(false),
+//   				createRule: &createRuleProperty{
+//   					cronExpression: jsii.String("cronExpression"),
+//   					interval: jsii.Number(123),
+//   					intervalUnit: jsii.String("intervalUnit"),
+//   					location: jsii.String("location"),
+//   					times: []*string{
+//   						jsii.String("times"),
+//   					},
+//   				},
+//   				crossRegionCopyRules: []interface{}{
+//   					&crossRegionCopyRuleProperty{
+//   						encrypted: jsii.Boolean(false),
+//
+//   						// the properties below are optional
+//   						cmkArn: jsii.String("cmkArn"),
+//   						copyTags: jsii.Boolean(false),
+//   						deprecateRule: &crossRegionCopyDeprecateRuleProperty{
+//   							interval: jsii.Number(123),
+//   							intervalUnit: jsii.String("intervalUnit"),
+//   						},
+//   						retainRule: &crossRegionCopyRetainRuleProperty{
+//   							interval: jsii.Number(123),
+//   							intervalUnit: jsii.String("intervalUnit"),
+//   						},
+//   						target: jsii.String("target"),
+//   						targetRegion: jsii.String("targetRegion"),
+//   					},
+//   				},
+//   				deprecateRule: &deprecateRuleProperty{
+//   					count: jsii.Number(123),
+//   					interval: jsii.Number(123),
+//   					intervalUnit: jsii.String("intervalUnit"),
+//   				},
+//   				fastRestoreRule: &fastRestoreRuleProperty{
+//   					availabilityZones: []*string{
+//   						jsii.String("availabilityZones"),
+//   					},
+//   					count: jsii.Number(123),
+//   					interval: jsii.Number(123),
+//   					intervalUnit: jsii.String("intervalUnit"),
+//   				},
+//   				name: jsii.String("name"),
+//   				retainRule: &retainRuleProperty{
+//   					count: jsii.Number(123),
+//   					interval: jsii.Number(123),
+//   					intervalUnit: jsii.String("intervalUnit"),
+//   				},
+//   				shareRules: []interface{}{
+//   					&shareRuleProperty{
+//   						targetAccounts: []*string{
+//   							jsii.String("targetAccounts"),
+//   						},
+//   						unshareInterval: jsii.Number(123),
+//   						unshareIntervalUnit: jsii.String("unshareIntervalUnit"),
+//   					},
+//   				},
+//   				tagsToAdd: []interface{}{
+//   					&cfnTag{
+//   						key: jsii.String("key"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   				variableTags: []interface{}{
+//   					&cfnTag{
+//   						key: jsii.String("key"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		targetTags: []interface{}{
+//   			&cfnTag{
+//   				key: jsii.String("key"),
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   	state: jsii.String("state"),
+//   	tags: []*cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnLifecyclePolicyProps struct {
 	// A description of the lifecycle policy.

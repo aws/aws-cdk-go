@@ -1,12 +1,12 @@
 package awsdatapipeline
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatapipeline/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsdatapipeline/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::DataPipeline::Pipeline`.
@@ -24,48 +24,290 @@ import (
 //
 // Pipeline object definitions are passed to the [PutPipelineDefinition](https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_PutPipelineDefinition.html) action and returned by the [GetPipelineDefinition](https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_GetPipelineDefinition.html) action.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datapipeline "github.com/aws/aws-cdk-go/awscdk/aws_datapipeline"
+//   cfnPipeline := datapipeline.NewCfnPipeline(this, jsii.String("MyCfnPipeline"), &cfnPipelineProps{
+//   	name: jsii.String("name"),
+//   	parameterObjects: []interface{}{
+//   		&parameterObjectProperty{
+//   			attributes: []interface{}{
+//   				&parameterAttributeProperty{
+//   					key: jsii.String("key"),
+//   					stringValue: jsii.String("stringValue"),
+//   				},
+//   			},
+//   			id: jsii.String("id"),
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	activate: jsii.Boolean(false),
+//   	description: jsii.String("description"),
+//   	parameterValues: []interface{}{
+//   		&parameterValueProperty{
+//   			id: jsii.String("id"),
+//   			stringValue: jsii.String("stringValue"),
+//   		},
+//   	},
+//   	pipelineObjects: []interface{}{
+//   		&pipelineObjectProperty{
+//   			fields: []interface{}{
+//   				&fieldProperty{
+//   					key: jsii.String("key"),
+//
+//   					// the properties below are optional
+//   					refValue: jsii.String("refValue"),
+//   					stringValue: jsii.String("stringValue"),
+//   				},
+//   			},
+//   			id: jsii.String("id"),
+//   			name: jsii.String("name"),
+//   		},
+//   	},
+//   	pipelineTags: []interface{}{
+//   		&pipelineTagProperty{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   })
 //
 type CfnPipeline interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Indicates whether to validate and start the pipeline or stop an active pipeline.
+	//
+	// By default, the value is set to `true` .
 	Activate() interface{}
 	SetActivate(val interface{})
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// A description of the pipeline.
 	Description() *string
 	SetDescription(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The name of the pipeline.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// The parameter objects used with the pipeline.
 	ParameterObjects() interface{}
 	SetParameterObjects(val interface{})
+	// The parameter values used with the pipeline.
 	ParameterValues() interface{}
 	SetParameterValues(val interface{})
+	// The objects that define the pipeline.
+	//
+	// These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see [Editing Your Pipeline](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-manage-pipeline-modify-console.html) in the *AWS Data Pipeline Developer Guide* .
 	PipelineObjects() interface{}
 	SetPipelineObjects(val interface{})
+	// A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions.
+	//
+	// For more information, see [Controlling Access to Pipelines and Resources](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html) in the *AWS Data Pipeline Developer Guide* .
 	PipelineTags() interface{}
 	SetPipelineTags(val interface{})
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -155,8 +397,8 @@ func (j *jsiiProxy_CfnPipeline) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPipeline) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnPipeline) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -237,13 +479,13 @@ func (j *jsiiProxy_CfnPipeline) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::DataPipeline::Pipeline`.
-func NewCfnPipeline(scope constructs.Construct, id *string, props *CfnPipelineProps) CfnPipeline {
+func NewCfnPipeline(scope awscdk.Construct, id *string, props *CfnPipelineProps) CfnPipeline {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnPipeline{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_datapipeline.CfnPipeline",
+		"monocdk.aws_datapipeline.CfnPipeline",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -252,11 +494,11 @@ func NewCfnPipeline(scope constructs.Construct, id *string, props *CfnPipelinePr
 }
 
 // Create a new `AWS::DataPipeline::Pipeline`.
-func NewCfnPipeline_Override(c CfnPipeline, scope constructs.Construct, id *string, props *CfnPipelineProps) {
+func NewCfnPipeline_Override(c CfnPipeline, scope awscdk.Construct, id *string, props *CfnPipelineProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_datapipeline.CfnPipeline",
+		"monocdk.aws_datapipeline.CfnPipeline",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -324,13 +566,14 @@ func (j *jsiiProxy_CfnPipeline) SetPipelineTags(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnPipeline_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_datapipeline.CfnPipeline",
+		"monocdk.aws_datapipeline.CfnPipeline",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -340,13 +583,14 @@ func CfnPipeline_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnPipeline_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_datapipeline.CfnPipeline",
+		"monocdk.aws_datapipeline.CfnPipeline",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -355,17 +599,15 @@ func CfnPipeline_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnPipeline_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_datapipeline.CfnPipeline",
+		"monocdk.aws_datapipeline.CfnPipeline",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -378,14 +620,13 @@ func CfnPipeline_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_datapipeline.CfnPipeline",
+		"monocdk.aws_datapipeline.CfnPipeline",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnPipeline) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -394,10 +635,6 @@ func (c *jsiiProxy_CfnPipeline) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnPipeline) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -406,13 +643,6 @@ func (c *jsiiProxy_CfnPipeline) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnPipeline) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -421,49 +651,6 @@ func (c *jsiiProxy_CfnPipeline) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnPipeline) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -472,7 +659,6 @@ func (c *jsiiProxy_CfnPipeline) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnPipeline) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -481,9 +667,6 @@ func (c *jsiiProxy_CfnPipeline) AddPropertyDeletionOverride(propertyPath *string
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnPipeline) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -492,15 +675,6 @@ func (c *jsiiProxy_CfnPipeline) AddPropertyOverride(propertyPath *string, value 
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnPipeline) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -509,10 +683,6 @@ func (c *jsiiProxy_CfnPipeline) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnPipeline) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -526,13 +696,6 @@ func (c *jsiiProxy_CfnPipeline) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnPipeline) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -546,7 +709,6 @@ func (c *jsiiProxy_CfnPipeline) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnPipeline) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -555,12 +717,48 @@ func (c *jsiiProxy_CfnPipeline) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnPipeline) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnPipeline) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnPipeline) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnPipeline) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnPipeline) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -577,10 +775,6 @@ func (c *jsiiProxy_CfnPipeline) RenderProperties(props *map[string]interface{}) 
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnPipeline) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -594,15 +788,33 @@ func (c *jsiiProxy_CfnPipeline) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnPipeline) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnPipeline) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnPipeline) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -622,7 +834,15 @@ func (c *jsiiProxy_CfnPipeline) ValidateProperties(_properties interface{}) {
 //
 // The value is specified as either a string value ( `StringValue` ) or a reference to another object ( `RefValue` ) but not as both. To view fields for a data pipeline object, see [Pipeline Object Reference](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-pipeline-objects.html) in the *AWS Data Pipeline Developer Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datapipeline "github.com/aws/aws-cdk-go/awscdk/aws_datapipeline"
+//   fieldProperty := &fieldProperty{
+//   	key: jsii.String("key"),
+//
+//   	// the properties below are optional
+//   	refValue: jsii.String("refValue"),
+//   	stringValue: jsii.String("stringValue"),
+//   }
 //
 type CfnPipeline_FieldProperty struct {
 	// Specifies the name of a field for a particular object.
@@ -647,7 +867,12 @@ type CfnPipeline_FieldProperty struct {
 
 // `Attribute` is a property of `ParameterObject` that defines the attributes of a parameter object as key-value pairs.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datapipeline "github.com/aws/aws-cdk-go/awscdk/aws_datapipeline"
+//   parameterAttributeProperty := &parameterAttributeProperty{
+//   	key: jsii.String("key"),
+//   	stringValue: jsii.String("stringValue"),
+//   }
 //
 type CfnPipeline_ParameterAttributeProperty struct {
 	// The field identifier.
@@ -658,7 +883,17 @@ type CfnPipeline_ParameterAttributeProperty struct {
 
 // Contains information about a parameter object.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datapipeline "github.com/aws/aws-cdk-go/awscdk/aws_datapipeline"
+//   parameterObjectProperty := &parameterObjectProperty{
+//   	attributes: []interface{}{
+//   		&parameterAttributeProperty{
+//   			key: jsii.String("key"),
+//   			stringValue: jsii.String("stringValue"),
+//   		},
+//   	},
+//   	id: jsii.String("id"),
+//   }
 //
 type CfnPipeline_ParameterObjectProperty struct {
 	// The attributes of the parameter object.
@@ -669,7 +904,12 @@ type CfnPipeline_ParameterObjectProperty struct {
 
 // A value or list of parameter values.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datapipeline "github.com/aws/aws-cdk-go/awscdk/aws_datapipeline"
+//   parameterValueProperty := &parameterValueProperty{
+//   	id: jsii.String("id"),
+//   	stringValue: jsii.String("stringValue"),
+//   }
 //
 type CfnPipeline_ParameterValueProperty struct {
 	// The ID of the parameter value.
@@ -682,7 +922,21 @@ type CfnPipeline_ParameterValueProperty struct {
 //
 // This can be a logical, physical, or physical attempt pipeline object. The complete set of components of a pipeline defines the pipeline.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datapipeline "github.com/aws/aws-cdk-go/awscdk/aws_datapipeline"
+//   pipelineObjectProperty := &pipelineObjectProperty{
+//   	fields: []interface{}{
+//   		&fieldProperty{
+//   			key: jsii.String("key"),
+//
+//   			// the properties below are optional
+//   			refValue: jsii.String("refValue"),
+//   			stringValue: jsii.String("stringValue"),
+//   		},
+//   	},
+//   	id: jsii.String("id"),
+//   	name: jsii.String("name"),
+//   }
 //
 type CfnPipeline_PipelineObjectProperty struct {
 	// Key-value pairs that define the properties of the object.
@@ -697,7 +951,12 @@ type CfnPipeline_PipelineObjectProperty struct {
 //
 // For more information, see [Controlling Access to Pipelines and Resources](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html) in the *AWS Data Pipeline Developer Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datapipeline "github.com/aws/aws-cdk-go/awscdk/aws_datapipeline"
+//   pipelineTagProperty := &pipelineTagProperty{
+//   	key: jsii.String("key"),
+//   	value: jsii.String("value"),
+//   }
 //
 type CfnPipeline_PipelineTagProperty struct {
 	// The key name of a tag.
@@ -708,7 +967,53 @@ type CfnPipeline_PipelineTagProperty struct {
 
 // Properties for defining a `CfnPipeline`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datapipeline "github.com/aws/aws-cdk-go/awscdk/aws_datapipeline"
+//   cfnPipelineProps := &cfnPipelineProps{
+//   	name: jsii.String("name"),
+//   	parameterObjects: []interface{}{
+//   		&parameterObjectProperty{
+//   			attributes: []interface{}{
+//   				&parameterAttributeProperty{
+//   					key: jsii.String("key"),
+//   					stringValue: jsii.String("stringValue"),
+//   				},
+//   			},
+//   			id: jsii.String("id"),
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	activate: jsii.Boolean(false),
+//   	description: jsii.String("description"),
+//   	parameterValues: []interface{}{
+//   		&parameterValueProperty{
+//   			id: jsii.String("id"),
+//   			stringValue: jsii.String("stringValue"),
+//   		},
+//   	},
+//   	pipelineObjects: []interface{}{
+//   		&pipelineObjectProperty{
+//   			fields: []interface{}{
+//   				&fieldProperty{
+//   					key: jsii.String("key"),
+//
+//   					// the properties below are optional
+//   					refValue: jsii.String("refValue"),
+//   					stringValue: jsii.String("stringValue"),
+//   				},
+//   			},
+//   			id: jsii.String("id"),
+//   			name: jsii.String("name"),
+//   		},
+//   	},
+//   	pipelineTags: []interface{}{
+//   		&pipelineTagProperty{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnPipelineProps struct {
 	// The name of the pipeline.

@@ -4,30 +4,69 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import autoscaling_common "github.com/aws/aws-cdk-go/awscdk/aws_autoscaling_common"
+//   alarms := &alarms{
+//   	lowerAlarmIntervalIndex: jsii.Number(123),
+//   	upperAlarmIntervalIndex: jsii.Number(123),
+//   }
 //
+// Experimental.
 type Alarms struct {
+	// Experimental.
 	LowerAlarmIntervalIndex *float64 `json:"lowerAlarmIntervalIndex" yaml:"lowerAlarmIntervalIndex"`
+	// Experimental.
 	UpperAlarmIntervalIndex *float64 `json:"upperAlarmIntervalIndex" yaml:"upperAlarmIntervalIndex"`
 }
 
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import autoscaling_common "github.com/aws/aws-cdk-go/awscdk/aws_autoscaling_common"
+//   arbitraryIntervals := &arbitraryIntervals{
+//   	absolute: jsii.Boolean(false),
+//   	intervals: []scalingInterval{
+//   		&scalingInterval{
+//   			change: jsii.Number(123),
 //
+//   			// the properties below are optional
+//   			lower: jsii.Number(123),
+//   			upper: jsii.Number(123),
+//   		},
+//   	},
+//   }
+//
+// Experimental.
 type ArbitraryIntervals struct {
+	// Experimental.
 	Absolute *bool `json:"absolute" yaml:"absolute"`
+	// Experimental.
 	Intervals *[]*ScalingInterval `json:"intervals" yaml:"intervals"`
 }
 
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import autoscaling_common "github.com/aws/aws-cdk-go/awscdk/aws_autoscaling_common"
+//   completeScalingInterval := &completeScalingInterval{
+//   	lower: jsii.Number(123),
+//   	upper: jsii.Number(123),
 //
+//   	// the properties below are optional
+//   	change: jsii.Number(123),
+//   }
+//
+// Experimental.
 type CompleteScalingInterval struct {
+	// Experimental.
 	Lower *float64 `json:"lower" yaml:"lower"`
+	// Experimental.
 	Upper *float64 `json:"upper" yaml:"upper"`
+	// Experimental.
 	Change *float64 `json:"change" yaml:"change"`
 }
 
+// Experimental.
 type IRandomGenerator interface {
+	// Experimental.
 	NextBoolean() *bool
+	// Experimental.
 	NextInt(min *float64, max *float64) *float64
 }
 
@@ -64,8 +103,17 @@ func (i *jsiiProxy_IRandomGenerator) NextInt(min *float64, max *float64) *float6
 
 // A range of metric values in which to apply a certain scaling operation.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import autoscaling_common "github.com/aws/aws-cdk-go/awscdk/aws_autoscaling_common"
+//   scalingInterval := &scalingInterval{
+//   	change: jsii.Number(123),
 //
+//   	// the properties below are optional
+//   	lower: jsii.Number(123),
+//   	upper: jsii.Number(123),
+//   }
+//
+// Experimental.
 type ScalingInterval struct {
 	// The capacity adjustment to apply in this interval.
 	//
@@ -77,14 +125,17 @@ type ScalingInterval struct {
 	//    capacity to itself. The number can be in the range [-100..100].
 	// - ExactCapacity: set the capacity to this number. The number must
 	//    be positive.
+	// Experimental.
 	Change *float64 `json:"change" yaml:"change"`
 	// The lower bound of the interval.
 	//
 	// The scaling adjustment will be applied if the metric is higher than this value.
+	// Experimental.
 	Lower *float64 `json:"lower" yaml:"lower"`
 	// The upper bound of the interval.
 	//
 	// The scaling adjustment will be applied if the metric is lower than this value.
+	// Experimental.
 	Upper *float64 `json:"upper" yaml:"upper"`
 }
 

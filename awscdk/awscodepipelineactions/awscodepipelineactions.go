@@ -1,37 +1,52 @@
 package awscodepipelineactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodecommit"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodedeploy"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipelineactions/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudformation"
+	"github.com/aws/aws-cdk-go/awscdk/awscodebuild"
+	"github.com/aws/aws-cdk-go/awscdk/awscodecommit"
+	"github.com/aws/aws-cdk-go/awscdk/awscodedeploy"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipelineactions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/awsecs"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Low-level class for generic CodePipeline Actions.
 //
 // If you're implementing your own IAction,
 // prefer to use the Action class from the codepipeline module.
+// Experimental.
 type Action interface {
 	awscodepipeline.Action
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// The callback invoked when this Action is added to a Pipeline.
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -61,18 +76,18 @@ func (j *jsiiProxy_Action) ProvidedActionProperties() *awscodepipeline.ActionPro
 }
 
 
+// Experimental.
 func NewAction_Override(a Action, actionProperties *awscodepipeline.ActionProperties) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.Action",
+		"monocdk.aws_codepipeline_actions.Action",
 		[]interface{}{actionProperties},
 		a,
 	)
 }
 
-// The callback invoked when this Action is added to a Pipeline.
-func (a *jsiiProxy_Action) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (a *jsiiProxy_Action) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -85,8 +100,7 @@ func (a *jsiiProxy_Action) Bind(scope constructs.Construct, stage awscodepipelin
 	return returns
 }
 
-// This is a renamed version of the {@link IAction.bind} method.
-func (a *jsiiProxy_Action) Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (a *jsiiProxy_Action) Bound(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -99,7 +113,6 @@ func (a *jsiiProxy_Action) Bound(scope constructs.Construct, stage awscodepipeli
 	return returns
 }
 
-// Creates an Event that will be triggered whenever the state of this Action changes.
 func (a *jsiiProxy_Action) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -128,15 +141,45 @@ func (a *jsiiProxy_Action) VariableExpression(variableName *string) *string {
 
 // Deploys the skill to Alexa.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Read the secrets from ParameterStore
+//   clientId := secretValue.secretsManager(jsii.String("AlexaClientId"))
+//   clientSecret := secretValue.secretsManager(jsii.String("AlexaClientSecret"))
+//   refreshToken := secretValue.secretsManager(jsii.String("AlexaRefreshToken"))
 //
+//   // Add deploy action
+//   sourceOutput := codepipeline.NewArtifact()
+//   codepipeline_actions.NewAlexaSkillDeployAction(&alexaSkillDeployActionProps{
+//   	actionName: jsii.String("DeploySkill"),
+//   	runOrder: jsii.Number(1),
+//   	input: sourceOutput,
+//   	clientId: clientId.toString(),
+//   	clientSecret: clientSecret,
+//   	refreshToken: refreshToken,
+//   	skillId: jsii.String("amzn1.ask.skill.12345678-1234-1234-1234-123456789012"),
+//   })
+//
+// Experimental.
 type AlexaSkillDeployAction interface {
 	Action
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// The callback invoked when this Action is added to a Pipeline.
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -166,13 +209,14 @@ func (j *jsiiProxy_AlexaSkillDeployAction) ProvidedActionProperties() *awscodepi
 }
 
 
+// Experimental.
 func NewAlexaSkillDeployAction(props *AlexaSkillDeployActionProps) AlexaSkillDeployAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_AlexaSkillDeployAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.AlexaSkillDeployAction",
+		"monocdk.aws_codepipeline_actions.AlexaSkillDeployAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -180,18 +224,18 @@ func NewAlexaSkillDeployAction(props *AlexaSkillDeployActionProps) AlexaSkillDep
 	return &j
 }
 
+// Experimental.
 func NewAlexaSkillDeployAction_Override(a AlexaSkillDeployAction, props *AlexaSkillDeployActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.AlexaSkillDeployAction",
+		"monocdk.aws_codepipeline_actions.AlexaSkillDeployAction",
 		[]interface{}{props},
 		a,
 	)
 }
 
-// The callback invoked when this Action is added to a Pipeline.
-func (a *jsiiProxy_AlexaSkillDeployAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (a *jsiiProxy_AlexaSkillDeployAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -204,8 +248,7 @@ func (a *jsiiProxy_AlexaSkillDeployAction) Bind(scope constructs.Construct, stag
 	return returns
 }
 
-// This is a renamed version of the {@link IAction.bind} method.
-func (a *jsiiProxy_AlexaSkillDeployAction) Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (a *jsiiProxy_AlexaSkillDeployAction) Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -218,7 +261,6 @@ func (a *jsiiProxy_AlexaSkillDeployAction) Bound(_scope constructs.Construct, _s
 	return returns
 }
 
-// Creates an Event that will be triggered whenever the state of this Action changes.
 func (a *jsiiProxy_AlexaSkillDeployAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -247,53 +289,135 @@ func (a *jsiiProxy_AlexaSkillDeployAction) VariableExpression(variableName *stri
 
 // Construction properties of the {@link AlexaSkillDeployAction Alexa deploy Action}.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Read the secrets from ParameterStore
+//   clientId := secretValue.secretsManager(jsii.String("AlexaClientId"))
+//   clientSecret := secretValue.secretsManager(jsii.String("AlexaClientSecret"))
+//   refreshToken := secretValue.secretsManager(jsii.String("AlexaRefreshToken"))
 //
+//   // Add deploy action
+//   sourceOutput := codepipeline.NewArtifact()
+//   codepipeline_actions.NewAlexaSkillDeployAction(&alexaSkillDeployActionProps{
+//   	actionName: jsii.String("DeploySkill"),
+//   	runOrder: jsii.Number(1),
+//   	input: sourceOutput,
+//   	clientId: clientId.toString(),
+//   	clientSecret: clientSecret,
+//   	refreshToken: refreshToken,
+//   	skillId: jsii.String("amzn1.ask.skill.12345678-1234-1234-1234-123456789012"),
+//   })
+//
+// Experimental.
 type AlexaSkillDeployActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The client id of the developer console token.
+	// Experimental.
 	ClientId *string `json:"clientId" yaml:"clientId"`
 	// The client secret of the developer console token.
+	// Experimental.
 	ClientSecret awscdk.SecretValue `json:"clientSecret" yaml:"clientSecret"`
 	// The source artifact containing the voice model and skill manifest.
+	// Experimental.
 	Input awscodepipeline.Artifact `json:"input" yaml:"input"`
 	// The refresh token of the developer console token.
+	// Experimental.
 	RefreshToken awscdk.SecretValue `json:"refreshToken" yaml:"refreshToken"`
 	// The Alexa skill id.
+	// Experimental.
 	SkillId *string `json:"skillId" yaml:"skillId"`
 	// An optional artifact containing overrides for the skill manifest.
+	// Experimental.
 	ParameterOverridesArtifact awscodepipeline.Artifact `json:"parameterOverridesArtifact" yaml:"parameterOverridesArtifact"`
 }
 
+// Experimental.
 type BaseJenkinsProvider interface {
-	constructs.Construct
+	awscdk.Construct
 	IJenkinsProvider
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Experimental.
 	ProviderName() *string
+	// Experimental.
 	ServerUrl() *string
+	// Experimental.
 	Version() *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for BaseJenkinsProvider
 type jsiiProxy_BaseJenkinsProvider struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 	jsiiProxy_IJenkinsProvider
 }
 
-func (j *jsiiProxy_BaseJenkinsProvider) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_BaseJenkinsProvider) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -333,27 +457,26 @@ func (j *jsiiProxy_BaseJenkinsProvider) Version() *string {
 }
 
 
+// Experimental.
 func NewBaseJenkinsProvider_Override(b BaseJenkinsProvider, scope constructs.Construct, id *string, version *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.BaseJenkinsProvider",
+		"monocdk.aws_codepipeline_actions.BaseJenkinsProvider",
 		[]interface{}{scope, id, version},
 		b,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func BaseJenkinsProvider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline_actions.BaseJenkinsProvider",
+		"monocdk.aws_codepipeline_actions.BaseJenkinsProvider",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -362,7 +485,51 @@ func BaseJenkinsProvider_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
+func (b *jsiiProxy_BaseJenkinsProvider) OnPrepare() {
+	_jsii_.InvokeVoid(
+		b,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (b *jsiiProxy_BaseJenkinsProvider) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		b,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (b *jsiiProxy_BaseJenkinsProvider) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		b,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (b *jsiiProxy_BaseJenkinsProvider) Prepare() {
+	_jsii_.InvokeVoid(
+		b,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (b *jsiiProxy_BaseJenkinsProvider) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		b,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (b *jsiiProxy_BaseJenkinsProvider) ToString() *string {
 	var returns *string
 
@@ -376,17 +543,241 @@ func (b *jsiiProxy_BaseJenkinsProvider) ToString() *string {
 	return returns
 }
 
+func (b *jsiiProxy_BaseJenkinsProvider) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		b,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// A CodePipeline source action for BitBucket.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//
+//   var artifact artifact
+//   var role role
+//   bitBucketSourceAction := codepipeline_actions.NewBitBucketSourceAction(&bitBucketSourceActionProps{
+//   	actionName: jsii.String("actionName"),
+//   	connectionArn: jsii.String("connectionArn"),
+//   	output: artifact,
+//   	owner: jsii.String("owner"),
+//   	repo: jsii.String("repo"),
+//
+//   	// the properties below are optional
+//   	branch: jsii.String("branch"),
+//   	codeBuildCloneOutput: jsii.Boolean(false),
+//   	role: role,
+//   	runOrder: jsii.Number(123),
+//   	triggerOnPush: jsii.Boolean(false),
+//   	variablesNamespace: jsii.String("variablesNamespace"),
+//   })
+//
+// Deprecated: use CodeStarConnectionsSourceAction instead.
+type BitBucketSourceAction interface {
+	awscodepipeline.IAction
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Deprecated: use CodeStarConnectionsSourceAction instead.
+	ActionProperties() *awscodepipeline.ActionProperties
+	// The callback invoked when this Action is added to a Pipeline.
+	// Deprecated: use CodeStarConnectionsSourceAction instead.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Deprecated: use CodeStarConnectionsSourceAction instead.
+	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+}
+
+// The jsii proxy struct for BitBucketSourceAction
+type jsiiProxy_BitBucketSourceAction struct {
+	internal.Type__awscodepipelineIAction
+}
+
+func (j *jsiiProxy_BitBucketSourceAction) ActionProperties() *awscodepipeline.ActionProperties {
+	var returns *awscodepipeline.ActionProperties
+	_jsii_.Get(
+		j,
+		"actionProperties",
+		&returns,
+	)
+	return returns
+}
+
+
+// Deprecated: use CodeStarConnectionsSourceAction instead.
+func NewBitBucketSourceAction(props *BitBucketSourceActionProps) BitBucketSourceAction {
+	_init_.Initialize()
+
+	j := jsiiProxy_BitBucketSourceAction{}
+
+	_jsii_.Create(
+		"monocdk.aws_codepipeline_actions.BitBucketSourceAction",
+		[]interface{}{props},
+		&j,
+	)
+
+	return &j
+}
+
+// Deprecated: use CodeStarConnectionsSourceAction instead.
+func NewBitBucketSourceAction_Override(b BitBucketSourceAction, props *BitBucketSourceActionProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_codepipeline_actions.BitBucketSourceAction",
+		[]interface{}{props},
+		b,
+	)
+}
+
+func (b *jsiiProxy_BitBucketSourceAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	var returns *awscodepipeline.ActionConfig
+
+	_jsii_.Invoke(
+		b,
+		"bind",
+		[]interface{}{scope, stage, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (b *jsiiProxy_BitBucketSourceAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	var returns awsevents.Rule
+
+	_jsii_.Invoke(
+		b,
+		"onStateChange",
+		[]interface{}{name, target, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Construction properties for {@link BitBucketSourceAction}.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//
+//   var artifact artifact
+//   var role role
+//   bitBucketSourceActionProps := &bitBucketSourceActionProps{
+//   	actionName: jsii.String("actionName"),
+//   	connectionArn: jsii.String("connectionArn"),
+//   	output: artifact,
+//   	owner: jsii.String("owner"),
+//   	repo: jsii.String("repo"),
+//
+//   	// the properties below are optional
+//   	branch: jsii.String("branch"),
+//   	codeBuildCloneOutput: jsii.Boolean(false),
+//   	role: role,
+//   	runOrder: jsii.Number(123),
+//   	triggerOnPush: jsii.Boolean(false),
+//   	variablesNamespace: jsii.String("variablesNamespace"),
+//   }
+//
+// Deprecated: use CodeStarConnectionsSourceActionProps instead.
+type BitBucketSourceActionProps struct {
+	// The physical, human-readable name of the Action.
+	//
+	// Note that Action names must be unique within a single Stage.
+	// Deprecated: use CodeStarConnectionsSourceActionProps instead.
+	ActionName *string `json:"actionName" yaml:"actionName"`
+	// The runOrder property for this Action.
+	//
+	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
+	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
+	//
+	// Deprecated: use CodeStarConnectionsSourceActionProps instead.
+	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	// The name of the namespace to use for variables emitted by this action.
+	// Deprecated: use CodeStarConnectionsSourceActionProps instead.
+	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	// The Role in which context's this Action will be executing in.
+	//
+	// The Pipeline's Role will assume this Role
+	// (the required permissions for that will be granted automatically)
+	// right before executing this Action.
+	// This Action will be passed into your {@link IAction.bind}
+	// method in the {@link ActionBindOptions.role} property.
+	// Deprecated: use CodeStarConnectionsSourceActionProps instead.
+	Role awsiam.IRole `json:"role" yaml:"role"`
+	// The ARN of the CodeStar Connection created in the AWS console that has permissions to access this GitHub or BitBucket repository.
+	//
+	// Example:
+	//   'arn:aws:codestar-connections:us-east-1:123456789012:connection/12345678-abcd-12ab-34cdef5678gh'
+	//
+	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/connections-create.html
+	//
+	// Deprecated: use CodeStarConnectionsSourceActionProps instead.
+	ConnectionArn *string `json:"connectionArn" yaml:"connectionArn"`
+	// The output artifact that this action produces.
+	//
+	// Can be used as input for further pipeline actions.
+	// Deprecated: use CodeStarConnectionsSourceActionProps instead.
+	Output awscodepipeline.Artifact `json:"output" yaml:"output"`
+	// The owning user or organization of the repository.
+	//
+	// Example:
+	//   'aws'
+	//
+	// Deprecated: use CodeStarConnectionsSourceActionProps instead.
+	Owner *string `json:"owner" yaml:"owner"`
+	// The name of the repository.
+	//
+	// Example:
+	//   'aws-cdk'
+	//
+	// Deprecated: use CodeStarConnectionsSourceActionProps instead.
+	Repo *string `json:"repo" yaml:"repo"`
+	// The branch to build.
+	// Deprecated: use CodeStarConnectionsSourceActionProps instead.
+	Branch *string `json:"branch" yaml:"branch"`
+	// Whether the output should be the contents of the repository (which is the default), or a link that allows CodeBuild to clone the repository before building.
+	//
+	// **Note**: if this option is true,
+	// then only CodeBuild actions can use the resulting {@link output}.
+	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config
+	//
+	// Deprecated: use CodeStarConnectionsSourceActionProps instead.
+	CodeBuildCloneOutput *bool `json:"codeBuildCloneOutput" yaml:"codeBuildCloneOutput"`
+	// Controls automatically starting your pipeline when a new commit is made on the configured repository and branch.
+	//
+	// If unspecified,
+	// the default value is true, and the field does not display by default.
+	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html
+	//
+	// Deprecated: use CodeStarConnectionsSourceActionProps instead.
+	TriggerOnPush *bool `json:"triggerOnPush" yaml:"triggerOnPush"`
+}
+
 // Used for HTTP cache-control header, which influences downstream caches.
 //
 // Use the provided static factory methods to construct instances of this class.
 // Used in the {@link S3DeployActionProps.cacheControl} property.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"
+//   cacheControl := codepipeline_actions.cacheControl.fromString(jsii.String("s"))
 //
 // See: https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9
 //
+// Experimental.
 type CacheControl interface {
+	// the actual text value of the created directive.
+	// Experimental.
 	Value() *string
+	// Experimental.
 	SetValue(val *string)
 }
 
@@ -415,13 +806,14 @@ func (j *jsiiProxy_CacheControl) SetValue(val *string) {
 }
 
 // Allows you to create an arbitrary cache control directive, in case our support is missing a method for a particular directive.
+// Experimental.
 func CacheControl_FromString(s *string) CacheControl {
 	_init_.Initialize()
 
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
+		"monocdk.aws_codepipeline_actions.CacheControl",
 		"fromString",
 		[]interface{}{s},
 		&returns,
@@ -431,13 +823,14 @@ func CacheControl_FromString(s *string) CacheControl {
 }
 
 // The 'max-age' cache control directive.
+// Experimental.
 func CacheControl_MaxAge(t awscdk.Duration) CacheControl {
 	_init_.Initialize()
 
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
+		"monocdk.aws_codepipeline_actions.CacheControl",
 		"maxAge",
 		[]interface{}{t},
 		&returns,
@@ -447,13 +840,14 @@ func CacheControl_MaxAge(t awscdk.Duration) CacheControl {
 }
 
 // The 'must-revalidate' cache control directive.
+// Experimental.
 func CacheControl_MustRevalidate() CacheControl {
 	_init_.Initialize()
 
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
+		"monocdk.aws_codepipeline_actions.CacheControl",
 		"mustRevalidate",
 		nil, // no parameters
 		&returns,
@@ -463,13 +857,14 @@ func CacheControl_MustRevalidate() CacheControl {
 }
 
 // The 'no-cache' cache control directive.
+// Experimental.
 func CacheControl_NoCache() CacheControl {
 	_init_.Initialize()
 
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
+		"monocdk.aws_codepipeline_actions.CacheControl",
 		"noCache",
 		nil, // no parameters
 		&returns,
@@ -479,13 +874,14 @@ func CacheControl_NoCache() CacheControl {
 }
 
 // The 'no-transform' cache control directive.
+// Experimental.
 func CacheControl_NoTransform() CacheControl {
 	_init_.Initialize()
 
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
+		"monocdk.aws_codepipeline_actions.CacheControl",
 		"noTransform",
 		nil, // no parameters
 		&returns,
@@ -495,13 +891,14 @@ func CacheControl_NoTransform() CacheControl {
 }
 
 // The 'proxy-revalidate' cache control directive.
+// Experimental.
 func CacheControl_ProxyRevalidate() CacheControl {
 	_init_.Initialize()
 
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
+		"monocdk.aws_codepipeline_actions.CacheControl",
 		"proxyRevalidate",
 		nil, // no parameters
 		&returns,
@@ -511,13 +908,14 @@ func CacheControl_ProxyRevalidate() CacheControl {
 }
 
 // The 'private' cache control directive.
+// Experimental.
 func CacheControl_SetPrivate() CacheControl {
 	_init_.Initialize()
 
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
+		"monocdk.aws_codepipeline_actions.CacheControl",
 		"setPrivate",
 		nil, // no parameters
 		&returns,
@@ -527,13 +925,14 @@ func CacheControl_SetPrivate() CacheControl {
 }
 
 // The 'public' cache control directive.
+// Experimental.
 func CacheControl_SetPublic() CacheControl {
 	_init_.Initialize()
 
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
+		"monocdk.aws_codepipeline_actions.CacheControl",
 		"setPublic",
 		nil, // no parameters
 		&returns,
@@ -543,13 +942,14 @@ func CacheControl_SetPublic() CacheControl {
 }
 
 // The 's-max-age' cache control directive.
+// Experimental.
 func CacheControl_SMaxAge(t awscdk.Duration) CacheControl {
 	_init_.Initialize()
 
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
+		"monocdk.aws_codepipeline_actions.CacheControl",
 		"sMaxAge",
 		[]interface{}{t},
 		&returns,
@@ -563,17 +963,86 @@ func CacheControl_SMaxAge(t awscdk.Duration) CacheControl {
 // Creates the change set if it doesn't exist based on the stack name and template that you submit.
 // If the change set exists, AWS CloudFormation deletes it, and then creates a new one.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Source stage: read from repository
+//   repo := codecommit.NewRepository(stack, jsii.String("TemplateRepo"), &repositoryProps{
+//   	repositoryName: jsii.String("template-repo"),
+//   })
+//   sourceOutput := codepipeline.NewArtifact(jsii.String("SourceArtifact"))
+//   source := cpactions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
+//   	actionName: jsii.String("Source"),
+//   	repository: repo,
+//   	output: sourceOutput,
+//   	trigger: cpactions.codeCommitTrigger_POLL,
+//   })
+//   sourceStage := map[string]interface{}{
+//   	"stageName": jsii.String("Source"),
+//   	"actions": []CodeCommitSourceAction{
+//   		source,
+//   	},
+//   }
 //
+//   // Deployment stage: create and deploy changeset with manual approval
+//   stackName := "OurStack"
+//   changeSetName := "StagedChangeSet"
+//
+//   prodStage := map[string]interface{}{
+//   	"stageName": jsii.String("Deploy"),
+//   	"actions": []interface{}{
+//   		cpactions.NewCloudFormationCreateReplaceChangeSetAction(&CloudFormationCreateReplaceChangeSetActionProps{
+//   			"actionName": jsii.String("PrepareChanges"),
+//   			"stackName": jsii.String(stackName),
+//   			"changeSetName": jsii.String(changeSetName),
+//   			"adminPermissions": jsii.Boolean(true),
+//   			"templatePath": sourceOutput.atPath(jsii.String("template.yaml")),
+//   			"runOrder": jsii.Number(1),
+//   		}),
+//   		cpactions.NewManualApprovalAction(&ManualApprovalActionProps{
+//   			"actionName": jsii.String("ApproveChanges"),
+//   			"runOrder": jsii.Number(2),
+//   		}),
+//   		cpactions.NewCloudFormationExecuteChangeSetAction(&CloudFormationExecuteChangeSetActionProps{
+//   			"actionName": jsii.String("ExecuteChanges"),
+//   			"stackName": jsii.String(stackName),
+//   			"changeSetName": jsii.String(changeSetName),
+//   			"runOrder": jsii.Number(3),
+//   		}),
+//   	},
+//   }
+//
+//   codepipeline.NewPipeline(stack, jsii.String("Pipeline"), &pipelineProps{
+//   	stages: []stageProps{
+//   		sourceStage,
+//   		prodStage,
+//   	},
+//   })
+//
+// Experimental.
 type CloudFormationCreateReplaceChangeSetAction interface {
 	Action
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
+	// Experimental.
 	DeploymentRole() awsiam.IRole
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
+	// Add statement to the service role assumed by CloudFormation while executing this action.
+	// Experimental.
 	AddToDeploymentRolePolicy(statement awsiam.PolicyStatement) *bool
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// The callback invoked when this Action is added to a Pipeline.
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -613,13 +1082,14 @@ func (j *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) ProvidedActionPro
 }
 
 
+// Experimental.
 func NewCloudFormationCreateReplaceChangeSetAction(props *CloudFormationCreateReplaceChangeSetActionProps) CloudFormationCreateReplaceChangeSetAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_CloudFormationCreateReplaceChangeSetAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationCreateReplaceChangeSetAction",
+		"monocdk.aws_codepipeline_actions.CloudFormationCreateReplaceChangeSetAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -627,17 +1097,17 @@ func NewCloudFormationCreateReplaceChangeSetAction(props *CloudFormationCreateRe
 	return &j
 }
 
+// Experimental.
 func NewCloudFormationCreateReplaceChangeSetAction_Override(c CloudFormationCreateReplaceChangeSetAction, props *CloudFormationCreateReplaceChangeSetActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationCreateReplaceChangeSetAction",
+		"monocdk.aws_codepipeline_actions.CloudFormationCreateReplaceChangeSetAction",
 		[]interface{}{props},
 		c,
 	)
 }
 
-// Add statement to the service role assumed by CloudFormation while executing this action.
 func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) AddToDeploymentRolePolicy(statement awsiam.PolicyStatement) *bool {
 	var returns *bool
 
@@ -651,8 +1121,7 @@ func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) AddToDeploymentRo
 	return returns
 }
 
-// The callback invoked when this Action is added to a Pipeline.
-func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -665,8 +1134,7 @@ func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) Bind(scope constr
 	return returns
 }
 
-// This is a renamed version of the {@link IAction.bind} method.
-func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) Bound(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -679,7 +1147,6 @@ func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) Bound(scope const
 	return returns
 }
 
-// Creates an Event that will be triggered whenever the state of this Action changes.
 func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -708,20 +1175,76 @@ func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) VariableExpressio
 
 // Properties for the CloudFormationCreateReplaceChangeSetAction.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Source stage: read from repository
+//   repo := codecommit.NewRepository(stack, jsii.String("TemplateRepo"), &repositoryProps{
+//   	repositoryName: jsii.String("template-repo"),
+//   })
+//   sourceOutput := codepipeline.NewArtifact(jsii.String("SourceArtifact"))
+//   source := cpactions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
+//   	actionName: jsii.String("Source"),
+//   	repository: repo,
+//   	output: sourceOutput,
+//   	trigger: cpactions.codeCommitTrigger_POLL,
+//   })
+//   sourceStage := map[string]interface{}{
+//   	"stageName": jsii.String("Source"),
+//   	"actions": []CodeCommitSourceAction{
+//   		source,
+//   	},
+//   }
 //
+//   // Deployment stage: create and deploy changeset with manual approval
+//   stackName := "OurStack"
+//   changeSetName := "StagedChangeSet"
+//
+//   prodStage := map[string]interface{}{
+//   	"stageName": jsii.String("Deploy"),
+//   	"actions": []interface{}{
+//   		cpactions.NewCloudFormationCreateReplaceChangeSetAction(&CloudFormationCreateReplaceChangeSetActionProps{
+//   			"actionName": jsii.String("PrepareChanges"),
+//   			"stackName": jsii.String(stackName),
+//   			"changeSetName": jsii.String(changeSetName),
+//   			"adminPermissions": jsii.Boolean(true),
+//   			"templatePath": sourceOutput.atPath(jsii.String("template.yaml")),
+//   			"runOrder": jsii.Number(1),
+//   		}),
+//   		cpactions.NewManualApprovalAction(&ManualApprovalActionProps{
+//   			"actionName": jsii.String("ApproveChanges"),
+//   			"runOrder": jsii.Number(2),
+//   		}),
+//   		cpactions.NewCloudFormationExecuteChangeSetAction(&CloudFormationExecuteChangeSetActionProps{
+//   			"actionName": jsii.String("ExecuteChanges"),
+//   			"stackName": jsii.String(stackName),
+//   			"changeSetName": jsii.String(changeSetName),
+//   			"runOrder": jsii.Number(3),
+//   		}),
+//   	},
+//   }
+//
+//   codepipeline.NewPipeline(stack, jsii.String("Pipeline"), &pipelineProps{
+//   	stages: []stageProps{
+//   		sourceStage,
+//   		prodStage,
+//   	},
+//   })
+//
+// Experimental.
 type CloudFormationCreateReplaceChangeSetActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -730,6 +1253,7 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Whether to grant full permissions to CloudFormation while deploying this template.
 	//
@@ -744,18 +1268,33 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 	// are deployed in this pipeline. If you want more fine-grained permissions,
 	// use `addToRolePolicy` and `capabilities` to control what the CloudFormation
 	// deployment is allowed to do.
+	// Experimental.
 	AdminPermissions *bool `json:"adminPermissions" yaml:"adminPermissions"`
 	// Name of the change set to create or update.
+	// Experimental.
 	ChangeSetName *string `json:"changeSetName" yaml:"changeSetName"`
 	// The name of the stack to apply this action to.
+	// Experimental.
 	StackName *string `json:"stackName" yaml:"stackName"`
 	// Input artifact with the ChangeSet's CloudFormation template.
+	// Experimental.
 	TemplatePath awscodepipeline.ArtifactPath `json:"templatePath" yaml:"templatePath"`
 	// The AWS account this Action is supposed to operate in.
 	//
 	// **Note**: if you specify the `role` property,
 	// this is ignored - the action will operate in the same region the passed role does.
+	// Experimental.
 	Account *string `json:"account" yaml:"account"`
+	// Acknowledge certain changes made as part of deployment.
+	//
+	// For stacks that contain certain resources, explicit acknowledgement that AWS CloudFormation
+	// might create or update those resources. For example, you must specify `AnonymousIAM` or `NamedIAM`
+	// if your stack template contains AWS Identity and Access Management (IAM) resources. For more
+	// information see the link below.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities
+	//
+	// Deprecated: use {@link cfnCapabilities} instead.
+	Capabilities *[]awscloudformation.CloudFormationCapabilities `json:"capabilities" yaml:"capabilities"`
 	// Acknowledge certain changes made as part of deployment.
 	//
 	// For stacks that contain certain resources,
@@ -765,12 +1304,14 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 	// For more information, see the link below.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities
 	//
+	// Experimental.
 	CfnCapabilities *[]awscdk.CfnCapabilities `json:"cfnCapabilities" yaml:"cfnCapabilities"`
 	// IAM role to assume when deploying changes.
 	//
 	// If not specified, a fresh role is created. The role is created with zero
 	// permissions unless `adminPermissions` is true, in which case the role will have
 	// full permissions.
+	// Experimental.
 	DeploymentRole awsiam.IRole `json:"deploymentRole" yaml:"deploymentRole"`
 	// The list of additional input Artifacts for this Action.
 	//
@@ -786,10 +1327,12 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 	// set either the `templateConfiguration` or the `templatePath` properties,
 	// you need to make sure to include them in the `extraInputs` -
 	// otherwise, you'll get an "unrecognized Artifact" error during your Pipeline's execution.
+	// Experimental.
 	ExtraInputs *[]awscodepipeline.Artifact `json:"extraInputs" yaml:"extraInputs"`
 	// The name of the output artifact to generate.
 	//
 	// Only applied if `outputFileName` is set as well.
+	// Experimental.
 	Output awscodepipeline.Artifact `json:"output" yaml:"output"`
 	// A name for the filename in the output artifact to store the AWS CloudFormation call's result.
 	//
@@ -798,6 +1341,7 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 	//
 	// AWS CodePipeline adds the file to the output artifact after performing
 	// the specified action.
+	// Experimental.
 	OutputFileName *string `json:"outputFileName" yaml:"outputFileName"`
 	// Additional template parameters.
 	//
@@ -812,6 +1356,7 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 	// All parameter names must be present in the stack template.
 	//
 	// Note: the entire object cannot be more than 1kB.
+	// Experimental.
 	ParameterOverrides *map[string]interface{} `json:"parameterOverrides" yaml:"parameterOverrides"`
 	// The AWS region the given Action resides in.
 	//
@@ -819,6 +1364,7 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 	// You can provide their names with the {@link PipelineProps#crossRegionReplicationBuckets} property.
 	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
+	// Experimental.
 	Region *string `json:"region" yaml:"region"`
 	// Input artifact to use for template parameters values and stack policy.
 	//
@@ -828,6 +1374,7 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 	//
 	// Note that if you include sensitive information, such as passwords, restrict access to this
 	// file.
+	// Experimental.
 	TemplateConfiguration awscodepipeline.ArtifactPath `json:"templateConfiguration" yaml:"templateConfiguration"`
 }
 
@@ -844,17 +1391,53 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 // Use this action to automatically replace failed stacks without recovering or
 // troubleshooting them. You would typically choose this mode for testing.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type PhysicalName awscdk.PhysicalName
 //
+//   // in stack for account 123456789012...
+//   var otherAccountStack stack
+//   actionRole := iam.NewRole(otherAccountStack, jsii.String("ActionRole"), &roleProps{
+//   	assumedBy: iam.NewAccountPrincipal(jsii.String("123456789012")),
+//   	// the role has to have a physical name set
+//   	roleName: physicalName_GENERATE_IF_NEEDED(),
+//   })
+//
+//   // in the pipeline stack...
+//   sourceOutput := codepipeline.NewArtifact()
+//   codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&cloudFormationCreateUpdateStackActionProps{
+//   	actionName: jsii.String("CloudFormationCreateUpdate"),
+//   	stackName: jsii.String("MyStackName"),
+//   	adminPermissions: jsii.Boolean(true),
+//   	templatePath: sourceOutput.atPath(jsii.String("template.yaml")),
+//   	role: actionRole,
+//   })
+//
+// Experimental.
 type CloudFormationCreateUpdateStackAction interface {
 	Action
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
+	// Experimental.
 	DeploymentRole() awsiam.IRole
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
+	// Add statement to the service role assumed by CloudFormation while executing this action.
+	// Experimental.
 	AddToDeploymentRolePolicy(statement awsiam.PolicyStatement) *bool
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// The callback invoked when this Action is added to a Pipeline.
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -894,13 +1477,14 @@ func (j *jsiiProxy_CloudFormationCreateUpdateStackAction) ProvidedActionProperti
 }
 
 
+// Experimental.
 func NewCloudFormationCreateUpdateStackAction(props *CloudFormationCreateUpdateStackActionProps) CloudFormationCreateUpdateStackAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_CloudFormationCreateUpdateStackAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationCreateUpdateStackAction",
+		"monocdk.aws_codepipeline_actions.CloudFormationCreateUpdateStackAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -908,17 +1492,17 @@ func NewCloudFormationCreateUpdateStackAction(props *CloudFormationCreateUpdateS
 	return &j
 }
 
+// Experimental.
 func NewCloudFormationCreateUpdateStackAction_Override(c CloudFormationCreateUpdateStackAction, props *CloudFormationCreateUpdateStackActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationCreateUpdateStackAction",
+		"monocdk.aws_codepipeline_actions.CloudFormationCreateUpdateStackAction",
 		[]interface{}{props},
 		c,
 	)
 }
 
-// Add statement to the service role assumed by CloudFormation while executing this action.
 func (c *jsiiProxy_CloudFormationCreateUpdateStackAction) AddToDeploymentRolePolicy(statement awsiam.PolicyStatement) *bool {
 	var returns *bool
 
@@ -932,8 +1516,7 @@ func (c *jsiiProxy_CloudFormationCreateUpdateStackAction) AddToDeploymentRolePol
 	return returns
 }
 
-// The callback invoked when this Action is added to a Pipeline.
-func (c *jsiiProxy_CloudFormationCreateUpdateStackAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CloudFormationCreateUpdateStackAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -946,8 +1529,7 @@ func (c *jsiiProxy_CloudFormationCreateUpdateStackAction) Bind(scope constructs.
 	return returns
 }
 
-// This is a renamed version of the {@link IAction.bind} method.
-func (c *jsiiProxy_CloudFormationCreateUpdateStackAction) Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CloudFormationCreateUpdateStackAction) Bound(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -960,7 +1542,6 @@ func (c *jsiiProxy_CloudFormationCreateUpdateStackAction) Bound(scope constructs
 	return returns
 }
 
-// Creates an Event that will be triggered whenever the state of this Action changes.
 func (c *jsiiProxy_CloudFormationCreateUpdateStackAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -989,20 +1570,43 @@ func (c *jsiiProxy_CloudFormationCreateUpdateStackAction) VariableExpression(var
 
 // Properties for the CloudFormationCreateUpdateStackAction.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type PhysicalName awscdk.PhysicalName
 //
+//   // in stack for account 123456789012...
+//   var otherAccountStack stack
+//   actionRole := iam.NewRole(otherAccountStack, jsii.String("ActionRole"), &roleProps{
+//   	assumedBy: iam.NewAccountPrincipal(jsii.String("123456789012")),
+//   	// the role has to have a physical name set
+//   	roleName: physicalName_GENERATE_IF_NEEDED(),
+//   })
+//
+//   // in the pipeline stack...
+//   sourceOutput := codepipeline.NewArtifact()
+//   codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&cloudFormationCreateUpdateStackActionProps{
+//   	actionName: jsii.String("CloudFormationCreateUpdate"),
+//   	stackName: jsii.String("MyStackName"),
+//   	adminPermissions: jsii.Boolean(true),
+//   	templatePath: sourceOutput.atPath(jsii.String("template.yaml")),
+//   	role: actionRole,
+//   })
+//
+// Experimental.
 type CloudFormationCreateUpdateStackActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -1011,6 +1615,7 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Whether to grant full permissions to CloudFormation while deploying this template.
 	//
@@ -1025,16 +1630,30 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	// are deployed in this pipeline. If you want more fine-grained permissions,
 	// use `addToRolePolicy` and `capabilities` to control what the CloudFormation
 	// deployment is allowed to do.
+	// Experimental.
 	AdminPermissions *bool `json:"adminPermissions" yaml:"adminPermissions"`
 	// The name of the stack to apply this action to.
+	// Experimental.
 	StackName *string `json:"stackName" yaml:"stackName"`
 	// Input artifact with the CloudFormation template to deploy.
+	// Experimental.
 	TemplatePath awscodepipeline.ArtifactPath `json:"templatePath" yaml:"templatePath"`
 	// The AWS account this Action is supposed to operate in.
 	//
 	// **Note**: if you specify the `role` property,
 	// this is ignored - the action will operate in the same region the passed role does.
+	// Experimental.
 	Account *string `json:"account" yaml:"account"`
+	// Acknowledge certain changes made as part of deployment.
+	//
+	// For stacks that contain certain resources, explicit acknowledgement that AWS CloudFormation
+	// might create or update those resources. For example, you must specify `AnonymousIAM` or `NamedIAM`
+	// if your stack template contains AWS Identity and Access Management (IAM) resources. For more
+	// information see the link below.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities
+	//
+	// Deprecated: use {@link cfnCapabilities} instead.
+	Capabilities *[]awscloudformation.CloudFormationCapabilities `json:"capabilities" yaml:"capabilities"`
 	// Acknowledge certain changes made as part of deployment.
 	//
 	// For stacks that contain certain resources,
@@ -1044,12 +1663,14 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	// For more information, see the link below.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities
 	//
+	// Experimental.
 	CfnCapabilities *[]awscdk.CfnCapabilities `json:"cfnCapabilities" yaml:"cfnCapabilities"`
 	// IAM role to assume when deploying changes.
 	//
 	// If not specified, a fresh role is created. The role is created with zero
 	// permissions unless `adminPermissions` is true, in which case the role will have
 	// full permissions.
+	// Experimental.
 	DeploymentRole awsiam.IRole `json:"deploymentRole" yaml:"deploymentRole"`
 	// The list of additional input Artifacts for this Action.
 	//
@@ -1065,10 +1686,12 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	// set either the `templateConfiguration` or the `templatePath` properties,
 	// you need to make sure to include them in the `extraInputs` -
 	// otherwise, you'll get an "unrecognized Artifact" error during your Pipeline's execution.
+	// Experimental.
 	ExtraInputs *[]awscodepipeline.Artifact `json:"extraInputs" yaml:"extraInputs"`
 	// The name of the output artifact to generate.
 	//
 	// Only applied if `outputFileName` is set as well.
+	// Experimental.
 	Output awscodepipeline.Artifact `json:"output" yaml:"output"`
 	// A name for the filename in the output artifact to store the AWS CloudFormation call's result.
 	//
@@ -1077,6 +1700,7 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	//
 	// AWS CodePipeline adds the file to the output artifact after performing
 	// the specified action.
+	// Experimental.
 	OutputFileName *string `json:"outputFileName" yaml:"outputFileName"`
 	// Additional template parameters.
 	//
@@ -1091,6 +1715,7 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	// All parameter names must be present in the stack template.
 	//
 	// Note: the entire object cannot be more than 1kB.
+	// Experimental.
 	ParameterOverrides *map[string]interface{} `json:"parameterOverrides" yaml:"parameterOverrides"`
 	// The AWS region the given Action resides in.
 	//
@@ -1098,6 +1723,7 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	// You can provide their names with the {@link PipelineProps#crossRegionReplicationBuckets} property.
 	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
+	// Experimental.
 	Region *string `json:"region" yaml:"region"`
 	// Replace the stack if it's in a failed state.
 	//
@@ -1108,6 +1734,7 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	//
 	// If this is not set to true and the stack is in a failed state,
 	// the deployment fails.
+	// Experimental.
 	ReplaceOnFailure *bool `json:"replaceOnFailure" yaml:"replaceOnFailure"`
 	// Input artifact to use for template parameters values and stack policy.
 	//
@@ -1117,6 +1744,7 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	//
 	// Note that if you include sensitive information, such as passwords, restrict access to this
 	// file.
+	// Experimental.
 	TemplateConfiguration awscodepipeline.ArtifactPath `json:"templateConfiguration" yaml:"templateConfiguration"`
 }
 
@@ -1125,17 +1753,68 @@ type CloudFormationCreateUpdateStackActionProps struct {
 // Deletes a stack. If you specify a stack that doesn't exist, the action completes successfully
 // without deleting a stack.
 //
-// TODO: EXAMPLE
+// Example:
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
 //
+//   var artifact artifact
+//   var artifactPath artifactPath
+//   var parameterOverrides interface{}
+//   var role role
+//   cloudFormationDeleteStackAction := codepipeline_actions.NewCloudFormationDeleteStackAction(&cloudFormationDeleteStackActionProps{
+//   	actionName: jsii.String("actionName"),
+//   	adminPermissions: jsii.Boolean(false),
+//   	stackName: jsii.String("stackName"),
+//
+//   	// the properties below are optional
+//   	account: jsii.String("account"),
+//   	capabilities: []cloudFormationCapabilities{
+//   		cloudformation.*cloudFormationCapabilities_NONE,
+//   	},
+//   	cfnCapabilities: []cfnCapabilities{
+//   		monocdk.*cfnCapabilities_NONE,
+//   	},
+//   	deploymentRole: role,
+//   	extraInputs: []*artifact{
+//   		artifact,
+//   	},
+//   	output: artifact,
+//   	outputFileName: jsii.String("outputFileName"),
+//   	parameterOverrides: map[string]interface{}{
+//   		"parameterOverridesKey": parameterOverrides,
+//   	},
+//   	region: jsii.String("region"),
+//   	role: role,
+//   	runOrder: jsii.Number(123),
+//   	templateConfiguration: artifactPath,
+//   	variablesNamespace: jsii.String("variablesNamespace"),
+//   })
+//
+// Experimental.
 type CloudFormationDeleteStackAction interface {
 	Action
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
+	// Experimental.
 	DeploymentRole() awsiam.IRole
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
+	// Add statement to the service role assumed by CloudFormation while executing this action.
+	// Experimental.
 	AddToDeploymentRolePolicy(statement awsiam.PolicyStatement) *bool
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// The callback invoked when this Action is added to a Pipeline.
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -1175,13 +1854,14 @@ func (j *jsiiProxy_CloudFormationDeleteStackAction) ProvidedActionProperties() *
 }
 
 
+// Experimental.
 func NewCloudFormationDeleteStackAction(props *CloudFormationDeleteStackActionProps) CloudFormationDeleteStackAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_CloudFormationDeleteStackAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationDeleteStackAction",
+		"monocdk.aws_codepipeline_actions.CloudFormationDeleteStackAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -1189,17 +1869,17 @@ func NewCloudFormationDeleteStackAction(props *CloudFormationDeleteStackActionPr
 	return &j
 }
 
+// Experimental.
 func NewCloudFormationDeleteStackAction_Override(c CloudFormationDeleteStackAction, props *CloudFormationDeleteStackActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationDeleteStackAction",
+		"monocdk.aws_codepipeline_actions.CloudFormationDeleteStackAction",
 		[]interface{}{props},
 		c,
 	)
 }
 
-// Add statement to the service role assumed by CloudFormation while executing this action.
 func (c *jsiiProxy_CloudFormationDeleteStackAction) AddToDeploymentRolePolicy(statement awsiam.PolicyStatement) *bool {
 	var returns *bool
 
@@ -1213,8 +1893,7 @@ func (c *jsiiProxy_CloudFormationDeleteStackAction) AddToDeploymentRolePolicy(st
 	return returns
 }
 
-// The callback invoked when this Action is added to a Pipeline.
-func (c *jsiiProxy_CloudFormationDeleteStackAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CloudFormationDeleteStackAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -1227,8 +1906,7 @@ func (c *jsiiProxy_CloudFormationDeleteStackAction) Bind(scope constructs.Constr
 	return returns
 }
 
-// This is a renamed version of the {@link IAction.bind} method.
-func (c *jsiiProxy_CloudFormationDeleteStackAction) Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CloudFormationDeleteStackAction) Bound(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -1241,7 +1919,6 @@ func (c *jsiiProxy_CloudFormationDeleteStackAction) Bound(scope constructs.Const
 	return returns
 }
 
-// Creates an Event that will be triggered whenever the state of this Action changes.
 func (c *jsiiProxy_CloudFormationDeleteStackAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -1270,20 +1947,58 @@ func (c *jsiiProxy_CloudFormationDeleteStackAction) VariableExpression(variableN
 
 // Properties for the CloudFormationDeleteStackAction.
 //
-// TODO: EXAMPLE
+// Example:
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
 //
+//   var artifact artifact
+//   var artifactPath artifactPath
+//   var parameterOverrides interface{}
+//   var role role
+//   cloudFormationDeleteStackActionProps := &cloudFormationDeleteStackActionProps{
+//   	actionName: jsii.String("actionName"),
+//   	adminPermissions: jsii.Boolean(false),
+//   	stackName: jsii.String("stackName"),
+//
+//   	// the properties below are optional
+//   	account: jsii.String("account"),
+//   	capabilities: []cloudFormationCapabilities{
+//   		cloudformation.*cloudFormationCapabilities_NONE,
+//   	},
+//   	cfnCapabilities: []cfnCapabilities{
+//   		monocdk.*cfnCapabilities_NONE,
+//   	},
+//   	deploymentRole: role,
+//   	extraInputs: []*artifact{
+//   		artifact,
+//   	},
+//   	output: artifact,
+//   	outputFileName: jsii.String("outputFileName"),
+//   	parameterOverrides: map[string]interface{}{
+//   		"parameterOverridesKey": parameterOverrides,
+//   	},
+//   	region: jsii.String("region"),
+//   	role: role,
+//   	runOrder: jsii.Number(123),
+//   	templateConfiguration: artifactPath,
+//   	variablesNamespace: jsii.String("variablesNamespace"),
+//   }
+//
+// Experimental.
 type CloudFormationDeleteStackActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -1292,6 +2007,7 @@ type CloudFormationDeleteStackActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Whether to grant full permissions to CloudFormation while deploying this template.
 	//
@@ -1306,14 +2022,27 @@ type CloudFormationDeleteStackActionProps struct {
 	// are deployed in this pipeline. If you want more fine-grained permissions,
 	// use `addToRolePolicy` and `capabilities` to control what the CloudFormation
 	// deployment is allowed to do.
+	// Experimental.
 	AdminPermissions *bool `json:"adminPermissions" yaml:"adminPermissions"`
 	// The name of the stack to apply this action to.
+	// Experimental.
 	StackName *string `json:"stackName" yaml:"stackName"`
 	// The AWS account this Action is supposed to operate in.
 	//
 	// **Note**: if you specify the `role` property,
 	// this is ignored - the action will operate in the same region the passed role does.
+	// Experimental.
 	Account *string `json:"account" yaml:"account"`
+	// Acknowledge certain changes made as part of deployment.
+	//
+	// For stacks that contain certain resources, explicit acknowledgement that AWS CloudFormation
+	// might create or update those resources. For example, you must specify `AnonymousIAM` or `NamedIAM`
+	// if your stack template contains AWS Identity and Access Management (IAM) resources. For more
+	// information see the link below.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities
+	//
+	// Deprecated: use {@link cfnCapabilities} instead.
+	Capabilities *[]awscloudformation.CloudFormationCapabilities `json:"capabilities" yaml:"capabilities"`
 	// Acknowledge certain changes made as part of deployment.
 	//
 	// For stacks that contain certain resources,
@@ -1323,12 +2052,14 @@ type CloudFormationDeleteStackActionProps struct {
 	// For more information, see the link below.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities
 	//
+	// Experimental.
 	CfnCapabilities *[]awscdk.CfnCapabilities `json:"cfnCapabilities" yaml:"cfnCapabilities"`
 	// IAM role to assume when deploying changes.
 	//
 	// If not specified, a fresh role is created. The role is created with zero
 	// permissions unless `adminPermissions` is true, in which case the role will have
 	// full permissions.
+	// Experimental.
 	DeploymentRole awsiam.IRole `json:"deploymentRole" yaml:"deploymentRole"`
 	// The list of additional input Artifacts for this Action.
 	//
@@ -1344,10 +2075,12 @@ type CloudFormationDeleteStackActionProps struct {
 	// set either the `templateConfiguration` or the `templatePath` properties,
 	// you need to make sure to include them in the `extraInputs` -
 	// otherwise, you'll get an "unrecognized Artifact" error during your Pipeline's execution.
+	// Experimental.
 	ExtraInputs *[]awscodepipeline.Artifact `json:"extraInputs" yaml:"extraInputs"`
 	// The name of the output artifact to generate.
 	//
 	// Only applied if `outputFileName` is set as well.
+	// Experimental.
 	Output awscodepipeline.Artifact `json:"output" yaml:"output"`
 	// A name for the filename in the output artifact to store the AWS CloudFormation call's result.
 	//
@@ -1356,6 +2089,7 @@ type CloudFormationDeleteStackActionProps struct {
 	//
 	// AWS CodePipeline adds the file to the output artifact after performing
 	// the specified action.
+	// Experimental.
 	OutputFileName *string `json:"outputFileName" yaml:"outputFileName"`
 	// Additional template parameters.
 	//
@@ -1370,6 +2104,7 @@ type CloudFormationDeleteStackActionProps struct {
 	// All parameter names must be present in the stack template.
 	//
 	// Note: the entire object cannot be more than 1kB.
+	// Experimental.
 	ParameterOverrides *map[string]interface{} `json:"parameterOverrides" yaml:"parameterOverrides"`
 	// The AWS region the given Action resides in.
 	//
@@ -1377,6 +2112,7 @@ type CloudFormationDeleteStackActionProps struct {
 	// You can provide their names with the {@link PipelineProps#crossRegionReplicationBuckets} property.
 	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
+	// Experimental.
 	Region *string `json:"region" yaml:"region"`
 	// Input artifact to use for template parameters values and stack policy.
 	//
@@ -1386,6 +2122,7 @@ type CloudFormationDeleteStackActionProps struct {
 	//
 	// Note that if you include sensitive information, such as passwords, restrict access to this
 	// file.
+	// Experimental.
 	TemplateConfiguration awscodepipeline.ArtifactPath `json:"templateConfiguration" yaml:"templateConfiguration"`
 }
 
@@ -1401,15 +2138,68 @@ type CloudFormationDeleteStackActionProps struct {
 // set. Then all instance statuses are set to OUTDATED until the changes are
 // deployed to that instance.
 //
-// TODO: EXAMPLE
+// Example:
+//   var pipeline pipeline
+//   var sourceOutput artifact
 //
+//   pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("DeployStackSets"),
+//   	actions: []iAction{
+//   		// First, update the StackSet itself with the newest template
+//   		codepipeline_actions.NewCloudFormationDeployStackSetAction(&cloudFormationDeployStackSetActionProps{
+//   			actionName: jsii.String("UpdateStackSet"),
+//   			runOrder: jsii.Number(1),
+//   			stackSetName: jsii.String("MyStackSet"),
+//   			template: codepipeline_actions.stackSetTemplate.fromArtifactPath(sourceOutput.atPath(jsii.String("template.yaml"))),
+//
+//   			// Change this to 'StackSetDeploymentModel.organizations()' if you want to deploy to OUs
+//   			deploymentModel: codepipeline_actions.stackSetDeploymentModel.selfManaged(),
+//   			// This deploys to a set of accounts
+//   			stackInstances: codepipeline_actions.stackInstances.inAccounts([]*string{
+//   				jsii.String("111111111111"),
+//   			}, []*string{
+//   				jsii.String("us-east-1"),
+//   				jsii.String("eu-west-1"),
+//   			}),
+//   		}),
+//
+//   		// Afterwards, update/create additional instances in other accounts
+//   		codepipeline_actions.NewCloudFormationDeployStackInstancesAction(&cloudFormationDeployStackInstancesActionProps{
+//   			actionName: jsii.String("AddMoreInstances"),
+//   			runOrder: jsii.Number(2),
+//   			stackSetName: jsii.String("MyStackSet"),
+//   			stackInstances: codepipeline_actions.*stackInstances.inAccounts([]*string{
+//   				jsii.String("222222222222"),
+//   				jsii.String("333333333333"),
+//   			}, []*string{
+//   				jsii.String("us-east-1"),
+//   				jsii.String("eu-west-1"),
+//   			}),
+//   		}),
+//   	},
+//   })
+//
+// Experimental.
 type CloudFormationDeployStackInstancesAction interface {
 	Action
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	Bound(scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// The callback invoked when this Action is added to a Pipeline.
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -1439,13 +2229,14 @@ func (j *jsiiProxy_CloudFormationDeployStackInstancesAction) ProvidedActionPrope
 }
 
 
+// Experimental.
 func NewCloudFormationDeployStackInstancesAction(props *CloudFormationDeployStackInstancesActionProps) CloudFormationDeployStackInstancesAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_CloudFormationDeployStackInstancesAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationDeployStackInstancesAction",
+		"monocdk.aws_codepipeline_actions.CloudFormationDeployStackInstancesAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -1453,18 +2244,18 @@ func NewCloudFormationDeployStackInstancesAction(props *CloudFormationDeployStac
 	return &j
 }
 
+// Experimental.
 func NewCloudFormationDeployStackInstancesAction_Override(c CloudFormationDeployStackInstancesAction, props *CloudFormationDeployStackInstancesActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationDeployStackInstancesAction",
+		"monocdk.aws_codepipeline_actions.CloudFormationDeployStackInstancesAction",
 		[]interface{}{props},
 		c,
 	)
 }
 
-// The callback invoked when this Action is added to a Pipeline.
-func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -1477,8 +2268,7 @@ func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) Bind(scope construc
 	return returns
 }
 
-// This is a renamed version of the {@link IAction.bind} method.
-func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) Bound(scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) Bound(scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -1491,7 +2281,6 @@ func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) Bound(scope constru
 	return returns
 }
 
-// Creates an Event that will be triggered whenever the state of this Action changes.
 func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -1520,20 +2309,63 @@ func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) VariableExpression(
 
 // Properties for the CloudFormationDeployStackInstancesAction.
 //
-// TODO: EXAMPLE
+// Example:
+//   var pipeline pipeline
+//   var sourceOutput artifact
 //
+//   pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("DeployStackSets"),
+//   	actions: []iAction{
+//   		// First, update the StackSet itself with the newest template
+//   		codepipeline_actions.NewCloudFormationDeployStackSetAction(&cloudFormationDeployStackSetActionProps{
+//   			actionName: jsii.String("UpdateStackSet"),
+//   			runOrder: jsii.Number(1),
+//   			stackSetName: jsii.String("MyStackSet"),
+//   			template: codepipeline_actions.stackSetTemplate.fromArtifactPath(sourceOutput.atPath(jsii.String("template.yaml"))),
+//
+//   			// Change this to 'StackSetDeploymentModel.organizations()' if you want to deploy to OUs
+//   			deploymentModel: codepipeline_actions.stackSetDeploymentModel.selfManaged(),
+//   			// This deploys to a set of accounts
+//   			stackInstances: codepipeline_actions.stackInstances.inAccounts([]*string{
+//   				jsii.String("111111111111"),
+//   			}, []*string{
+//   				jsii.String("us-east-1"),
+//   				jsii.String("eu-west-1"),
+//   			}),
+//   		}),
+//
+//   		// Afterwards, update/create additional instances in other accounts
+//   		codepipeline_actions.NewCloudFormationDeployStackInstancesAction(&cloudFormationDeployStackInstancesActionProps{
+//   			actionName: jsii.String("AddMoreInstances"),
+//   			runOrder: jsii.Number(2),
+//   			stackSetName: jsii.String("MyStackSet"),
+//   			stackInstances: codepipeline_actions.*stackInstances.inAccounts([]*string{
+//   				jsii.String("222222222222"),
+//   				jsii.String("333333333333"),
+//   			}, []*string{
+//   				jsii.String("us-east-1"),
+//   				jsii.String("eu-west-1"),
+//   			}),
+//   		}),
+//   	},
+//   })
+//
+// Experimental.
 type CloudFormationDeployStackInstancesActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -1542,12 +2374,14 @@ type CloudFormationDeployStackInstancesActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The percentage of accounts per Region for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
 	//
 	// If
 	// the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in subsequent Regions. When calculating the number
 	// of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number.
+	// Experimental.
 	FailureTolerancePercentage *float64 `json:"failureTolerancePercentage" yaml:"failureTolerancePercentage"`
 	// The maximum percentage of accounts in which to perform this operation at one time.
 	//
@@ -1555,6 +2389,7 @@ type CloudFormationDeployStackInstancesActionProps struct {
 	// percentage, AWS CloudFormation rounds down to the next whole number. If rounding down would result in zero, AWS CloudFormation sets the number as
 	// one instead. Although you use this setting to specify the maximum, for large deployments the actual number of accounts acted upon concurrently
 	// may be lower due to service throttling.
+	// Experimental.
 	MaxAccountConcurrencyPercentage *float64 `json:"maxAccountConcurrencyPercentage" yaml:"maxAccountConcurrencyPercentage"`
 	// The AWS Region the StackSet is in.
 	//
@@ -1562,16 +2397,20 @@ type CloudFormationDeployStackInstancesActionProps struct {
 	// You can provide their names with the `PipelineProps.crossRegionReplicationBuckets` property.
 	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
+	// Experimental.
 	StackSetRegion *string `json:"stackSetRegion" yaml:"stackSetRegion"`
 	// Specify where to create or update Stack Instances.
 	//
 	// You can specify either AWS Accounts Ids or AWS Organizations Organizational Units.
+	// Experimental.
 	StackInstances StackInstances `json:"stackInstances" yaml:"stackInstances"`
 	// The name of the StackSet we are adding instances to.
+	// Experimental.
 	StackSetName *string `json:"stackSetName" yaml:"stackSetName"`
 	// Parameter values that only apply to the current Stack Instances.
 	//
 	// These parameters are shared between all instances added by this action.
+	// Experimental.
 	ParameterOverrides StackSetParameters `json:"parameterOverrides" yaml:"parameterOverrides"`
 }
 
@@ -1601,15 +2440,68 @@ type CloudFormationDeployStackInstancesActionProps struct {
 // CloudFormationStackInstances action so that the remaining instances are
 // created and updated.
 //
-// TODO: EXAMPLE
+// Example:
+//   var pipeline pipeline
+//   var sourceOutput artifact
 //
+//   pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("DeployStackSets"),
+//   	actions: []iAction{
+//   		// First, update the StackSet itself with the newest template
+//   		codepipeline_actions.NewCloudFormationDeployStackSetAction(&cloudFormationDeployStackSetActionProps{
+//   			actionName: jsii.String("UpdateStackSet"),
+//   			runOrder: jsii.Number(1),
+//   			stackSetName: jsii.String("MyStackSet"),
+//   			template: codepipeline_actions.stackSetTemplate.fromArtifactPath(sourceOutput.atPath(jsii.String("template.yaml"))),
+//
+//   			// Change this to 'StackSetDeploymentModel.organizations()' if you want to deploy to OUs
+//   			deploymentModel: codepipeline_actions.stackSetDeploymentModel.selfManaged(),
+//   			// This deploys to a set of accounts
+//   			stackInstances: codepipeline_actions.stackInstances.inAccounts([]*string{
+//   				jsii.String("111111111111"),
+//   			}, []*string{
+//   				jsii.String("us-east-1"),
+//   				jsii.String("eu-west-1"),
+//   			}),
+//   		}),
+//
+//   		// Afterwards, update/create additional instances in other accounts
+//   		codepipeline_actions.NewCloudFormationDeployStackInstancesAction(&cloudFormationDeployStackInstancesActionProps{
+//   			actionName: jsii.String("AddMoreInstances"),
+//   			runOrder: jsii.Number(2),
+//   			stackSetName: jsii.String("MyStackSet"),
+//   			stackInstances: codepipeline_actions.*stackInstances.inAccounts([]*string{
+//   				jsii.String("222222222222"),
+//   				jsii.String("333333333333"),
+//   			}, []*string{
+//   				jsii.String("us-east-1"),
+//   				jsii.String("eu-west-1"),
+//   			}),
+//   		}),
+//   	},
+//   })
+//
+// Experimental.
 type CloudFormationDeployStackSetAction interface {
 	Action
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	Bound(scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// The callback invoked when this Action is added to a Pipeline.
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -1639,13 +2531,14 @@ func (j *jsiiProxy_CloudFormationDeployStackSetAction) ProvidedActionProperties(
 }
 
 
+// Experimental.
 func NewCloudFormationDeployStackSetAction(props *CloudFormationDeployStackSetActionProps) CloudFormationDeployStackSetAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_CloudFormationDeployStackSetAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationDeployStackSetAction",
+		"monocdk.aws_codepipeline_actions.CloudFormationDeployStackSetAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -1653,18 +2546,18 @@ func NewCloudFormationDeployStackSetAction(props *CloudFormationDeployStackSetAc
 	return &j
 }
 
+// Experimental.
 func NewCloudFormationDeployStackSetAction_Override(c CloudFormationDeployStackSetAction, props *CloudFormationDeployStackSetActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationDeployStackSetAction",
+		"monocdk.aws_codepipeline_actions.CloudFormationDeployStackSetAction",
 		[]interface{}{props},
 		c,
 	)
 }
 
-// The callback invoked when this Action is added to a Pipeline.
-func (c *jsiiProxy_CloudFormationDeployStackSetAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CloudFormationDeployStackSetAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -1677,8 +2570,7 @@ func (c *jsiiProxy_CloudFormationDeployStackSetAction) Bind(scope constructs.Con
 	return returns
 }
 
-// This is a renamed version of the {@link IAction.bind} method.
-func (c *jsiiProxy_CloudFormationDeployStackSetAction) Bound(scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CloudFormationDeployStackSetAction) Bound(scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -1691,7 +2583,6 @@ func (c *jsiiProxy_CloudFormationDeployStackSetAction) Bound(scope constructs.Co
 	return returns
 }
 
-// Creates an Event that will be triggered whenever the state of this Action changes.
 func (c *jsiiProxy_CloudFormationDeployStackSetAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -1720,20 +2611,63 @@ func (c *jsiiProxy_CloudFormationDeployStackSetAction) VariableExpression(variab
 
 // Properties for the CloudFormationDeployStackSetAction.
 //
-// TODO: EXAMPLE
+// Example:
+//   var pipeline pipeline
+//   var sourceOutput artifact
 //
+//   pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("DeployStackSets"),
+//   	actions: []iAction{
+//   		// First, update the StackSet itself with the newest template
+//   		codepipeline_actions.NewCloudFormationDeployStackSetAction(&cloudFormationDeployStackSetActionProps{
+//   			actionName: jsii.String("UpdateStackSet"),
+//   			runOrder: jsii.Number(1),
+//   			stackSetName: jsii.String("MyStackSet"),
+//   			template: codepipeline_actions.stackSetTemplate.fromArtifactPath(sourceOutput.atPath(jsii.String("template.yaml"))),
+//
+//   			// Change this to 'StackSetDeploymentModel.organizations()' if you want to deploy to OUs
+//   			deploymentModel: codepipeline_actions.stackSetDeploymentModel.selfManaged(),
+//   			// This deploys to a set of accounts
+//   			stackInstances: codepipeline_actions.stackInstances.inAccounts([]*string{
+//   				jsii.String("111111111111"),
+//   			}, []*string{
+//   				jsii.String("us-east-1"),
+//   				jsii.String("eu-west-1"),
+//   			}),
+//   		}),
+//
+//   		// Afterwards, update/create additional instances in other accounts
+//   		codepipeline_actions.NewCloudFormationDeployStackInstancesAction(&cloudFormationDeployStackInstancesActionProps{
+//   			actionName: jsii.String("AddMoreInstances"),
+//   			runOrder: jsii.Number(2),
+//   			stackSetName: jsii.String("MyStackSet"),
+//   			stackInstances: codepipeline_actions.*stackInstances.inAccounts([]*string{
+//   				jsii.String("222222222222"),
+//   				jsii.String("333333333333"),
+//   			}, []*string{
+//   				jsii.String("us-east-1"),
+//   				jsii.String("eu-west-1"),
+//   			}),
+//   		}),
+//   	},
+//   })
+//
+// Experimental.
 type CloudFormationDeployStackSetActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -1742,12 +2676,14 @@ type CloudFormationDeployStackSetActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The percentage of accounts per Region for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
 	//
 	// If
 	// the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in subsequent Regions. When calculating the number
 	// of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number.
+	// Experimental.
 	FailureTolerancePercentage *float64 `json:"failureTolerancePercentage" yaml:"failureTolerancePercentage"`
 	// The maximum percentage of accounts in which to perform this operation at one time.
 	//
@@ -1755,6 +2691,7 @@ type CloudFormationDeployStackSetActionProps struct {
 	// percentage, AWS CloudFormation rounds down to the next whole number. If rounding down would result in zero, AWS CloudFormation sets the number as
 	// one instead. Although you use this setting to specify the maximum, for large deployments the actual number of accounts acted upon concurrently
 	// may be lower due to service throttling.
+	// Experimental.
 	MaxAccountConcurrencyPercentage *float64 `json:"maxAccountConcurrencyPercentage" yaml:"maxAccountConcurrencyPercentage"`
 	// The AWS Region the StackSet is in.
 	//
@@ -1762,22 +2699,26 @@ type CloudFormationDeployStackSetActionProps struct {
 	// You can provide their names with the `PipelineProps.crossRegionReplicationBuckets` property.
 	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
+	// Experimental.
 	StackSetRegion *string `json:"stackSetRegion" yaml:"stackSetRegion"`
 	// The name to associate with the stack set.
 	//
 	// This name must be unique in the Region where it is created.
 	//
 	// The name may only contain alphanumeric and hyphen characters. It must begin with an alphabetic character and be 128 characters or fewer.
+	// Experimental.
 	StackSetName *string `json:"stackSetName" yaml:"stackSetName"`
 	// The location of the template that defines the resources in the stack set.
 	//
 	// This must point to a template with a maximum size of 460,800 bytes.
 	//
 	// Enter the path to the source artifact name and template file.
+	// Experimental.
 	Template StackSetTemplate `json:"template" yaml:"template"`
 	// Indicates that the template can create and update resources, depending on the types of resources in the template.
 	//
 	// You must use this property if you have IAM resources in your stack template or you create a stack directly from a template containing macros.
+	// Experimental.
 	CfnCapabilities *[]awscdk.CfnCapabilities `json:"cfnCapabilities" yaml:"cfnCapabilities"`
 	// Determines how IAM roles are created and managed.
 	//
@@ -1795,32 +2736,102 @@ type CloudFormationDeployStackSetActionProps struct {
 	//
 	// Note: This parameter can only be changed when no stack instances exist in
 	// the stack set.
+	// Experimental.
 	DeploymentModel StackSetDeploymentModel `json:"deploymentModel" yaml:"deploymentModel"`
 	// A description of the stack set.
 	//
 	// You can use this to describe the stack set’s purpose or other relevant information.
+	// Experimental.
 	Description *string `json:"description" yaml:"description"`
 	// The template parameters for your stack set.
 	//
 	// These parameters are shared between all instances of the stack set.
+	// Experimental.
 	Parameters StackSetParameters `json:"parameters" yaml:"parameters"`
 	// Specify where to create or update Stack Instances.
 	//
 	// You can specify either AWS Accounts Ids or AWS Organizations Organizational Units.
+	// Experimental.
 	StackInstances StackInstances `json:"stackInstances" yaml:"stackInstances"`
 }
 
 // CodePipeline action to execute a prepared change set.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Source stage: read from repository
+//   repo := codecommit.NewRepository(stack, jsii.String("TemplateRepo"), &repositoryProps{
+//   	repositoryName: jsii.String("template-repo"),
+//   })
+//   sourceOutput := codepipeline.NewArtifact(jsii.String("SourceArtifact"))
+//   source := cpactions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
+//   	actionName: jsii.String("Source"),
+//   	repository: repo,
+//   	output: sourceOutput,
+//   	trigger: cpactions.codeCommitTrigger_POLL,
+//   })
+//   sourceStage := map[string]interface{}{
+//   	"stageName": jsii.String("Source"),
+//   	"actions": []CodeCommitSourceAction{
+//   		source,
+//   	},
+//   }
 //
+//   // Deployment stage: create and deploy changeset with manual approval
+//   stackName := "OurStack"
+//   changeSetName := "StagedChangeSet"
+//
+//   prodStage := map[string]interface{}{
+//   	"stageName": jsii.String("Deploy"),
+//   	"actions": []interface{}{
+//   		cpactions.NewCloudFormationCreateReplaceChangeSetAction(&CloudFormationCreateReplaceChangeSetActionProps{
+//   			"actionName": jsii.String("PrepareChanges"),
+//   			"stackName": jsii.String(stackName),
+//   			"changeSetName": jsii.String(changeSetName),
+//   			"adminPermissions": jsii.Boolean(true),
+//   			"templatePath": sourceOutput.atPath(jsii.String("template.yaml")),
+//   			"runOrder": jsii.Number(1),
+//   		}),
+//   		cpactions.NewManualApprovalAction(&ManualApprovalActionProps{
+//   			"actionName": jsii.String("ApproveChanges"),
+//   			"runOrder": jsii.Number(2),
+//   		}),
+//   		cpactions.NewCloudFormationExecuteChangeSetAction(&CloudFormationExecuteChangeSetActionProps{
+//   			"actionName": jsii.String("ExecuteChanges"),
+//   			"stackName": jsii.String(stackName),
+//   			"changeSetName": jsii.String(changeSetName),
+//   			"runOrder": jsii.Number(3),
+//   		}),
+//   	},
+//   }
+//
+//   codepipeline.NewPipeline(stack, jsii.String("Pipeline"), &pipelineProps{
+//   	stages: []stageProps{
+//   		sourceStage,
+//   		prodStage,
+//   	},
+//   })
+//
+// Experimental.
 type CloudFormationExecuteChangeSetAction interface {
 	Action
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// The callback invoked when this Action is added to a Pipeline.
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -1850,13 +2861,14 @@ func (j *jsiiProxy_CloudFormationExecuteChangeSetAction) ProvidedActionPropertie
 }
 
 
+// Experimental.
 func NewCloudFormationExecuteChangeSetAction(props *CloudFormationExecuteChangeSetActionProps) CloudFormationExecuteChangeSetAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_CloudFormationExecuteChangeSetAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationExecuteChangeSetAction",
+		"monocdk.aws_codepipeline_actions.CloudFormationExecuteChangeSetAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -1864,18 +2876,18 @@ func NewCloudFormationExecuteChangeSetAction(props *CloudFormationExecuteChangeS
 	return &j
 }
 
+// Experimental.
 func NewCloudFormationExecuteChangeSetAction_Override(c CloudFormationExecuteChangeSetAction, props *CloudFormationExecuteChangeSetActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationExecuteChangeSetAction",
+		"monocdk.aws_codepipeline_actions.CloudFormationExecuteChangeSetAction",
 		[]interface{}{props},
 		c,
 	)
 }
 
-// The callback invoked when this Action is added to a Pipeline.
-func (c *jsiiProxy_CloudFormationExecuteChangeSetAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CloudFormationExecuteChangeSetAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -1888,8 +2900,7 @@ func (c *jsiiProxy_CloudFormationExecuteChangeSetAction) Bind(scope constructs.C
 	return returns
 }
 
-// This is a renamed version of the {@link IAction.bind} method.
-func (c *jsiiProxy_CloudFormationExecuteChangeSetAction) Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CloudFormationExecuteChangeSetAction) Bound(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -1902,7 +2913,6 @@ func (c *jsiiProxy_CloudFormationExecuteChangeSetAction) Bound(scope constructs.
 	return returns
 }
 
-// Creates an Event that will be triggered whenever the state of this Action changes.
 func (c *jsiiProxy_CloudFormationExecuteChangeSetAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -1931,20 +2941,76 @@ func (c *jsiiProxy_CloudFormationExecuteChangeSetAction) VariableExpression(vari
 
 // Properties for the CloudFormationExecuteChangeSetAction.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Source stage: read from repository
+//   repo := codecommit.NewRepository(stack, jsii.String("TemplateRepo"), &repositoryProps{
+//   	repositoryName: jsii.String("template-repo"),
+//   })
+//   sourceOutput := codepipeline.NewArtifact(jsii.String("SourceArtifact"))
+//   source := cpactions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
+//   	actionName: jsii.String("Source"),
+//   	repository: repo,
+//   	output: sourceOutput,
+//   	trigger: cpactions.codeCommitTrigger_POLL,
+//   })
+//   sourceStage := map[string]interface{}{
+//   	"stageName": jsii.String("Source"),
+//   	"actions": []CodeCommitSourceAction{
+//   		source,
+//   	},
+//   }
 //
+//   // Deployment stage: create and deploy changeset with manual approval
+//   stackName := "OurStack"
+//   changeSetName := "StagedChangeSet"
+//
+//   prodStage := map[string]interface{}{
+//   	"stageName": jsii.String("Deploy"),
+//   	"actions": []interface{}{
+//   		cpactions.NewCloudFormationCreateReplaceChangeSetAction(&CloudFormationCreateReplaceChangeSetActionProps{
+//   			"actionName": jsii.String("PrepareChanges"),
+//   			"stackName": jsii.String(stackName),
+//   			"changeSetName": jsii.String(changeSetName),
+//   			"adminPermissions": jsii.Boolean(true),
+//   			"templatePath": sourceOutput.atPath(jsii.String("template.yaml")),
+//   			"runOrder": jsii.Number(1),
+//   		}),
+//   		cpactions.NewManualApprovalAction(&ManualApprovalActionProps{
+//   			"actionName": jsii.String("ApproveChanges"),
+//   			"runOrder": jsii.Number(2),
+//   		}),
+//   		cpactions.NewCloudFormationExecuteChangeSetAction(&CloudFormationExecuteChangeSetActionProps{
+//   			"actionName": jsii.String("ExecuteChanges"),
+//   			"stackName": jsii.String(stackName),
+//   			"changeSetName": jsii.String(changeSetName),
+//   			"runOrder": jsii.Number(3),
+//   		}),
+//   	},
+//   }
+//
+//   codepipeline.NewPipeline(stack, jsii.String("Pipeline"), &pipelineProps{
+//   	stages: []stageProps{
+//   		sourceStage,
+//   		prodStage,
+//   	},
+//   })
+//
+// Experimental.
 type CloudFormationExecuteChangeSetActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -1953,19 +3019,24 @@ type CloudFormationExecuteChangeSetActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Name of the change set to execute.
+	// Experimental.
 	ChangeSetName *string `json:"changeSetName" yaml:"changeSetName"`
 	// The name of the stack to apply this action to.
+	// Experimental.
 	StackName *string `json:"stackName" yaml:"stackName"`
 	// The AWS account this Action is supposed to operate in.
 	//
 	// **Note**: if you specify the `role` property,
 	// this is ignored - the action will operate in the same region the passed role does.
+	// Experimental.
 	Account *string `json:"account" yaml:"account"`
 	// The name of the output artifact to generate.
 	//
 	// Only applied if `outputFileName` is set as well.
+	// Experimental.
 	Output awscodepipeline.Artifact `json:"output" yaml:"output"`
 	// A name for the filename in the output artifact to store the AWS CloudFormation call's result.
 	//
@@ -1974,6 +3045,7 @@ type CloudFormationExecuteChangeSetActionProps struct {
 	//
 	// AWS CodePipeline adds the file to the output artifact after performing
 	// the specified action.
+	// Experimental.
 	OutputFileName *string `json:"outputFileName" yaml:"outputFileName"`
 	// The AWS region the given Action resides in.
 	//
@@ -1981,21 +3053,100 @@ type CloudFormationExecuteChangeSetActionProps struct {
 	// You can provide their names with the {@link PipelineProps#crossRegionReplicationBuckets} property.
 	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
+	// Experimental.
 	Region *string `json:"region" yaml:"region"`
 }
 
 // CodePipeline build action that uses AWS CodeBuild.
 //
-// TODO: EXAMPLE
+// Example:
+//   import cloudfront "github.com/aws/aws-cdk-go/awscdk"
+//   var distribution distribution
 //
+//   // Create the build project that will invalidate the cache
+//   invalidateBuildProject := codebuild.NewPipelineProject(this, jsii.String("InvalidateProject"), &pipelineProjectProps{
+//   	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
+//   		"version": jsii.String("0.2"),
+//   		"phases": map[string]map[string][]*string{
+//   			"build": map[string][]*string{
+//   				"commands": []*string{
+//   					jsii.String("aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_ID} --paths \"/*\""),
+//   				},
+//   			},
+//   		},
+//   	}),
+//   	environmentVariables: map[string]buildEnvironmentVariable{
+//   		"CLOUDFRONT_ID": &buildEnvironmentVariable{
+//   			"value": distribution.distributionId,
+//   		},
+//   	},
+//   })
+//
+//   // Add Cloudfront invalidation permissions to the project
+//   distributionArn := fmt.Sprintf("arn:aws:cloudfront::%v:distribution/%v", this.account, distribution.distributionId)
+//   invalidateBuildProject.addToRolePolicy(iam.NewPolicyStatement(&policyStatementProps{
+//   	resources: []*string{
+//   		distributionArn,
+//   	},
+//   	actions: []*string{
+//   		jsii.String("cloudfront:CreateInvalidation"),
+//   	},
+//   }))
+//
+//   // Create the pipeline (here only the S3 deploy and Invalidate cache build)
+//   deployBucket := s3.NewBucket(this, jsii.String("DeployBucket"))
+//   deployInput := codepipeline.NewArtifact()
+//   codepipeline.NewPipeline(this, jsii.String("Pipeline"), &pipelineProps{
+//   	stages: []stageProps{
+//   		&stageProps{
+//   			stageName: jsii.String("Deploy"),
+//   			actions: []iAction{
+//   				codepipeline_actions.NewS3DeployAction(&s3DeployActionProps{
+//   					actionName: jsii.String("S3Deploy"),
+//   					bucket: deployBucket,
+//   					input: deployInput,
+//   					runOrder: jsii.Number(1),
+//   				}),
+//   				codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
+//   					actionName: jsii.String("InvalidateCache"),
+//   					project: invalidateBuildProject,
+//   					input: deployInput,
+//   					runOrder: jsii.Number(2),
+//   				}),
+//   			},
+//   		},
+//   	},
+//   })
+//
+// Experimental.
 type CodeBuildAction interface {
 	Action
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	Bound(scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// The callback invoked when this Action is added to a Pipeline.
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Reference a CodePipeline variable defined by the CodeBuild project this action points to.
+	//
+	// Variables in CodeBuild actions are defined using the 'exported-variables' subsection of the 'env'
+	// section of the buildspec.
+	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-syntax
+	//
+	// Experimental.
 	Variable(variableName *string) *string
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -2025,13 +3176,14 @@ func (j *jsiiProxy_CodeBuildAction) ProvidedActionProperties() *awscodepipeline.
 }
 
 
+// Experimental.
 func NewCodeBuildAction(props *CodeBuildActionProps) CodeBuildAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_CodeBuildAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeBuildAction",
+		"monocdk.aws_codepipeline_actions.CodeBuildAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -2039,18 +3191,18 @@ func NewCodeBuildAction(props *CodeBuildActionProps) CodeBuildAction {
 	return &j
 }
 
+// Experimental.
 func NewCodeBuildAction_Override(c CodeBuildAction, props *CodeBuildActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeBuildAction",
+		"monocdk.aws_codepipeline_actions.CodeBuildAction",
 		[]interface{}{props},
 		c,
 	)
 }
 
-// The callback invoked when this Action is added to a Pipeline.
-func (c *jsiiProxy_CodeBuildAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CodeBuildAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -2063,8 +3215,7 @@ func (c *jsiiProxy_CodeBuildAction) Bind(scope constructs.Construct, stage awsco
 	return returns
 }
 
-// This is a renamed version of the {@link IAction.bind} method.
-func (c *jsiiProxy_CodeBuildAction) Bound(scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CodeBuildAction) Bound(scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -2077,7 +3228,6 @@ func (c *jsiiProxy_CodeBuildAction) Bound(scope constructs.Construct, _stage aws
 	return returns
 }
 
-// Creates an Event that will be triggered whenever the state of this Action changes.
 func (c *jsiiProxy_CodeBuildAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -2091,12 +3241,6 @@ func (c *jsiiProxy_CodeBuildAction) OnStateChange(name *string, target awsevents
 	return returns
 }
 
-// Reference a CodePipeline variable defined by the CodeBuild project this action points to.
-//
-// Variables in CodeBuild actions are defined using the 'exported-variables' subsection of the 'env'
-// section of the buildspec.
-// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-syntax
-//
 func (c *jsiiProxy_CodeBuildAction) Variable(variableName *string) *string {
 	var returns *string
 
@@ -2125,20 +3269,81 @@ func (c *jsiiProxy_CodeBuildAction) VariableExpression(variableName *string) *st
 
 // Construction properties of the {@link CodeBuildAction CodeBuild build CodePipeline action}.
 //
-// TODO: EXAMPLE
+// Example:
+//   import cloudfront "github.com/aws/aws-cdk-go/awscdk"
+//   var distribution distribution
 //
+//   // Create the build project that will invalidate the cache
+//   invalidateBuildProject := codebuild.NewPipelineProject(this, jsii.String("InvalidateProject"), &pipelineProjectProps{
+//   	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
+//   		"version": jsii.String("0.2"),
+//   		"phases": map[string]map[string][]*string{
+//   			"build": map[string][]*string{
+//   				"commands": []*string{
+//   					jsii.String("aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_ID} --paths \"/*\""),
+//   				},
+//   			},
+//   		},
+//   	}),
+//   	environmentVariables: map[string]buildEnvironmentVariable{
+//   		"CLOUDFRONT_ID": &buildEnvironmentVariable{
+//   			"value": distribution.distributionId,
+//   		},
+//   	},
+//   })
+//
+//   // Add Cloudfront invalidation permissions to the project
+//   distributionArn := fmt.Sprintf("arn:aws:cloudfront::%v:distribution/%v", this.account, distribution.distributionId)
+//   invalidateBuildProject.addToRolePolicy(iam.NewPolicyStatement(&policyStatementProps{
+//   	resources: []*string{
+//   		distributionArn,
+//   	},
+//   	actions: []*string{
+//   		jsii.String("cloudfront:CreateInvalidation"),
+//   	},
+//   }))
+//
+//   // Create the pipeline (here only the S3 deploy and Invalidate cache build)
+//   deployBucket := s3.NewBucket(this, jsii.String("DeployBucket"))
+//   deployInput := codepipeline.NewArtifact()
+//   codepipeline.NewPipeline(this, jsii.String("Pipeline"), &pipelineProps{
+//   	stages: []stageProps{
+//   		&stageProps{
+//   			stageName: jsii.String("Deploy"),
+//   			actions: []iAction{
+//   				codepipeline_actions.NewS3DeployAction(&s3DeployActionProps{
+//   					actionName: jsii.String("S3Deploy"),
+//   					bucket: deployBucket,
+//   					input: deployInput,
+//   					runOrder: jsii.Number(1),
+//   				}),
+//   				codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
+//   					actionName: jsii.String("InvalidateCache"),
+//   					project: invalidateBuildProject,
+//   					input: deployInput,
+//   					runOrder: jsii.Number(2),
+//   				}),
+//   			},
+//   		},
+//   	},
+//   })
+//
+// Experimental.
 type CodeBuildActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -2147,26 +3352,33 @@ type CodeBuildActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The source to use as input for this action.
+	// Experimental.
 	Input awscodepipeline.Artifact `json:"input" yaml:"input"`
 	// The action's Project.
+	// Experimental.
 	Project awscodebuild.IProject `json:"project" yaml:"project"`
 	// Whether to check for the presence of any secrets in the environment variables of the default type, BuildEnvironmentVariableType.PLAINTEXT. Since using a secret for the value of that kind of variable would result in it being displayed in plain text in the AWS Console, the construct will throw an exception if it detects a secret was passed there. Pass this property as false if you want to skip this validation, and keep using a secret in a plain text environment variable.
+	// Experimental.
 	CheckSecretsInPlainTextEnvVariables *bool `json:"checkSecretsInPlainTextEnvVariables" yaml:"checkSecretsInPlainTextEnvVariables"`
 	// Combine the build artifacts for a batch builds.
 	//
 	// Enabling this will combine the build artifacts into the same location for batch builds.
 	// If `executeBatchBuild` is not set to `true`, this property is ignored.
+	// Experimental.
 	CombineBatchBuildArtifacts *bool `json:"combineBatchBuildArtifacts" yaml:"combineBatchBuildArtifacts"`
 	// The environment variables to pass to the CodeBuild project when this action executes.
 	//
 	// If a variable with the same name was set both on the project level, and here,
 	// this value will take precedence.
+	// Experimental.
 	EnvironmentVariables *map[string]*awscodebuild.BuildEnvironmentVariable `json:"environmentVariables" yaml:"environmentVariables"`
 	// Trigger a batch build.
 	//
 	// Enabling this will enable batch builds on the CodeBuild project.
+	// Experimental.
 	ExecuteBatchBuild *bool `json:"executeBatchBuild" yaml:"executeBatchBuild"`
 	// The list of additional input Artifacts for this action.
 	//
@@ -2176,6 +3388,7 @@ type CodeBuildActionProps struct {
 	// the one pointed to by the {@link input} property.
 	// For more information,
 	// see https://docs.aws.amazon.com/codebuild/latest/userguide/sample-multi-in-out.html .
+	// Experimental.
 	ExtraInputs *[]awscodepipeline.Artifact `json:"extraInputs" yaml:"extraInputs"`
 	// The list of output Artifacts for this action.
 	//
@@ -2184,8 +3397,10 @@ type CodeBuildActionProps struct {
 	// you have to use the 'secondary-artifacts' section instead.
 	// See https://docs.aws.amazon.com/codebuild/latest/userguide/sample-multi-in-out.html
 	// for details.
+	// Experimental.
 	Outputs *[]awscodepipeline.Artifact `json:"outputs" yaml:"outputs"`
 	// The type of the action that determines its CodePipeline Category - Build, or Test.
+	// Experimental.
 	Type CodeBuildActionType `json:"type" yaml:"type"`
 }
 
@@ -2193,12 +3408,27 @@ type CodeBuildActionProps struct {
 //
 // The default is Build.
 //
-// TODO: EXAMPLE
+// Example:
+//   var project pipelineProject
+//   sourceOutput := codepipeline.NewArtifact()
+//   testAction := codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
+//   	actionName: jsii.String("IntegrationTest"),
+//   	project: project,
+//   	input: sourceOutput,
+//   	type: codepipeline_actions.codeBuildActionType_TEST,
+//   })
 //
+// Experimental.
 type CodeBuildActionType string
 
 const (
+	// The action will have the Build Category.
+	//
+	// This is the default.
+	// Experimental.
 	CodeBuildActionType_BUILD CodeBuildActionType = "BUILD"
+	// The action will have the Test Category.
+	// Experimental.
 	CodeBuildActionType_TEST CodeBuildActionType = "TEST"
 )
 
@@ -2213,16 +3443,84 @@ const (
 // event, the event itself has the full repository ARN in there, allowing the
 // pipeline to locate the repository).
 //
-// TODO: EXAMPLE
+// Example:
+//   // Source stage: read from repository
+//   repo := codecommit.NewRepository(stack, jsii.String("TemplateRepo"), &repositoryProps{
+//   	repositoryName: jsii.String("template-repo"),
+//   })
+//   sourceOutput := codepipeline.NewArtifact(jsii.String("SourceArtifact"))
+//   source := cpactions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
+//   	actionName: jsii.String("Source"),
+//   	repository: repo,
+//   	output: sourceOutput,
+//   	trigger: cpactions.codeCommitTrigger_POLL,
+//   })
+//   sourceStage := map[string]interface{}{
+//   	"stageName": jsii.String("Source"),
+//   	"actions": []CodeCommitSourceAction{
+//   		source,
+//   	},
+//   }
 //
+//   // Deployment stage: create and deploy changeset with manual approval
+//   stackName := "OurStack"
+//   changeSetName := "StagedChangeSet"
+//
+//   prodStage := map[string]interface{}{
+//   	"stageName": jsii.String("Deploy"),
+//   	"actions": []interface{}{
+//   		cpactions.NewCloudFormationCreateReplaceChangeSetAction(&CloudFormationCreateReplaceChangeSetActionProps{
+//   			"actionName": jsii.String("PrepareChanges"),
+//   			"stackName": jsii.String(stackName),
+//   			"changeSetName": jsii.String(changeSetName),
+//   			"adminPermissions": jsii.Boolean(true),
+//   			"templatePath": sourceOutput.atPath(jsii.String("template.yaml")),
+//   			"runOrder": jsii.Number(1),
+//   		}),
+//   		cpactions.NewManualApprovalAction(&ManualApprovalActionProps{
+//   			"actionName": jsii.String("ApproveChanges"),
+//   			"runOrder": jsii.Number(2),
+//   		}),
+//   		cpactions.NewCloudFormationExecuteChangeSetAction(&CloudFormationExecuteChangeSetActionProps{
+//   			"actionName": jsii.String("ExecuteChanges"),
+//   			"stackName": jsii.String(stackName),
+//   			"changeSetName": jsii.String(changeSetName),
+//   			"runOrder": jsii.Number(3),
+//   		}),
+//   	},
+//   }
+//
+//   codepipeline.NewPipeline(stack, jsii.String("Pipeline"), &pipelineProps{
+//   	stages: []stageProps{
+//   		sourceStage,
+//   		prodStage,
+//   	},
+//   })
+//
+// Experimental.
 type CodeCommitSourceAction interface {
 	Action
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
+	// The variables emitted by this action.
+	// Experimental.
 	Variables() *CodeCommitSourceVariables
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	Bound(_scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// The callback invoked when this Action is added to a Pipeline.
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(_scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -2262,13 +3560,14 @@ func (j *jsiiProxy_CodeCommitSourceAction) Variables() *CodeCommitSourceVariable
 }
 
 
+// Experimental.
 func NewCodeCommitSourceAction(props *CodeCommitSourceActionProps) CodeCommitSourceAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_CodeCommitSourceAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeCommitSourceAction",
+		"monocdk.aws_codepipeline_actions.CodeCommitSourceAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -2276,18 +3575,18 @@ func NewCodeCommitSourceAction(props *CodeCommitSourceActionProps) CodeCommitSou
 	return &j
 }
 
+// Experimental.
 func NewCodeCommitSourceAction_Override(c CodeCommitSourceAction, props *CodeCommitSourceActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeCommitSourceAction",
+		"monocdk.aws_codepipeline_actions.CodeCommitSourceAction",
 		[]interface{}{props},
 		c,
 	)
 }
 
-// The callback invoked when this Action is added to a Pipeline.
-func (c *jsiiProxy_CodeCommitSourceAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CodeCommitSourceAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -2300,8 +3599,7 @@ func (c *jsiiProxy_CodeCommitSourceAction) Bind(scope constructs.Construct, stag
 	return returns
 }
 
-// This is a renamed version of the {@link IAction.bind} method.
-func (c *jsiiProxy_CodeCommitSourceAction) Bound(_scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CodeCommitSourceAction) Bound(_scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -2314,7 +3612,6 @@ func (c *jsiiProxy_CodeCommitSourceAction) Bound(_scope constructs.Construct, st
 	return returns
 }
 
-// Creates an Event that will be triggered whenever the state of this Action changes.
 func (c *jsiiProxy_CodeCommitSourceAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -2343,20 +3640,76 @@ func (c *jsiiProxy_CodeCommitSourceAction) VariableExpression(variableName *stri
 
 // Construction properties of the {@link CodeCommitSourceAction CodeCommit source CodePipeline Action}.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Source stage: read from repository
+//   repo := codecommit.NewRepository(stack, jsii.String("TemplateRepo"), &repositoryProps{
+//   	repositoryName: jsii.String("template-repo"),
+//   })
+//   sourceOutput := codepipeline.NewArtifact(jsii.String("SourceArtifact"))
+//   source := cpactions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
+//   	actionName: jsii.String("Source"),
+//   	repository: repo,
+//   	output: sourceOutput,
+//   	trigger: cpactions.codeCommitTrigger_POLL,
+//   })
+//   sourceStage := map[string]interface{}{
+//   	"stageName": jsii.String("Source"),
+//   	"actions": []CodeCommitSourceAction{
+//   		source,
+//   	},
+//   }
 //
+//   // Deployment stage: create and deploy changeset with manual approval
+//   stackName := "OurStack"
+//   changeSetName := "StagedChangeSet"
+//
+//   prodStage := map[string]interface{}{
+//   	"stageName": jsii.String("Deploy"),
+//   	"actions": []interface{}{
+//   		cpactions.NewCloudFormationCreateReplaceChangeSetAction(&CloudFormationCreateReplaceChangeSetActionProps{
+//   			"actionName": jsii.String("PrepareChanges"),
+//   			"stackName": jsii.String(stackName),
+//   			"changeSetName": jsii.String(changeSetName),
+//   			"adminPermissions": jsii.Boolean(true),
+//   			"templatePath": sourceOutput.atPath(jsii.String("template.yaml")),
+//   			"runOrder": jsii.Number(1),
+//   		}),
+//   		cpactions.NewManualApprovalAction(&ManualApprovalActionProps{
+//   			"actionName": jsii.String("ApproveChanges"),
+//   			"runOrder": jsii.Number(2),
+//   		}),
+//   		cpactions.NewCloudFormationExecuteChangeSetAction(&CloudFormationExecuteChangeSetActionProps{
+//   			"actionName": jsii.String("ExecuteChanges"),
+//   			"stackName": jsii.String(stackName),
+//   			"changeSetName": jsii.String(changeSetName),
+//   			"runOrder": jsii.Number(3),
+//   		}),
+//   	},
+//   }
+//
+//   codepipeline.NewPipeline(stack, jsii.String("Pipeline"), &pipelineProps{
+//   	stages: []stageProps{
+//   		sourceStage,
+//   		prodStage,
+//   	},
+//   })
+//
+// Experimental.
 type CodeCommitSourceActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -2365,10 +3718,14 @@ type CodeCommitSourceActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
+	// Experimental.
 	Output awscodepipeline.Artifact `json:"output" yaml:"output"`
 	// The CodeCommit repository.
+	// Experimental.
 	Repository awscodecommit.IRepository `json:"repository" yaml:"repository"`
+	// Experimental.
 	Branch *string `json:"branch" yaml:"branch"`
 	// Whether the output should be the contents of the repository (which is the default), or a link that allows CodeBuild to clone the repository before building.
 	//
@@ -2376,31 +3733,50 @@ type CodeCommitSourceActionProps struct {
 	// then only CodeBuild actions can use the resulting {@link output}.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodeCommit.html
 	//
+	// Experimental.
 	CodeBuildCloneOutput *bool `json:"codeBuildCloneOutput" yaml:"codeBuildCloneOutput"`
 	// Role to be used by on commit event rule.
 	//
 	// Used only when trigger value is CodeCommitTrigger.EVENTS.
+	// Experimental.
 	EventRole awsiam.IRole `json:"eventRole" yaml:"eventRole"`
 	// How should CodePipeline detect source changes for this Action.
+	// Experimental.
 	Trigger CodeCommitTrigger `json:"trigger" yaml:"trigger"`
 }
 
 // The CodePipeline variables emitted by the CodeCommit source Action.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"
+//   codeCommitSourceVariables := &codeCommitSourceVariables{
+//   	authorDate: jsii.String("authorDate"),
+//   	branchName: jsii.String("branchName"),
+//   	commitId: jsii.String("commitId"),
+//   	commitMessage: jsii.String("commitMessage"),
+//   	committerDate: jsii.String("committerDate"),
+//   	repositoryName: jsii.String("repositoryName"),
+//   }
 //
+// Experimental.
 type CodeCommitSourceVariables struct {
 	// The date the currently last commit on the tracked branch was authored, in ISO-8601 format.
+	// Experimental.
 	AuthorDate *string `json:"authorDate" yaml:"authorDate"`
 	// The name of the branch this action tracks.
+	// Experimental.
 	BranchName *string `json:"branchName" yaml:"branchName"`
 	// The SHA1 hash of the currently last commit on the tracked branch.
+	// Experimental.
 	CommitId *string `json:"commitId" yaml:"commitId"`
 	// The message of the currently last commit on the tracked branch.
+	// Experimental.
 	CommitMessage *string `json:"commitMessage" yaml:"commitMessage"`
 	// The date the currently last commit on the tracked branch was committed, in ISO-8601 format.
+	// Experimental.
 	CommitterDate *string `json:"committerDate" yaml:"committerDate"`
 	// The name of the repository this action points to.
+	// Experimental.
 	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
 }
 
@@ -2408,26 +3784,98 @@ type CodeCommitSourceVariables struct {
 //
 // This is the type of the {@link CodeCommitSourceAction.trigger} property.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Source stage: read from repository
+//   repo := codecommit.NewRepository(stack, jsii.String("TemplateRepo"), &repositoryProps{
+//   	repositoryName: jsii.String("template-repo"),
+//   })
+//   sourceOutput := codepipeline.NewArtifact(jsii.String("SourceArtifact"))
+//   source := cpactions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
+//   	actionName: jsii.String("Source"),
+//   	repository: repo,
+//   	output: sourceOutput,
+//   	trigger: cpactions.codeCommitTrigger_POLL,
+//   })
+//   sourceStage := map[string]interface{}{
+//   	"stageName": jsii.String("Source"),
+//   	"actions": []CodeCommitSourceAction{
+//   		source,
+//   	},
+//   }
 //
+//   // Deployment stage: create and deploy changeset with manual approval
+//   stackName := "OurStack"
+//   changeSetName := "StagedChangeSet"
+//
+//   prodStage := map[string]interface{}{
+//   	"stageName": jsii.String("Deploy"),
+//   	"actions": []interface{}{
+//   		cpactions.NewCloudFormationCreateReplaceChangeSetAction(&CloudFormationCreateReplaceChangeSetActionProps{
+//   			"actionName": jsii.String("PrepareChanges"),
+//   			"stackName": jsii.String(stackName),
+//   			"changeSetName": jsii.String(changeSetName),
+//   			"adminPermissions": jsii.Boolean(true),
+//   			"templatePath": sourceOutput.atPath(jsii.String("template.yaml")),
+//   			"runOrder": jsii.Number(1),
+//   		}),
+//   		cpactions.NewManualApprovalAction(&ManualApprovalActionProps{
+//   			"actionName": jsii.String("ApproveChanges"),
+//   			"runOrder": jsii.Number(2),
+//   		}),
+//   		cpactions.NewCloudFormationExecuteChangeSetAction(&CloudFormationExecuteChangeSetActionProps{
+//   			"actionName": jsii.String("ExecuteChanges"),
+//   			"stackName": jsii.String(stackName),
+//   			"changeSetName": jsii.String(changeSetName),
+//   			"runOrder": jsii.Number(3),
+//   		}),
+//   	},
+//   }
+//
+//   codepipeline.NewPipeline(stack, jsii.String("Pipeline"), &pipelineProps{
+//   	stages: []stageProps{
+//   		sourceStage,
+//   		prodStage,
+//   	},
+//   })
+//
+// Experimental.
 type CodeCommitTrigger string
 
 const (
+	// The Action will never detect changes - the Pipeline it's part of will only begin a run when explicitly started.
+	// Experimental.
 	CodeCommitTrigger_NONE CodeCommitTrigger = "NONE"
+	// CodePipeline will poll the repository to detect changes.
+	// Experimental.
 	CodeCommitTrigger_POLL CodeCommitTrigger = "POLL"
+	// CodePipeline will use CloudWatch Events to be notified of changes.
+	//
+	// This is the default method of detecting changes.
+	// Experimental.
 	CodeCommitTrigger_EVENTS CodeCommitTrigger = "EVENTS"
 )
 
 // Configuration for replacing a placeholder string in the ECS task definition template file with an image URI.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"
 //
+//   var artifact artifact
+//   codeDeployEcsContainerImageInput := &codeDeployEcsContainerImageInput{
+//   	input: artifact,
+//
+//   	// the properties below are optional
+//   	taskDefinitionPlaceholder: jsii.String("taskDefinitionPlaceholder"),
+//   }
+//
+// Experimental.
 type CodeDeployEcsContainerImageInput struct {
 	// The artifact that contains an `imageDetails.json` file with the image URI.
 	//
 	// The artifact's `imageDetails.json` file must be a JSON file containing an
 	// `ImageURI` property.  For example:
 	// `{ "ImageURI": "ACCOUNTID.dkr.ecr.us-west-2.amazonaws.com/dk-image-repo@sha256:example3" }`
+	// Experimental.
 	Input awscodepipeline.Artifact `json:"input" yaml:"input"`
 	// The placeholder string in the ECS task definition template file that will be replaced with the image URI.
 	//
@@ -2435,18 +3883,60 @@ type CodeDeployEcsContainerImageInput struct {
 	// For example, if the task definition template file contains a placeholder like
 	// `"image": "<PLACEHOLDER>"`, then the `taskDefinitionPlaceholder` value should
 	// be `PLACEHOLDER`.
+	// Experimental.
 	TaskDefinitionPlaceholder *string `json:"taskDefinitionPlaceholder" yaml:"taskDefinitionPlaceholder"`
 }
 
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
 //
+//   var artifact artifact
+//   var artifactPath artifactPath
+//   var ecsDeploymentGroup iEcsDeploymentGroup
+//   var role role
+//   codeDeployEcsDeployAction := codepipeline_actions.NewCodeDeployEcsDeployAction(&codeDeployEcsDeployActionProps{
+//   	actionName: jsii.String("actionName"),
+//   	deploymentGroup: ecsDeploymentGroup,
+//
+//   	// the properties below are optional
+//   	appSpecTemplateFile: artifactPath,
+//   	appSpecTemplateInput: artifact,
+//   	containerImageInputs: []codeDeployEcsContainerImageInput{
+//   		&codeDeployEcsContainerImageInput{
+//   			input: artifact,
+//
+//   			// the properties below are optional
+//   			taskDefinitionPlaceholder: jsii.String("taskDefinitionPlaceholder"),
+//   		},
+//   	},
+//   	role: role,
+//   	runOrder: jsii.Number(123),
+//   	taskDefinitionTemplateFile: artifactPath,
+//   	taskDefinitionTemplateInput: artifact,
+//   	variablesNamespace: jsii.String("variablesNamespace"),
+//   })
+//
+// Experimental.
 type CodeDeployEcsDeployAction interface {
 	Action
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// The callback invoked when this Action is added to a Pipeline.
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -2476,13 +3966,14 @@ func (j *jsiiProxy_CodeDeployEcsDeployAction) ProvidedActionProperties() *awscod
 }
 
 
+// Experimental.
 func NewCodeDeployEcsDeployAction(props *CodeDeployEcsDeployActionProps) CodeDeployEcsDeployAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_CodeDeployEcsDeployAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeDeployEcsDeployAction",
+		"monocdk.aws_codepipeline_actions.CodeDeployEcsDeployAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -2490,18 +3981,18 @@ func NewCodeDeployEcsDeployAction(props *CodeDeployEcsDeployActionProps) CodeDep
 	return &j
 }
 
+// Experimental.
 func NewCodeDeployEcsDeployAction_Override(c CodeDeployEcsDeployAction, props *CodeDeployEcsDeployActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeDeployEcsDeployAction",
+		"monocdk.aws_codepipeline_actions.CodeDeployEcsDeployAction",
 		[]interface{}{props},
 		c,
 	)
 }
 
-// The callback invoked when this Action is added to a Pipeline.
-func (c *jsiiProxy_CodeDeployEcsDeployAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CodeDeployEcsDeployAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -2514,8 +4005,7 @@ func (c *jsiiProxy_CodeDeployEcsDeployAction) Bind(scope constructs.Construct, s
 	return returns
 }
 
-// This is a renamed version of the {@link IAction.bind} method.
-func (c *jsiiProxy_CodeDeployEcsDeployAction) Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CodeDeployEcsDeployAction) Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -2528,7 +4018,6 @@ func (c *jsiiProxy_CodeDeployEcsDeployAction) Bound(_scope constructs.Construct,
 	return returns
 }
 
-// Creates an Event that will be triggered whenever the state of this Action changes.
 func (c *jsiiProxy_CodeDeployEcsDeployAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -2557,20 +4046,51 @@ func (c *jsiiProxy_CodeDeployEcsDeployAction) VariableExpression(variableName *s
 
 // Construction properties of the {@link CodeDeployEcsDeployAction CodeDeploy ECS deploy CodePipeline Action}.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
 //
+//   var artifact artifact
+//   var artifactPath artifactPath
+//   var ecsDeploymentGroup iEcsDeploymentGroup
+//   var role role
+//   codeDeployEcsDeployActionProps := &codeDeployEcsDeployActionProps{
+//   	actionName: jsii.String("actionName"),
+//   	deploymentGroup: ecsDeploymentGroup,
+//
+//   	// the properties below are optional
+//   	appSpecTemplateFile: artifactPath,
+//   	appSpecTemplateInput: artifact,
+//   	containerImageInputs: []codeDeployEcsContainerImageInput{
+//   		&codeDeployEcsContainerImageInput{
+//   			input: artifact,
+//
+//   			// the properties below are optional
+//   			taskDefinitionPlaceholder: jsii.String("taskDefinitionPlaceholder"),
+//   		},
+//   	},
+//   	role: role,
+//   	runOrder: jsii.Number(123),
+//   	taskDefinitionTemplateFile: artifactPath,
+//   	taskDefinitionTemplateInput: artifact,
+//   	variablesNamespace: jsii.String("variablesNamespace"),
+//   }
+//
+// Experimental.
 type CodeDeployEcsDeployActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -2579,8 +4099,10 @@ type CodeDeployEcsDeployActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The CodeDeploy ECS Deployment Group to deploy to.
+	// Experimental.
 	DeploymentGroup awscodedeploy.IEcsDeploymentGroup `json:"deploymentGroup" yaml:"deploymentGroup"`
 	// The name of the CodeDeploy AppSpec file.
 	//
@@ -2591,6 +4113,7 @@ type CodeDeployEcsDeployActionProps struct {
 	//
 	// Use this property if you want to use a different name for this file than the default 'appspec.yaml'.
 	// If you use this property, you don't need to specify the `appSpecTemplateInput` property.
+	// Experimental.
 	AppSpecTemplateFile awscodepipeline.ArtifactPath `json:"appSpecTemplateFile" yaml:"appSpecTemplateFile"`
 	// The artifact containing the CodeDeploy AppSpec file.
 	//
@@ -2602,12 +4125,14 @@ type CodeDeployEcsDeployActionProps struct {
 	// If you use this property, it's assumed the file is called 'appspec.yaml'.
 	// If your AppSpec file uses a different filename, leave this property empty,
 	// and use the `appSpecTemplateFile` property instead.
+	// Experimental.
 	AppSpecTemplateInput awscodepipeline.Artifact `json:"appSpecTemplateInput" yaml:"appSpecTemplateInput"`
 	// Configuration for dynamically updated images in the task definition.
 	//
 	// Provide pairs of an image details input artifact and a placeholder string
 	// that will be used to dynamically update the ECS task definition template
 	// file prior to deployment. A maximum of 4 images can be given.
+	// Experimental.
 	ContainerImageInputs *[]*CodeDeployEcsContainerImageInput `json:"containerImageInputs" yaml:"containerImageInputs"`
 	// The name of the ECS task definition template file.
 	//
@@ -2616,6 +4141,7 @@ type CodeDeployEcsDeployActionProps struct {
 	//
 	// Use this property if you want to use a different name for this file than the default 'taskdef.json'.
 	// If you use this property, you don't need to specify the `taskDefinitionTemplateInput` property.
+	// Experimental.
 	TaskDefinitionTemplateFile awscodepipeline.ArtifactPath `json:"taskDefinitionTemplateFile" yaml:"taskDefinitionTemplateFile"`
 	// The artifact containing the ECS task definition template file.
 	//
@@ -2625,18 +4151,50 @@ type CodeDeployEcsDeployActionProps struct {
 	// If you use this property, it's assumed the file is called 'taskdef.json'.
 	// If your task definition template uses a different filename, leave this property empty,
 	// and use the `taskDefinitionTemplateFile` property instead.
+	// Experimental.
 	TaskDefinitionTemplateInput awscodepipeline.Artifact `json:"taskDefinitionTemplateInput" yaml:"taskDefinitionTemplateInput"`
 }
 
-// TODO: EXAMPLE
+// Example:
+//   var deploymentGroup serverDeploymentGrouppipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"), &pipelineProps{
+//   	pipelineName: jsii.String("MyPipeline"),
+//   })
 //
+//   // add the source and build Stages to the Pipeline...
+//   buildOutput := codepipeline.NewArtifact()
+//   deployAction := codepipeline_actions.NewCodeDeployServerDeployAction(&codeDeployServerDeployActionProps{
+//   	actionName: jsii.String("CodeDeploy"),
+//   	input: buildOutput,
+//   	deploymentGroup: deploymentGroup,
+//   })
+//   pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("Deploy"),
+//   	actions: []iAction{
+//   		deployAction,
+//   	},
+//   })
+//
+// Experimental.
 type CodeDeployServerDeployAction interface {
 	Action
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// The callback invoked when this Action is added to a Pipeline.
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -2666,13 +4224,14 @@ func (j *jsiiProxy_CodeDeployServerDeployAction) ProvidedActionProperties() *aws
 }
 
 
+// Experimental.
 func NewCodeDeployServerDeployAction(props *CodeDeployServerDeployActionProps) CodeDeployServerDeployAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_CodeDeployServerDeployAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeDeployServerDeployAction",
+		"monocdk.aws_codepipeline_actions.CodeDeployServerDeployAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -2680,18 +4239,18 @@ func NewCodeDeployServerDeployAction(props *CodeDeployServerDeployActionProps) C
 	return &j
 }
 
+// Experimental.
 func NewCodeDeployServerDeployAction_Override(c CodeDeployServerDeployAction, props *CodeDeployServerDeployActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeDeployServerDeployAction",
+		"monocdk.aws_codepipeline_actions.CodeDeployServerDeployAction",
 		[]interface{}{props},
 		c,
 	)
 }
 
-// The callback invoked when this Action is added to a Pipeline.
-func (c *jsiiProxy_CodeDeployServerDeployAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CodeDeployServerDeployAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -2704,8 +4263,7 @@ func (c *jsiiProxy_CodeDeployServerDeployAction) Bind(scope constructs.Construct
 	return returns
 }
 
-// This is a renamed version of the {@link IAction.bind} method.
-func (c *jsiiProxy_CodeDeployServerDeployAction) Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CodeDeployServerDeployAction) Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -2718,7 +4276,6 @@ func (c *jsiiProxy_CodeDeployServerDeployAction) Bound(_scope constructs.Constru
 	return returns
 }
 
-// Creates an Event that will be triggered whenever the state of this Action changes.
 func (c *jsiiProxy_CodeDeployServerDeployAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -2747,20 +4304,41 @@ func (c *jsiiProxy_CodeDeployServerDeployAction) VariableExpression(variableName
 
 // Construction properties of the {@link CodeDeployServerDeployAction CodeDeploy server deploy CodePipeline Action}.
 //
-// TODO: EXAMPLE
+// Example:
+//   var deploymentGroup serverDeploymentGrouppipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"), &pipelineProps{
+//   	pipelineName: jsii.String("MyPipeline"),
+//   })
 //
+//   // add the source and build Stages to the Pipeline...
+//   buildOutput := codepipeline.NewArtifact()
+//   deployAction := codepipeline_actions.NewCodeDeployServerDeployAction(&codeDeployServerDeployActionProps{
+//   	actionName: jsii.String("CodeDeploy"),
+//   	input: buildOutput,
+//   	deploymentGroup: deploymentGroup,
+//   })
+//   pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("Deploy"),
+//   	actions: []iAction{
+//   		deployAction,
+//   	},
+//   })
+//
+// Experimental.
 type CodeDeployServerDeployActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -2769,25 +4347,52 @@ type CodeDeployServerDeployActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The CodeDeploy server Deployment Group to deploy to.
+	// Experimental.
 	DeploymentGroup awscodedeploy.IServerDeploymentGroup `json:"deploymentGroup" yaml:"deploymentGroup"`
 	// The source to use as input for deployment.
+	// Experimental.
 	Input awscodepipeline.Artifact `json:"input" yaml:"input"`
 }
 
 // A CodePipeline source action for the CodeStar Connections source, which allows connecting to GitHub and BitBucket.
 //
-// TODO: EXAMPLE
+// Example:
+//   sourceOutput := codepipeline.NewArtifact()
+//   sourceAction := codepipeline_actions.NewCodeStarConnectionsSourceAction(&codeStarConnectionsSourceActionProps{
+//   	actionName: jsii.String("BitBucket_Source"),
+//   	owner: jsii.String("aws"),
+//   	repo: jsii.String("aws-cdk"),
+//   	output: sourceOutput,
+//   	connectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:123456789012:connection/12345678-abcd-12ab-34cdef5678gh"),
+//   })
 //
+// Experimental.
 type CodeStarConnectionsSourceAction interface {
 	Action
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
+	// The variables emitted by this action.
+	// Experimental.
 	Variables() *CodeStarSourceVariables
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// The callback invoked when this Action is added to a Pipeline.
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -2827,13 +4432,14 @@ func (j *jsiiProxy_CodeStarConnectionsSourceAction) Variables() *CodeStarSourceV
 }
 
 
+// Experimental.
 func NewCodeStarConnectionsSourceAction(props *CodeStarConnectionsSourceActionProps) CodeStarConnectionsSourceAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_CodeStarConnectionsSourceAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeStarConnectionsSourceAction",
+		"monocdk.aws_codepipeline_actions.CodeStarConnectionsSourceAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -2841,18 +4447,18 @@ func NewCodeStarConnectionsSourceAction(props *CodeStarConnectionsSourceActionPr
 	return &j
 }
 
+// Experimental.
 func NewCodeStarConnectionsSourceAction_Override(c CodeStarConnectionsSourceAction, props *CodeStarConnectionsSourceActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeStarConnectionsSourceAction",
+		"monocdk.aws_codepipeline_actions.CodeStarConnectionsSourceAction",
 		[]interface{}{props},
 		c,
 	)
 }
 
-// The callback invoked when this Action is added to a Pipeline.
-func (c *jsiiProxy_CodeStarConnectionsSourceAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CodeStarConnectionsSourceAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -2865,8 +4471,7 @@ func (c *jsiiProxy_CodeStarConnectionsSourceAction) Bind(scope constructs.Constr
 	return returns
 }
 
-// This is a renamed version of the {@link IAction.bind} method.
-func (c *jsiiProxy_CodeStarConnectionsSourceAction) Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CodeStarConnectionsSourceAction) Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -2879,7 +4484,6 @@ func (c *jsiiProxy_CodeStarConnectionsSourceAction) Bound(_scope constructs.Cons
 	return returns
 }
 
-// Creates an Event that will be triggered whenever the state of this Action changes.
 func (c *jsiiProxy_CodeStarConnectionsSourceAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -2908,20 +4512,32 @@ func (c *jsiiProxy_CodeStarConnectionsSourceAction) VariableExpression(variableN
 
 // Construction properties for {@link CodeStarConnectionsSourceAction}.
 //
-// TODO: EXAMPLE
+// Example:
+//   sourceOutput := codepipeline.NewArtifact()
+//   sourceAction := codepipeline_actions.NewCodeStarConnectionsSourceAction(&codeStarConnectionsSourceActionProps{
+//   	actionName: jsii.String("BitBucket_Source"),
+//   	owner: jsii.String("aws"),
+//   	repo: jsii.String("aws-cdk"),
+//   	output: sourceOutput,
+//   	connectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:123456789012:connection/12345678-abcd-12ab-34cdef5678gh"),
+//   })
 //
+// Experimental.
 type CodeStarConnectionsSourceActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -2930,29 +4546,38 @@ type CodeStarConnectionsSourceActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The ARN of the CodeStar Connection created in the AWS console that has permissions to access this GitHub or BitBucket repository.
 	//
-	// TODO: EXAMPLE
+	// Example:
+	//   "arn:aws:codestar-connections:us-east-1:123456789012:connection/12345678-abcd-12ab-34cdef5678gh"
 	//
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/connections-create.html
 	//
+	// Experimental.
 	ConnectionArn *string `json:"connectionArn" yaml:"connectionArn"`
 	// The output artifact that this action produces.
 	//
 	// Can be used as input for further pipeline actions.
+	// Experimental.
 	Output awscodepipeline.Artifact `json:"output" yaml:"output"`
 	// The owning user or organization of the repository.
 	//
-	// TODO: EXAMPLE
+	// Example:
+	//   "aws"
 	//
+	// Experimental.
 	Owner *string `json:"owner" yaml:"owner"`
 	// The name of the repository.
 	//
-	// TODO: EXAMPLE
+	// Example:
+	//   "aws-cdk"
 	//
+	// Experimental.
 	Repo *string `json:"repo" yaml:"repo"`
 	// The branch to build.
+	// Experimental.
 	Branch *string `json:"branch" yaml:"branch"`
 	// Whether the output should be the contents of the repository (which is the default), or a link that allows CodeBuild to clone the repository before building.
 	//
@@ -2960,6 +4585,7 @@ type CodeStarConnectionsSourceActionProps struct {
 	// then only CodeBuild actions can use the resulting {@link output}.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config
 	//
+	// Experimental.
 	CodeBuildCloneOutput *bool `json:"codeBuildCloneOutput" yaml:"codeBuildCloneOutput"`
 	// Controls automatically starting your pipeline when a new commit is made on the configured repository and branch.
 	//
@@ -2967,38 +4593,63 @@ type CodeStarConnectionsSourceActionProps struct {
 	// the default value is true, and the field does not display by default.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html
 	//
+	// Experimental.
 	TriggerOnPush *bool `json:"triggerOnPush" yaml:"triggerOnPush"`
 }
 
 // The CodePipeline variables emitted by CodeStar source Action.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"
+//   codeStarSourceVariables := &codeStarSourceVariables{
+//   	authorDate: jsii.String("authorDate"),
+//   	branchName: jsii.String("branchName"),
+//   	commitId: jsii.String("commitId"),
+//   	commitMessage: jsii.String("commitMessage"),
+//   	connectionArn: jsii.String("connectionArn"),
+//   	fullRepositoryName: jsii.String("fullRepositoryName"),
+//   }
 //
+// Experimental.
 type CodeStarSourceVariables struct {
 	// The date the currently last commit on the tracked branch was authored, in ISO-8601 format.
+	// Experimental.
 	AuthorDate *string `json:"authorDate" yaml:"authorDate"`
 	// The name of the branch this action tracks.
+	// Experimental.
 	BranchName *string `json:"branchName" yaml:"branchName"`
 	// The SHA1 hash of the currently last commit on the tracked branch.
+	// Experimental.
 	CommitId *string `json:"commitId" yaml:"commitId"`
 	// The message of the currently last commit on the tracked branch.
+	// Experimental.
 	CommitMessage *string `json:"commitMessage" yaml:"commitMessage"`
 	// The connection ARN this source uses.
+	// Experimental.
 	ConnectionArn *string `json:"connectionArn" yaml:"connectionArn"`
 	// The name of the repository this action points to.
+	// Experimental.
 	FullRepositoryName *string `json:"fullRepositoryName" yaml:"fullRepositoryName"`
 }
 
 // Options in common between both StackSet actions.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"
+//   commonCloudFormationStackSetOptions := &commonCloudFormationStackSetOptions{
+//   	failureTolerancePercentage: jsii.Number(123),
+//   	maxAccountConcurrencyPercentage: jsii.Number(123),
+//   	stackSetRegion: jsii.String("stackSetRegion"),
+//   }
 //
+// Experimental.
 type CommonCloudFormationStackSetOptions struct {
 	// The percentage of accounts per Region for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
 	//
 	// If
 	// the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in subsequent Regions. When calculating the number
 	// of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number.
+	// Experimental.
 	FailureTolerancePercentage *float64 `json:"failureTolerancePercentage" yaml:"failureTolerancePercentage"`
 	// The maximum percentage of accounts in which to perform this operation at one time.
 	//
@@ -3006,6 +4657,7 @@ type CommonCloudFormationStackSetOptions struct {
 	// percentage, AWS CloudFormation rounds down to the next whole number. If rounding down would result in zero, AWS CloudFormation sets the number as
 	// one instead. Although you use this setting to specify the maximum, for large deployments the actual number of accounts acted upon concurrently
 	// may be lower due to service throttling.
+	// Experimental.
 	MaxAccountConcurrencyPercentage *float64 `json:"maxAccountConcurrencyPercentage" yaml:"maxAccountConcurrencyPercentage"`
 	// The AWS Region the StackSet is in.
 	//
@@ -3013,6 +4665,7 @@ type CommonCloudFormationStackSetOptions struct {
 	// You can provide their names with the `PipelineProps.crossRegionReplicationBuckets` property.
 	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
+	// Experimental.
 	StackSetRegion *string `json:"stackSetRegion" yaml:"stackSetRegion"`
 }
 
@@ -3022,16 +4675,50 @@ type CommonCloudFormationStackSetOptions struct {
 // changes, but only if there is a CloudTrail Trail in the account that
 // captures the ECR event.
 //
-// TODO: EXAMPLE
+// Example:
+//   import ecr "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var ecrRepository repository
+//   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
+//   sourceOutput := codepipeline.NewArtifact()
+//   sourceAction := codepipeline_actions.NewEcrSourceAction(&ecrSourceActionProps{
+//   	actionName: jsii.String("ECR"),
+//   	repository: ecrRepository,
+//   	imageTag: jsii.String("some-tag"),
+//   	 // optional, default: 'latest'
+//   	output: sourceOutput,
+//   })
+//   pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("Source"),
+//   	actions: []iAction{
+//   		sourceAction,
+//   	},
+//   })
+//
+// Experimental.
 type EcrSourceAction interface {
 	Action
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
+	// The variables emitted by this action.
+	// Experimental.
 	Variables() *EcrSourceVariables
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	Bound(_scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// The callback invoked when this Action is added to a Pipeline.
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(_scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -3071,13 +4758,14 @@ func (j *jsiiProxy_EcrSourceAction) Variables() *EcrSourceVariables {
 }
 
 
+// Experimental.
 func NewEcrSourceAction(props *EcrSourceActionProps) EcrSourceAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_EcrSourceAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.EcrSourceAction",
+		"monocdk.aws_codepipeline_actions.EcrSourceAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -3085,18 +4773,18 @@ func NewEcrSourceAction(props *EcrSourceActionProps) EcrSourceAction {
 	return &j
 }
 
+// Experimental.
 func NewEcrSourceAction_Override(e EcrSourceAction, props *EcrSourceActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.EcrSourceAction",
+		"monocdk.aws_codepipeline_actions.EcrSourceAction",
 		[]interface{}{props},
 		e,
 	)
 }
 
-// The callback invoked when this Action is added to a Pipeline.
-func (e *jsiiProxy_EcrSourceAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (e *jsiiProxy_EcrSourceAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -3109,8 +4797,7 @@ func (e *jsiiProxy_EcrSourceAction) Bind(scope constructs.Construct, stage awsco
 	return returns
 }
 
-// This is a renamed version of the {@link IAction.bind} method.
-func (e *jsiiProxy_EcrSourceAction) Bound(_scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (e *jsiiProxy_EcrSourceAction) Bound(_scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -3123,7 +4810,6 @@ func (e *jsiiProxy_EcrSourceAction) Bound(_scope constructs.Construct, stage aws
 	return returns
 }
 
-// Creates an Event that will be triggered whenever the state of this Action changes.
 func (e *jsiiProxy_EcrSourceAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -3152,20 +4838,42 @@ func (e *jsiiProxy_EcrSourceAction) VariableExpression(variableName *string) *st
 
 // Construction properties of {@link EcrSourceAction}.
 //
-// TODO: EXAMPLE
+// Example:
+//   import ecr "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var ecrRepository repository
+//   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
+//   sourceOutput := codepipeline.NewArtifact()
+//   sourceAction := codepipeline_actions.NewEcrSourceAction(&ecrSourceActionProps{
+//   	actionName: jsii.String("ECR"),
+//   	repository: ecrRepository,
+//   	imageTag: jsii.String("some-tag"),
+//   	 // optional, default: 'latest'
+//   	output: sourceOutput,
+//   })
+//   pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("Source"),
+//   	actions: []iAction{
+//   		sourceAction,
+//   	},
+//   })
+//
+// Experimental.
 type EcrSourceActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -3174,46 +4882,101 @@ type EcrSourceActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
+	// Experimental.
 	Output awscodepipeline.Artifact `json:"output" yaml:"output"`
 	// The repository that will be watched for changes.
+	// Experimental.
 	Repository awsecr.IRepository `json:"repository" yaml:"repository"`
 	// The image tag that will be checked for changes.
 	//
 	// Provide an empty string to trigger on changes to any tag.
+	// Experimental.
 	ImageTag *string `json:"imageTag" yaml:"imageTag"`
 }
 
 // The CodePipeline variables emitted by the ECR source Action.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"
+//   ecrSourceVariables := &ecrSourceVariables{
+//   	imageDigest: jsii.String("imageDigest"),
+//   	imageTag: jsii.String("imageTag"),
+//   	imageUri: jsii.String("imageUri"),
+//   	registryId: jsii.String("registryId"),
+//   	repositoryName: jsii.String("repositoryName"),
+//   }
 //
+// Experimental.
 type EcrSourceVariables struct {
 	// The digest of the current image, in the form '<digest type>:<digest value>'.
+	// Experimental.
 	ImageDigest *string `json:"imageDigest" yaml:"imageDigest"`
 	// The Docker tag of the current image.
+	// Experimental.
 	ImageTag *string `json:"imageTag" yaml:"imageTag"`
 	// The full ECR Docker URI of the current image.
+	// Experimental.
 	ImageUri *string `json:"imageUri" yaml:"imageUri"`
 	// The identifier of the registry.
 	//
 	// In ECR, this is usually the ID of the AWS account owning it.
+	// Experimental.
 	RegistryId *string `json:"registryId" yaml:"registryId"`
 	// The physical name of the repository that this action tracks.
+	// Experimental.
 	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
 }
 
 // CodePipeline Action to deploy an ECS Service.
 //
-// TODO: EXAMPLE
+// Example:
+//   import ecs "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var service fargateService
+//   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
+//   buildOutput := codepipeline.NewArtifact()
+//   deployStage := pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("Deploy"),
+//   	actions: []iAction{
+//   		codepipeline_actions.NewEcsDeployAction(&ecsDeployActionProps{
+//   			actionName: jsii.String("DeployAction"),
+//   			service: service,
+//   			// if your file is called imagedefinitions.json,
+//   			// use the `input` property,
+//   			// and leave out the `imageFile` property
+//   			input: buildOutput,
+//   			// if your file name is _not_ imagedefinitions.json,
+//   			// use the `imageFile` property,
+//   			// and leave out the `input` property
+//   			imageFile: buildOutput.atPath(jsii.String("imageDef.json")),
+//   			deploymentTimeout: duration.minutes(jsii.Number(60)),
+//   		}),
+//   	},
+//   })
+//
+// Experimental.
 type EcsDeployAction interface {
 	Action
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// The callback invoked when this Action is added to a Pipeline.
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -3243,13 +5006,14 @@ func (j *jsiiProxy_EcsDeployAction) ProvidedActionProperties() *awscodepipeline.
 }
 
 
+// Experimental.
 func NewEcsDeployAction(props *EcsDeployActionProps) EcsDeployAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_EcsDeployAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.EcsDeployAction",
+		"monocdk.aws_codepipeline_actions.EcsDeployAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -3257,18 +5021,18 @@ func NewEcsDeployAction(props *EcsDeployActionProps) EcsDeployAction {
 	return &j
 }
 
+// Experimental.
 func NewEcsDeployAction_Override(e EcsDeployAction, props *EcsDeployActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.EcsDeployAction",
+		"monocdk.aws_codepipeline_actions.EcsDeployAction",
 		[]interface{}{props},
 		e,
 	)
 }
 
-// The callback invoked when this Action is added to a Pipeline.
-func (e *jsiiProxy_EcsDeployAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (e *jsiiProxy_EcsDeployAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -3281,8 +5045,7 @@ func (e *jsiiProxy_EcsDeployAction) Bind(scope constructs.Construct, stage awsco
 	return returns
 }
 
-// This is a renamed version of the {@link IAction.bind} method.
-func (e *jsiiProxy_EcsDeployAction) Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (e *jsiiProxy_EcsDeployAction) Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -3295,7 +5058,6 @@ func (e *jsiiProxy_EcsDeployAction) Bound(_scope constructs.Construct, _stage aw
 	return returns
 }
 
-// Creates an Event that will be triggered whenever the state of this Action changes.
 func (e *jsiiProxy_EcsDeployAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -3324,20 +5086,47 @@ func (e *jsiiProxy_EcsDeployAction) VariableExpression(variableName *string) *st
 
 // Construction properties of {@link EcsDeployAction}.
 //
-// TODO: EXAMPLE
+// Example:
+//   import ecs "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var service fargateService
+//   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
+//   buildOutput := codepipeline.NewArtifact()
+//   deployStage := pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("Deploy"),
+//   	actions: []iAction{
+//   		codepipeline_actions.NewEcsDeployAction(&ecsDeployActionProps{
+//   			actionName: jsii.String("DeployAction"),
+//   			service: service,
+//   			// if your file is called imagedefinitions.json,
+//   			// use the `input` property,
+//   			// and leave out the `imageFile` property
+//   			input: buildOutput,
+//   			// if your file name is _not_ imagedefinitions.json,
+//   			// use the `imageFile` property,
+//   			// and leave out the `input` property
+//   			imageFile: buildOutput.atPath(jsii.String("imageDef.json")),
+//   			deploymentTimeout: duration.minutes(jsii.Number(60)),
+//   		}),
+//   	},
+//   })
+//
+// Experimental.
 type EcsDeployActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -3346,14 +5135,17 @@ type EcsDeployActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The ECS Service to deploy.
+	// Experimental.
 	Service awsecs.IBaseService `json:"service" yaml:"service"`
 	// Timeout for the ECS deployment in minutes.
 	//
 	// Value must be between 1-60.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-ECS.html
 	//
+	// Experimental.
 	DeploymentTimeout awscdk.Duration `json:"deploymentTimeout" yaml:"deploymentTimeout"`
 	// The name of the JSON image definitions file to use for deployments.
 	//
@@ -3364,6 +5156,7 @@ type EcsDeployActionProps struct {
 	// If you use this property, you don't need to specify the `input` property.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-create.html#pipelines-create-image-definitions
 	//
+	// Experimental.
 	ImageFile awscodepipeline.ArtifactPath `json:"imageFile" yaml:"imageFile"`
 	// The input artifact that contains the JSON image definitions file to use for deployments.
 	//
@@ -3375,21 +5168,63 @@ type EcsDeployActionProps struct {
 	// and use the `imageFile` property instead.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-create.html#pipelines-create-image-definitions
 	//
+	// Experimental.
 	Input awscodepipeline.Artifact `json:"input" yaml:"input"`
 }
 
 // Source that is provided by a GitHub repository.
 //
-// TODO: EXAMPLE
+// Example:
+//   var sourceOutput artifact
+//   var project pipelineProject
 //
+//   sourceAction := codepipeline_actions.NewGitHubSourceAction(&gitHubSourceActionProps{
+//   	actionName: jsii.String("Github_Source"),
+//   	output: sourceOutput,
+//   	owner: jsii.String("my-owner"),
+//   	repo: jsii.String("my-repo"),
+//   	oauthToken: secretValue.secretsManager(jsii.String("my-github-token")),
+//   	variablesNamespace: jsii.String("MyNamespace"),
+//   })
+//
+//   // later:
+//
+//   // later:
+//   codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
+//   	actionName: jsii.String("CodeBuild"),
+//   	project: project,
+//   	input: sourceOutput,
+//   	environmentVariables: map[string]buildEnvironmentVariable{
+//   		"COMMIT_URL": &buildEnvironmentVariable{
+//   			"value": sourceAction.variables.commitUrl,
+//   		},
+//   	},
+//   })
+//
+// Experimental.
 type GitHubSourceAction interface {
 	Action
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
+	// The variables emitted by this action.
+	// Experimental.
 	Variables() *GitHubSourceVariables
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	Bound(scope constructs.Construct, stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// The callback invoked when this Action is added to a Pipeline.
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(scope awscdk.Construct, stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -3429,13 +5264,14 @@ func (j *jsiiProxy_GitHubSourceAction) Variables() *GitHubSourceVariables {
 }
 
 
+// Experimental.
 func NewGitHubSourceAction(props *GitHubSourceActionProps) GitHubSourceAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_GitHubSourceAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.GitHubSourceAction",
+		"monocdk.aws_codepipeline_actions.GitHubSourceAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -3443,18 +5279,18 @@ func NewGitHubSourceAction(props *GitHubSourceActionProps) GitHubSourceAction {
 	return &j
 }
 
+// Experimental.
 func NewGitHubSourceAction_Override(g GitHubSourceAction, props *GitHubSourceActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.GitHubSourceAction",
+		"monocdk.aws_codepipeline_actions.GitHubSourceAction",
 		[]interface{}{props},
 		g,
 	)
 }
 
-// The callback invoked when this Action is added to a Pipeline.
-func (g *jsiiProxy_GitHubSourceAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (g *jsiiProxy_GitHubSourceAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -3467,8 +5303,7 @@ func (g *jsiiProxy_GitHubSourceAction) Bind(scope constructs.Construct, stage aw
 	return returns
 }
 
-// This is a renamed version of the {@link IAction.bind} method.
-func (g *jsiiProxy_GitHubSourceAction) Bound(scope constructs.Construct, stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (g *jsiiProxy_GitHubSourceAction) Bound(scope awscdk.Construct, stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -3481,7 +5316,6 @@ func (g *jsiiProxy_GitHubSourceAction) Bound(scope constructs.Construct, stage a
 	return returns
 }
 
-// Creates an Event that will be triggered whenever the state of this Action changes.
 func (g *jsiiProxy_GitHubSourceAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -3510,20 +5344,49 @@ func (g *jsiiProxy_GitHubSourceAction) VariableExpression(variableName *string) 
 
 // Construction properties of the {@link GitHubSourceAction GitHub source action}.
 //
-// TODO: EXAMPLE
+// Example:
+//   var sourceOutput artifact
+//   var project pipelineProject
 //
+//   sourceAction := codepipeline_actions.NewGitHubSourceAction(&gitHubSourceActionProps{
+//   	actionName: jsii.String("Github_Source"),
+//   	output: sourceOutput,
+//   	owner: jsii.String("my-owner"),
+//   	repo: jsii.String("my-repo"),
+//   	oauthToken: secretValue.secretsManager(jsii.String("my-github-token")),
+//   	variablesNamespace: jsii.String("MyNamespace"),
+//   })
+//
+//   // later:
+//
+//   // later:
+//   codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
+//   	actionName: jsii.String("CodeBuild"),
+//   	project: project,
+//   	input: sourceOutput,
+//   	environmentVariables: map[string]buildEnvironmentVariable{
+//   		"COMMIT_URL": &buildEnvironmentVariable{
+//   			"value": sourceAction.variables.commitUrl,
+//   		},
+//   	},
+//   })
+//
+// Experimental.
 type GitHubSourceActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 	// A GitHub OAuth token to use for authentication.
 	//
@@ -3535,16 +5398,21 @@ type GitHubSourceActionProps struct {
 	// The GitHub Personal Access Token should have these scopes:
 	//
 	// * **repo** - to read the repository
-	// * **admin:repo_hook** - if you plan to use webhooks (true by default)
+	// * **admin:repo_hook** - if you plan to use webhooks (true by default).
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/appendix-github-oauth.html#GitHub-create-personal-token-CLI
 	//
+	// Experimental.
 	OauthToken awscdk.SecretValue `json:"oauthToken" yaml:"oauthToken"`
+	// Experimental.
 	Output awscodepipeline.Artifact `json:"output" yaml:"output"`
 	// The GitHub account/user that owns the repo.
+	// Experimental.
 	Owner *string `json:"owner" yaml:"owner"`
 	// The name of the repo, without the username.
+	// Experimental.
 	Repo *string `json:"repo" yaml:"repo"`
 	// The branch to use.
+	// Experimental.
 	Branch *string `json:"branch" yaml:"branch"`
 	// How AWS CodePipeline should be triggered.
 	//
@@ -3554,36 +5422,59 @@ type GitHubSourceActionProps struct {
 	//
 	// To use `WEBHOOK`, your GitHub Personal Access Token should have
 	// **admin:repo_hook** scope (in addition to the regular **repo** scope).
+	// Experimental.
 	Trigger GitHubTrigger `json:"trigger" yaml:"trigger"`
 }
 
 // The CodePipeline variables emitted by GitHub source Action.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"
+//   gitHubSourceVariables := &gitHubSourceVariables{
+//   	authorDate: jsii.String("authorDate"),
+//   	branchName: jsii.String("branchName"),
+//   	commitId: jsii.String("commitId"),
+//   	commitMessage: jsii.String("commitMessage"),
+//   	committerDate: jsii.String("committerDate"),
+//   	commitUrl: jsii.String("commitUrl"),
+//   	repositoryName: jsii.String("repositoryName"),
+//   }
 //
+// Experimental.
 type GitHubSourceVariables struct {
 	// The date the currently last commit on the tracked branch was authored, in ISO-8601 format.
+	// Experimental.
 	AuthorDate *string `json:"authorDate" yaml:"authorDate"`
 	// The name of the branch this action tracks.
+	// Experimental.
 	BranchName *string `json:"branchName" yaml:"branchName"`
 	// The SHA1 hash of the currently last commit on the tracked branch.
+	// Experimental.
 	CommitId *string `json:"commitId" yaml:"commitId"`
 	// The message of the currently last commit on the tracked branch.
+	// Experimental.
 	CommitMessage *string `json:"commitMessage" yaml:"commitMessage"`
 	// The date the currently last commit on the tracked branch was committed, in ISO-8601 format.
+	// Experimental.
 	CommitterDate *string `json:"committerDate" yaml:"committerDate"`
 	// The GitHub API URL of the currently last commit on the tracked branch.
+	// Experimental.
 	CommitUrl *string `json:"commitUrl" yaml:"commitUrl"`
 	// The name of the repository this action points to.
+	// Experimental.
 	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
 }
 
 // If and how the GitHub source action should be triggered.
+// Experimental.
 type GitHubTrigger string
 
 const (
+	// Experimental.
 	GitHubTrigger_NONE GitHubTrigger = "NONE"
+	// Experimental.
 	GitHubTrigger_POLL GitHubTrigger = "POLL"
+	// Experimental.
 	GitHubTrigger_WEBHOOK GitHubTrigger = "WEBHOOK"
 )
 
@@ -3594,16 +5485,20 @@ const (
 //
 // If you want to reference an already registered provider,
 // use the {@link JenkinsProvider#fromJenkinsProviderAttributes} method.
+// Experimental.
 type IJenkinsProvider interface {
-	constructs.IConstruct
+	awscdk.IConstruct
+	// Experimental.
 	ProviderName() *string
+	// Experimental.
 	ServerUrl() *string
+	// Experimental.
 	Version() *string
 }
 
 // The jsii proxy for IJenkinsProvider
 type jsiiProxy_IJenkinsProvider struct {
-	internal.Type__constructsIConstruct
+	internal.Type__awscdkIConstruct
 }
 
 func (j *jsiiProxy_IJenkinsProvider) ProviderName() *string {
@@ -3638,17 +5533,38 @@ func (j *jsiiProxy_IJenkinsProvider) Version() *string {
 
 // Jenkins build CodePipeline Action.
 //
-// TODO: EXAMPLE
+// Example:
+//   var jenkinsProvider jenkinsProvider
+//   buildAction := codepipeline_actions.NewJenkinsAction(&jenkinsActionProps{
+//   	actionName: jsii.String("JenkinsBuild"),
+//   	jenkinsProvider: jenkinsProvider,
+//   	projectName: jsii.String("MyProject"),
+//   	type: codepipeline_actions.jenkinsActionType_BUILD,
+//   })
 //
 // See: https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-four-stage-pipeline.html
 //
+// Experimental.
 type JenkinsAction interface {
 	Action
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// The callback invoked when this Action is added to a Pipeline.
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -3678,13 +5594,14 @@ func (j *jsiiProxy_JenkinsAction) ProvidedActionProperties() *awscodepipeline.Ac
 }
 
 
+// Experimental.
 func NewJenkinsAction(props *JenkinsActionProps) JenkinsAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_JenkinsAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.JenkinsAction",
+		"monocdk.aws_codepipeline_actions.JenkinsAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -3692,18 +5609,18 @@ func NewJenkinsAction(props *JenkinsActionProps) JenkinsAction {
 	return &j
 }
 
+// Experimental.
 func NewJenkinsAction_Override(j JenkinsAction, props *JenkinsActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.JenkinsAction",
+		"monocdk.aws_codepipeline_actions.JenkinsAction",
 		[]interface{}{props},
 		j,
 	)
 }
 
-// The callback invoked when this Action is added to a Pipeline.
-func (j *jsiiProxy_JenkinsAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (j *jsiiProxy_JenkinsAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -3716,8 +5633,7 @@ func (j *jsiiProxy_JenkinsAction) Bind(scope constructs.Construct, stage awscode
 	return returns
 }
 
-// This is a renamed version of the {@link IAction.bind} method.
-func (j *jsiiProxy_JenkinsAction) Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (j *jsiiProxy_JenkinsAction) Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -3730,7 +5646,6 @@ func (j *jsiiProxy_JenkinsAction) Bound(_scope constructs.Construct, _stage awsc
 	return returns
 }
 
-// Creates an Event that will be triggered whenever the state of this Action changes.
 func (j *jsiiProxy_JenkinsAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -3759,32 +5674,49 @@ func (j *jsiiProxy_JenkinsAction) VariableExpression(variableName *string) *stri
 
 // Construction properties of {@link JenkinsAction}.
 //
-// TODO: EXAMPLE
+// Example:
+//   var jenkinsProvider jenkinsProvider
+//   buildAction := codepipeline_actions.NewJenkinsAction(&jenkinsActionProps{
+//   	actionName: jsii.String("JenkinsBuild"),
+//   	jenkinsProvider: jenkinsProvider,
+//   	projectName: jsii.String("MyProject"),
+//   	type: codepipeline_actions.jenkinsActionType_BUILD,
+//   })
 //
+// Experimental.
 type JenkinsActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Jenkins Provider for this Action.
+	// Experimental.
 	JenkinsProvider IJenkinsProvider `json:"jenkinsProvider" yaml:"jenkinsProvider"`
 	// The name of the project (sometimes also called job, or task) on your Jenkins installation that will be invoked by this Action.
 	//
-	// TODO: EXAMPLE
+	// Example:
+	//   "MyJob"
 	//
+	// Experimental.
 	ProjectName *string `json:"projectName" yaml:"projectName"`
 	// The type of the Action - Build, or Test.
+	// Experimental.
 	Type JenkinsActionType `json:"type" yaml:"type"`
 	// The source to use as input for this build.
+	// Experimental.
 	Inputs *[]awscodepipeline.Artifact `json:"inputs" yaml:"inputs"`
+	// Experimental.
 	Outputs *[]awscodepipeline.Artifact `json:"outputs" yaml:"outputs"`
 }
 
@@ -3793,28 +5725,101 @@ type JenkinsActionProps struct {
 // Note that a Jenkins provider, even if it has the same name,
 // must be separately registered for each type.
 //
-// TODO: EXAMPLE
+// Example:
+//   var jenkinsProvider jenkinsProvider
+//   buildAction := codepipeline_actions.NewJenkinsAction(&jenkinsActionProps{
+//   	actionName: jsii.String("JenkinsBuild"),
+//   	jenkinsProvider: jenkinsProvider,
+//   	projectName: jsii.String("MyProject"),
+//   	type: codepipeline_actions.jenkinsActionType_BUILD,
+//   })
 //
+// Experimental.
 type JenkinsActionType string
 
 const (
+	// The Action will have the Build Category.
+	// Experimental.
 	JenkinsActionType_BUILD JenkinsActionType = "BUILD"
+	// The Action will have the Test Category.
+	// Experimental.
 	JenkinsActionType_TEST JenkinsActionType = "TEST"
 )
 
 // A class representing Jenkins providers.
 //
-// TODO: EXAMPLE
+// Example:
+//   jenkinsProvider := codepipeline_actions.NewJenkinsProvider(this, jsii.String("JenkinsProvider"), &jenkinsProviderProps{
+//   	providerName: jsii.String("MyJenkinsProvider"),
+//   	serverUrl: jsii.String("http://my-jenkins.com:8080"),
+//   	version: jsii.String("2"),
+//   })
 //
-// See: #import
+// See: #import.
 //
+// Experimental.
 type JenkinsProvider interface {
 	BaseJenkinsProvider
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Experimental.
 	ProviderName() *string
+	// Experimental.
 	ServerUrl() *string
+	// Experimental.
 	Version() *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for JenkinsProvider
@@ -3822,8 +5827,8 @@ type jsiiProxy_JenkinsProvider struct {
 	jsiiProxy_BaseJenkinsProvider
 }
 
-func (j *jsiiProxy_JenkinsProvider) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_JenkinsProvider) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3863,13 +5868,14 @@ func (j *jsiiProxy_JenkinsProvider) Version() *string {
 }
 
 
+// Experimental.
 func NewJenkinsProvider(scope constructs.Construct, id *string, props *JenkinsProviderProps) JenkinsProvider {
 	_init_.Initialize()
 
 	j := jsiiProxy_JenkinsProvider{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.JenkinsProvider",
+		"monocdk.aws_codepipeline_actions.JenkinsProvider",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3877,11 +5883,12 @@ func NewJenkinsProvider(scope constructs.Construct, id *string, props *JenkinsPr
 	return &j
 }
 
+// Experimental.
 func NewJenkinsProvider_Override(j JenkinsProvider, scope constructs.Construct, id *string, props *JenkinsProviderProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.JenkinsProvider",
+		"monocdk.aws_codepipeline_actions.JenkinsProvider",
 		[]interface{}{scope, id, props},
 		j,
 	)
@@ -3889,14 +5896,15 @@ func NewJenkinsProvider_Override(j JenkinsProvider, scope constructs.Construct, 
 
 // Import a Jenkins provider registered either outside the CDK, or in a different CDK Stack.
 //
-// Returns: a new Construct representing a reference to an existing Jenkins provider
+// Returns: a new Construct representing a reference to an existing Jenkins provider.
+// Experimental.
 func JenkinsProvider_FromJenkinsProviderAttributes(scope constructs.Construct, id *string, attrs *JenkinsProviderAttributes) IJenkinsProvider {
 	_init_.Initialize()
 
 	var returns IJenkinsProvider
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline_actions.JenkinsProvider",
+		"monocdk.aws_codepipeline_actions.JenkinsProvider",
 		"fromJenkinsProviderAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -3905,17 +5913,15 @@ func JenkinsProvider_FromJenkinsProviderAttributes(scope constructs.Construct, i
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func JenkinsProvider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline_actions.JenkinsProvider",
+		"monocdk.aws_codepipeline_actions.JenkinsProvider",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3924,7 +5930,51 @@ func JenkinsProvider_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
+func (j *jsiiProxy_JenkinsProvider) OnPrepare() {
+	_jsii_.InvokeVoid(
+		j,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (j *jsiiProxy_JenkinsProvider) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		j,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (j *jsiiProxy_JenkinsProvider) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		j,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (j *jsiiProxy_JenkinsProvider) Prepare() {
+	_jsii_.InvokeVoid(
+		j,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (j *jsiiProxy_JenkinsProvider) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		j,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (j *jsiiProxy_JenkinsProvider) ToString() *string {
 	var returns *string
 
@@ -3938,64 +5988,137 @@ func (j *jsiiProxy_JenkinsProvider) ToString() *string {
 	return returns
 }
 
+func (j *jsiiProxy_JenkinsProvider) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		j,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties for importing an existing Jenkins provider.
 //
-// TODO: EXAMPLE
+// Example:
+//   jenkinsProvider := codepipeline_actions.jenkinsProvider.fromJenkinsProviderAttributes(this, jsii.String("JenkinsProvider"), &jenkinsProviderAttributes{
+//   	providerName: jsii.String("MyJenkinsProvider"),
+//   	serverUrl: jsii.String("http://my-jenkins.com:8080"),
+//   	version: jsii.String("2"),
+//   })
 //
+// Experimental.
 type JenkinsProviderAttributes struct {
 	// The name of the Jenkins provider that you set in the AWS CodePipeline plugin configuration of your Jenkins project.
 	//
-	// TODO: EXAMPLE
+	// Example:
+	//   "MyJenkinsProvider"
 	//
+	// Experimental.
 	ProviderName *string `json:"providerName" yaml:"providerName"`
 	// The base URL of your Jenkins server.
 	//
-	// TODO: EXAMPLE
+	// Example:
+	//   "http://myjenkins.com:8080"
 	//
+	// Experimental.
 	ServerUrl *string `json:"serverUrl" yaml:"serverUrl"`
 	// The version of your provider.
+	// Experimental.
 	Version *string `json:"version" yaml:"version"`
 }
 
-// TODO: EXAMPLE
+// Example:
+//   jenkinsProvider := codepipeline_actions.NewJenkinsProvider(this, jsii.String("JenkinsProvider"), &jenkinsProviderProps{
+//   	providerName: jsii.String("MyJenkinsProvider"),
+//   	serverUrl: jsii.String("http://my-jenkins.com:8080"),
+//   	version: jsii.String("2"),
+//   })
 //
+// Experimental.
 type JenkinsProviderProps struct {
 	// The name of the Jenkins provider that you set in the AWS CodePipeline plugin configuration of your Jenkins project.
 	//
-	// TODO: EXAMPLE
+	// Example:
+	//   "MyJenkinsProvider"
 	//
+	// Experimental.
 	ProviderName *string `json:"providerName" yaml:"providerName"`
 	// The base URL of your Jenkins server.
 	//
-	// TODO: EXAMPLE
+	// Example:
+	//   "http://myjenkins.com:8080"
 	//
+	// Experimental.
 	ServerUrl *string `json:"serverUrl" yaml:"serverUrl"`
 	// Whether to immediately register a Jenkins Provider for the build category.
 	//
 	// The Provider will always be registered if you create a {@link JenkinsAction}.
+	// Experimental.
 	ForBuild *bool `json:"forBuild" yaml:"forBuild"`
 	// Whether to immediately register a Jenkins Provider for the test category.
 	//
 	// The Provider will always be registered if you create a {@link JenkinsTestAction}.
+	// Experimental.
 	ForTest *bool `json:"forTest" yaml:"forTest"`
 	// The version of your provider.
+	// Experimental.
 	Version *string `json:"version" yaml:"version"`
 }
 
 // CodePipeline invoke Action that is provided by an AWS Lambda function.
 //
-// TODO: EXAMPLE
+// Example:
+//   var fn function
+//   sourceOutput := codepipeline.NewArtifact()
+//   buildOutput := codepipeline.NewArtifact()
+//   lambdaAction := codepipeline_actions.NewLambdaInvokeAction(&lambdaInvokeActionProps{
+//   	actionName: jsii.String("Lambda"),
+//   	inputs: []artifact{
+//   		sourceOutput,
+//   		buildOutput,
+//   	},
+//   	outputs: []*artifact{
+//   		codepipeline.NewArtifact(jsii.String("Out1")),
+//   		codepipeline.NewArtifact(jsii.String("Out2")),
+//   	},
+//   	lambda: fn,
+//   })
 //
 // See: https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-invoke-lambda-function.html
 //
+// Experimental.
 type LambdaInvokeAction interface {
 	Action
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	Bound(scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// The callback invoked when this Action is added to a Pipeline.
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Reference a CodePipeline variable defined by the Lambda function this action points to.
+	//
+	// Variables in Lambda invoke actions are defined by calling the PutJobSuccessResult CodePipeline API call
+	// with the 'outputVariables' property filled.
+	// See: https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PutJobSuccessResult.html
+	//
+	// Experimental.
 	Variable(variableName *string) *string
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -4025,13 +6148,14 @@ func (j *jsiiProxy_LambdaInvokeAction) ProvidedActionProperties() *awscodepipeli
 }
 
 
+// Experimental.
 func NewLambdaInvokeAction(props *LambdaInvokeActionProps) LambdaInvokeAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_LambdaInvokeAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.LambdaInvokeAction",
+		"monocdk.aws_codepipeline_actions.LambdaInvokeAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -4039,18 +6163,18 @@ func NewLambdaInvokeAction(props *LambdaInvokeActionProps) LambdaInvokeAction {
 	return &j
 }
 
+// Experimental.
 func NewLambdaInvokeAction_Override(l LambdaInvokeAction, props *LambdaInvokeActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.LambdaInvokeAction",
+		"monocdk.aws_codepipeline_actions.LambdaInvokeAction",
 		[]interface{}{props},
 		l,
 	)
 }
 
-// The callback invoked when this Action is added to a Pipeline.
-func (l *jsiiProxy_LambdaInvokeAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (l *jsiiProxy_LambdaInvokeAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -4063,8 +6187,7 @@ func (l *jsiiProxy_LambdaInvokeAction) Bind(scope constructs.Construct, stage aw
 	return returns
 }
 
-// This is a renamed version of the {@link IAction.bind} method.
-func (l *jsiiProxy_LambdaInvokeAction) Bound(scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (l *jsiiProxy_LambdaInvokeAction) Bound(scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -4077,7 +6200,6 @@ func (l *jsiiProxy_LambdaInvokeAction) Bound(scope constructs.Construct, _stage 
 	return returns
 }
 
-// Creates an Event that will be triggered whenever the state of this Action changes.
 func (l *jsiiProxy_LambdaInvokeAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -4091,12 +6213,6 @@ func (l *jsiiProxy_LambdaInvokeAction) OnStateChange(name *string, target awseve
 	return returns
 }
 
-// Reference a CodePipeline variable defined by the Lambda function this action points to.
-//
-// Variables in Lambda invoke actions are defined by calling the PutJobSuccessResult CodePipeline API call
-// with the 'outputVariables' property filled.
-// See: https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PutJobSuccessResult.html
-//
 func (l *jsiiProxy_LambdaInvokeAction) Variable(variableName *string) *string {
 	var returns *string
 
@@ -4125,20 +6241,39 @@ func (l *jsiiProxy_LambdaInvokeAction) VariableExpression(variableName *string) 
 
 // Construction properties of the {@link LambdaInvokeAction Lambda invoke CodePipeline Action}.
 //
-// TODO: EXAMPLE
+// Example:
+//   var fn function
+//   sourceOutput := codepipeline.NewArtifact()
+//   buildOutput := codepipeline.NewArtifact()
+//   lambdaAction := codepipeline_actions.NewLambdaInvokeAction(&lambdaInvokeActionProps{
+//   	actionName: jsii.String("Lambda"),
+//   	inputs: []artifact{
+//   		sourceOutput,
+//   		buildOutput,
+//   	},
+//   	outputs: []*artifact{
+//   		codepipeline.NewArtifact(jsii.String("Out1")),
+//   		codepipeline.NewArtifact(jsii.String("Out2")),
+//   	},
+//   	lambda: fn,
+//   })
 //
+// Experimental.
 type LambdaInvokeActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -4147,8 +6282,10 @@ type LambdaInvokeActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The lambda function to invoke.
+	// Experimental.
 	Lambda awslambda.IFunction `json:"lambda" yaml:"lambda"`
 	// The optional input Artifacts of the Action.
 	//
@@ -4157,6 +6294,7 @@ type LambdaInvokeActionProps struct {
 	// under the `'CodePipeline.job'.data.inputArtifacts` path.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-invoke-lambda-function.html#actions-invoke-lambda-function-json-event-example
 	//
+	// Experimental.
 	Inputs *[]awscodepipeline.Artifact `json:"inputs" yaml:"inputs"`
 	// The optional names of the output Artifacts of the Action.
 	//
@@ -4164,32 +6302,70 @@ type LambdaInvokeActionProps struct {
 	// The outputs will appear in the event passed to the Lambda,
 	// under the `'CodePipeline.job'.data.outputArtifacts` path.
 	// It is the responsibility of the Lambda to upload ZIP files with the Artifact contents to the provided locations.
+	// Experimental.
 	Outputs *[]awscodepipeline.Artifact `json:"outputs" yaml:"outputs"`
 	// A set of key-value pairs that will be accessible to the invoked Lambda inside the event that the Pipeline will call it with.
 	//
 	// Only one of `userParameters` or `userParametersString` can be specified.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-invoke-lambda-function.html#actions-invoke-lambda-function-json-event-example
 	//
+	// Experimental.
 	UserParameters *map[string]interface{} `json:"userParameters" yaml:"userParameters"`
 	// The string representation of the user parameters that will be accessible to the invoked Lambda inside the event that the Pipeline will call it with.
 	//
 	// Only one of `userParametersString` or `userParameters` can be specified.
+	// Experimental.
 	UserParametersString *string `json:"userParametersString" yaml:"userParametersString"`
 }
 
 // Manual approval action.
 //
-// TODO: EXAMPLE
+// Example:
+//   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
+//   approveStage := pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("Approve"),
+//   })
+//   manualApprovalAction := codepipeline_actions.NewManualApprovalAction(&manualApprovalActionProps{
+//   	actionName: jsii.String("Approve"),
+//   })
+//   approveStage.addAction(manualApprovalAction)
 //
+//   role := iam.role.fromRoleArn(this, jsii.String("Admin"), arn.format(&arnComponents{
+//   	service: jsii.String("iam"),
+//   	resource: jsii.String("role"),
+//   	resourceName: jsii.String("Admin"),
+//   }, this))
+//   manualApprovalAction.grantManualApproval(role)
+//
+// Experimental.
 type ManualApprovalAction interface {
 	Action
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
+	// Experimental.
 	NotificationTopic() awssns.ITopic
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// The callback invoked when this Action is added to a Pipeline.
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// grant the provided principal the permissions to approve or reject this manual approval action.
+	//
+	// For more info see:
+	// https://docs.aws.amazon.com/codepipeline/latest/userguide/approvals-iam-permissions.html
+	// Experimental.
 	GrantManualApproval(grantable awsiam.IGrantable)
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -4229,13 +6405,14 @@ func (j *jsiiProxy_ManualApprovalAction) ProvidedActionProperties() *awscodepipe
 }
 
 
+// Experimental.
 func NewManualApprovalAction(props *ManualApprovalActionProps) ManualApprovalAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_ManualApprovalAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.ManualApprovalAction",
+		"monocdk.aws_codepipeline_actions.ManualApprovalAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -4243,18 +6420,18 @@ func NewManualApprovalAction(props *ManualApprovalActionProps) ManualApprovalAct
 	return &j
 }
 
+// Experimental.
 func NewManualApprovalAction_Override(m ManualApprovalAction, props *ManualApprovalActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.ManualApprovalAction",
+		"monocdk.aws_codepipeline_actions.ManualApprovalAction",
 		[]interface{}{props},
 		m,
 	)
 }
 
-// The callback invoked when this Action is added to a Pipeline.
-func (m *jsiiProxy_ManualApprovalAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (m *jsiiProxy_ManualApprovalAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -4267,8 +6444,7 @@ func (m *jsiiProxy_ManualApprovalAction) Bind(scope constructs.Construct, stage 
 	return returns
 }
 
-// This is a renamed version of the {@link IAction.bind} method.
-func (m *jsiiProxy_ManualApprovalAction) Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (m *jsiiProxy_ManualApprovalAction) Bound(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -4281,10 +6457,6 @@ func (m *jsiiProxy_ManualApprovalAction) Bound(scope constructs.Construct, stage
 	return returns
 }
 
-// grant the provided principal the permissions to approve or reject this manual approval action.
-//
-// For more info see:
-// https://docs.aws.amazon.com/codepipeline/latest/userguide/approvals-iam-permissions.html
 func (m *jsiiProxy_ManualApprovalAction) GrantManualApproval(grantable awsiam.IGrantable) {
 	_jsii_.InvokeVoid(
 		m,
@@ -4293,7 +6465,6 @@ func (m *jsiiProxy_ManualApprovalAction) GrantManualApproval(grantable awsiam.IG
 	)
 }
 
-// Creates an Event that will be triggered whenever the state of this Action changes.
 func (m *jsiiProxy_ManualApprovalAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -4322,20 +6493,39 @@ func (m *jsiiProxy_ManualApprovalAction) VariableExpression(variableName *string
 
 // Construction properties of the {@link ManualApprovalAction}.
 //
-// TODO: EXAMPLE
+// Example:
+//   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
+//   approveStage := pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("Approve"),
+//   })
+//   manualApprovalAction := codepipeline_actions.NewManualApprovalAction(&manualApprovalActionProps{
+//   	actionName: jsii.String("Approve"),
+//   })
+//   approveStage.addAction(manualApprovalAction)
 //
+//   role := iam.role.fromRoleArn(this, jsii.String("Admin"), arn.format(&arnComponents{
+//   	service: jsii.String("iam"),
+//   	resource: jsii.String("role"),
+//   	resourceName: jsii.String("Admin"),
+//   }, this))
+//   manualApprovalAction.grantManualApproval(role)
+//
+// Experimental.
 type ManualApprovalActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -4344,44 +6534,84 @@ type ManualApprovalActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Any additional information that you want to include in the notification email message.
+	// Experimental.
 	AdditionalInformation *string `json:"additionalInformation" yaml:"additionalInformation"`
 	// URL you want to provide to the reviewer as part of the approval request.
+	// Experimental.
 	ExternalEntityLink *string `json:"externalEntityLink" yaml:"externalEntityLink"`
 	// Optional SNS topic to send notifications to when an approval is pending.
+	// Experimental.
 	NotificationTopic awssns.ITopic `json:"notificationTopic" yaml:"notificationTopic"`
 	// A list of email addresses to subscribe to notifications when this Action is pending approval.
 	//
 	// If this has been provided, but not `notificationTopic`,
 	// a new Topic will be created.
+	// Experimental.
 	NotifyEmails *[]*string `json:"notifyEmails" yaml:"notifyEmails"`
 }
 
 // Properties for configuring service-managed (Organizations) permissions.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"
+//   organizationsDeploymentProps := &organizationsDeploymentProps{
+//   	autoDeployment: codepipeline_actions.stackSetOrganizationsAutoDeployment_ENABLED,
+//   }
 //
+// Experimental.
 type OrganizationsDeploymentProps struct {
 	// Automatically deploy to new accounts added to Organizational Units.
 	//
 	// Whether AWS CloudFormation StackSets automatically deploys to AWS
 	// Organizations accounts that are added to a target organization or
 	// organizational unit (OU).
+	// Experimental.
 	AutoDeployment StackSetOrganizationsAutoDeployment `json:"autoDeployment" yaml:"autoDeployment"`
 }
 
 // Deploys the sourceArtifact to Amazon S3.
 //
-// TODO: EXAMPLE
+// Example:
+//   sourceOutput := codepipeline.NewArtifact()
+//   targetBucket := s3.NewBucket(this, jsii.String("MyBucket"))
 //
+//   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
+//   deployAction := codepipeline_actions.NewS3DeployAction(&s3DeployActionProps{
+//   	actionName: jsii.String("S3Deploy"),
+//   	bucket: targetBucket,
+//   	input: sourceOutput,
+//   })
+//   deployStage := pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("Deploy"),
+//   	actions: []iAction{
+//   		deployAction,
+//   	},
+//   })
+//
+// Experimental.
 type S3DeployAction interface {
 	Action
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// The callback invoked when this Action is added to a Pipeline.
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -4411,13 +6641,14 @@ func (j *jsiiProxy_S3DeployAction) ProvidedActionProperties() *awscodepipeline.A
 }
 
 
+// Experimental.
 func NewS3DeployAction(props *S3DeployActionProps) S3DeployAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_S3DeployAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.S3DeployAction",
+		"monocdk.aws_codepipeline_actions.S3DeployAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -4425,18 +6656,18 @@ func NewS3DeployAction(props *S3DeployActionProps) S3DeployAction {
 	return &j
 }
 
+// Experimental.
 func NewS3DeployAction_Override(s S3DeployAction, props *S3DeployActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.S3DeployAction",
+		"monocdk.aws_codepipeline_actions.S3DeployAction",
 		[]interface{}{props},
 		s,
 	)
 }
 
-// The callback invoked when this Action is added to a Pipeline.
-func (s *jsiiProxy_S3DeployAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (s *jsiiProxy_S3DeployAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -4449,8 +6680,7 @@ func (s *jsiiProxy_S3DeployAction) Bind(scope constructs.Construct, stage awscod
 	return returns
 }
 
-// This is a renamed version of the {@link IAction.bind} method.
-func (s *jsiiProxy_S3DeployAction) Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (s *jsiiProxy_S3DeployAction) Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -4463,7 +6693,6 @@ func (s *jsiiProxy_S3DeployAction) Bound(_scope constructs.Construct, _stage aws
 	return returns
 }
 
-// Creates an Event that will be triggered whenever the state of this Action changes.
 func (s *jsiiProxy_S3DeployAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -4492,20 +6721,39 @@ func (s *jsiiProxy_S3DeployAction) VariableExpression(variableName *string) *str
 
 // Construction properties of the {@link S3DeployAction S3 deploy Action}.
 //
-// TODO: EXAMPLE
+// Example:
+//   sourceOutput := codepipeline.NewArtifact()
+//   targetBucket := s3.NewBucket(this, jsii.String("MyBucket"))
 //
+//   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
+//   deployAction := codepipeline_actions.NewS3DeployAction(&s3DeployActionProps{
+//   	actionName: jsii.String("S3Deploy"),
+//   	bucket: targetBucket,
+//   	input: sourceOutput,
+//   })
+//   deployStage := pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("Deploy"),
+//   	actions: []iAction{
+//   		deployAction,
+//   	},
+//   })
+//
+// Experimental.
 type S3DeployActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -4514,25 +6762,32 @@ type S3DeployActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The Amazon S3 bucket that is the deploy target.
+	// Experimental.
 	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
 	// The input Artifact to deploy to Amazon S3.
+	// Experimental.
 	Input awscodepipeline.Artifact `json:"input" yaml:"input"`
 	// The specified canned ACL to objects deployed to Amazon S3.
 	//
 	// This overwrites any existing ACL that was applied to the object.
+	// Experimental.
 	AccessControl awss3.BucketAccessControl `json:"accessControl" yaml:"accessControl"`
 	// The caching behavior for requests/responses for objects in the bucket.
 	//
 	// The final cache control property will be the result of joining all of the provided array elements with a comma
 	// (plus a space after the comma).
+	// Experimental.
 	CacheControl *[]CacheControl `json:"cacheControl" yaml:"cacheControl"`
 	// Should the deploy action extract the artifact before deploying to Amazon S3.
+	// Experimental.
 	Extract *bool `json:"extract" yaml:"extract"`
 	// The key of the target object.
 	//
 	// This is required if extract is false.
+	// Experimental.
 	ObjectKey *string `json:"objectKey" yaml:"objectKey"`
 }
 
@@ -4541,16 +6796,53 @@ type S3DeployActionProps struct {
 // Will trigger the pipeline as soon as the S3 object changes, but only if there is
 // a CloudTrail Trail in the account that captures the S3 event.
 //
-// TODO: EXAMPLE
+// Example:
+//   import cloudtrail "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var sourceBucket bucket
+//   sourceOutput := codepipeline.NewArtifact()
+//   key := "some/key.zip"
+//   trail := cloudtrail.NewTrail(this, jsii.String("CloudTrail"))
+//   trail.addS3EventSelector([]s3EventSelector{
+//   	&s3EventSelector{
+//   		bucket: sourceBucket,
+//   		objectPrefix: key,
+//   	},
+//   }, &addEventSelectorOptions{
+//   	readWriteType: cloudtrail.readWriteType_WRITE_ONLY,
+//   })
+//   sourceAction := codepipeline_actions.NewS3SourceAction(&s3SourceActionProps{
+//   	actionName: jsii.String("S3Source"),
+//   	bucketKey: key,
+//   	bucket: sourceBucket,
+//   	output: sourceOutput,
+//   	trigger: codepipeline_actions.s3Trigger_EVENTS,
+//   })
+//
+// Experimental.
 type S3SourceAction interface {
 	Action
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
+	// The variables emitted by this action.
+	// Experimental.
 	Variables() *S3SourceVariables
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	Bound(_scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// The callback invoked when this Action is added to a Pipeline.
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(_scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -4590,13 +6882,14 @@ func (j *jsiiProxy_S3SourceAction) Variables() *S3SourceVariables {
 }
 
 
+// Experimental.
 func NewS3SourceAction(props *S3SourceActionProps) S3SourceAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_S3SourceAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.S3SourceAction",
+		"monocdk.aws_codepipeline_actions.S3SourceAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -4604,18 +6897,18 @@ func NewS3SourceAction(props *S3SourceActionProps) S3SourceAction {
 	return &j
 }
 
+// Experimental.
 func NewS3SourceAction_Override(s S3SourceAction, props *S3SourceActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.S3SourceAction",
+		"monocdk.aws_codepipeline_actions.S3SourceAction",
 		[]interface{}{props},
 		s,
 	)
 }
 
-// The callback invoked when this Action is added to a Pipeline.
-func (s *jsiiProxy_S3SourceAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (s *jsiiProxy_S3SourceAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -4628,8 +6921,7 @@ func (s *jsiiProxy_S3SourceAction) Bind(scope constructs.Construct, stage awscod
 	return returns
 }
 
-// This is a renamed version of the {@link IAction.bind} method.
-func (s *jsiiProxy_S3SourceAction) Bound(_scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (s *jsiiProxy_S3SourceAction) Bound(_scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -4642,7 +6934,6 @@ func (s *jsiiProxy_S3SourceAction) Bound(_scope constructs.Construct, stage awsc
 	return returns
 }
 
-// Creates an Event that will be triggered whenever the state of this Action changes.
 func (s *jsiiProxy_S3SourceAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -4671,20 +6962,45 @@ func (s *jsiiProxy_S3SourceAction) VariableExpression(variableName *string) *str
 
 // Construction properties of the {@link S3SourceAction S3 source Action}.
 //
-// TODO: EXAMPLE
+// Example:
+//   import cloudtrail "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var sourceBucket bucket
+//   sourceOutput := codepipeline.NewArtifact()
+//   key := "some/key.zip"
+//   trail := cloudtrail.NewTrail(this, jsii.String("CloudTrail"))
+//   trail.addS3EventSelector([]s3EventSelector{
+//   	&s3EventSelector{
+//   		bucket: sourceBucket,
+//   		objectPrefix: key,
+//   	},
+//   }, &addEventSelectorOptions{
+//   	readWriteType: cloudtrail.readWriteType_WRITE_ONLY,
+//   })
+//   sourceAction := codepipeline_actions.NewS3SourceAction(&s3SourceActionProps{
+//   	actionName: jsii.String("S3Source"),
+//   	bucketKey: key,
+//   	bucket: sourceBucket,
+//   	output: sourceOutput,
+//   	trigger: codepipeline_actions.s3Trigger_EVENTS,
+//   })
+//
+// Experimental.
 type S3SourceActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -4693,17 +7009,22 @@ type S3SourceActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The Amazon S3 bucket that stores the source code.
 	//
 	// If you import an encrypted bucket in your stack, please specify
 	// the encryption key at import time by using `Bucket.fromBucketAttributes()` method.
+	// Experimental.
 	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
 	// The key within the S3 bucket that stores the source code.
 	//
-	// TODO: EXAMPLE
+	// Example:
+	//   "path/to/file.zip"
 	//
+	// Experimental.
 	BucketKey *string `json:"bucketKey" yaml:"bucketKey"`
+	// Experimental.
 	Output awscodepipeline.Artifact `json:"output" yaml:"output"`
 	// How should CodePipeline detect source changes for this Action.
 	//
@@ -4711,17 +7032,26 @@ type S3SourceActionProps struct {
 	// as otherwise the CloudWatch Events will not be emitted.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/log-s3-data-events.html
 	//
+	// Experimental.
 	Trigger S3Trigger `json:"trigger" yaml:"trigger"`
 }
 
 // The CodePipeline variables emitted by the S3 source Action.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"
+//   s3SourceVariables := &s3SourceVariables{
+//   	eTag: jsii.String("eTag"),
+//   	versionId: jsii.String("versionId"),
+//   }
 //
+// Experimental.
 type S3SourceVariables struct {
 	// The e-tag of the S3 version of the object that triggered the build.
+	// Experimental.
 	ETag *string `json:"eTag" yaml:"eTag"`
 	// The identifier of the S3 version of the object that triggered the build.
+	// Experimental.
 	VersionId *string `json:"versionId" yaml:"versionId"`
 }
 
@@ -4729,20 +7059,60 @@ type S3SourceVariables struct {
 //
 // This is the type of the {@link S3SourceAction.trigger} property.
 //
-// TODO: EXAMPLE
+// Example:
+//   import cloudtrail "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var sourceBucket bucket
+//   sourceOutput := codepipeline.NewArtifact()
+//   key := "some/key.zip"
+//   trail := cloudtrail.NewTrail(this, jsii.String("CloudTrail"))
+//   trail.addS3EventSelector([]s3EventSelector{
+//   	&s3EventSelector{
+//   		bucket: sourceBucket,
+//   		objectPrefix: key,
+//   	},
+//   }, &addEventSelectorOptions{
+//   	readWriteType: cloudtrail.readWriteType_WRITE_ONLY,
+//   })
+//   sourceAction := codepipeline_actions.NewS3SourceAction(&s3SourceActionProps{
+//   	actionName: jsii.String("S3Source"),
+//   	bucketKey: key,
+//   	bucket: sourceBucket,
+//   	output: sourceOutput,
+//   	trigger: codepipeline_actions.s3Trigger_EVENTS,
+//   })
+//
+// Experimental.
 type S3Trigger string
 
 const (
+	// The Action will never detect changes - the Pipeline it's part of will only begin a run when explicitly started.
+	// Experimental.
 	S3Trigger_NONE S3Trigger = "NONE"
+	// CodePipeline will poll S3 to detect changes.
+	//
+	// This is the default method of detecting changes.
+	// Experimental.
 	S3Trigger_POLL S3Trigger = "POLL"
+	// CodePipeline will use CloudWatch Events to be notified of changes.
+	//
+	// Note that the Bucket that the Action uses needs to be part of a CloudTrail Trail
+	// for the events to be delivered.
+	// Experimental.
 	S3Trigger_EVENTS S3Trigger = "EVENTS"
 )
 
 // Properties for configuring self-managed permissions.
 //
-// TODO: EXAMPLE
+// Example:
+//   existingAdminRole := iam.role.fromRoleName(this, jsii.String("AdminRole"), jsii.String("AWSCloudFormationStackSetAdministrationRole"))
 //
+//   deploymentModel := codepipeline_actions.stackSetDeploymentModel.selfManaged(&selfManagedDeploymentProps{
+//   	// Use an existing Role. Leave this out to create a new Role.
+//   	administrationRole: existingAdminRole,
+//   })
+//
+// Experimental.
 type SelfManagedDeploymentProps struct {
 	// The IAM role in the administrator account used to assume execution roles in the target accounts.
 	//
@@ -4756,6 +7126,7 @@ type SelfManagedDeploymentProps struct {
 	// `AWSCloudFormationStackSetAdministrationRole`.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html
 	//
+	// Experimental.
 	AdministrationRole awsiam.IRole `json:"administrationRole" yaml:"administrationRole"`
 	// The name of the IAM role in the target accounts used to perform stack set operations.
 	//
@@ -4769,6 +7140,7 @@ type SelfManagedDeploymentProps struct {
 	// scope the permissions down frome there you would be safer.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html
 	//
+	// Experimental.
 	ExecutionRoleName *string `json:"executionRoleName" yaml:"executionRoleName"`
 }
 
@@ -4776,15 +7148,37 @@ type SelfManagedDeploymentProps struct {
 //
 // **Note**: this class is still experimental, and may have breaking changes in the future!
 //
-// TODO: EXAMPLE
+// Example:
+//   cdkBuildOutput := codepipeline.NewArtifact()
+//   serviceCatalogDeployAction := codepipeline_actions.NewServiceCatalogDeployActionBeta1(&serviceCatalogDeployActionBeta1Props{
+//   	actionName: jsii.String("ServiceCatalogDeploy"),
+//   	templatePath: cdkBuildOutput.atPath(jsii.String("Sample.template.json")),
+//   	productVersionName: jsii.String("Version - " + date.now.toString),
+//   	productVersionDescription: jsii.String("This is a version from the pipeline with a new description."),
+//   	productId: jsii.String("prod-XXXXXXXX"),
+//   })
 //
+// Experimental.
 type ServiceCatalogDeployActionBeta1 interface {
 	Action
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// The callback invoked when this Action is added to a Pipeline.
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -4814,13 +7208,14 @@ func (j *jsiiProxy_ServiceCatalogDeployActionBeta1) ProvidedActionProperties() *
 }
 
 
+// Experimental.
 func NewServiceCatalogDeployActionBeta1(props *ServiceCatalogDeployActionBeta1Props) ServiceCatalogDeployActionBeta1 {
 	_init_.Initialize()
 
 	j := jsiiProxy_ServiceCatalogDeployActionBeta1{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.ServiceCatalogDeployActionBeta1",
+		"monocdk.aws_codepipeline_actions.ServiceCatalogDeployActionBeta1",
 		[]interface{}{props},
 		&j,
 	)
@@ -4828,18 +7223,18 @@ func NewServiceCatalogDeployActionBeta1(props *ServiceCatalogDeployActionBeta1Pr
 	return &j
 }
 
+// Experimental.
 func NewServiceCatalogDeployActionBeta1_Override(s ServiceCatalogDeployActionBeta1, props *ServiceCatalogDeployActionBeta1Props) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.ServiceCatalogDeployActionBeta1",
+		"monocdk.aws_codepipeline_actions.ServiceCatalogDeployActionBeta1",
 		[]interface{}{props},
 		s,
 	)
 }
 
-// The callback invoked when this Action is added to a Pipeline.
-func (s *jsiiProxy_ServiceCatalogDeployActionBeta1) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (s *jsiiProxy_ServiceCatalogDeployActionBeta1) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -4852,8 +7247,7 @@ func (s *jsiiProxy_ServiceCatalogDeployActionBeta1) Bind(scope constructs.Constr
 	return returns
 }
 
-// This is a renamed version of the {@link IAction.bind} method.
-func (s *jsiiProxy_ServiceCatalogDeployActionBeta1) Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (s *jsiiProxy_ServiceCatalogDeployActionBeta1) Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -4866,7 +7260,6 @@ func (s *jsiiProxy_ServiceCatalogDeployActionBeta1) Bound(_scope constructs.Cons
 	return returns
 }
 
-// Creates an Event that will be triggered whenever the state of this Action changes.
 func (s *jsiiProxy_ServiceCatalogDeployActionBeta1) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -4895,20 +7288,32 @@ func (s *jsiiProxy_ServiceCatalogDeployActionBeta1) VariableExpression(variableN
 
 // Construction properties of the {@link ServiceCatalogDeployActionBeta1 ServiceCatalog deploy CodePipeline Action}.
 //
-// TODO: EXAMPLE
+// Example:
+//   cdkBuildOutput := codepipeline.NewArtifact()
+//   serviceCatalogDeployAction := codepipeline_actions.NewServiceCatalogDeployActionBeta1(&serviceCatalogDeployActionBeta1Props{
+//   	actionName: jsii.String("ServiceCatalogDeploy"),
+//   	templatePath: cdkBuildOutput.atPath(jsii.String("Sample.template.json")),
+//   	productVersionName: jsii.String("Version - " + date.now.toString),
+//   	productVersionDescription: jsii.String("This is a version from the pipeline with a new description."),
+//   	productId: jsii.String("prod-XXXXXXXX"),
+//   })
 //
+// Experimental.
 type ServiceCatalogDeployActionBeta1Props struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -4917,23 +7322,68 @@ type ServiceCatalogDeployActionBeta1Props struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The identifier of the product in the Service Catalog.
 	//
 	// This product must already exist.
+	// Experimental.
 	ProductId *string `json:"productId" yaml:"productId"`
 	// The name of the version of the Service Catalog product to be deployed.
+	// Experimental.
 	ProductVersionName *string `json:"productVersionName" yaml:"productVersionName"`
 	// The path to the cloudformation artifact.
+	// Experimental.
 	TemplatePath awscodepipeline.ArtifactPath `json:"templatePath" yaml:"templatePath"`
 	// The optional description of this version of the Service Catalog product.
+	// Experimental.
 	ProductVersionDescription *string `json:"productVersionDescription" yaml:"productVersionDescription"`
 }
 
 // Where Stack Instances will be created from the StackSet.
 //
-// TODO: EXAMPLE
+// Example:
+//   var pipeline pipeline
+//   var sourceOutput artifact
 //
+//   pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("DeployStackSets"),
+//   	actions: []iAction{
+//   		// First, update the StackSet itself with the newest template
+//   		codepipeline_actions.NewCloudFormationDeployStackSetAction(&cloudFormationDeployStackSetActionProps{
+//   			actionName: jsii.String("UpdateStackSet"),
+//   			runOrder: jsii.Number(1),
+//   			stackSetName: jsii.String("MyStackSet"),
+//   			template: codepipeline_actions.stackSetTemplate.fromArtifactPath(sourceOutput.atPath(jsii.String("template.yaml"))),
+//
+//   			// Change this to 'StackSetDeploymentModel.organizations()' if you want to deploy to OUs
+//   			deploymentModel: codepipeline_actions.stackSetDeploymentModel.selfManaged(),
+//   			// This deploys to a set of accounts
+//   			stackInstances: codepipeline_actions.stackInstances.inAccounts([]*string{
+//   				jsii.String("111111111111"),
+//   			}, []*string{
+//   				jsii.String("us-east-1"),
+//   				jsii.String("eu-west-1"),
+//   			}),
+//   		}),
+//
+//   		// Afterwards, update/create additional instances in other accounts
+//   		codepipeline_actions.NewCloudFormationDeployStackInstancesAction(&cloudFormationDeployStackInstancesActionProps{
+//   			actionName: jsii.String("AddMoreInstances"),
+//   			runOrder: jsii.Number(2),
+//   			stackSetName: jsii.String("MyStackSet"),
+//   			stackInstances: codepipeline_actions.*stackInstances.inAccounts([]*string{
+//   				jsii.String("222222222222"),
+//   				jsii.String("333333333333"),
+//   			}, []*string{
+//   				jsii.String("us-east-1"),
+//   				jsii.String("eu-west-1"),
+//   			}),
+//   		}),
+//   	},
+//   })
+//
+// Experimental.
 type StackInstances interface {
 }
 
@@ -4942,11 +7392,12 @@ type jsiiProxy_StackInstances struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewStackInstances_Override(s StackInstances) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.StackInstances",
+		"monocdk.aws_codepipeline_actions.StackInstances",
 		nil, // no parameters
 		s,
 	)
@@ -4969,13 +7420,14 @@ func NewStackInstances_Override(s StackInstances) {
 //
 // If this is set of Organizational Units, you must have selected `StackSetDeploymentModel.organizations()`
 // as deployment model.
+// Experimental.
 func StackInstances_FromArtifactPath(artifactPath awscodepipeline.ArtifactPath, regions *[]*string) StackInstances {
 	_init_.Initialize()
 
 	var returns StackInstances
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline_actions.StackInstances",
+		"monocdk.aws_codepipeline_actions.StackInstances",
 		"fromArtifactPath",
 		[]interface{}{artifactPath, regions},
 		&returns,
@@ -4992,13 +7444,14 @@ func StackInstances_FromArtifactPath(artifactPath awscodepipeline.ArtifactPath, 
 // > have exactly the same behavior, and you can use them interchangeably if you want.
 // > The only difference between them is that your code clearly indicates what entity
 // > it's working with.
+// Experimental.
 func StackInstances_InAccounts(accounts *[]*string, regions *[]*string) StackInstances {
 	_init_.Initialize()
 
 	var returns StackInstances
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline_actions.StackInstances",
+		"monocdk.aws_codepipeline_actions.StackInstances",
 		"inAccounts",
 		[]interface{}{accounts, regions},
 		&returns,
@@ -5018,13 +7471,14 @@ func StackInstances_InAccounts(accounts *[]*string, regions *[]*string) StackIns
 // > have exactly the same behavior, and you can use them interchangeably if you want.
 // > The only difference between them is that your code clearly indicates what entity
 // > it's working with.
+// Experimental.
 func StackInstances_InOrganizationalUnits(ous *[]*string, regions *[]*string) StackInstances {
 	_init_.Initialize()
 
 	var returns StackInstances
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline_actions.StackInstances",
+		"monocdk.aws_codepipeline_actions.StackInstances",
 		"inOrganizationalUnits",
 		[]interface{}{ous, regions},
 		&returns,
@@ -5035,8 +7489,48 @@ func StackInstances_InOrganizationalUnits(ous *[]*string, regions *[]*string) St
 
 // Determines how IAM roles are created and managed.
 //
-// TODO: EXAMPLE
+// Example:
+//   var pipeline pipeline
+//   var sourceOutput artifact
 //
+//   pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("DeployStackSets"),
+//   	actions: []iAction{
+//   		// First, update the StackSet itself with the newest template
+//   		codepipeline_actions.NewCloudFormationDeployStackSetAction(&cloudFormationDeployStackSetActionProps{
+//   			actionName: jsii.String("UpdateStackSet"),
+//   			runOrder: jsii.Number(1),
+//   			stackSetName: jsii.String("MyStackSet"),
+//   			template: codepipeline_actions.stackSetTemplate.fromArtifactPath(sourceOutput.atPath(jsii.String("template.yaml"))),
+//
+//   			// Change this to 'StackSetDeploymentModel.organizations()' if you want to deploy to OUs
+//   			deploymentModel: codepipeline_actions.stackSetDeploymentModel.selfManaged(),
+//   			// This deploys to a set of accounts
+//   			stackInstances: codepipeline_actions.stackInstances.inAccounts([]*string{
+//   				jsii.String("111111111111"),
+//   			}, []*string{
+//   				jsii.String("us-east-1"),
+//   				jsii.String("eu-west-1"),
+//   			}),
+//   		}),
+//
+//   		// Afterwards, update/create additional instances in other accounts
+//   		codepipeline_actions.NewCloudFormationDeployStackInstancesAction(&cloudFormationDeployStackInstancesActionProps{
+//   			actionName: jsii.String("AddMoreInstances"),
+//   			runOrder: jsii.Number(2),
+//   			stackSetName: jsii.String("MyStackSet"),
+//   			stackInstances: codepipeline_actions.*stackInstances.inAccounts([]*string{
+//   				jsii.String("222222222222"),
+//   				jsii.String("333333333333"),
+//   			}, []*string{
+//   				jsii.String("us-east-1"),
+//   				jsii.String("eu-west-1"),
+//   			}),
+//   		}),
+//   	},
+//   })
+//
+// Experimental.
 type StackSetDeploymentModel interface {
 }
 
@@ -5045,11 +7539,12 @@ type jsiiProxy_StackSetDeploymentModel struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewStackSetDeploymentModel_Override(s StackSetDeploymentModel) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.StackSetDeploymentModel",
+		"monocdk.aws_codepipeline_actions.StackSetDeploymentModel",
 		nil, // no parameters
 		s,
 	)
@@ -5063,13 +7558,14 @@ func NewStackSetDeploymentModel_Override(s StackSetDeploymentModel) {
 //
 // Using this deployment model, you can specify either AWS Account Ids or
 // Organization Unit Ids in the `stackInstances` parameter.
+// Experimental.
 func StackSetDeploymentModel_Organizations(props *OrganizationsDeploymentProps) StackSetDeploymentModel {
 	_init_.Initialize()
 
 	var returns StackSetDeploymentModel
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline_actions.StackSetDeploymentModel",
+		"monocdk.aws_codepipeline_actions.StackSetDeploymentModel",
 		"organizations",
 		[]interface{}{props},
 		&returns,
@@ -5108,13 +7604,14 @@ func StackSetDeploymentModel_Organizations(props *OrganizationsDeploymentProps) 
 // `stackInstances` parameter.
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html
 //
+// Experimental.
 func StackSetDeploymentModel_SelfManaged(props *SelfManagedDeploymentProps) StackSetDeploymentModel {
 	_init_.Initialize()
 
 	var returns StackSetDeploymentModel
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline_actions.StackSetDeploymentModel",
+		"monocdk.aws_codepipeline_actions.StackSetDeploymentModel",
 		"selfManaged",
 		[]interface{}{props},
 		&returns,
@@ -5124,18 +7621,33 @@ func StackSetDeploymentModel_SelfManaged(props *SelfManagedDeploymentProps) Stac
 }
 
 // Describes whether AWS CloudFormation StackSets automatically deploys to AWS Organizations accounts that are added to a target organization or organizational unit (OU).
+// Experimental.
 type StackSetOrganizationsAutoDeployment string
 
 const (
+	// StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions.
+	//
+	// If an account is removed from a target organization or OU, AWS CloudFormation StackSets
+	// deletes stack instances from the account in the specified Regions.
+	// Experimental.
 	StackSetOrganizationsAutoDeployment_ENABLED StackSetOrganizationsAutoDeployment = "ENABLED"
+	// StackSets does not automatically deploy additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions.
+	// Experimental.
 	StackSetOrganizationsAutoDeployment_DISABLED StackSetOrganizationsAutoDeployment = "DISABLED"
+	// Stack resources are retained when an account is removed from a target organization or OU.
+	// Experimental.
 	StackSetOrganizationsAutoDeployment_ENABLED_WITH_STACK_RETENTION StackSetOrganizationsAutoDeployment = "ENABLED_WITH_STACK_RETENTION"
 )
 
 // Base parameters for the StackSet.
 //
-// TODO: EXAMPLE
+// Example:
+//   parameters := codepipeline_actions.stackSetParameters.fromLiteral(map[string]*string{
+//   	"BucketName": jsii.String("my-bucket"),
+//   	"Asset1": jsii.String("true"),
+//   })
 //
+// Experimental.
 type StackSetParameters interface {
 }
 
@@ -5144,11 +7656,12 @@ type jsiiProxy_StackSetParameters struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewStackSetParameters_Override(s StackSetParameters) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.StackSetParameters",
+		"monocdk.aws_codepipeline_actions.StackSetParameters",
 		nil, // no parameters
 		s,
 	)
@@ -5184,13 +7697,14 @@ func NewStackSetParameters_Override(s StackSetParameters) {
 // Use of this feature is discouraged. CDK is for
 // specifying desired-state infrastructure, and use of this feature makes the
 // parameter values unmanaged.
+// Experimental.
 func StackSetParameters_FromArtifactPath(artifactPath awscodepipeline.ArtifactPath) StackSetParameters {
 	_init_.Initialize()
 
 	var returns StackSetParameters
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline_actions.StackSetParameters",
+		"monocdk.aws_codepipeline_actions.StackSetParameters",
 		"fromArtifactPath",
 		[]interface{}{artifactPath},
 		&returns,
@@ -5210,15 +7724,20 @@ func StackSetParameters_FromArtifactPath(artifactPath awscodepipeline.ArtifactPa
 // specifying desired-state infrastructure, and use of this feature makes the
 // parameter values unmanaged.
 //
-// TODO: EXAMPLE
+// Example:
+//   parameters := codepipeline_actions.stackSetParameters.fromLiteral(map[string]*string{
+//   	"BucketName": jsii.String("my-bucket"),
+//   	"Asset1": jsii.String("true"),
+//   })
 //
+// Experimental.
 func StackSetParameters_FromLiteral(parameters *map[string]*string, usePreviousValues *[]*string) StackSetParameters {
 	_init_.Initialize()
 
 	var returns StackSetParameters
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline_actions.StackSetParameters",
+		"monocdk.aws_codepipeline_actions.StackSetParameters",
 		"fromLiteral",
 		[]interface{}{parameters, usePreviousValues},
 		&returns,
@@ -5229,8 +7748,48 @@ func StackSetParameters_FromLiteral(parameters *map[string]*string, usePreviousV
 
 // The source of a StackSet template.
 //
-// TODO: EXAMPLE
+// Example:
+//   var pipeline pipeline
+//   var sourceOutput artifact
 //
+//   pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("DeployStackSets"),
+//   	actions: []iAction{
+//   		// First, update the StackSet itself with the newest template
+//   		codepipeline_actions.NewCloudFormationDeployStackSetAction(&cloudFormationDeployStackSetActionProps{
+//   			actionName: jsii.String("UpdateStackSet"),
+//   			runOrder: jsii.Number(1),
+//   			stackSetName: jsii.String("MyStackSet"),
+//   			template: codepipeline_actions.stackSetTemplate.fromArtifactPath(sourceOutput.atPath(jsii.String("template.yaml"))),
+//
+//   			// Change this to 'StackSetDeploymentModel.organizations()' if you want to deploy to OUs
+//   			deploymentModel: codepipeline_actions.stackSetDeploymentModel.selfManaged(),
+//   			// This deploys to a set of accounts
+//   			stackInstances: codepipeline_actions.stackInstances.inAccounts([]*string{
+//   				jsii.String("111111111111"),
+//   			}, []*string{
+//   				jsii.String("us-east-1"),
+//   				jsii.String("eu-west-1"),
+//   			}),
+//   		}),
+//
+//   		// Afterwards, update/create additional instances in other accounts
+//   		codepipeline_actions.NewCloudFormationDeployStackInstancesAction(&cloudFormationDeployStackInstancesActionProps{
+//   			actionName: jsii.String("AddMoreInstances"),
+//   			runOrder: jsii.Number(2),
+//   			stackSetName: jsii.String("MyStackSet"),
+//   			stackInstances: codepipeline_actions.*stackInstances.inAccounts([]*string{
+//   				jsii.String("222222222222"),
+//   				jsii.String("333333333333"),
+//   			}, []*string{
+//   				jsii.String("us-east-1"),
+//   				jsii.String("eu-west-1"),
+//   			}),
+//   		}),
+//   	},
+//   })
+//
+// Experimental.
 type StackSetTemplate interface {
 }
 
@@ -5239,24 +7798,26 @@ type jsiiProxy_StackSetTemplate struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewStackSetTemplate_Override(s StackSetTemplate) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.StackSetTemplate",
+		"monocdk.aws_codepipeline_actions.StackSetTemplate",
 		nil, // no parameters
 		s,
 	)
 }
 
 // Use a file in an artifact as Stack Template.
+// Experimental.
 func StackSetTemplate_FromArtifactPath(artifactPath awscodepipeline.ArtifactPath) StackSetTemplate {
 	_init_.Initialize()
 
 	var returns StackSetTemplate
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline_actions.StackSetTemplate",
+		"monocdk.aws_codepipeline_actions.StackSetTemplate",
 		"fromArtifactPath",
 		[]interface{}{artifactPath},
 		&returns,
@@ -5267,11 +7828,47 @@ func StackSetTemplate_FromArtifactPath(artifactPath awscodepipeline.ArtifactPath
 
 // Represents the input for the StateMachine.
 //
-// TODO: EXAMPLE
+// Example:
+//   import stepfunctions "github.com/aws/aws-cdk-go/awscdk"
+//   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
+//   startState := stepfunctions.NewPass(this, jsii.String("StartState"))
+//   simpleStateMachine := stepfunctions.NewStateMachine(this, jsii.String("SimpleStateMachine"), &stateMachineProps{
+//   	definition: startState,
+//   })
+//   stepFunctionAction := codepipeline_actions.NewStepFunctionInvokeAction(&stepFunctionsInvokeActionProps{
+//   	actionName: jsii.String("Invoke"),
+//   	stateMachine: simpleStateMachine,
+//   	stateMachineInput: codepipeline_actions.stateMachineInput.literal(map[string]*bool{
+//   		"IsHelloWorldExample": jsii.Boolean(true),
+//   	}),
+//   })
+//   pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("StepFunctions"),
+//   	actions: []iAction{
+//   		stepFunctionAction,
+//   	},
+//   })
 //
+// Experimental.
 type StateMachineInput interface {
+	// When InputType is set to Literal (default), the Input field is used directly as the input for the state machine execution.
+	//
+	// Otherwise, the state machine is invoked with an empty JSON object {}.
+	//
+	// When InputType is set to FilePath, this field is required.
+	// An input artifact is also required when InputType is set to FilePath.
+	// Experimental.
 	Input() interface{}
+	// The optional input Artifact of the Action.
+	//
+	// If InputType is set to FilePath, this artifact is required
+	// and is used to source the input for the state machine execution.
+	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-StepFunctions.html#action-reference-StepFunctions-example
+	//
+	// Experimental.
 	InputArtifact() awscodepipeline.Artifact
+	// Optional StateMachine InputType InputType can be Literal or FilePath.
+	// Experimental.
 	InputType() *string
 }
 
@@ -5312,13 +7909,14 @@ func (j *jsiiProxy_StateMachineInput) InputType() *string {
 
 
 // When the input type is FilePath, input artifact and filepath must be specified.
+// Experimental.
 func StateMachineInput_FilePath(inputFile awscodepipeline.ArtifactPath) StateMachineInput {
 	_init_.Initialize()
 
 	var returns StateMachineInput
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline_actions.StateMachineInput",
+		"monocdk.aws_codepipeline_actions.StateMachineInput",
 		"filePath",
 		[]interface{}{inputFile},
 		&returns,
@@ -5328,13 +7926,14 @@ func StateMachineInput_FilePath(inputFile awscodepipeline.ArtifactPath) StateMac
 }
 
 // When the input type is Literal, input value is passed directly to the state machine input.
+// Experimental.
 func StateMachineInput_Literal(object *map[string]interface{}) StateMachineInput {
 	_init_.Initialize()
 
 	var returns StateMachineInput
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline_actions.StateMachineInput",
+		"monocdk.aws_codepipeline_actions.StateMachineInput",
 		"literal",
 		[]interface{}{object},
 		&returns,
@@ -5345,15 +7944,48 @@ func StateMachineInput_Literal(object *map[string]interface{}) StateMachineInput
 
 // StepFunctionInvokeAction that is provided by an AWS CodePipeline.
 //
-// TODO: EXAMPLE
+// Example:
+//   import stepfunctions "github.com/aws/aws-cdk-go/awscdk"
+//   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
+//   startState := stepfunctions.NewPass(this, jsii.String("StartState"))
+//   simpleStateMachine := stepfunctions.NewStateMachine(this, jsii.String("SimpleStateMachine"), &stateMachineProps{
+//   	definition: startState,
+//   })
+//   stepFunctionAction := codepipeline_actions.NewStepFunctionInvokeAction(&stepFunctionsInvokeActionProps{
+//   	actionName: jsii.String("Invoke"),
+//   	stateMachine: simpleStateMachine,
+//   	stateMachineInput: codepipeline_actions.stateMachineInput.literal(map[string]*bool{
+//   		"IsHelloWorldExample": jsii.Boolean(true),
+//   	}),
+//   })
+//   pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("StepFunctions"),
+//   	actions: []iAction{
+//   		stepFunctionAction,
+//   	},
+//   })
 //
+// Experimental.
 type StepFunctionInvokeAction interface {
 	Action
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// The callback invoked when this Action is added to a Pipeline.
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -5383,13 +8015,14 @@ func (j *jsiiProxy_StepFunctionInvokeAction) ProvidedActionProperties() *awscode
 }
 
 
+// Experimental.
 func NewStepFunctionInvokeAction(props *StepFunctionsInvokeActionProps) StepFunctionInvokeAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_StepFunctionInvokeAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.StepFunctionInvokeAction",
+		"monocdk.aws_codepipeline_actions.StepFunctionInvokeAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -5397,18 +8030,18 @@ func NewStepFunctionInvokeAction(props *StepFunctionsInvokeActionProps) StepFunc
 	return &j
 }
 
+// Experimental.
 func NewStepFunctionInvokeAction_Override(s StepFunctionInvokeAction, props *StepFunctionsInvokeActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.StepFunctionInvokeAction",
+		"monocdk.aws_codepipeline_actions.StepFunctionInvokeAction",
 		[]interface{}{props},
 		s,
 	)
 }
 
-// The callback invoked when this Action is added to a Pipeline.
-func (s *jsiiProxy_StepFunctionInvokeAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (s *jsiiProxy_StepFunctionInvokeAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -5421,8 +8054,7 @@ func (s *jsiiProxy_StepFunctionInvokeAction) Bind(scope constructs.Construct, st
 	return returns
 }
 
-// This is a renamed version of the {@link IAction.bind} method.
-func (s *jsiiProxy_StepFunctionInvokeAction) Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (s *jsiiProxy_StepFunctionInvokeAction) Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -5435,7 +8067,6 @@ func (s *jsiiProxy_StepFunctionInvokeAction) Bound(_scope constructs.Construct, 
 	return returns
 }
 
-// Creates an Event that will be triggered whenever the state of this Action changes.
 func (s *jsiiProxy_StepFunctionInvokeAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -5464,20 +8095,43 @@ func (s *jsiiProxy_StepFunctionInvokeAction) VariableExpression(variableName *st
 
 // Construction properties of the {@link StepFunctionsInvokeAction StepFunction Invoke Action}.
 //
-// TODO: EXAMPLE
+// Example:
+//   import stepfunctions "github.com/aws/aws-cdk-go/awscdk"
+//   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
+//   startState := stepfunctions.NewPass(this, jsii.String("StartState"))
+//   simpleStateMachine := stepfunctions.NewStateMachine(this, jsii.String("SimpleStateMachine"), &stateMachineProps{
+//   	definition: startState,
+//   })
+//   stepFunctionAction := codepipeline_actions.NewStepFunctionInvokeAction(&stepFunctionsInvokeActionProps{
+//   	actionName: jsii.String("Invoke"),
+//   	stateMachine: simpleStateMachine,
+//   	stateMachineInput: codepipeline_actions.stateMachineInput.literal(map[string]*bool{
+//   		"IsHelloWorldExample": jsii.Boolean(true),
+//   	}),
+//   })
+//   pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("StepFunctions"),
+//   	actions: []iAction{
+//   		stepFunctionAction,
+//   	},
+//   })
 //
+// Experimental.
 type StepFunctionsInvokeActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -5486,20 +8140,25 @@ type StepFunctionsInvokeActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The state machine to invoke.
+	// Experimental.
 	StateMachine awsstepfunctions.IStateMachine `json:"stateMachine" yaml:"stateMachine"`
 	// Prefix (optional).
 	//
 	// By default, the action execution ID is used as the state machine execution name.
 	// If a prefix is provided, it is prepended to the action execution ID with a hyphen and
 	// together used as the state machine execution name.
+	// Experimental.
 	ExecutionNamePrefix *string `json:"executionNamePrefix" yaml:"executionNamePrefix"`
 	// The optional output Artifact of the Action.
+	// Experimental.
 	Output awscodepipeline.Artifact `json:"output" yaml:"output"`
 	// Represents the input to the StateMachine.
 	//
 	// This includes input artifact, input type and the statemachine input.
+	// Experimental.
 	StateMachineInput StateMachineInput `json:"stateMachineInput" yaml:"stateMachineInput"`
 }
 

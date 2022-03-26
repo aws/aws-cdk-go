@@ -1,53 +1,258 @@
 package awsgamelift
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsgamelift/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsgamelift/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::GameLift::Alias`.
 //
 // The `AWS::GameLift::Alias` resource creates an alias for an Amazon GameLift (GameLift) fleet destination. There are two types of routing strategies for aliases: simple and terminal. A simple alias points to an active fleet. A terminal alias displays a message instead of routing players to an active fleet. For example, a terminal alias might display a URL link that directs players to an upgrade site. You can use aliases to define destinations in a game session queue or when requesting new game sessions.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   cfnAlias := gamelift.NewCfnAlias(this, jsii.String("MyCfnAlias"), &cfnAliasProps{
+//   	name: jsii.String("name"),
+//   	routingStrategy: &routingStrategyProperty{
+//   		type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		fleetId: jsii.String("fleetId"),
+//   		message: jsii.String("message"),
+//   	},
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   })
 //
 type CfnAlias interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// A unique identifier for the alias. For example, `arn:aws:gamelift:us-west-1::alias/alias-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912`.
+	//
+	// Alias IDs are unique within a Region.
 	AttrAliasId() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// A human-readable description of the alias.
 	Description() *string
 	SetDescription(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// A descriptive label that is associated with an alias.
+	//
+	// Alias names do not need to be unique.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The routing configuration, including routing type and fleet target, for the alias.
 	RoutingStrategy() interface{}
 	SetRoutingStrategy(val interface{})
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -137,8 +342,8 @@ func (j *jsiiProxy_CfnAlias) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAlias) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnAlias) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -189,13 +394,13 @@ func (j *jsiiProxy_CfnAlias) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::GameLift::Alias`.
-func NewCfnAlias(scope constructs.Construct, id *string, props *CfnAliasProps) CfnAlias {
+func NewCfnAlias(scope awscdk.Construct, id *string, props *CfnAliasProps) CfnAlias {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAlias{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_gamelift.CfnAlias",
+		"monocdk.aws_gamelift.CfnAlias",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -204,11 +409,11 @@ func NewCfnAlias(scope constructs.Construct, id *string, props *CfnAliasProps) C
 }
 
 // Create a new `AWS::GameLift::Alias`.
-func NewCfnAlias_Override(c CfnAlias, scope constructs.Construct, id *string, props *CfnAliasProps) {
+func NewCfnAlias_Override(c CfnAlias, scope awscdk.Construct, id *string, props *CfnAliasProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_gamelift.CfnAlias",
+		"monocdk.aws_gamelift.CfnAlias",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -244,13 +449,14 @@ func (j *jsiiProxy_CfnAlias) SetRoutingStrategy(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnAlias_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnAlias",
+		"monocdk.aws_gamelift.CfnAlias",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -260,13 +466,14 @@ func CfnAlias_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnAlias_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnAlias",
+		"monocdk.aws_gamelift.CfnAlias",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -275,17 +482,15 @@ func CfnAlias_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnAlias_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnAlias",
+		"monocdk.aws_gamelift.CfnAlias",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -298,14 +503,13 @@ func CfnAlias_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_gamelift.CfnAlias",
+		"monocdk.aws_gamelift.CfnAlias",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnAlias) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -314,10 +518,6 @@ func (c *jsiiProxy_CfnAlias) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnAlias) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -326,13 +526,6 @@ func (c *jsiiProxy_CfnAlias) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnAlias) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -341,49 +534,6 @@ func (c *jsiiProxy_CfnAlias) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnAlias) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -392,7 +542,6 @@ func (c *jsiiProxy_CfnAlias) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnAlias) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -401,9 +550,6 @@ func (c *jsiiProxy_CfnAlias) AddPropertyDeletionOverride(propertyPath *string) {
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnAlias) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -412,15 +558,6 @@ func (c *jsiiProxy_CfnAlias) AddPropertyOverride(propertyPath *string, value int
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnAlias) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -429,10 +566,6 @@ func (c *jsiiProxy_CfnAlias) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnAlias) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -446,13 +579,6 @@ func (c *jsiiProxy_CfnAlias) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnAlias) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -466,7 +592,6 @@ func (c *jsiiProxy_CfnAlias) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnAlias) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -475,12 +600,48 @@ func (c *jsiiProxy_CfnAlias) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnAlias) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnAlias) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnAlias) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnAlias) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnAlias) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -497,10 +658,6 @@ func (c *jsiiProxy_CfnAlias) RenderProperties(props *map[string]interface{}) *ma
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnAlias) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -514,15 +671,33 @@ func (c *jsiiProxy_CfnAlias) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnAlias) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnAlias) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnAlias) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -540,7 +715,15 @@ func (c *jsiiProxy_CfnAlias) ValidateProperties(_properties interface{}) {
 
 // The routing configuration for a fleet alias.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   routingStrategyProperty := &routingStrategyProperty{
+//   	type: jsii.String("type"),
+//
+//   	// the properties below are optional
+//   	fleetId: jsii.String("fleetId"),
+//   	message: jsii.String("message"),
+//   }
 //
 type CfnAlias_RoutingStrategyProperty struct {
 	// A type of routing strategy.
@@ -562,7 +745,21 @@ type CfnAlias_RoutingStrategyProperty struct {
 
 // Properties for defining a `CfnAlias`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   cfnAliasProps := &cfnAliasProps{
+//   	name: jsii.String("name"),
+//   	routingStrategy: &routingStrategyProperty{
+//   		type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		fleetId: jsii.String("fleetId"),
+//   		message: jsii.String("message"),
+//   	},
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   }
 //
 type CfnAliasProps struct {
 	// A descriptive label that is associated with an alias.
@@ -579,42 +776,253 @@ type CfnAliasProps struct {
 //
 // The `AWS::GameLift::Build` resource creates a game server build that is installed and run on instances in an Amazon GameLift fleet. This resource points to an Amazon S3 location that contains a zip file with all of the components of the game server build.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   cfnBuild := gamelift.NewCfnBuild(this, jsii.String("MyCfnBuild"), &cfnBuildProps{
+//   	name: jsii.String("name"),
+//   	operatingSystem: jsii.String("operatingSystem"),
+//   	storageLocation: &s3LocationProperty{
+//   		bucket: jsii.String("bucket"),
+//   		key: jsii.String("key"),
+//   		roleArn: jsii.String("roleArn"),
+//
+//   		// the properties below are optional
+//   		objectVersion: jsii.String("objectVersion"),
+//   	},
+//   	version: jsii.String("version"),
+//   })
 //
 type CfnBuild interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// A descriptive label that is associated with a build.
+	//
+	// Build names do not need to be unique.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// The operating system that the game server binaries are built to run on.
+	//
+	// This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
 	OperatingSystem() *string
 	SetOperatingSystem(val *string)
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Information indicating where your game build files are stored.
+	//
+	// Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon Web Services to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
+	//
+	// If a `StorageLocation` is specified, the size of your file can be found in your Amazon S3 bucket. Amazon Web Services will report a `SizeOnDisk` of 0.
 	StorageLocation() interface{}
 	SetStorageLocation(val interface{})
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Version information that is associated with this build.
+	//
+	// Version strings do not need to be unique.
 	Version() *string
 	SetVersion(val *string)
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -684,8 +1092,8 @@ func (j *jsiiProxy_CfnBuild) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBuild) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnBuild) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -756,13 +1164,13 @@ func (j *jsiiProxy_CfnBuild) Version() *string {
 
 
 // Create a new `AWS::GameLift::Build`.
-func NewCfnBuild(scope constructs.Construct, id *string, props *CfnBuildProps) CfnBuild {
+func NewCfnBuild(scope awscdk.Construct, id *string, props *CfnBuildProps) CfnBuild {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnBuild{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_gamelift.CfnBuild",
+		"monocdk.aws_gamelift.CfnBuild",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -771,11 +1179,11 @@ func NewCfnBuild(scope constructs.Construct, id *string, props *CfnBuildProps) C
 }
 
 // Create a new `AWS::GameLift::Build`.
-func NewCfnBuild_Override(c CfnBuild, scope constructs.Construct, id *string, props *CfnBuildProps) {
+func NewCfnBuild_Override(c CfnBuild, scope awscdk.Construct, id *string, props *CfnBuildProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_gamelift.CfnBuild",
+		"monocdk.aws_gamelift.CfnBuild",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -819,13 +1227,14 @@ func (j *jsiiProxy_CfnBuild) SetVersion(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnBuild_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnBuild",
+		"monocdk.aws_gamelift.CfnBuild",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -835,13 +1244,14 @@ func CfnBuild_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnBuild_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnBuild",
+		"monocdk.aws_gamelift.CfnBuild",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -850,17 +1260,15 @@ func CfnBuild_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnBuild_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnBuild",
+		"monocdk.aws_gamelift.CfnBuild",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -873,14 +1281,13 @@ func CfnBuild_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_gamelift.CfnBuild",
+		"monocdk.aws_gamelift.CfnBuild",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnBuild) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -889,10 +1296,6 @@ func (c *jsiiProxy_CfnBuild) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnBuild) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -901,13 +1304,6 @@ func (c *jsiiProxy_CfnBuild) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnBuild) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -916,49 +1312,6 @@ func (c *jsiiProxy_CfnBuild) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnBuild) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -967,7 +1320,6 @@ func (c *jsiiProxy_CfnBuild) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnBuild) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -976,9 +1328,6 @@ func (c *jsiiProxy_CfnBuild) AddPropertyDeletionOverride(propertyPath *string) {
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnBuild) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -987,15 +1336,6 @@ func (c *jsiiProxy_CfnBuild) AddPropertyOverride(propertyPath *string, value int
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnBuild) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1004,10 +1344,6 @@ func (c *jsiiProxy_CfnBuild) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnBuild) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1021,13 +1357,6 @@ func (c *jsiiProxy_CfnBuild) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnBuild) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1041,7 +1370,6 @@ func (c *jsiiProxy_CfnBuild) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnBuild) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1050,12 +1378,48 @@ func (c *jsiiProxy_CfnBuild) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnBuild) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnBuild) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnBuild) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnBuild) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnBuild) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1072,10 +1436,6 @@ func (c *jsiiProxy_CfnBuild) RenderProperties(props *map[string]interface{}) *ma
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnBuild) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1089,15 +1449,33 @@ func (c *jsiiProxy_CfnBuild) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnBuild) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnBuild) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnBuild) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1115,7 +1493,16 @@ func (c *jsiiProxy_CfnBuild) ValidateProperties(_properties interface{}) {
 
 // The location in Amazon S3 where build or script files are stored for access by Amazon GameLift.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   s3LocationProperty := &s3LocationProperty{
+//   	bucket: jsii.String("bucket"),
+//   	key: jsii.String("key"),
+//   	roleArn: jsii.String("roleArn"),
+//
+//   	// the properties below are optional
+//   	objectVersion: jsii.String("objectVersion"),
+//   }
 //
 type CfnBuild_S3LocationProperty struct {
 	// An Amazon S3 bucket identifier. This is the name of the S3 bucket.
@@ -1134,7 +1521,21 @@ type CfnBuild_S3LocationProperty struct {
 
 // Properties for defining a `CfnBuild`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   cfnBuildProps := &cfnBuildProps{
+//   	name: jsii.String("name"),
+//   	operatingSystem: jsii.String("operatingSystem"),
+//   	storageLocation: &s3LocationProperty{
+//   		bucket: jsii.String("bucket"),
+//   		key: jsii.String("key"),
+//   		roleArn: jsii.String("roleArn"),
+//
+//   		// the properties below are optional
+//   		objectVersion: jsii.String("objectVersion"),
+//   	},
+//   	version: jsii.String("version"),
+//   }
 //
 type CfnBuildProps struct {
 	// A descriptive label that is associated with a build.
@@ -1161,73 +1562,378 @@ type CfnBuildProps struct {
 //
 // The `AWS::GameLift::Fleet` resource creates an Amazon GameLift (GameLift) fleet to host game servers. A fleet is a set of EC2 instances, each of which can host multiple game sessions.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   cfnFleet := gamelift.NewCfnFleet(this, jsii.String("MyCfnFleet"), &cfnFleetProps{
+//   	buildId: jsii.String("buildId"),
+//   	certificateConfiguration: &certificateConfigurationProperty{
+//   		certificateType: jsii.String("certificateType"),
+//   	},
+//   	description: jsii.String("description"),
+//   	desiredEc2Instances: jsii.Number(123),
+//   	ec2InboundPermissions: []interface{}{
+//   		&ipPermissionProperty{
+//   			fromPort: jsii.Number(123),
+//   			ipRange: jsii.String("ipRange"),
+//   			protocol: jsii.String("protocol"),
+//   			toPort: jsii.Number(123),
+//   		},
+//   	},
+//   	ec2InstanceType: jsii.String("ec2InstanceType"),
+//   	fleetType: jsii.String("fleetType"),
+//   	instanceRoleArn: jsii.String("instanceRoleArn"),
+//   	locations: []interface{}{
+//   		&locationConfigurationProperty{
+//   			location: jsii.String("location"),
+//
+//   			// the properties below are optional
+//   			locationCapacity: &locationCapacityProperty{
+//   				desiredEc2Instances: jsii.Number(123),
+//   				maxSize: jsii.Number(123),
+//   				minSize: jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   	maxSize: jsii.Number(123),
+//   	metricGroups: []*string{
+//   		jsii.String("metricGroups"),
+//   	},
+//   	minSize: jsii.Number(123),
+//   	name: jsii.String("name"),
+//   	newGameSessionProtectionPolicy: jsii.String("newGameSessionProtectionPolicy"),
+//   	peerVpcAwsAccountId: jsii.String("peerVpcAwsAccountId"),
+//   	peerVpcId: jsii.String("peerVpcId"),
+//   	resourceCreationLimitPolicy: &resourceCreationLimitPolicyProperty{
+//   		newGameSessionsPerCreator: jsii.Number(123),
+//   		policyPeriodInMinutes: jsii.Number(123),
+//   	},
+//   	runtimeConfiguration: &runtimeConfigurationProperty{
+//   		gameSessionActivationTimeoutSeconds: jsii.Number(123),
+//   		maxConcurrentGameSessionActivations: jsii.Number(123),
+//   		serverProcesses: []interface{}{
+//   			&serverProcessProperty{
+//   				concurrentExecutions: jsii.Number(123),
+//   				launchPath: jsii.String("launchPath"),
+//
+//   				// the properties below are optional
+//   				parameters: jsii.String("parameters"),
+//   			},
+//   		},
+//   	},
+//   	scriptId: jsii.String("scriptId"),
+//   })
 //
 type CfnFleet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// A unique identifier for the fleet.
 	AttrFleetId() *string
+	// A unique identifier for a build to be deployed on the new fleet.
+	//
+	// If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a `READY` status. This fleet setting cannot be changed once the fleet is created.
 	BuildId() *string
 	SetBuildId(val *string)
+	// Prompts GameLift to generate a TLS/SSL certificate for the fleet.
+	//
+	// TLS certificates are used for encrypting traffic between game clients and the game servers that are running on GameLift. By default, the `CertificateConfiguration` is set to `DISABLED` . This property cannot be changed after the fleet is created.
+	//
+	// Note: This feature requires the AWS Certificate Manager (ACM) service, which is not available in all AWS regions. When working in a region that does not support this feature, a fleet creation request with certificate generation fails with a 4xx error.
 	CertificateConfiguration() interface{}
 	SetCertificateConfiguration(val interface{})
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// A human-readable description of the fleet.
 	Description() *string
 	SetDescription(val *string)
+	// The number of EC2 instances that you want this fleet to host.
+	//
+	// When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
 	DesiredEc2Instances() *float64
 	SetDesiredEc2Instances(val *float64)
+	// The allowed IP address ranges and port settings that allow inbound traffic to access game sessions on this fleet.
+	//
+	// If the fleet is hosting a custom game build, this property must be set before players can connect to game sessions. For Realtime Servers fleets, GameLift automatically sets TCP and UDP ranges.
 	Ec2InboundPermissions() interface{}
 	SetEc2InboundPermissions(val interface{})
+	// The GameLift-supported Amazon EC2 instance type to use for all fleet instances.
+	//
+	// Instance type determines the computing resources that will be used to host your game servers, including CPU, memory, storage, and networking capacity. See [Amazon Elastic Compute Cloud Instance Types](https://docs.aws.amazon.com/ec2/instance-types/) for detailed descriptions of Amazon EC2 instance types.
 	Ec2InstanceType() *string
 	SetEc2InstanceType(val *string)
+	// Indicates whether to use On-Demand or Spot instances for this fleet.
+	//
+	// By default, this property is set to `ON_DEMAND` . Learn more about when to use [On-Demand versus Spot Instances](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot) . This property cannot be changed after the fleet is created.
 	FleetType() *string
 	SetFleetType(val *string)
+	// A unique identifier for an IAM role that manages access to your AWS services.
+	//
+	// With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN by using the [IAM dashboard](https://docs.aws.amazon.com/iam/) in the AWS Management Console . Learn more about using on-box credentials for your game servers at [Access external resources from a game server](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html) . This property cannot be changed after the fleet is created.
 	InstanceRoleArn() *string
 	SetInstanceRoleArn(val *string)
+	// A set of remote locations to deploy additional instances to and manage as part of the fleet.
+	//
+	// This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any GameLift-supported AWS Region as a remote location, in the form of an AWS Region code such as `us-west-2` . To create a fleet with instances in the home Region only, omit this parameter.
 	Locations() interface{}
 	SetLocations(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The maximum number of instances that are allowed in the specified fleet location.
+	//
+	// If this parameter is not set, the default is 1.
 	MaxSize() *float64
 	SetMaxSize(val *float64)
+	// The name of an AWS CloudWatch metric group to add this fleet to.
+	//
+	// A metric group is used to aggregate the metrics for multiple fleets. You can specify an existing metric group name or set a new name to create a new metric group. A fleet can be included in only one metric group at a time.
 	MetricGroups() *[]*string
 	SetMetricGroups(val *[]*string)
+	// The minimum number of instances that are allowed in the specified fleet location.
+	//
+	// If this parameter is not set, the default is 0.
 	MinSize() *float64
 	SetMinSize(val *float64)
+	// A descriptive label that is associated with a fleet.
+	//
+	// Fleet names do not need to be unique.
 	Name() *string
 	SetName(val *string)
+	// The status of termination protection for active game sessions on the fleet.
+	//
+	// By default, this property is set to `NoProtection` .
+	//
+	// - *NoProtection* - Game sessions can be terminated during active gameplay as a result of a scale-down event.
+	// - *FullProtection* - Game sessions in `ACTIVE` status cannot be terminated during a scale-down event.
 	NewGameSessionProtectionPolicy() *string
 	SetNewGameSessionProtectionPolicy(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Used when peering your GameLift fleet with a VPC, the unique identifier for the AWS account that owns the VPC.
+	//
+	// You can find your account ID in the AWS Management Console under account settings.
 	PeerVpcAwsAccountId() *string
 	SetPeerVpcAwsAccountId(val *string)
+	// A unique identifier for a VPC with resources to be accessed by your GameLift fleet.
+	//
+	// The VPC must be in the same Region as your fleet. To look up a VPC ID, use the [VPC Dashboard](https://docs.aws.amazon.com/vpc/) in the AWS Management Console . Learn more about VPC peering in [VPC Peering with GameLift Fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html) .
 	PeerVpcId() *string
 	SetPeerVpcId(val *string)
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// A policy that limits the number of game sessions that an individual player can create on instances in this fleet within a specified span of time.
 	ResourceCreationLimitPolicy() interface{}
 	SetResourceCreationLimitPolicy(val interface{})
+	// Instructions for how to launch and maintain server processes on instances in the fleet.
+	//
+	// The runtime configuration defines one or more server process configurations, each identifying a build executable or Realtime script file and the number of processes of that type to run concurrently.
+	//
+	// > The `RuntimeConfiguration` parameter is required unless the fleet is being configured using the older parameters `ServerLaunchPath` and `ServerLaunchParameters` , which are still supported for backward compatibility.
 	RuntimeConfiguration() interface{}
 	SetRuntimeConfiguration(val interface{})
+	// The unique identifier for a Realtime configuration script to be deployed on fleet instances.
+	//
+	// You can use either the script ID or ARN. Scripts must be uploaded to GameLift prior to creating the fleet. This fleet property cannot be changed later.
+	//
+	// > You can't use the `!Ref` command to reference a script created with a CloudFormation template for the fleet property `ScriptId` . Instead, use `Fn::GetAtt Script.Arn` or `Fn::GetAtt Script.Id` to retrieve either of these properties as input for `ScriptId` . Alternatively, enter a `ScriptId` string manually.
 	ScriptId() *string
 	SetScriptId(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1437,8 +2143,8 @@ func (j *jsiiProxy_CfnFleet) NewGameSessionProtectionPolicy() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFleet) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnFleet) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1529,13 +2235,13 @@ func (j *jsiiProxy_CfnFleet) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::GameLift::Fleet`.
-func NewCfnFleet(scope constructs.Construct, id *string, props *CfnFleetProps) CfnFleet {
+func NewCfnFleet(scope awscdk.Construct, id *string, props *CfnFleetProps) CfnFleet {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnFleet{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_gamelift.CfnFleet",
+		"monocdk.aws_gamelift.CfnFleet",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1544,11 +2250,11 @@ func NewCfnFleet(scope constructs.Construct, id *string, props *CfnFleetProps) C
 }
 
 // Create a new `AWS::GameLift::Fleet`.
-func NewCfnFleet_Override(c CfnFleet, scope constructs.Construct, id *string, props *CfnFleetProps) {
+func NewCfnFleet_Override(c CfnFleet, scope awscdk.Construct, id *string, props *CfnFleetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_gamelift.CfnFleet",
+		"monocdk.aws_gamelift.CfnFleet",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1712,13 +2418,14 @@ func (j *jsiiProxy_CfnFleet) SetScriptId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnFleet_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnFleet",
+		"monocdk.aws_gamelift.CfnFleet",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1728,13 +2435,14 @@ func CfnFleet_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnFleet_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnFleet",
+		"monocdk.aws_gamelift.CfnFleet",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1743,17 +2451,15 @@ func CfnFleet_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnFleet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnFleet",
+		"monocdk.aws_gamelift.CfnFleet",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1766,14 +2472,13 @@ func CfnFleet_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_gamelift.CfnFleet",
+		"monocdk.aws_gamelift.CfnFleet",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnFleet) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1782,10 +2487,6 @@ func (c *jsiiProxy_CfnFleet) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnFleet) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1794,13 +2495,6 @@ func (c *jsiiProxy_CfnFleet) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnFleet) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1809,49 +2503,6 @@ func (c *jsiiProxy_CfnFleet) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnFleet) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1860,7 +2511,6 @@ func (c *jsiiProxy_CfnFleet) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnFleet) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1869,9 +2519,6 @@ func (c *jsiiProxy_CfnFleet) AddPropertyDeletionOverride(propertyPath *string) {
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnFleet) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1880,15 +2527,6 @@ func (c *jsiiProxy_CfnFleet) AddPropertyOverride(propertyPath *string, value int
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnFleet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1897,10 +2535,6 @@ func (c *jsiiProxy_CfnFleet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnFleet) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1914,13 +2548,6 @@ func (c *jsiiProxy_CfnFleet) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnFleet) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1934,7 +2561,6 @@ func (c *jsiiProxy_CfnFleet) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnFleet) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1943,12 +2569,48 @@ func (c *jsiiProxy_CfnFleet) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnFleet) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnFleet) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnFleet) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnFleet) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnFleet) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1965,10 +2627,6 @@ func (c *jsiiProxy_CfnFleet) RenderProperties(props *map[string]interface{}) *ma
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnFleet) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1982,15 +2640,33 @@ func (c *jsiiProxy_CfnFleet) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnFleet) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnFleet) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnFleet) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2010,7 +2686,11 @@ func (c *jsiiProxy_CfnFleet) ValidateProperties(_properties interface{}) {
 //
 // This feature must be enabled when creating the fleet. All instances in a fleet share the same certificate. The certificate can be retrieved by calling the [GameLift Server SDK](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk.html) operation `GetInstanceCertificate` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   certificateConfigurationProperty := &certificateConfigurationProperty{
+//   	certificateType: jsii.String("certificateType"),
+//   }
 //
 type CfnFleet_CertificateConfigurationProperty struct {
 	// Indicates whether a TLS/SSL certificate is generated for a fleet.
@@ -2026,7 +2706,14 @@ type CfnFleet_CertificateConfigurationProperty struct {
 //
 // New game sessions are assigned an IP address/port number combination, which must fall into the fleet's allowed ranges. Fleets with custom game builds must have permissions explicitly set. For Realtime Servers fleets, GameLift automatically opens two port ranges, one for TCP messaging and one for UDP.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   ipPermissionProperty := &ipPermissionProperty{
+//   	fromPort: jsii.Number(123),
+//   	ipRange: jsii.String("ipRange"),
+//   	protocol: jsii.String("protocol"),
+//   	toPort: jsii.Number(123),
+//   }
 //
 type CfnFleet_IpPermissionProperty struct {
 	// A starting value for a range of allowed port numbers.
@@ -2055,7 +2742,13 @@ type CfnFleet_IpPermissionProperty struct {
 //
 // [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) | [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) | [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   locationCapacityProperty := &locationCapacityProperty{
+//   	desiredEc2Instances: jsii.Number(123),
+//   	maxSize: jsii.Number(123),
+//   	minSize: jsii.Number(123),
+//   }
 //
 type CfnFleet_LocationCapacityProperty struct {
 	// The number of Amazon EC2 instances you want to maintain in the specified fleet location.
@@ -2078,7 +2771,18 @@ type CfnFleet_LocationCapacityProperty struct {
 //
 // [CreateFleet](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateFleet.html)
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   locationConfigurationProperty := &locationConfigurationProperty{
+//   	location: jsii.String("location"),
+//
+//   	// the properties below are optional
+//   	locationCapacity: &locationCapacityProperty{
+//   		desiredEc2Instances: jsii.Number(123),
+//   		maxSize: jsii.Number(123),
+//   		minSize: jsii.Number(123),
+//   	},
+//   }
 //
 type CfnFleet_LocationConfigurationProperty struct {
 	// An AWS Region code, such as `us-west-2` .
@@ -2099,7 +2803,12 @@ type CfnFleet_LocationConfigurationProperty struct {
 //
 // The policy is evaluated when a player tries to create a new game session. For example, assume you have a policy of 10 new game sessions and a time period of 60 minutes. On receiving a `CreateGameSession` request, Amazon GameLift checks that the player (identified by `CreatorId` ) has created fewer than 10 game sessions in the past 60 minutes.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   resourceCreationLimitPolicyProperty := &resourceCreationLimitPolicyProperty{
+//   	newGameSessionsPerCreator: jsii.Number(123),
+//   	policyPeriodInMinutes: jsii.Number(123),
+//   }
 //
 type CfnFleet_ResourceCreationLimitPolicyProperty struct {
 	// The maximum number of game sessions that an individual can create during the policy period.
@@ -2114,7 +2823,21 @@ type CfnFleet_ResourceCreationLimitPolicyProperty struct {
 //
 // A GameLift instance is limited to 50 processes running concurrently. To calculate the total number of processes in a runtime configuration, add the values of the `ConcurrentExecutions` parameter for each ServerProcess. Learn more about [Running Multiple Processes on a Fleet](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-multiprocess.html) .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   runtimeConfigurationProperty := &runtimeConfigurationProperty{
+//   	gameSessionActivationTimeoutSeconds: jsii.Number(123),
+//   	maxConcurrentGameSessionActivations: jsii.Number(123),
+//   	serverProcesses: []interface{}{
+//   		&serverProcessProperty{
+//   			concurrentExecutions: jsii.Number(123),
+//   			launchPath: jsii.String("launchPath"),
+//
+//   			// the properties below are optional
+//   			parameters: jsii.String("parameters"),
+//   		},
+//   	},
+//   }
 //
 type CfnFleet_RuntimeConfigurationProperty struct {
 	// The maximum amount of time (in seconds) allowed to launch a new game session and have it report ready to host players.
@@ -2133,7 +2856,15 @@ type CfnFleet_RuntimeConfigurationProperty struct {
 //
 // Server processes run either an executable in a custom game build or a Realtime Servers script.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   serverProcessProperty := &serverProcessProperty{
+//   	concurrentExecutions: jsii.Number(123),
+//   	launchPath: jsii.String("launchPath"),
+//
+//   	// the properties below are optional
+//   	parameters: jsii.String("parameters"),
+//   }
 //
 type CfnFleet_ServerProcessProperty struct {
 	// The number of server processes using this configuration that run concurrently on each instance.
@@ -2151,7 +2882,66 @@ type CfnFleet_ServerProcessProperty struct {
 
 // Properties for defining a `CfnFleet`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   cfnFleetProps := &cfnFleetProps{
+//   	buildId: jsii.String("buildId"),
+//   	certificateConfiguration: &certificateConfigurationProperty{
+//   		certificateType: jsii.String("certificateType"),
+//   	},
+//   	description: jsii.String("description"),
+//   	desiredEc2Instances: jsii.Number(123),
+//   	ec2InboundPermissions: []interface{}{
+//   		&ipPermissionProperty{
+//   			fromPort: jsii.Number(123),
+//   			ipRange: jsii.String("ipRange"),
+//   			protocol: jsii.String("protocol"),
+//   			toPort: jsii.Number(123),
+//   		},
+//   	},
+//   	ec2InstanceType: jsii.String("ec2InstanceType"),
+//   	fleetType: jsii.String("fleetType"),
+//   	instanceRoleArn: jsii.String("instanceRoleArn"),
+//   	locations: []interface{}{
+//   		&locationConfigurationProperty{
+//   			location: jsii.String("location"),
+//
+//   			// the properties below are optional
+//   			locationCapacity: &locationCapacityProperty{
+//   				desiredEc2Instances: jsii.Number(123),
+//   				maxSize: jsii.Number(123),
+//   				minSize: jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   	maxSize: jsii.Number(123),
+//   	metricGroups: []*string{
+//   		jsii.String("metricGroups"),
+//   	},
+//   	minSize: jsii.Number(123),
+//   	name: jsii.String("name"),
+//   	newGameSessionProtectionPolicy: jsii.String("newGameSessionProtectionPolicy"),
+//   	peerVpcAwsAccountId: jsii.String("peerVpcAwsAccountId"),
+//   	peerVpcId: jsii.String("peerVpcId"),
+//   	resourceCreationLimitPolicy: &resourceCreationLimitPolicyProperty{
+//   		newGameSessionsPerCreator: jsii.Number(123),
+//   		policyPeriodInMinutes: jsii.Number(123),
+//   	},
+//   	runtimeConfiguration: &runtimeConfigurationProperty{
+//   		gameSessionActivationTimeoutSeconds: jsii.Number(123),
+//   		maxConcurrentGameSessionActivations: jsii.Number(123),
+//   		serverProcesses: []interface{}{
+//   			&serverProcessProperty{
+//   				concurrentExecutions: jsii.Number(123),
+//   				launchPath: jsii.String("launchPath"),
+//
+//   				// the properties below are optional
+//   				parameters: jsii.String("parameters"),
+//   			},
+//   		},
+//   	},
+//   	scriptId: jsii.String("scriptId"),
+//   }
 //
 type CfnFleetProps struct {
 	// A unique identifier for a build to be deployed on the new fleet.
@@ -2256,59 +3046,328 @@ type CfnFleetProps struct {
 //
 // [GameLift FleetIQ Guide](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html)
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   cfnGameServerGroup := gamelift.NewCfnGameServerGroup(this, jsii.String("MyCfnGameServerGroup"), &cfnGameServerGroupProps{
+//   	gameServerGroupName: jsii.String("gameServerGroupName"),
+//   	instanceDefinitions: []interface{}{
+//   		&instanceDefinitionProperty{
+//   			instanceType: jsii.String("instanceType"),
+//
+//   			// the properties below are optional
+//   			weightedCapacity: jsii.String("weightedCapacity"),
+//   		},
+//   	},
+//   	launchTemplate: &launchTemplateProperty{
+//   		launchTemplateId: jsii.String("launchTemplateId"),
+//   		launchTemplateName: jsii.String("launchTemplateName"),
+//   		version: jsii.String("version"),
+//   	},
+//   	roleArn: jsii.String("roleArn"),
+//
+//   	// the properties below are optional
+//   	autoScalingPolicy: &autoScalingPolicyProperty{
+//   		targetTrackingConfiguration: &targetTrackingConfigurationProperty{
+//   			targetValue: jsii.Number(123),
+//   		},
+//
+//   		// the properties below are optional
+//   		estimatedInstanceWarmup: jsii.Number(123),
+//   	},
+//   	balancingStrategy: jsii.String("balancingStrategy"),
+//   	deleteOption: jsii.String("deleteOption"),
+//   	gameServerProtectionPolicy: jsii.String("gameServerProtectionPolicy"),
+//   	maxSize: jsii.Number(123),
+//   	minSize: jsii.Number(123),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	vpcSubnets: []*string{
+//   		jsii.String("vpcSubnets"),
+//   	},
+//   })
 //
 type CfnGameServerGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// A unique identifier for the auto scaling group.
 	AttrAutoScalingGroupArn() *string
+	// A unique identifier for the game server group.
 	AttrGameServerGroupArn() *string
+	// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting.
+	//
+	// The scaling policy uses the metric `"PercentUtilizedGameServers"` to maintain a buffer of idle game servers that can immediately accommodate new games and players. After the Auto Scaling group is created, update this value directly in the Auto Scaling group using the AWS console or APIs.
 	AutoScalingPolicy() interface{}
 	SetAutoScalingPolicy(val interface{})
+	// Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances in the game server group.
+	//
+	// Method options include the following:
+	//
+	// - `SPOT_ONLY` - Only Spot Instances are used in the game server group. If Spot Instances are unavailable or not viable for game hosting, the game server group provides no hosting capacity until Spot Instances can again be used. Until then, no new instances are started, and the existing nonviable Spot Instances are terminated (after current gameplay ends) and are not replaced.
+	// - `SPOT_PREFERRED` - (default value) Spot Instances are used whenever available in the game server group. If Spot Instances are unavailable, the game server group continues to provide hosting capacity by falling back to On-Demand Instances. Existing nonviable Spot Instances are terminated (after current gameplay ends) and are replaced with new On-Demand Instances.
+	// - `ON_DEMAND_ONLY` - Only On-Demand Instances are used in the game server group. No Spot Instances are used, even when available, while this balancing strategy is in force.
 	BalancingStrategy() *string
 	SetBalancingStrategy(val *string)
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The type of delete to perform.
+	//
+	// To delete a game server group, specify the `DeleteOption` . Options include the following:
+	//
+	// - `SAFE_DELETE` – (default) Terminates the game server group and Amazon EC2 Auto Scaling group only when it has no game servers that are in `UTILIZED` status.
+	// - `FORCE_DELETE` – Terminates the game server group, including all active game servers regardless of their utilization status, and the Amazon EC2 Auto Scaling group.
+	// - `RETAIN` – Does a safe delete of the game server group but retains the Amazon EC2 Auto Scaling group as is.
 	DeleteOption() *string
 	SetDeleteOption(val *string)
+	// A developer-defined identifier for the game server group.
+	//
+	// The name is unique for each Region in each AWS account.
 	GameServerGroupName() *string
 	SetGameServerGroupName(val *string)
+	// A flag that indicates whether instances in the game server group are protected from early termination.
+	//
+	// Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion (see ). An exception to this is with Spot Instances, which can be terminated by AWS regardless of protection status.
 	GameServerProtectionPolicy() *string
 	SetGameServerProtectionPolicy(val *string)
+	// The set of Amazon EC2 instance types that GameLift FleetIQ can use when balancing and automatically scaling instances in the corresponding Auto Scaling group.
 	InstanceDefinitions() interface{}
 	SetInstanceDefinitions(val interface{})
+	// The Amazon EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
+	//
+	// You can specify the template using either the template name or ID. For help with creating a launch template, see [Creating a Launch Template for an Auto Scaling Group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html) in the *Amazon Elastic Compute Cloud Auto Scaling User Guide* . After the Auto Scaling group is created, update this value directly in the Auto Scaling group using the AWS console or APIs.
+	//
+	// > If you specify network interfaces in your launch template, you must explicitly set the property `AssociatePublicIpAddress` to "true". If no network interface is specified in the launch template, GameLift FleetIQ uses your account's default VPC.
 	LaunchTemplate() interface{}
 	SetLaunchTemplate(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The maximum number of instances allowed in the Amazon EC2 Auto Scaling group.
+	//
+	// During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum. After the Auto Scaling group is created, update this value directly in the Auto Scaling group using the AWS console or APIs.
 	MaxSize() *float64
 	SetMaxSize(val *float64)
+	// The minimum number of instances allowed in the Amazon EC2 Auto Scaling group.
+	//
+	// During automatic scaling events, GameLift FleetIQ and Amazon EC2 do not scale down the group below this minimum. In production, this value should be set to at least 1. After the Auto Scaling group is created, update this value directly in the Auto Scaling group using the AWS console or APIs.
 	MinSize() *float64
 	SetMinSize(val *float64)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) for an IAM role that allows Amazon Web Services to access your Amazon EC2 Auto Scaling groups.
 	RoleArn() *string
 	SetRoleArn(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// A list of labels to assign to the new game server group resource.
+	//
+	// Tags are developer-defined key-value pairs. Tagging AWS resources is useful for resource management, access management, and cost allocation. For more information, see [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference* . Once the resource is created, you can use TagResource, UntagResource, and ListTagsForResource to add, remove, and view tags, respectively. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
+	//
+	// By default, all GameLift FleetIQ-supported Availability Zones are used. You can use this parameter to specify VPCs that you've set up. This property cannot be updated after the game server group is created, and the corresponding Auto Scaling group will always use the property value that is set with this request, even if the Auto Scaling group is updated directly.
 	VpcSubnets() *[]*string
 	SetVpcSubnets(val *[]*string)
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2478,8 +3537,8 @@ func (j *jsiiProxy_CfnGameServerGroup) MinSize() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGameServerGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnGameServerGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2550,13 +3609,13 @@ func (j *jsiiProxy_CfnGameServerGroup) VpcSubnets() *[]*string {
 
 
 // Create a new `AWS::GameLift::GameServerGroup`.
-func NewCfnGameServerGroup(scope constructs.Construct, id *string, props *CfnGameServerGroupProps) CfnGameServerGroup {
+func NewCfnGameServerGroup(scope awscdk.Construct, id *string, props *CfnGameServerGroupProps) CfnGameServerGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnGameServerGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_gamelift.CfnGameServerGroup",
+		"monocdk.aws_gamelift.CfnGameServerGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2565,11 +3624,11 @@ func NewCfnGameServerGroup(scope constructs.Construct, id *string, props *CfnGam
 }
 
 // Create a new `AWS::GameLift::GameServerGroup`.
-func NewCfnGameServerGroup_Override(c CfnGameServerGroup, scope constructs.Construct, id *string, props *CfnGameServerGroupProps) {
+func NewCfnGameServerGroup_Override(c CfnGameServerGroup, scope awscdk.Construct, id *string, props *CfnGameServerGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_gamelift.CfnGameServerGroup",
+		"monocdk.aws_gamelift.CfnGameServerGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2669,13 +3728,14 @@ func (j *jsiiProxy_CfnGameServerGroup) SetVpcSubnets(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnGameServerGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnGameServerGroup",
+		"monocdk.aws_gamelift.CfnGameServerGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2685,13 +3745,14 @@ func CfnGameServerGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnGameServerGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnGameServerGroup",
+		"monocdk.aws_gamelift.CfnGameServerGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2700,17 +3761,15 @@ func CfnGameServerGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnGameServerGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnGameServerGroup",
+		"monocdk.aws_gamelift.CfnGameServerGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2723,14 +3782,13 @@ func CfnGameServerGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_gamelift.CfnGameServerGroup",
+		"monocdk.aws_gamelift.CfnGameServerGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnGameServerGroup) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2739,10 +3797,6 @@ func (c *jsiiProxy_CfnGameServerGroup) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnGameServerGroup) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2751,13 +3805,6 @@ func (c *jsiiProxy_CfnGameServerGroup) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnGameServerGroup) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2766,49 +3813,6 @@ func (c *jsiiProxy_CfnGameServerGroup) AddMetadata(key *string, value interface{
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnGameServerGroup) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2817,7 +3821,6 @@ func (c *jsiiProxy_CfnGameServerGroup) AddOverride(path *string, value interface
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnGameServerGroup) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2826,9 +3829,6 @@ func (c *jsiiProxy_CfnGameServerGroup) AddPropertyDeletionOverride(propertyPath 
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnGameServerGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2837,15 +3837,6 @@ func (c *jsiiProxy_CfnGameServerGroup) AddPropertyOverride(propertyPath *string,
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnGameServerGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2854,10 +3845,6 @@ func (c *jsiiProxy_CfnGameServerGroup) ApplyRemovalPolicy(policy awscdk.RemovalP
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnGameServerGroup) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2871,13 +3858,6 @@ func (c *jsiiProxy_CfnGameServerGroup) GetAtt(attributeName *string) awscdk.Refe
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnGameServerGroup) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2891,7 +3871,6 @@ func (c *jsiiProxy_CfnGameServerGroup) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnGameServerGroup) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2900,12 +3879,48 @@ func (c *jsiiProxy_CfnGameServerGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnGameServerGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnGameServerGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnGameServerGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnGameServerGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnGameServerGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2922,10 +3937,6 @@ func (c *jsiiProxy_CfnGameServerGroup) RenderProperties(props *map[string]interf
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnGameServerGroup) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2939,15 +3950,33 @@ func (c *jsiiProxy_CfnGameServerGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnGameServerGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnGameServerGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnGameServerGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2967,7 +3996,16 @@ func (c *jsiiProxy_CfnGameServerGroup) ValidateProperties(_properties interface{
 //
 // Configuration settings for intelligent automatic scaling that uses target tracking. After the Auto Scaling group is created, all updates to Auto Scaling policies, including changing this policy and adding or removing other policies, is done directly on the Auto Scaling group.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   autoScalingPolicyProperty := &autoScalingPolicyProperty{
+//   	targetTrackingConfiguration: &targetTrackingConfigurationProperty{
+//   		targetValue: jsii.Number(123),
+//   	},
+//
+//   	// the properties below are optional
+//   	estimatedInstanceWarmup: jsii.Number(123),
+//   }
 //
 type CfnGameServerGroup_AutoScalingPolicyProperty struct {
 	// Settings for a target-based scaling policy applied to Auto Scaling group.
@@ -2984,7 +4022,14 @@ type CfnGameServerGroup_AutoScalingPolicyProperty struct {
 //
 // An allowed instance type for a `GameServerGroup` . All game server groups must have at least two instance types defined for it. GameLift FleetIQ periodically evaluates each defined instance type for viability. It then updates the Auto Scaling group with the list of viable instance types.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   instanceDefinitionProperty := &instanceDefinitionProperty{
+//   	instanceType: jsii.String("instanceType"),
+//
+//   	// the properties below are optional
+//   	weightedCapacity: jsii.String("weightedCapacity"),
+//   }
 //
 type CfnGameServerGroup_InstanceDefinitionProperty struct {
 	// An Amazon EC2 instance type designation.
@@ -2999,7 +4044,13 @@ type CfnGameServerGroup_InstanceDefinitionProperty struct {
 //
 // An Amazon EC2 launch template that contains configuration settings and game server code to be deployed to all instances in a game server group. The launch template is specified when creating a new game server group with `GameServerGroup` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   launchTemplateProperty := &launchTemplateProperty{
+//   	launchTemplateId: jsii.String("launchTemplateId"),
+//   	launchTemplateName: jsii.String("launchTemplateName"),
+//   	version: jsii.String("version"),
+//   }
 //
 type CfnGameServerGroup_LaunchTemplateProperty struct {
 	// A unique identifier for an existing Amazon EC2 launch template.
@@ -3016,7 +4067,11 @@ type CfnGameServerGroup_LaunchTemplateProperty struct {
 //
 // Settings for a target-based scaling policy as part of a `GameServerGroupAutoScalingPolicy` . These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric `"PercentUtilizedGameServers"` and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   targetTrackingConfigurationProperty := &targetTrackingConfigurationProperty{
+//   	targetValue: jsii.Number(123),
+//   }
 //
 type CfnGameServerGroup_TargetTrackingConfigurationProperty struct {
 	// Desired value to use with a game server group target-based scaling policy.
@@ -3025,7 +4080,49 @@ type CfnGameServerGroup_TargetTrackingConfigurationProperty struct {
 
 // Properties for defining a `CfnGameServerGroup`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   cfnGameServerGroupProps := &cfnGameServerGroupProps{
+//   	gameServerGroupName: jsii.String("gameServerGroupName"),
+//   	instanceDefinitions: []interface{}{
+//   		&instanceDefinitionProperty{
+//   			instanceType: jsii.String("instanceType"),
+//
+//   			// the properties below are optional
+//   			weightedCapacity: jsii.String("weightedCapacity"),
+//   		},
+//   	},
+//   	launchTemplate: &launchTemplateProperty{
+//   		launchTemplateId: jsii.String("launchTemplateId"),
+//   		launchTemplateName: jsii.String("launchTemplateName"),
+//   		version: jsii.String("version"),
+//   	},
+//   	roleArn: jsii.String("roleArn"),
+//
+//   	// the properties below are optional
+//   	autoScalingPolicy: &autoScalingPolicyProperty{
+//   		targetTrackingConfiguration: &targetTrackingConfigurationProperty{
+//   			targetValue: jsii.Number(123),
+//   		},
+//
+//   		// the properties below are optional
+//   		estimatedInstanceWarmup: jsii.Number(123),
+//   	},
+//   	balancingStrategy: jsii.String("balancingStrategy"),
+//   	deleteOption: jsii.String("deleteOption"),
+//   	gameServerProtectionPolicy: jsii.String("gameServerProtectionPolicy"),
+//   	maxSize: jsii.Number(123),
+//   	minSize: jsii.Number(123),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	vpcSubnets: []*string{
+//   		jsii.String("vpcSubnets"),
+//   	},
+//   }
 //
 type CfnGameServerGroupProps struct {
 	// A developer-defined identifier for the game server group.
@@ -3088,53 +4185,304 @@ type CfnGameServerGroupProps struct {
 //
 // The `AWS::GameLift::GameSessionQueue` resource creates a placement queue that processes requests for new game sessions. A queue uses FleetIQ algorithms to determine the best placement locations and find an available game server, then prompts the game server to start a new game session. Queues can have destinations (GameLift fleets or aliases), which determine where the queue can place new game sessions. A queue can have destinations with varied fleet type (Spot and On-Demand), instance type, and AWS Region .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   cfnGameSessionQueue := gamelift.NewCfnGameSessionQueue(this, jsii.String("MyCfnGameSessionQueue"), &cfnGameSessionQueueProps{
+//   	name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	customEventData: jsii.String("customEventData"),
+//   	destinations: []interface{}{
+//   		&destinationProperty{
+//   			destinationArn: jsii.String("destinationArn"),
+//   		},
+//   	},
+//   	filterConfiguration: &filterConfigurationProperty{
+//   		allowedLocations: []*string{
+//   			jsii.String("allowedLocations"),
+//   		},
+//   	},
+//   	notificationTarget: jsii.String("notificationTarget"),
+//   	playerLatencyPolicies: []interface{}{
+//   		&playerLatencyPolicyProperty{
+//   			maximumIndividualPlayerLatencyMilliseconds: jsii.Number(123),
+//   			policyDurationSeconds: jsii.Number(123),
+//   		},
+//   	},
+//   	priorityConfiguration: &priorityConfigurationProperty{
+//   		locationOrder: []*string{
+//   			jsii.String("locationOrder"),
+//   		},
+//   		priorityOrder: []*string{
+//   			jsii.String("priorityOrder"),
+//   		},
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	timeoutInSeconds: jsii.Number(123),
+//   })
 //
 type CfnGameSessionQueue interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The unique Amazon Resource Name (ARN) for the `GameSessionQueue` .
 	AttrArn() *string
+	// A descriptive label that is associated with a game session queue.
+	//
+	// Names are unique within each Region.
 	AttrName() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// Information to be added to all events that are related to this game session queue.
 	CustomEventData() *string
 	SetCustomEventData(val *string)
+	// A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue.
+	//
+	// Destinations are identified by either a fleet ARN or a fleet alias ARN, and are listed in order of placement preference.
 	Destinations() interface{}
 	SetDestinations(val interface{})
+	// A list of locations where a queue is allowed to place new game sessions.
+	//
+	// Locations are specified in the form of AWS Region codes, such as `us-west-2` . If this parameter is not set, game sessions can be placed in any queue location.
 	FilterConfiguration() interface{}
 	SetFilterConfiguration(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// A descriptive label that is associated with game session queue.
+	//
+	// Queue names must be unique within each Region.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// An SNS topic ARN that is set up to receive game session placement notifications.
+	//
+	// See [Setting up notifications for game session placement](https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html) .
 	NotificationTarget() *string
 	SetNotificationTarget(val *string)
+	// A set of policies that act as a sliding cap on player latency.
+	//
+	// FleetIQ works to deliver low latency for most players in a game session. These policies ensure that no individual player can be placed into a game with unreasonably high latency. Use multiple policies to gradually relax latency requirements a step at a time. Multiple policies are applied based on their maximum allowed latency, starting with the lowest value.
 	PlayerLatencyPolicies() interface{}
 	SetPlayerLatencyPolicies(val interface{})
+	// Custom settings to use when prioritizing destinations and locations for game session placements.
+	//
+	// This configuration replaces the FleetIQ default prioritization process. Priority types that are not explicitly named will be automatically applied at the end of the prioritization process.
 	PriorityConfiguration() interface{}
 	SetPriorityConfiguration(val interface{})
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// A list of labels to assign to the new game session queue resource.
+	//
+	// Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference* . Once the resource is created, you can use TagResource, UntagResource, and ListTagsForResource to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
 	Tags() awscdk.TagManager
+	// The maximum time, in seconds, that a new game session placement request remains in the queue.
+	//
+	// When a request exceeds this time, the game session placement changes to a `TIMED_OUT` status.
 	TimeoutInSeconds() *float64
 	SetTimeoutInSeconds(val *float64)
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -3254,8 +4602,8 @@ func (j *jsiiProxy_CfnGameSessionQueue) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGameSessionQueue) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnGameSessionQueue) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3346,13 +4694,13 @@ func (j *jsiiProxy_CfnGameSessionQueue) UpdatedProperites() *map[string]interfac
 
 
 // Create a new `AWS::GameLift::GameSessionQueue`.
-func NewCfnGameSessionQueue(scope constructs.Construct, id *string, props *CfnGameSessionQueueProps) CfnGameSessionQueue {
+func NewCfnGameSessionQueue(scope awscdk.Construct, id *string, props *CfnGameSessionQueueProps) CfnGameSessionQueue {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnGameSessionQueue{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_gamelift.CfnGameSessionQueue",
+		"monocdk.aws_gamelift.CfnGameSessionQueue",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3361,11 +4709,11 @@ func NewCfnGameSessionQueue(scope constructs.Construct, id *string, props *CfnGa
 }
 
 // Create a new `AWS::GameLift::GameSessionQueue`.
-func NewCfnGameSessionQueue_Override(c CfnGameSessionQueue, scope constructs.Construct, id *string, props *CfnGameSessionQueueProps) {
+func NewCfnGameSessionQueue_Override(c CfnGameSessionQueue, scope awscdk.Construct, id *string, props *CfnGameSessionQueueProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_gamelift.CfnGameSessionQueue",
+		"monocdk.aws_gamelift.CfnGameSessionQueue",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3441,13 +4789,14 @@ func (j *jsiiProxy_CfnGameSessionQueue) SetTimeoutInSeconds(val *float64) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnGameSessionQueue_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnGameSessionQueue",
+		"monocdk.aws_gamelift.CfnGameSessionQueue",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3457,13 +4806,14 @@ func CfnGameSessionQueue_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnGameSessionQueue_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnGameSessionQueue",
+		"monocdk.aws_gamelift.CfnGameSessionQueue",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3472,17 +4822,15 @@ func CfnGameSessionQueue_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnGameSessionQueue_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnGameSessionQueue",
+		"monocdk.aws_gamelift.CfnGameSessionQueue",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3495,14 +4843,13 @@ func CfnGameSessionQueue_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_gamelift.CfnGameSessionQueue",
+		"monocdk.aws_gamelift.CfnGameSessionQueue",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnGameSessionQueue) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3511,10 +4858,6 @@ func (c *jsiiProxy_CfnGameSessionQueue) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnGameSessionQueue) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3523,13 +4866,6 @@ func (c *jsiiProxy_CfnGameSessionQueue) AddDependsOn(target awscdk.CfnResource) 
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnGameSessionQueue) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3538,49 +4874,6 @@ func (c *jsiiProxy_CfnGameSessionQueue) AddMetadata(key *string, value interface
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnGameSessionQueue) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3589,7 +4882,6 @@ func (c *jsiiProxy_CfnGameSessionQueue) AddOverride(path *string, value interfac
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnGameSessionQueue) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3598,9 +4890,6 @@ func (c *jsiiProxy_CfnGameSessionQueue) AddPropertyDeletionOverride(propertyPath
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnGameSessionQueue) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3609,15 +4898,6 @@ func (c *jsiiProxy_CfnGameSessionQueue) AddPropertyOverride(propertyPath *string
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnGameSessionQueue) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3626,10 +4906,6 @@ func (c *jsiiProxy_CfnGameSessionQueue) ApplyRemovalPolicy(policy awscdk.Removal
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnGameSessionQueue) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3643,13 +4919,6 @@ func (c *jsiiProxy_CfnGameSessionQueue) GetAtt(attributeName *string) awscdk.Ref
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnGameSessionQueue) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3663,7 +4932,6 @@ func (c *jsiiProxy_CfnGameSessionQueue) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnGameSessionQueue) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3672,12 +4940,48 @@ func (c *jsiiProxy_CfnGameSessionQueue) Inspect(inspector awscdk.TreeInspector) 
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnGameSessionQueue) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnGameSessionQueue) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnGameSessionQueue) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnGameSessionQueue) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnGameSessionQueue) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3694,10 +4998,6 @@ func (c *jsiiProxy_CfnGameSessionQueue) RenderProperties(props *map[string]inter
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnGameSessionQueue) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3711,15 +5011,33 @@ func (c *jsiiProxy_CfnGameSessionQueue) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnGameSessionQueue) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnGameSessionQueue) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnGameSessionQueue) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3739,7 +5057,11 @@ func (c *jsiiProxy_CfnGameSessionQueue) ValidateProperties(_properties interface
 //
 // Queues fulfill requests for new game sessions by placing a new game session on any of the queue's destinations.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   destinationProperty := &destinationProperty{
+//   	destinationArn: jsii.String("destinationArn"),
+//   }
 //
 type CfnGameSessionQueue_DestinationProperty struct {
 	// The Amazon Resource Name (ARN) that is assigned to fleet or fleet alias.
@@ -3752,7 +5074,13 @@ type CfnGameSessionQueue_DestinationProperty struct {
 //
 // You can use a filter to temporarily turn off placements for specific locations. For queues that have multi-location fleets, you can use a filter configuration allow placement with some, but not all of these locations.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   filterConfigurationProperty := &filterConfigurationProperty{
+//   	allowedLocations: []*string{
+//   		jsii.String("allowedLocations"),
+//   	},
+//   }
 //
 type CfnGameSessionQueue_FilterConfigurationProperty struct {
 	// A list of locations to allow game session placement in, in the form of AWS Region codes such as `us-west-2` .
@@ -3763,7 +5091,12 @@ type CfnGameSessionQueue_FilterConfigurationProperty struct {
 //
 // When a latency policy is in force, a game session cannot be placed with any fleet in a Region where a player reports latency higher than the cap. Latency policies are only enforced when the placement request contains player latency information.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   playerLatencyPolicyProperty := &playerLatencyPolicyProperty{
+//   	maximumIndividualPlayerLatencyMilliseconds: jsii.Number(123),
+//   	policyDurationSeconds: jsii.Number(123),
+//   }
 //
 type CfnGameSessionQueue_PlayerLatencyPolicyProperty struct {
 	// The maximum latency value that is allowed for any player, in milliseconds.
@@ -3785,7 +5118,16 @@ type CfnGameSessionQueue_PlayerLatencyPolicyProperty struct {
 //
 // Changing the priority order will affect how game sessions are placed.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   priorityConfigurationProperty := &priorityConfigurationProperty{
+//   	locationOrder: []*string{
+//   		jsii.String("locationOrder"),
+//   	},
+//   	priorityOrder: []*string{
+//   		jsii.String("priorityOrder"),
+//   	},
+//   }
 //
 type CfnGameSessionQueue_PriorityConfigurationProperty struct {
 	// The prioritization order to use for fleet locations, when the `PriorityOrder` property includes `LOCATION` .
@@ -3805,7 +5147,46 @@ type CfnGameSessionQueue_PriorityConfigurationProperty struct {
 
 // Properties for defining a `CfnGameSessionQueue`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   cfnGameSessionQueueProps := &cfnGameSessionQueueProps{
+//   	name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	customEventData: jsii.String("customEventData"),
+//   	destinations: []interface{}{
+//   		&destinationProperty{
+//   			destinationArn: jsii.String("destinationArn"),
+//   		},
+//   	},
+//   	filterConfiguration: &filterConfigurationProperty{
+//   		allowedLocations: []*string{
+//   			jsii.String("allowedLocations"),
+//   		},
+//   	},
+//   	notificationTarget: jsii.String("notificationTarget"),
+//   	playerLatencyPolicies: []interface{}{
+//   		&playerLatencyPolicyProperty{
+//   			maximumIndividualPlayerLatencyMilliseconds: jsii.Number(123),
+//   			policyDurationSeconds: jsii.Number(123),
+//   		},
+//   	},
+//   	priorityConfiguration: &priorityConfigurationProperty{
+//   		locationOrder: []*string{
+//   			jsii.String("locationOrder"),
+//   		},
+//   		priorityOrder: []*string{
+//   			jsii.String("priorityOrder"),
+//   		},
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	timeoutInSeconds: jsii.Number(123),
+//   }
 //
 type CfnGameSessionQueueProps struct {
 	// A descriptive label that is associated with game session queue.
@@ -3848,65 +5229,320 @@ type CfnGameSessionQueueProps struct {
 //
 // The `AWS::GameLift::MatchmakingConfiguration` resource defines a new matchmaking configuration for use with FlexMatch. Whether you're using FlexMatch with GameLift hosting or as a standalone matchmaking service, the matchmaking configuration sets out rules for matching players and forming teams. If you're using GameLift hosting, it also defines how to start game sessions for each match. Your matchmaking system can use multiple configurations to handle different game scenarios. All matchmaking requests identify the matchmaking configuration to use and provide player attributes that are consistent with that configuration.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   cfnMatchmakingConfiguration := gamelift.NewCfnMatchmakingConfiguration(this, jsii.String("MyCfnMatchmakingConfiguration"), &cfnMatchmakingConfigurationProps{
+//   	acceptanceRequired: jsii.Boolean(false),
+//   	name: jsii.String("name"),
+//   	requestTimeoutSeconds: jsii.Number(123),
+//   	ruleSetName: jsii.String("ruleSetName"),
+//
+//   	// the properties below are optional
+//   	acceptanceTimeoutSeconds: jsii.Number(123),
+//   	additionalPlayerCount: jsii.Number(123),
+//   	backfillMode: jsii.String("backfillMode"),
+//   	customEventData: jsii.String("customEventData"),
+//   	description: jsii.String("description"),
+//   	flexMatchMode: jsii.String("flexMatchMode"),
+//   	gameProperties: []interface{}{
+//   		&gamePropertyProperty{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	gameSessionData: jsii.String("gameSessionData"),
+//   	gameSessionQueueArns: []*string{
+//   		jsii.String("gameSessionQueueArns"),
+//   	},
+//   	notificationTarget: jsii.String("notificationTarget"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   })
 //
 type CfnMatchmakingConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// A flag that determines whether a match that was created with this configuration must be accepted by the matched players.
+	//
+	// To require acceptance, set to `TRUE` . With this option enabled, matchmaking tickets use the status `REQUIRES_ACCEPTANCE` to indicate when a completed potential match is waiting for player acceptance.
 	AcceptanceRequired() interface{}
 	SetAcceptanceRequired(val interface{})
+	// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
 	AcceptanceTimeoutSeconds() *float64
 	SetAcceptanceTimeoutSeconds(val *float64)
+	// The number of player slots in a match to keep open for future players.
+	//
+	// For example, if the configuration's rule set specifies a match for a single 12-person team, and the additional player count is set to 2, only 10 players are selected for the match. This parameter is not used if `FlexMatchMode` is set to `STANDALONE` .
 	AdditionalPlayerCount() *float64
 	SetAdditionalPlayerCount(val *float64)
+	// The unique Amazon Resource Name (ARN) for the `MatchmakingConfiguration` .
 	AttrArn() *string
+	// The `MatchmakingConfiguration` name, which is unique.
 	AttrName() *string
+	// The method used to backfill game sessions that are created with this matchmaking configuration.
+	//
+	// Specify `MANUAL` when your game manages backfill requests manually or does not use the match backfill feature. Specify `AUTOMATIC` to have GameLift create a `StartMatchBackfill` request whenever a game session has one or more open slots. Learn more about manual and automatic backfill in [Backfill Existing Games with FlexMatch](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html) . Automatic backfill is not available when `FlexMatchMode` is set to `STANDALONE` .
 	BackfillMode() *string
 	SetBackfillMode(val *string)
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// Information to add to all events related to the matchmaking configuration.
 	CustomEventData() *string
 	SetCustomEventData(val *string)
+	// A descriptive label that is associated with matchmaking configuration.
 	Description() *string
 	SetDescription(val *string)
+	// Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
+	//
+	// - *STANDALONE* - FlexMatch forms matches and returns match information, including players and team assignments, in a [MatchmakingSucceeded](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html#match-events-matchmakingsucceeded) event.
+	// - *WITH_QUEUE* - FlexMatch forms matches and uses the specified GameLift queue to start a game session for the match.
 	FlexMatchMode() *string
 	SetFlexMatchMode(val *string)
+	// A set of custom properties for a game session, formatted as key-value pairs.
+	//
+	// These properties are passed to a game server process with a request to start a new game session. See [Start a Game Session](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession) . This parameter is not used if `FlexMatchMode` is set to `STANDALONE` .
 	GameProperties() interface{}
 	SetGameProperties(val interface{})
+	// A set of custom game session properties, formatted as a single string value.
+	//
+	// This data is passed to a game server process with a request to start a new game session. See [Start a Game Session](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession) . This parameter is not used if `FlexMatchMode` is set to `STANDALONE` .
 	GameSessionData() *string
 	SetGameSessionData(val *string)
+	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) that is assigned to a GameLift game session queue resource and uniquely identifies it. ARNs are unique across all Regions. Format is `arn:aws:gamelift:<region>::gamesessionqueue/<queue name>` . Queues can be located in any Region. Queues are used to start new GameLift-hosted game sessions for matches that are created with this matchmaking configuration. If `FlexMatchMode` is set to `STANDALONE` , do not set this parameter.
 	GameSessionQueueArns() *[]*string
 	SetGameSessionQueueArns(val *[]*string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// A unique identifier for the matchmaking configuration.
+	//
+	// This name is used to identify the configuration associated with a matchmaking request or ticket.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// An SNS topic ARN that is set up to receive matchmaking notifications.
+	//
+	// See [Setting up notifications for matchmaking](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html) for more information.
 	NotificationTarget() *string
 	SetNotificationTarget(val *string)
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
+	//
+	// Requests that fail due to timing out can be resubmitted as needed.
 	RequestTimeoutSeconds() *float64
 	SetRequestTimeoutSeconds(val *float64)
+	// A unique identifier for the matchmaking rule set to use with this configuration.
+	//
+	// You can use either the rule set name or ARN value. A matchmaking configuration can only use rule sets that are defined in the same Region.
 	RuleSetName() *string
 	SetRuleSetName(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// A list of labels to assign to the new matchmaking configuration resource.
+	//
+	// Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference* . Once the resource is created, you can use TagResource, UntagResource, and ListTagsForResource to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -4096,8 +5732,8 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMatchmakingConfiguration) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnMatchmakingConfiguration) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4178,13 +5814,13 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) UpdatedProperites() *map[string]
 
 
 // Create a new `AWS::GameLift::MatchmakingConfiguration`.
-func NewCfnMatchmakingConfiguration(scope constructs.Construct, id *string, props *CfnMatchmakingConfigurationProps) CfnMatchmakingConfiguration {
+func NewCfnMatchmakingConfiguration(scope awscdk.Construct, id *string, props *CfnMatchmakingConfigurationProps) CfnMatchmakingConfiguration {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnMatchmakingConfiguration{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_gamelift.CfnMatchmakingConfiguration",
+		"monocdk.aws_gamelift.CfnMatchmakingConfiguration",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4193,11 +5829,11 @@ func NewCfnMatchmakingConfiguration(scope constructs.Construct, id *string, prop
 }
 
 // Create a new `AWS::GameLift::MatchmakingConfiguration`.
-func NewCfnMatchmakingConfiguration_Override(c CfnMatchmakingConfiguration, scope constructs.Construct, id *string, props *CfnMatchmakingConfigurationProps) {
+func NewCfnMatchmakingConfiguration_Override(c CfnMatchmakingConfiguration, scope awscdk.Construct, id *string, props *CfnMatchmakingConfigurationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_gamelift.CfnMatchmakingConfiguration",
+		"monocdk.aws_gamelift.CfnMatchmakingConfiguration",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4321,13 +5957,14 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) SetRuleSetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnMatchmakingConfiguration_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnMatchmakingConfiguration",
+		"monocdk.aws_gamelift.CfnMatchmakingConfiguration",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4337,13 +5974,14 @@ func CfnMatchmakingConfiguration_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnMatchmakingConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnMatchmakingConfiguration",
+		"monocdk.aws_gamelift.CfnMatchmakingConfiguration",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4352,17 +5990,15 @@ func CfnMatchmakingConfiguration_IsCfnResource(construct constructs.IConstruct) 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnMatchmakingConfiguration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnMatchmakingConfiguration",
+		"monocdk.aws_gamelift.CfnMatchmakingConfiguration",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4375,14 +6011,13 @@ func CfnMatchmakingConfiguration_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_gamelift.CfnMatchmakingConfiguration",
+		"monocdk.aws_gamelift.CfnMatchmakingConfiguration",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnMatchmakingConfiguration) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4391,10 +6026,6 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) AddDeletionOverride(path *string
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnMatchmakingConfiguration) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4403,13 +6034,6 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) AddDependsOn(target awscdk.CfnRe
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnMatchmakingConfiguration) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4418,49 +6042,6 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) AddMetadata(key *string, value i
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnMatchmakingConfiguration) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4469,7 +6050,6 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) AddOverride(path *string, value 
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnMatchmakingConfiguration) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4478,9 +6058,6 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) AddPropertyDeletionOverride(prop
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnMatchmakingConfiguration) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4489,15 +6066,6 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) AddPropertyOverride(propertyPath
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnMatchmakingConfiguration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4506,10 +6074,6 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) ApplyRemovalPolicy(policy awscdk
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnMatchmakingConfiguration) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4523,13 +6087,6 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) GetAtt(attributeName *string) aw
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnMatchmakingConfiguration) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4543,7 +6100,6 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) GetMetadata(key *string) interfa
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnMatchmakingConfiguration) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4552,12 +6108,48 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) Inspect(inspector awscdk.TreeIns
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnMatchmakingConfiguration) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnMatchmakingConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnMatchmakingConfiguration) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnMatchmakingConfiguration) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnMatchmakingConfiguration) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -4574,10 +6166,6 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) RenderProperties(props *map[stri
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnMatchmakingConfiguration) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4591,15 +6179,33 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnMatchmakingConfiguration) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnMatchmakingConfiguration) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnMatchmakingConfiguration) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4619,7 +6225,12 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) ValidateProperties(_properties i
 //
 // When included in a game session request, these properties communicate details to be used when setting up the new game session. For example, a game property might specify a game mode, level, or map. Game properties are passed to the game server process when initiating a new game session. For more information, see the [GameLift Developer Guide](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-create) .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   gamePropertyProperty := &gamePropertyProperty{
+//   	key: jsii.String("key"),
+//   	value: jsii.String("value"),
+//   }
 //
 type CfnMatchmakingConfiguration_GamePropertyProperty struct {
 	// The game property identifier.
@@ -4630,7 +6241,39 @@ type CfnMatchmakingConfiguration_GamePropertyProperty struct {
 
 // Properties for defining a `CfnMatchmakingConfiguration`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   cfnMatchmakingConfigurationProps := &cfnMatchmakingConfigurationProps{
+//   	acceptanceRequired: jsii.Boolean(false),
+//   	name: jsii.String("name"),
+//   	requestTimeoutSeconds: jsii.Number(123),
+//   	ruleSetName: jsii.String("ruleSetName"),
+//
+//   	// the properties below are optional
+//   	acceptanceTimeoutSeconds: jsii.Number(123),
+//   	additionalPlayerCount: jsii.Number(123),
+//   	backfillMode: jsii.String("backfillMode"),
+//   	customEventData: jsii.String("customEventData"),
+//   	description: jsii.String("description"),
+//   	flexMatchMode: jsii.String("flexMatchMode"),
+//   	gameProperties: []interface{}{
+//   		&gamePropertyProperty{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	gameSessionData: jsii.String("gameSessionData"),
+//   	gameSessionQueueArns: []*string{
+//   		jsii.String("gameSessionQueueArns"),
+//   	},
+//   	notificationTarget: jsii.String("notificationTarget"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnMatchmakingConfigurationProps struct {
 	// A flag that determines whether a match that was created with this configuration must be accepted by the matched players.
@@ -4702,41 +6345,248 @@ type CfnMatchmakingConfigurationProps struct {
 // - [Design a matchmaker](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html)
 // - [Matchmaking with FlexMatch](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-intro.html)
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   cfnMatchmakingRuleSet := gamelift.NewCfnMatchmakingRuleSet(this, jsii.String("MyCfnMatchmakingRuleSet"), &cfnMatchmakingRuleSetProps{
+//   	name: jsii.String("name"),
+//   	ruleSetBody: jsii.String("ruleSetBody"),
+//
+//   	// the properties below are optional
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   })
 //
 type CfnMatchmakingRuleSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The unique Amazon Resource Name (ARN) assigned to the rule set.
 	AttrArn() *string
+	// The unique name of the rule set.
 	AttrName() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// A unique identifier for the matchmaking rule set.
+	//
+	// A matchmaking configuration identifies the rule set it uses by this name value. Note that the rule set name is different from the optional `name` field in the rule set body.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// A collection of matchmaking rules, formatted as a JSON string.
+	//
+	// Comments are not allowed in JSON, but most elements support a description field.
 	RuleSetBody() *string
 	SetRuleSetBody(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// A list of labels to assign to the new matchmaking rule set resource.
+	//
+	// Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference* . Once the resource is created, you can use TagResource, UntagResource, and ListTagsForResource to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -4826,8 +6676,8 @@ func (j *jsiiProxy_CfnMatchmakingRuleSet) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMatchmakingRuleSet) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnMatchmakingRuleSet) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4888,13 +6738,13 @@ func (j *jsiiProxy_CfnMatchmakingRuleSet) UpdatedProperites() *map[string]interf
 
 
 // Create a new `AWS::GameLift::MatchmakingRuleSet`.
-func NewCfnMatchmakingRuleSet(scope constructs.Construct, id *string, props *CfnMatchmakingRuleSetProps) CfnMatchmakingRuleSet {
+func NewCfnMatchmakingRuleSet(scope awscdk.Construct, id *string, props *CfnMatchmakingRuleSetProps) CfnMatchmakingRuleSet {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnMatchmakingRuleSet{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_gamelift.CfnMatchmakingRuleSet",
+		"monocdk.aws_gamelift.CfnMatchmakingRuleSet",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4903,11 +6753,11 @@ func NewCfnMatchmakingRuleSet(scope constructs.Construct, id *string, props *Cfn
 }
 
 // Create a new `AWS::GameLift::MatchmakingRuleSet`.
-func NewCfnMatchmakingRuleSet_Override(c CfnMatchmakingRuleSet, scope constructs.Construct, id *string, props *CfnMatchmakingRuleSetProps) {
+func NewCfnMatchmakingRuleSet_Override(c CfnMatchmakingRuleSet, scope awscdk.Construct, id *string, props *CfnMatchmakingRuleSetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_gamelift.CfnMatchmakingRuleSet",
+		"monocdk.aws_gamelift.CfnMatchmakingRuleSet",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4935,13 +6785,14 @@ func (j *jsiiProxy_CfnMatchmakingRuleSet) SetRuleSetBody(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnMatchmakingRuleSet_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnMatchmakingRuleSet",
+		"monocdk.aws_gamelift.CfnMatchmakingRuleSet",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4951,13 +6802,14 @@ func CfnMatchmakingRuleSet_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnMatchmakingRuleSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnMatchmakingRuleSet",
+		"monocdk.aws_gamelift.CfnMatchmakingRuleSet",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4966,17 +6818,15 @@ func CfnMatchmakingRuleSet_IsCfnResource(construct constructs.IConstruct) *bool 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnMatchmakingRuleSet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnMatchmakingRuleSet",
+		"monocdk.aws_gamelift.CfnMatchmakingRuleSet",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4989,14 +6839,13 @@ func CfnMatchmakingRuleSet_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_gamelift.CfnMatchmakingRuleSet",
+		"monocdk.aws_gamelift.CfnMatchmakingRuleSet",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnMatchmakingRuleSet) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5005,10 +6854,6 @@ func (c *jsiiProxy_CfnMatchmakingRuleSet) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnMatchmakingRuleSet) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5017,13 +6862,6 @@ func (c *jsiiProxy_CfnMatchmakingRuleSet) AddDependsOn(target awscdk.CfnResource
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnMatchmakingRuleSet) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5032,49 +6870,6 @@ func (c *jsiiProxy_CfnMatchmakingRuleSet) AddMetadata(key *string, value interfa
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnMatchmakingRuleSet) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5083,7 +6878,6 @@ func (c *jsiiProxy_CfnMatchmakingRuleSet) AddOverride(path *string, value interf
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnMatchmakingRuleSet) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5092,9 +6886,6 @@ func (c *jsiiProxy_CfnMatchmakingRuleSet) AddPropertyDeletionOverride(propertyPa
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnMatchmakingRuleSet) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5103,15 +6894,6 @@ func (c *jsiiProxy_CfnMatchmakingRuleSet) AddPropertyOverride(propertyPath *stri
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnMatchmakingRuleSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5120,10 +6902,6 @@ func (c *jsiiProxy_CfnMatchmakingRuleSet) ApplyRemovalPolicy(policy awscdk.Remov
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnMatchmakingRuleSet) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -5137,13 +6915,6 @@ func (c *jsiiProxy_CfnMatchmakingRuleSet) GetAtt(attributeName *string) awscdk.R
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnMatchmakingRuleSet) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -5157,7 +6928,6 @@ func (c *jsiiProxy_CfnMatchmakingRuleSet) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnMatchmakingRuleSet) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5166,12 +6936,48 @@ func (c *jsiiProxy_CfnMatchmakingRuleSet) Inspect(inspector awscdk.TreeInspector
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnMatchmakingRuleSet) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnMatchmakingRuleSet) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnMatchmakingRuleSet) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnMatchmakingRuleSet) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnMatchmakingRuleSet) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -5188,10 +6994,6 @@ func (c *jsiiProxy_CfnMatchmakingRuleSet) RenderProperties(props *map[string]int
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnMatchmakingRuleSet) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -5205,15 +7007,33 @@ func (c *jsiiProxy_CfnMatchmakingRuleSet) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnMatchmakingRuleSet) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnMatchmakingRuleSet) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnMatchmakingRuleSet) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5231,7 +7051,20 @@ func (c *jsiiProxy_CfnMatchmakingRuleSet) ValidateProperties(_properties interfa
 
 // Properties for defining a `CfnMatchmakingRuleSet`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   cfnMatchmakingRuleSetProps := &cfnMatchmakingRuleSetProps{
+//   	name: jsii.String("name"),
+//   	ruleSetBody: jsii.String("ruleSetBody"),
+//
+//   	// the properties below are optional
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnMatchmakingRuleSetProps struct {
 	// A unique identifier for the matchmaking rule set.
@@ -5252,43 +7085,261 @@ type CfnMatchmakingRuleSetProps struct {
 //
 // The `AWS::GameLift::Script` resource creates a new script record for your Realtime Servers script. Realtime scripts are JavaScript that provide configuration settings and optional custom game logic for your game. The script is deployed when you create a Realtime Servers fleet to host your game sessions. Script logic is executed during an active game session.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   cfnScript := gamelift.NewCfnScript(this, jsii.String("MyCfnScript"), &cfnScriptProps{
+//   	storageLocation: &s3LocationProperty{
+//   		bucket: jsii.String("bucket"),
+//   		key: jsii.String("key"),
+//   		roleArn: jsii.String("roleArn"),
+//
+//   		// the properties below are optional
+//   		objectVersion: jsii.String("objectVersion"),
+//   	},
+//
+//   	// the properties below are optional
+//   	name: jsii.String("name"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	version: jsii.String("version"),
+//   })
 //
 type CfnScript interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The unique Amazon Resource Name (ARN) for the script.
 	AttrArn() *string
+	// A unique identifier for a Realtime script.
 	AttrId() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// A descriptive label that is associated with a script.
+	//
+	// Script names do not need to be unique.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored.
+	//
+	// The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon Web Services to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon Web Services uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the `ObjectVersion` parameter to specify an earlier version.
 	StorageLocation() interface{}
 	SetStorageLocation(val interface{})
+	// A list of labels to assign to the new script resource.
+	//
+	// Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference* . Once the resource is created, you can use TagResource, UntagResource, and ListTagsForResource to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// The version that is associated with a build or script.
+	//
+	// Version strings do not need to be unique.
 	Version() *string
 	SetVersion(val *string)
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -5378,8 +7429,8 @@ func (j *jsiiProxy_CfnScript) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScript) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnScript) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5450,13 +7501,13 @@ func (j *jsiiProxy_CfnScript) Version() *string {
 
 
 // Create a new `AWS::GameLift::Script`.
-func NewCfnScript(scope constructs.Construct, id *string, props *CfnScriptProps) CfnScript {
+func NewCfnScript(scope awscdk.Construct, id *string, props *CfnScriptProps) CfnScript {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnScript{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_gamelift.CfnScript",
+		"monocdk.aws_gamelift.CfnScript",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5465,11 +7516,11 @@ func NewCfnScript(scope constructs.Construct, id *string, props *CfnScriptProps)
 }
 
 // Create a new `AWS::GameLift::Script`.
-func NewCfnScript_Override(c CfnScript, scope constructs.Construct, id *string, props *CfnScriptProps) {
+func NewCfnScript_Override(c CfnScript, scope awscdk.Construct, id *string, props *CfnScriptProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_gamelift.CfnScript",
+		"monocdk.aws_gamelift.CfnScript",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5505,13 +7556,14 @@ func (j *jsiiProxy_CfnScript) SetVersion(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnScript_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnScript",
+		"monocdk.aws_gamelift.CfnScript",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -5521,13 +7573,14 @@ func CfnScript_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnScript_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnScript",
+		"monocdk.aws_gamelift.CfnScript",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -5536,17 +7589,15 @@ func CfnScript_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnScript_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnScript",
+		"monocdk.aws_gamelift.CfnScript",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5559,14 +7610,13 @@ func CfnScript_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_gamelift.CfnScript",
+		"monocdk.aws_gamelift.CfnScript",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnScript) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5575,10 +7625,6 @@ func (c *jsiiProxy_CfnScript) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnScript) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5587,13 +7633,6 @@ func (c *jsiiProxy_CfnScript) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnScript) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5602,49 +7641,6 @@ func (c *jsiiProxy_CfnScript) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnScript) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5653,7 +7649,6 @@ func (c *jsiiProxy_CfnScript) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnScript) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5662,9 +7657,6 @@ func (c *jsiiProxy_CfnScript) AddPropertyDeletionOverride(propertyPath *string) 
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnScript) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5673,15 +7665,6 @@ func (c *jsiiProxy_CfnScript) AddPropertyOverride(propertyPath *string, value in
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnScript) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5690,10 +7673,6 @@ func (c *jsiiProxy_CfnScript) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, op
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnScript) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -5707,13 +7686,6 @@ func (c *jsiiProxy_CfnScript) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnScript) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -5727,7 +7699,6 @@ func (c *jsiiProxy_CfnScript) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnScript) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5736,12 +7707,48 @@ func (c *jsiiProxy_CfnScript) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnScript) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnScript) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnScript) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnScript) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnScript) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -5758,10 +7765,6 @@ func (c *jsiiProxy_CfnScript) RenderProperties(props *map[string]interface{}) *m
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnScript) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -5775,15 +7778,33 @@ func (c *jsiiProxy_CfnScript) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnScript) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnScript) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnScript) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5801,7 +7822,16 @@ func (c *jsiiProxy_CfnScript) ValidateProperties(_properties interface{}) {
 
 // The location in Amazon S3 where build or script files can be stored for access by Amazon GameLift.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   s3LocationProperty := &s3LocationProperty{
+//   	bucket: jsii.String("bucket"),
+//   	key: jsii.String("key"),
+//   	roleArn: jsii.String("roleArn"),
+//
+//   	// the properties below are optional
+//   	objectVersion: jsii.String("objectVersion"),
+//   }
 //
 type CfnScript_S3LocationProperty struct {
 	// An Amazon S3 bucket identifier. This is the name of the S3 bucket.
@@ -5820,7 +7850,28 @@ type CfnScript_S3LocationProperty struct {
 
 // Properties for defining a `CfnScript`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import gamelift "github.com/aws/aws-cdk-go/awscdk/aws_gamelift"
+//   cfnScriptProps := &cfnScriptProps{
+//   	storageLocation: &s3LocationProperty{
+//   		bucket: jsii.String("bucket"),
+//   		key: jsii.String("key"),
+//   		roleArn: jsii.String("roleArn"),
+//
+//   		// the properties below are optional
+//   		objectVersion: jsii.String("objectVersion"),
+//   	},
+//
+//   	// the properties below are optional
+//   	name: jsii.String("name"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	version: jsii.String("version"),
+//   }
 //
 type CfnScriptProps struct {
 	// The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored.

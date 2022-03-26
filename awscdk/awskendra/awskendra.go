@@ -1,12 +1,12 @@
 package awskendra
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskendra/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awskendra/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::Kendra::DataSource`.
@@ -15,53 +15,829 @@ import (
 //
 // You specify a name, connector type and description for your data source.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   cfnDataSource := kendra.NewCfnDataSource(this, jsii.String("MyCfnDataSource"), &cfnDataSourceProps{
+//   	indexId: jsii.String("indexId"),
+//   	name: jsii.String("name"),
+//   	type: jsii.String("type"),
+//
+//   	// the properties below are optional
+//   	customDocumentEnrichmentConfiguration: &customDocumentEnrichmentConfigurationProperty{
+//   		inlineConfigurations: []interface{}{
+//   			&inlineCustomDocumentEnrichmentConfigurationProperty{
+//   				condition: &documentAttributeConditionProperty{
+//   					conditionDocumentAttributeKey: jsii.String("conditionDocumentAttributeKey"),
+//   					operator: jsii.String("operator"),
+//
+//   					// the properties below are optional
+//   					conditionOnValue: &documentAttributeValueProperty{
+//   						dateValue: jsii.String("dateValue"),
+//   						longValue: jsii.Number(123),
+//   						stringListValue: []*string{
+//   							jsii.String("stringListValue"),
+//   						},
+//   						stringValue: jsii.String("stringValue"),
+//   					},
+//   				},
+//   				documentContentDeletion: jsii.Boolean(false),
+//   				target: &documentAttributeTargetProperty{
+//   					targetDocumentAttributeKey: jsii.String("targetDocumentAttributeKey"),
+//
+//   					// the properties below are optional
+//   					targetDocumentAttributeValue: &documentAttributeValueProperty{
+//   						dateValue: jsii.String("dateValue"),
+//   						longValue: jsii.Number(123),
+//   						stringListValue: []*string{
+//   							jsii.String("stringListValue"),
+//   						},
+//   						stringValue: jsii.String("stringValue"),
+//   					},
+//   					targetDocumentAttributeValueDeletion: jsii.Boolean(false),
+//   				},
+//   			},
+//   		},
+//   		postExtractionHookConfiguration: &hookConfigurationProperty{
+//   			lambdaArn: jsii.String("lambdaArn"),
+//   			s3Bucket: jsii.String("s3Bucket"),
+//
+//   			// the properties below are optional
+//   			invocationCondition: &documentAttributeConditionProperty{
+//   				conditionDocumentAttributeKey: jsii.String("conditionDocumentAttributeKey"),
+//   				operator: jsii.String("operator"),
+//
+//   				// the properties below are optional
+//   				conditionOnValue: &documentAttributeValueProperty{
+//   					dateValue: jsii.String("dateValue"),
+//   					longValue: jsii.Number(123),
+//   					stringListValue: []*string{
+//   						jsii.String("stringListValue"),
+//   					},
+//   					stringValue: jsii.String("stringValue"),
+//   				},
+//   			},
+//   		},
+//   		preExtractionHookConfiguration: &hookConfigurationProperty{
+//   			lambdaArn: jsii.String("lambdaArn"),
+//   			s3Bucket: jsii.String("s3Bucket"),
+//
+//   			// the properties below are optional
+//   			invocationCondition: &documentAttributeConditionProperty{
+//   				conditionDocumentAttributeKey: jsii.String("conditionDocumentAttributeKey"),
+//   				operator: jsii.String("operator"),
+//
+//   				// the properties below are optional
+//   				conditionOnValue: &documentAttributeValueProperty{
+//   					dateValue: jsii.String("dateValue"),
+//   					longValue: jsii.Number(123),
+//   					stringListValue: []*string{
+//   						jsii.String("stringListValue"),
+//   					},
+//   					stringValue: jsii.String("stringValue"),
+//   				},
+//   			},
+//   		},
+//   		roleArn: jsii.String("roleArn"),
+//   	},
+//   	dataSourceConfiguration: &dataSourceConfigurationProperty{
+//   		confluenceConfiguration: &confluenceConfigurationProperty{
+//   			secretArn: jsii.String("secretArn"),
+//   			serverUrl: jsii.String("serverUrl"),
+//   			version: jsii.String("version"),
+//
+//   			// the properties below are optional
+//   			attachmentConfiguration: &confluenceAttachmentConfigurationProperty{
+//   				attachmentFieldMappings: []interface{}{
+//   					&confluenceAttachmentToIndexFieldMappingProperty{
+//   						dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   						indexFieldName: jsii.String("indexFieldName"),
+//
+//   						// the properties below are optional
+//   						dateFieldFormat: jsii.String("dateFieldFormat"),
+//   					},
+//   				},
+//   				crawlAttachments: jsii.Boolean(false),
+//   			},
+//   			blogConfiguration: &confluenceBlogConfigurationProperty{
+//   				blogFieldMappings: []interface{}{
+//   					&confluenceBlogToIndexFieldMappingProperty{
+//   						dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   						indexFieldName: jsii.String("indexFieldName"),
+//
+//   						// the properties below are optional
+//   						dateFieldFormat: jsii.String("dateFieldFormat"),
+//   					},
+//   				},
+//   			},
+//   			exclusionPatterns: []*string{
+//   				jsii.String("exclusionPatterns"),
+//   			},
+//   			inclusionPatterns: []*string{
+//   				jsii.String("inclusionPatterns"),
+//   			},
+//   			pageConfiguration: &confluencePageConfigurationProperty{
+//   				pageFieldMappings: []interface{}{
+//   					&confluencePageToIndexFieldMappingProperty{
+//   						dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   						indexFieldName: jsii.String("indexFieldName"),
+//
+//   						// the properties below are optional
+//   						dateFieldFormat: jsii.String("dateFieldFormat"),
+//   					},
+//   				},
+//   			},
+//   			spaceConfiguration: &confluenceSpaceConfigurationProperty{
+//   				crawlArchivedSpaces: jsii.Boolean(false),
+//   				crawlPersonalSpaces: jsii.Boolean(false),
+//   				excludeSpaces: []*string{
+//   					jsii.String("excludeSpaces"),
+//   				},
+//   				includeSpaces: []*string{
+//   					jsii.String("includeSpaces"),
+//   				},
+//   				spaceFieldMappings: []interface{}{
+//   					&confluenceSpaceToIndexFieldMappingProperty{
+//   						dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   						indexFieldName: jsii.String("indexFieldName"),
+//
+//   						// the properties below are optional
+//   						dateFieldFormat: jsii.String("dateFieldFormat"),
+//   					},
+//   				},
+//   			},
+//   			vpcConfiguration: &dataSourceVpcConfigurationProperty{
+//   				securityGroupIds: []*string{
+//   					jsii.String("securityGroupIds"),
+//   				},
+//   				subnetIds: []*string{
+//   					jsii.String("subnetIds"),
+//   				},
+//   			},
+//   		},
+//   		databaseConfiguration: &databaseConfigurationProperty{
+//   			columnConfiguration: &columnConfigurationProperty{
+//   				changeDetectingColumns: []*string{
+//   					jsii.String("changeDetectingColumns"),
+//   				},
+//   				documentDataColumnName: jsii.String("documentDataColumnName"),
+//   				documentIdColumnName: jsii.String("documentIdColumnName"),
+//
+//   				// the properties below are optional
+//   				documentTitleColumnName: jsii.String("documentTitleColumnName"),
+//   				fieldMappings: []interface{}{
+//   					&dataSourceToIndexFieldMappingProperty{
+//   						dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   						indexFieldName: jsii.String("indexFieldName"),
+//
+//   						// the properties below are optional
+//   						dateFieldFormat: jsii.String("dateFieldFormat"),
+//   					},
+//   				},
+//   			},
+//   			connectionConfiguration: &connectionConfigurationProperty{
+//   				databaseHost: jsii.String("databaseHost"),
+//   				databaseName: jsii.String("databaseName"),
+//   				databasePort: jsii.Number(123),
+//   				secretArn: jsii.String("secretArn"),
+//   				tableName: jsii.String("tableName"),
+//   			},
+//   			databaseEngineType: jsii.String("databaseEngineType"),
+//
+//   			// the properties below are optional
+//   			aclConfiguration: &aclConfigurationProperty{
+//   				allowedGroupsColumnName: jsii.String("allowedGroupsColumnName"),
+//   			},
+//   			sqlConfiguration: &sqlConfigurationProperty{
+//   				queryIdentifiersEnclosingOption: jsii.String("queryIdentifiersEnclosingOption"),
+//   			},
+//   			vpcConfiguration: &dataSourceVpcConfigurationProperty{
+//   				securityGroupIds: []*string{
+//   					jsii.String("securityGroupIds"),
+//   				},
+//   				subnetIds: []*string{
+//   					jsii.String("subnetIds"),
+//   				},
+//   			},
+//   		},
+//   		googleDriveConfiguration: &googleDriveConfigurationProperty{
+//   			secretArn: jsii.String("secretArn"),
+//
+//   			// the properties below are optional
+//   			excludeMimeTypes: []*string{
+//   				jsii.String("excludeMimeTypes"),
+//   			},
+//   			excludeSharedDrives: []*string{
+//   				jsii.String("excludeSharedDrives"),
+//   			},
+//   			excludeUserAccounts: []*string{
+//   				jsii.String("excludeUserAccounts"),
+//   			},
+//   			exclusionPatterns: []*string{
+//   				jsii.String("exclusionPatterns"),
+//   			},
+//   			fieldMappings: []interface{}{
+//   				&dataSourceToIndexFieldMappingProperty{
+//   					dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   					indexFieldName: jsii.String("indexFieldName"),
+//
+//   					// the properties below are optional
+//   					dateFieldFormat: jsii.String("dateFieldFormat"),
+//   				},
+//   			},
+//   			inclusionPatterns: []*string{
+//   				jsii.String("inclusionPatterns"),
+//   			},
+//   		},
+//   		oneDriveConfiguration: &oneDriveConfigurationProperty{
+//   			oneDriveUsers: &oneDriveUsersProperty{
+//   				oneDriveUserList: []*string{
+//   					jsii.String("oneDriveUserList"),
+//   				},
+//   				oneDriveUserS3Path: &s3PathProperty{
+//   					bucket: jsii.String("bucket"),
+//   					key: jsii.String("key"),
+//   				},
+//   			},
+//   			secretArn: jsii.String("secretArn"),
+//   			tenantDomain: jsii.String("tenantDomain"),
+//
+//   			// the properties below are optional
+//   			disableLocalGroups: jsii.Boolean(false),
+//   			exclusionPatterns: []*string{
+//   				jsii.String("exclusionPatterns"),
+//   			},
+//   			fieldMappings: []interface{}{
+//   				&dataSourceToIndexFieldMappingProperty{
+//   					dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   					indexFieldName: jsii.String("indexFieldName"),
+//
+//   					// the properties below are optional
+//   					dateFieldFormat: jsii.String("dateFieldFormat"),
+//   				},
+//   			},
+//   			inclusionPatterns: []*string{
+//   				jsii.String("inclusionPatterns"),
+//   			},
+//   		},
+//   		s3Configuration: &s3DataSourceConfigurationProperty{
+//   			bucketName: jsii.String("bucketName"),
+//
+//   			// the properties below are optional
+//   			accessControlListConfiguration: &accessControlListConfigurationProperty{
+//   				keyPath: jsii.String("keyPath"),
+//   			},
+//   			documentsMetadataConfiguration: &documentsMetadataConfigurationProperty{
+//   				s3Prefix: jsii.String("s3Prefix"),
+//   			},
+//   			exclusionPatterns: []*string{
+//   				jsii.String("exclusionPatterns"),
+//   			},
+//   			inclusionPatterns: []*string{
+//   				jsii.String("inclusionPatterns"),
+//   			},
+//   			inclusionPrefixes: []*string{
+//   				jsii.String("inclusionPrefixes"),
+//   			},
+//   		},
+//   		salesforceConfiguration: &salesforceConfigurationProperty{
+//   			secretArn: jsii.String("secretArn"),
+//   			serverUrl: jsii.String("serverUrl"),
+//
+//   			// the properties below are optional
+//   			chatterFeedConfiguration: &salesforceChatterFeedConfigurationProperty{
+//   				documentDataFieldName: jsii.String("documentDataFieldName"),
+//
+//   				// the properties below are optional
+//   				documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   				fieldMappings: []interface{}{
+//   					&dataSourceToIndexFieldMappingProperty{
+//   						dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   						indexFieldName: jsii.String("indexFieldName"),
+//
+//   						// the properties below are optional
+//   						dateFieldFormat: jsii.String("dateFieldFormat"),
+//   					},
+//   				},
+//   				includeFilterTypes: []*string{
+//   					jsii.String("includeFilterTypes"),
+//   				},
+//   			},
+//   			crawlAttachments: jsii.Boolean(false),
+//   			excludeAttachmentFilePatterns: []*string{
+//   				jsii.String("excludeAttachmentFilePatterns"),
+//   			},
+//   			includeAttachmentFilePatterns: []*string{
+//   				jsii.String("includeAttachmentFilePatterns"),
+//   			},
+//   			knowledgeArticleConfiguration: &salesforceKnowledgeArticleConfigurationProperty{
+//   				includedStates: []*string{
+//   					jsii.String("includedStates"),
+//   				},
+//
+//   				// the properties below are optional
+//   				customKnowledgeArticleTypeConfigurations: []interface{}{
+//   					&salesforceCustomKnowledgeArticleTypeConfigurationProperty{
+//   						documentDataFieldName: jsii.String("documentDataFieldName"),
+//   						name: jsii.String("name"),
+//
+//   						// the properties below are optional
+//   						documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   						fieldMappings: []interface{}{
+//   							&dataSourceToIndexFieldMappingProperty{
+//   								dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   								indexFieldName: jsii.String("indexFieldName"),
+//
+//   								// the properties below are optional
+//   								dateFieldFormat: jsii.String("dateFieldFormat"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				standardKnowledgeArticleTypeConfiguration: &salesforceStandardKnowledgeArticleTypeConfigurationProperty{
+//   					documentDataFieldName: jsii.String("documentDataFieldName"),
+//
+//   					// the properties below are optional
+//   					documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   					fieldMappings: []interface{}{
+//   						&dataSourceToIndexFieldMappingProperty{
+//   							dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   							indexFieldName: jsii.String("indexFieldName"),
+//
+//   							// the properties below are optional
+//   							dateFieldFormat: jsii.String("dateFieldFormat"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			standardObjectAttachmentConfiguration: &salesforceStandardObjectAttachmentConfigurationProperty{
+//   				documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   				fieldMappings: []interface{}{
+//   					&dataSourceToIndexFieldMappingProperty{
+//   						dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   						indexFieldName: jsii.String("indexFieldName"),
+//
+//   						// the properties below are optional
+//   						dateFieldFormat: jsii.String("dateFieldFormat"),
+//   					},
+//   				},
+//   			},
+//   			standardObjectConfigurations: []interface{}{
+//   				&salesforceStandardObjectConfigurationProperty{
+//   					documentDataFieldName: jsii.String("documentDataFieldName"),
+//   					name: jsii.String("name"),
+//
+//   					// the properties below are optional
+//   					documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   					fieldMappings: []interface{}{
+//   						&dataSourceToIndexFieldMappingProperty{
+//   							dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   							indexFieldName: jsii.String("indexFieldName"),
+//
+//   							// the properties below are optional
+//   							dateFieldFormat: jsii.String("dateFieldFormat"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   		serviceNowConfiguration: &serviceNowConfigurationProperty{
+//   			hostUrl: jsii.String("hostUrl"),
+//   			secretArn: jsii.String("secretArn"),
+//   			serviceNowBuildVersion: jsii.String("serviceNowBuildVersion"),
+//
+//   			// the properties below are optional
+//   			authenticationType: jsii.String("authenticationType"),
+//   			knowledgeArticleConfiguration: &serviceNowKnowledgeArticleConfigurationProperty{
+//   				documentDataFieldName: jsii.String("documentDataFieldName"),
+//
+//   				// the properties below are optional
+//   				crawlAttachments: jsii.Boolean(false),
+//   				documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   				excludeAttachmentFilePatterns: []*string{
+//   					jsii.String("excludeAttachmentFilePatterns"),
+//   				},
+//   				fieldMappings: []interface{}{
+//   					&dataSourceToIndexFieldMappingProperty{
+//   						dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   						indexFieldName: jsii.String("indexFieldName"),
+//
+//   						// the properties below are optional
+//   						dateFieldFormat: jsii.String("dateFieldFormat"),
+//   					},
+//   				},
+//   				filterQuery: jsii.String("filterQuery"),
+//   				includeAttachmentFilePatterns: []*string{
+//   					jsii.String("includeAttachmentFilePatterns"),
+//   				},
+//   			},
+//   			serviceCatalogConfiguration: &serviceNowServiceCatalogConfigurationProperty{
+//   				documentDataFieldName: jsii.String("documentDataFieldName"),
+//
+//   				// the properties below are optional
+//   				crawlAttachments: jsii.Boolean(false),
+//   				documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   				excludeAttachmentFilePatterns: []*string{
+//   					jsii.String("excludeAttachmentFilePatterns"),
+//   				},
+//   				fieldMappings: []interface{}{
+//   					&dataSourceToIndexFieldMappingProperty{
+//   						dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   						indexFieldName: jsii.String("indexFieldName"),
+//
+//   						// the properties below are optional
+//   						dateFieldFormat: jsii.String("dateFieldFormat"),
+//   					},
+//   				},
+//   				includeAttachmentFilePatterns: []*string{
+//   					jsii.String("includeAttachmentFilePatterns"),
+//   				},
+//   			},
+//   		},
+//   		sharePointConfiguration: &sharePointConfigurationProperty{
+//   			secretArn: jsii.String("secretArn"),
+//   			sharePointVersion: jsii.String("sharePointVersion"),
+//   			urls: []*string{
+//   				jsii.String("urls"),
+//   			},
+//
+//   			// the properties below are optional
+//   			crawlAttachments: jsii.Boolean(false),
+//   			disableLocalGroups: jsii.Boolean(false),
+//   			documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   			exclusionPatterns: []*string{
+//   				jsii.String("exclusionPatterns"),
+//   			},
+//   			fieldMappings: []interface{}{
+//   				&dataSourceToIndexFieldMappingProperty{
+//   					dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   					indexFieldName: jsii.String("indexFieldName"),
+//
+//   					// the properties below are optional
+//   					dateFieldFormat: jsii.String("dateFieldFormat"),
+//   				},
+//   			},
+//   			inclusionPatterns: []*string{
+//   				jsii.String("inclusionPatterns"),
+//   			},
+//   			sslCertificateS3Path: &s3PathProperty{
+//   				bucket: jsii.String("bucket"),
+//   				key: jsii.String("key"),
+//   			},
+//   			useChangeLog: jsii.Boolean(false),
+//   			vpcConfiguration: &dataSourceVpcConfigurationProperty{
+//   				securityGroupIds: []*string{
+//   					jsii.String("securityGroupIds"),
+//   				},
+//   				subnetIds: []*string{
+//   					jsii.String("subnetIds"),
+//   				},
+//   			},
+//   		},
+//   		webCrawlerConfiguration: &webCrawlerConfigurationProperty{
+//   			urls: &webCrawlerUrlsProperty{
+//   				seedUrlConfiguration: &webCrawlerSeedUrlConfigurationProperty{
+//   					seedUrls: []*string{
+//   						jsii.String("seedUrls"),
+//   					},
+//
+//   					// the properties below are optional
+//   					webCrawlerMode: jsii.String("webCrawlerMode"),
+//   				},
+//   				siteMapsConfiguration: &webCrawlerSiteMapsConfigurationProperty{
+//   					siteMaps: []*string{
+//   						jsii.String("siteMaps"),
+//   					},
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			authenticationConfiguration: &webCrawlerAuthenticationConfigurationProperty{
+//   				basicAuthentication: []interface{}{
+//   					&webCrawlerBasicAuthenticationProperty{
+//   						credentials: jsii.String("credentials"),
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   			crawlDepth: jsii.Number(123),
+//   			maxContentSizePerPageInMegaBytes: jsii.Number(123),
+//   			maxLinksPerPage: jsii.Number(123),
+//   			maxUrlsPerMinuteCrawlRate: jsii.Number(123),
+//   			proxyConfiguration: &proxyConfigurationProperty{
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				credentials: jsii.String("credentials"),
+//   			},
+//   			urlExclusionPatterns: []*string{
+//   				jsii.String("urlExclusionPatterns"),
+//   			},
+//   			urlInclusionPatterns: []*string{
+//   				jsii.String("urlInclusionPatterns"),
+//   			},
+//   		},
+//   		workDocsConfiguration: &workDocsConfigurationProperty{
+//   			organizationId: jsii.String("organizationId"),
+//
+//   			// the properties below are optional
+//   			crawlComments: jsii.Boolean(false),
+//   			exclusionPatterns: []*string{
+//   				jsii.String("exclusionPatterns"),
+//   			},
+//   			fieldMappings: []interface{}{
+//   				&dataSourceToIndexFieldMappingProperty{
+//   					dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   					indexFieldName: jsii.String("indexFieldName"),
+//
+//   					// the properties below are optional
+//   					dateFieldFormat: jsii.String("dateFieldFormat"),
+//   				},
+//   			},
+//   			inclusionPatterns: []*string{
+//   				jsii.String("inclusionPatterns"),
+//   			},
+//   			useChangeLog: jsii.Boolean(false),
+//   		},
+//   	},
+//   	description: jsii.String("description"),
+//   	roleArn: jsii.String("roleArn"),
+//   	schedule: jsii.String("schedule"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   })
 //
 type CfnDataSource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the data source. For example:.
+	//
+	// `arn:aws:kendra:us-west-2:111122223333:index/335c3741-41df-46a6-b5d3-61f85b787884/data-source/b8cae438-6787-4091-8897-684a652bbb0a`.
 	AttrArn() *string
+	// The identifier for the data source. For example:.
+	//
+	// `b8cae438-6787-4091-8897-684a652bbb0a` .
 	AttrId() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// `AWS::Kendra::DataSource.CustomDocumentEnrichmentConfiguration`.
 	CustomDocumentEnrichmentConfiguration() interface{}
 	SetCustomDocumentEnrichmentConfiguration(val interface{})
+	// Configuration information for an Amazon Kendra data source.
+	//
+	// The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration. Choose from one of the following data sources.
+	//
+	// - Amazon S3
+	// - Confluence
+	// - Custom
+	// - Database
+	// - Microsoft OneDrive
+	// - Microsoft SharePoint
+	// - Salesforce
+	// - ServiceNow
+	//
+	// You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM` .
+	//
+	// The `Configuration` parameter is required for all other data sources.
 	DataSourceConfiguration() interface{}
 	SetDataSourceConfiguration(val interface{})
+	// A description of the data source.
 	Description() *string
 	SetDescription(val *string)
+	// The identifier of the index that should be associated with this data source.
 	IndexId() *string
 	SetIndexId(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The name of the data source.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The Amazon Resource Name (ARN) of a role with permission to access the data source.
+	//
+	// You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM` .
+	//
+	// The `RoleArn` parameter is required for all other data sources.
 	RoleArn() *string
 	SetRoleArn(val *string)
+	// Sets the frequency that Amazon Kendra checks the documents in your data source and updates the index.
+	//
+	// If you don't set a schedule, Amazon Kendra doesn't periodically update the index.
 	Schedule() *string
 	SetSchedule(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
+	// The type of the data source.
 	Type() *string
 	SetType(val *string)
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -191,8 +967,8 @@ func (j *jsiiProxy_CfnDataSource) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataSource) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDataSource) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -273,13 +1049,13 @@ func (j *jsiiProxy_CfnDataSource) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Kendra::DataSource`.
-func NewCfnDataSource(scope constructs.Construct, id *string, props *CfnDataSourceProps) CfnDataSource {
+func NewCfnDataSource(scope awscdk.Construct, id *string, props *CfnDataSourceProps) CfnDataSource {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDataSource{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kendra.CfnDataSource",
+		"monocdk.aws_kendra.CfnDataSource",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -288,11 +1064,11 @@ func NewCfnDataSource(scope constructs.Construct, id *string, props *CfnDataSour
 }
 
 // Create a new `AWS::Kendra::DataSource`.
-func NewCfnDataSource_Override(c CfnDataSource, scope constructs.Construct, id *string, props *CfnDataSourceProps) {
+func NewCfnDataSource_Override(c CfnDataSource, scope awscdk.Construct, id *string, props *CfnDataSourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kendra.CfnDataSource",
+		"monocdk.aws_kendra.CfnDataSource",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -368,13 +1144,14 @@ func (j *jsiiProxy_CfnDataSource) SetType(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDataSource_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnDataSource",
+		"monocdk.aws_kendra.CfnDataSource",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -384,13 +1161,14 @@ func CfnDataSource_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDataSource_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnDataSource",
+		"monocdk.aws_kendra.CfnDataSource",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -399,17 +1177,15 @@ func CfnDataSource_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDataSource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnDataSource",
+		"monocdk.aws_kendra.CfnDataSource",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -422,14 +1198,13 @@ func CfnDataSource_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_kendra.CfnDataSource",
+		"monocdk.aws_kendra.CfnDataSource",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnDataSource) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -438,10 +1213,6 @@ func (c *jsiiProxy_CfnDataSource) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnDataSource) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -450,13 +1221,6 @@ func (c *jsiiProxy_CfnDataSource) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnDataSource) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -465,49 +1229,6 @@ func (c *jsiiProxy_CfnDataSource) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnDataSource) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -516,7 +1237,6 @@ func (c *jsiiProxy_CfnDataSource) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnDataSource) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -525,9 +1245,6 @@ func (c *jsiiProxy_CfnDataSource) AddPropertyDeletionOverride(propertyPath *stri
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnDataSource) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -536,15 +1253,6 @@ func (c *jsiiProxy_CfnDataSource) AddPropertyOverride(propertyPath *string, valu
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnDataSource) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -553,10 +1261,6 @@ func (c *jsiiProxy_CfnDataSource) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnDataSource) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -570,13 +1274,6 @@ func (c *jsiiProxy_CfnDataSource) GetAtt(attributeName *string) awscdk.Reference
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnDataSource) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -590,7 +1287,6 @@ func (c *jsiiProxy_CfnDataSource) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnDataSource) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -599,12 +1295,48 @@ func (c *jsiiProxy_CfnDataSource) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnDataSource) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnDataSource) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnDataSource) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnDataSource) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnDataSource) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -621,10 +1353,6 @@ func (c *jsiiProxy_CfnDataSource) RenderProperties(props *map[string]interface{}
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnDataSource) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -638,15 +1366,33 @@ func (c *jsiiProxy_CfnDataSource) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnDataSource) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnDataSource) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDataSource) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -664,7 +1410,11 @@ func (c *jsiiProxy_CfnDataSource) ValidateProperties(_properties interface{}) {
 
 // Specifies access control list files for the documents in a data source.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   accessControlListConfigurationProperty := &accessControlListConfigurationProperty{
+//   	keyPath: jsii.String("keyPath"),
+//   }
 //
 type CfnDataSource_AccessControlListConfigurationProperty struct {
 	// Path to the AWS S3 bucket that contains the access control list files.
@@ -673,7 +1423,11 @@ type CfnDataSource_AccessControlListConfigurationProperty struct {
 
 // Provides information about the column that should be used for filtering the query response by groups.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   aclConfigurationProperty := &aclConfigurationProperty{
+//   	allowedGroupsColumnName: jsii.String("allowedGroupsColumnName"),
+//   }
 //
 type CfnDataSource_AclConfigurationProperty struct {
 	// A list of groups, separated by semi-colons, that filters a query response based on user context.
@@ -684,7 +1438,27 @@ type CfnDataSource_AclConfigurationProperty struct {
 
 // Provides information about how Amazon Kendra should use the columns of a database in an index.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   columnConfigurationProperty := &columnConfigurationProperty{
+//   	changeDetectingColumns: []*string{
+//   		jsii.String("changeDetectingColumns"),
+//   	},
+//   	documentDataColumnName: jsii.String("documentDataColumnName"),
+//   	documentIdColumnName: jsii.String("documentIdColumnName"),
+//
+//   	// the properties below are optional
+//   	documentTitleColumnName: jsii.String("documentTitleColumnName"),
+//   	fieldMappings: []interface{}{
+//   		&dataSourceToIndexFieldMappingProperty{
+//   			dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   			indexFieldName: jsii.String("indexFieldName"),
+//
+//   			// the properties below are optional
+//   			dateFieldFormat: jsii.String("dateFieldFormat"),
+//   		},
+//   	},
+//   }
 //
 type CfnDataSource_ColumnConfigurationProperty struct {
 	// One to five columns that indicate when a document in the database has changed.
@@ -705,7 +1479,20 @@ type CfnDataSource_ColumnConfigurationProperty struct {
 //
 // Attachment settings are optional, if you don't specify settings attachments, Amazon Kendra won't index them.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   confluenceAttachmentConfigurationProperty := &confluenceAttachmentConfigurationProperty{
+//   	attachmentFieldMappings: []interface{}{
+//   		&confluenceAttachmentToIndexFieldMappingProperty{
+//   			dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   			indexFieldName: jsii.String("indexFieldName"),
+//
+//   			// the properties below are optional
+//   			dateFieldFormat: jsii.String("dateFieldFormat"),
+//   		},
+//   	},
+//   	crawlAttachments: jsii.Boolean(false),
+//   }
 //
 type CfnDataSource_ConfluenceAttachmentConfigurationProperty struct {
 	// Maps attributes or field names of Confluence attachments to Amazon Kendra index field names.
@@ -722,7 +1509,15 @@ type CfnDataSource_ConfluenceAttachmentConfigurationProperty struct {
 //
 // To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confuence data source field names must exist in your Confluence custom metadata.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   confluenceAttachmentToIndexFieldMappingProperty := &confluenceAttachmentToIndexFieldMappingProperty{
+//   	dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   	indexFieldName: jsii.String("indexFieldName"),
+//
+//   	// the properties below are optional
+//   	dateFieldFormat: jsii.String("dateFieldFormat"),
+//   }
 //
 type CfnDataSource_ConfluenceAttachmentToIndexFieldMappingProperty struct {
 	// The name of the field in the data source.
@@ -743,7 +1538,19 @@ type CfnDataSource_ConfluenceAttachmentToIndexFieldMappingProperty struct {
 //
 // Blogs are always indexed unless filtered from the index by the `ExclusionPatterns` or `InclusionPatterns` fields in the `ConfluenceConfiguration` object.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   confluenceBlogConfigurationProperty := &confluenceBlogConfigurationProperty{
+//   	blogFieldMappings: []interface{}{
+//   		&confluenceBlogToIndexFieldMappingProperty{
+//   			dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   			indexFieldName: jsii.String("indexFieldName"),
+//
+//   			// the properties below are optional
+//   			dateFieldFormat: jsii.String("dateFieldFormat"),
+//   		},
+//   	},
+//   }
 //
 type CfnDataSource_ConfluenceBlogConfigurationProperty struct {
 	// Maps attributes or field names of Confluence blogs to Amazon Kendra index field names.
@@ -758,7 +1565,15 @@ type CfnDataSource_ConfluenceBlogConfigurationProperty struct {
 //
 // To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   confluenceBlogToIndexFieldMappingProperty := &confluenceBlogToIndexFieldMappingProperty{
+//   	dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   	indexFieldName: jsii.String("indexFieldName"),
+//
+//   	// the properties below are optional
+//   	dateFieldFormat: jsii.String("dateFieldFormat"),
+//   }
 //
 type CfnDataSource_ConfluenceBlogToIndexFieldMappingProperty struct {
 	// The name of the field in the data source.
@@ -775,7 +1590,82 @@ type CfnDataSource_ConfluenceBlogToIndexFieldMappingProperty struct {
 
 // Provides the configuration information to connect to Confluence as your data source.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   confluenceConfigurationProperty := &confluenceConfigurationProperty{
+//   	secretArn: jsii.String("secretArn"),
+//   	serverUrl: jsii.String("serverUrl"),
+//   	version: jsii.String("version"),
+//
+//   	// the properties below are optional
+//   	attachmentConfiguration: &confluenceAttachmentConfigurationProperty{
+//   		attachmentFieldMappings: []interface{}{
+//   			&confluenceAttachmentToIndexFieldMappingProperty{
+//   				dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   				indexFieldName: jsii.String("indexFieldName"),
+//
+//   				// the properties below are optional
+//   				dateFieldFormat: jsii.String("dateFieldFormat"),
+//   			},
+//   		},
+//   		crawlAttachments: jsii.Boolean(false),
+//   	},
+//   	blogConfiguration: &confluenceBlogConfigurationProperty{
+//   		blogFieldMappings: []interface{}{
+//   			&confluenceBlogToIndexFieldMappingProperty{
+//   				dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   				indexFieldName: jsii.String("indexFieldName"),
+//
+//   				// the properties below are optional
+//   				dateFieldFormat: jsii.String("dateFieldFormat"),
+//   			},
+//   		},
+//   	},
+//   	exclusionPatterns: []*string{
+//   		jsii.String("exclusionPatterns"),
+//   	},
+//   	inclusionPatterns: []*string{
+//   		jsii.String("inclusionPatterns"),
+//   	},
+//   	pageConfiguration: &confluencePageConfigurationProperty{
+//   		pageFieldMappings: []interface{}{
+//   			&confluencePageToIndexFieldMappingProperty{
+//   				dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   				indexFieldName: jsii.String("indexFieldName"),
+//
+//   				// the properties below are optional
+//   				dateFieldFormat: jsii.String("dateFieldFormat"),
+//   			},
+//   		},
+//   	},
+//   	spaceConfiguration: &confluenceSpaceConfigurationProperty{
+//   		crawlArchivedSpaces: jsii.Boolean(false),
+//   		crawlPersonalSpaces: jsii.Boolean(false),
+//   		excludeSpaces: []*string{
+//   			jsii.String("excludeSpaces"),
+//   		},
+//   		includeSpaces: []*string{
+//   			jsii.String("includeSpaces"),
+//   		},
+//   		spaceFieldMappings: []interface{}{
+//   			&confluenceSpaceToIndexFieldMappingProperty{
+//   				dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   				indexFieldName: jsii.String("indexFieldName"),
+//
+//   				// the properties below are optional
+//   				dateFieldFormat: jsii.String("dateFieldFormat"),
+//   			},
+//   		},
+//   	},
+//   	vpcConfiguration: &dataSourceVpcConfigurationProperty{
+//   		securityGroupIds: []*string{
+//   			jsii.String("securityGroupIds"),
+//   		},
+//   		subnetIds: []*string{
+//   			jsii.String("subnetIds"),
+//   		},
+//   	},
+//   }
 //
 type CfnDataSource_ConfluenceConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the key-value pairs required to connect to your Confluence server.
@@ -815,7 +1705,19 @@ type CfnDataSource_ConfluenceConfigurationProperty struct {
 
 // Configuration of the page settings for the Confluence data source.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   confluencePageConfigurationProperty := &confluencePageConfigurationProperty{
+//   	pageFieldMappings: []interface{}{
+//   		&confluencePageToIndexFieldMappingProperty{
+//   			dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   			indexFieldName: jsii.String("indexFieldName"),
+//
+//   			// the properties below are optional
+//   			dateFieldFormat: jsii.String("dateFieldFormat"),
+//   		},
+//   	},
+//   }
 //
 type CfnDataSource_ConfluencePageConfigurationProperty struct {
 	// >Maps attributes or field names of Confluence pages to Amazon Kendra index field names.
@@ -830,7 +1732,15 @@ type CfnDataSource_ConfluencePageConfigurationProperty struct {
 //
 // To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   confluencePageToIndexFieldMappingProperty := &confluencePageToIndexFieldMappingProperty{
+//   	dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   	indexFieldName: jsii.String("indexFieldName"),
+//
+//   	// the properties below are optional
+//   	dateFieldFormat: jsii.String("dateFieldFormat"),
+//   }
 //
 type CfnDataSource_ConfluencePageToIndexFieldMappingProperty struct {
 	// The name of the field in the data source.
@@ -847,7 +1757,27 @@ type CfnDataSource_ConfluencePageToIndexFieldMappingProperty struct {
 
 // Configuration information for indexing Confluence spaces.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   confluenceSpaceConfigurationProperty := &confluenceSpaceConfigurationProperty{
+//   	crawlArchivedSpaces: jsii.Boolean(false),
+//   	crawlPersonalSpaces: jsii.Boolean(false),
+//   	excludeSpaces: []*string{
+//   		jsii.String("excludeSpaces"),
+//   	},
+//   	includeSpaces: []*string{
+//   		jsii.String("includeSpaces"),
+//   	},
+//   	spaceFieldMappings: []interface{}{
+//   		&confluenceSpaceToIndexFieldMappingProperty{
+//   			dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   			indexFieldName: jsii.String("indexFieldName"),
+//
+//   			// the properties below are optional
+//   			dateFieldFormat: jsii.String("dateFieldFormat"),
+//   		},
+//   	},
+//   }
 //
 type CfnDataSource_ConfluenceSpaceConfigurationProperty struct {
 	// Specifies whether Amazon Kendra should index archived spaces.
@@ -876,7 +1806,15 @@ type CfnDataSource_ConfluenceSpaceConfigurationProperty struct {
 //
 // To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   confluenceSpaceToIndexFieldMappingProperty := &confluenceSpaceToIndexFieldMappingProperty{
+//   	dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   	indexFieldName: jsii.String("indexFieldName"),
+//
+//   	// the properties below are optional
+//   	dateFieldFormat: jsii.String("dateFieldFormat"),
+//   }
 //
 type CfnDataSource_ConfluenceSpaceToIndexFieldMappingProperty struct {
 	// The name of the field in the data source.
@@ -893,7 +1831,15 @@ type CfnDataSource_ConfluenceSpaceToIndexFieldMappingProperty struct {
 
 // Provides the configuration information that's required to connect to a database.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   connectionConfigurationProperty := &connectionConfigurationProperty{
+//   	databaseHost: jsii.String("databaseHost"),
+//   	databaseName: jsii.String("databaseName"),
+//   	databasePort: jsii.Number(123),
+//   	secretArn: jsii.String("secretArn"),
+//   	tableName: jsii.String("tableName"),
+//   }
 //
 type CfnDataSource_ConnectionConfigurationProperty struct {
 	// The name of the host for the database.
@@ -916,7 +1862,84 @@ type CfnDataSource_ConnectionConfigurationProperty struct {
 //
 // For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   customDocumentEnrichmentConfigurationProperty := &customDocumentEnrichmentConfigurationProperty{
+//   	inlineConfigurations: []interface{}{
+//   		&inlineCustomDocumentEnrichmentConfigurationProperty{
+//   			condition: &documentAttributeConditionProperty{
+//   				conditionDocumentAttributeKey: jsii.String("conditionDocumentAttributeKey"),
+//   				operator: jsii.String("operator"),
+//
+//   				// the properties below are optional
+//   				conditionOnValue: &documentAttributeValueProperty{
+//   					dateValue: jsii.String("dateValue"),
+//   					longValue: jsii.Number(123),
+//   					stringListValue: []*string{
+//   						jsii.String("stringListValue"),
+//   					},
+//   					stringValue: jsii.String("stringValue"),
+//   				},
+//   			},
+//   			documentContentDeletion: jsii.Boolean(false),
+//   			target: &documentAttributeTargetProperty{
+//   				targetDocumentAttributeKey: jsii.String("targetDocumentAttributeKey"),
+//
+//   				// the properties below are optional
+//   				targetDocumentAttributeValue: &documentAttributeValueProperty{
+//   					dateValue: jsii.String("dateValue"),
+//   					longValue: jsii.Number(123),
+//   					stringListValue: []*string{
+//   						jsii.String("stringListValue"),
+//   					},
+//   					stringValue: jsii.String("stringValue"),
+//   				},
+//   				targetDocumentAttributeValueDeletion: jsii.Boolean(false),
+//   			},
+//   		},
+//   	},
+//   	postExtractionHookConfiguration: &hookConfigurationProperty{
+//   		lambdaArn: jsii.String("lambdaArn"),
+//   		s3Bucket: jsii.String("s3Bucket"),
+//
+//   		// the properties below are optional
+//   		invocationCondition: &documentAttributeConditionProperty{
+//   			conditionDocumentAttributeKey: jsii.String("conditionDocumentAttributeKey"),
+//   			operator: jsii.String("operator"),
+//
+//   			// the properties below are optional
+//   			conditionOnValue: &documentAttributeValueProperty{
+//   				dateValue: jsii.String("dateValue"),
+//   				longValue: jsii.Number(123),
+//   				stringListValue: []*string{
+//   					jsii.String("stringListValue"),
+//   				},
+//   				stringValue: jsii.String("stringValue"),
+//   			},
+//   		},
+//   	},
+//   	preExtractionHookConfiguration: &hookConfigurationProperty{
+//   		lambdaArn: jsii.String("lambdaArn"),
+//   		s3Bucket: jsii.String("s3Bucket"),
+//
+//   		// the properties below are optional
+//   		invocationCondition: &documentAttributeConditionProperty{
+//   			conditionDocumentAttributeKey: jsii.String("conditionDocumentAttributeKey"),
+//   			operator: jsii.String("operator"),
+//
+//   			// the properties below are optional
+//   			conditionOnValue: &documentAttributeValueProperty{
+//   				dateValue: jsii.String("dateValue"),
+//   				longValue: jsii.Number(123),
+//   				stringListValue: []*string{
+//   					jsii.String("stringListValue"),
+//   				},
+//   				stringValue: jsii.String("stringValue"),
+//   			},
+//   		},
+//   	},
+//   	roleArn: jsii.String("roleArn"),
+//   }
 //
 type CfnDataSource_CustomDocumentEnrichmentConfigurationProperty struct {
 	// Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra.
@@ -937,7 +1960,470 @@ type CfnDataSource_CustomDocumentEnrichmentConfigurationProperty struct {
 
 // Provides the configuration information for an Amazon Kendra data source.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   dataSourceConfigurationProperty := &dataSourceConfigurationProperty{
+//   	confluenceConfiguration: &confluenceConfigurationProperty{
+//   		secretArn: jsii.String("secretArn"),
+//   		serverUrl: jsii.String("serverUrl"),
+//   		version: jsii.String("version"),
+//
+//   		// the properties below are optional
+//   		attachmentConfiguration: &confluenceAttachmentConfigurationProperty{
+//   			attachmentFieldMappings: []interface{}{
+//   				&confluenceAttachmentToIndexFieldMappingProperty{
+//   					dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   					indexFieldName: jsii.String("indexFieldName"),
+//
+//   					// the properties below are optional
+//   					dateFieldFormat: jsii.String("dateFieldFormat"),
+//   				},
+//   			},
+//   			crawlAttachments: jsii.Boolean(false),
+//   		},
+//   		blogConfiguration: &confluenceBlogConfigurationProperty{
+//   			blogFieldMappings: []interface{}{
+//   				&confluenceBlogToIndexFieldMappingProperty{
+//   					dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   					indexFieldName: jsii.String("indexFieldName"),
+//
+//   					// the properties below are optional
+//   					dateFieldFormat: jsii.String("dateFieldFormat"),
+//   				},
+//   			},
+//   		},
+//   		exclusionPatterns: []*string{
+//   			jsii.String("exclusionPatterns"),
+//   		},
+//   		inclusionPatterns: []*string{
+//   			jsii.String("inclusionPatterns"),
+//   		},
+//   		pageConfiguration: &confluencePageConfigurationProperty{
+//   			pageFieldMappings: []interface{}{
+//   				&confluencePageToIndexFieldMappingProperty{
+//   					dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   					indexFieldName: jsii.String("indexFieldName"),
+//
+//   					// the properties below are optional
+//   					dateFieldFormat: jsii.String("dateFieldFormat"),
+//   				},
+//   			},
+//   		},
+//   		spaceConfiguration: &confluenceSpaceConfigurationProperty{
+//   			crawlArchivedSpaces: jsii.Boolean(false),
+//   			crawlPersonalSpaces: jsii.Boolean(false),
+//   			excludeSpaces: []*string{
+//   				jsii.String("excludeSpaces"),
+//   			},
+//   			includeSpaces: []*string{
+//   				jsii.String("includeSpaces"),
+//   			},
+//   			spaceFieldMappings: []interface{}{
+//   				&confluenceSpaceToIndexFieldMappingProperty{
+//   					dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   					indexFieldName: jsii.String("indexFieldName"),
+//
+//   					// the properties below are optional
+//   					dateFieldFormat: jsii.String("dateFieldFormat"),
+//   				},
+//   			},
+//   		},
+//   		vpcConfiguration: &dataSourceVpcConfigurationProperty{
+//   			securityGroupIds: []*string{
+//   				jsii.String("securityGroupIds"),
+//   			},
+//   			subnetIds: []*string{
+//   				jsii.String("subnetIds"),
+//   			},
+//   		},
+//   	},
+//   	databaseConfiguration: &databaseConfigurationProperty{
+//   		columnConfiguration: &columnConfigurationProperty{
+//   			changeDetectingColumns: []*string{
+//   				jsii.String("changeDetectingColumns"),
+//   			},
+//   			documentDataColumnName: jsii.String("documentDataColumnName"),
+//   			documentIdColumnName: jsii.String("documentIdColumnName"),
+//
+//   			// the properties below are optional
+//   			documentTitleColumnName: jsii.String("documentTitleColumnName"),
+//   			fieldMappings: []interface{}{
+//   				&dataSourceToIndexFieldMappingProperty{
+//   					dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   					indexFieldName: jsii.String("indexFieldName"),
+//
+//   					// the properties below are optional
+//   					dateFieldFormat: jsii.String("dateFieldFormat"),
+//   				},
+//   			},
+//   		},
+//   		connectionConfiguration: &connectionConfigurationProperty{
+//   			databaseHost: jsii.String("databaseHost"),
+//   			databaseName: jsii.String("databaseName"),
+//   			databasePort: jsii.Number(123),
+//   			secretArn: jsii.String("secretArn"),
+//   			tableName: jsii.String("tableName"),
+//   		},
+//   		databaseEngineType: jsii.String("databaseEngineType"),
+//
+//   		// the properties below are optional
+//   		aclConfiguration: &aclConfigurationProperty{
+//   			allowedGroupsColumnName: jsii.String("allowedGroupsColumnName"),
+//   		},
+//   		sqlConfiguration: &sqlConfigurationProperty{
+//   			queryIdentifiersEnclosingOption: jsii.String("queryIdentifiersEnclosingOption"),
+//   		},
+//   		vpcConfiguration: &dataSourceVpcConfigurationProperty{
+//   			securityGroupIds: []*string{
+//   				jsii.String("securityGroupIds"),
+//   			},
+//   			subnetIds: []*string{
+//   				jsii.String("subnetIds"),
+//   			},
+//   		},
+//   	},
+//   	googleDriveConfiguration: &googleDriveConfigurationProperty{
+//   		secretArn: jsii.String("secretArn"),
+//
+//   		// the properties below are optional
+//   		excludeMimeTypes: []*string{
+//   			jsii.String("excludeMimeTypes"),
+//   		},
+//   		excludeSharedDrives: []*string{
+//   			jsii.String("excludeSharedDrives"),
+//   		},
+//   		excludeUserAccounts: []*string{
+//   			jsii.String("excludeUserAccounts"),
+//   		},
+//   		exclusionPatterns: []*string{
+//   			jsii.String("exclusionPatterns"),
+//   		},
+//   		fieldMappings: []interface{}{
+//   			&dataSourceToIndexFieldMappingProperty{
+//   				dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   				indexFieldName: jsii.String("indexFieldName"),
+//
+//   				// the properties below are optional
+//   				dateFieldFormat: jsii.String("dateFieldFormat"),
+//   			},
+//   		},
+//   		inclusionPatterns: []*string{
+//   			jsii.String("inclusionPatterns"),
+//   		},
+//   	},
+//   	oneDriveConfiguration: &oneDriveConfigurationProperty{
+//   		oneDriveUsers: &oneDriveUsersProperty{
+//   			oneDriveUserList: []*string{
+//   				jsii.String("oneDriveUserList"),
+//   			},
+//   			oneDriveUserS3Path: &s3PathProperty{
+//   				bucket: jsii.String("bucket"),
+//   				key: jsii.String("key"),
+//   			},
+//   		},
+//   		secretArn: jsii.String("secretArn"),
+//   		tenantDomain: jsii.String("tenantDomain"),
+//
+//   		// the properties below are optional
+//   		disableLocalGroups: jsii.Boolean(false),
+//   		exclusionPatterns: []*string{
+//   			jsii.String("exclusionPatterns"),
+//   		},
+//   		fieldMappings: []interface{}{
+//   			&dataSourceToIndexFieldMappingProperty{
+//   				dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   				indexFieldName: jsii.String("indexFieldName"),
+//
+//   				// the properties below are optional
+//   				dateFieldFormat: jsii.String("dateFieldFormat"),
+//   			},
+//   		},
+//   		inclusionPatterns: []*string{
+//   			jsii.String("inclusionPatterns"),
+//   		},
+//   	},
+//   	s3Configuration: &s3DataSourceConfigurationProperty{
+//   		bucketName: jsii.String("bucketName"),
+//
+//   		// the properties below are optional
+//   		accessControlListConfiguration: &accessControlListConfigurationProperty{
+//   			keyPath: jsii.String("keyPath"),
+//   		},
+//   		documentsMetadataConfiguration: &documentsMetadataConfigurationProperty{
+//   			s3Prefix: jsii.String("s3Prefix"),
+//   		},
+//   		exclusionPatterns: []*string{
+//   			jsii.String("exclusionPatterns"),
+//   		},
+//   		inclusionPatterns: []*string{
+//   			jsii.String("inclusionPatterns"),
+//   		},
+//   		inclusionPrefixes: []*string{
+//   			jsii.String("inclusionPrefixes"),
+//   		},
+//   	},
+//   	salesforceConfiguration: &salesforceConfigurationProperty{
+//   		secretArn: jsii.String("secretArn"),
+//   		serverUrl: jsii.String("serverUrl"),
+//
+//   		// the properties below are optional
+//   		chatterFeedConfiguration: &salesforceChatterFeedConfigurationProperty{
+//   			documentDataFieldName: jsii.String("documentDataFieldName"),
+//
+//   			// the properties below are optional
+//   			documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   			fieldMappings: []interface{}{
+//   				&dataSourceToIndexFieldMappingProperty{
+//   					dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   					indexFieldName: jsii.String("indexFieldName"),
+//
+//   					// the properties below are optional
+//   					dateFieldFormat: jsii.String("dateFieldFormat"),
+//   				},
+//   			},
+//   			includeFilterTypes: []*string{
+//   				jsii.String("includeFilterTypes"),
+//   			},
+//   		},
+//   		crawlAttachments: jsii.Boolean(false),
+//   		excludeAttachmentFilePatterns: []*string{
+//   			jsii.String("excludeAttachmentFilePatterns"),
+//   		},
+//   		includeAttachmentFilePatterns: []*string{
+//   			jsii.String("includeAttachmentFilePatterns"),
+//   		},
+//   		knowledgeArticleConfiguration: &salesforceKnowledgeArticleConfigurationProperty{
+//   			includedStates: []*string{
+//   				jsii.String("includedStates"),
+//   			},
+//
+//   			// the properties below are optional
+//   			customKnowledgeArticleTypeConfigurations: []interface{}{
+//   				&salesforceCustomKnowledgeArticleTypeConfigurationProperty{
+//   					documentDataFieldName: jsii.String("documentDataFieldName"),
+//   					name: jsii.String("name"),
+//
+//   					// the properties below are optional
+//   					documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   					fieldMappings: []interface{}{
+//   						&dataSourceToIndexFieldMappingProperty{
+//   							dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   							indexFieldName: jsii.String("indexFieldName"),
+//
+//   							// the properties below are optional
+//   							dateFieldFormat: jsii.String("dateFieldFormat"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			standardKnowledgeArticleTypeConfiguration: &salesforceStandardKnowledgeArticleTypeConfigurationProperty{
+//   				documentDataFieldName: jsii.String("documentDataFieldName"),
+//
+//   				// the properties below are optional
+//   				documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   				fieldMappings: []interface{}{
+//   					&dataSourceToIndexFieldMappingProperty{
+//   						dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   						indexFieldName: jsii.String("indexFieldName"),
+//
+//   						// the properties below are optional
+//   						dateFieldFormat: jsii.String("dateFieldFormat"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		standardObjectAttachmentConfiguration: &salesforceStandardObjectAttachmentConfigurationProperty{
+//   			documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   			fieldMappings: []interface{}{
+//   				&dataSourceToIndexFieldMappingProperty{
+//   					dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   					indexFieldName: jsii.String("indexFieldName"),
+//
+//   					// the properties below are optional
+//   					dateFieldFormat: jsii.String("dateFieldFormat"),
+//   				},
+//   			},
+//   		},
+//   		standardObjectConfigurations: []interface{}{
+//   			&salesforceStandardObjectConfigurationProperty{
+//   				documentDataFieldName: jsii.String("documentDataFieldName"),
+//   				name: jsii.String("name"),
+//
+//   				// the properties below are optional
+//   				documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   				fieldMappings: []interface{}{
+//   					&dataSourceToIndexFieldMappingProperty{
+//   						dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   						indexFieldName: jsii.String("indexFieldName"),
+//
+//   						// the properties below are optional
+//   						dateFieldFormat: jsii.String("dateFieldFormat"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	serviceNowConfiguration: &serviceNowConfigurationProperty{
+//   		hostUrl: jsii.String("hostUrl"),
+//   		secretArn: jsii.String("secretArn"),
+//   		serviceNowBuildVersion: jsii.String("serviceNowBuildVersion"),
+//
+//   		// the properties below are optional
+//   		authenticationType: jsii.String("authenticationType"),
+//   		knowledgeArticleConfiguration: &serviceNowKnowledgeArticleConfigurationProperty{
+//   			documentDataFieldName: jsii.String("documentDataFieldName"),
+//
+//   			// the properties below are optional
+//   			crawlAttachments: jsii.Boolean(false),
+//   			documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   			excludeAttachmentFilePatterns: []*string{
+//   				jsii.String("excludeAttachmentFilePatterns"),
+//   			},
+//   			fieldMappings: []interface{}{
+//   				&dataSourceToIndexFieldMappingProperty{
+//   					dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   					indexFieldName: jsii.String("indexFieldName"),
+//
+//   					// the properties below are optional
+//   					dateFieldFormat: jsii.String("dateFieldFormat"),
+//   				},
+//   			},
+//   			filterQuery: jsii.String("filterQuery"),
+//   			includeAttachmentFilePatterns: []*string{
+//   				jsii.String("includeAttachmentFilePatterns"),
+//   			},
+//   		},
+//   		serviceCatalogConfiguration: &serviceNowServiceCatalogConfigurationProperty{
+//   			documentDataFieldName: jsii.String("documentDataFieldName"),
+//
+//   			// the properties below are optional
+//   			crawlAttachments: jsii.Boolean(false),
+//   			documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   			excludeAttachmentFilePatterns: []*string{
+//   				jsii.String("excludeAttachmentFilePatterns"),
+//   			},
+//   			fieldMappings: []interface{}{
+//   				&dataSourceToIndexFieldMappingProperty{
+//   					dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   					indexFieldName: jsii.String("indexFieldName"),
+//
+//   					// the properties below are optional
+//   					dateFieldFormat: jsii.String("dateFieldFormat"),
+//   				},
+//   			},
+//   			includeAttachmentFilePatterns: []*string{
+//   				jsii.String("includeAttachmentFilePatterns"),
+//   			},
+//   		},
+//   	},
+//   	sharePointConfiguration: &sharePointConfigurationProperty{
+//   		secretArn: jsii.String("secretArn"),
+//   		sharePointVersion: jsii.String("sharePointVersion"),
+//   		urls: []*string{
+//   			jsii.String("urls"),
+//   		},
+//
+//   		// the properties below are optional
+//   		crawlAttachments: jsii.Boolean(false),
+//   		disableLocalGroups: jsii.Boolean(false),
+//   		documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   		exclusionPatterns: []*string{
+//   			jsii.String("exclusionPatterns"),
+//   		},
+//   		fieldMappings: []interface{}{
+//   			&dataSourceToIndexFieldMappingProperty{
+//   				dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   				indexFieldName: jsii.String("indexFieldName"),
+//
+//   				// the properties below are optional
+//   				dateFieldFormat: jsii.String("dateFieldFormat"),
+//   			},
+//   		},
+//   		inclusionPatterns: []*string{
+//   			jsii.String("inclusionPatterns"),
+//   		},
+//   		sslCertificateS3Path: &s3PathProperty{
+//   			bucket: jsii.String("bucket"),
+//   			key: jsii.String("key"),
+//   		},
+//   		useChangeLog: jsii.Boolean(false),
+//   		vpcConfiguration: &dataSourceVpcConfigurationProperty{
+//   			securityGroupIds: []*string{
+//   				jsii.String("securityGroupIds"),
+//   			},
+//   			subnetIds: []*string{
+//   				jsii.String("subnetIds"),
+//   			},
+//   		},
+//   	},
+//   	webCrawlerConfiguration: &webCrawlerConfigurationProperty{
+//   		urls: &webCrawlerUrlsProperty{
+//   			seedUrlConfiguration: &webCrawlerSeedUrlConfigurationProperty{
+//   				seedUrls: []*string{
+//   					jsii.String("seedUrls"),
+//   				},
+//
+//   				// the properties below are optional
+//   				webCrawlerMode: jsii.String("webCrawlerMode"),
+//   			},
+//   			siteMapsConfiguration: &webCrawlerSiteMapsConfigurationProperty{
+//   				siteMaps: []*string{
+//   					jsii.String("siteMaps"),
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		authenticationConfiguration: &webCrawlerAuthenticationConfigurationProperty{
+//   			basicAuthentication: []interface{}{
+//   				&webCrawlerBasicAuthenticationProperty{
+//   					credentials: jsii.String("credentials"),
+//   					host: jsii.String("host"),
+//   					port: jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   		crawlDepth: jsii.Number(123),
+//   		maxContentSizePerPageInMegaBytes: jsii.Number(123),
+//   		maxLinksPerPage: jsii.Number(123),
+//   		maxUrlsPerMinuteCrawlRate: jsii.Number(123),
+//   		proxyConfiguration: &proxyConfigurationProperty{
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			credentials: jsii.String("credentials"),
+//   		},
+//   		urlExclusionPatterns: []*string{
+//   			jsii.String("urlExclusionPatterns"),
+//   		},
+//   		urlInclusionPatterns: []*string{
+//   			jsii.String("urlInclusionPatterns"),
+//   		},
+//   	},
+//   	workDocsConfiguration: &workDocsConfigurationProperty{
+//   		organizationId: jsii.String("organizationId"),
+//
+//   		// the properties below are optional
+//   		crawlComments: jsii.Boolean(false),
+//   		exclusionPatterns: []*string{
+//   			jsii.String("exclusionPatterns"),
+//   		},
+//   		fieldMappings: []interface{}{
+//   			&dataSourceToIndexFieldMappingProperty{
+//   				dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   				indexFieldName: jsii.String("indexFieldName"),
+//
+//   				// the properties below are optional
+//   				dateFieldFormat: jsii.String("dateFieldFormat"),
+//   			},
+//   		},
+//   		inclusionPatterns: []*string{
+//   			jsii.String("inclusionPatterns"),
+//   		},
+//   		useChangeLog: jsii.Boolean(false),
+//   	},
+//   }
 //
 type CfnDataSource_DataSourceConfigurationProperty struct {
 	// Provides the configuration information to connect to Confluence as your data source.
@@ -966,7 +2452,15 @@ type CfnDataSource_DataSourceConfigurationProperty struct {
 //
 // You must first create the fields in the index using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) operation.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   dataSourceToIndexFieldMappingProperty := &dataSourceToIndexFieldMappingProperty{
+//   	dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   	indexFieldName: jsii.String("indexFieldName"),
+//
+//   	// the properties below are optional
+//   	dateFieldFormat: jsii.String("dateFieldFormat"),
+//   }
 //
 type CfnDataSource_DataSourceToIndexFieldMappingProperty struct {
 	// The name of the column or attribute in the data source.
@@ -979,7 +2473,16 @@ type CfnDataSource_DataSourceToIndexFieldMappingProperty struct {
 
 // Provides the configuration information to connect to an Amazon VPC.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   dataSourceVpcConfigurationProperty := &dataSourceVpcConfigurationProperty{
+//   	securityGroupIds: []*string{
+//   		jsii.String("securityGroupIds"),
+//   	},
+//   	subnetIds: []*string{
+//   		jsii.String("subnetIds"),
+//   	},
+//   }
 //
 type CfnDataSource_DataSourceVpcConfigurationProperty struct {
 	// A list of identifiers of security groups within your Amazon VPC.
@@ -994,7 +2497,53 @@ type CfnDataSource_DataSourceVpcConfigurationProperty struct {
 
 // Provides the configuration information to connect to a index.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   databaseConfigurationProperty := &databaseConfigurationProperty{
+//   	columnConfiguration: &columnConfigurationProperty{
+//   		changeDetectingColumns: []*string{
+//   			jsii.String("changeDetectingColumns"),
+//   		},
+//   		documentDataColumnName: jsii.String("documentDataColumnName"),
+//   		documentIdColumnName: jsii.String("documentIdColumnName"),
+//
+//   		// the properties below are optional
+//   		documentTitleColumnName: jsii.String("documentTitleColumnName"),
+//   		fieldMappings: []interface{}{
+//   			&dataSourceToIndexFieldMappingProperty{
+//   				dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   				indexFieldName: jsii.String("indexFieldName"),
+//
+//   				// the properties below are optional
+//   				dateFieldFormat: jsii.String("dateFieldFormat"),
+//   			},
+//   		},
+//   	},
+//   	connectionConfiguration: &connectionConfigurationProperty{
+//   		databaseHost: jsii.String("databaseHost"),
+//   		databaseName: jsii.String("databaseName"),
+//   		databasePort: jsii.Number(123),
+//   		secretArn: jsii.String("secretArn"),
+//   		tableName: jsii.String("tableName"),
+//   	},
+//   	databaseEngineType: jsii.String("databaseEngineType"),
+//
+//   	// the properties below are optional
+//   	aclConfiguration: &aclConfigurationProperty{
+//   		allowedGroupsColumnName: jsii.String("allowedGroupsColumnName"),
+//   	},
+//   	sqlConfiguration: &sqlConfigurationProperty{
+//   		queryIdentifiersEnclosingOption: jsii.String("queryIdentifiersEnclosingOption"),
+//   	},
+//   	vpcConfiguration: &dataSourceVpcConfigurationProperty{
+//   		securityGroupIds: []*string{
+//   			jsii.String("securityGroupIds"),
+//   		},
+//   		subnetIds: []*string{
+//   			jsii.String("subnetIds"),
+//   		},
+//   	},
+//   }
 //
 type CfnDataSource_DatabaseConfigurationProperty struct {
 	// Information about where the index should get the document information from the database.
@@ -1019,7 +2568,22 @@ type CfnDataSource_DatabaseConfigurationProperty struct {
 //
 // Amazon Kendra cannot create a target field if it has not already been created as an index field. After you create your index field, you can create a document metadata field using `DocumentAttributeTarget` . Amazon Kendra then will map your newly created metadata field to your index field.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   documentAttributeConditionProperty := &documentAttributeConditionProperty{
+//   	conditionDocumentAttributeKey: jsii.String("conditionDocumentAttributeKey"),
+//   	operator: jsii.String("operator"),
+//
+//   	// the properties below are optional
+//   	conditionOnValue: &documentAttributeValueProperty{
+//   		dateValue: jsii.String("dateValue"),
+//   		longValue: jsii.Number(123),
+//   		stringListValue: []*string{
+//   			jsii.String("stringListValue"),
+//   		},
+//   		stringValue: jsii.String("stringValue"),
+//   	},
+//   }
 //
 type CfnDataSource_DocumentAttributeConditionProperty struct {
 	// The identifier of the document attribute used for the condition.
@@ -1046,7 +2610,22 @@ type CfnDataSource_DocumentAttributeConditionProperty struct {
 //
 // You can also use this with [DocumentAttributeCondition](https://docs.aws.amazon.com/kendra/latest/dg/API_DocumentAttributeCondition.html) .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   documentAttributeTargetProperty := &documentAttributeTargetProperty{
+//   	targetDocumentAttributeKey: jsii.String("targetDocumentAttributeKey"),
+//
+//   	// the properties below are optional
+//   	targetDocumentAttributeValue: &documentAttributeValueProperty{
+//   		dateValue: jsii.String("dateValue"),
+//   		longValue: jsii.Number(123),
+//   		stringListValue: []*string{
+//   			jsii.String("stringListValue"),
+//   		},
+//   		stringValue: jsii.String("stringValue"),
+//   	},
+//   	targetDocumentAttributeValueDeletion: jsii.Boolean(false),
+//   }
 //
 type CfnDataSource_DocumentAttributeTargetProperty struct {
 	// The identifier of the target document attribute or metadata field.
@@ -1067,7 +2646,16 @@ type CfnDataSource_DocumentAttributeTargetProperty struct {
 //
 // You can only provide one value for a custom attribute.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   documentAttributeValueProperty := &documentAttributeValueProperty{
+//   	dateValue: jsii.String("dateValue"),
+//   	longValue: jsii.Number(123),
+//   	stringListValue: []*string{
+//   		jsii.String("stringListValue"),
+//   	},
+//   	stringValue: jsii.String("stringValue"),
+//   }
 //
 type CfnDataSource_DocumentAttributeValueProperty struct {
 	// A date expressed as an ISO 8601 string.
@@ -1086,7 +2674,11 @@ type CfnDataSource_DocumentAttributeValueProperty struct {
 //
 // Each metadata file contains metadata about a single document.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   documentsMetadataConfigurationProperty := &documentsMetadataConfigurationProperty{
+//   	s3Prefix: jsii.String("s3Prefix"),
+//   }
 //
 type CfnDataSource_DocumentsMetadataConfigurationProperty struct {
 	// A prefix used to filter metadata configuration files in the AWS S3 bucket.
@@ -1097,7 +2689,37 @@ type CfnDataSource_DocumentsMetadataConfigurationProperty struct {
 
 // Provides the configuration information to connect to Google Drive as your data source.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   googleDriveConfigurationProperty := &googleDriveConfigurationProperty{
+//   	secretArn: jsii.String("secretArn"),
+//
+//   	// the properties below are optional
+//   	excludeMimeTypes: []*string{
+//   		jsii.String("excludeMimeTypes"),
+//   	},
+//   	excludeSharedDrives: []*string{
+//   		jsii.String("excludeSharedDrives"),
+//   	},
+//   	excludeUserAccounts: []*string{
+//   		jsii.String("excludeUserAccounts"),
+//   	},
+//   	exclusionPatterns: []*string{
+//   		jsii.String("exclusionPatterns"),
+//   	},
+//   	fieldMappings: []interface{}{
+//   		&dataSourceToIndexFieldMappingProperty{
+//   			dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   			indexFieldName: jsii.String("indexFieldName"),
+//
+//   			// the properties below are optional
+//   			dateFieldFormat: jsii.String("dateFieldFormat"),
+//   		},
+//   	},
+//   	inclusionPatterns: []*string{
+//   		jsii.String("inclusionPatterns"),
+//   	},
+//   }
 //
 type CfnDataSource_GoogleDriveConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of a AWS Secrets Manager secret that contains the credentials required to connect to Google Drive.
@@ -1136,7 +2758,28 @@ type CfnDataSource_GoogleDriveConfigurationProperty struct {
 //
 // For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   hookConfigurationProperty := &hookConfigurationProperty{
+//   	lambdaArn: jsii.String("lambdaArn"),
+//   	s3Bucket: jsii.String("s3Bucket"),
+//
+//   	// the properties below are optional
+//   	invocationCondition: &documentAttributeConditionProperty{
+//   		conditionDocumentAttributeKey: jsii.String("conditionDocumentAttributeKey"),
+//   		operator: jsii.String("operator"),
+//
+//   		// the properties below are optional
+//   		conditionOnValue: &documentAttributeValueProperty{
+//   			dateValue: jsii.String("dateValue"),
+//   			longValue: jsii.Number(123),
+//   			stringListValue: []*string{
+//   				jsii.String("stringListValue"),
+//   			},
+//   			stringValue: jsii.String("stringValue"),
+//   		},
+//   	},
+//   }
 //
 type CfnDataSource_HookConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of a role with permission to run a Lambda function during ingestion.
@@ -1159,7 +2802,39 @@ type CfnDataSource_HookConfigurationProperty struct {
 //
 // For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   inlineCustomDocumentEnrichmentConfigurationProperty := &inlineCustomDocumentEnrichmentConfigurationProperty{
+//   	condition: &documentAttributeConditionProperty{
+//   		conditionDocumentAttributeKey: jsii.String("conditionDocumentAttributeKey"),
+//   		operator: jsii.String("operator"),
+//
+//   		// the properties below are optional
+//   		conditionOnValue: &documentAttributeValueProperty{
+//   			dateValue: jsii.String("dateValue"),
+//   			longValue: jsii.Number(123),
+//   			stringListValue: []*string{
+//   				jsii.String("stringListValue"),
+//   			},
+//   			stringValue: jsii.String("stringValue"),
+//   		},
+//   	},
+//   	documentContentDeletion: jsii.Boolean(false),
+//   	target: &documentAttributeTargetProperty{
+//   		targetDocumentAttributeKey: jsii.String("targetDocumentAttributeKey"),
+//
+//   		// the properties below are optional
+//   		targetDocumentAttributeValue: &documentAttributeValueProperty{
+//   			dateValue: jsii.String("dateValue"),
+//   			longValue: jsii.Number(123),
+//   			stringListValue: []*string{
+//   				jsii.String("stringListValue"),
+//   			},
+//   			stringValue: jsii.String("stringValue"),
+//   		},
+//   		targetDocumentAttributeValueDeletion: jsii.Boolean(false),
+//   	},
+//   }
 //
 type CfnDataSource_InlineCustomDocumentEnrichmentConfigurationProperty struct {
 	// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra.
@@ -1174,7 +2849,39 @@ type CfnDataSource_InlineCustomDocumentEnrichmentConfigurationProperty struct {
 
 // Provides the configuration information to connect to OneDrive as your data source.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   oneDriveConfigurationProperty := &oneDriveConfigurationProperty{
+//   	oneDriveUsers: &oneDriveUsersProperty{
+//   		oneDriveUserList: []*string{
+//   			jsii.String("oneDriveUserList"),
+//   		},
+//   		oneDriveUserS3Path: &s3PathProperty{
+//   			bucket: jsii.String("bucket"),
+//   			key: jsii.String("key"),
+//   		},
+//   	},
+//   	secretArn: jsii.String("secretArn"),
+//   	tenantDomain: jsii.String("tenantDomain"),
+//
+//   	// the properties below are optional
+//   	disableLocalGroups: jsii.Boolean(false),
+//   	exclusionPatterns: []*string{
+//   		jsii.String("exclusionPatterns"),
+//   	},
+//   	fieldMappings: []interface{}{
+//   		&dataSourceToIndexFieldMappingProperty{
+//   			dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   			indexFieldName: jsii.String("indexFieldName"),
+//
+//   			// the properties below are optional
+//   			dateFieldFormat: jsii.String("dateFieldFormat"),
+//   		},
+//   	},
+//   	inclusionPatterns: []*string{
+//   		jsii.String("inclusionPatterns"),
+//   	},
+//   }
 //
 type CfnDataSource_OneDriveConfigurationProperty struct {
 	// A list of user accounts whose documents should be indexed.
@@ -1207,7 +2914,17 @@ type CfnDataSource_OneDriveConfigurationProperty struct {
 
 // User accounts whose documents should be indexed.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   oneDriveUsersProperty := &oneDriveUsersProperty{
+//   	oneDriveUserList: []*string{
+//   		jsii.String("oneDriveUserList"),
+//   	},
+//   	oneDriveUserS3Path: &s3PathProperty{
+//   		bucket: jsii.String("bucket"),
+//   		key: jsii.String("key"),
+//   	},
+//   }
 //
 type CfnDataSource_OneDriveUsersProperty struct {
 	// A list of users whose documents should be indexed.
@@ -1220,7 +2937,15 @@ type CfnDataSource_OneDriveUsersProperty struct {
 
 // Provides the configuration information for a web proxy to connect to website hosts.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   proxyConfigurationProperty := &proxyConfigurationProperty{
+//   	host: jsii.String("host"),
+//   	port: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	credentials: jsii.String("credentials"),
+//   }
 //
 type CfnDataSource_ProxyConfigurationProperty struct {
 	// The name of the website host you want to connect to via a web proxy server.
@@ -1239,7 +2964,28 @@ type CfnDataSource_ProxyConfigurationProperty struct {
 
 // Provides the configuration information to connect to an Amazon S3 bucket.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   s3DataSourceConfigurationProperty := &s3DataSourceConfigurationProperty{
+//   	bucketName: jsii.String("bucketName"),
+//
+//   	// the properties below are optional
+//   	accessControlListConfiguration: &accessControlListConfigurationProperty{
+//   		keyPath: jsii.String("keyPath"),
+//   	},
+//   	documentsMetadataConfiguration: &documentsMetadataConfigurationProperty{
+//   		s3Prefix: jsii.String("s3Prefix"),
+//   	},
+//   	exclusionPatterns: []*string{
+//   		jsii.String("exclusionPatterns"),
+//   	},
+//   	inclusionPatterns: []*string{
+//   		jsii.String("inclusionPatterns"),
+//   	},
+//   	inclusionPrefixes: []*string{
+//   		jsii.String("inclusionPrefixes"),
+//   	},
+//   }
 //
 type CfnDataSource_S3DataSourceConfigurationProperty struct {
 	// The name of the bucket that contains the documents.
@@ -1278,7 +3024,12 @@ type CfnDataSource_S3DataSourceConfigurationProperty struct {
 
 // Information required to find a specific file in an Amazon S3 bucket.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   s3PathProperty := &s3PathProperty{
+//   	bucket: jsii.String("bucket"),
+//   	key: jsii.String("key"),
+//   }
 //
 type CfnDataSource_S3PathProperty struct {
 	// The name of the S3 bucket that contains the file.
@@ -1291,7 +3042,26 @@ type CfnDataSource_S3PathProperty struct {
 //
 // The contents of the object comes from the Salesforce FeedItem table.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   salesforceChatterFeedConfigurationProperty := &salesforceChatterFeedConfigurationProperty{
+//   	documentDataFieldName: jsii.String("documentDataFieldName"),
+//
+//   	// the properties below are optional
+//   	documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   	fieldMappings: []interface{}{
+//   		&dataSourceToIndexFieldMappingProperty{
+//   			dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   			indexFieldName: jsii.String("indexFieldName"),
+//
+//   			// the properties below are optional
+//   			dateFieldFormat: jsii.String("dateFieldFormat"),
+//   		},
+//   	},
+//   	includeFilterTypes: []*string{
+//   		jsii.String("includeFilterTypes"),
+//   	},
+//   }
 //
 type CfnDataSource_SalesforceChatterFeedConfigurationProperty struct {
 	// The name of the column in the Salesforce FeedItem table that contains the content to index.
@@ -1312,7 +3082,109 @@ type CfnDataSource_SalesforceChatterFeedConfigurationProperty struct {
 
 // Provides the configuration information to connect to Salesforce as your data source.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   salesforceConfigurationProperty := &salesforceConfigurationProperty{
+//   	secretArn: jsii.String("secretArn"),
+//   	serverUrl: jsii.String("serverUrl"),
+//
+//   	// the properties below are optional
+//   	chatterFeedConfiguration: &salesforceChatterFeedConfigurationProperty{
+//   		documentDataFieldName: jsii.String("documentDataFieldName"),
+//
+//   		// the properties below are optional
+//   		documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   		fieldMappings: []interface{}{
+//   			&dataSourceToIndexFieldMappingProperty{
+//   				dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   				indexFieldName: jsii.String("indexFieldName"),
+//
+//   				// the properties below are optional
+//   				dateFieldFormat: jsii.String("dateFieldFormat"),
+//   			},
+//   		},
+//   		includeFilterTypes: []*string{
+//   			jsii.String("includeFilterTypes"),
+//   		},
+//   	},
+//   	crawlAttachments: jsii.Boolean(false),
+//   	excludeAttachmentFilePatterns: []*string{
+//   		jsii.String("excludeAttachmentFilePatterns"),
+//   	},
+//   	includeAttachmentFilePatterns: []*string{
+//   		jsii.String("includeAttachmentFilePatterns"),
+//   	},
+//   	knowledgeArticleConfiguration: &salesforceKnowledgeArticleConfigurationProperty{
+//   		includedStates: []*string{
+//   			jsii.String("includedStates"),
+//   		},
+//
+//   		// the properties below are optional
+//   		customKnowledgeArticleTypeConfigurations: []interface{}{
+//   			&salesforceCustomKnowledgeArticleTypeConfigurationProperty{
+//   				documentDataFieldName: jsii.String("documentDataFieldName"),
+//   				name: jsii.String("name"),
+//
+//   				// the properties below are optional
+//   				documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   				fieldMappings: []interface{}{
+//   					&dataSourceToIndexFieldMappingProperty{
+//   						dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   						indexFieldName: jsii.String("indexFieldName"),
+//
+//   						// the properties below are optional
+//   						dateFieldFormat: jsii.String("dateFieldFormat"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		standardKnowledgeArticleTypeConfiguration: &salesforceStandardKnowledgeArticleTypeConfigurationProperty{
+//   			documentDataFieldName: jsii.String("documentDataFieldName"),
+//
+//   			// the properties below are optional
+//   			documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   			fieldMappings: []interface{}{
+//   				&dataSourceToIndexFieldMappingProperty{
+//   					dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   					indexFieldName: jsii.String("indexFieldName"),
+//
+//   					// the properties below are optional
+//   					dateFieldFormat: jsii.String("dateFieldFormat"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	standardObjectAttachmentConfiguration: &salesforceStandardObjectAttachmentConfigurationProperty{
+//   		documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   		fieldMappings: []interface{}{
+//   			&dataSourceToIndexFieldMappingProperty{
+//   				dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   				indexFieldName: jsii.String("indexFieldName"),
+//
+//   				// the properties below are optional
+//   				dateFieldFormat: jsii.String("dateFieldFormat"),
+//   			},
+//   		},
+//   	},
+//   	standardObjectConfigurations: []interface{}{
+//   		&salesforceStandardObjectConfigurationProperty{
+//   			documentDataFieldName: jsii.String("documentDataFieldName"),
+//   			name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   			fieldMappings: []interface{}{
+//   				&dataSourceToIndexFieldMappingProperty{
+//   					dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   					indexFieldName: jsii.String("indexFieldName"),
+//
+//   					// the properties below are optional
+//   					dateFieldFormat: jsii.String("dateFieldFormat"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnDataSource_SalesforceConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the key/value pairs required to connect to your Salesforce instance.
@@ -1356,7 +3228,24 @@ type CfnDataSource_SalesforceConfigurationProperty struct {
 
 // Provides the configuration information for indexing Salesforce custom articles.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   salesforceCustomKnowledgeArticleTypeConfigurationProperty := &salesforceCustomKnowledgeArticleTypeConfigurationProperty{
+//   	documentDataFieldName: jsii.String("documentDataFieldName"),
+//   	name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   	fieldMappings: []interface{}{
+//   		&dataSourceToIndexFieldMappingProperty{
+//   			dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   			indexFieldName: jsii.String("indexFieldName"),
+//
+//   			// the properties below are optional
+//   			dateFieldFormat: jsii.String("dateFieldFormat"),
+//   		},
+//   	},
+//   }
 //
 type CfnDataSource_SalesforceCustomKnowledgeArticleTypeConfigurationProperty struct {
 	// The name of the field in the custom knowledge article that contains the document data to index.
@@ -1373,9 +3262,50 @@ type CfnDataSource_SalesforceCustomKnowledgeArticleTypeConfigurationProperty str
 
 // Provides the configuration information for the knowledge article types that Amazon Kendra indexes.
 //
-// Amazon Kendra indexes standard knowledge articles and the standard fields of knowledge articles, or the custom fields of custom knowledge articles, but not both
+// Amazon Kendra indexes standard knowledge articles and the standard fields of knowledge articles, or the custom fields of custom knowledge articles, but not both.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   salesforceKnowledgeArticleConfigurationProperty := &salesforceKnowledgeArticleConfigurationProperty{
+//   	includedStates: []*string{
+//   		jsii.String("includedStates"),
+//   	},
+//
+//   	// the properties below are optional
+//   	customKnowledgeArticleTypeConfigurations: []interface{}{
+//   		&salesforceCustomKnowledgeArticleTypeConfigurationProperty{
+//   			documentDataFieldName: jsii.String("documentDataFieldName"),
+//   			name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   			fieldMappings: []interface{}{
+//   				&dataSourceToIndexFieldMappingProperty{
+//   					dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   					indexFieldName: jsii.String("indexFieldName"),
+//
+//   					// the properties below are optional
+//   					dateFieldFormat: jsii.String("dateFieldFormat"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	standardKnowledgeArticleTypeConfiguration: &salesforceStandardKnowledgeArticleTypeConfigurationProperty{
+//   		documentDataFieldName: jsii.String("documentDataFieldName"),
+//
+//   		// the properties below are optional
+//   		documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   		fieldMappings: []interface{}{
+//   			&dataSourceToIndexFieldMappingProperty{
+//   				dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   				indexFieldName: jsii.String("indexFieldName"),
+//
+//   				// the properties below are optional
+//   				dateFieldFormat: jsii.String("dateFieldFormat"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnDataSource_SalesforceKnowledgeArticleConfigurationProperty struct {
 	// Specifies the document states that should be included when Amazon Kendra indexes knowledge articles.
@@ -1390,7 +3320,23 @@ type CfnDataSource_SalesforceKnowledgeArticleConfigurationProperty struct {
 
 // Provides the configuration information for standard Salesforce knowledge articles.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   salesforceStandardKnowledgeArticleTypeConfigurationProperty := &salesforceStandardKnowledgeArticleTypeConfigurationProperty{
+//   	documentDataFieldName: jsii.String("documentDataFieldName"),
+//
+//   	// the properties below are optional
+//   	documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   	fieldMappings: []interface{}{
+//   		&dataSourceToIndexFieldMappingProperty{
+//   			dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   			indexFieldName: jsii.String("indexFieldName"),
+//
+//   			// the properties below are optional
+//   			dateFieldFormat: jsii.String("dateFieldFormat"),
+//   		},
+//   	},
+//   }
 //
 type CfnDataSource_SalesforceStandardKnowledgeArticleTypeConfigurationProperty struct {
 	// The name of the field that contains the document data to index.
@@ -1405,7 +3351,20 @@ type CfnDataSource_SalesforceStandardKnowledgeArticleTypeConfigurationProperty s
 
 // Provides the configuration information for processing attachments to Salesforce standard objects.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   salesforceStandardObjectAttachmentConfigurationProperty := &salesforceStandardObjectAttachmentConfigurationProperty{
+//   	documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   	fieldMappings: []interface{}{
+//   		&dataSourceToIndexFieldMappingProperty{
+//   			dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   			indexFieldName: jsii.String("indexFieldName"),
+//
+//   			// the properties below are optional
+//   			dateFieldFormat: jsii.String("dateFieldFormat"),
+//   		},
+//   	},
+//   }
 //
 type CfnDataSource_SalesforceStandardObjectAttachmentConfigurationProperty struct {
 	// The name of the field used for the document title.
@@ -1416,7 +3375,24 @@ type CfnDataSource_SalesforceStandardObjectAttachmentConfigurationProperty struc
 
 // Specifies configuration information for indexing a single standard object.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   salesforceStandardObjectConfigurationProperty := &salesforceStandardObjectConfigurationProperty{
+//   	documentDataFieldName: jsii.String("documentDataFieldName"),
+//   	name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   	fieldMappings: []interface{}{
+//   		&dataSourceToIndexFieldMappingProperty{
+//   			dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   			indexFieldName: jsii.String("indexFieldName"),
+//
+//   			// the properties below are optional
+//   			dateFieldFormat: jsii.String("dateFieldFormat"),
+//   		},
+//   	},
+//   }
 //
 type CfnDataSource_SalesforceStandardObjectConfigurationProperty struct {
 	// The name of the field in the standard object table that contains the document contents.
@@ -1433,7 +3409,61 @@ type CfnDataSource_SalesforceStandardObjectConfigurationProperty struct {
 
 // Provides the configuration information to connect to ServiceNow as your data source.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   serviceNowConfigurationProperty := &serviceNowConfigurationProperty{
+//   	hostUrl: jsii.String("hostUrl"),
+//   	secretArn: jsii.String("secretArn"),
+//   	serviceNowBuildVersion: jsii.String("serviceNowBuildVersion"),
+//
+//   	// the properties below are optional
+//   	authenticationType: jsii.String("authenticationType"),
+//   	knowledgeArticleConfiguration: &serviceNowKnowledgeArticleConfigurationProperty{
+//   		documentDataFieldName: jsii.String("documentDataFieldName"),
+//
+//   		// the properties below are optional
+//   		crawlAttachments: jsii.Boolean(false),
+//   		documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   		excludeAttachmentFilePatterns: []*string{
+//   			jsii.String("excludeAttachmentFilePatterns"),
+//   		},
+//   		fieldMappings: []interface{}{
+//   			&dataSourceToIndexFieldMappingProperty{
+//   				dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   				indexFieldName: jsii.String("indexFieldName"),
+//
+//   				// the properties below are optional
+//   				dateFieldFormat: jsii.String("dateFieldFormat"),
+//   			},
+//   		},
+//   		filterQuery: jsii.String("filterQuery"),
+//   		includeAttachmentFilePatterns: []*string{
+//   			jsii.String("includeAttachmentFilePatterns"),
+//   		},
+//   	},
+//   	serviceCatalogConfiguration: &serviceNowServiceCatalogConfigurationProperty{
+//   		documentDataFieldName: jsii.String("documentDataFieldName"),
+//
+//   		// the properties below are optional
+//   		crawlAttachments: jsii.Boolean(false),
+//   		documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   		excludeAttachmentFilePatterns: []*string{
+//   			jsii.String("excludeAttachmentFilePatterns"),
+//   		},
+//   		fieldMappings: []interface{}{
+//   			&dataSourceToIndexFieldMappingProperty{
+//   				dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   				indexFieldName: jsii.String("indexFieldName"),
+//
+//   				// the properties below are optional
+//   				dateFieldFormat: jsii.String("dateFieldFormat"),
+//   			},
+//   		},
+//   		includeAttachmentFilePatterns: []*string{
+//   			jsii.String("includeAttachmentFilePatterns"),
+//   		},
+//   	},
+//   }
 //
 type CfnDataSource_ServiceNowConfigurationProperty struct {
 	// The ServiceNow instance that the data source connects to.
@@ -1460,7 +3490,31 @@ type CfnDataSource_ServiceNowConfigurationProperty struct {
 
 // Provides the configuration information for crawling knowledge articles in the ServiceNow site.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   serviceNowKnowledgeArticleConfigurationProperty := &serviceNowKnowledgeArticleConfigurationProperty{
+//   	documentDataFieldName: jsii.String("documentDataFieldName"),
+//
+//   	// the properties below are optional
+//   	crawlAttachments: jsii.Boolean(false),
+//   	documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   	excludeAttachmentFilePatterns: []*string{
+//   		jsii.String("excludeAttachmentFilePatterns"),
+//   	},
+//   	fieldMappings: []interface{}{
+//   		&dataSourceToIndexFieldMappingProperty{
+//   			dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   			indexFieldName: jsii.String("indexFieldName"),
+//
+//   			// the properties below are optional
+//   			dateFieldFormat: jsii.String("dateFieldFormat"),
+//   		},
+//   	},
+//   	filterQuery: jsii.String("filterQuery"),
+//   	includeAttachmentFilePatterns: []*string{
+//   		jsii.String("includeAttachmentFilePatterns"),
+//   	},
+//   }
 //
 type CfnDataSource_ServiceNowKnowledgeArticleConfigurationProperty struct {
 	// The name of the ServiceNow field that is mapped to the index document contents field in the Amazon Kendra index.
@@ -1495,7 +3549,30 @@ type CfnDataSource_ServiceNowKnowledgeArticleConfigurationProperty struct {
 
 // Provides the configuration information for crawling service catalog items in the ServiceNow site.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   serviceNowServiceCatalogConfigurationProperty := &serviceNowServiceCatalogConfigurationProperty{
+//   	documentDataFieldName: jsii.String("documentDataFieldName"),
+//
+//   	// the properties below are optional
+//   	crawlAttachments: jsii.Boolean(false),
+//   	documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   	excludeAttachmentFilePatterns: []*string{
+//   		jsii.String("excludeAttachmentFilePatterns"),
+//   	},
+//   	fieldMappings: []interface{}{
+//   		&dataSourceToIndexFieldMappingProperty{
+//   			dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   			indexFieldName: jsii.String("indexFieldName"),
+//
+//   			// the properties below are optional
+//   			dateFieldFormat: jsii.String("dateFieldFormat"),
+//   		},
+//   	},
+//   	includeAttachmentFilePatterns: []*string{
+//   		jsii.String("includeAttachmentFilePatterns"),
+//   	},
+//   }
 //
 type CfnDataSource_ServiceNowServiceCatalogConfigurationProperty struct {
 	// The name of the ServiceNow field that is mapped to the index document contents field in the Amazon Kendra index.
@@ -1524,7 +3601,48 @@ type CfnDataSource_ServiceNowServiceCatalogConfigurationProperty struct {
 
 // Provides the configuration information to connect to Microsoft SharePoint as your data source.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   sharePointConfigurationProperty := &sharePointConfigurationProperty{
+//   	secretArn: jsii.String("secretArn"),
+//   	sharePointVersion: jsii.String("sharePointVersion"),
+//   	urls: []*string{
+//   		jsii.String("urls"),
+//   	},
+//
+//   	// the properties below are optional
+//   	crawlAttachments: jsii.Boolean(false),
+//   	disableLocalGroups: jsii.Boolean(false),
+//   	documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   	exclusionPatterns: []*string{
+//   		jsii.String("exclusionPatterns"),
+//   	},
+//   	fieldMappings: []interface{}{
+//   		&dataSourceToIndexFieldMappingProperty{
+//   			dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   			indexFieldName: jsii.String("indexFieldName"),
+//
+//   			// the properties below are optional
+//   			dateFieldFormat: jsii.String("dateFieldFormat"),
+//   		},
+//   	},
+//   	inclusionPatterns: []*string{
+//   		jsii.String("inclusionPatterns"),
+//   	},
+//   	sslCertificateS3Path: &s3PathProperty{
+//   		bucket: jsii.String("bucket"),
+//   		key: jsii.String("key"),
+//   	},
+//   	useChangeLog: jsii.Boolean(false),
+//   	vpcConfiguration: &dataSourceVpcConfigurationProperty{
+//   		securityGroupIds: []*string{
+//   			jsii.String("securityGroupIds"),
+//   		},
+//   		subnetIds: []*string{
+//   			jsii.String("subnetIds"),
+//   		},
+//   	},
+//   }
 //
 type CfnDataSource_SharePointConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of credentials stored in AWS Secrets Manager .
@@ -1571,7 +3689,11 @@ type CfnDataSource_SharePointConfigurationProperty struct {
 
 // Provides information that configures Amazon Kendra to use a SQL database.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   sqlConfigurationProperty := &sqlConfigurationProperty{
+//   	queryIdentifiersEnclosingOption: jsii.String("queryIdentifiersEnclosingOption"),
+//   }
 //
 type CfnDataSource_SqlConfigurationProperty struct {
 	// Determines whether Amazon Kendra encloses SQL identifiers for tables and column names in double quotes (") when making a database query.
@@ -1588,7 +3710,17 @@ type CfnDataSource_SqlConfigurationProperty struct {
 
 // Provides the configuration information to connect to websites that require user authentication.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   webCrawlerAuthenticationConfigurationProperty := &webCrawlerAuthenticationConfigurationProperty{
+//   	basicAuthentication: []interface{}{
+//   		&webCrawlerBasicAuthenticationProperty{
+//   			credentials: jsii.String("credentials"),
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//   		},
+//   	},
+//   }
 //
 type CfnDataSource_WebCrawlerAuthenticationConfigurationProperty struct {
 	// The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials.
@@ -1599,7 +3731,13 @@ type CfnDataSource_WebCrawlerAuthenticationConfigurationProperty struct {
 
 // Provides the configuration information to connect to websites that require basic user authentication.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   webCrawlerBasicAuthenticationProperty := &webCrawlerBasicAuthenticationProperty{
+//   	credentials: jsii.String("credentials"),
+//   	host: jsii.String("host"),
+//   	port: jsii.Number(123),
+//   }
 //
 type CfnDataSource_WebCrawlerBasicAuthenticationProperty struct {
 	// Your secret ARN, which you can create in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html).
@@ -1618,7 +3756,53 @@ type CfnDataSource_WebCrawlerBasicAuthenticationProperty struct {
 
 // Provides the configuration information required for Amazon Kendra Web Crawler.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   webCrawlerConfigurationProperty := &webCrawlerConfigurationProperty{
+//   	urls: &webCrawlerUrlsProperty{
+//   		seedUrlConfiguration: &webCrawlerSeedUrlConfigurationProperty{
+//   			seedUrls: []*string{
+//   				jsii.String("seedUrls"),
+//   			},
+//
+//   			// the properties below are optional
+//   			webCrawlerMode: jsii.String("webCrawlerMode"),
+//   		},
+//   		siteMapsConfiguration: &webCrawlerSiteMapsConfigurationProperty{
+//   			siteMaps: []*string{
+//   				jsii.String("siteMaps"),
+//   			},
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	authenticationConfiguration: &webCrawlerAuthenticationConfigurationProperty{
+//   		basicAuthentication: []interface{}{
+//   			&webCrawlerBasicAuthenticationProperty{
+//   				credentials: jsii.String("credentials"),
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   	crawlDepth: jsii.Number(123),
+//   	maxContentSizePerPageInMegaBytes: jsii.Number(123),
+//   	maxLinksPerPage: jsii.Number(123),
+//   	maxUrlsPerMinuteCrawlRate: jsii.Number(123),
+//   	proxyConfiguration: &proxyConfigurationProperty{
+//   		host: jsii.String("host"),
+//   		port: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		credentials: jsii.String("credentials"),
+//   	},
+//   	urlExclusionPatterns: []*string{
+//   		jsii.String("urlExclusionPatterns"),
+//   	},
+//   	urlInclusionPatterns: []*string{
+//   		jsii.String("urlInclusionPatterns"),
+//   	},
+//   }
 //
 type CfnDataSource_WebCrawlerConfigurationProperty struct {
 	// Specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl.
@@ -1679,7 +3863,16 @@ type CfnDataSource_WebCrawlerConfigurationProperty struct {
 //
 // *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://docs.aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use the Amazon Kendra web crawler to index your own webpages, or webpages that you have authorization to index.*
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   webCrawlerSeedUrlConfigurationProperty := &webCrawlerSeedUrlConfigurationProperty{
+//   	seedUrls: []*string{
+//   		jsii.String("seedUrls"),
+//   	},
+//
+//   	// the properties below are optional
+//   	webCrawlerMode: jsii.String("webCrawlerMode"),
+//   }
 //
 type CfnDataSource_WebCrawlerSeedUrlConfigurationProperty struct {
 	// The list of seed or starting point URLs of the websites you want to crawl.
@@ -1700,7 +3893,13 @@ type CfnDataSource_WebCrawlerSeedUrlConfigurationProperty struct {
 //
 // *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://docs.aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use the Amazon Kendra web crawler to index your own webpages, or webpages that you have authorization to index.*
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   webCrawlerSiteMapsConfigurationProperty := &webCrawlerSiteMapsConfigurationProperty{
+//   	siteMaps: []*string{
+//   		jsii.String("siteMaps"),
+//   	},
+//   }
 //
 type CfnDataSource_WebCrawlerSiteMapsConfigurationProperty struct {
 	// The list of sitemap URLs of the websites you want to crawl.
@@ -1717,7 +3916,23 @@ type CfnDataSource_WebCrawlerSiteMapsConfigurationProperty struct {
 //
 // *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://docs.aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use the Amazon Kendra web crawler to index your own webpages, or webpages that you have authorization to index.*
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   webCrawlerUrlsProperty := &webCrawlerUrlsProperty{
+//   	seedUrlConfiguration: &webCrawlerSeedUrlConfigurationProperty{
+//   		seedUrls: []*string{
+//   			jsii.String("seedUrls"),
+//   		},
+//
+//   		// the properties below are optional
+//   		webCrawlerMode: jsii.String("webCrawlerMode"),
+//   	},
+//   	siteMapsConfiguration: &webCrawlerSiteMapsConfigurationProperty{
+//   		siteMaps: []*string{
+//   			jsii.String("siteMaps"),
+//   		},
+//   	},
+//   }
 //
 type CfnDataSource_WebCrawlerUrlsProperty struct {
 	// Configuration of the seed or starting point URLs of the websites you want to crawl.
@@ -1736,7 +3951,30 @@ type CfnDataSource_WebCrawlerUrlsProperty struct {
 //
 // Amazon WorkDocs connector is available in Oregon, North Virginia, Sydney, Singapore and Ireland regions.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   workDocsConfigurationProperty := &workDocsConfigurationProperty{
+//   	organizationId: jsii.String("organizationId"),
+//
+//   	// the properties below are optional
+//   	crawlComments: jsii.Boolean(false),
+//   	exclusionPatterns: []*string{
+//   		jsii.String("exclusionPatterns"),
+//   	},
+//   	fieldMappings: []interface{}{
+//   		&dataSourceToIndexFieldMappingProperty{
+//   			dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   			indexFieldName: jsii.String("indexFieldName"),
+//
+//   			// the properties below are optional
+//   			dateFieldFormat: jsii.String("dateFieldFormat"),
+//   		},
+//   	},
+//   	inclusionPatterns: []*string{
+//   		jsii.String("inclusionPatterns"),
+//   	},
+//   	useChangeLog: jsii.Boolean(false),
+//   }
 //
 type CfnDataSource_WorkDocsConfigurationProperty struct {
 	// The identifier of the directory corresponding to your Amazon WorkDocs site repository.
@@ -1769,7 +4007,562 @@ type CfnDataSource_WorkDocsConfigurationProperty struct {
 
 // Properties for defining a `CfnDataSource`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   cfnDataSourceProps := &cfnDataSourceProps{
+//   	indexId: jsii.String("indexId"),
+//   	name: jsii.String("name"),
+//   	type: jsii.String("type"),
+//
+//   	// the properties below are optional
+//   	customDocumentEnrichmentConfiguration: &customDocumentEnrichmentConfigurationProperty{
+//   		inlineConfigurations: []interface{}{
+//   			&inlineCustomDocumentEnrichmentConfigurationProperty{
+//   				condition: &documentAttributeConditionProperty{
+//   					conditionDocumentAttributeKey: jsii.String("conditionDocumentAttributeKey"),
+//   					operator: jsii.String("operator"),
+//
+//   					// the properties below are optional
+//   					conditionOnValue: &documentAttributeValueProperty{
+//   						dateValue: jsii.String("dateValue"),
+//   						longValue: jsii.Number(123),
+//   						stringListValue: []*string{
+//   							jsii.String("stringListValue"),
+//   						},
+//   						stringValue: jsii.String("stringValue"),
+//   					},
+//   				},
+//   				documentContentDeletion: jsii.Boolean(false),
+//   				target: &documentAttributeTargetProperty{
+//   					targetDocumentAttributeKey: jsii.String("targetDocumentAttributeKey"),
+//
+//   					// the properties below are optional
+//   					targetDocumentAttributeValue: &documentAttributeValueProperty{
+//   						dateValue: jsii.String("dateValue"),
+//   						longValue: jsii.Number(123),
+//   						stringListValue: []*string{
+//   							jsii.String("stringListValue"),
+//   						},
+//   						stringValue: jsii.String("stringValue"),
+//   					},
+//   					targetDocumentAttributeValueDeletion: jsii.Boolean(false),
+//   				},
+//   			},
+//   		},
+//   		postExtractionHookConfiguration: &hookConfigurationProperty{
+//   			lambdaArn: jsii.String("lambdaArn"),
+//   			s3Bucket: jsii.String("s3Bucket"),
+//
+//   			// the properties below are optional
+//   			invocationCondition: &documentAttributeConditionProperty{
+//   				conditionDocumentAttributeKey: jsii.String("conditionDocumentAttributeKey"),
+//   				operator: jsii.String("operator"),
+//
+//   				// the properties below are optional
+//   				conditionOnValue: &documentAttributeValueProperty{
+//   					dateValue: jsii.String("dateValue"),
+//   					longValue: jsii.Number(123),
+//   					stringListValue: []*string{
+//   						jsii.String("stringListValue"),
+//   					},
+//   					stringValue: jsii.String("stringValue"),
+//   				},
+//   			},
+//   		},
+//   		preExtractionHookConfiguration: &hookConfigurationProperty{
+//   			lambdaArn: jsii.String("lambdaArn"),
+//   			s3Bucket: jsii.String("s3Bucket"),
+//
+//   			// the properties below are optional
+//   			invocationCondition: &documentAttributeConditionProperty{
+//   				conditionDocumentAttributeKey: jsii.String("conditionDocumentAttributeKey"),
+//   				operator: jsii.String("operator"),
+//
+//   				// the properties below are optional
+//   				conditionOnValue: &documentAttributeValueProperty{
+//   					dateValue: jsii.String("dateValue"),
+//   					longValue: jsii.Number(123),
+//   					stringListValue: []*string{
+//   						jsii.String("stringListValue"),
+//   					},
+//   					stringValue: jsii.String("stringValue"),
+//   				},
+//   			},
+//   		},
+//   		roleArn: jsii.String("roleArn"),
+//   	},
+//   	dataSourceConfiguration: &dataSourceConfigurationProperty{
+//   		confluenceConfiguration: &confluenceConfigurationProperty{
+//   			secretArn: jsii.String("secretArn"),
+//   			serverUrl: jsii.String("serverUrl"),
+//   			version: jsii.String("version"),
+//
+//   			// the properties below are optional
+//   			attachmentConfiguration: &confluenceAttachmentConfigurationProperty{
+//   				attachmentFieldMappings: []interface{}{
+//   					&confluenceAttachmentToIndexFieldMappingProperty{
+//   						dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   						indexFieldName: jsii.String("indexFieldName"),
+//
+//   						// the properties below are optional
+//   						dateFieldFormat: jsii.String("dateFieldFormat"),
+//   					},
+//   				},
+//   				crawlAttachments: jsii.Boolean(false),
+//   			},
+//   			blogConfiguration: &confluenceBlogConfigurationProperty{
+//   				blogFieldMappings: []interface{}{
+//   					&confluenceBlogToIndexFieldMappingProperty{
+//   						dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   						indexFieldName: jsii.String("indexFieldName"),
+//
+//   						// the properties below are optional
+//   						dateFieldFormat: jsii.String("dateFieldFormat"),
+//   					},
+//   				},
+//   			},
+//   			exclusionPatterns: []*string{
+//   				jsii.String("exclusionPatterns"),
+//   			},
+//   			inclusionPatterns: []*string{
+//   				jsii.String("inclusionPatterns"),
+//   			},
+//   			pageConfiguration: &confluencePageConfigurationProperty{
+//   				pageFieldMappings: []interface{}{
+//   					&confluencePageToIndexFieldMappingProperty{
+//   						dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   						indexFieldName: jsii.String("indexFieldName"),
+//
+//   						// the properties below are optional
+//   						dateFieldFormat: jsii.String("dateFieldFormat"),
+//   					},
+//   				},
+//   			},
+//   			spaceConfiguration: &confluenceSpaceConfigurationProperty{
+//   				crawlArchivedSpaces: jsii.Boolean(false),
+//   				crawlPersonalSpaces: jsii.Boolean(false),
+//   				excludeSpaces: []*string{
+//   					jsii.String("excludeSpaces"),
+//   				},
+//   				includeSpaces: []*string{
+//   					jsii.String("includeSpaces"),
+//   				},
+//   				spaceFieldMappings: []interface{}{
+//   					&confluenceSpaceToIndexFieldMappingProperty{
+//   						dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   						indexFieldName: jsii.String("indexFieldName"),
+//
+//   						// the properties below are optional
+//   						dateFieldFormat: jsii.String("dateFieldFormat"),
+//   					},
+//   				},
+//   			},
+//   			vpcConfiguration: &dataSourceVpcConfigurationProperty{
+//   				securityGroupIds: []*string{
+//   					jsii.String("securityGroupIds"),
+//   				},
+//   				subnetIds: []*string{
+//   					jsii.String("subnetIds"),
+//   				},
+//   			},
+//   		},
+//   		databaseConfiguration: &databaseConfigurationProperty{
+//   			columnConfiguration: &columnConfigurationProperty{
+//   				changeDetectingColumns: []*string{
+//   					jsii.String("changeDetectingColumns"),
+//   				},
+//   				documentDataColumnName: jsii.String("documentDataColumnName"),
+//   				documentIdColumnName: jsii.String("documentIdColumnName"),
+//
+//   				// the properties below are optional
+//   				documentTitleColumnName: jsii.String("documentTitleColumnName"),
+//   				fieldMappings: []interface{}{
+//   					&dataSourceToIndexFieldMappingProperty{
+//   						dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   						indexFieldName: jsii.String("indexFieldName"),
+//
+//   						// the properties below are optional
+//   						dateFieldFormat: jsii.String("dateFieldFormat"),
+//   					},
+//   				},
+//   			},
+//   			connectionConfiguration: &connectionConfigurationProperty{
+//   				databaseHost: jsii.String("databaseHost"),
+//   				databaseName: jsii.String("databaseName"),
+//   				databasePort: jsii.Number(123),
+//   				secretArn: jsii.String("secretArn"),
+//   				tableName: jsii.String("tableName"),
+//   			},
+//   			databaseEngineType: jsii.String("databaseEngineType"),
+//
+//   			// the properties below are optional
+//   			aclConfiguration: &aclConfigurationProperty{
+//   				allowedGroupsColumnName: jsii.String("allowedGroupsColumnName"),
+//   			},
+//   			sqlConfiguration: &sqlConfigurationProperty{
+//   				queryIdentifiersEnclosingOption: jsii.String("queryIdentifiersEnclosingOption"),
+//   			},
+//   			vpcConfiguration: &dataSourceVpcConfigurationProperty{
+//   				securityGroupIds: []*string{
+//   					jsii.String("securityGroupIds"),
+//   				},
+//   				subnetIds: []*string{
+//   					jsii.String("subnetIds"),
+//   				},
+//   			},
+//   		},
+//   		googleDriveConfiguration: &googleDriveConfigurationProperty{
+//   			secretArn: jsii.String("secretArn"),
+//
+//   			// the properties below are optional
+//   			excludeMimeTypes: []*string{
+//   				jsii.String("excludeMimeTypes"),
+//   			},
+//   			excludeSharedDrives: []*string{
+//   				jsii.String("excludeSharedDrives"),
+//   			},
+//   			excludeUserAccounts: []*string{
+//   				jsii.String("excludeUserAccounts"),
+//   			},
+//   			exclusionPatterns: []*string{
+//   				jsii.String("exclusionPatterns"),
+//   			},
+//   			fieldMappings: []interface{}{
+//   				&dataSourceToIndexFieldMappingProperty{
+//   					dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   					indexFieldName: jsii.String("indexFieldName"),
+//
+//   					// the properties below are optional
+//   					dateFieldFormat: jsii.String("dateFieldFormat"),
+//   				},
+//   			},
+//   			inclusionPatterns: []*string{
+//   				jsii.String("inclusionPatterns"),
+//   			},
+//   		},
+//   		oneDriveConfiguration: &oneDriveConfigurationProperty{
+//   			oneDriveUsers: &oneDriveUsersProperty{
+//   				oneDriveUserList: []*string{
+//   					jsii.String("oneDriveUserList"),
+//   				},
+//   				oneDriveUserS3Path: &s3PathProperty{
+//   					bucket: jsii.String("bucket"),
+//   					key: jsii.String("key"),
+//   				},
+//   			},
+//   			secretArn: jsii.String("secretArn"),
+//   			tenantDomain: jsii.String("tenantDomain"),
+//
+//   			// the properties below are optional
+//   			disableLocalGroups: jsii.Boolean(false),
+//   			exclusionPatterns: []*string{
+//   				jsii.String("exclusionPatterns"),
+//   			},
+//   			fieldMappings: []interface{}{
+//   				&dataSourceToIndexFieldMappingProperty{
+//   					dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   					indexFieldName: jsii.String("indexFieldName"),
+//
+//   					// the properties below are optional
+//   					dateFieldFormat: jsii.String("dateFieldFormat"),
+//   				},
+//   			},
+//   			inclusionPatterns: []*string{
+//   				jsii.String("inclusionPatterns"),
+//   			},
+//   		},
+//   		s3Configuration: &s3DataSourceConfigurationProperty{
+//   			bucketName: jsii.String("bucketName"),
+//
+//   			// the properties below are optional
+//   			accessControlListConfiguration: &accessControlListConfigurationProperty{
+//   				keyPath: jsii.String("keyPath"),
+//   			},
+//   			documentsMetadataConfiguration: &documentsMetadataConfigurationProperty{
+//   				s3Prefix: jsii.String("s3Prefix"),
+//   			},
+//   			exclusionPatterns: []*string{
+//   				jsii.String("exclusionPatterns"),
+//   			},
+//   			inclusionPatterns: []*string{
+//   				jsii.String("inclusionPatterns"),
+//   			},
+//   			inclusionPrefixes: []*string{
+//   				jsii.String("inclusionPrefixes"),
+//   			},
+//   		},
+//   		salesforceConfiguration: &salesforceConfigurationProperty{
+//   			secretArn: jsii.String("secretArn"),
+//   			serverUrl: jsii.String("serverUrl"),
+//
+//   			// the properties below are optional
+//   			chatterFeedConfiguration: &salesforceChatterFeedConfigurationProperty{
+//   				documentDataFieldName: jsii.String("documentDataFieldName"),
+//
+//   				// the properties below are optional
+//   				documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   				fieldMappings: []interface{}{
+//   					&dataSourceToIndexFieldMappingProperty{
+//   						dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   						indexFieldName: jsii.String("indexFieldName"),
+//
+//   						// the properties below are optional
+//   						dateFieldFormat: jsii.String("dateFieldFormat"),
+//   					},
+//   				},
+//   				includeFilterTypes: []*string{
+//   					jsii.String("includeFilterTypes"),
+//   				},
+//   			},
+//   			crawlAttachments: jsii.Boolean(false),
+//   			excludeAttachmentFilePatterns: []*string{
+//   				jsii.String("excludeAttachmentFilePatterns"),
+//   			},
+//   			includeAttachmentFilePatterns: []*string{
+//   				jsii.String("includeAttachmentFilePatterns"),
+//   			},
+//   			knowledgeArticleConfiguration: &salesforceKnowledgeArticleConfigurationProperty{
+//   				includedStates: []*string{
+//   					jsii.String("includedStates"),
+//   				},
+//
+//   				// the properties below are optional
+//   				customKnowledgeArticleTypeConfigurations: []interface{}{
+//   					&salesforceCustomKnowledgeArticleTypeConfigurationProperty{
+//   						documentDataFieldName: jsii.String("documentDataFieldName"),
+//   						name: jsii.String("name"),
+//
+//   						// the properties below are optional
+//   						documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   						fieldMappings: []interface{}{
+//   							&dataSourceToIndexFieldMappingProperty{
+//   								dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   								indexFieldName: jsii.String("indexFieldName"),
+//
+//   								// the properties below are optional
+//   								dateFieldFormat: jsii.String("dateFieldFormat"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				standardKnowledgeArticleTypeConfiguration: &salesforceStandardKnowledgeArticleTypeConfigurationProperty{
+//   					documentDataFieldName: jsii.String("documentDataFieldName"),
+//
+//   					// the properties below are optional
+//   					documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   					fieldMappings: []interface{}{
+//   						&dataSourceToIndexFieldMappingProperty{
+//   							dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   							indexFieldName: jsii.String("indexFieldName"),
+//
+//   							// the properties below are optional
+//   							dateFieldFormat: jsii.String("dateFieldFormat"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			standardObjectAttachmentConfiguration: &salesforceStandardObjectAttachmentConfigurationProperty{
+//   				documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   				fieldMappings: []interface{}{
+//   					&dataSourceToIndexFieldMappingProperty{
+//   						dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   						indexFieldName: jsii.String("indexFieldName"),
+//
+//   						// the properties below are optional
+//   						dateFieldFormat: jsii.String("dateFieldFormat"),
+//   					},
+//   				},
+//   			},
+//   			standardObjectConfigurations: []interface{}{
+//   				&salesforceStandardObjectConfigurationProperty{
+//   					documentDataFieldName: jsii.String("documentDataFieldName"),
+//   					name: jsii.String("name"),
+//
+//   					// the properties below are optional
+//   					documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   					fieldMappings: []interface{}{
+//   						&dataSourceToIndexFieldMappingProperty{
+//   							dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   							indexFieldName: jsii.String("indexFieldName"),
+//
+//   							// the properties below are optional
+//   							dateFieldFormat: jsii.String("dateFieldFormat"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   		serviceNowConfiguration: &serviceNowConfigurationProperty{
+//   			hostUrl: jsii.String("hostUrl"),
+//   			secretArn: jsii.String("secretArn"),
+//   			serviceNowBuildVersion: jsii.String("serviceNowBuildVersion"),
+//
+//   			// the properties below are optional
+//   			authenticationType: jsii.String("authenticationType"),
+//   			knowledgeArticleConfiguration: &serviceNowKnowledgeArticleConfigurationProperty{
+//   				documentDataFieldName: jsii.String("documentDataFieldName"),
+//
+//   				// the properties below are optional
+//   				crawlAttachments: jsii.Boolean(false),
+//   				documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   				excludeAttachmentFilePatterns: []*string{
+//   					jsii.String("excludeAttachmentFilePatterns"),
+//   				},
+//   				fieldMappings: []interface{}{
+//   					&dataSourceToIndexFieldMappingProperty{
+//   						dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   						indexFieldName: jsii.String("indexFieldName"),
+//
+//   						// the properties below are optional
+//   						dateFieldFormat: jsii.String("dateFieldFormat"),
+//   					},
+//   				},
+//   				filterQuery: jsii.String("filterQuery"),
+//   				includeAttachmentFilePatterns: []*string{
+//   					jsii.String("includeAttachmentFilePatterns"),
+//   				},
+//   			},
+//   			serviceCatalogConfiguration: &serviceNowServiceCatalogConfigurationProperty{
+//   				documentDataFieldName: jsii.String("documentDataFieldName"),
+//
+//   				// the properties below are optional
+//   				crawlAttachments: jsii.Boolean(false),
+//   				documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   				excludeAttachmentFilePatterns: []*string{
+//   					jsii.String("excludeAttachmentFilePatterns"),
+//   				},
+//   				fieldMappings: []interface{}{
+//   					&dataSourceToIndexFieldMappingProperty{
+//   						dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   						indexFieldName: jsii.String("indexFieldName"),
+//
+//   						// the properties below are optional
+//   						dateFieldFormat: jsii.String("dateFieldFormat"),
+//   					},
+//   				},
+//   				includeAttachmentFilePatterns: []*string{
+//   					jsii.String("includeAttachmentFilePatterns"),
+//   				},
+//   			},
+//   		},
+//   		sharePointConfiguration: &sharePointConfigurationProperty{
+//   			secretArn: jsii.String("secretArn"),
+//   			sharePointVersion: jsii.String("sharePointVersion"),
+//   			urls: []*string{
+//   				jsii.String("urls"),
+//   			},
+//
+//   			// the properties below are optional
+//   			crawlAttachments: jsii.Boolean(false),
+//   			disableLocalGroups: jsii.Boolean(false),
+//   			documentTitleFieldName: jsii.String("documentTitleFieldName"),
+//   			exclusionPatterns: []*string{
+//   				jsii.String("exclusionPatterns"),
+//   			},
+//   			fieldMappings: []interface{}{
+//   				&dataSourceToIndexFieldMappingProperty{
+//   					dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   					indexFieldName: jsii.String("indexFieldName"),
+//
+//   					// the properties below are optional
+//   					dateFieldFormat: jsii.String("dateFieldFormat"),
+//   				},
+//   			},
+//   			inclusionPatterns: []*string{
+//   				jsii.String("inclusionPatterns"),
+//   			},
+//   			sslCertificateS3Path: &s3PathProperty{
+//   				bucket: jsii.String("bucket"),
+//   				key: jsii.String("key"),
+//   			},
+//   			useChangeLog: jsii.Boolean(false),
+//   			vpcConfiguration: &dataSourceVpcConfigurationProperty{
+//   				securityGroupIds: []*string{
+//   					jsii.String("securityGroupIds"),
+//   				},
+//   				subnetIds: []*string{
+//   					jsii.String("subnetIds"),
+//   				},
+//   			},
+//   		},
+//   		webCrawlerConfiguration: &webCrawlerConfigurationProperty{
+//   			urls: &webCrawlerUrlsProperty{
+//   				seedUrlConfiguration: &webCrawlerSeedUrlConfigurationProperty{
+//   					seedUrls: []*string{
+//   						jsii.String("seedUrls"),
+//   					},
+//
+//   					// the properties below are optional
+//   					webCrawlerMode: jsii.String("webCrawlerMode"),
+//   				},
+//   				siteMapsConfiguration: &webCrawlerSiteMapsConfigurationProperty{
+//   					siteMaps: []*string{
+//   						jsii.String("siteMaps"),
+//   					},
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			authenticationConfiguration: &webCrawlerAuthenticationConfigurationProperty{
+//   				basicAuthentication: []interface{}{
+//   					&webCrawlerBasicAuthenticationProperty{
+//   						credentials: jsii.String("credentials"),
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   			crawlDepth: jsii.Number(123),
+//   			maxContentSizePerPageInMegaBytes: jsii.Number(123),
+//   			maxLinksPerPage: jsii.Number(123),
+//   			maxUrlsPerMinuteCrawlRate: jsii.Number(123),
+//   			proxyConfiguration: &proxyConfigurationProperty{
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				credentials: jsii.String("credentials"),
+//   			},
+//   			urlExclusionPatterns: []*string{
+//   				jsii.String("urlExclusionPatterns"),
+//   			},
+//   			urlInclusionPatterns: []*string{
+//   				jsii.String("urlInclusionPatterns"),
+//   			},
+//   		},
+//   		workDocsConfiguration: &workDocsConfigurationProperty{
+//   			organizationId: jsii.String("organizationId"),
+//
+//   			// the properties below are optional
+//   			crawlComments: jsii.Boolean(false),
+//   			exclusionPatterns: []*string{
+//   				jsii.String("exclusionPatterns"),
+//   			},
+//   			fieldMappings: []interface{}{
+//   				&dataSourceToIndexFieldMappingProperty{
+//   					dataSourceFieldName: jsii.String("dataSourceFieldName"),
+//   					indexFieldName: jsii.String("indexFieldName"),
+//
+//   					// the properties below are optional
+//   					dateFieldFormat: jsii.String("dateFieldFormat"),
+//   				},
+//   			},
+//   			inclusionPatterns: []*string{
+//   				jsii.String("inclusionPatterns"),
+//   			},
+//   			useChangeLog: jsii.Boolean(false),
+//   		},
+//   	},
+//   	description: jsii.String("description"),
+//   	roleArn: jsii.String("roleArn"),
+//   	schedule: jsii.String("schedule"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnDataSourceProps struct {
 	// The identifier of the index that should be associated with this data source.
@@ -1819,49 +4612,275 @@ type CfnDataSourceProps struct {
 //
 // Specifies an new set of frequently asked question (FAQ) questions and answers.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   cfnFaq := kendra.NewCfnFaq(this, jsii.String("MyCfnFaq"), &cfnFaqProps{
+//   	indexId: jsii.String("indexId"),
+//   	name: jsii.String("name"),
+//   	roleArn: jsii.String("roleArn"),
+//   	s3Path: &s3PathProperty{
+//   		bucket: jsii.String("bucket"),
+//   		key: jsii.String("key"),
+//   	},
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   	fileFormat: jsii.String("fileFormat"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   })
 //
 type CfnFaq interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// `arn:aws:kendra:us-west-2:111122223333:index/335c3741-41df-46a6-b5d3-61f85b787884/faq/f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`.
 	AttrArn() *string
+	// The identifier for the FAQ. For example:.
+	//
+	// `f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`.
 	AttrId() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// A description of the FAQ.
 	Description() *string
 	SetDescription(val *string)
+	// The format of the input file.
+	//
+	// You can choose between a basic CSV format, a CSV format that includes customs attributes in a header, and a JSON format that includes custom attributes.
+	//
+	// The format must match the format of the file stored in the S3 bucket identified in the S3Path parameter.
+	//
+	// Valid values are:
+	//
+	// - `CSV`
+	// - `CSV_WITH_HEADER`
+	// - `JSON`.
 	FileFormat() *string
 	SetFileFormat(val *string)
+	// The identifier of the index that contains the FAQ.
 	IndexId() *string
 	SetIndexId(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The name that you assigned the FAQ when you created or updated the FAQ.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQ.
 	RoleArn() *string
 	SetRoleArn(val *string)
+	// The Amazon Simple Storage Service (Amazon S3) location of the FAQ input data.
 	S3Path() interface{}
 	SetS3Path(val interface{})
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1981,8 +5000,8 @@ func (j *jsiiProxy_CfnFaq) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFaq) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnFaq) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2053,13 +5072,13 @@ func (j *jsiiProxy_CfnFaq) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Kendra::Faq`.
-func NewCfnFaq(scope constructs.Construct, id *string, props *CfnFaqProps) CfnFaq {
+func NewCfnFaq(scope awscdk.Construct, id *string, props *CfnFaqProps) CfnFaq {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnFaq{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kendra.CfnFaq",
+		"monocdk.aws_kendra.CfnFaq",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2068,11 +5087,11 @@ func NewCfnFaq(scope constructs.Construct, id *string, props *CfnFaqProps) CfnFa
 }
 
 // Create a new `AWS::Kendra::Faq`.
-func NewCfnFaq_Override(c CfnFaq, scope constructs.Construct, id *string, props *CfnFaqProps) {
+func NewCfnFaq_Override(c CfnFaq, scope awscdk.Construct, id *string, props *CfnFaqProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kendra.CfnFaq",
+		"monocdk.aws_kendra.CfnFaq",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2132,13 +5151,14 @@ func (j *jsiiProxy_CfnFaq) SetS3Path(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnFaq_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnFaq",
+		"monocdk.aws_kendra.CfnFaq",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2148,13 +5168,14 @@ func CfnFaq_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnFaq_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnFaq",
+		"monocdk.aws_kendra.CfnFaq",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2163,17 +5184,15 @@ func CfnFaq_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnFaq_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnFaq",
+		"monocdk.aws_kendra.CfnFaq",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2186,14 +5205,13 @@ func CfnFaq_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_kendra.CfnFaq",
+		"monocdk.aws_kendra.CfnFaq",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnFaq) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2202,10 +5220,6 @@ func (c *jsiiProxy_CfnFaq) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnFaq) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2214,13 +5228,6 @@ func (c *jsiiProxy_CfnFaq) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnFaq) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2229,49 +5236,6 @@ func (c *jsiiProxy_CfnFaq) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnFaq) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2280,7 +5244,6 @@ func (c *jsiiProxy_CfnFaq) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnFaq) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2289,9 +5252,6 @@ func (c *jsiiProxy_CfnFaq) AddPropertyDeletionOverride(propertyPath *string) {
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnFaq) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2300,15 +5260,6 @@ func (c *jsiiProxy_CfnFaq) AddPropertyOverride(propertyPath *string, value inter
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnFaq) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2317,10 +5268,6 @@ func (c *jsiiProxy_CfnFaq) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, optio
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnFaq) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2334,13 +5281,6 @@ func (c *jsiiProxy_CfnFaq) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnFaq) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2354,7 +5294,6 @@ func (c *jsiiProxy_CfnFaq) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnFaq) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2363,12 +5302,48 @@ func (c *jsiiProxy_CfnFaq) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnFaq) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnFaq) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnFaq) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnFaq) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnFaq) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2385,10 +5360,6 @@ func (c *jsiiProxy_CfnFaq) RenderProperties(props *map[string]interface{}) *map[
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnFaq) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2402,15 +5373,33 @@ func (c *jsiiProxy_CfnFaq) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnFaq) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnFaq) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnFaq) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2428,7 +5417,12 @@ func (c *jsiiProxy_CfnFaq) ValidateProperties(_properties interface{}) {
 
 // Information required to find a specific file in an Amazon S3 bucket.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   s3PathProperty := &s3PathProperty{
+//   	bucket: jsii.String("bucket"),
+//   	key: jsii.String("key"),
+//   }
 //
 type CfnFaq_S3PathProperty struct {
 	// The name of the S3 bucket that contains the file.
@@ -2439,7 +5433,27 @@ type CfnFaq_S3PathProperty struct {
 
 // Properties for defining a `CfnFaq`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   cfnFaqProps := &cfnFaqProps{
+//   	indexId: jsii.String("indexId"),
+//   	name: jsii.String("name"),
+//   	roleArn: jsii.String("roleArn"),
+//   	s3Path: &s3PathProperty{
+//   		bucket: jsii.String("bucket"),
+//   		key: jsii.String("key"),
+//   	},
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   	fileFormat: jsii.String("fileFormat"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnFaqProps struct {
 	// The identifier of the index that contains the FAQ.
@@ -2462,7 +5476,7 @@ type CfnFaqProps struct {
 	//
 	// - `CSV`
 	// - `CSV_WITH_HEADER`
-	// - `JSON`
+	// - `JSON`.
 	FileFormat *string `json:"fileFormat" yaml:"fileFormat"`
 	// An array of key-value pairs to apply to this resource.
 	//
@@ -2476,55 +5490,342 @@ type CfnFaqProps struct {
 //
 // Once the index is active you can add documents to your index using the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation or using one of the supported data sources.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   cfnIndex := kendra.NewCfnIndex(this, jsii.String("MyCfnIndex"), &cfnIndexProps{
+//   	edition: jsii.String("edition"),
+//   	name: jsii.String("name"),
+//   	roleArn: jsii.String("roleArn"),
+//
+//   	// the properties below are optional
+//   	capacityUnits: &capacityUnitsConfigurationProperty{
+//   		queryCapacityUnits: jsii.Number(123),
+//   		storageCapacityUnits: jsii.Number(123),
+//   	},
+//   	description: jsii.String("description"),
+//   	documentMetadataConfigurations: []interface{}{
+//   		&documentMetadataConfigurationProperty{
+//   			name: jsii.String("name"),
+//   			type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			relevance: &relevanceProperty{
+//   				duration: jsii.String("duration"),
+//   				freshness: jsii.Boolean(false),
+//   				importance: jsii.Number(123),
+//   				rankOrder: jsii.String("rankOrder"),
+//   				valueImportanceItems: []interface{}{
+//   					&valueImportanceItemProperty{
+//   						key: jsii.String("key"),
+//   						value: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   			search: &searchProperty{
+//   				displayable: jsii.Boolean(false),
+//   				facetable: jsii.Boolean(false),
+//   				searchable: jsii.Boolean(false),
+//   				sortable: jsii.Boolean(false),
+//   			},
+//   		},
+//   	},
+//   	serverSideEncryptionConfiguration: &serverSideEncryptionConfigurationProperty{
+//   		kmsKeyId: jsii.String("kmsKeyId"),
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	userContextPolicy: jsii.String("userContextPolicy"),
+//   	userTokenConfigurations: []interface{}{
+//   		&userTokenConfigurationProperty{
+//   			jsonTokenTypeConfiguration: &jsonTokenTypeConfigurationProperty{
+//   				groupAttributeField: jsii.String("groupAttributeField"),
+//   				userNameAttributeField: jsii.String("userNameAttributeField"),
+//   			},
+//   			jwtTokenTypeConfiguration: &jwtTokenTypeConfigurationProperty{
+//   				keyLocation: jsii.String("keyLocation"),
+//
+//   				// the properties below are optional
+//   				claimRegex: jsii.String("claimRegex"),
+//   				groupAttributeField: jsii.String("groupAttributeField"),
+//   				issuer: jsii.String("issuer"),
+//   				secretManagerArn: jsii.String("secretManagerArn"),
+//   				url: jsii.String("url"),
+//   				userNameAttributeField: jsii.String("userNameAttributeField"),
+//   			},
+//   		},
+//   	},
+//   })
 //
 type CfnIndex interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the index.
+	//
+	// For example: `arn:aws:kendra:us-west-2:111122223333:index/0123456789abcdef` .
 	AttrArn() *string
+	// The identifier for the index.
+	//
+	// For example: `f4aeaa10-8056-4b2c-a343-522ca0f41234` .
 	AttrId() *string
+	// Specifies capacity units configured for your index.
+	//
+	// You can add and remove capacity units to tune an index to your requirements. You can set capacity units only for Enterprise edition indexes.
 	CapacityUnits() interface{}
 	SetCapacityUnits(val interface{})
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// A description of the index.
 	Description() *string
 	SetDescription(val *string)
+	// Specifies the properties of an index field.
+	//
+	// You can add either a custom or a built-in field. You can add and remove built-in fields at any time. When a built-in field is removed it's configuration reverts to the default for the field. Custom fields can't be removed from an index after they are added.
 	DocumentMetadataConfigurations() interface{}
 	SetDocumentMetadataConfigurations(val interface{})
+	// Indicates whether the index is a enterprise edition index or a developer edition index.
+	//
+	// Valid values are `DEVELOPER_EDITION` and `ENTERPRISE_EDITION` .
 	Edition() *string
 	SetEdition(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The identifier of the index.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics.
+	//
+	// This is also the role used when you use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation to index documents from an Amazon S3 bucket.
 	RoleArn() *string
 	SetRoleArn(val *string)
+	// The identifier of the AWS KMS customer managed key (CMK) to use to encrypt data indexed by Amazon Kendra.
+	//
+	// Amazon Kendra doesn't support asymmetric CMKs.
 	ServerSideEncryptionConfiguration() interface{}
 	SetServerSideEncryptionConfiguration(val interface{})
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// The user context policy.
+	//
+	// ATTRIBUTE_FILTER
+	//
+	// - All indexed content is searchable and displayable for all users. If there is an access control list, it is ignored. You can filter on user and group attributes.
+	//
+	// USER_TOKEN
+	//
+	// - Enables SSO and token-based user access control. All documents with no access control and all documents accessible to the user will be searchable and displayable.
 	UserContextPolicy() *string
 	SetUserContextPolicy(val *string)
+	// Defines the type of user token used for the index.
 	UserTokenConfigurations() interface{}
 	SetUserTokenConfigurations(val interface{})
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2654,8 +5955,8 @@ func (j *jsiiProxy_CfnIndex) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIndex) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnIndex) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2746,13 +6047,13 @@ func (j *jsiiProxy_CfnIndex) UserTokenConfigurations() interface{} {
 
 
 // Create a new `AWS::Kendra::Index`.
-func NewCfnIndex(scope constructs.Construct, id *string, props *CfnIndexProps) CfnIndex {
+func NewCfnIndex(scope awscdk.Construct, id *string, props *CfnIndexProps) CfnIndex {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnIndex{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kendra.CfnIndex",
+		"monocdk.aws_kendra.CfnIndex",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2761,11 +6062,11 @@ func NewCfnIndex(scope constructs.Construct, id *string, props *CfnIndexProps) C
 }
 
 // Create a new `AWS::Kendra::Index`.
-func NewCfnIndex_Override(c CfnIndex, scope constructs.Construct, id *string, props *CfnIndexProps) {
+func NewCfnIndex_Override(c CfnIndex, scope awscdk.Construct, id *string, props *CfnIndexProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kendra.CfnIndex",
+		"monocdk.aws_kendra.CfnIndex",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2849,13 +6150,14 @@ func (j *jsiiProxy_CfnIndex) SetUserTokenConfigurations(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnIndex_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnIndex",
+		"monocdk.aws_kendra.CfnIndex",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2865,13 +6167,14 @@ func CfnIndex_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnIndex_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnIndex",
+		"monocdk.aws_kendra.CfnIndex",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2880,17 +6183,15 @@ func CfnIndex_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnIndex_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnIndex",
+		"monocdk.aws_kendra.CfnIndex",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2903,14 +6204,13 @@ func CfnIndex_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_kendra.CfnIndex",
+		"monocdk.aws_kendra.CfnIndex",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnIndex) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2919,10 +6219,6 @@ func (c *jsiiProxy_CfnIndex) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnIndex) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2931,13 +6227,6 @@ func (c *jsiiProxy_CfnIndex) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnIndex) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2946,49 +6235,6 @@ func (c *jsiiProxy_CfnIndex) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnIndex) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2997,7 +6243,6 @@ func (c *jsiiProxy_CfnIndex) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnIndex) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3006,9 +6251,6 @@ func (c *jsiiProxy_CfnIndex) AddPropertyDeletionOverride(propertyPath *string) {
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnIndex) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3017,15 +6259,6 @@ func (c *jsiiProxy_CfnIndex) AddPropertyOverride(propertyPath *string, value int
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnIndex) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3034,10 +6267,6 @@ func (c *jsiiProxy_CfnIndex) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnIndex) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3051,13 +6280,6 @@ func (c *jsiiProxy_CfnIndex) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnIndex) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3071,7 +6293,6 @@ func (c *jsiiProxy_CfnIndex) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnIndex) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3080,12 +6301,48 @@ func (c *jsiiProxy_CfnIndex) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnIndex) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnIndex) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnIndex) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnIndex) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnIndex) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3102,10 +6359,6 @@ func (c *jsiiProxy_CfnIndex) RenderProperties(props *map[string]interface{}) *ma
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnIndex) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3119,15 +6372,33 @@ func (c *jsiiProxy_CfnIndex) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnIndex) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnIndex) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnIndex) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3143,11 +6414,16 @@ func (c *jsiiProxy_CfnIndex) ValidateProperties(_properties interface{}) {
 	)
 }
 
-// Specifies capacity units configured for your enterprise edition index.
+// Specifies additional capacity units configured for your Enterprise Edition index.
 //
-// You can add and remove capacity units to tune an index to your requirements.
+// You can add and remove capacity units to fit your usage requirements.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   capacityUnitsConfigurationProperty := &capacityUnitsConfigurationProperty{
+//   	queryCapacityUnits: jsii.Number(123),
+//   	storageCapacityUnits: jsii.Number(123),
+//   }
 //
 type CfnIndex_CapacityUnitsConfigurationProperty struct {
 	// The amount of extra query capacity for an index and [GetQuerySuggestions](https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html) capacity.
@@ -3164,7 +6440,32 @@ type CfnIndex_CapacityUnitsConfigurationProperty struct {
 
 // Specifies the properties of a custom index field.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   documentMetadataConfigurationProperty := &documentMetadataConfigurationProperty{
+//   	name: jsii.String("name"),
+//   	type: jsii.String("type"),
+//
+//   	// the properties below are optional
+//   	relevance: &relevanceProperty{
+//   		duration: jsii.String("duration"),
+//   		freshness: jsii.Boolean(false),
+//   		importance: jsii.Number(123),
+//   		rankOrder: jsii.String("rankOrder"),
+//   		valueImportanceItems: []interface{}{
+//   			&valueImportanceItemProperty{
+//   				key: jsii.String("key"),
+//   				value: jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   	search: &searchProperty{
+//   		displayable: jsii.Boolean(false),
+//   		facetable: jsii.Boolean(false),
+//   		searchable: jsii.Boolean(false),
+//   		sortable: jsii.Boolean(false),
+//   	},
+//   }
 //
 type CfnIndex_DocumentMetadataConfigurationProperty struct {
 	// The name of the index field.
@@ -3179,7 +6480,12 @@ type CfnIndex_DocumentMetadataConfigurationProperty struct {
 
 // Provides the configuration information for the JSON token type.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   jsonTokenTypeConfigurationProperty := &jsonTokenTypeConfigurationProperty{
+//   	groupAttributeField: jsii.String("groupAttributeField"),
+//   	userNameAttributeField: jsii.String("userNameAttributeField"),
+//   }
 //
 type CfnIndex_JsonTokenTypeConfigurationProperty struct {
 	// The group attribute field.
@@ -3190,7 +6496,19 @@ type CfnIndex_JsonTokenTypeConfigurationProperty struct {
 
 // Provides the configuration information for the JWT token type.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   jwtTokenTypeConfigurationProperty := &jwtTokenTypeConfigurationProperty{
+//   	keyLocation: jsii.String("keyLocation"),
+//
+//   	// the properties below are optional
+//   	claimRegex: jsii.String("claimRegex"),
+//   	groupAttributeField: jsii.String("groupAttributeField"),
+//   	issuer: jsii.String("issuer"),
+//   	secretManagerArn: jsii.String("secretManagerArn"),
+//   	url: jsii.String("url"),
+//   	userNameAttributeField: jsii.String("userNameAttributeField"),
+//   }
 //
 type CfnIndex_JwtTokenTypeConfigurationProperty struct {
 	// The location of the key.
@@ -3213,7 +6531,20 @@ type CfnIndex_JwtTokenTypeConfigurationProperty struct {
 //
 // When a query includes terms that match the field, the results are given a boost in the response based on these tuning parameters.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   relevanceProperty := &relevanceProperty{
+//   	duration: jsii.String("duration"),
+//   	freshness: jsii.Boolean(false),
+//   	importance: jsii.Number(123),
+//   	rankOrder: jsii.String("rankOrder"),
+//   	valueImportanceItems: []interface{}{
+//   		&valueImportanceItemProperty{
+//   			key: jsii.String("key"),
+//   			value: jsii.Number(123),
+//   		},
+//   	},
+//   }
 //
 type CfnIndex_RelevanceProperty struct {
 	// Specifies the time period that the boost applies to.
@@ -3248,7 +6579,14 @@ type CfnIndex_RelevanceProperty struct {
 
 // Provides information about how a custom index field is used during a search.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   searchProperty := &searchProperty{
+//   	displayable: jsii.Boolean(false),
+//   	facetable: jsii.Boolean(false),
+//   	searchable: jsii.Boolean(false),
+//   	sortable: jsii.Boolean(false),
+//   }
 //
 type CfnIndex_SearchProperty struct {
 	// Determines whether the field is returned in the query response.
@@ -3273,7 +6611,11 @@ type CfnIndex_SearchProperty struct {
 //
 // We suggest that you use a CMK from your account to help secure your index. Amazon Kendra doesn't support asymmetric CMKs.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   serverSideEncryptionConfigurationProperty := &serverSideEncryptionConfigurationProperty{
+//   	kmsKeyId: jsii.String("kmsKeyId"),
+//   }
 //
 type CfnIndex_ServerSideEncryptionConfigurationProperty struct {
 	// The identifier of the AWS KMS customer master key (CMK).
@@ -3284,7 +6626,25 @@ type CfnIndex_ServerSideEncryptionConfigurationProperty struct {
 
 // Provides the configuration information for a token.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   userTokenConfigurationProperty := &userTokenConfigurationProperty{
+//   	jsonTokenTypeConfiguration: &jsonTokenTypeConfigurationProperty{
+//   		groupAttributeField: jsii.String("groupAttributeField"),
+//   		userNameAttributeField: jsii.String("userNameAttributeField"),
+//   	},
+//   	jwtTokenTypeConfiguration: &jwtTokenTypeConfigurationProperty{
+//   		keyLocation: jsii.String("keyLocation"),
+//
+//   		// the properties below are optional
+//   		claimRegex: jsii.String("claimRegex"),
+//   		groupAttributeField: jsii.String("groupAttributeField"),
+//   		issuer: jsii.String("issuer"),
+//   		secretManagerArn: jsii.String("secretManagerArn"),
+//   		url: jsii.String("url"),
+//   		userNameAttributeField: jsii.String("userNameAttributeField"),
+//   	},
+//   }
 //
 type CfnIndex_UserTokenConfigurationProperty struct {
 	// Information about the JSON token type configuration.
@@ -3295,7 +6655,12 @@ type CfnIndex_UserTokenConfigurationProperty struct {
 
 // Specifies a key-value pair that determines the search boost value that a document receives when the key is part of the metadata of a document.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   valueImportanceItemProperty := &valueImportanceItemProperty{
+//   	key: jsii.String("key"),
+//   	value: jsii.Number(123),
+//   }
 //
 type CfnIndex_ValueImportanceItemProperty struct {
 	// The document metadata value that receives the search boost.
@@ -3306,14 +6671,82 @@ type CfnIndex_ValueImportanceItemProperty struct {
 
 // Properties for defining a `CfnIndex`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kendra "github.com/aws/aws-cdk-go/awscdk/aws_kendra"
+//   cfnIndexProps := &cfnIndexProps{
+//   	edition: jsii.String("edition"),
+//   	name: jsii.String("name"),
+//   	roleArn: jsii.String("roleArn"),
+//
+//   	// the properties below are optional
+//   	capacityUnits: &capacityUnitsConfigurationProperty{
+//   		queryCapacityUnits: jsii.Number(123),
+//   		storageCapacityUnits: jsii.Number(123),
+//   	},
+//   	description: jsii.String("description"),
+//   	documentMetadataConfigurations: []interface{}{
+//   		&documentMetadataConfigurationProperty{
+//   			name: jsii.String("name"),
+//   			type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			relevance: &relevanceProperty{
+//   				duration: jsii.String("duration"),
+//   				freshness: jsii.Boolean(false),
+//   				importance: jsii.Number(123),
+//   				rankOrder: jsii.String("rankOrder"),
+//   				valueImportanceItems: []interface{}{
+//   					&valueImportanceItemProperty{
+//   						key: jsii.String("key"),
+//   						value: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   			search: &searchProperty{
+//   				displayable: jsii.Boolean(false),
+//   				facetable: jsii.Boolean(false),
+//   				searchable: jsii.Boolean(false),
+//   				sortable: jsii.Boolean(false),
+//   			},
+//   		},
+//   	},
+//   	serverSideEncryptionConfiguration: &serverSideEncryptionConfigurationProperty{
+//   		kmsKeyId: jsii.String("kmsKeyId"),
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	userContextPolicy: jsii.String("userContextPolicy"),
+//   	userTokenConfigurations: []interface{}{
+//   		&userTokenConfigurationProperty{
+//   			jsonTokenTypeConfiguration: &jsonTokenTypeConfigurationProperty{
+//   				groupAttributeField: jsii.String("groupAttributeField"),
+//   				userNameAttributeField: jsii.String("userNameAttributeField"),
+//   			},
+//   			jwtTokenTypeConfiguration: &jwtTokenTypeConfigurationProperty{
+//   				keyLocation: jsii.String("keyLocation"),
+//
+//   				// the properties below are optional
+//   				claimRegex: jsii.String("claimRegex"),
+//   				groupAttributeField: jsii.String("groupAttributeField"),
+//   				issuer: jsii.String("issuer"),
+//   				secretManagerArn: jsii.String("secretManagerArn"),
+//   				url: jsii.String("url"),
+//   				userNameAttributeField: jsii.String("userNameAttributeField"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnIndexProps struct {
 	// Indicates whether the index is a enterprise edition index or a developer edition index.
 	//
 	// Valid values are `DEVELOPER_EDITION` and `ENTERPRISE_EDITION` .
 	Edition *string `json:"edition" yaml:"edition"`
-	// The name of the index.
+	// The identifier of the index.
 	Name *string `json:"name" yaml:"name"`
 	// An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics.
 	//

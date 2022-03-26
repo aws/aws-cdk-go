@@ -1,15 +1,15 @@
 package awssqs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/awssqs/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::SQS::Queue`.
@@ -27,66 +27,366 @@ import (
 //
 // For more information about creating FIFO (first-in-first-out) queues, see [Creating an Amazon SQS queue ( AWS CloudFormation )](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/screate-queue-cloudformation.html) in the *Amazon SQS Developer Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
+//
+//   var redriveAllowPolicy interface{}
+//   var redrivePolicy interface{}
+//   cfnQueue := sqs.NewCfnQueue(this, jsii.String("MyCfnQueue"), &cfnQueueProps{
+//   	contentBasedDeduplication: jsii.Boolean(false),
+//   	deduplicationScope: jsii.String("deduplicationScope"),
+//   	delaySeconds: jsii.Number(123),
+//   	fifoQueue: jsii.Boolean(false),
+//   	fifoThroughputLimit: jsii.String("fifoThroughputLimit"),
+//   	kmsDataKeyReusePeriodSeconds: jsii.Number(123),
+//   	kmsMasterKeyId: jsii.String("kmsMasterKeyId"),
+//   	maximumMessageSize: jsii.Number(123),
+//   	messageRetentionPeriod: jsii.Number(123),
+//   	queueName: jsii.String("queueName"),
+//   	receiveMessageWaitTimeSeconds: jsii.Number(123),
+//   	redriveAllowPolicy: redriveAllowPolicy,
+//   	redrivePolicy: redrivePolicy,
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	visibilityTimeout: jsii.Number(123),
+//   })
 //
 type CfnQueue interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns the Amazon Resource Name (ARN) of the queue.
+	//
+	// For example: `arn:aws:sqs:us-east-2:123456789012:mystack-myqueue-15PG5C2FC1CW8` .
 	AttrArn() *string
+	// Returns the queue name.
+	//
+	// For example: `mystack-myqueue-1VF9BKQH5BJVI` .
 	AttrQueueName() *string
 	AttrQueueUrl() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// For first-in-first-out (FIFO) queues, specifies whether to enable content-based deduplication.
+	//
+	// During the deduplication interval, Amazon SQS treats messages that are sent with identical content as duplicates and delivers only one copy of the message. For more information, see the `ContentBasedDeduplication` attribute for the `[CreateQueue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html)` action in the *Amazon SQS API Reference* .
 	ContentBasedDeduplication() interface{}
 	SetContentBasedDeduplication(val interface{})
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// For high throughput for FIFO queues, specifies whether message deduplication occurs at the message group or queue level.
+	//
+	// Valid values are `messageGroup` and `queue` .
+	//
+	// To enable high throughput for a FIFO queue, set this attribute to `messageGroup` *and* set the `FifoThroughputLimit` attribute to `perMessageGroupId` . If you set these attributes to anything other than these values, normal throughput is in effect and deduplication occurs as specified. For more information, see [High throughput for FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html) and [Quotas related to messages](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html) in the *Amazon SQS Developer Guide* .
 	DeduplicationScope() *string
 	SetDeduplicationScope(val *string)
+	// The time in seconds for which the delivery of all messages in the queue is delayed.
+	//
+	// You can specify an integer value of `0` to `900` (15 minutes). The default value is `0` .
 	DelaySeconds() *float64
 	SetDelaySeconds(val *float64)
+	// If set to true, creates a FIFO queue.
+	//
+	// If you don't specify this property, Amazon SQS creates a standard queue. For more information, see [FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html) in the *Amazon SQS Developer Guide* .
 	FifoQueue() interface{}
 	SetFifoQueue(val interface{})
+	// For high throughput for FIFO queues, specifies whether the FIFO queue throughput quota applies to the entire queue or per message group.
+	//
+	// Valid values are `perQueue` and `perMessageGroupId` .
+	//
+	// To enable high throughput for a FIFO queue, set this attribute to `perMessageGroupId` *and* set the `DeduplicationScope` attribute to `messageGroup` . If you set these attributes to anything other than these values, normal throughput is in effect and deduplication occurs as specified. For more information, see [High throughput for FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html) and [Quotas related to messages](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html) in the *Amazon SQS Developer Guide* .
 	FifoThroughputLimit() *string
 	SetFifoThroughputLimit(val *string)
+	// The length of time in seconds for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again.
+	//
+	// The value must be an integer between 60 (1 minute) and 86,400 (24 hours). The default is 300 (5 minutes).
+	//
+	// > A shorter time period provides better security, but results in more calls to AWS KMS , which might incur charges after Free Tier. For more information, see [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work) in the *Amazon SQS Developer Guide* .
 	KmsDataKeyReusePeriodSeconds() *float64
 	SetKmsDataKeyReusePeriodSeconds(val *float64)
+	// The ID of an AWS managed customer master key (CMK) for Amazon SQS or a custom CMK.
+	//
+	// To use the AWS managed CMK for Amazon SQS , specify the (default) alias `alias/aws/sqs` . For more information, see the following:
+	//
+	// - [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html) in the *Amazon SQS Developer Guide*
+	// - [CreateQueue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html) in the *Amazon SQS API Reference*
+	// - The Customer Master Keys section of the [AWS Key Management Service Best Practices](https://docs.aws.amazon.com/https://d0.awsstatic.com/whitepapers/aws-kms-best-practices.pdf) whitepaper
 	KmsMasterKeyId() *string
 	SetKmsMasterKeyId(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The limit of how many bytes that a message can contain before Amazon SQS rejects it.
+	//
+	// You can specify an integer value from `1,024` bytes (1 KiB) to `262,144` bytes (256 KiB). The default value is `262,144` (256 KiB).
 	MaximumMessageSize() *float64
 	SetMaximumMessageSize(val *float64)
+	// The number of seconds that Amazon SQS retains a message.
+	//
+	// You can specify an integer value from `60` seconds (1 minute) to `1,209,600` seconds (14 days). The default value is `345,600` seconds (4 days).
 	MessageRetentionPeriod() *float64
 	SetMessageRetentionPeriod(val *float64)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// A name for the queue.
+	//
+	// To create a FIFO queue, the name of your FIFO queue must end with the `.fifo` suffix. For more information, see [FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html) in the *Amazon SQS Developer Guide* .
+	//
+	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the queue name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) in the *AWS CloudFormation User Guide* .
+	//
+	// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	QueueName() *string
 	SetQueueName(val *string)
+	// Specifies the duration, in seconds, that the ReceiveMessage action call waits until a message is in the queue in order to include it in the response, rather than returning an empty response if a message isn't yet available.
+	//
+	// You can specify an integer from 1 to 20. Short polling is used as the default or when you specify 0 for this property. For more information, see [Consuming messages using long polling](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-short-and-long-polling.html#sqs-long-polling) in the *Amazon SQS Developer Guide* .
 	ReceiveMessageWaitTimeSeconds() *float64
 	SetReceiveMessageWaitTimeSeconds(val *float64)
+	// The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object.
+	//
+	// The parameters are as follows:
+	//
+	// - `redrivePermission` : The permission type that defines which source queues can specify the current queue as the dead-letter queue. Valid values are:
+	//
+	// - `allowAll` : (Default) Any source queues in this AWS account in the same Region can specify this queue as the dead-letter queue.
+	// - `denyAll` : No source queues can specify this queue as the dead-letter queue.
+	// - `byQueue` : Only queues specified by the `sourceQueueArns` parameter can specify this queue as the dead-letter queue.
+	// - `sourceQueueArns` : The Amazon Resource Names (ARN)s of the source queues that can specify this queue as the dead-letter queue and redrive messages. You can specify this parameter only when the `redrivePermission` parameter is set to `byQueue` . You can specify up to 10 source queue ARNs. To allow more than 10 source queues to specify dead-letter queues, set the `redrivePermission` parameter to `allowAll` .
 	RedriveAllowPolicy() interface{}
 	SetRedriveAllowPolicy(val interface{})
+	// The string that includes the parameters for the dead-letter queue functionality of the source queue as a JSON object.
+	//
+	// The parameters are as follows:
+	//
+	// - `deadLetterTargetArn` : The Amazon Resource Name (ARN) of the dead-letter queue to which Amazon SQS moves messages after the value of `maxReceiveCount` is exceeded.
+	// - `maxReceiveCount` : The number of times a message is delivered to the source queue before being moved to the dead-letter queue. When the `ReceiveCount` for a message exceeds the `maxReceiveCount` for a queue, Amazon SQS moves the message to the dead-letter-queue.
+	//
+	// > The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the dead-letter queue of a standard queue must also be a standard queue.
+	//
+	// *JSON*
+	//
+	// `{ "deadLetterTargetArn" : *String* , "maxReceiveCount" : *Integer* }`
+	//
+	// *YAML*
+	//
+	// `deadLetterTargetArn : *String*`
+	//
+	// `maxReceiveCount : *Integer*`.
 	RedrivePolicy() interface{}
 	SetRedrivePolicy(val interface{})
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// The tags that you attach to this queue.
+	//
+	// For more information, see [Resource tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *AWS CloudFormation User Guide* .
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// The length of time during which a message will be unavailable after a message is delivered from the queue.
+	//
+	// This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue.
+	//
+	// Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
+	//
+	// For more information about Amazon SQS queue visibility timeouts, see [Visibility timeout](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html) in the *Amazon SQS Developer Guide* .
 	VisibilityTimeout() *float64
 	SetVisibilityTimeout(val *float64)
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -266,8 +566,8 @@ func (j *jsiiProxy_CfnQueue) MessageRetentionPeriod() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQueue) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnQueue) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -368,13 +668,13 @@ func (j *jsiiProxy_CfnQueue) VisibilityTimeout() *float64 {
 
 
 // Create a new `AWS::SQS::Queue`.
-func NewCfnQueue(scope constructs.Construct, id *string, props *CfnQueueProps) CfnQueue {
+func NewCfnQueue(scope awscdk.Construct, id *string, props *CfnQueueProps) CfnQueue {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnQueue{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sqs.CfnQueue",
+		"monocdk.aws_sqs.CfnQueue",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -383,11 +683,11 @@ func NewCfnQueue(scope constructs.Construct, id *string, props *CfnQueueProps) C
 }
 
 // Create a new `AWS::SQS::Queue`.
-func NewCfnQueue_Override(c CfnQueue, scope constructs.Construct, id *string, props *CfnQueueProps) {
+func NewCfnQueue_Override(c CfnQueue, scope awscdk.Construct, id *string, props *CfnQueueProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sqs.CfnQueue",
+		"monocdk.aws_sqs.CfnQueue",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -511,13 +811,14 @@ func (j *jsiiProxy_CfnQueue) SetVisibilityTimeout(val *float64) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnQueue_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.CfnQueue",
+		"monocdk.aws_sqs.CfnQueue",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -527,13 +828,14 @@ func CfnQueue_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnQueue_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.CfnQueue",
+		"monocdk.aws_sqs.CfnQueue",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -542,17 +844,15 @@ func CfnQueue_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnQueue_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.CfnQueue",
+		"monocdk.aws_sqs.CfnQueue",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -565,14 +865,13 @@ func CfnQueue_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_sqs.CfnQueue",
+		"monocdk.aws_sqs.CfnQueue",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnQueue) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -581,10 +880,6 @@ func (c *jsiiProxy_CfnQueue) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnQueue) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -593,13 +888,6 @@ func (c *jsiiProxy_CfnQueue) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnQueue) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -608,49 +896,6 @@ func (c *jsiiProxy_CfnQueue) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnQueue) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -659,7 +904,6 @@ func (c *jsiiProxy_CfnQueue) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnQueue) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -668,9 +912,6 @@ func (c *jsiiProxy_CfnQueue) AddPropertyDeletionOverride(propertyPath *string) {
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnQueue) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -679,15 +920,6 @@ func (c *jsiiProxy_CfnQueue) AddPropertyOverride(propertyPath *string, value int
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnQueue) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -696,10 +928,6 @@ func (c *jsiiProxy_CfnQueue) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnQueue) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -713,13 +941,6 @@ func (c *jsiiProxy_CfnQueue) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnQueue) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -733,7 +954,6 @@ func (c *jsiiProxy_CfnQueue) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnQueue) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -742,12 +962,48 @@ func (c *jsiiProxy_CfnQueue) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnQueue) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnQueue) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnQueue) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnQueue) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnQueue) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -764,10 +1020,6 @@ func (c *jsiiProxy_CfnQueue) RenderProperties(props *map[string]interface{}) *ma
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnQueue) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -781,15 +1033,33 @@ func (c *jsiiProxy_CfnQueue) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnQueue) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnQueue) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnQueue) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -809,39 +1079,237 @@ func (c *jsiiProxy_CfnQueue) ValidateProperties(_properties interface{}) {
 //
 // The `AWS::SQS::QueuePolicy` type applies a policy to Amazon SQS queues. For an example snippet, see [Declaring an Amazon SQS policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sqs-policy) in the *AWS CloudFormation User Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
+//
+//   var policyDocument interface{}
+//   cfnQueuePolicy := sqs.NewCfnQueuePolicy(this, jsii.String("MyCfnQueuePolicy"), &cfnQueuePolicyProps{
+//   	policyDocument: policyDocument,
+//   	queues: []*string{
+//   		jsii.String("queues"),
+//   	},
+//   })
 //
 type CfnQueuePolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	AttrId() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// A policy document that contains the permissions for the specified Amazon SQS queues.
+	//
+	// For more information about Amazon SQS policies, see [Using custom policies with the Amazon SQS access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Amazon SQS Developer Guide* .
 	PolicyDocument() interface{}
 	SetPolicyDocument(val interface{})
+	// The URLs of the queues to which you want to add the policy.
+	//
+	// You can use the `[Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an `[AWS::SQS::Queue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html)` resource.
 	Queues() *[]*string
 	SetQueues(val *[]*string)
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -911,8 +1379,8 @@ func (j *jsiiProxy_CfnQueuePolicy) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQueuePolicy) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnQueuePolicy) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -973,13 +1441,13 @@ func (j *jsiiProxy_CfnQueuePolicy) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::SQS::QueuePolicy`.
-func NewCfnQueuePolicy(scope constructs.Construct, id *string, props *CfnQueuePolicyProps) CfnQueuePolicy {
+func NewCfnQueuePolicy(scope awscdk.Construct, id *string, props *CfnQueuePolicyProps) CfnQueuePolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnQueuePolicy{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sqs.CfnQueuePolicy",
+		"monocdk.aws_sqs.CfnQueuePolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -988,11 +1456,11 @@ func NewCfnQueuePolicy(scope constructs.Construct, id *string, props *CfnQueuePo
 }
 
 // Create a new `AWS::SQS::QueuePolicy`.
-func NewCfnQueuePolicy_Override(c CfnQueuePolicy, scope constructs.Construct, id *string, props *CfnQueuePolicyProps) {
+func NewCfnQueuePolicy_Override(c CfnQueuePolicy, scope awscdk.Construct, id *string, props *CfnQueuePolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sqs.CfnQueuePolicy",
+		"monocdk.aws_sqs.CfnQueuePolicy",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1020,13 +1488,14 @@ func (j *jsiiProxy_CfnQueuePolicy) SetQueues(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnQueuePolicy_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.CfnQueuePolicy",
+		"monocdk.aws_sqs.CfnQueuePolicy",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1036,13 +1505,14 @@ func CfnQueuePolicy_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnQueuePolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.CfnQueuePolicy",
+		"monocdk.aws_sqs.CfnQueuePolicy",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1051,17 +1521,15 @@ func CfnQueuePolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnQueuePolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.CfnQueuePolicy",
+		"monocdk.aws_sqs.CfnQueuePolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1074,14 +1542,13 @@ func CfnQueuePolicy_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_sqs.CfnQueuePolicy",
+		"monocdk.aws_sqs.CfnQueuePolicy",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnQueuePolicy) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1090,10 +1557,6 @@ func (c *jsiiProxy_CfnQueuePolicy) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnQueuePolicy) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1102,13 +1565,6 @@ func (c *jsiiProxy_CfnQueuePolicy) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnQueuePolicy) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1117,49 +1573,6 @@ func (c *jsiiProxy_CfnQueuePolicy) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnQueuePolicy) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1168,7 +1581,6 @@ func (c *jsiiProxy_CfnQueuePolicy) AddOverride(path *string, value interface{}) 
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnQueuePolicy) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1177,9 +1589,6 @@ func (c *jsiiProxy_CfnQueuePolicy) AddPropertyDeletionOverride(propertyPath *str
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnQueuePolicy) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1188,15 +1597,6 @@ func (c *jsiiProxy_CfnQueuePolicy) AddPropertyOverride(propertyPath *string, val
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnQueuePolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1205,10 +1605,6 @@ func (c *jsiiProxy_CfnQueuePolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnQueuePolicy) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1222,13 +1618,6 @@ func (c *jsiiProxy_CfnQueuePolicy) GetAtt(attributeName *string) awscdk.Referenc
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnQueuePolicy) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1242,7 +1631,6 @@ func (c *jsiiProxy_CfnQueuePolicy) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnQueuePolicy) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1251,12 +1639,48 @@ func (c *jsiiProxy_CfnQueuePolicy) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnQueuePolicy) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnQueuePolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnQueuePolicy) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnQueuePolicy) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnQueuePolicy) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1273,10 +1697,6 @@ func (c *jsiiProxy_CfnQueuePolicy) RenderProperties(props *map[string]interface{
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnQueuePolicy) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1290,15 +1710,33 @@ func (c *jsiiProxy_CfnQueuePolicy) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnQueuePolicy) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnQueuePolicy) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnQueuePolicy) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1316,7 +1754,16 @@ func (c *jsiiProxy_CfnQueuePolicy) ValidateProperties(_properties interface{}) {
 
 // Properties for defining a `CfnQueuePolicy`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
+//
+//   var policyDocument interface{}
+//   cfnQueuePolicyProps := &cfnQueuePolicyProps{
+//   	policyDocument: policyDocument,
+//   	queues: []*string{
+//   		jsii.String("queues"),
+//   	},
+//   }
 //
 type CfnQueuePolicyProps struct {
 	// A policy document that contains the permissions for the specified Amazon SQS queues.
@@ -1331,7 +1778,33 @@ type CfnQueuePolicyProps struct {
 
 // Properties for defining a `CfnQueue`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
+//
+//   var redriveAllowPolicy interface{}
+//   var redrivePolicy interface{}
+//   cfnQueueProps := &cfnQueueProps{
+//   	contentBasedDeduplication: jsii.Boolean(false),
+//   	deduplicationScope: jsii.String("deduplicationScope"),
+//   	delaySeconds: jsii.Number(123),
+//   	fifoQueue: jsii.Boolean(false),
+//   	fifoThroughputLimit: jsii.String("fifoThroughputLimit"),
+//   	kmsDataKeyReusePeriodSeconds: jsii.Number(123),
+//   	kmsMasterKeyId: jsii.String("kmsMasterKeyId"),
+//   	maximumMessageSize: jsii.Number(123),
+//   	messageRetentionPeriod: jsii.Number(123),
+//   	queueName: jsii.String("queueName"),
+//   	receiveMessageWaitTimeSeconds: jsii.Number(123),
+//   	redriveAllowPolicy: redriveAllowPolicy,
+//   	redrivePolicy: redrivePolicy,
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	visibilityTimeout: jsii.Number(123),
+//   }
 //
 type CfnQueueProps struct {
 	// For first-in-first-out (FIFO) queues, specifies whether to enable content-based deduplication.
@@ -1420,7 +1893,7 @@ type CfnQueueProps struct {
 	//
 	// `deadLetterTargetArn : *String*`
 	//
-	// `maxReceiveCount : *Integer*`
+	// `maxReceiveCount : *Integer*`.
 	RedrivePolicy interface{} `json:"redrivePolicy" yaml:"redrivePolicy"`
 	// The tags that you attach to this queue.
 	//
@@ -1438,32 +1911,53 @@ type CfnQueueProps struct {
 
 // Dead letter queue settings.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
 //
+//   var queue queue
+//   deadLetterQueue := &deadLetterQueue{
+//   	maxReceiveCount: jsii.Number(123),
+//   	queue: queue,
+//   }
+//
+// Experimental.
 type DeadLetterQueue struct {
 	// The number of times a message can be unsuccesfully dequeued before being moved to the dead-letter queue.
+	// Experimental.
 	MaxReceiveCount *float64 `json:"maxReceiveCount" yaml:"maxReceiveCount"`
 	// The dead-letter queue to which Amazon SQS moves messages after the value of maxReceiveCount is exceeded.
+	// Experimental.
 	Queue IQueue `json:"queue" yaml:"queue"`
 }
 
 // What kind of deduplication scope to apply.
+// Experimental.
 type DeduplicationScope string
 
 const (
+	// Deduplication occurs at the message group level.
+	// Experimental.
 	DeduplicationScope_MESSAGE_GROUP DeduplicationScope = "MESSAGE_GROUP"
+	// Deduplication occurs at the message queue level.
+	// Experimental.
 	DeduplicationScope_QUEUE DeduplicationScope = "QUEUE"
 )
 
 // Whether the FIFO queue throughput quota applies to the entire queue or per message group.
+// Experimental.
 type FifoThroughputLimit string
 
 const (
+	// Throughput quota applies per queue.
+	// Experimental.
 	FifoThroughputLimit_PER_QUEUE FifoThroughputLimit = "PER_QUEUE"
+	// Throughput quota applies per message group id.
+	// Experimental.
 	FifoThroughputLimit_PER_MESSAGE_GROUP_ID FifoThroughputLimit = "PER_MESSAGE_GROUP_ID"
 )
 
 // Represents an SQS queue.
+// Experimental.
 type IQueue interface {
 	awscdk.IResource
 	// Adds a statement to the IAM resource policy associated with this queue.
@@ -1471,8 +1965,10 @@ type IQueue interface {
 	// If this queue was created in this stack (`new Queue`), a queue policy
 	// will be automatically created upon the first call to `addToPolicy`. If
 	// the queue is imported (`Queue.import`), then this is a no-op.
+	// Experimental.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Grant the actions defined in queueActions to the identity Principal given on this SQS queue resource.
+	// Experimental.
 	Grant(grantee awsiam.IGrantable, queueActions ...*string) awsiam.Grant
 	// Grant permissions to consume messages from a queue.
 	//
@@ -1482,7 +1978,8 @@ type IQueue interface {
 	//    - sqs:DeleteMessage
 	//    - sqs:ReceiveMessage
 	//    - sqs:GetQueueAttributes
-	//    - sqs:GetQueueUrl
+	// - sqs:GetQueueUrl.
+	// Experimental.
 	GrantConsumeMessages(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant an IAM principal permissions to purge all messages from the queue.
 	//
@@ -1490,7 +1987,8 @@ type IQueue interface {
 	//
 	//   - sqs:PurgeQueue
 	//   - sqs:GetQueueAttributes
-	//   - sqs:GetQueueUrl
+	// - sqs:GetQueueUrl.
+	// Experimental.
 	GrantPurge(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant access to send messages to a queue to the given identity.
 	//
@@ -1498,57 +1996,73 @@ type IQueue interface {
 	//
 	//   - sqs:SendMessage
 	//   - sqs:GetQueueAttributes
-	//   - sqs:GetQueueUrl
+	// - sqs:GetQueueUrl.
+	// Experimental.
 	GrantSendMessages(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Queue.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The approximate age of the oldest non-deleted message in the queue.
 	//
-	// Maximum over 5 minutes
+	// Maximum over 5 minutes.
+	// Experimental.
 	MetricApproximateAgeOfOldestMessage(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages in the queue that are delayed and not available for reading immediately.
 	//
-	// Maximum over 5 minutes
+	// Maximum over 5 minutes.
+	// Experimental.
 	MetricApproximateNumberOfMessagesDelayed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages that are in flight.
 	//
-	// Maximum over 5 minutes
+	// Maximum over 5 minutes.
+	// Experimental.
 	MetricApproximateNumberOfMessagesNotVisible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages available for retrieval from the queue.
 	//
-	// Maximum over 5 minutes
+	// Maximum over 5 minutes.
+	// Experimental.
 	MetricApproximateNumberOfMessagesVisible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of ReceiveMessage API calls that did not return a message.
 	//
-	// Sum over 5 minutes
+	// Sum over 5 minutes.
+	// Experimental.
 	MetricNumberOfEmptyReceives(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages deleted from the queue.
 	//
-	// Sum over 5 minutes
+	// Sum over 5 minutes.
+	// Experimental.
 	MetricNumberOfMessagesDeleted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages returned by calls to the ReceiveMessage action.
 	//
-	// Sum over 5 minutes
+	// Sum over 5 minutes.
+	// Experimental.
 	MetricNumberOfMessagesReceived(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages added to a queue.
 	//
-	// Sum over 5 minutes
+	// Sum over 5 minutes.
+	// Experimental.
 	MetricNumberOfMessagesSent(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The size of messages added to a queue.
 	//
-	// Average over 5 minutes
+	// Average over 5 minutes.
+	// Experimental.
 	MetricSentMessageSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// If this queue is server-side encrypted, this is the KMS encryption key.
+	// Experimental.
 	EncryptionMasterKey() awskms.IKey
 	// Whether this queue is an Amazon SQS FIFO queue.
 	//
 	// If false, this is a standard queue.
+	// Experimental.
 	Fifo() *bool
 	// The ARN of this queue.
+	// Experimental.
 	QueueArn() *string
 	// The name of this queue.
+	// Experimental.
 	QueueName() *string
 	// The URL of this queue.
+	// Experimental.
 	QueueUrl() *string
 }
 
@@ -1809,41 +2323,236 @@ func (j *jsiiProxy_IQueue) QueueUrl() *string {
 
 // A new Amazon SQS queue.
 //
-// TODO: EXAMPLE
+// Example:
+//   import sqs "github.com/aws/aws-cdk-go/awscdk"
 //
+//   deadLetterQueue := sqs.NewQueue(this, jsii.String("DeadLetterQueue"))
+//
+//   myFn := lambda.NewFunction(this, jsii.String("Fn"), &functionProps{
+//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	handler: jsii.String("index.handler"),
+//   	code: lambda.code.fromInline(jsii.String("// your code")),
+//   	// sqs queue for unsuccessful invocations
+//   	onFailure: destinations.NewSqsDestination(deadLetterQueue),
+//   })
+//
+// Experimental.
 type Queue interface {
 	QueueBase
+	// Controls automatic creation of policy objects.
+	//
+	// Set by subclasses.
+	// Experimental.
 	AutoCreatePolicy() *bool
+	// If this queue is configured with a dead-letter queue, this is the dead-letter queue settings.
+	// Experimental.
 	DeadLetterQueue() *DeadLetterQueue
+	// If this queue is encrypted, this is the KMS key.
+	// Experimental.
 	EncryptionMasterKey() awskms.IKey
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
+	// Whether this queue is an Amazon SQS FIFO queue.
+	//
+	// If false, this is a standard queue.
+	// Experimental.
 	Fifo() *bool
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
+	// The ARN of this queue.
+	// Experimental.
 	QueueArn() *string
+	// The name of this queue.
+	// Experimental.
 	QueueName() *string
+	// The URL of this queue.
+	// Experimental.
 	QueueUrl() *string
+	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
+	// Adds a statement to the IAM resource policy associated with this queue.
+	//
+	// If this queue was created in this stack (`new Queue`), a queue policy
+	// will be automatically created upon the first call to `addToPolicy`. If
+	// the queue is imported (`Queue.import`), then this is a no-op.
+	// Experimental.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
 	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Grant the actions defined in queueActions to the identity Principal given on this SQS queue resource.
+	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
+	// Grant permissions to consume messages from a queue.
+	//
+	// This will grant the following permissions:
+	//
+	//    - sqs:ChangeMessageVisibility
+	//    - sqs:DeleteMessage
+	//    - sqs:ReceiveMessage
+	//    - sqs:GetQueueAttributes
+	// - sqs:GetQueueUrl.
+	// Experimental.
 	GrantConsumeMessages(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant an IAM principal permissions to purge all messages from the queue.
+	//
+	// This will grant the following permissions:
+	//
+	//   - sqs:PurgeQueue
+	//   - sqs:GetQueueAttributes
+	// - sqs:GetQueueUrl.
+	// Experimental.
 	GrantPurge(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant access to send messages to a queue to the given identity.
+	//
+	// This will grant the following permissions:
+	//
+	//   - sqs:SendMessage
+	//   - sqs:GetQueueAttributes
+	// - sqs:GetQueueUrl.
+	// Experimental.
 	GrantSendMessages(grantee awsiam.IGrantable) awsiam.Grant
+	// Return the given named metric for this Queue.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The approximate age of the oldest non-deleted message in the queue.
+	//
+	// Maximum over 5 minutes.
+	// Experimental.
 	MetricApproximateAgeOfOldestMessage(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of messages in the queue that are delayed and not available for reading immediately.
+	//
+	// Maximum over 5 minutes.
+	// Experimental.
 	MetricApproximateNumberOfMessagesDelayed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of messages that are in flight.
+	//
+	// Maximum over 5 minutes.
+	// Experimental.
 	MetricApproximateNumberOfMessagesNotVisible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of messages available for retrieval from the queue.
+	//
+	// Maximum over 5 minutes.
+	// Experimental.
 	MetricApproximateNumberOfMessagesVisible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of ReceiveMessage API calls that did not return a message.
+	//
+	// Sum over 5 minutes.
+	// Experimental.
 	MetricNumberOfEmptyReceives(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of messages deleted from the queue.
+	//
+	// Sum over 5 minutes.
+	// Experimental.
 	MetricNumberOfMessagesDeleted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of messages returned by calls to the ReceiveMessage action.
+	//
+	// Sum over 5 minutes.
+	// Experimental.
 	MetricNumberOfMessagesReceived(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of messages added to a queue.
+	//
+	// Sum over 5 minutes.
+	// Experimental.
 	MetricNumberOfMessagesSent(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The size of messages added to a queue.
+	//
+	// Average over 5 minutes.
+	// Experimental.
 	MetricSentMessageSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for Queue
@@ -1901,8 +2610,8 @@ func (j *jsiiProxy_Queue) Fifo() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_Queue) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Queue) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1962,13 +2671,14 @@ func (j *jsiiProxy_Queue) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewQueue(scope constructs.Construct, id *string, props *QueueProps) Queue {
 	_init_.Initialize()
 
 	j := jsiiProxy_Queue{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sqs.Queue",
+		"monocdk.aws_sqs.Queue",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1976,24 +2686,26 @@ func NewQueue(scope constructs.Construct, id *string, props *QueueProps) Queue {
 	return &j
 }
 
+// Experimental.
 func NewQueue_Override(q Queue, scope constructs.Construct, id *string, props *QueueProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sqs.Queue",
+		"monocdk.aws_sqs.Queue",
 		[]interface{}{scope, id, props},
 		q,
 	)
 }
 
 // Import an existing SQS queue provided an ARN.
+// Experimental.
 func Queue_FromQueueArn(scope constructs.Construct, id *string, queueArn *string) IQueue {
 	_init_.Initialize()
 
 	var returns IQueue
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.Queue",
+		"monocdk.aws_sqs.Queue",
 		"fromQueueArn",
 		[]interface{}{scope, id, queueArn},
 		&returns,
@@ -2003,13 +2715,14 @@ func Queue_FromQueueArn(scope constructs.Construct, id *string, queueArn *string
 }
 
 // Import an existing queue.
+// Experimental.
 func Queue_FromQueueAttributes(scope constructs.Construct, id *string, attrs *QueueAttributes) IQueue {
 	_init_.Initialize()
 
 	var returns IQueue
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.Queue",
+		"monocdk.aws_sqs.Queue",
 		"fromQueueAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -2018,17 +2731,15 @@ func Queue_FromQueueAttributes(scope constructs.Construct, id *string, attrs *Qu
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Queue_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.Queue",
+		"monocdk.aws_sqs.Queue",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2038,13 +2749,14 @@ func Queue_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func Queue_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func Queue_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.Queue",
+		"monocdk.aws_sqs.Queue",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -2053,11 +2765,6 @@ func Queue_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Adds a statement to the IAM resource policy associated with this queue.
-//
-// If this queue was created in this stack (`new Queue`), a queue policy
-// will be automatically created upon the first call to `addToPolicy`. If
-// the queue is imported (`Queue.import`), then this is a no-op.
 func (q *jsiiProxy_Queue) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
 	var returns *awsiam.AddToResourcePolicyResult
 
@@ -2071,15 +2778,6 @@ func (q *jsiiProxy_Queue) AddToResourcePolicy(statement awsiam.PolicyStatement) 
 	return returns
 }
 
-// Apply the given removal policy to this resource.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (q *jsiiProxy_Queue) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		q,
@@ -2101,12 +2799,6 @@ func (q *jsiiProxy_Queue) GeneratePhysicalName() *string {
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
-//
-// Normally, this token will resolve to `arnAttr`, but if the resource is
-// referenced across environments, `arnComponents` will be used to synthesize
-// a concrete ARN with the resource's physical name. Make sure to reference
-// `this.physicalName` in `arnComponents`.
 func (q *jsiiProxy_Queue) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -2120,11 +2812,6 @@ func (q *jsiiProxy_Queue) GetResourceArnAttribute(arnAttr *string, arnComponents
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
-//
-// Normally, this token will resolve to `nameAttr`, but if the resource is
-// referenced across environments, it will be resolved to `this.physicalName`,
-// which will be a concrete name.
 func (q *jsiiProxy_Queue) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -2138,7 +2825,6 @@ func (q *jsiiProxy_Queue) GetResourceNameAttribute(nameAttr *string) *string {
 	return returns
 }
 
-// Grant the actions defined in queueActions to the identity Principal given on this SQS queue resource.
 func (q *jsiiProxy_Queue) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
 	args := []interface{}{grantee}
 	for _, a := range actions {
@@ -2157,15 +2843,6 @@ func (q *jsiiProxy_Queue) Grant(grantee awsiam.IGrantable, actions ...*string) a
 	return returns
 }
 
-// Grant permissions to consume messages from a queue.
-//
-// This will grant the following permissions:
-//
-//    - sqs:ChangeMessageVisibility
-//    - sqs:DeleteMessage
-//    - sqs:ReceiveMessage
-//    - sqs:GetQueueAttributes
-//    - sqs:GetQueueUrl
 func (q *jsiiProxy_Queue) GrantConsumeMessages(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2179,13 +2856,6 @@ func (q *jsiiProxy_Queue) GrantConsumeMessages(grantee awsiam.IGrantable) awsiam
 	return returns
 }
 
-// Grant an IAM principal permissions to purge all messages from the queue.
-//
-// This will grant the following permissions:
-//
-//   - sqs:PurgeQueue
-//   - sqs:GetQueueAttributes
-//   - sqs:GetQueueUrl
 func (q *jsiiProxy_Queue) GrantPurge(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2199,13 +2869,6 @@ func (q *jsiiProxy_Queue) GrantPurge(grantee awsiam.IGrantable) awsiam.Grant {
 	return returns
 }
 
-// Grant access to send messages to a queue to the given identity.
-//
-// This will grant the following permissions:
-//
-//   - sqs:SendMessage
-//   - sqs:GetQueueAttributes
-//   - sqs:GetQueueUrl
 func (q *jsiiProxy_Queue) GrantSendMessages(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2219,7 +2882,6 @@ func (q *jsiiProxy_Queue) GrantSendMessages(grantee awsiam.IGrantable) awsiam.Gr
 	return returns
 }
 
-// Return the given named metric for this Queue.
 func (q *jsiiProxy_Queue) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2233,9 +2895,6 @@ func (q *jsiiProxy_Queue) Metric(metricName *string, props *awscloudwatch.Metric
 	return returns
 }
 
-// The approximate age of the oldest non-deleted message in the queue.
-//
-// Maximum over 5 minutes
 func (q *jsiiProxy_Queue) MetricApproximateAgeOfOldestMessage(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2249,9 +2908,6 @@ func (q *jsiiProxy_Queue) MetricApproximateAgeOfOldestMessage(props *awscloudwat
 	return returns
 }
 
-// The number of messages in the queue that are delayed and not available for reading immediately.
-//
-// Maximum over 5 minutes
 func (q *jsiiProxy_Queue) MetricApproximateNumberOfMessagesDelayed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2265,9 +2921,6 @@ func (q *jsiiProxy_Queue) MetricApproximateNumberOfMessagesDelayed(props *awsclo
 	return returns
 }
 
-// The number of messages that are in flight.
-//
-// Maximum over 5 minutes
 func (q *jsiiProxy_Queue) MetricApproximateNumberOfMessagesNotVisible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2281,9 +2934,6 @@ func (q *jsiiProxy_Queue) MetricApproximateNumberOfMessagesNotVisible(props *aws
 	return returns
 }
 
-// The number of messages available for retrieval from the queue.
-//
-// Maximum over 5 minutes
 func (q *jsiiProxy_Queue) MetricApproximateNumberOfMessagesVisible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2297,9 +2947,6 @@ func (q *jsiiProxy_Queue) MetricApproximateNumberOfMessagesVisible(props *awsclo
 	return returns
 }
 
-// The number of ReceiveMessage API calls that did not return a message.
-//
-// Sum over 5 minutes
 func (q *jsiiProxy_Queue) MetricNumberOfEmptyReceives(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2313,9 +2960,6 @@ func (q *jsiiProxy_Queue) MetricNumberOfEmptyReceives(props *awscloudwatch.Metri
 	return returns
 }
 
-// The number of messages deleted from the queue.
-//
-// Sum over 5 minutes
 func (q *jsiiProxy_Queue) MetricNumberOfMessagesDeleted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2329,9 +2973,6 @@ func (q *jsiiProxy_Queue) MetricNumberOfMessagesDeleted(props *awscloudwatch.Met
 	return returns
 }
 
-// The number of messages returned by calls to the ReceiveMessage action.
-//
-// Sum over 5 minutes
 func (q *jsiiProxy_Queue) MetricNumberOfMessagesReceived(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2345,9 +2986,6 @@ func (q *jsiiProxy_Queue) MetricNumberOfMessagesReceived(props *awscloudwatch.Me
 	return returns
 }
 
-// The number of messages added to a queue.
-//
-// Sum over 5 minutes
 func (q *jsiiProxy_Queue) MetricNumberOfMessagesSent(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2361,9 +2999,6 @@ func (q *jsiiProxy_Queue) MetricNumberOfMessagesSent(props *awscloudwatch.Metric
 	return returns
 }
 
-// The size of messages added to a queue.
-//
-// Average over 5 minutes
 func (q *jsiiProxy_Queue) MetricSentMessageSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2377,7 +3012,51 @@ func (q *jsiiProxy_Queue) MetricSentMessageSize(props *awscloudwatch.MetricOptio
 	return returns
 }
 
-// Returns a string representation of this construct.
+func (q *jsiiProxy_Queue) OnPrepare() {
+	_jsii_.InvokeVoid(
+		q,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (q *jsiiProxy_Queue) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		q,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (q *jsiiProxy_Queue) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		q,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (q *jsiiProxy_Queue) Prepare() {
+	_jsii_.InvokeVoid(
+		q,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (q *jsiiProxy_Queue) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		q,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (q *jsiiProxy_Queue) ToString() *string {
 	var returns *string
 
@@ -2391,61 +3070,272 @@ func (q *jsiiProxy_Queue) ToString() *string {
 	return returns
 }
 
+func (q *jsiiProxy_Queue) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		q,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Reference to a queue.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
+//   queueAttributes := &queueAttributes{
+//   	queueArn: jsii.String("queueArn"),
 //
+//   	// the properties below are optional
+//   	fifo: jsii.Boolean(false),
+//   	keyArn: jsii.String("keyArn"),
+//   	queueName: jsii.String("queueName"),
+//   	queueUrl: jsii.String("queueUrl"),
+//   }
+//
+// Experimental.
 type QueueAttributes struct {
 	// The ARN of the queue.
+	// Experimental.
 	QueueArn *string `json:"queueArn" yaml:"queueArn"`
 	// Whether this queue is an Amazon SQS FIFO queue. If false, this is a standard queue.
 	//
 	// In case of a FIFO queue which is imported from a token, this value has to be explicitly set to true.
+	// Experimental.
 	Fifo *bool `json:"fifo" yaml:"fifo"`
 	// KMS encryption key, if this queue is server-side encrypted by a KMS key.
+	// Experimental.
 	KeyArn *string `json:"keyArn" yaml:"keyArn"`
 	// The name of the queue.
+	// Experimental.
 	QueueName *string `json:"queueName" yaml:"queueName"`
 	// The URL of the queue.
 	// See: https://docs.aws.amazon.com/sdk-for-net/v2/developer-guide/QueueURL.html
 	//
+	// Experimental.
 	QueueUrl *string `json:"queueUrl" yaml:"queueUrl"`
 }
 
 // Reference to a new or existing Amazon SQS queue.
+// Experimental.
 type QueueBase interface {
 	awscdk.Resource
 	IQueue
+	// Controls automatic creation of policy objects.
+	//
+	// Set by subclasses.
+	// Experimental.
 	AutoCreatePolicy() *bool
+	// If this queue is server-side encrypted, this is the KMS encryption key.
+	// Experimental.
 	EncryptionMasterKey() awskms.IKey
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
+	// Whether this queue is an Amazon SQS FIFO queue.
+	//
+	// If false, this is a standard queue.
+	// Experimental.
 	Fifo() *bool
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
+	// The ARN of this queue.
+	// Experimental.
 	QueueArn() *string
+	// The name of this queue.
+	// Experimental.
 	QueueName() *string
+	// The URL of this queue.
+	// Experimental.
 	QueueUrl() *string
+	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
+	// Adds a statement to the IAM resource policy associated with this queue.
+	//
+	// If this queue was created in this stack (`new Queue`), a queue policy
+	// will be automatically created upon the first call to `addToPolicy`. If
+	// the queue is imported (`Queue.import`), then this is a no-op.
+	// Experimental.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
 	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Grant the actions defined in queueActions to the identity Principal given on this SQS queue resource.
+	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
+	// Grant permissions to consume messages from a queue.
+	//
+	// This will grant the following permissions:
+	//
+	//    - sqs:ChangeMessageVisibility
+	//    - sqs:DeleteMessage
+	//    - sqs:ReceiveMessage
+	//    - sqs:GetQueueAttributes
+	// - sqs:GetQueueUrl.
+	// Experimental.
 	GrantConsumeMessages(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant an IAM principal permissions to purge all messages from the queue.
+	//
+	// This will grant the following permissions:
+	//
+	//   - sqs:PurgeQueue
+	//   - sqs:GetQueueAttributes
+	// - sqs:GetQueueUrl.
+	// Experimental.
 	GrantPurge(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant access to send messages to a queue to the given identity.
+	//
+	// This will grant the following permissions:
+	//
+	//   - sqs:SendMessage
+	//   - sqs:GetQueueAttributes
+	// - sqs:GetQueueUrl.
+	// Experimental.
 	GrantSendMessages(grantee awsiam.IGrantable) awsiam.Grant
+	// Return the given named metric for this Queue.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The approximate age of the oldest non-deleted message in the queue.
+	//
+	// Maximum over 5 minutes.
+	// Experimental.
 	MetricApproximateAgeOfOldestMessage(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of messages in the queue that are delayed and not available for reading immediately.
+	//
+	// Maximum over 5 minutes.
+	// Experimental.
 	MetricApproximateNumberOfMessagesDelayed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of messages that are in flight.
+	//
+	// Maximum over 5 minutes.
+	// Experimental.
 	MetricApproximateNumberOfMessagesNotVisible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of messages available for retrieval from the queue.
+	//
+	// Maximum over 5 minutes.
+	// Experimental.
 	MetricApproximateNumberOfMessagesVisible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of ReceiveMessage API calls that did not return a message.
+	//
+	// Sum over 5 minutes.
+	// Experimental.
 	MetricNumberOfEmptyReceives(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of messages deleted from the queue.
+	//
+	// Sum over 5 minutes.
+	// Experimental.
 	MetricNumberOfMessagesDeleted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of messages returned by calls to the ReceiveMessage action.
+	//
+	// Sum over 5 minutes.
+	// Experimental.
 	MetricNumberOfMessagesReceived(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of messages added to a queue.
+	//
+	// Sum over 5 minutes.
+	// Experimental.
 	MetricNumberOfMessagesSent(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The size of messages added to a queue.
+	//
+	// Average over 5 minutes.
+	// Experimental.
 	MetricSentMessageSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for QueueBase
@@ -2494,8 +3384,8 @@ func (j *jsiiProxy_QueueBase) Fifo() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_QueueBase) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_QueueBase) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2555,27 +3445,26 @@ func (j *jsiiProxy_QueueBase) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewQueueBase_Override(q QueueBase, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sqs.QueueBase",
+		"monocdk.aws_sqs.QueueBase",
 		[]interface{}{scope, id, props},
 		q,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func QueueBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.QueueBase",
+		"monocdk.aws_sqs.QueueBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2585,13 +3474,14 @@ func QueueBase_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func QueueBase_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func QueueBase_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.QueueBase",
+		"monocdk.aws_sqs.QueueBase",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -2600,11 +3490,6 @@ func QueueBase_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Adds a statement to the IAM resource policy associated with this queue.
-//
-// If this queue was created in this stack (`new Queue`), a queue policy
-// will be automatically created upon the first call to `addToPolicy`. If
-// the queue is imported (`Queue.import`), then this is a no-op.
 func (q *jsiiProxy_QueueBase) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
 	var returns *awsiam.AddToResourcePolicyResult
 
@@ -2618,15 +3503,6 @@ func (q *jsiiProxy_QueueBase) AddToResourcePolicy(statement awsiam.PolicyStateme
 	return returns
 }
 
-// Apply the given removal policy to this resource.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (q *jsiiProxy_QueueBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		q,
@@ -2648,12 +3524,6 @@ func (q *jsiiProxy_QueueBase) GeneratePhysicalName() *string {
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
-//
-// Normally, this token will resolve to `arnAttr`, but if the resource is
-// referenced across environments, `arnComponents` will be used to synthesize
-// a concrete ARN with the resource's physical name. Make sure to reference
-// `this.physicalName` in `arnComponents`.
 func (q *jsiiProxy_QueueBase) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -2667,11 +3537,6 @@ func (q *jsiiProxy_QueueBase) GetResourceArnAttribute(arnAttr *string, arnCompon
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
-//
-// Normally, this token will resolve to `nameAttr`, but if the resource is
-// referenced across environments, it will be resolved to `this.physicalName`,
-// which will be a concrete name.
 func (q *jsiiProxy_QueueBase) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -2685,7 +3550,6 @@ func (q *jsiiProxy_QueueBase) GetResourceNameAttribute(nameAttr *string) *string
 	return returns
 }
 
-// Grant the actions defined in queueActions to the identity Principal given on this SQS queue resource.
 func (q *jsiiProxy_QueueBase) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
 	args := []interface{}{grantee}
 	for _, a := range actions {
@@ -2704,15 +3568,6 @@ func (q *jsiiProxy_QueueBase) Grant(grantee awsiam.IGrantable, actions ...*strin
 	return returns
 }
 
-// Grant permissions to consume messages from a queue.
-//
-// This will grant the following permissions:
-//
-//    - sqs:ChangeMessageVisibility
-//    - sqs:DeleteMessage
-//    - sqs:ReceiveMessage
-//    - sqs:GetQueueAttributes
-//    - sqs:GetQueueUrl
 func (q *jsiiProxy_QueueBase) GrantConsumeMessages(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2726,13 +3581,6 @@ func (q *jsiiProxy_QueueBase) GrantConsumeMessages(grantee awsiam.IGrantable) aw
 	return returns
 }
 
-// Grant an IAM principal permissions to purge all messages from the queue.
-//
-// This will grant the following permissions:
-//
-//   - sqs:PurgeQueue
-//   - sqs:GetQueueAttributes
-//   - sqs:GetQueueUrl
 func (q *jsiiProxy_QueueBase) GrantPurge(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2746,13 +3594,6 @@ func (q *jsiiProxy_QueueBase) GrantPurge(grantee awsiam.IGrantable) awsiam.Grant
 	return returns
 }
 
-// Grant access to send messages to a queue to the given identity.
-//
-// This will grant the following permissions:
-//
-//   - sqs:SendMessage
-//   - sqs:GetQueueAttributes
-//   - sqs:GetQueueUrl
 func (q *jsiiProxy_QueueBase) GrantSendMessages(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2766,7 +3607,6 @@ func (q *jsiiProxy_QueueBase) GrantSendMessages(grantee awsiam.IGrantable) awsia
 	return returns
 }
 
-// Return the given named metric for this Queue.
 func (q *jsiiProxy_QueueBase) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2780,9 +3620,6 @@ func (q *jsiiProxy_QueueBase) Metric(metricName *string, props *awscloudwatch.Me
 	return returns
 }
 
-// The approximate age of the oldest non-deleted message in the queue.
-//
-// Maximum over 5 minutes
 func (q *jsiiProxy_QueueBase) MetricApproximateAgeOfOldestMessage(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2796,9 +3633,6 @@ func (q *jsiiProxy_QueueBase) MetricApproximateAgeOfOldestMessage(props *awsclou
 	return returns
 }
 
-// The number of messages in the queue that are delayed and not available for reading immediately.
-//
-// Maximum over 5 minutes
 func (q *jsiiProxy_QueueBase) MetricApproximateNumberOfMessagesDelayed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2812,9 +3646,6 @@ func (q *jsiiProxy_QueueBase) MetricApproximateNumberOfMessagesDelayed(props *aw
 	return returns
 }
 
-// The number of messages that are in flight.
-//
-// Maximum over 5 minutes
 func (q *jsiiProxy_QueueBase) MetricApproximateNumberOfMessagesNotVisible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2828,9 +3659,6 @@ func (q *jsiiProxy_QueueBase) MetricApproximateNumberOfMessagesNotVisible(props 
 	return returns
 }
 
-// The number of messages available for retrieval from the queue.
-//
-// Maximum over 5 minutes
 func (q *jsiiProxy_QueueBase) MetricApproximateNumberOfMessagesVisible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2844,9 +3672,6 @@ func (q *jsiiProxy_QueueBase) MetricApproximateNumberOfMessagesVisible(props *aw
 	return returns
 }
 
-// The number of ReceiveMessage API calls that did not return a message.
-//
-// Sum over 5 minutes
 func (q *jsiiProxy_QueueBase) MetricNumberOfEmptyReceives(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2860,9 +3685,6 @@ func (q *jsiiProxy_QueueBase) MetricNumberOfEmptyReceives(props *awscloudwatch.M
 	return returns
 }
 
-// The number of messages deleted from the queue.
-//
-// Sum over 5 minutes
 func (q *jsiiProxy_QueueBase) MetricNumberOfMessagesDeleted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2876,9 +3698,6 @@ func (q *jsiiProxy_QueueBase) MetricNumberOfMessagesDeleted(props *awscloudwatch
 	return returns
 }
 
-// The number of messages returned by calls to the ReceiveMessage action.
-//
-// Sum over 5 minutes
 func (q *jsiiProxy_QueueBase) MetricNumberOfMessagesReceived(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2892,9 +3711,6 @@ func (q *jsiiProxy_QueueBase) MetricNumberOfMessagesReceived(props *awscloudwatc
 	return returns
 }
 
-// The number of messages added to a queue.
-//
-// Sum over 5 minutes
 func (q *jsiiProxy_QueueBase) MetricNumberOfMessagesSent(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2908,9 +3724,6 @@ func (q *jsiiProxy_QueueBase) MetricNumberOfMessagesSent(props *awscloudwatch.Me
 	return returns
 }
 
-// The size of messages added to a queue.
-//
-// Average over 5 minutes
 func (q *jsiiProxy_QueueBase) MetricSentMessageSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2924,7 +3737,51 @@ func (q *jsiiProxy_QueueBase) MetricSentMessageSize(props *awscloudwatch.MetricO
 	return returns
 }
 
-// Returns a string representation of this construct.
+func (q *jsiiProxy_QueueBase) OnPrepare() {
+	_jsii_.InvokeVoid(
+		q,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (q *jsiiProxy_QueueBase) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		q,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (q *jsiiProxy_QueueBase) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		q,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (q *jsiiProxy_QueueBase) Prepare() {
+	_jsii_.InvokeVoid(
+		q,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (q *jsiiProxy_QueueBase) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		q,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (q *jsiiProxy_QueueBase) ToString() *string {
 	var returns *string
 
@@ -2938,15 +3795,50 @@ func (q *jsiiProxy_QueueBase) ToString() *string {
 	return returns
 }
 
+func (q *jsiiProxy_QueueBase) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		q,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // What kind of encryption to apply to this queue.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Use managed key
+//   // Use managed key
+//   sqs.NewQueue(this, jsii.String("Queue"), &queueProps{
+//   	encryption: sqs.queueEncryption_KMS_MANAGED,
+//   })
 //
+//   // Use custom key
+//   myKey := kms.NewKey(this, jsii.String("Key"))
+//
+//   sqs.NewQueue(this, jsii.String("Queue"), &queueProps{
+//   	encryption: sqs.*queueEncryption_KMS,
+//   	encryptionMasterKey: myKey,
+//   })
+//
+// Experimental.
 type QueueEncryption string
 
 const (
+	// Messages in the queue are not encrypted.
+	// Experimental.
 	QueueEncryption_UNENCRYPTED QueueEncryption = "UNENCRYPTED"
+	// Server-side KMS encryption with a master key managed by SQS.
+	// Experimental.
 	QueueEncryption_KMS_MANAGED QueueEncryption = "KMS_MANAGED"
+	// Server-side encryption with a KMS key managed by the user.
+	//
+	// If `encryptionKey` is specified, this key will be used, otherwise, one will be defined.
+	// Experimental.
 	QueueEncryption_KMS QueueEncryption = "KMS"
 )
 
@@ -2963,21 +3855,129 @@ const (
 //
 // Prefer to use `addToResourcePolicy()` instead.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
 //
+//   var queue queue
+//   queuePolicy := sqs.NewQueuePolicy(this, jsii.String("MyQueuePolicy"), &queuePolicyProps{
+//   	queues: []iQueue{
+//   		queue,
+//   	},
+//   })
+//
+// Experimental.
 type QueuePolicy interface {
 	awscdk.Resource
+	// The IAM policy document for this policy.
+	// Experimental.
 	Document() awsiam.PolicyDocument
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
+	// Not currently supported by AWS CloudFormation.
+	// Experimental.
 	QueuePolicyId() *string
+	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
 	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for QueuePolicy
@@ -3005,8 +4005,8 @@ func (j *jsiiProxy_QueuePolicy) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_QueuePolicy) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_QueuePolicy) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3046,13 +4046,14 @@ func (j *jsiiProxy_QueuePolicy) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewQueuePolicy(scope constructs.Construct, id *string, props *QueuePolicyProps) QueuePolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_QueuePolicy{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sqs.QueuePolicy",
+		"monocdk.aws_sqs.QueuePolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3060,27 +4061,26 @@ func NewQueuePolicy(scope constructs.Construct, id *string, props *QueuePolicyPr
 	return &j
 }
 
+// Experimental.
 func NewQueuePolicy_Override(q QueuePolicy, scope constructs.Construct, id *string, props *QueuePolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sqs.QueuePolicy",
+		"monocdk.aws_sqs.QueuePolicy",
 		[]interface{}{scope, id, props},
 		q,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func QueuePolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.QueuePolicy",
+		"monocdk.aws_sqs.QueuePolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3090,13 +4090,14 @@ func QueuePolicy_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func QueuePolicy_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func QueuePolicy_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.QueuePolicy",
+		"monocdk.aws_sqs.QueuePolicy",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -3105,15 +4106,6 @@ func QueuePolicy_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Apply the given removal policy to this resource.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (q *jsiiProxy_QueuePolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		q,
@@ -3135,12 +4127,6 @@ func (q *jsiiProxy_QueuePolicy) GeneratePhysicalName() *string {
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
-//
-// Normally, this token will resolve to `arnAttr`, but if the resource is
-// referenced across environments, `arnComponents` will be used to synthesize
-// a concrete ARN with the resource's physical name. Make sure to reference
-// `this.physicalName` in `arnComponents`.
 func (q *jsiiProxy_QueuePolicy) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -3154,11 +4140,6 @@ func (q *jsiiProxy_QueuePolicy) GetResourceArnAttribute(arnAttr *string, arnComp
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
-//
-// Normally, this token will resolve to `nameAttr`, but if the resource is
-// referenced across environments, it will be resolved to `this.physicalName`,
-// which will be a concrete name.
 func (q *jsiiProxy_QueuePolicy) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -3172,7 +4153,51 @@ func (q *jsiiProxy_QueuePolicy) GetResourceNameAttribute(nameAttr *string) *stri
 	return returns
 }
 
-// Returns a string representation of this construct.
+func (q *jsiiProxy_QueuePolicy) OnPrepare() {
+	_jsii_.InvokeVoid(
+		q,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (q *jsiiProxy_QueuePolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		q,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (q *jsiiProxy_QueuePolicy) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		q,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (q *jsiiProxy_QueuePolicy) Prepare() {
+	_jsii_.InvokeVoid(
+		q,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (q *jsiiProxy_QueuePolicy) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		q,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (q *jsiiProxy_QueuePolicy) ToString() *string {
 	var returns *string
 
@@ -3186,19 +4211,56 @@ func (q *jsiiProxy_QueuePolicy) ToString() *string {
 	return returns
 }
 
+func (q *jsiiProxy_QueuePolicy) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		q,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties to associate SQS queues with a policy.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
 //
+//   var queue queue
+//   queuePolicyProps := &queuePolicyProps{
+//   	queues: []iQueue{
+//   		queue,
+//   	},
+//   }
+//
+// Experimental.
 type QueuePolicyProps struct {
 	// The set of queues this policy applies to.
+	// Experimental.
 	Queues *[]IQueue `json:"queues" yaml:"queues"`
 }
 
 // Properties for creating a new Queue.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Use managed key
+//   // Use managed key
+//   sqs.NewQueue(this, jsii.String("Queue"), &queueProps{
+//   	encryption: sqs.queueEncryption_KMS_MANAGED,
+//   })
 //
+//   // Use custom key
+//   myKey := kms.NewKey(this, jsii.String("Key"))
+//
+//   sqs.NewQueue(this, jsii.String("Queue"), &queueProps{
+//   	encryption: sqs.*queueEncryption_KMS,
+//   	encryptionMasterKey: myKey,
+//   })
+//
+// Experimental.
 type QueueProps struct {
 	// Specifies whether to enable content-based deduplication.
 	//
@@ -3210,27 +4272,33 @@ type QueueProps struct {
 	// messages, provide an explicit deduplication ID in your SendMessage() call.
 	//
 	// (Only applies to FIFO queues.)
+	// Experimental.
 	ContentBasedDeduplication *bool `json:"contentBasedDeduplication" yaml:"contentBasedDeduplication"`
 	// The length of time that Amazon SQS reuses a data key before calling KMS again.
 	//
 	// The value must be an integer between 60 (1 minute) and 86,400 (24
 	// hours). The default is 300 (5 minutes).
+	// Experimental.
 	DataKeyReuse awscdk.Duration `json:"dataKeyReuse" yaml:"dataKeyReuse"`
 	// Send messages to this queue if they were unsuccessfully dequeued a number of times.
+	// Experimental.
 	DeadLetterQueue *DeadLetterQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// For high throughput for FIFO queues, specifies whether message deduplication occurs at the message group or queue level.
 	//
 	// (Only applies to FIFO queues.)
+	// Experimental.
 	DeduplicationScope DeduplicationScope `json:"deduplicationScope" yaml:"deduplicationScope"`
 	// The time in seconds that the delivery of all messages in the queue is delayed.
 	//
 	// You can specify an integer value of 0 to 900 (15 minutes). The default
 	// value is 0.
+	// Experimental.
 	DeliveryDelay awscdk.Duration `json:"deliveryDelay" yaml:"deliveryDelay"`
 	// Whether the contents of the queue are encrypted, and by what type of key.
 	//
 	// Be aware that encryption is not available in all regions, please see the docs
 	// for current availability details.
+	// Experimental.
 	Encryption QueueEncryption `json:"encryption" yaml:"encryption"`
 	// External KMS master key to use for queue encryption.
 	//
@@ -3240,21 +4308,26 @@ type QueueProps struct {
 	//
 	// If the 'encryptionMasterKey' property is set, 'encryption' type will be
 	// implicitly set to "KMS".
+	// Experimental.
 	EncryptionMasterKey awskms.IKey `json:"encryptionMasterKey" yaml:"encryptionMasterKey"`
 	// Whether this a first-in-first-out (FIFO) queue.
+	// Experimental.
 	Fifo *bool `json:"fifo" yaml:"fifo"`
 	// For high throughput for FIFO queues, specifies whether the FIFO queue throughput quota applies to the entire queue or per message group.
 	//
 	// (Only applies to FIFO queues.)
+	// Experimental.
 	FifoThroughputLimit FifoThroughputLimit `json:"fifoThroughputLimit" yaml:"fifoThroughputLimit"`
 	// The limit of how many bytes that a message can contain before Amazon SQS rejects it.
 	//
 	// You can specify an integer value from 1024 bytes (1 KiB) to 262144 bytes
 	// (256 KiB). The default value is 262144 (256 KiB).
+	// Experimental.
 	MaxMessageSizeBytes *float64 `json:"maxMessageSizeBytes" yaml:"maxMessageSizeBytes"`
 	// A name for the queue.
 	//
 	// If specified and this is a FIFO queue, must end in the string '.fifo'.
+	// Experimental.
 	QueueName *string `json:"queueName" yaml:"queueName"`
 	// Default wait time for ReceiveMessage calls.
 	//
@@ -3262,18 +4335,21 @@ type QueueProps struct {
 	// by default for messages to arrive.
 	//
 	// For more information, see Amazon SQS Long Poll.
+	// Experimental.
 	ReceiveMessageWaitTime awscdk.Duration `json:"receiveMessageWaitTime" yaml:"receiveMessageWaitTime"`
-	// Policy to apply when the user pool is removed from the stack.
+	// Policy to apply when the queue is removed from the stack.
 	//
 	// Even though queues are technically stateful, their contents are transient and it
 	// is common to add and remove Queues while rearchitecting your application. The
 	// default is therefore `DESTROY`. Change it to `RETAIN` if the messages are so
 	// valuable that accidentally losing them would be unacceptable.
+	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// The number of seconds that Amazon SQS retains a message.
 	//
 	// You can specify an integer value from 60 seconds (1 minute) to 1209600
 	// seconds (14 days). The default value is 345600 seconds (4 days).
+	// Experimental.
 	RetentionPeriod awscdk.Duration `json:"retentionPeriod" yaml:"retentionPeriod"`
 	// Timeout of processing a single message.
 	//
@@ -3283,6 +4359,7 @@ type QueueProps struct {
 	//
 	// Values must be from 0 to 43200 seconds (12 hours). If you don't specify
 	// a value, AWS CloudFormation uses the default value of 30 seconds.
+	// Experimental.
 	VisibilityTimeout awscdk.Duration `json:"visibilityTimeout" yaml:"visibilityTimeout"`
 }
 

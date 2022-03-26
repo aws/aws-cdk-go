@@ -1,36 +1,51 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecrassets"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancing"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsssm"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/assets"
+	"github.com/aws/aws-cdk-go/awscdk/awsapplicationautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/awsautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/awsecrassets"
+	"github.com/aws/aws-cdk-go/awscdk/awsecs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancing"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
+	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
+	"github.com/aws/aws-cdk-go/awscdk/awsservicediscovery"
+	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/awsssm"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // The properties for adding an AutoScalingGroup.
 //
-// TODO: EXAMPLE
+// Example:
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"
 //
+//   var duration duration
+//   var key key
+//   addAutoScalingGroupCapacityOptions := &addAutoScalingGroupCapacityOptions{
+//   	canContainersAccessInstanceRole: jsii.Boolean(false),
+//   	machineImageType: ecs.machineImageType_AMAZON_LINUX_2,
+//   	spotInstanceDraining: jsii.Boolean(false),
+//   	taskDrainTime: duration,
+//   	topicEncryptionKey: key,
+//   }
+//
+// Experimental.
 type AddAutoScalingGroupCapacityOptions struct {
 	// Specifies whether the containers can access the container instance role.
+	// Experimental.
 	CanContainersAccessInstanceRole *bool `json:"canContainersAccessInstanceRole" yaml:"canContainersAccessInstanceRole"`
 	// What type of machine image this is.
 	//
@@ -41,21 +56,58 @@ type AddAutoScalingGroupCapacityOptions struct {
 	// `addAutoScalingGroup()`, you must specify this value. If you are adding an
 	// `autoScalingGroup` via `addCapacity`, this value will be determined
 	// from the `machineImage` you pass.
+	// Experimental.
 	MachineImageType MachineImageType `json:"machineImageType" yaml:"machineImageType"`
 	// Specify whether to enable Automated Draining for Spot Instances running Amazon ECS Services.
 	//
 	// For more information, see [Using Spot Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-spot.html).
+	// Experimental.
 	SpotInstanceDraining *bool `json:"spotInstanceDraining" yaml:"spotInstanceDraining"`
+	// The time period to wait before force terminating an instance that is draining.
+	//
+	// This creates a Lambda function that is used by a lifecycle hook for the
+	// AutoScalingGroup that will delay instance termination until all ECS tasks
+	// have drained from the instance. Set to 0 to disable task draining.
+	//
+	// Set to 0 to disable task draining.
+	// Deprecated: The lifecycle draining hook is not configured if using the EC2 Capacity Provider. Enable managed termination protection instead.
+	TaskDrainTime awscdk.Duration `json:"taskDrainTime" yaml:"taskDrainTime"`
 	// If {@link AddAutoScalingGroupCapacityOptions.taskDrainTime} is non-zero, then the ECS cluster creates an SNS Topic to as part of a system to drain instances of tasks when the instance is being shut down. If this property is provided, then this key will be used to encrypt the contents of that SNS Topic. See [SNS Data Encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-data-encryption.html) for more information.
+	// Experimental.
 	TopicEncryptionKey awskms.IKey `json:"topicEncryptionKey" yaml:"topicEncryptionKey"`
 }
 
 // The properties for adding instance capacity to an AutoScalingGroup.
 //
-// TODO: EXAMPLE
+// Example:
+//   var vpc vpc
 //
+//   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
+//   	vpc: vpc,
+//   })
+//
+//   // Either add default capacity
+//   cluster.addCapacity(jsii.String("DefaultAutoScalingGroupCapacity"), &addCapacityOptions{
+//   	instanceType: ec2.NewInstanceType(jsii.String("t2.xlarge")),
+//   	desiredCapacity: jsii.Number(3),
+//   })
+//
+//   // Or add customized capacity. Be sure to start the Amazon ECS-optimized AMI.
+//   autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
+//   	vpc: vpc,
+//   	instanceType: ec2.NewInstanceType(jsii.String("t2.xlarge")),
+//   	machineImage: ecs.ecsOptimizedImage.amazonLinux(),
+//   	// Or use Amazon ECS-Optimized Amazon Linux 2 AMI
+//   	// machineImage: EcsOptimizedImage.amazonLinux2(),
+//   	desiredCapacity: jsii.Number(3),
+//   })
+//
+//   cluster.addAutoScalingGroup(autoScalingGroup)
+//
+// Experimental.
 type AddCapacityOptions struct {
 	// Specifies whether the containers can access the container instance role.
+	// Experimental.
 	CanContainersAccessInstanceRole *bool `json:"canContainersAccessInstanceRole" yaml:"canContainersAccessInstanceRole"`
 	// What type of machine image this is.
 	//
@@ -66,20 +118,35 @@ type AddCapacityOptions struct {
 	// `addAutoScalingGroup()`, you must specify this value. If you are adding an
 	// `autoScalingGroup` via `addCapacity`, this value will be determined
 	// from the `machineImage` you pass.
+	// Experimental.
 	MachineImageType MachineImageType `json:"machineImageType" yaml:"machineImageType"`
 	// Specify whether to enable Automated Draining for Spot Instances running Amazon ECS Services.
 	//
 	// For more information, see [Using Spot Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-spot.html).
+	// Experimental.
 	SpotInstanceDraining *bool `json:"spotInstanceDraining" yaml:"spotInstanceDraining"`
+	// The time period to wait before force terminating an instance that is draining.
+	//
+	// This creates a Lambda function that is used by a lifecycle hook for the
+	// AutoScalingGroup that will delay instance termination until all ECS tasks
+	// have drained from the instance. Set to 0 to disable task draining.
+	//
+	// Set to 0 to disable task draining.
+	// Deprecated: The lifecycle draining hook is not configured if using the EC2 Capacity Provider. Enable managed termination protection instead.
+	TaskDrainTime awscdk.Duration `json:"taskDrainTime" yaml:"taskDrainTime"`
 	// If {@link AddAutoScalingGroupCapacityOptions.taskDrainTime} is non-zero, then the ECS cluster creates an SNS Topic to as part of a system to drain instances of tasks when the instance is being shut down. If this property is provided, then this key will be used to encrypt the contents of that SNS Topic. See [SNS Data Encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-data-encryption.html) for more information.
+	// Experimental.
 	TopicEncryptionKey awskms.IKey `json:"topicEncryptionKey" yaml:"topicEncryptionKey"`
 	// Whether the instances can initiate connections to anywhere by default.
+	// Experimental.
 	AllowAllOutbound *bool `json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// Whether instances in the Auto Scaling Group should have public IP addresses associated with them.
+	// Experimental.
 	AssociatePublicIpAddress *bool `json:"associatePublicIpAddress" yaml:"associatePublicIpAddress"`
 	// The name of the Auto Scaling group.
 	//
 	// This name must be unique per Region per account.
+	// Experimental.
 	AutoScalingGroupName *string `json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
 	// Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
 	//
@@ -89,8 +156,10 @@ type AddCapacityOptions struct {
 	// instance store volumes to attach to an instance when it is launched.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html
 	//
+	// Experimental.
 	BlockDevices *[]*awsautoscaling.BlockDevice `json:"blockDevices" yaml:"blockDevices"`
 	// Default scaling cooldown for this AutoScalingGroup.
+	// Experimental.
 	Cooldown awscdk.Duration `json:"cooldown" yaml:"cooldown"`
 	// Initial amount of instances in the fleet.
 	//
@@ -98,13 +167,16 @@ type AddCapacityOptions struct {
 	// instances to this number. It is recommended to leave this value blank.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-desiredcapacity
 	//
+	// Experimental.
 	DesiredCapacity *float64 `json:"desiredCapacity" yaml:"desiredCapacity"`
 	// Enable monitoring for group metrics, these metrics describe the group rather than any of its instances.
 	//
 	// To report all group metrics use `GroupMetrics.all()`
 	// Group metrics are reported in a granularity of 1 minute at no additional charge.
+	// Experimental.
 	GroupMetrics *[]awsautoscaling.GroupMetrics `json:"groupMetrics" yaml:"groupMetrics"`
 	// Configuration for health checks.
+	// Experimental.
 	HealthCheck awsautoscaling.HealthCheck `json:"healthCheck" yaml:"healthCheck"`
 	// If the ASG has scheduled actions, don't reset unchanged group sizes.
 	//
@@ -113,6 +185,7 @@ type AddCapacityOptions struct {
 	// will only be reset if it has been changed in the CDK app. If false, the
 	// sizes will always be changed back to what they were in the CDK app
 	// on deployment.
+	// Experimental.
 	IgnoreUnmodifiedSizeProperties *bool `json:"ignoreUnmodifiedSizeProperties" yaml:"ignoreUnmodifiedSizeProperties"`
 	// Controls whether instances in this group are launched with detailed or basic monitoring.
 	//
@@ -120,10 +193,13 @@ type AddCapacityOptions struct {
 	// is charged a fee. When you disable detailed monitoring, CloudWatch generates metrics every 5 minutes.
 	// See: https://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-monitoring.html#enable-as-instance-metrics
 	//
+	// Experimental.
 	InstanceMonitoring awsautoscaling.Monitoring `json:"instanceMonitoring" yaml:"instanceMonitoring"`
 	// Name of SSH keypair to grant access to instances.
+	// Experimental.
 	KeyName *string `json:"keyName" yaml:"keyName"`
 	// Maximum number of instances in the fleet.
+	// Experimental.
 	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// The maximum amount of time that an instance can be in service.
 	//
@@ -135,8 +211,10 @@ type AddCapacityOptions struct {
 	// leave this property undefined.
 	// See: https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html
 	//
+	// Experimental.
 	MaxInstanceLifetime awscdk.Duration `json:"maxInstanceLifetime" yaml:"maxInstanceLifetime"`
 	// Minimum number of instances in the fleet.
+	// Experimental.
 	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
 	// Whether newly-launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in.
 	//
@@ -148,11 +226,35 @@ type AddCapacityOptions struct {
 	//
 	// This flag must be enabled if the Auto Scaling Group will be associated with
 	// an ECS Capacity Provider with managed termination protection.
+	// Experimental.
 	NewInstancesProtectedFromScaleIn *bool `json:"newInstancesProtectedFromScaleIn" yaml:"newInstancesProtectedFromScaleIn"`
 	// Configure autoscaling group to send notifications about fleet changes to an SNS topic(s).
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-notificationconfigurations
 	//
+	// Experimental.
 	Notifications *[]*awsautoscaling.NotificationConfiguration `json:"notifications" yaml:"notifications"`
+	// SNS topic to send notifications about fleet changes.
+	// Deprecated: use `notifications`.
+	NotificationsTopic awssns.ITopic `json:"notificationsTopic" yaml:"notificationsTopic"`
+	// Configuration for replacing updates.
+	//
+	// Only used if updateType == UpdateType.ReplacingUpdate. Specifies how
+	// many instances must signal success for the update to succeed.
+	// Deprecated: Use `signals` instead.
+	ReplacingUpdateMinSuccessfulInstancesPercent *float64 `json:"replacingUpdateMinSuccessfulInstancesPercent" yaml:"replacingUpdateMinSuccessfulInstancesPercent"`
+	// How many ResourceSignal calls CloudFormation expects before the resource is considered created.
+	// Deprecated: Use `signals` instead.
+	ResourceSignalCount *float64 `json:"resourceSignalCount" yaml:"resourceSignalCount"`
+	// The length of time to wait for the resourceSignalCount.
+	//
+	// The maximum value is 43200 (12 hours).
+	// Deprecated: Use `signals` instead.
+	ResourceSignalTimeout awscdk.Duration `json:"resourceSignalTimeout" yaml:"resourceSignalTimeout"`
+	// Configuration for rolling updates.
+	//
+	// Only used if updateType == UpdateType.RollingUpdate.
+	// Deprecated: Use `updatePolicy` instead.
+	RollingUpdateConfiguration *awsautoscaling.RollingUpdateConfiguration `json:"rollingUpdateConfiguration" yaml:"rollingUpdateConfiguration"`
 	// Configure waiting for signals during deployment.
 	//
 	// Use this to pause the CloudFormation deployment to wait for the instances
@@ -170,17 +272,20 @@ type AddCapacityOptions struct {
 	// command in the Auto Scaling rolling updates sample template:
 	//
 	// https://github.com/awslabs/aws-cloudformation-templates/blob/master/aws/services/AutoScaling/AutoScalingRollingUpdates.yaml
+	// Experimental.
 	Signals awsautoscaling.Signals `json:"signals" yaml:"signals"`
 	// The maximum hourly price (in USD) to be paid for any Spot Instance launched to fulfill the request.
 	//
 	// Spot Instances are
 	// launched when the price you specify exceeds the current Spot market price.
+	// Experimental.
 	SpotPrice *string `json:"spotPrice" yaml:"spotPrice"`
 	// A policy or a list of policies that are used to select the instances to terminate.
 	//
 	// The policies are executed in the order that you list them.
 	// See: https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html
 	//
+	// Experimental.
 	TerminationPolicies *[]awsautoscaling.TerminationPolicy `json:"terminationPolicies" yaml:"terminationPolicies"`
 	// What to do when an AutoScalingGroup's instance configuration is changed.
 	//
@@ -189,10 +294,22 @@ type AddCapacityOptions struct {
 	// scripts, etc.). It indicates how the existing instances should be
 	// replaced with new instances matching the new config. By default, nothing
 	// is done and only new instances are launched with the new config.
+	// Experimental.
 	UpdatePolicy awsautoscaling.UpdatePolicy `json:"updatePolicy" yaml:"updatePolicy"`
+	// What to do when an AutoScalingGroup's instance configuration is changed.
+	//
+	// This is applied when any of the settings on the ASG are changed that
+	// affect how the instances should be created (VPC, instance type, startup
+	// scripts, etc.). It indicates how the existing instances should be
+	// replaced with new instances matching the new config. By default, nothing
+	// is done and only new instances are launched with the new config.
+	// Deprecated: Use `updatePolicy` instead.
+	UpdateType awsautoscaling.UpdateType `json:"updateType" yaml:"updateType"`
 	// Where to place instances within the VPC.
+	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The EC2 instance type to use when launching instances into the AutoScalingGroup.
+	// Experimental.
 	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// The ECS-optimized AMI variant to use.
 	//
@@ -213,6 +330,7 @@ type AddCapacityOptions struct {
 	// AMIs](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html).
 	//
 	// You must define either `machineImage` or `machineImageType`, not both.
+	// Experimental.
 	MachineImage awsec2.IMachineImage `json:"machineImage" yaml:"machineImage"`
 }
 
@@ -221,13 +339,27 @@ type AddCapacityOptions struct {
 // For more information, see
 // [Amazon ECS-optimized AMIs](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html).
 //
-// TODO: EXAMPLE
+// Example:
+//   var cluster cluster
 //
+//   cluster.addCapacity(jsii.String("graviton-cluster"), &addCapacityOptions{
+//   	minCapacity: jsii.Number(2),
+//   	instanceType: ec2.NewInstanceType(jsii.String("c6g.large")),
+//   	machineImage: ecs.ecsOptimizedImage.amazonLinux2(ecs.amiHardwareType_ARM),
+//   })
+//
+// Experimental.
 type AmiHardwareType string
 
 const (
+	// Use the standard Amazon ECS-optimized AMI.
+	// Experimental.
 	AmiHardwareType_STANDARD AmiHardwareType = "STANDARD"
+	// Use the Amazon ECS GPU-optimized AMI.
+	// Experimental.
 	AmiHardwareType_GPU AmiHardwareType = "GPU"
+	// Use the Amazon ECS-optimized Amazon Linux 2 (arm64) AMI.
+	// Experimental.
 	AmiHardwareType_ARM AmiHardwareType = "ARM"
 )
 
@@ -240,11 +372,35 @@ const (
 //
 // For tasks using the Fargate launch type, the task or service requires platform version 1.3.0 or later.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   appMeshProxyConfiguration := ecs.NewAppMeshProxyConfiguration(&appMeshProxyConfigurationConfigProps{
+//   	containerName: jsii.String("containerName"),
+//   	properties: &appMeshProxyConfigurationProps{
+//   		appPorts: []*f64{
+//   			jsii.Number(123),
+//   		},
+//   		proxyEgressPort: jsii.Number(123),
+//   		proxyIngressPort: jsii.Number(123),
 //
+//   		// the properties below are optional
+//   		egressIgnoredIPs: []*string{
+//   			jsii.String("egressIgnoredIPs"),
+//   		},
+//   		egressIgnoredPorts: []*f64{
+//   			jsii.Number(123),
+//   		},
+//   		ignoredGID: jsii.Number(123),
+//   		ignoredUID: jsii.Number(123),
+//   	},
+//   })
+//
+// Experimental.
 type AppMeshProxyConfiguration interface {
 	ProxyConfiguration
-	Bind(_scope constructs.Construct, _taskDefinition TaskDefinition) *CfnTaskDefinition_ProxyConfigurationProperty
+	// Called when the proxy configuration is configured on a task definition.
+	// Experimental.
+	Bind(_scope awscdk.Construct, _taskDefinition TaskDefinition) *CfnTaskDefinition_ProxyConfigurationProperty
 }
 
 // The jsii proxy struct for AppMeshProxyConfiguration
@@ -253,13 +409,14 @@ type jsiiProxy_AppMeshProxyConfiguration struct {
 }
 
 // Constructs a new instance of the AppMeshProxyConfiguration class.
+// Experimental.
 func NewAppMeshProxyConfiguration(props *AppMeshProxyConfigurationConfigProps) AppMeshProxyConfiguration {
 	_init_.Initialize()
 
 	j := jsiiProxy_AppMeshProxyConfiguration{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.AppMeshProxyConfiguration",
+		"monocdk.aws_ecs.AppMeshProxyConfiguration",
 		[]interface{}{props},
 		&j,
 	)
@@ -268,18 +425,18 @@ func NewAppMeshProxyConfiguration(props *AppMeshProxyConfigurationConfigProps) A
 }
 
 // Constructs a new instance of the AppMeshProxyConfiguration class.
+// Experimental.
 func NewAppMeshProxyConfiguration_Override(a AppMeshProxyConfiguration, props *AppMeshProxyConfigurationConfigProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.AppMeshProxyConfiguration",
+		"monocdk.aws_ecs.AppMeshProxyConfiguration",
 		[]interface{}{props},
 		a,
 	)
 }
 
-// Called when the proxy configuration is configured on a task definition.
-func (a *jsiiProxy_AppMeshProxyConfiguration) Bind(_scope constructs.Construct, _taskDefinition TaskDefinition) *CfnTaskDefinition_ProxyConfigurationProperty {
+func (a *jsiiProxy_AppMeshProxyConfiguration) Bind(_scope awscdk.Construct, _taskDefinition TaskDefinition) *CfnTaskDefinition_ProxyConfigurationProperty {
 	var returns *CfnTaskDefinition_ProxyConfigurationProperty
 
 	_jsii_.Invoke(
@@ -294,43 +451,93 @@ func (a *jsiiProxy_AppMeshProxyConfiguration) Bind(_scope constructs.Construct, 
 
 // The configuration to use when setting an App Mesh proxy configuration.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   appMeshProxyConfigurationConfigProps := &appMeshProxyConfigurationConfigProps{
+//   	containerName: jsii.String("containerName"),
+//   	properties: &appMeshProxyConfigurationProps{
+//   		appPorts: []*f64{
+//   			jsii.Number(123),
+//   		},
+//   		proxyEgressPort: jsii.Number(123),
+//   		proxyIngressPort: jsii.Number(123),
 //
+//   		// the properties below are optional
+//   		egressIgnoredIPs: []*string{
+//   			jsii.String("egressIgnoredIPs"),
+//   		},
+//   		egressIgnoredPorts: []*f64{
+//   			jsii.Number(123),
+//   		},
+//   		ignoredGID: jsii.Number(123),
+//   		ignoredUID: jsii.Number(123),
+//   	},
+//   }
+//
+// Experimental.
 type AppMeshProxyConfigurationConfigProps struct {
 	// The name of the container that will serve as the App Mesh proxy.
+	// Experimental.
 	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// The set of network configuration parameters to provide the Container Network Interface (CNI) plugin.
+	// Experimental.
 	Properties *AppMeshProxyConfigurationProps `json:"properties" yaml:"properties"`
 }
 
 // Interface for setting the properties of proxy configuration.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   appMeshProxyConfigurationProps := &appMeshProxyConfigurationProps{
+//   	appPorts: []*f64{
+//   		jsii.Number(123),
+//   	},
+//   	proxyEgressPort: jsii.Number(123),
+//   	proxyIngressPort: jsii.Number(123),
 //
+//   	// the properties below are optional
+//   	egressIgnoredIPs: []*string{
+//   		jsii.String("egressIgnoredIPs"),
+//   	},
+//   	egressIgnoredPorts: []*f64{
+//   		jsii.Number(123),
+//   	},
+//   	ignoredGID: jsii.Number(123),
+//   	ignoredUID: jsii.Number(123),
+//   }
+//
+// Experimental.
 type AppMeshProxyConfigurationProps struct {
 	// The list of ports that the application uses.
 	//
 	// Network traffic to these ports is forwarded to the ProxyIngressPort and ProxyEgressPort.
+	// Experimental.
 	AppPorts *[]*float64 `json:"appPorts" yaml:"appPorts"`
 	// Specifies the port that outgoing traffic from the AppPorts is directed to.
+	// Experimental.
 	ProxyEgressPort *float64 `json:"proxyEgressPort" yaml:"proxyEgressPort"`
 	// Specifies the port that incoming traffic to the AppPorts is directed to.
+	// Experimental.
 	ProxyIngressPort *float64 `json:"proxyIngressPort" yaml:"proxyIngressPort"`
 	// The egress traffic going to these specified IP addresses is ignored and not redirected to the ProxyEgressPort.
 	//
 	// It can be an empty list.
+	// Experimental.
 	EgressIgnoredIPs *[]*string `json:"egressIgnoredIPs" yaml:"egressIgnoredIPs"`
 	// The egress traffic going to these specified ports is ignored and not redirected to the ProxyEgressPort.
 	//
 	// It can be an empty list.
+	// Experimental.
 	EgressIgnoredPorts *[]*float64 `json:"egressIgnoredPorts" yaml:"egressIgnoredPorts"`
 	// The group ID (GID) of the proxy container as defined by the user parameter in a container definition.
 	//
 	// This is used to ensure the proxy ignores its own traffic. If IgnoredUID is specified, this field can be empty.
+	// Experimental.
 	IgnoredGID *float64 `json:"ignoredGID" yaml:"ignoredGID"`
 	// The user ID (UID) of the proxy container as defined by the user parameter in a container definition.
 	//
 	// This is used to ensure the proxy ignores its own traffic. If IgnoredGID is specified, this field can be empty.
+	// Experimental.
 	IgnoredUID *float64 `json:"ignoredUID" yaml:"ignoredUID"`
 }
 
@@ -342,21 +549,118 @@ type AppMeshProxyConfigurationProps struct {
 // tasks, and can ensure that instances are not prematurely terminated while
 // there are still tasks running on them.
 //
-// TODO: EXAMPLE
+// Example:
+//   var vpc vpc
 //
+//   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
+//   	vpc: vpc,
+//   })
+//
+//   autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
+//   	vpc: vpc,
+//   	instanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
+//   	machineImage: ecs.ecsOptimizedImage.amazonLinux2(),
+//   	minCapacity: jsii.Number(0),
+//   	maxCapacity: jsii.Number(100),
+//   })
+//
+//   capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &asgCapacityProviderProps{
+//   	autoScalingGroup: autoScalingGroup,
+//   })
+//   cluster.addAsgCapacityProvider(capacityProvider)
+//
+//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+//
+//   taskDefinition.addContainer(jsii.String("web"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	memoryReservationMiB: jsii.Number(256),
+//   })
+//
+//   ecs.NewEc2Service(this, jsii.String("EC2Service"), &ec2ServiceProps{
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   	capacityProviderStrategies: []capacityProviderStrategy{
+//   		&capacityProviderStrategy{
+//   			capacityProvider: capacityProvider.capacityProviderName,
+//   			weight: jsii.Number(1),
+//   		},
+//   	},
+//   })
+//
+// Experimental.
 type AsgCapacityProvider interface {
-	constructs.Construct
+	awscdk.Construct
+	// Auto Scaling Group.
+	// Experimental.
 	AutoScalingGroup() awsautoscaling.AutoScalingGroup
+	// Capacity provider name.
+	// Experimental.
 	CapacityProviderName() *string
+	// Whether managed termination protection is enabled.
+	// Experimental.
 	EnableManagedTerminationProtection() *bool
+	// Auto Scaling Group machineImageType.
+	// Experimental.
 	MachineImageType() MachineImageType
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for AsgCapacityProvider
 type jsiiProxy_AsgCapacityProvider struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
 func (j *jsiiProxy_AsgCapacityProvider) AutoScalingGroup() awsautoscaling.AutoScalingGroup {
@@ -399,8 +703,8 @@ func (j *jsiiProxy_AsgCapacityProvider) MachineImageType() MachineImageType {
 	return returns
 }
 
-func (j *jsiiProxy_AsgCapacityProvider) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_AsgCapacityProvider) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -410,13 +714,14 @@ func (j *jsiiProxy_AsgCapacityProvider) Node() constructs.Node {
 }
 
 
+// Experimental.
 func NewAsgCapacityProvider(scope constructs.Construct, id *string, props *AsgCapacityProviderProps) AsgCapacityProvider {
 	_init_.Initialize()
 
 	j := jsiiProxy_AsgCapacityProvider{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.AsgCapacityProvider",
+		"monocdk.aws_ecs.AsgCapacityProvider",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -424,27 +729,26 @@ func NewAsgCapacityProvider(scope constructs.Construct, id *string, props *AsgCa
 	return &j
 }
 
+// Experimental.
 func NewAsgCapacityProvider_Override(a AsgCapacityProvider, scope constructs.Construct, id *string, props *AsgCapacityProviderProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.AsgCapacityProvider",
+		"monocdk.aws_ecs.AsgCapacityProvider",
 		[]interface{}{scope, id, props},
 		a,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func AsgCapacityProvider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.AsgCapacityProvider",
+		"monocdk.aws_ecs.AsgCapacityProvider",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -453,7 +757,51 @@ func AsgCapacityProvider_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
+func (a *jsiiProxy_AsgCapacityProvider) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (a *jsiiProxy_AsgCapacityProvider) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (a *jsiiProxy_AsgCapacityProvider) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_AsgCapacityProvider) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (a *jsiiProxy_AsgCapacityProvider) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (a *jsiiProxy_AsgCapacityProvider) ToString() *string {
 	var returns *string
 
@@ -467,12 +815,63 @@ func (a *jsiiProxy_AsgCapacityProvider) ToString() *string {
 	return returns
 }
 
+func (a *jsiiProxy_AsgCapacityProvider) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // The options for creating an Auto Scaling Group Capacity Provider.
 //
-// TODO: EXAMPLE
+// Example:
+//   var vpc vpc
 //
+//   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
+//   	vpc: vpc,
+//   })
+//
+//   autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
+//   	vpc: vpc,
+//   	instanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
+//   	machineImage: ecs.ecsOptimizedImage.amazonLinux2(),
+//   	minCapacity: jsii.Number(0),
+//   	maxCapacity: jsii.Number(100),
+//   })
+//
+//   capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &asgCapacityProviderProps{
+//   	autoScalingGroup: autoScalingGroup,
+//   })
+//   cluster.addAsgCapacityProvider(capacityProvider)
+//
+//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+//
+//   taskDefinition.addContainer(jsii.String("web"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	memoryReservationMiB: jsii.Number(256),
+//   })
+//
+//   ecs.NewEc2Service(this, jsii.String("EC2Service"), &ec2ServiceProps{
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   	capacityProviderStrategies: []capacityProviderStrategy{
+//   		&capacityProviderStrategy{
+//   			capacityProvider: capacityProvider.capacityProviderName,
+//   			weight: jsii.Number(1),
+//   		},
+//   	},
+//   })
+//
+// Experimental.
 type AsgCapacityProviderProps struct {
 	// Specifies whether the containers can access the container instance role.
+	// Experimental.
 	CanContainersAccessInstanceRole *bool `json:"canContainersAccessInstanceRole" yaml:"canContainersAccessInstanceRole"`
 	// What type of machine image this is.
 	//
@@ -483,47 +882,118 @@ type AsgCapacityProviderProps struct {
 	// `addAutoScalingGroup()`, you must specify this value. If you are adding an
 	// `autoScalingGroup` via `addCapacity`, this value will be determined
 	// from the `machineImage` you pass.
+	// Experimental.
 	MachineImageType MachineImageType `json:"machineImageType" yaml:"machineImageType"`
 	// Specify whether to enable Automated Draining for Spot Instances running Amazon ECS Services.
 	//
 	// For more information, see [Using Spot Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-spot.html).
+	// Experimental.
 	SpotInstanceDraining *bool `json:"spotInstanceDraining" yaml:"spotInstanceDraining"`
+	// The time period to wait before force terminating an instance that is draining.
+	//
+	// This creates a Lambda function that is used by a lifecycle hook for the
+	// AutoScalingGroup that will delay instance termination until all ECS tasks
+	// have drained from the instance. Set to 0 to disable task draining.
+	//
+	// Set to 0 to disable task draining.
+	// Deprecated: The lifecycle draining hook is not configured if using the EC2 Capacity Provider. Enable managed termination protection instead.
+	TaskDrainTime awscdk.Duration `json:"taskDrainTime" yaml:"taskDrainTime"`
 	// If {@link AddAutoScalingGroupCapacityOptions.taskDrainTime} is non-zero, then the ECS cluster creates an SNS Topic to as part of a system to drain instances of tasks when the instance is being shut down. If this property is provided, then this key will be used to encrypt the contents of that SNS Topic. See [SNS Data Encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-data-encryption.html) for more information.
+	// Experimental.
 	TopicEncryptionKey awskms.IKey `json:"topicEncryptionKey" yaml:"topicEncryptionKey"`
 	// The autoscaling group to add as a Capacity Provider.
+	// Experimental.
 	AutoScalingGroup awsautoscaling.IAutoScalingGroup `json:"autoScalingGroup" yaml:"autoScalingGroup"`
 	// The name of the capacity provider.
 	//
 	// If a name is specified,
 	// it cannot start with `aws`, `ecs`, or `fargate`. If no name is specified,
 	// a default name in the CFNStackName-CFNResourceName-RandomString format is used.
+	// Experimental.
 	CapacityProviderName *string `json:"capacityProviderName" yaml:"capacityProviderName"`
 	// Whether to enable managed scaling.
+	// Experimental.
 	EnableManagedScaling *bool `json:"enableManagedScaling" yaml:"enableManagedScaling"`
 	// Whether to enable managed termination protection.
+	// Experimental.
 	EnableManagedTerminationProtection *bool `json:"enableManagedTerminationProtection" yaml:"enableManagedTerminationProtection"`
 	// Maximum scaling step size.
 	//
 	// In most cases this should be left alone.
+	// Experimental.
 	MaximumScalingStepSize *float64 `json:"maximumScalingStepSize" yaml:"maximumScalingStepSize"`
 	// Minimum scaling step size.
 	//
 	// In most cases this should be left alone.
+	// Experimental.
 	MinimumScalingStepSize *float64 `json:"minimumScalingStepSize" yaml:"minimumScalingStepSize"`
 	// Target capacity percent.
 	//
 	// In most cases this should be left alone.
+	// Experimental.
 	TargetCapacityPercent *float64 `json:"targetCapacityPercent" yaml:"targetCapacityPercent"`
 }
 
 // Environment file from a local directory.
 //
-// TODO: EXAMPLE
+// Example:
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import assets "github.com/aws/aws-cdk-go/awscdk/assets"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
 //
+//   var dockerImage dockerImage
+//   var grantable iGrantable
+//   var localBundling iLocalBundling
+//   assetEnvironmentFile := ecs.NewAssetEnvironmentFile(jsii.String("path"), &assetOptions{
+//   	assetHash: jsii.String("assetHash"),
+//   	assetHashType: monocdk.assetHashType_SOURCE,
+//   	bundling: &bundlingOptions{
+//   		image: dockerImage,
+//
+//   		// the properties below are optional
+//   		command: []*string{
+//   			jsii.String("command"),
+//   		},
+//   		entrypoint: []*string{
+//   			jsii.String("entrypoint"),
+//   		},
+//   		environment: map[string]*string{
+//   			"environmentKey": jsii.String("environment"),
+//   		},
+//   		local: localBundling,
+//   		outputType: monocdk.bundlingOutput_ARCHIVED,
+//   		securityOpt: jsii.String("securityOpt"),
+//   		user: jsii.String("user"),
+//   		volumes: []dockerVolume{
+//   			&dockerVolume{
+//   				containerPath: jsii.String("containerPath"),
+//   				hostPath: jsii.String("hostPath"),
+//
+//   				// the properties below are optional
+//   				consistency: monocdk.dockerVolumeConsistency_CONSISTENT,
+//   			},
+//   		},
+//   		workingDirectory: jsii.String("workingDirectory"),
+//   	},
+//   	exclude: []*string{
+//   		jsii.String("exclude"),
+//   	},
+//   	follow: assets.followMode_NEVER,
+//   	followSymlinks: monocdk.symlinkFollowMode_NEVER,
+//   	ignoreMode: monocdk.ignoreMode_GLOB,
+//   	readers: []*iGrantable{
+//   		grantable,
+//   	},
+//   	sourceHash: jsii.String("sourceHash"),
+//   })
+//
+// Experimental.
 type AssetEnvironmentFile interface {
 	EnvironmentFile
+	// The path to the asset file or directory.
+	// Experimental.
 	Path() *string
-	Bind(scope constructs.Construct) *EnvironmentFileConfig
+	// Called when the container is initialized to allow this object to bind to the stack.
+	// Experimental.
+	Bind(scope awscdk.Construct) *EnvironmentFileConfig
 }
 
 // The jsii proxy struct for AssetEnvironmentFile
@@ -542,13 +1012,14 @@ func (j *jsiiProxy_AssetEnvironmentFile) Path() *string {
 }
 
 
+// Experimental.
 func NewAssetEnvironmentFile(path *string, options *awss3assets.AssetOptions) AssetEnvironmentFile {
 	_init_.Initialize()
 
 	j := jsiiProxy_AssetEnvironmentFile{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.AssetEnvironmentFile",
+		"monocdk.aws_ecs.AssetEnvironmentFile",
 		[]interface{}{path, options},
 		&j,
 	)
@@ -556,24 +1027,26 @@ func NewAssetEnvironmentFile(path *string, options *awss3assets.AssetOptions) As
 	return &j
 }
 
+// Experimental.
 func NewAssetEnvironmentFile_Override(a AssetEnvironmentFile, path *string, options *awss3assets.AssetOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.AssetEnvironmentFile",
+		"monocdk.aws_ecs.AssetEnvironmentFile",
 		[]interface{}{path, options},
 		a,
 	)
 }
 
 // Loads the environment file from a local disk path.
+// Experimental.
 func AssetEnvironmentFile_FromAsset(path *string, options *awss3assets.AssetOptions) AssetEnvironmentFile {
 	_init_.Initialize()
 
 	var returns AssetEnvironmentFile
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.AssetEnvironmentFile",
+		"monocdk.aws_ecs.AssetEnvironmentFile",
 		"fromAsset",
 		[]interface{}{path, options},
 		&returns,
@@ -585,13 +1058,14 @@ func AssetEnvironmentFile_FromAsset(path *string, options *awss3assets.AssetOpti
 // Loads the environment file from an S3 bucket.
 //
 // Returns: `S3EnvironmentFile` associated with the specified S3 object.
+// Experimental.
 func AssetEnvironmentFile_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3EnvironmentFile {
 	_init_.Initialize()
 
 	var returns S3EnvironmentFile
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.AssetEnvironmentFile",
+		"monocdk.aws_ecs.AssetEnvironmentFile",
 		"fromBucket",
 		[]interface{}{bucket, key, objectVersion},
 		&returns,
@@ -600,8 +1074,7 @@ func AssetEnvironmentFile_FromBucket(bucket awss3.IBucket, key *string, objectVe
 	return returns
 }
 
-// Called when the container is initialized to allow this object to bind to the stack.
-func (a *jsiiProxy_AssetEnvironmentFile) Bind(scope constructs.Construct) *EnvironmentFileConfig {
+func (a *jsiiProxy_AssetEnvironmentFile) Bind(scope awscdk.Construct) *EnvironmentFileConfig {
 	var returns *EnvironmentFileConfig
 
 	_jsii_.Invoke(
@@ -616,11 +1089,31 @@ func (a *jsiiProxy_AssetEnvironmentFile) Bind(scope constructs.Construct) *Envir
 
 // An image that will be built from a local directory with a Dockerfile.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type App awscdk.App
+//   type Stack awscdk.Stackimport ec2 "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk"import ecsPatterns "github.com/aws/aws-cdk-go/awscdk"import cxapi "github.com/aws/aws-cdk-go/awscdk"import path "github.com/aws-samples/dummy/path"
 //
+//   app := NewApp()
+//
+//   stack := NewStack(app, jsii.String("aws-ecs-patterns-queue"))
+//   stack.node.setContext(cxapi.eCS_REMOVE_DEFAULT_DESIRED_COUNT, jsii.Boolean(true))
+//
+//   vpc := ec2.NewVpc(stack, jsii.String("VPC"), &vpcProps{
+//   	maxAzs: jsii.Number(2),
+//   })
+//
+//   ecsPatterns.NewQueueProcessingFargateService(stack, jsii.String("QueueProcessingService"), &queueProcessingFargateServiceProps{
+//   	vpc: vpc,
+//   	memoryLimitMiB: jsii.Number(512),
+//   	image: ecs.NewAssetImage(path.join(__dirname, jsii.String(".."), jsii.String("sqs-reader"))),
+//   })
+//
+// Experimental.
 type AssetImage interface {
 	ContainerImage
-	Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig
+	// Called when the image is used by a ContainerDefinition.
+	// Experimental.
+	Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig
 }
 
 // The jsii proxy struct for AssetImage
@@ -629,13 +1122,14 @@ type jsiiProxy_AssetImage struct {
 }
 
 // Constructs a new instance of the AssetImage class.
+// Experimental.
 func NewAssetImage(directory *string, props *AssetImageProps) AssetImage {
 	_init_.Initialize()
 
 	j := jsiiProxy_AssetImage{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.AssetImage",
+		"monocdk.aws_ecs.AssetImage",
 		[]interface{}{directory, props},
 		&j,
 	)
@@ -644,11 +1138,12 @@ func NewAssetImage(directory *string, props *AssetImageProps) AssetImage {
 }
 
 // Constructs a new instance of the AssetImage class.
+// Experimental.
 func NewAssetImage_Override(a AssetImage, directory *string, props *AssetImageProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.AssetImage",
+		"monocdk.aws_ecs.AssetImage",
 		[]interface{}{directory, props},
 		a,
 	)
@@ -658,13 +1153,14 @@ func NewAssetImage_Override(a AssetImage, directory *string, props *AssetImagePr
 //
 // If you already have a `DockerImageAsset` instance, you can use the
 // `ContainerImage.fromDockerImageAsset` method instead.
+// Experimental.
 func AssetImage_FromAsset(directory *string, props *AssetImageProps) AssetImage {
 	_init_.Initialize()
 
 	var returns AssetImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.AssetImage",
+		"monocdk.aws_ecs.AssetImage",
 		"fromAsset",
 		[]interface{}{directory, props},
 		&returns,
@@ -674,13 +1170,14 @@ func AssetImage_FromAsset(directory *string, props *AssetImageProps) AssetImage 
 }
 
 // Use an existing `DockerImageAsset` for this container image.
+// Experimental.
 func AssetImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) ContainerImage {
 	_init_.Initialize()
 
 	var returns ContainerImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.AssetImage",
+		"monocdk.aws_ecs.AssetImage",
 		"fromDockerImageAsset",
 		[]interface{}{asset},
 		&returns,
@@ -690,13 +1187,14 @@ func AssetImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) Contai
 }
 
 // Reference an image in an ECR repository.
+// Experimental.
 func AssetImage_FromEcrRepository(repository awsecr.IRepository, tag *string) EcrImage {
 	_init_.Initialize()
 
 	var returns EcrImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.AssetImage",
+		"monocdk.aws_ecs.AssetImage",
 		"fromEcrRepository",
 		[]interface{}{repository, tag},
 		&returns,
@@ -706,13 +1204,14 @@ func AssetImage_FromEcrRepository(repository awsecr.IRepository, tag *string) Ec
 }
 
 // Reference an image on DockerHub or another online registry.
+// Experimental.
 func AssetImage_FromRegistry(name *string, props *RepositoryImageProps) RepositoryImage {
 	_init_.Initialize()
 
 	var returns RepositoryImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.AssetImage",
+		"monocdk.aws_ecs.AssetImage",
 		"fromRegistry",
 		[]interface{}{name, props},
 		&returns,
@@ -725,13 +1224,14 @@ func AssetImage_FromRegistry(name *string, props *RepositoryImageProps) Reposito
 //
 // Use this method if the container image has already been created by another process (e.g. jib)
 // and you want to add it as a container image asset.
+// Experimental.
 func AssetImage_FromTarball(tarballFile *string) ContainerImage {
 	_init_.Initialize()
 
 	var returns ContainerImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.AssetImage",
+		"monocdk.aws_ecs.AssetImage",
 		"fromTarball",
 		[]interface{}{tarballFile},
 		&returns,
@@ -740,8 +1240,7 @@ func AssetImage_FromTarball(tarballFile *string) ContainerImage {
 	return returns
 }
 
-// Called when the image is used by a ContainerDefinition.
-func (a *jsiiProxy_AssetImage) Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
+func (a *jsiiProxy_AssetImage) Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
 	var returns *ContainerImageConfig
 
 	_jsii_.Invoke(
@@ -756,76 +1255,185 @@ func (a *jsiiProxy_AssetImage) Bind(scope constructs.Construct, containerDefinit
 
 // The properties for building an AssetImage.
 //
-// TODO: EXAMPLE
+// Example:
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import assets "github.com/aws/aws-cdk-go/awscdk/assets"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr_assets "github.com/aws/aws-cdk-go/awscdk/aws_ecr_assets"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
 //
+//   var networkMode networkMode
+//   assetImageProps := &assetImageProps{
+//   	buildArgs: map[string]*string{
+//   		"buildArgsKey": jsii.String("buildArgs"),
+//   	},
+//   	exclude: []*string{
+//   		jsii.String("exclude"),
+//   	},
+//   	extraHash: jsii.String("extraHash"),
+//   	file: jsii.String("file"),
+//   	follow: assets.followMode_NEVER,
+//   	followSymlinks: monocdk.symlinkFollowMode_NEVER,
+//   	ignoreMode: monocdk.ignoreMode_GLOB,
+//   	invalidation: &dockerImageAssetInvalidationOptions{
+//   		buildArgs: jsii.Boolean(false),
+//   		extraHash: jsii.Boolean(false),
+//   		file: jsii.Boolean(false),
+//   		networkMode: jsii.Boolean(false),
+//   		repositoryName: jsii.Boolean(false),
+//   		target: jsii.Boolean(false),
+//   	},
+//   	networkMode: networkMode,
+//   	repositoryName: jsii.String("repositoryName"),
+//   	target: jsii.String("target"),
+//   }
+//
+// Experimental.
 type AssetImageProps struct {
 	// Glob patterns to exclude from the copy.
+	// Experimental.
 	Exclude *[]*string `json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
-	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks" yaml:"followSymlinks"`
+	// Deprecated: use `followSymlinks` instead.
+	Follow assets.FollowMode `json:"follow" yaml:"follow"`
 	// The ignore behavior to use for exclude patterns.
+	// Experimental.
 	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode" yaml:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
+	// Experimental.
 	ExtraHash *string `json:"extraHash" yaml:"extraHash"`
+	// A strategy for how to handle symlinks.
+	// Experimental.
+	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks" yaml:"followSymlinks"`
 	// Build args to pass to the `docker build` command.
 	//
 	// Since Docker build arguments are resolved before deployment, keys and
 	// values cannot refer to unresolved tokens (such as `lambda.functionArn` or
 	// `queue.queueUrl`).
+	// Experimental.
 	BuildArgs *map[string]*string `json:"buildArgs" yaml:"buildArgs"`
 	// Path to the Dockerfile (relative to the directory).
+	// Experimental.
 	File *string `json:"file" yaml:"file"`
 	// Options to control which parameters are used to invalidate the asset hash.
+	// Experimental.
 	Invalidation *awsecrassets.DockerImageAssetInvalidationOptions `json:"invalidation" yaml:"invalidation"`
 	// Networking mode for the RUN commands during build.
 	//
 	// Support docker API 1.25+.
+	// Experimental.
 	NetworkMode awsecrassets.NetworkMode `json:"networkMode" yaml:"networkMode"`
+	// ECR repository name.
+	//
+	// Specify this property if you need to statically address the image, e.g.
+	// from a Kubernetes Pod. Note, this is only the repository name, without the
+	// registry and the tag parts.
+	// Deprecated: to control the location of docker image assets, please override
+	// `Stack.addDockerImageAsset`. this feature will be removed in future
+	// releases.
+	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
 	// Docker target to build to.
+	// Experimental.
 	Target *string `json:"target" yaml:"target"`
 }
 
 // The options for using a cloudmap service.
 //
-// TODO: EXAMPLE
+// Example:
+//   var cloudMapService service
+//   var ecsService fargateService
 //
+//   ecsService.associateCloudMapService(&associateCloudMapServiceOptions{
+//   	service: cloudMapService,
+//   })
+//
+// Experimental.
 type AssociateCloudMapServiceOptions struct {
 	// The cloudmap service to register with.
+	// Experimental.
 	Service awsservicediscovery.IService `json:"service" yaml:"service"`
 	// The container to point to for a SRV record.
+	// Experimental.
 	Container ContainerDefinition `json:"container" yaml:"container"`
 	// The port to point to for a SRV record.
+	// Experimental.
 	ContainerPort *float64 `json:"containerPort" yaml:"containerPort"`
 }
 
 // The authorization configuration details for the Amazon EFS file system.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   authorizationConfig := &authorizationConfig{
+//   	accessPointId: jsii.String("accessPointId"),
+//   	iam: jsii.String("iam"),
+//   }
 //
+// Experimental.
 type AuthorizationConfig struct {
 	// The access point ID to use.
 	//
 	// If an access point is specified, the root directory value will be
 	// relative to the directory set for the access point.
 	// If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+	// Experimental.
 	AccessPointId *string `json:"accessPointId" yaml:"accessPointId"`
 	// Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system.
 	//
 	// If enabled, transit encryption must be enabled in the EFSVolumeConfiguration.
 	//
-	// Valid values: ENABLED | DISABLED
+	// Valid values: ENABLED | DISABLED.
+	// Experimental.
 	Iam *string `json:"iam" yaml:"iam"`
 }
 
 // A log driver that sends log information to CloudWatch Logs.
 //
-// TODO: EXAMPLE
+// Example:
+//   var cluster cluster
+//   // Create a Task Definition for the container to start
+//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+//   taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromAsset(path.resolve(__dirname, jsii.String(".."), jsii.String("eventhandler-image"))),
+//   	memoryLimitMiB: jsii.Number(256),
+//   	logging: ecs.NewAwsLogDriver(&awsLogDriverProps{
+//   		streamPrefix: jsii.String("EventDemo"),
+//   		mode: ecs.awsLogDriverMode_NON_BLOCKING,
+//   	}),
+//   })
 //
+//   // An Rule that describes the event trigger (in this case a scheduled run)
+//   rule := events.NewRule(this, jsii.String("Rule"), &ruleProps{
+//   	schedule: events.schedule.expression(jsii.String("rate(1 min)")),
+//   })
+//
+//   // Pass an environment variable to the container 'TheContainer' in the task
+//   rule.addTarget(targets.NewEcsTask(&ecsTaskProps{
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   	taskCount: jsii.Number(1),
+//   	containerOverrides: []containerOverride{
+//   		&containerOverride{
+//   			containerName: jsii.String("TheContainer"),
+//   			environment: []taskEnvironmentVariable{
+//   				&taskEnvironmentVariable{
+//   					name: jsii.String("I_WAS_TRIGGERED"),
+//   					value: jsii.String("From CloudWatch Events"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   }))
+//
+// Experimental.
 type AwsLogDriver interface {
 	LogDriver
+	// The log group to send log streams to.
+	//
+	// Only available after the LogDriver has been bound to a ContainerDefinition.
+	// Experimental.
 	LogGroup() awslogs.ILogGroup
+	// Experimental.
 	SetLogGroup(val awslogs.ILogGroup)
-	Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *LogDriverConfig
+	// Called when the log driver is configured on a container.
+	// Experimental.
+	Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *LogDriverConfig
 }
 
 // The jsii proxy struct for AwsLogDriver
@@ -845,13 +1453,14 @@ func (j *jsiiProxy_AwsLogDriver) LogGroup() awslogs.ILogGroup {
 
 
 // Constructs a new instance of the AwsLogDriver class.
+// Experimental.
 func NewAwsLogDriver(props *AwsLogDriverProps) AwsLogDriver {
 	_init_.Initialize()
 
 	j := jsiiProxy_AwsLogDriver{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.AwsLogDriver",
+		"monocdk.aws_ecs.AwsLogDriver",
 		[]interface{}{props},
 		&j,
 	)
@@ -860,11 +1469,12 @@ func NewAwsLogDriver(props *AwsLogDriverProps) AwsLogDriver {
 }
 
 // Constructs a new instance of the AwsLogDriver class.
+// Experimental.
 func NewAwsLogDriver_Override(a AwsLogDriver, props *AwsLogDriverProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.AwsLogDriver",
+		"monocdk.aws_ecs.AwsLogDriver",
 		[]interface{}{props},
 		a,
 	)
@@ -879,13 +1489,14 @@ func (j *jsiiProxy_AwsLogDriver) SetLogGroup(val awslogs.ILogGroup) {
 }
 
 // Creates a log driver configuration that sends log information to CloudWatch Logs.
+// Experimental.
 func AwsLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.AwsLogDriver",
+		"monocdk.aws_ecs.AwsLogDriver",
 		"awsLogs",
 		[]interface{}{props},
 		&returns,
@@ -894,8 +1505,7 @@ func AwsLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	return returns
 }
 
-// Called when the log driver is configured on a container.
-func (a *jsiiProxy_AwsLogDriver) Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *LogDriverConfig {
+func (a *jsiiProxy_AwsLogDriver) Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *LogDriverConfig {
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(
@@ -910,19 +1520,82 @@ func (a *jsiiProxy_AwsLogDriver) Bind(scope constructs.Construct, containerDefin
 
 // awslogs provides two modes for delivering messages from the container to the log driver.
 //
-// TODO: EXAMPLE
+// Example:
+//   var cluster cluster
+//   // Create a Task Definition for the container to start
+//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+//   taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromAsset(path.resolve(__dirname, jsii.String(".."), jsii.String("eventhandler-image"))),
+//   	memoryLimitMiB: jsii.Number(256),
+//   	logging: ecs.NewAwsLogDriver(&awsLogDriverProps{
+//   		streamPrefix: jsii.String("EventDemo"),
+//   		mode: ecs.awsLogDriverMode_NON_BLOCKING,
+//   	}),
+//   })
 //
+//   // An Rule that describes the event trigger (in this case a scheduled run)
+//   rule := events.NewRule(this, jsii.String("Rule"), &ruleProps{
+//   	schedule: events.schedule.expression(jsii.String("rate(1 min)")),
+//   })
+//
+//   // Pass an environment variable to the container 'TheContainer' in the task
+//   rule.addTarget(targets.NewEcsTask(&ecsTaskProps{
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   	taskCount: jsii.Number(1),
+//   	containerOverrides: []containerOverride{
+//   		&containerOverride{
+//   			containerName: jsii.String("TheContainer"),
+//   			environment: []taskEnvironmentVariable{
+//   				&taskEnvironmentVariable{
+//   					name: jsii.String("I_WAS_TRIGGERED"),
+//   					value: jsii.String("From CloudWatch Events"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   }))
+//
+// Experimental.
 type AwsLogDriverMode string
 
 const (
+	// (default) direct, blocking delivery from container to driver.
+	// Experimental.
 	AwsLogDriverMode_BLOCKING AwsLogDriverMode = "BLOCKING"
+	// The non-blocking message delivery mode prevents applications from blocking due to logging back pressure.
+	//
+	// Applications are likely to fail in unexpected ways when STDERR or STDOUT streams block.
+	// Experimental.
 	AwsLogDriverMode_NON_BLOCKING AwsLogDriverMode = "NON_BLOCKING"
 )
 
 // Specifies the awslogs log driver configuration options.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Create a Task Definition for the Windows container to start
+//   taskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &fargateTaskDefinitionProps{
+//   	runtimePlatform: &runtimePlatform{
+//   		operatingSystemFamily: ecs.operatingSystemFamily_WINDOWS_SERVER_2019_CORE(),
+//   		cpuArchitecture: ecs.cpuArchitecture_X86_64(),
+//   	},
+//   	cpu: jsii.Number(1024),
+//   	memoryLimitMiB: jsii.Number(2048),
+//   })
 //
+//   taskDefinition.addContainer(jsii.String("windowsservercore"), &containerDefinitionOptions{
+//   	logging: ecs.logDriver.awsLogs(&awsLogDriverProps{
+//   		streamPrefix: jsii.String("win-iis-on-fargate"),
+//   	}),
+//   	portMappings: []portMapping{
+//   		&portMapping{
+//   			containerPort: jsii.Number(80),
+//   		},
+//   	},
+//   	image: ecs.containerImage.fromRegistry(jsii.String("mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2019")),
+//   })
+//
+// Experimental.
 type AwsLogDriverProps struct {
 	// Prefix for the log streams.
 	//
@@ -931,19 +1604,24 @@ type AwsLogDriverProps struct {
 	// ECS task to which the container belongs. If you specify a prefix with
 	// this option, then the log stream takes the following format:
 	//
-	//      prefix-name/container-name/ecs-task-id
+	// prefix-name/container-name/ecs-task-id.
+	// Experimental.
 	StreamPrefix *string `json:"streamPrefix" yaml:"streamPrefix"`
 	// This option defines a multiline start pattern in Python strftime format.
 	//
 	// A log message consists of a line that matches the pattern and any
 	// following lines that don’t match the pattern. Thus the matched line is
 	// the delimiter between log messages.
+	// Experimental.
 	DatetimeFormat *string `json:"datetimeFormat" yaml:"datetimeFormat"`
 	// The log group to log to.
+	// Experimental.
 	LogGroup awslogs.ILogGroup `json:"logGroup" yaml:"logGroup"`
 	// The number of days log events are kept in CloudWatch Logs when the log group is automatically created by this construct.
+	// Experimental.
 	LogRetention awslogs.RetentionDays `json:"logRetention" yaml:"logRetention"`
 	// The delivery mode of log messages from the container to awslogs.
+	// Experimental.
 	Mode AwsLogDriverMode `json:"mode" yaml:"mode"`
 	// This option defines a multiline start pattern using a regular expression.
 	//
@@ -952,82 +1630,310 @@ type AwsLogDriverProps struct {
 	// the delimiter between log messages.
 	//
 	// This option is ignored if datetimeFormat is also configured.
+	// Experimental.
 	MultilinePattern *string `json:"multilinePattern" yaml:"multilinePattern"`
 }
 
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   baseLogDriverProps := &baseLogDriverProps{
+//   	env: []*string{
+//   		jsii.String("env"),
+//   	},
+//   	envRegex: jsii.String("envRegex"),
+//   	labels: []*string{
+//   		jsii.String("labels"),
+//   	},
+//   	tag: jsii.String("tag"),
+//   }
 //
+// Experimental.
 type BaseLogDriverProps struct {
 	// The env option takes an array of keys.
 	//
 	// If there is collision between
 	// label and env keys, the value of the env takes precedence. Adds additional fields
 	// to the extra attributes of a logging message.
+	// Experimental.
 	Env *[]*string `json:"env" yaml:"env"`
 	// The env-regex option is similar to and compatible with env.
 	//
 	// Its value is a regular
 	// expression to match logging-related environment variables. It is used for advanced
 	// log tag options.
+	// Experimental.
 	EnvRegex *string `json:"envRegex" yaml:"envRegex"`
 	// The labels option takes an array of keys.
 	//
 	// If there is collision
 	// between label and env keys, the value of the env takes precedence. Adds additional
 	// fields to the extra attributes of a logging message.
+	// Experimental.
 	Labels *[]*string `json:"labels" yaml:"labels"`
 	// By default, Docker uses the first 12 characters of the container ID to tag log messages.
 	//
 	// Refer to the log tag option documentation for customizing the
 	// log tag format.
+	// Experimental.
 	Tag *string `json:"tag" yaml:"tag"`
 }
 
 // The base class for Ec2Service and FargateService services.
 //
-// TODO: EXAMPLE
+// Example:
+//   import ecs "github.com/aws/aws-cdk-go/awscdk"
 //
+//   service := ecs.baseService.fromServiceArnWithCluster(this, jsii.String("EcsService"), jsii.String("arn:aws:ecs:us-east-1:123456789012:service/myClusterName/myServiceName"))
+//   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
+//   buildOutput := codepipeline.NewArtifact()
+//   // add source and build stages to the pipeline as usual...
+//   deployStage := pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("Deploy"),
+//   	actions: []iAction{
+//   		codepipeline_actions.NewEcsDeployAction(&ecsDeployActionProps{
+//   			actionName: jsii.String("DeployAction"),
+//   			service: service,
+//   			input: buildOutput,
+//   		}),
+//   	},
+//   })
+//
+// Experimental.
 type BaseService interface {
 	awscdk.Resource
 	IBaseService
 	awselasticloadbalancing.ILoadBalancerTarget
 	awselasticloadbalancingv2.IApplicationLoadBalancerTarget
 	awselasticloadbalancingv2.INetworkLoadBalancerTarget
+	// The details of the AWS Cloud Map service.
+	// Experimental.
 	CloudmapService() awsservicediscovery.Service
+	// Experimental.
 	SetCloudmapService(val awsservicediscovery.Service)
+	// The CloudMap service created for this service, if any.
+	// Experimental.
 	CloudMapService() awsservicediscovery.IService
+	// The cluster that hosts the service.
+	// Experimental.
 	Cluster() ICluster
+	// The security groups which manage the allowed network traffic for the service.
+	// Experimental.
 	Connections() awsec2.Connections
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
+	// A list of Elastic Load Balancing load balancer objects, containing the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer.
+	// Experimental.
 	LoadBalancers() *[]*CfnService_LoadBalancerProperty
+	// Experimental.
 	SetLoadBalancers(val *[]*CfnService_LoadBalancerProperty)
+	// A list of Elastic Load Balancing load balancer objects, containing the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer.
+	// Experimental.
 	NetworkConfiguration() *CfnService_NetworkConfigurationProperty
+	// Experimental.
 	SetNetworkConfiguration(val *CfnService_NetworkConfigurationProperty)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
+	// The Amazon Resource Name (ARN) of the service.
+	// Experimental.
 	ServiceArn() *string
+	// The name of the service.
+	// Experimental.
 	ServiceName() *string
+	// The details of the service discovery registries to assign to this service.
+	//
+	// For more information, see Service Discovery.
+	// Experimental.
 	ServiceRegistries() *[]*CfnService_ServiceRegistryProperty
+	// Experimental.
 	SetServiceRegistries(val *[]*CfnService_ServiceRegistryProperty)
+	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
+	// The task definition to use for tasks in the service.
+	// Experimental.
 	TaskDefinition() TaskDefinition
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Associates this service with a CloudMap service.
+	// Experimental.
 	AssociateCloudMapService(options *AssociateCloudMapServiceOptions)
+	// This method is called to attach this service to an Application Load Balancer.
+	//
+	// Don't call this function directly. Instead, call `listener.addTargets()`
+	// to add this service to a load balancer.
+	// Experimental.
 	AttachToApplicationTargetGroup(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
+	// Registers the service as a target of a Classic Load Balancer (CLB).
+	//
+	// Don't call this. Call `loadBalancer.addTarget()` instead.
+	// Experimental.
 	AttachToClassicLB(loadBalancer awselasticloadbalancing.LoadBalancer)
+	// This method is called to attach this service to a Network Load Balancer.
+	//
+	// Don't call this function directly. Instead, call `listener.addTargets()`
+	// to add this service to a load balancer.
+	// Experimental.
 	AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
+	// An attribute representing the minimum and maximum task count for an AutoScalingGroup.
+	// Experimental.
 	AutoScaleTaskCount(props *awsapplicationautoscaling.EnableScalingProps) ScalableTaskCount
+	// This method is called to create a networkConfiguration.
+	// Deprecated: use configureAwsVpcNetworkingWithSecurityGroups instead.
+	ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup)
+	// This method is called to create a networkConfiguration.
+	// Experimental.
 	ConfigureAwsVpcNetworkingWithSecurityGroups(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroups *[]awsec2.ISecurityGroup)
+	// Enable CloudMap service discovery for the service.
+	//
+	// Returns: The created CloudMap service.
+	// Experimental.
 	EnableCloudMap(options *CloudMapOptions) awsservicediscovery.Service
+	// Experimental.
 	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Return a load balancing target for a specific container and port.
+	//
+	// Use this function to create a load balancer target if you want to load balance to
+	// another container than the first essential container or the first mapped port on
+	// the container.
+	//
+	// Use the return value of this function where you would normally use a load balancer
+	// target, instead of the `Service` object itself.
+	//
+	// Example:
+	//   var listener applicationListener
+	//   var service baseService
+	//   listener.addTargets(jsii.String("ECS"), &addApplicationTargetsProps{
+	//   	port: jsii.Number(80),
+	//   	targets: []iApplicationLoadBalancerTarget{
+	//   		service.loadBalancerTarget(&loadBalancerTargetOptions{
+	//   			containerName: jsii.String("MyContainer"),
+	//   			containerPort: jsii.Number(1234),
+	//   		}),
+	//   	},
+	//   })
+	//
+	// Experimental.
 	LoadBalancerTarget(options *LoadBalancerTargetOptions) IEcsLoadBalancerTarget
+	// This method returns the specified CloudWatch metric name for this service.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// This method returns the CloudWatch metric for this service's CPU utilization.
+	// Experimental.
 	MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// This method returns the CloudWatch metric for this service's memory utilization.
+	// Experimental.
 	MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Use this function to create all load balancer targets to be registered in this service, add them to target groups, and attach target groups to listeners accordingly.
+	//
+	// Alternatively, you can use `listener.addTargets()` to create targets and add them to target groups.
+	//
+	// Example:
+	//   var listener applicationListener
+	//   var service baseService
+	//   service.registerLoadBalancerTargets(&ecsTarget{
+	//   	containerName: jsii.String("web"),
+	//   	containerPort: jsii.Number(80),
+	//   	newTargetGroupId: jsii.String("ECS"),
+	//   	listener: ecs.listenerConfig.applicationListener(listener, &addApplicationTargetsProps{
+	//   		protocol: elbv2.applicationProtocol_HTTPS,
+	//   	}),
+	//   })
+	//
+	// Experimental.
 	RegisterLoadBalancerTargets(targets ...*EcsTarget)
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for BaseService
@@ -1109,8 +2015,8 @@ func (j *jsiiProxy_BaseService) NetworkConfiguration() *CfnService_NetworkConfig
 	return returns
 }
 
-func (j *jsiiProxy_BaseService) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_BaseService) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1181,11 +2087,12 @@ func (j *jsiiProxy_BaseService) TaskDefinition() TaskDefinition {
 
 
 // Constructs a new instance of the BaseService class.
+// Experimental.
 func NewBaseService_Override(b BaseService, scope constructs.Construct, id *string, props *BaseServiceProps, additionalProps interface{}, taskDefinition TaskDefinition) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.BaseService",
+		"monocdk.aws_ecs.BaseService",
 		[]interface{}{scope, id, props, additionalProps, taskDefinition},
 		b,
 	)
@@ -1228,13 +2135,14 @@ func (j *jsiiProxy_BaseService) SetServiceRegistries(val *[]*CfnService_ServiceR
 // The format is the "new" format "arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name".
 // See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids
 //
+// Experimental.
 func BaseService_FromServiceArnWithCluster(scope constructs.Construct, id *string, serviceArn *string) IBaseService {
 	_init_.Initialize()
 
 	var returns IBaseService
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.BaseService",
+		"monocdk.aws_ecs.BaseService",
 		"fromServiceArnWithCluster",
 		[]interface{}{scope, id, serviceArn},
 		&returns,
@@ -1243,17 +2151,15 @@ func BaseService_FromServiceArnWithCluster(scope constructs.Construct, id *strin
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func BaseService_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.BaseService",
+		"monocdk.aws_ecs.BaseService",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1263,13 +2169,14 @@ func BaseService_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func BaseService_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func BaseService_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.BaseService",
+		"monocdk.aws_ecs.BaseService",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -1278,15 +2185,6 @@ func BaseService_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Apply the given removal policy to this resource.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (b *jsiiProxy_BaseService) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		b,
@@ -1295,7 +2193,6 @@ func (b *jsiiProxy_BaseService) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) 
 	)
 }
 
-// Associates this service with a CloudMap service.
 func (b *jsiiProxy_BaseService) AssociateCloudMapService(options *AssociateCloudMapServiceOptions) {
 	_jsii_.InvokeVoid(
 		b,
@@ -1304,10 +2201,6 @@ func (b *jsiiProxy_BaseService) AssociateCloudMapService(options *AssociateCloud
 	)
 }
 
-// This method is called to attach this service to an Application Load Balancer.
-//
-// Don't call this function directly. Instead, call `listener.addTargets()`
-// to add this service to a load balancer.
 func (b *jsiiProxy_BaseService) AttachToApplicationTargetGroup(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
@@ -1321,9 +2214,6 @@ func (b *jsiiProxy_BaseService) AttachToApplicationTargetGroup(targetGroup awsel
 	return returns
 }
 
-// Registers the service as a target of a Classic Load Balancer (CLB).
-//
-// Don't call this. Call `loadBalancer.addTarget()` instead.
 func (b *jsiiProxy_BaseService) AttachToClassicLB(loadBalancer awselasticloadbalancing.LoadBalancer) {
 	_jsii_.InvokeVoid(
 		b,
@@ -1332,10 +2222,6 @@ func (b *jsiiProxy_BaseService) AttachToClassicLB(loadBalancer awselasticloadbal
 	)
 }
 
-// This method is called to attach this service to a Network Load Balancer.
-//
-// Don't call this function directly. Instead, call `listener.addTargets()`
-// to add this service to a load balancer.
 func (b *jsiiProxy_BaseService) AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
@@ -1349,7 +2235,6 @@ func (b *jsiiProxy_BaseService) AttachToNetworkTargetGroup(targetGroup awselasti
 	return returns
 }
 
-// An attribute representing the minimum and maximum task count for an AutoScalingGroup.
 func (b *jsiiProxy_BaseService) AutoScaleTaskCount(props *awsapplicationautoscaling.EnableScalingProps) ScalableTaskCount {
 	var returns ScalableTaskCount
 
@@ -1363,7 +2248,14 @@ func (b *jsiiProxy_BaseService) AutoScaleTaskCount(props *awsapplicationautoscal
 	return returns
 }
 
-// This method is called to create a networkConfiguration.
+func (b *jsiiProxy_BaseService) ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup) {
+	_jsii_.InvokeVoid(
+		b,
+		"configureAwsVpcNetworking",
+		[]interface{}{vpc, assignPublicIp, vpcSubnets, securityGroup},
+	)
+}
+
 func (b *jsiiProxy_BaseService) ConfigureAwsVpcNetworkingWithSecurityGroups(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroups *[]awsec2.ISecurityGroup) {
 	_jsii_.InvokeVoid(
 		b,
@@ -1372,9 +2264,6 @@ func (b *jsiiProxy_BaseService) ConfigureAwsVpcNetworkingWithSecurityGroups(vpc 
 	)
 }
 
-// Enable CloudMap service discovery for the service.
-//
-// Returns: The created CloudMap service
 func (b *jsiiProxy_BaseService) EnableCloudMap(options *CloudMapOptions) awsservicediscovery.Service {
 	var returns awsservicediscovery.Service
 
@@ -1401,12 +2290,6 @@ func (b *jsiiProxy_BaseService) GeneratePhysicalName() *string {
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
-//
-// Normally, this token will resolve to `arnAttr`, but if the resource is
-// referenced across environments, `arnComponents` will be used to synthesize
-// a concrete ARN with the resource's physical name. Make sure to reference
-// `this.physicalName` in `arnComponents`.
 func (b *jsiiProxy_BaseService) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -1420,11 +2303,6 @@ func (b *jsiiProxy_BaseService) GetResourceArnAttribute(arnAttr *string, arnComp
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
-//
-// Normally, this token will resolve to `nameAttr`, but if the resource is
-// referenced across environments, it will be resolved to `this.physicalName`,
-// which will be a concrete name.
 func (b *jsiiProxy_BaseService) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -1438,17 +2316,6 @@ func (b *jsiiProxy_BaseService) GetResourceNameAttribute(nameAttr *string) *stri
 	return returns
 }
 
-// Return a load balancing target for a specific container and port.
-//
-// Use this function to create a load balancer target if you want to load balance to
-// another container than the first essential container or the first mapped port on
-// the container.
-//
-// Use the return value of this function where you would normally use a load balancer
-// target, instead of the `Service` object itself.
-//
-// TODO: EXAMPLE
-//
 func (b *jsiiProxy_BaseService) LoadBalancerTarget(options *LoadBalancerTargetOptions) IEcsLoadBalancerTarget {
 	var returns IEcsLoadBalancerTarget
 
@@ -1462,7 +2329,6 @@ func (b *jsiiProxy_BaseService) LoadBalancerTarget(options *LoadBalancerTargetOp
 	return returns
 }
 
-// This method returns the specified CloudWatch metric name for this service.
 func (b *jsiiProxy_BaseService) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1476,7 +2342,6 @@ func (b *jsiiProxy_BaseService) Metric(metricName *string, props *awscloudwatch.
 	return returns
 }
 
-// This method returns the CloudWatch metric for this service's CPU utilization.
 func (b *jsiiProxy_BaseService) MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1490,7 +2355,6 @@ func (b *jsiiProxy_BaseService) MetricCpuUtilization(props *awscloudwatch.Metric
 	return returns
 }
 
-// This method returns the CloudWatch metric for this service's memory utilization.
 func (b *jsiiProxy_BaseService) MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1504,12 +2368,43 @@ func (b *jsiiProxy_BaseService) MetricMemoryUtilization(props *awscloudwatch.Met
 	return returns
 }
 
-// Use this function to create all load balancer targets to be registered in this service, add them to target groups, and attach target groups to listeners accordingly.
-//
-// Alternatively, you can use `listener.addTargets()` to create targets and add them to target groups.
-//
-// TODO: EXAMPLE
-//
+func (b *jsiiProxy_BaseService) OnPrepare() {
+	_jsii_.InvokeVoid(
+		b,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (b *jsiiProxy_BaseService) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		b,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (b *jsiiProxy_BaseService) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		b,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (b *jsiiProxy_BaseService) Prepare() {
+	_jsii_.InvokeVoid(
+		b,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 func (b *jsiiProxy_BaseService) RegisterLoadBalancerTargets(targets ...*EcsTarget) {
 	args := []interface{}{}
 	for _, a := range targets {
@@ -1523,7 +2418,14 @@ func (b *jsiiProxy_BaseService) RegisterLoadBalancerTargets(targets ...*EcsTarge
 	)
 }
 
-// Returns a string representation of this construct.
+func (b *jsiiProxy_BaseService) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		b,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (b *jsiiProxy_BaseService) ToString() *string {
 	var returns *string
 
@@ -1537,91 +2439,231 @@ func (b *jsiiProxy_BaseService) ToString() *string {
 	return returns
 }
 
+func (b *jsiiProxy_BaseService) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		b,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // The properties for the base Ec2Service or FargateService service.
 //
-// TODO: EXAMPLE
+// Example:
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
 //
+//   var cluster cluster
+//   var containerDefinition containerDefinition
+//   var duration duration
+//   var namespace iNamespace
+//   baseServiceOptions := &baseServiceOptions{
+//   	cluster: cluster,
+//
+//   	// the properties below are optional
+//   	capacityProviderStrategies: []capacityProviderStrategy{
+//   		&capacityProviderStrategy{
+//   			capacityProvider: jsii.String("capacityProvider"),
+//
+//   			// the properties below are optional
+//   			base: jsii.Number(123),
+//   			weight: jsii.Number(123),
+//   		},
+//   	},
+//   	circuitBreaker: &deploymentCircuitBreaker{
+//   		rollback: jsii.Boolean(false),
+//   	},
+//   	cloudMapOptions: &cloudMapOptions{
+//   		cloudMapNamespace: namespace,
+//   		container: containerDefinition,
+//   		containerPort: jsii.Number(123),
+//   		dnsRecordType: servicediscovery.dnsRecordType_A,
+//   		dnsTtl: duration,
+//   		failureThreshold: jsii.Number(123),
+//   		name: jsii.String("name"),
+//   	},
+//   	deploymentController: &deploymentController{
+//   		type: ecs.deploymentControllerType_ECS,
+//   	},
+//   	desiredCount: jsii.Number(123),
+//   	enableECSManagedTags: jsii.Boolean(false),
+//   	enableExecuteCommand: jsii.Boolean(false),
+//   	healthCheckGracePeriod: duration,
+//   	maxHealthyPercent: jsii.Number(123),
+//   	minHealthyPercent: jsii.Number(123),
+//   	propagateTags: ecs.propagatedTagSource_SERVICE,
+//   	propagateTaskTagsFrom: ecs.*propagatedTagSource_SERVICE,
+//   	serviceName: jsii.String("serviceName"),
+//   }
+//
+// Experimental.
 type BaseServiceOptions struct {
 	// The name of the cluster that hosts the service.
+	// Experimental.
 	Cluster ICluster `json:"cluster" yaml:"cluster"`
 	// A list of Capacity Provider strategies used to place a service.
+	// Experimental.
 	CapacityProviderStrategies *[]*CapacityProviderStrategy `json:"capacityProviderStrategies" yaml:"capacityProviderStrategies"`
 	// Whether to enable the deployment circuit breaker.
 	//
 	// If this property is defined, circuit breaker will be implicitly
 	// enabled.
+	// Experimental.
 	CircuitBreaker *DeploymentCircuitBreaker `json:"circuitBreaker" yaml:"circuitBreaker"`
 	// The options for configuring an Amazon ECS service to use service discovery.
+	// Experimental.
 	CloudMapOptions *CloudMapOptions `json:"cloudMapOptions" yaml:"cloudMapOptions"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
+	// Experimental.
 	DeploymentController *DeploymentController `json:"deploymentController" yaml:"deploymentController"`
 	// The desired number of instantiations of the task definition to keep running on the service.
+	// Experimental.
 	DesiredCount *float64 `json:"desiredCount" yaml:"desiredCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
+	// Experimental.
 	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// Whether to enable the ability to execute into a container.
+	// Experimental.
 	EnableExecuteCommand *bool `json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
+	// Experimental.
 	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
+	// Experimental.
 	MaxHealthyPercent *float64 `json:"maxHealthyPercent" yaml:"maxHealthyPercent"`
 	// The minimum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that must continue to run and remain healthy during a deployment.
+	// Experimental.
 	MinHealthyPercent *float64 `json:"minHealthyPercent" yaml:"minHealthyPercent"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Valid values are: PropagatedTagSource.SERVICE, PropagatedTagSource.TASK_DEFINITION or PropagatedTagSource.NONE
+	// Experimental.
 	PropagateTags PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
+	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
+	//
+	// Tags can only be propagated to the tasks within the service during service creation.
+	// Deprecated: Use `propagateTags` instead.
+	PropagateTaskTagsFrom PropagatedTagSource `json:"propagateTaskTagsFrom" yaml:"propagateTaskTagsFrom"`
 	// The name of the service.
+	// Experimental.
 	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 }
 
 // Complete base service properties that are required to be supplied by the implementation of the BaseService class.
 //
-// TODO: EXAMPLE
+// Example:
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
 //
+//   var cluster cluster
+//   var containerDefinition containerDefinition
+//   var duration duration
+//   var namespace iNamespace
+//   baseServiceProps := &baseServiceProps{
+//   	cluster: cluster,
+//   	launchType: ecs.launchType_EC2,
+//
+//   	// the properties below are optional
+//   	capacityProviderStrategies: []capacityProviderStrategy{
+//   		&capacityProviderStrategy{
+//   			capacityProvider: jsii.String("capacityProvider"),
+//
+//   			// the properties below are optional
+//   			base: jsii.Number(123),
+//   			weight: jsii.Number(123),
+//   		},
+//   	},
+//   	circuitBreaker: &deploymentCircuitBreaker{
+//   		rollback: jsii.Boolean(false),
+//   	},
+//   	cloudMapOptions: &cloudMapOptions{
+//   		cloudMapNamespace: namespace,
+//   		container: containerDefinition,
+//   		containerPort: jsii.Number(123),
+//   		dnsRecordType: servicediscovery.dnsRecordType_A,
+//   		dnsTtl: duration,
+//   		failureThreshold: jsii.Number(123),
+//   		name: jsii.String("name"),
+//   	},
+//   	deploymentController: &deploymentController{
+//   		type: ecs.deploymentControllerType_ECS,
+//   	},
+//   	desiredCount: jsii.Number(123),
+//   	enableECSManagedTags: jsii.Boolean(false),
+//   	enableExecuteCommand: jsii.Boolean(false),
+//   	healthCheckGracePeriod: duration,
+//   	maxHealthyPercent: jsii.Number(123),
+//   	minHealthyPercent: jsii.Number(123),
+//   	propagateTags: ecs.propagatedTagSource_SERVICE,
+//   	propagateTaskTagsFrom: ecs.*propagatedTagSource_SERVICE,
+//   	serviceName: jsii.String("serviceName"),
+//   }
+//
+// Experimental.
 type BaseServiceProps struct {
 	// The name of the cluster that hosts the service.
+	// Experimental.
 	Cluster ICluster `json:"cluster" yaml:"cluster"`
 	// A list of Capacity Provider strategies used to place a service.
+	// Experimental.
 	CapacityProviderStrategies *[]*CapacityProviderStrategy `json:"capacityProviderStrategies" yaml:"capacityProviderStrategies"`
 	// Whether to enable the deployment circuit breaker.
 	//
 	// If this property is defined, circuit breaker will be implicitly
 	// enabled.
+	// Experimental.
 	CircuitBreaker *DeploymentCircuitBreaker `json:"circuitBreaker" yaml:"circuitBreaker"`
 	// The options for configuring an Amazon ECS service to use service discovery.
+	// Experimental.
 	CloudMapOptions *CloudMapOptions `json:"cloudMapOptions" yaml:"cloudMapOptions"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
+	// Experimental.
 	DeploymentController *DeploymentController `json:"deploymentController" yaml:"deploymentController"`
 	// The desired number of instantiations of the task definition to keep running on the service.
+	// Experimental.
 	DesiredCount *float64 `json:"desiredCount" yaml:"desiredCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
+	// Experimental.
 	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// Whether to enable the ability to execute into a container.
+	// Experimental.
 	EnableExecuteCommand *bool `json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
+	// Experimental.
 	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
+	// Experimental.
 	MaxHealthyPercent *float64 `json:"maxHealthyPercent" yaml:"maxHealthyPercent"`
 	// The minimum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that must continue to run and remain healthy during a deployment.
+	// Experimental.
 	MinHealthyPercent *float64 `json:"minHealthyPercent" yaml:"minHealthyPercent"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Valid values are: PropagatedTagSource.SERVICE, PropagatedTagSource.TASK_DEFINITION or PropagatedTagSource.NONE
+	// Experimental.
 	PropagateTags PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
+	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
+	//
+	// Tags can only be propagated to the tasks within the service during service creation.
+	// Deprecated: Use `propagateTags` instead.
+	PropagateTaskTagsFrom PropagatedTagSource `json:"propagateTaskTagsFrom" yaml:"propagateTaskTagsFrom"`
 	// The name of the service.
+	// Experimental.
 	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// The launch type on which to run your service.
 	//
@@ -1630,24 +2672,40 @@ type BaseServiceProps struct {
 	//
 	// Valid values are: LaunchType.ECS or LaunchType.FARGATE or LaunchType.EXTERNAL
 	//
+	// Experimental.
 	LaunchType LaunchType `json:"launchType" yaml:"launchType"`
 }
 
 // Instance resource used for bin packing.
+// Experimental.
 type BinPackResource string
 
 const (
+	// Fill up hosts' CPU allocations first.
+	// Experimental.
 	BinPackResource_CPU BinPackResource = "CPU"
+	// Fill up hosts' memory allocations first.
+	// Experimental.
 	BinPackResource_MEMORY BinPackResource = "MEMORY"
 )
 
 // Construct an Bottlerocket image from the latest AMI published in SSM.
 //
-// TODO: EXAMPLE
+// Example:
+//   var cluster cluster
 //
+//   cluster.addCapacity(jsii.String("bottlerocket-asg"), &addCapacityOptions{
+//   	minCapacity: jsii.Number(2),
+//   	instanceType: ec2.NewInstanceType(jsii.String("c5.large")),
+//   	machineImage: ecs.NewBottleRocketImage(),
+//   })
+//
+// Experimental.
 type BottleRocketImage interface {
 	awsec2.IMachineImage
-	GetImage(scope constructs.Construct) *awsec2.MachineImageConfig
+	// Return the correct image.
+	// Experimental.
+	GetImage(scope awscdk.Construct) *awsec2.MachineImageConfig
 }
 
 // The jsii proxy struct for BottleRocketImage
@@ -1656,13 +2714,14 @@ type jsiiProxy_BottleRocketImage struct {
 }
 
 // Constructs a new instance of the BottleRocketImage class.
+// Experimental.
 func NewBottleRocketImage(props *BottleRocketImageProps) BottleRocketImage {
 	_init_.Initialize()
 
 	j := jsiiProxy_BottleRocketImage{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.BottleRocketImage",
+		"monocdk.aws_ecs.BottleRocketImage",
 		[]interface{}{props},
 		&j,
 	)
@@ -1671,18 +2730,18 @@ func NewBottleRocketImage(props *BottleRocketImageProps) BottleRocketImage {
 }
 
 // Constructs a new instance of the BottleRocketImage class.
+// Experimental.
 func NewBottleRocketImage_Override(b BottleRocketImage, props *BottleRocketImageProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.BottleRocketImage",
+		"monocdk.aws_ecs.BottleRocketImage",
 		[]interface{}{props},
 		b,
 	)
 }
 
-// Return the correct image.
-func (b *jsiiProxy_BottleRocketImage) GetImage(scope constructs.Construct) *awsec2.MachineImageConfig {
+func (b *jsiiProxy_BottleRocketImage) GetImage(scope awscdk.Construct) *awsec2.MachineImageConfig {
 	var returns *awsec2.MachineImageConfig
 
 	_jsii_.Invoke(
@@ -1697,10 +2756,18 @@ func (b *jsiiProxy_BottleRocketImage) GetImage(scope constructs.Construct) *awse
 
 // Properties for BottleRocketImage.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   bottleRocketImageProps := &bottleRocketImageProps{
+//   	architecture: ec2.instanceArchitecture_ARM_64,
+//   	cachedInContext: jsii.Boolean(false),
+//   	variant: ecs.bottlerocketEcsVariant_AWS_ECS_1,
+//   }
 //
+// Experimental.
 type BottleRocketImageProps struct {
 	// The CPU architecture.
+	// Experimental.
 	Architecture awsec2.InstanceArchitecture `json:"architecture" yaml:"architecture"`
 	// Whether the AMI ID is cached to be stable between deployments.
 	//
@@ -1717,24 +2784,32 @@ type BottleRocketImageProps struct {
 	// more information.
 	//
 	// Can not be set to `true` in environment-agnostic stacks.
+	// Experimental.
 	CachedInContext *bool `json:"cachedInContext" yaml:"cachedInContext"`
 	// The Amazon ECS variant to use.
 	//
-	// Only `aws-ecs-1` is currently available
+	// Only `aws-ecs-1` is currently available.
+	// Experimental.
 	Variant BottlerocketEcsVariant `json:"variant" yaml:"variant"`
 }
 
 // Amazon ECS variant.
+// Experimental.
 type BottlerocketEcsVariant string
 
 const (
+	// aws-ecs-1 variant.
+	// Experimental.
 	BottlerocketEcsVariant_AWS_ECS_1 BottlerocketEcsVariant = "AWS_ECS_1"
 )
 
 // The built-in container instance attributes.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   builtInAttributes := ecs.NewBuiltInAttributes()
 //
+// Experimental.
 type BuiltInAttributes interface {
 }
 
@@ -1743,13 +2818,14 @@ type jsiiProxy_BuiltInAttributes struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewBuiltInAttributes() BuiltInAttributes {
 	_init_.Initialize()
 
 	j := jsiiProxy_BuiltInAttributes{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.BuiltInAttributes",
+		"monocdk.aws_ecs.BuiltInAttributes",
 		nil, // no parameters
 		&j,
 	)
@@ -1757,11 +2833,12 @@ func NewBuiltInAttributes() BuiltInAttributes {
 	return &j
 }
 
+// Experimental.
 func NewBuiltInAttributes_Override(b BuiltInAttributes) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.BuiltInAttributes",
+		"monocdk.aws_ecs.BuiltInAttributes",
 		nil, // no parameters
 		b,
 	)
@@ -1771,7 +2848,7 @@ func BuiltInAttributes_AMI_ID() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.BuiltInAttributes",
+		"monocdk.aws_ecs.BuiltInAttributes",
 		"AMI_ID",
 		&returns,
 	)
@@ -1782,7 +2859,7 @@ func BuiltInAttributes_AVAILABILITY_ZONE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.BuiltInAttributes",
+		"monocdk.aws_ecs.BuiltInAttributes",
 		"AVAILABILITY_ZONE",
 		&returns,
 	)
@@ -1793,7 +2870,7 @@ func BuiltInAttributes_INSTANCE_ID() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.BuiltInAttributes",
+		"monocdk.aws_ecs.BuiltInAttributes",
 		"INSTANCE_ID",
 		&returns,
 	)
@@ -1804,7 +2881,7 @@ func BuiltInAttributes_INSTANCE_TYPE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.BuiltInAttributes",
+		"monocdk.aws_ecs.BuiltInAttributes",
 		"INSTANCE_TYPE",
 		&returns,
 	)
@@ -1815,7 +2892,7 @@ func BuiltInAttributes_OS_TYPE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.BuiltInAttributes",
+		"monocdk.aws_ecs.BuiltInAttributes",
 		"OS_TYPE",
 		&returns,
 	)
@@ -1823,46 +2900,85 @@ func BuiltInAttributes_OS_TYPE() *string {
 }
 
 // A Linux capability.
+// Experimental.
 type Capability string
 
 const (
+	// Experimental.
 	Capability_ALL Capability = "ALL"
+	// Experimental.
 	Capability_AUDIT_CONTROL Capability = "AUDIT_CONTROL"
+	// Experimental.
 	Capability_AUDIT_WRITE Capability = "AUDIT_WRITE"
+	// Experimental.
 	Capability_BLOCK_SUSPEND Capability = "BLOCK_SUSPEND"
+	// Experimental.
 	Capability_CHOWN Capability = "CHOWN"
+	// Experimental.
 	Capability_DAC_OVERRIDE Capability = "DAC_OVERRIDE"
+	// Experimental.
 	Capability_DAC_READ_SEARCH Capability = "DAC_READ_SEARCH"
+	// Experimental.
 	Capability_FOWNER Capability = "FOWNER"
+	// Experimental.
 	Capability_FSETID Capability = "FSETID"
+	// Experimental.
 	Capability_IPC_LOCK Capability = "IPC_LOCK"
+	// Experimental.
 	Capability_IPC_OWNER Capability = "IPC_OWNER"
+	// Experimental.
 	Capability_KILL Capability = "KILL"
+	// Experimental.
 	Capability_LEASE Capability = "LEASE"
+	// Experimental.
 	Capability_LINUX_IMMUTABLE Capability = "LINUX_IMMUTABLE"
+	// Experimental.
 	Capability_MAC_ADMIN Capability = "MAC_ADMIN"
+	// Experimental.
 	Capability_MAC_OVERRIDE Capability = "MAC_OVERRIDE"
+	// Experimental.
 	Capability_MKNOD Capability = "MKNOD"
+	// Experimental.
 	Capability_NET_ADMIN Capability = "NET_ADMIN"
+	// Experimental.
 	Capability_NET_BIND_SERVICE Capability = "NET_BIND_SERVICE"
+	// Experimental.
 	Capability_NET_BROADCAST Capability = "NET_BROADCAST"
+	// Experimental.
 	Capability_NET_RAW Capability = "NET_RAW"
+	// Experimental.
 	Capability_SETFCAP Capability = "SETFCAP"
+	// Experimental.
 	Capability_SETGID Capability = "SETGID"
+	// Experimental.
 	Capability_SETPCAP Capability = "SETPCAP"
+	// Experimental.
 	Capability_SETUID Capability = "SETUID"
+	// Experimental.
 	Capability_SYS_ADMIN Capability = "SYS_ADMIN"
+	// Experimental.
 	Capability_SYS_BOOT Capability = "SYS_BOOT"
+	// Experimental.
 	Capability_SYS_CHROOT Capability = "SYS_CHROOT"
+	// Experimental.
 	Capability_SYS_MODULE Capability = "SYS_MODULE"
+	// Experimental.
 	Capability_SYS_NICE Capability = "SYS_NICE"
+	// Experimental.
 	Capability_SYS_PACCT Capability = "SYS_PACCT"
+	// Experimental.
 	Capability_SYS_PTRACE Capability = "SYS_PTRACE"
+	// Experimental.
 	Capability_SYS_RAWIO Capability = "SYS_RAWIO"
+	// Experimental.
 	Capability_SYS_RESOURCE Capability = "SYS_RESOURCE"
+	// Experimental.
 	Capability_SYS_TIME Capability = "SYS_TIME"
+	// Experimental.
 	Capability_SYS_TTY_CONFIG Capability = "SYS_TTY_CONFIG"
+	// Experimental.
 	Capability_SYSLOG Capability = "SYSLOG"
+	// Experimental.
 	Capability_WAKE_ALARM Capability = "WAKE_ALARM"
 )
 
@@ -1870,20 +2986,32 @@ const (
 //
 // NOTE: defaultCapacityProviderStrategy on cluster not currently supported.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   capacityProviderStrategy := &capacityProviderStrategy{
+//   	capacityProvider: jsii.String("capacityProvider"),
 //
+//   	// the properties below are optional
+//   	base: jsii.Number(123),
+//   	weight: jsii.Number(123),
+//   }
+//
+// Experimental.
 type CapacityProviderStrategy struct {
 	// The name of the capacity provider.
+	// Experimental.
 	CapacityProvider *string `json:"capacityProvider" yaml:"capacityProvider"`
 	// The base value designates how many tasks, at a minimum, to run on the specified capacity provider.
 	//
 	// Only one
 	// capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default
 	// value of 0 is used.
+	// Experimental.
 	Base *float64 `json:"base" yaml:"base"`
 	// The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider.
 	//
 	// The weight value is taken into consideration after the base value, if defined, is satisfied.
+	// Experimental.
 	Weight *float64 `json:"weight" yaml:"weight"`
 }
 
@@ -1893,39 +3021,264 @@ type CapacityProviderStrategy struct {
 //
 // Only capacity providers using an Auto Scaling group can be created. Amazon ECS tasks on AWS Fargate use the `FARGATE` and `FARGATE_SPOT` capacity providers which are already created and available to all accounts in Regions supported by AWS Fargate .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   cfnCapacityProvider := ecs.NewCfnCapacityProvider(this, jsii.String("MyCfnCapacityProvider"), &cfnCapacityProviderProps{
+//   	autoScalingGroupProvider: &autoScalingGroupProviderProperty{
+//   		autoScalingGroupArn: jsii.String("autoScalingGroupArn"),
+//
+//   		// the properties below are optional
+//   		managedScaling: &managedScalingProperty{
+//   			instanceWarmupPeriod: jsii.Number(123),
+//   			maximumScalingStepSize: jsii.Number(123),
+//   			minimumScalingStepSize: jsii.Number(123),
+//   			status: jsii.String("status"),
+//   			targetCapacity: jsii.Number(123),
+//   		},
+//   		managedTerminationProtection: jsii.String("managedTerminationProtection"),
+//   	},
+//
+//   	// the properties below are optional
+//   	name: jsii.String("name"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   })
 //
 type CfnCapacityProvider interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Auto Scaling group settings for the capacity provider.
 	AutoScalingGroupProvider() interface{}
 	SetAutoScalingGroupProvider(val interface{})
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The name of the capacity provider.
+	//
+	// If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// The metadata that you apply to the capacity provider to help you categorize and organize it.
+	//
+	// Each tag consists of a key and an optional value. You define both.
+	//
+	// The following basic restrictions apply to tags:
+	//
+	// - Maximum number of tags per resource - 50
+	// - For each resource, each tag key must be unique, and each tag key can have only one value.
+	// - Maximum key length - 128 Unicode characters in UTF-8
+	// - Maximum value length - 256 Unicode characters in UTF-8
+	// - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+	// - Tag keys and values are case-sensitive.
+	// - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2005,8 +3358,8 @@ func (j *jsiiProxy_CfnCapacityProvider) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCapacityProvider) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnCapacityProvider) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2057,13 +3410,13 @@ func (j *jsiiProxy_CfnCapacityProvider) UpdatedProperites() *map[string]interfac
 
 
 // Create a new `AWS::ECS::CapacityProvider`.
-func NewCfnCapacityProvider(scope constructs.Construct, id *string, props *CfnCapacityProviderProps) CfnCapacityProvider {
+func NewCfnCapacityProvider(scope awscdk.Construct, id *string, props *CfnCapacityProviderProps) CfnCapacityProvider {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnCapacityProvider{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.CfnCapacityProvider",
+		"monocdk.aws_ecs.CfnCapacityProvider",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2072,11 +3425,11 @@ func NewCfnCapacityProvider(scope constructs.Construct, id *string, props *CfnCa
 }
 
 // Create a new `AWS::ECS::CapacityProvider`.
-func NewCfnCapacityProvider_Override(c CfnCapacityProvider, scope constructs.Construct, id *string, props *CfnCapacityProviderProps) {
+func NewCfnCapacityProvider_Override(c CfnCapacityProvider, scope awscdk.Construct, id *string, props *CfnCapacityProviderProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.CfnCapacityProvider",
+		"monocdk.aws_ecs.CfnCapacityProvider",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2104,13 +3457,14 @@ func (j *jsiiProxy_CfnCapacityProvider) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnCapacityProvider_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.CfnCapacityProvider",
+		"monocdk.aws_ecs.CfnCapacityProvider",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2120,13 +3474,14 @@ func CfnCapacityProvider_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnCapacityProvider_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.CfnCapacityProvider",
+		"monocdk.aws_ecs.CfnCapacityProvider",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2135,17 +3490,15 @@ func CfnCapacityProvider_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnCapacityProvider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.CfnCapacityProvider",
+		"monocdk.aws_ecs.CfnCapacityProvider",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2158,14 +3511,13 @@ func CfnCapacityProvider_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.CfnCapacityProvider",
+		"monocdk.aws_ecs.CfnCapacityProvider",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnCapacityProvider) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2174,10 +3526,6 @@ func (c *jsiiProxy_CfnCapacityProvider) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnCapacityProvider) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2186,13 +3534,6 @@ func (c *jsiiProxy_CfnCapacityProvider) AddDependsOn(target awscdk.CfnResource) 
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnCapacityProvider) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2201,49 +3542,6 @@ func (c *jsiiProxy_CfnCapacityProvider) AddMetadata(key *string, value interface
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnCapacityProvider) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2252,7 +3550,6 @@ func (c *jsiiProxy_CfnCapacityProvider) AddOverride(path *string, value interfac
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnCapacityProvider) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2261,9 +3558,6 @@ func (c *jsiiProxy_CfnCapacityProvider) AddPropertyDeletionOverride(propertyPath
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnCapacityProvider) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2272,15 +3566,6 @@ func (c *jsiiProxy_CfnCapacityProvider) AddPropertyOverride(propertyPath *string
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnCapacityProvider) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2289,10 +3574,6 @@ func (c *jsiiProxy_CfnCapacityProvider) ApplyRemovalPolicy(policy awscdk.Removal
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnCapacityProvider) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2306,13 +3587,6 @@ func (c *jsiiProxy_CfnCapacityProvider) GetAtt(attributeName *string) awscdk.Ref
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnCapacityProvider) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2326,7 +3600,6 @@ func (c *jsiiProxy_CfnCapacityProvider) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnCapacityProvider) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2335,12 +3608,48 @@ func (c *jsiiProxy_CfnCapacityProvider) Inspect(inspector awscdk.TreeInspector) 
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnCapacityProvider) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnCapacityProvider) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnCapacityProvider) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnCapacityProvider) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnCapacityProvider) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2357,10 +3666,6 @@ func (c *jsiiProxy_CfnCapacityProvider) RenderProperties(props *map[string]inter
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnCapacityProvider) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2374,15 +3679,33 @@ func (c *jsiiProxy_CfnCapacityProvider) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnCapacityProvider) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnCapacityProvider) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnCapacityProvider) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2400,7 +3723,21 @@ func (c *jsiiProxy_CfnCapacityProvider) ValidateProperties(_properties interface
 
 // The `AutoScalingGroupProvider` property specifies the details of the Auto Scaling group for the capacity provider.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   autoScalingGroupProviderProperty := &autoScalingGroupProviderProperty{
+//   	autoScalingGroupArn: jsii.String("autoScalingGroupArn"),
+//
+//   	// the properties below are optional
+//   	managedScaling: &managedScalingProperty{
+//   		instanceWarmupPeriod: jsii.Number(123),
+//   		maximumScalingStepSize: jsii.Number(123),
+//   		minimumScalingStepSize: jsii.Number(123),
+//   		status: jsii.String("status"),
+//   		targetCapacity: jsii.Number(123),
+//   	},
+//   	managedTerminationProtection: jsii.String("managedTerminationProtection"),
+//   }
 //
 type CfnCapacityProvider_AutoScalingGroupProviderProperty struct {
 	// The Amazon Resource Name (ARN) or short name that identifies the Auto Scaling group.
@@ -2425,7 +3762,15 @@ type CfnCapacityProvider_AutoScalingGroupProviderProperty struct {
 //
 // If managed scaling is disabled, the user must manage the scaling of the Auto Scaling group.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   managedScalingProperty := &managedScalingProperty{
+//   	instanceWarmupPeriod: jsii.Number(123),
+//   	maximumScalingStepSize: jsii.Number(123),
+//   	minimumScalingStepSize: jsii.Number(123),
+//   	status: jsii.String("status"),
+//   	targetCapacity: jsii.Number(123),
+//   }
 //
 type CfnCapacityProvider_ManagedScalingProperty struct {
 	// The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group.
@@ -2450,7 +3795,32 @@ type CfnCapacityProvider_ManagedScalingProperty struct {
 
 // Properties for defining a `CfnCapacityProvider`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   cfnCapacityProviderProps := &cfnCapacityProviderProps{
+//   	autoScalingGroupProvider: &autoScalingGroupProviderProperty{
+//   		autoScalingGroupArn: jsii.String("autoScalingGroupArn"),
+//
+//   		// the properties below are optional
+//   		managedScaling: &managedScalingProperty{
+//   			instanceWarmupPeriod: jsii.Number(123),
+//   			maximumScalingStepSize: jsii.Number(123),
+//   			minimumScalingStepSize: jsii.Number(123),
+//   			status: jsii.String("status"),
+//   			targetCapacity: jsii.Number(123),
+//   		},
+//   		managedTerminationProtection: jsii.String("managedTerminationProtection"),
+//   	},
+//
+//   	// the properties below are optional
+//   	name: jsii.String("name"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnCapacityProviderProps struct {
 	// The Auto Scaling group settings for the capacity provider.
@@ -2479,46 +3849,299 @@ type CfnCapacityProviderProps struct {
 //
 // The `AWS::ECS::Cluster` resource creates an Amazon Elastic Container Service (Amazon ECS) cluster.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   cfnCluster := ecs.NewCfnCluster(this, jsii.String("MyCfnCluster"), &cfnClusterProps{
+//   	capacityProviders: []*string{
+//   		jsii.String("capacityProviders"),
+//   	},
+//   	clusterName: jsii.String("clusterName"),
+//   	clusterSettings: []interface{}{
+//   		&clusterSettingsProperty{
+//   			name: jsii.String("name"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	configuration: &clusterConfigurationProperty{
+//   		executeCommandConfiguration: &executeCommandConfigurationProperty{
+//   			kmsKeyId: jsii.String("kmsKeyId"),
+//   			logConfiguration: &executeCommandLogConfigurationProperty{
+//   				cloudWatchEncryptionEnabled: jsii.Boolean(false),
+//   				cloudWatchLogGroupName: jsii.String("cloudWatchLogGroupName"),
+//   				s3BucketName: jsii.String("s3BucketName"),
+//   				s3EncryptionEnabled: jsii.Boolean(false),
+//   				s3KeyPrefix: jsii.String("s3KeyPrefix"),
+//   			},
+//   			logging: jsii.String("logging"),
+//   		},
+//   	},
+//   	defaultCapacityProviderStrategy: []interface{}{
+//   		&capacityProviderStrategyItemProperty{
+//   			base: jsii.Number(123),
+//   			capacityProvider: jsii.String("capacityProvider"),
+//   			weight: jsii.Number(123),
+//   		},
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   })
 //
 type CfnCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the Amazon ECS cluster, such as `arn:aws:ecs:us-east-2:123456789012:cluster/MyECSCluster` .
 	AttrArn() *string
+	// The short name of one or more capacity providers to associate with the cluster.
+	//
+	// A capacity provider must be associated with a cluster before it can be included as part of the default capacity provider strategy of the cluster or used in a capacity provider strategy.
+	//
+	// If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created and not already associated with another cluster.
+	//
+	// To use an AWS Fargate capacity provider, specify either the `FARGATE` or `FARGATE_SPOT` capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
 	CapacityProviders() *[]*string
 	SetCapacityProviders(val *[]*string)
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// A user-generated string that you use to identify your cluster.
+	//
+	// If you don't specify a name, AWS CloudFormation generates a unique physical ID for the name.
 	ClusterName() *string
 	SetClusterName(val *string)
+	// The setting to use when creating a cluster.
+	//
+	// This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the `containerInsights` value set with [PutAccountSetting](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html) or [PutAccountSettingDefault](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html) .
 	ClusterSettings() interface{}
 	SetClusterSettings(val interface{})
+	// The execute command configuration for the cluster.
 	Configuration() interface{}
 	SetConfiguration(val interface{})
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The default capacity provider strategy for the cluster.
+	//
+	// When services or tasks are run in the cluster with no launch type or capacity provider strategy specified, the default capacity provider strategy is used.
 	DefaultCapacityProviderStrategy() interface{}
 	SetDefaultCapacityProviderStrategy(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// The metadata that you apply to the cluster to help you categorize and organize them.
+	//
+	// Each tag consists of a key and an optional value. You define both.
+	//
+	// The following basic restrictions apply to tags:
+	//
+	// - Maximum number of tags per resource - 50
+	// - For each resource, each tag key must be unique, and each tag key can have only one value.
+	// - Maximum key length - 128 Unicode characters in UTF-8
+	// - Maximum value length - 256 Unicode characters in UTF-8
+	// - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+	// - Tag keys and values are case-sensitive.
+	// - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2638,8 +4261,8 @@ func (j *jsiiProxy_CfnCluster) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnCluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2690,13 +4313,13 @@ func (j *jsiiProxy_CfnCluster) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::ECS::Cluster`.
-func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProps) CfnCluster {
+func NewCfnCluster(scope awscdk.Construct, id *string, props *CfnClusterProps) CfnCluster {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnCluster{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.CfnCluster",
+		"monocdk.aws_ecs.CfnCluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2705,11 +4328,11 @@ func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProp
 }
 
 // Create a new `AWS::ECS::Cluster`.
-func NewCfnCluster_Override(c CfnCluster, scope constructs.Construct, id *string, props *CfnClusterProps) {
+func NewCfnCluster_Override(c CfnCluster, scope awscdk.Construct, id *string, props *CfnClusterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.CfnCluster",
+		"monocdk.aws_ecs.CfnCluster",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2761,13 +4384,14 @@ func (j *jsiiProxy_CfnCluster) SetDefaultCapacityProviderStrategy(val interface{
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnCluster_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.CfnCluster",
+		"monocdk.aws_ecs.CfnCluster",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2777,13 +4401,14 @@ func CfnCluster_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.CfnCluster",
+		"monocdk.aws_ecs.CfnCluster",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2792,17 +4417,15 @@ func CfnCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.CfnCluster",
+		"monocdk.aws_ecs.CfnCluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2815,14 +4438,13 @@ func CfnCluster_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.CfnCluster",
+		"monocdk.aws_ecs.CfnCluster",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnCluster) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2831,10 +4453,6 @@ func (c *jsiiProxy_CfnCluster) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnCluster) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2843,13 +4461,6 @@ func (c *jsiiProxy_CfnCluster) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnCluster) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2858,49 +4469,6 @@ func (c *jsiiProxy_CfnCluster) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnCluster) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2909,7 +4477,6 @@ func (c *jsiiProxy_CfnCluster) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnCluster) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2918,9 +4485,6 @@ func (c *jsiiProxy_CfnCluster) AddPropertyDeletionOverride(propertyPath *string)
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnCluster) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2929,15 +4493,6 @@ func (c *jsiiProxy_CfnCluster) AddPropertyOverride(propertyPath *string, value i
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2946,10 +4501,6 @@ func (c *jsiiProxy_CfnCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnCluster) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2963,13 +4514,6 @@ func (c *jsiiProxy_CfnCluster) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnCluster) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2983,7 +4527,6 @@ func (c *jsiiProxy_CfnCluster) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnCluster) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2992,12 +4535,48 @@ func (c *jsiiProxy_CfnCluster) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnCluster) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnCluster) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnCluster) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnCluster) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnCluster) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3014,10 +4593,6 @@ func (c *jsiiProxy_CfnCluster) RenderProperties(props *map[string]interface{}) *
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnCluster) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3031,15 +4606,33 @@ func (c *jsiiProxy_CfnCluster) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnCluster) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnCluster) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnCluster) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3059,7 +4652,13 @@ func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 //
 // When services or tasks are run in the cluster with no launch type or capacity provider strategy specified, the default capacity provider strategy is used.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   capacityProviderStrategyItemProperty := &capacityProviderStrategyItemProperty{
+//   	base: jsii.Number(123),
+//   	capacityProvider: jsii.String("capacityProvider"),
+//   	weight: jsii.Number(123),
+//   }
 //
 type CfnCluster_CapacityProviderStrategyItemProperty struct {
 	// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider.
@@ -3080,7 +4679,21 @@ type CfnCluster_CapacityProviderStrategyItemProperty struct {
 
 // The execute command configuration for the cluster.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   clusterConfigurationProperty := &clusterConfigurationProperty{
+//   	executeCommandConfiguration: &executeCommandConfigurationProperty{
+//   		kmsKeyId: jsii.String("kmsKeyId"),
+//   		logConfiguration: &executeCommandLogConfigurationProperty{
+//   			cloudWatchEncryptionEnabled: jsii.Boolean(false),
+//   			cloudWatchLogGroupName: jsii.String("cloudWatchLogGroupName"),
+//   			s3BucketName: jsii.String("s3BucketName"),
+//   			s3EncryptionEnabled: jsii.Boolean(false),
+//   			s3KeyPrefix: jsii.String("s3KeyPrefix"),
+//   		},
+//   		logging: jsii.String("logging"),
+//   	},
+//   }
 //
 type CfnCluster_ClusterConfigurationProperty struct {
 	// The details of the execute command configuration.
@@ -3091,7 +4704,12 @@ type CfnCluster_ClusterConfigurationProperty struct {
 //
 // This parameter is used to turn on CloudWatch Container Insights for a cluster.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   clusterSettingsProperty := &clusterSettingsProperty{
+//   	name: jsii.String("name"),
+//   	value: jsii.String("value"),
+//   }
 //
 type CfnCluster_ClusterSettingsProperty struct {
 	// The name of the cluster setting.
@@ -3106,7 +4724,19 @@ type CfnCluster_ClusterSettingsProperty struct {
 
 // The details of the execute command configuration.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   executeCommandConfigurationProperty := &executeCommandConfigurationProperty{
+//   	kmsKeyId: jsii.String("kmsKeyId"),
+//   	logConfiguration: &executeCommandLogConfigurationProperty{
+//   		cloudWatchEncryptionEnabled: jsii.Boolean(false),
+//   		cloudWatchLogGroupName: jsii.String("cloudWatchLogGroupName"),
+//   		s3BucketName: jsii.String("s3BucketName"),
+//   		s3EncryptionEnabled: jsii.Boolean(false),
+//   		s3KeyPrefix: jsii.String("s3KeyPrefix"),
+//   	},
+//   	logging: jsii.String("logging"),
+//   }
 //
 type CfnCluster_ExecuteCommandConfigurationProperty struct {
 	// Specify an AWS Key Management Service key ID to encrypt the data between the local client and the container.
@@ -3127,7 +4757,15 @@ type CfnCluster_ExecuteCommandConfigurationProperty struct {
 //
 // The logs can be sent to CloudWatch Logs or an Amazon S3 bucket.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   executeCommandLogConfigurationProperty := &executeCommandLogConfigurationProperty{
+//   	cloudWatchEncryptionEnabled: jsii.Boolean(false),
+//   	cloudWatchLogGroupName: jsii.String("cloudWatchLogGroupName"),
+//   	s3BucketName: jsii.String("s3BucketName"),
+//   	s3EncryptionEnabled: jsii.Boolean(false),
+//   	s3KeyPrefix: jsii.String("s3KeyPrefix"),
+//   }
 //
 type CfnCluster_ExecuteCommandLogConfigurationProperty struct {
 	// Determines whether to use encryption on the CloudWatch logs.
@@ -3154,40 +4792,242 @@ type CfnCluster_ExecuteCommandLogConfigurationProperty struct {
 //
 // The `AWS::ECS::ClusterCapacityProviderAssociations` resource associates one or more capacity providers and a default capacity provider strategy with a cluster.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   cfnClusterCapacityProviderAssociations := ecs.NewCfnClusterCapacityProviderAssociations(this, jsii.String("MyCfnClusterCapacityProviderAssociations"), &cfnClusterCapacityProviderAssociationsProps{
+//   	capacityProviders: []*string{
+//   		jsii.String("capacityProviders"),
+//   	},
+//   	cluster: jsii.String("cluster"),
+//   	defaultCapacityProviderStrategy: []interface{}{
+//   		&capacityProviderStrategyProperty{
+//   			capacityProvider: jsii.String("capacityProvider"),
+//
+//   			// the properties below are optional
+//   			base: jsii.Number(123),
+//   			weight: jsii.Number(123),
+//   		},
+//   	},
+//   })
 //
 type CfnClusterCapacityProviderAssociations interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The capacity providers to associate with the cluster.
 	CapacityProviders() *[]*string
 	SetCapacityProviders(val *[]*string)
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// The cluster the capacity provider association is the target of.
 	Cluster() *string
 	SetCluster(val *string)
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The default capacity provider strategy to associate with the cluster.
 	DefaultCapacityProviderStrategy() interface{}
 	SetDefaultCapacityProviderStrategy(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -3277,8 +5117,8 @@ func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3319,13 +5159,13 @@ func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) UpdatedProperites() *
 
 
 // Create a new `AWS::ECS::ClusterCapacityProviderAssociations`.
-func NewCfnClusterCapacityProviderAssociations(scope constructs.Construct, id *string, props *CfnClusterCapacityProviderAssociationsProps) CfnClusterCapacityProviderAssociations {
+func NewCfnClusterCapacityProviderAssociations(scope awscdk.Construct, id *string, props *CfnClusterCapacityProviderAssociationsProps) CfnClusterCapacityProviderAssociations {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnClusterCapacityProviderAssociations{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.CfnClusterCapacityProviderAssociations",
+		"monocdk.aws_ecs.CfnClusterCapacityProviderAssociations",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3334,11 +5174,11 @@ func NewCfnClusterCapacityProviderAssociations(scope constructs.Construct, id *s
 }
 
 // Create a new `AWS::ECS::ClusterCapacityProviderAssociations`.
-func NewCfnClusterCapacityProviderAssociations_Override(c CfnClusterCapacityProviderAssociations, scope constructs.Construct, id *string, props *CfnClusterCapacityProviderAssociationsProps) {
+func NewCfnClusterCapacityProviderAssociations_Override(c CfnClusterCapacityProviderAssociations, scope awscdk.Construct, id *string, props *CfnClusterCapacityProviderAssociationsProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.CfnClusterCapacityProviderAssociations",
+		"monocdk.aws_ecs.CfnClusterCapacityProviderAssociations",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3374,13 +5214,14 @@ func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) SetDefaultCapacityPro
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnClusterCapacityProviderAssociations_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.CfnClusterCapacityProviderAssociations",
+		"monocdk.aws_ecs.CfnClusterCapacityProviderAssociations",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3390,13 +5231,14 @@ func CfnClusterCapacityProviderAssociations_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnClusterCapacityProviderAssociations_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.CfnClusterCapacityProviderAssociations",
+		"monocdk.aws_ecs.CfnClusterCapacityProviderAssociations",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3405,17 +5247,15 @@ func CfnClusterCapacityProviderAssociations_IsCfnResource(construct constructs.I
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnClusterCapacityProviderAssociations_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.CfnClusterCapacityProviderAssociations",
+		"monocdk.aws_ecs.CfnClusterCapacityProviderAssociations",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3428,14 +5268,13 @@ func CfnClusterCapacityProviderAssociations_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.CfnClusterCapacityProviderAssociations",
+		"monocdk.aws_ecs.CfnClusterCapacityProviderAssociations",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3444,10 +5283,6 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) AddDeletionOverride(p
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3456,13 +5291,6 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) AddDependsOn(target a
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3471,49 +5299,6 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) AddMetadata(key *stri
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3522,7 +5307,6 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) AddOverride(path *str
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3531,9 +5315,6 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) AddPropertyDeletionOv
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3542,15 +5323,6 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) AddPropertyOverride(p
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3559,10 +5331,6 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) ApplyRemovalPolicy(po
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3576,13 +5344,6 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) GetAtt(attributeName 
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3596,7 +5357,6 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) GetMetadata(key *stri
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3605,12 +5365,48 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) Inspect(inspector aws
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3627,10 +5423,6 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) RenderProperties(prop
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3644,15 +5436,33 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) ShouldSynthesize() *b
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3672,7 +5482,15 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) ValidateProperties(_p
 //
 // When services or tasks are run in the cluster with no launch type or capacity provider strategy specified, the default capacity provider strategy is used.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   capacityProviderStrategyProperty := &capacityProviderStrategyProperty{
+//   	capacityProvider: jsii.String("capacityProvider"),
+//
+//   	// the properties below are optional
+//   	base: jsii.Number(123),
+//   	weight: jsii.Number(123),
+//   }
 //
 type CfnClusterCapacityProviderAssociations_CapacityProviderStrategyProperty struct {
 	// The short name of the capacity provider.
@@ -3693,7 +5511,23 @@ type CfnClusterCapacityProviderAssociations_CapacityProviderStrategyProperty str
 
 // Properties for defining a `CfnClusterCapacityProviderAssociations`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   cfnClusterCapacityProviderAssociationsProps := &cfnClusterCapacityProviderAssociationsProps{
+//   	capacityProviders: []*string{
+//   		jsii.String("capacityProviders"),
+//   	},
+//   	cluster: jsii.String("cluster"),
+//   	defaultCapacityProviderStrategy: []interface{}{
+//   		&capacityProviderStrategyProperty{
+//   			capacityProvider: jsii.String("capacityProvider"),
+//
+//   			// the properties below are optional
+//   			base: jsii.Number(123),
+//   			weight: jsii.Number(123),
+//   		},
+//   	},
+//   }
 //
 type CfnClusterCapacityProviderAssociationsProps struct {
 	// The capacity providers to associate with the cluster.
@@ -3706,7 +5540,46 @@ type CfnClusterCapacityProviderAssociationsProps struct {
 
 // Properties for defining a `CfnCluster`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   cfnClusterProps := &cfnClusterProps{
+//   	capacityProviders: []*string{
+//   		jsii.String("capacityProviders"),
+//   	},
+//   	clusterName: jsii.String("clusterName"),
+//   	clusterSettings: []interface{}{
+//   		&clusterSettingsProperty{
+//   			name: jsii.String("name"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	configuration: &clusterConfigurationProperty{
+//   		executeCommandConfiguration: &executeCommandConfigurationProperty{
+//   			kmsKeyId: jsii.String("kmsKeyId"),
+//   			logConfiguration: &executeCommandLogConfigurationProperty{
+//   				cloudWatchEncryptionEnabled: jsii.Boolean(false),
+//   				cloudWatchLogGroupName: jsii.String("cloudWatchLogGroupName"),
+//   				s3BucketName: jsii.String("s3BucketName"),
+//   				s3EncryptionEnabled: jsii.Boolean(false),
+//   				s3KeyPrefix: jsii.String("s3KeyPrefix"),
+//   			},
+//   			logging: jsii.String("logging"),
+//   		},
+//   	},
+//   	defaultCapacityProviderStrategy: []interface{}{
+//   		&capacityProviderStrategyItemProperty{
+//   			base: jsii.Number(123),
+//   			capacityProvider: jsii.String("capacityProvider"),
+//   			weight: jsii.Number(123),
+//   		},
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnClusterProps struct {
 	// The short name of one or more capacity providers to associate with the cluster.
@@ -3751,40 +5624,232 @@ type CfnClusterProps struct {
 //
 // Specifies which task set in a service is the primary task set. Any parameters that are updated on the primary task set in a service will transition to the service. This is used when a service uses the `EXTERNAL` deployment controller type. For more information, see [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html) in the *Amazon Elastic Container Service Developer Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   cfnPrimaryTaskSet := ecs.NewCfnPrimaryTaskSet(this, jsii.String("MyCfnPrimaryTaskSet"), &cfnPrimaryTaskSetProps{
+//   	cluster: jsii.String("cluster"),
+//   	service: jsii.String("service"),
+//   	taskSetId: jsii.String("taskSetId"),
+//   })
 //
 type CfnPrimaryTaskSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in.
 	Cluster() *string
 	SetCluster(val *string)
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The short name or full Amazon Resource Name (ARN) of the service that the task set exists in.
 	Service() *string
 	SetService(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// The short name or full Amazon Resource Name (ARN) of the task set to set as the primary task set in the deployment.
 	TaskSetId() *string
 	SetTaskSetId(val *string)
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -3854,8 +5919,8 @@ func (j *jsiiProxy_CfnPrimaryTaskSet) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPrimaryTaskSet) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnPrimaryTaskSet) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3916,13 +5981,13 @@ func (j *jsiiProxy_CfnPrimaryTaskSet) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::ECS::PrimaryTaskSet`.
-func NewCfnPrimaryTaskSet(scope constructs.Construct, id *string, props *CfnPrimaryTaskSetProps) CfnPrimaryTaskSet {
+func NewCfnPrimaryTaskSet(scope awscdk.Construct, id *string, props *CfnPrimaryTaskSetProps) CfnPrimaryTaskSet {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnPrimaryTaskSet{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.CfnPrimaryTaskSet",
+		"monocdk.aws_ecs.CfnPrimaryTaskSet",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3931,11 +5996,11 @@ func NewCfnPrimaryTaskSet(scope constructs.Construct, id *string, props *CfnPrim
 }
 
 // Create a new `AWS::ECS::PrimaryTaskSet`.
-func NewCfnPrimaryTaskSet_Override(c CfnPrimaryTaskSet, scope constructs.Construct, id *string, props *CfnPrimaryTaskSetProps) {
+func NewCfnPrimaryTaskSet_Override(c CfnPrimaryTaskSet, scope awscdk.Construct, id *string, props *CfnPrimaryTaskSetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.CfnPrimaryTaskSet",
+		"monocdk.aws_ecs.CfnPrimaryTaskSet",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3971,13 +6036,14 @@ func (j *jsiiProxy_CfnPrimaryTaskSet) SetTaskSetId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnPrimaryTaskSet_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.CfnPrimaryTaskSet",
+		"monocdk.aws_ecs.CfnPrimaryTaskSet",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3987,13 +6053,14 @@ func CfnPrimaryTaskSet_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnPrimaryTaskSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.CfnPrimaryTaskSet",
+		"monocdk.aws_ecs.CfnPrimaryTaskSet",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4002,17 +6069,15 @@ func CfnPrimaryTaskSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnPrimaryTaskSet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.CfnPrimaryTaskSet",
+		"monocdk.aws_ecs.CfnPrimaryTaskSet",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4025,14 +6090,13 @@ func CfnPrimaryTaskSet_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.CfnPrimaryTaskSet",
+		"monocdk.aws_ecs.CfnPrimaryTaskSet",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnPrimaryTaskSet) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4041,10 +6105,6 @@ func (c *jsiiProxy_CfnPrimaryTaskSet) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnPrimaryTaskSet) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4053,13 +6113,6 @@ func (c *jsiiProxy_CfnPrimaryTaskSet) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnPrimaryTaskSet) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4068,49 +6121,6 @@ func (c *jsiiProxy_CfnPrimaryTaskSet) AddMetadata(key *string, value interface{}
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnPrimaryTaskSet) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4119,7 +6129,6 @@ func (c *jsiiProxy_CfnPrimaryTaskSet) AddOverride(path *string, value interface{
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnPrimaryTaskSet) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4128,9 +6137,6 @@ func (c *jsiiProxy_CfnPrimaryTaskSet) AddPropertyDeletionOverride(propertyPath *
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnPrimaryTaskSet) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4139,15 +6145,6 @@ func (c *jsiiProxy_CfnPrimaryTaskSet) AddPropertyOverride(propertyPath *string, 
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnPrimaryTaskSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4156,10 +6153,6 @@ func (c *jsiiProxy_CfnPrimaryTaskSet) ApplyRemovalPolicy(policy awscdk.RemovalPo
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnPrimaryTaskSet) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4173,13 +6166,6 @@ func (c *jsiiProxy_CfnPrimaryTaskSet) GetAtt(attributeName *string) awscdk.Refer
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnPrimaryTaskSet) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4193,7 +6179,6 @@ func (c *jsiiProxy_CfnPrimaryTaskSet) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnPrimaryTaskSet) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4202,12 +6187,48 @@ func (c *jsiiProxy_CfnPrimaryTaskSet) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnPrimaryTaskSet) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnPrimaryTaskSet) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnPrimaryTaskSet) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnPrimaryTaskSet) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnPrimaryTaskSet) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -4224,10 +6245,6 @@ func (c *jsiiProxy_CfnPrimaryTaskSet) RenderProperties(props *map[string]interfa
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnPrimaryTaskSet) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4241,15 +6258,33 @@ func (c *jsiiProxy_CfnPrimaryTaskSet) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnPrimaryTaskSet) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnPrimaryTaskSet) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnPrimaryTaskSet) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4267,7 +6302,13 @@ func (c *jsiiProxy_CfnPrimaryTaskSet) ValidateProperties(_properties interface{}
 
 // Properties for defining a `CfnPrimaryTaskSet`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   cfnPrimaryTaskSetProps := &cfnPrimaryTaskSetProps{
+//   	cluster: jsii.String("cluster"),
+//   	service: jsii.String("service"),
+//   	taskSetId: jsii.String("taskSetId"),
+//   }
 //
 type CfnPrimaryTaskSetProps struct {
 	// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in.
@@ -4282,77 +6323,446 @@ type CfnPrimaryTaskSetProps struct {
 //
 // The `AWS::ECS::Service` resource creates an Amazon Elastic Container Service (Amazon ECS) service that runs and maintains the requested number of tasks and associated load balancers.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   cfnService := ecs.NewCfnService(this, jsii.String("MyCfnService"), &cfnServiceProps{
+//   	capacityProviderStrategy: []interface{}{
+//   		&capacityProviderStrategyItemProperty{
+//   			base: jsii.Number(123),
+//   			capacityProvider: jsii.String("capacityProvider"),
+//   			weight: jsii.Number(123),
+//   		},
+//   	},
+//   	cluster: jsii.String("cluster"),
+//   	deploymentConfiguration: &deploymentConfigurationProperty{
+//   		deploymentCircuitBreaker: &deploymentCircuitBreakerProperty{
+//   			enable: jsii.Boolean(false),
+//   			rollback: jsii.Boolean(false),
+//   		},
+//   		maximumPercent: jsii.Number(123),
+//   		minimumHealthyPercent: jsii.Number(123),
+//   	},
+//   	deploymentController: &deploymentControllerProperty{
+//   		type: jsii.String("type"),
+//   	},
+//   	desiredCount: jsii.Number(123),
+//   	enableEcsManagedTags: jsii.Boolean(false),
+//   	enableExecuteCommand: jsii.Boolean(false),
+//   	healthCheckGracePeriodSeconds: jsii.Number(123),
+//   	launchType: jsii.String("launchType"),
+//   	loadBalancers: []interface{}{
+//   		&loadBalancerProperty{
+//   			containerPort: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			containerName: jsii.String("containerName"),
+//   			loadBalancerName: jsii.String("loadBalancerName"),
+//   			targetGroupArn: jsii.String("targetGroupArn"),
+//   		},
+//   	},
+//   	networkConfiguration: &networkConfigurationProperty{
+//   		awsvpcConfiguration: &awsVpcConfigurationProperty{
+//   			subnets: []*string{
+//   				jsii.String("subnets"),
+//   			},
+//
+//   			// the properties below are optional
+//   			assignPublicIp: jsii.String("assignPublicIp"),
+//   			securityGroups: []*string{
+//   				jsii.String("securityGroups"),
+//   			},
+//   		},
+//   	},
+//   	placementConstraints: []interface{}{
+//   		&placementConstraintProperty{
+//   			type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			expression: jsii.String("expression"),
+//   		},
+//   	},
+//   	placementStrategies: []interface{}{
+//   		&placementStrategyProperty{
+//   			type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			field: jsii.String("field"),
+//   		},
+//   	},
+//   	platformVersion: jsii.String("platformVersion"),
+//   	propagateTags: jsii.String("propagateTags"),
+//   	role: jsii.String("role"),
+//   	schedulingStrategy: jsii.String("schedulingStrategy"),
+//   	serviceName: jsii.String("serviceName"),
+//   	serviceRegistries: []interface{}{
+//   		&serviceRegistryProperty{
+//   			containerName: jsii.String("containerName"),
+//   			containerPort: jsii.Number(123),
+//   			port: jsii.Number(123),
+//   			registryArn: jsii.String("registryArn"),
+//   		},
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	taskDefinition: jsii.String("taskDefinition"),
+//   })
 //
 type CfnService interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The name of the Amazon ECS service, such as `sample-webapp` .
 	AttrName() *string
+	// Not currently supported in AWS CloudFormation .
 	AttrServiceArn() *string
+	// The capacity provider strategy to use for the service.
+	//
+	// A capacity provider strategy consists of one or more capacity providers along with the `base` and `weight` to assign to them. A capacity provider must be associated with the cluster to be used in a capacity provider strategy. The PutClusterCapacityProviders API is used to associate a capacity provider with a cluster. Only capacity providers with an `ACTIVE` or `UPDATING` status can be used.
+	//
+	// Review the [Capacity provider considerations](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html#capacity-providers-considerations) in the *Amazon Elastic Container Service Developer Guide.*
+	//
+	// If a `capacityProviderStrategy` is specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or `launchType` is specified, the `defaultCapacityProviderStrategy` for the cluster is used.
+	//
+	// If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New capacity providers can be created with the CreateCapacityProvider API operation.
+	//
+	// To use an AWS Fargate capacity provider, specify either the `FARGATE` or `FARGATE_SPOT` capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
+	//
+	// The PutClusterCapacityProviders API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
 	CapacityProviderStrategy() interface{}
 	SetCapacityProviderStrategy(val interface{})
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on.
+	//
+	// If you do not specify a cluster, the default cluster is assumed.
 	Cluster() *string
 	SetCluster(val *string)
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 	DeploymentConfiguration() interface{}
 	SetDeploymentConfiguration(val interface{})
+	// The deployment controller to use for the service.
+	//
+	// If no deployment controller is specified, the default value of `ECS` is used.
 	DeploymentController() interface{}
 	SetDeploymentController(val interface{})
+	// The number of instantiations of the specified task definition to place and keep running on your cluster.
+	//
+	// For new services, if a desired count is not specified, a default value of `1` is used. When using the `DAEMON` scheduling strategy, the desired count is not required.
+	//
+	// For existing services, if a desired count is not specified, it is omitted from the operation.
 	DesiredCount() *float64
 	SetDesiredCount(val *float64)
+	// Specifies whether to turn on Amazon ECS managed tags for the tasks within the service.
+	//
+	// For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the *Amazon Elastic Container Service Developer Guide* .
 	EnableEcsManagedTags() interface{}
 	SetEnableEcsManagedTags(val interface{})
+	// Determines whether the execute command functionality is enabled for the service.
+	//
+	// If `true` , the execute command functionality is enabled for all containers in tasks as part of the service.
 	EnableExecuteCommand() interface{}
 	SetEnableExecuteCommand(val interface{})
+	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
+	//
+	// This is only used when your service is configured to use a load balancer. If your service has a load balancer defined and you don't specify a health check grace period value, the default value of `0` is used.
+	//
+	// If you do not use an Elastic Load Balancing, we recomend that you use the `startPeriod` in the task definition healtch check parameters. For more information, see [Health check](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_HealthCheck.html) .
+	//
+	// If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 2,147,483,647 seconds (about 69 years). During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
 	HealthCheckGracePeriodSeconds() *float64
 	SetHealthCheckGracePeriodSeconds(val *float64)
+	// The launch type on which to run your service.
+	//
+	// For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide* .
 	LaunchType() *string
 	SetLaunchType(val *string)
+	// A list of load balancer objects to associate with the service.
+	//
+	// If you specify the `Role` property, `LoadBalancers` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide* .
 	LoadBalancers() interface{}
 	SetLoadBalancers(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The network configuration for the service.
+	//
+	// This parameter is required for task definitions that use the `awsvpc` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide* .
 	NetworkConfiguration() interface{}
 	SetNetworkConfiguration(val interface{})
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// An array of placement constraint objects to use for tasks in your service.
+	//
+	// You can specify a maximum of 10 constraints for each task. This limit includes constraints in the task definition and those specified at runtime.
 	PlacementConstraints() interface{}
 	SetPlacementConstraints(val interface{})
+	// The placement strategy objects to use for tasks in your service.
+	//
+	// You can specify a maximum of five strategy rules per service. For more information, see [Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the *Amazon Elastic Container Service Developer Guide* .
 	PlacementStrategies() interface{}
 	SetPlacementStrategies(val interface{})
+	// The platform version that your tasks in the service are running on.
+	//
+	// A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the `LATEST` platform version is used. For more information, see [AWS Fargate platform versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide* .
 	PlatformVersion() *string
 	SetPlatformVersion(val *string)
+	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
+	//
+	// If no value is specified, the tags are not propagated. Tags can only be propagated to the tasks within the service during service creation. To add tags to a task after service creation, use the [TagResource](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html) API action.
 	PropagateTags() *string
 	SetPropagateTags(val *string)
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The name or full Amazon Resource Name (ARN) of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf.
+	//
+	// This parameter is only permitted if you are using a load balancer with your service and your task definition doesn't use the `awsvpc` network mode. If you specify the `role` parameter, you must also specify a load balancer object with the `loadBalancers` parameter.
+	//
+	// > If your account has already created the Amazon ECS service-linked role, that role is used for your service unless you specify a role here. The service-linked role is required if your task definition uses the `awsvpc` network mode or if the service is configured to use service discovery, an external deployment controller, multiple target groups, or Elastic Inference accelerators in which case you don't specify a role here. For more information, see [Using service-linked roles for Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html) in the *Amazon Elastic Container Service Developer Guide* .
+	//
+	// If your specified role has a path other than `/` , then you must either specify the full role ARN (this is recommended) or prefix the role name with the path. For example, if a role with the name `bar` has a path of `/foo/` then you would specify `/foo/bar` as the role name. For more information, see [Friendly names and paths](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) in the *IAM User Guide* .
 	Role() *string
 	SetRole(val *string)
+	// The scheduling strategy to use for the service. For more information, see [Services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html) .
+	//
+	// There are two service scheduler strategies available:
+	//
+	// - `REPLICA` -The replica scheduling strategy places and maintains the desired number of tasks across your cluster. By default, the service scheduler spreads tasks across Availability Zones. You can use task placement strategies and constraints to customize task placement decisions. This scheduler strategy is required if the service uses the `CODE_DEPLOY` or `EXTERNAL` deployment controller types.
+	// - `DAEMON` -The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster. The service scheduler also evaluates the task placement constraints for running tasks and will stop tasks that don't meet the placement constraints. When you're using this strategy, you don't need to specify a desired number of tasks, a task placement strategy, or use Service Auto Scaling policies.
+	//
+	// > Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy.
 	SchedulingStrategy() *string
 	SetSchedulingStrategy(val *string)
+	// The name of your service.
+	//
+	// Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. Service names must be unique within a cluster, but you can have similarly named services in multiple clusters within a Region or across multiple Regions.
 	ServiceName() *string
 	SetServiceName(val *string)
+	// The details of the service discovery registry to associate with this service. For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html) .
+	//
+	// > Each service may be associated with one service registry. Multiple service registries for each service isn't supported.
 	ServiceRegistries() interface{}
 	SetServiceRegistries(val interface{})
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// The metadata that you apply to the service to help you categorize and organize them.
+	//
+	// Each tag consists of a key and an optional value, both of which you define. When a service is deleted, the tags are deleted as well.
+	//
+	// The following basic restrictions apply to tags:
+	//
+	// - Maximum number of tags per resource - 50
+	// - For each resource, each tag key must be unique, and each tag key can have only one value.
+	// - Maximum key length - 128 Unicode characters in UTF-8
+	// - Maximum value length - 256 Unicode characters in UTF-8
+	// - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+	// - Tag keys and values are case-sensitive.
+	// - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
 	Tags() awscdk.TagManager
+	// The `family` and `revision` ( `family:revision` ) or full ARN of the task definition to run in your service.
+	//
+	// The `revision` is required in order for the resource to stabilize.
+	//
+	// A task definition must be specified if the service is using either the `ECS` or `CODE_DEPLOY` deployment controllers.
 	TaskDefinition() *string
 	SetTaskDefinition(val *string)
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -4542,8 +6952,8 @@ func (j *jsiiProxy_CfnService) NetworkConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnService) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnService) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4684,13 +7094,13 @@ func (j *jsiiProxy_CfnService) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::ECS::Service`.
-func NewCfnService(scope constructs.Construct, id *string, props *CfnServiceProps) CfnService {
+func NewCfnService(scope awscdk.Construct, id *string, props *CfnServiceProps) CfnService {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnService{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.CfnService",
+		"monocdk.aws_ecs.CfnService",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4699,11 +7109,11 @@ func NewCfnService(scope constructs.Construct, id *string, props *CfnServiceProp
 }
 
 // Create a new `AWS::ECS::Service`.
-func NewCfnService_Override(c CfnService, scope constructs.Construct, id *string, props *CfnServiceProps) {
+func NewCfnService_Override(c CfnService, scope awscdk.Construct, id *string, props *CfnServiceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.CfnService",
+		"monocdk.aws_ecs.CfnService",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4875,13 +7285,14 @@ func (j *jsiiProxy_CfnService) SetTaskDefinition(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnService_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.CfnService",
+		"monocdk.aws_ecs.CfnService",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4891,13 +7302,14 @@ func CfnService_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnService_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.CfnService",
+		"monocdk.aws_ecs.CfnService",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4906,17 +7318,15 @@ func CfnService_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnService_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.CfnService",
+		"monocdk.aws_ecs.CfnService",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4929,14 +7339,13 @@ func CfnService_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.CfnService",
+		"monocdk.aws_ecs.CfnService",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnService) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4945,10 +7354,6 @@ func (c *jsiiProxy_CfnService) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnService) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4957,13 +7362,6 @@ func (c *jsiiProxy_CfnService) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnService) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4972,49 +7370,6 @@ func (c *jsiiProxy_CfnService) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnService) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5023,7 +7378,6 @@ func (c *jsiiProxy_CfnService) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnService) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5032,9 +7386,6 @@ func (c *jsiiProxy_CfnService) AddPropertyDeletionOverride(propertyPath *string)
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnService) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5043,15 +7394,6 @@ func (c *jsiiProxy_CfnService) AddPropertyOverride(propertyPath *string, value i
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnService) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5060,10 +7402,6 @@ func (c *jsiiProxy_CfnService) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnService) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -5077,13 +7415,6 @@ func (c *jsiiProxy_CfnService) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnService) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -5097,7 +7428,6 @@ func (c *jsiiProxy_CfnService) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnService) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5106,12 +7436,48 @@ func (c *jsiiProxy_CfnService) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnService) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnService) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnService) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnService) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnService) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -5128,10 +7494,6 @@ func (c *jsiiProxy_CfnService) RenderProperties(props *map[string]interface{}) *
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnService) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -5145,15 +7507,33 @@ func (c *jsiiProxy_CfnService) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnService) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnService) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnService) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5171,7 +7551,19 @@ func (c *jsiiProxy_CfnService) ValidateProperties(_properties interface{}) {
 
 // An object representing the networking details for a task or service.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   awsVpcConfigurationProperty := &awsVpcConfigurationProperty{
+//   	subnets: []*string{
+//   		jsii.String("subnets"),
+//   	},
+//
+//   	// the properties below are optional
+//   	assignPublicIp: jsii.String("assignPublicIp"),
+//   	securityGroups: []*string{
+//   		jsii.String("securityGroups"),
+//   	},
+//   }
 //
 type CfnService_AwsVpcConfigurationProperty struct {
 	// The IDs of the subnets associated with the task or service.
@@ -5202,7 +7594,13 @@ type CfnService_AwsVpcConfigurationProperty struct {
 //
 // To use an AWS Fargate capacity provider, specify either the `FARGATE` or `FARGATE_SPOT` capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used in a capacity provider strategy.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   capacityProviderStrategyItemProperty := &capacityProviderStrategyItemProperty{
+//   	base: jsii.Number(123),
+//   	capacityProvider: jsii.String("capacityProvider"),
+//   	weight: jsii.Number(123),
+//   }
 //
 type CfnService_CapacityProviderStrategyItemProperty struct {
 	// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider.
@@ -5225,7 +7623,12 @@ type CfnService_CapacityProviderStrategyItemProperty struct {
 //
 // The `DeploymentCircuitBreaker` property determines whether a service deployment will fail if the service can't reach a steady state. If deployment circuit breaker is enabled, a service deployment will transition to a failed state and stop launching new tasks. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   deploymentCircuitBreakerProperty := &deploymentCircuitBreakerProperty{
+//   	enable: jsii.Boolean(false),
+//   	rollback: jsii.Boolean(false),
+//   }
 //
 type CfnService_DeploymentCircuitBreakerProperty struct {
 	// Determines whether to use the deployment circuit breaker logic for the service.
@@ -5238,7 +7641,16 @@ type CfnService_DeploymentCircuitBreakerProperty struct {
 
 // The `DeploymentConfiguration` property specifies optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   deploymentConfigurationProperty := &deploymentConfigurationProperty{
+//   	deploymentCircuitBreaker: &deploymentCircuitBreakerProperty{
+//   		enable: jsii.Boolean(false),
+//   		rollback: jsii.Boolean(false),
+//   	},
+//   	maximumPercent: jsii.Number(123),
+//   	minimumHealthyPercent: jsii.Number(123),
+//   }
 //
 type CfnService_DeploymentConfigurationProperty struct {
 	// > The deployment circuit breaker can only be used for services using the rolling update ( `ECS` ) deployment type that are not behind a Classic Load Balancer.
@@ -5263,7 +7675,11 @@ type CfnService_DeploymentConfigurationProperty struct {
 //
 // For more information, see [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html) in the *Amazon Elastic Container Service Developer Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   deploymentControllerProperty := &deploymentControllerProperty{
+//   	type: jsii.String("type"),
+//   }
 //
 type CfnService_DeploymentControllerProperty struct {
 	// The deployment controller type to use. There are three deployment controller types available:.
@@ -5280,7 +7696,16 @@ type CfnService_DeploymentControllerProperty struct {
 //
 // Services with tasks that use the `awsvpc` network mode (for example, those with the Fargate launch type) only support Application Load Balancers and Network Load Balancers. Classic Load Balancers are not supported. Also, when you create any target groups for these services, you must choose `ip` as the target type, not `instance` . Tasks that use the `awsvpc` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   loadBalancerProperty := &loadBalancerProperty{
+//   	containerPort: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	containerName: jsii.String("containerName"),
+//   	loadBalancerName: jsii.String("loadBalancerName"),
+//   	targetGroupArn: jsii.String("targetGroupArn"),
+//   }
 //
 type CfnService_LoadBalancerProperty struct {
 	// The port on the container to associate with the load balancer.
@@ -5307,7 +7732,21 @@ type CfnService_LoadBalancerProperty struct {
 
 // The `NetworkConfiguration` property specifies an object representing the network configuration for a task or service.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   networkConfigurationProperty := &networkConfigurationProperty{
+//   	awsvpcConfiguration: &awsVpcConfigurationProperty{
+//   		subnets: []*string{
+//   			jsii.String("subnets"),
+//   		},
+//
+//   		// the properties below are optional
+//   		assignPublicIp: jsii.String("assignPublicIp"),
+//   		securityGroups: []*string{
+//   			jsii.String("securityGroups"),
+//   		},
+//   	},
+//   }
 //
 type CfnService_NetworkConfigurationProperty struct {
 	// The VPC subnets and security groups that are associated with a task.
@@ -5320,7 +7759,14 @@ type CfnService_NetworkConfigurationProperty struct {
 //
 // For more information, see [Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the *Amazon Elastic Container Service Developer Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   placementConstraintProperty := &placementConstraintProperty{
+//   	type: jsii.String("type"),
+//
+//   	// the properties below are optional
+//   	expression: jsii.String("expression"),
+//   }
 //
 type CfnService_PlacementConstraintProperty struct {
 	// The type of constraint.
@@ -5337,7 +7783,14 @@ type CfnService_PlacementConstraintProperty struct {
 //
 // For more information, see [Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the *Amazon Elastic Container Service Developer Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   placementStrategyProperty := &placementStrategyProperty{
+//   	type: jsii.String("type"),
+//
+//   	// the properties below are optional
+//   	field: jsii.String("field"),
+//   }
 //
 type CfnService_PlacementStrategyProperty struct {
 	// The type of placement strategy.
@@ -5354,7 +7807,14 @@ type CfnService_PlacementStrategyProperty struct {
 //
 // For more information, see [Service Discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html) in the *Amazon Elastic Container Service Developer Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   serviceRegistryProperty := &serviceRegistryProperty{
+//   	containerName: jsii.String("containerName"),
+//   	containerPort: jsii.Number(123),
+//   	port: jsii.Number(123),
+//   	registryArn: jsii.String("registryArn"),
+//   }
 //
 type CfnService_ServiceRegistryProperty struct {
 	// The container name value to be used for your service discovery service.
@@ -5377,7 +7837,93 @@ type CfnService_ServiceRegistryProperty struct {
 
 // Properties for defining a `CfnService`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   cfnServiceProps := &cfnServiceProps{
+//   	capacityProviderStrategy: []interface{}{
+//   		&capacityProviderStrategyItemProperty{
+//   			base: jsii.Number(123),
+//   			capacityProvider: jsii.String("capacityProvider"),
+//   			weight: jsii.Number(123),
+//   		},
+//   	},
+//   	cluster: jsii.String("cluster"),
+//   	deploymentConfiguration: &deploymentConfigurationProperty{
+//   		deploymentCircuitBreaker: &deploymentCircuitBreakerProperty{
+//   			enable: jsii.Boolean(false),
+//   			rollback: jsii.Boolean(false),
+//   		},
+//   		maximumPercent: jsii.Number(123),
+//   		minimumHealthyPercent: jsii.Number(123),
+//   	},
+//   	deploymentController: &deploymentControllerProperty{
+//   		type: jsii.String("type"),
+//   	},
+//   	desiredCount: jsii.Number(123),
+//   	enableEcsManagedTags: jsii.Boolean(false),
+//   	enableExecuteCommand: jsii.Boolean(false),
+//   	healthCheckGracePeriodSeconds: jsii.Number(123),
+//   	launchType: jsii.String("launchType"),
+//   	loadBalancers: []interface{}{
+//   		&loadBalancerProperty{
+//   			containerPort: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			containerName: jsii.String("containerName"),
+//   			loadBalancerName: jsii.String("loadBalancerName"),
+//   			targetGroupArn: jsii.String("targetGroupArn"),
+//   		},
+//   	},
+//   	networkConfiguration: &networkConfigurationProperty{
+//   		awsvpcConfiguration: &awsVpcConfigurationProperty{
+//   			subnets: []*string{
+//   				jsii.String("subnets"),
+//   			},
+//
+//   			// the properties below are optional
+//   			assignPublicIp: jsii.String("assignPublicIp"),
+//   			securityGroups: []*string{
+//   				jsii.String("securityGroups"),
+//   			},
+//   		},
+//   	},
+//   	placementConstraints: []interface{}{
+//   		&placementConstraintProperty{
+//   			type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			expression: jsii.String("expression"),
+//   		},
+//   	},
+//   	placementStrategies: []interface{}{
+//   		&placementStrategyProperty{
+//   			type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			field: jsii.String("field"),
+//   		},
+//   	},
+//   	platformVersion: jsii.String("platformVersion"),
+//   	propagateTags: jsii.String("propagateTags"),
+//   	role: jsii.String("role"),
+//   	schedulingStrategy: jsii.String("schedulingStrategy"),
+//   	serviceName: jsii.String("serviceName"),
+//   	serviceRegistries: []interface{}{
+//   		&serviceRegistryProperty{
+//   			containerName: jsii.String("containerName"),
+//   			containerPort: jsii.Number(123),
+//   			port: jsii.Number(123),
+//   			registryArn: jsii.String("registryArn"),
+//   		},
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	taskDefinition: jsii.String("taskDefinition"),
+//   }
 //
 type CfnServiceProps struct {
 	// The capacity provider strategy to use for the service.
@@ -5505,68 +8051,619 @@ type CfnServiceProps struct {
 //
 // The `AWS::ECS::TaskDefinition` resource describes the container and volume definitions of an Amazon Elastic Container Service (Amazon ECS) task. You can specify which Docker images to use, the required resources, and other configurations related to launching the task definition through an Amazon ECS service or task.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   cfnTaskDefinition := ecs.NewCfnTaskDefinition(this, jsii.String("MyCfnTaskDefinition"), &cfnTaskDefinitionProps{
+//   	containerDefinitions: []interface{}{
+//   		&containerDefinitionProperty{
+//   			command: []*string{
+//   				jsii.String("command"),
+//   			},
+//   			cpu: jsii.Number(123),
+//   			dependsOn: []interface{}{
+//   				&containerDependencyProperty{
+//   					condition: jsii.String("condition"),
+//   					containerName: jsii.String("containerName"),
+//   				},
+//   			},
+//   			disableNetworking: jsii.Boolean(false),
+//   			dnsSearchDomains: []*string{
+//   				jsii.String("dnsSearchDomains"),
+//   			},
+//   			dnsServers: []*string{
+//   				jsii.String("dnsServers"),
+//   			},
+//   			dockerLabels: map[string]*string{
+//   				"dockerLabelsKey": jsii.String("dockerLabels"),
+//   			},
+//   			dockerSecurityOptions: []*string{
+//   				jsii.String("dockerSecurityOptions"),
+//   			},
+//   			entryPoint: []*string{
+//   				jsii.String("entryPoint"),
+//   			},
+//   			environment: []interface{}{
+//   				&keyValuePairProperty{
+//   					name: jsii.String("name"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   			environmentFiles: []interface{}{
+//   				&environmentFileProperty{
+//   					type: jsii.String("type"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   			essential: jsii.Boolean(false),
+//   			extraHosts: []interface{}{
+//   				&hostEntryProperty{
+//   					hostname: jsii.String("hostname"),
+//   					ipAddress: jsii.String("ipAddress"),
+//   				},
+//   			},
+//   			firelensConfiguration: &firelensConfigurationProperty{
+//   				options: map[string]*string{
+//   					"optionsKey": jsii.String("options"),
+//   				},
+//   				type: jsii.String("type"),
+//   			},
+//   			healthCheck: &healthCheckProperty{
+//   				command: []*string{
+//   					jsii.String("command"),
+//   				},
+//   				interval: jsii.Number(123),
+//   				retries: jsii.Number(123),
+//   				startPeriod: jsii.Number(123),
+//   				timeout: jsii.Number(123),
+//   			},
+//   			hostname: jsii.String("hostname"),
+//   			image: jsii.String("image"),
+//   			interactive: jsii.Boolean(false),
+//   			links: []*string{
+//   				jsii.String("links"),
+//   			},
+//   			linuxParameters: &linuxParametersProperty{
+//   				capabilities: &kernelCapabilitiesProperty{
+//   					add: []*string{
+//   						jsii.String("add"),
+//   					},
+//   					drop: []*string{
+//   						jsii.String("drop"),
+//   					},
+//   				},
+//   				devices: []interface{}{
+//   					&deviceProperty{
+//   						containerPath: jsii.String("containerPath"),
+//   						hostPath: jsii.String("hostPath"),
+//   						permissions: []*string{
+//   							jsii.String("permissions"),
+//   						},
+//   					},
+//   				},
+//   				initProcessEnabled: jsii.Boolean(false),
+//   				maxSwap: jsii.Number(123),
+//   				sharedMemorySize: jsii.Number(123),
+//   				swappiness: jsii.Number(123),
+//   				tmpfs: []interface{}{
+//   					&tmpfsProperty{
+//   						size: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						containerPath: jsii.String("containerPath"),
+//   						mountOptions: []*string{
+//   							jsii.String("mountOptions"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			logConfiguration: &logConfigurationProperty{
+//   				logDriver: jsii.String("logDriver"),
+//
+//   				// the properties below are optional
+//   				options: map[string]*string{
+//   					"optionsKey": jsii.String("options"),
+//   				},
+//   				secretOptions: []interface{}{
+//   					&secretProperty{
+//   						name: jsii.String("name"),
+//   						valueFrom: jsii.String("valueFrom"),
+//   					},
+//   				},
+//   			},
+//   			memory: jsii.Number(123),
+//   			memoryReservation: jsii.Number(123),
+//   			mountPoints: []interface{}{
+//   				&mountPointProperty{
+//   					containerPath: jsii.String("containerPath"),
+//   					readOnly: jsii.Boolean(false),
+//   					sourceVolume: jsii.String("sourceVolume"),
+//   				},
+//   			},
+//   			name: jsii.String("name"),
+//   			portMappings: []interface{}{
+//   				&portMappingProperty{
+//   					containerPort: jsii.Number(123),
+//   					hostPort: jsii.Number(123),
+//   					protocol: jsii.String("protocol"),
+//   				},
+//   			},
+//   			privileged: jsii.Boolean(false),
+//   			pseudoTerminal: jsii.Boolean(false),
+//   			readonlyRootFilesystem: jsii.Boolean(false),
+//   			repositoryCredentials: &repositoryCredentialsProperty{
+//   				credentialsParameter: jsii.String("credentialsParameter"),
+//   			},
+//   			resourceRequirements: []interface{}{
+//   				&resourceRequirementProperty{
+//   					type: jsii.String("type"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   			secrets: []interface{}{
+//   				&secretProperty{
+//   					name: jsii.String("name"),
+//   					valueFrom: jsii.String("valueFrom"),
+//   				},
+//   			},
+//   			startTimeout: jsii.Number(123),
+//   			stopTimeout: jsii.Number(123),
+//   			systemControls: []interface{}{
+//   				&systemControlProperty{
+//   					namespace: jsii.String("namespace"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   			ulimits: []interface{}{
+//   				&ulimitProperty{
+//   					hardLimit: jsii.Number(123),
+//   					name: jsii.String("name"),
+//   					softLimit: jsii.Number(123),
+//   				},
+//   			},
+//   			user: jsii.String("user"),
+//   			volumesFrom: []interface{}{
+//   				&volumeFromProperty{
+//   					readOnly: jsii.Boolean(false),
+//   					sourceContainer: jsii.String("sourceContainer"),
+//   				},
+//   			},
+//   			workingDirectory: jsii.String("workingDirectory"),
+//   		},
+//   	},
+//   	cpu: jsii.String("cpu"),
+//   	ephemeralStorage: &ephemeralStorageProperty{
+//   		sizeInGiB: jsii.Number(123),
+//   	},
+//   	executionRoleArn: jsii.String("executionRoleArn"),
+//   	family: jsii.String("family"),
+//   	inferenceAccelerators: []interface{}{
+//   		&inferenceAcceleratorProperty{
+//   			deviceName: jsii.String("deviceName"),
+//   			deviceType: jsii.String("deviceType"),
+//   		},
+//   	},
+//   	ipcMode: jsii.String("ipcMode"),
+//   	memory: jsii.String("memory"),
+//   	networkMode: jsii.String("networkMode"),
+//   	pidMode: jsii.String("pidMode"),
+//   	placementConstraints: []interface{}{
+//   		&taskDefinitionPlacementConstraintProperty{
+//   			type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			expression: jsii.String("expression"),
+//   		},
+//   	},
+//   	proxyConfiguration: &proxyConfigurationProperty{
+//   		containerName: jsii.String("containerName"),
+//
+//   		// the properties below are optional
+//   		proxyConfigurationProperties: []interface{}{
+//   			&keyValuePairProperty{
+//   				name: jsii.String("name"),
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   		type: jsii.String("type"),
+//   	},
+//   	requiresCompatibilities: []*string{
+//   		jsii.String("requiresCompatibilities"),
+//   	},
+//   	runtimePlatform: &runtimePlatformProperty{
+//   		cpuArchitecture: jsii.String("cpuArchitecture"),
+//   		operatingSystemFamily: jsii.String("operatingSystemFamily"),
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	taskRoleArn: jsii.String("taskRoleArn"),
+//   	volumes: []interface{}{
+//   		&volumeProperty{
+//   			dockerVolumeConfiguration: &dockerVolumeConfigurationProperty{
+//   				autoprovision: jsii.Boolean(false),
+//   				driver: jsii.String("driver"),
+//   				driverOpts: map[string]*string{
+//   					"driverOptsKey": jsii.String("driverOpts"),
+//   				},
+//   				labels: map[string]*string{
+//   					"labelsKey": jsii.String("labels"),
+//   				},
+//   				scope: jsii.String("scope"),
+//   			},
+//   			efsVolumeConfiguration: &efsVolumeConfigurationProperty{
+//   				fileSystemId: jsii.String("fileSystemId"),
+//
+//   				// the properties below are optional
+//   				authorizationConfig: &authorizationConfigProperty{
+//   					accessPointId: jsii.String("accessPointId"),
+//   					iam: jsii.String("iam"),
+//   				},
+//   				rootDirectory: jsii.String("rootDirectory"),
+//   				transitEncryption: jsii.String("transitEncryption"),
+//   				transitEncryptionPort: jsii.Number(123),
+//   			},
+//   			host: &hostVolumePropertiesProperty{
+//   				sourcePath: jsii.String("sourcePath"),
+//   			},
+//   			name: jsii.String("name"),
+//   		},
+//   	},
+//   })
 //
 type CfnTaskDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	AttrTaskDefinitionArn() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// A list of container definitions in JSON format that describe the different containers that make up your task.
+	//
+	// For more information about container definition parameters and defaults, see [Amazon ECS Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon Elastic Container Service Developer Guide* .
 	ContainerDefinitions() interface{}
 	SetContainerDefinitions(val interface{})
+	// The number of `cpu` units used by the task.
+	//
+	// If you use the EC2 launch type, this field is optional. Any value can be used. If you use the Fargate launch type, this field is required. You must use one of the following values. The value that you choose determines your range of valid values for the `memory` parameter.
+	//
+	// The CPU units cannot be less than 1 vCPU when you use Windows containers on Fargate.
+	//
+	// - 256 (.25 vCPU) - Available `memory` values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)
+	// - 512 (.5 vCPU) - Available `memory` values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)
+	// - 1024 (1 vCPU) - Available `memory` values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)
+	// - 2048 (2 vCPU) - Available `memory` values: Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)
+	// - 4096 (4 vCPU) - Available `memory` values: Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB).
 	Cpu() *string
 	SetCpu(val *string)
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The ephemeral storage settings to use for tasks run with the task definition.
 	EphemeralStorage() interface{}
 	SetEphemeralStorage(val interface{})
+	// The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make AWS API calls on your behalf.
+	//
+	// The task execution IAM role is required depending on the requirements of your task. For more information, see [Amazon ECS task execution IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html) in the *Amazon Elastic Container Service Developer Guide* .
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
+	// The name of a family that this task definition is registered to.
+	//
+	// Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
+	//
+	// A family groups multiple versions of a task definition. Amazon ECS gives the first task definition that you registered to a family a revision number of 1. Amazon ECS gives sequential revision numbers to each task definition that you add.
+	//
+	// > To use revision numbers when you update a task definition, specify this property. If you don't specify a value, AWS CloudFormation generates a new task definition each time that you update it.
 	Family() *string
 	SetFamily(val *string)
+	// The Elastic Inference accelerators to use for the containers in the task.
 	InferenceAccelerators() interface{}
 	SetInferenceAccelerators(val interface{})
+	// The IPC resource namespace to use for the containers in the task.
+	//
+	// The valid values are `host` , `task` , or `none` . If `host` is specified, then all containers within the tasks that specified the `host` IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance. If `task` is specified, all containers within the specified task share the same IPC resources. If `none` is specified, then IPC resources within the containers of a task are private and not shared with other containers in a task or on the container instance. If no value is specified, then the IPC resource namespace sharing depends on the Docker daemon setting on the container instance. For more information, see [IPC settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#ipc-settings---ipc) in the *Docker run reference* .
+	//
+	// If the `host` IPC mode is used, be aware that there is a heightened risk of undesired IPC namespace expose. For more information, see [Docker security](https://docs.aws.amazon.com/https://docs.docker.com/engine/security/security/) .
+	//
+	// If you are setting namespaced kernel parameters using `systemControls` for the containers in the task, the following will apply to your IPC resource namespace. For more information, see [System Controls](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) in the *Amazon Elastic Container Service Developer Guide* .
+	//
+	// - For tasks that use the `host` IPC mode, IPC namespace related `systemControls` are not supported.
+	// - For tasks that use the `task` IPC mode, IPC namespace related `systemControls` will apply to all containers within a task.
+	//
+	// > This parameter is not supported for Windows containers or tasks run on AWS Fargate .
 	IpcMode() *string
 	SetIpcMode(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The amount (in MiB) of memory used by the task.
+	//
+	// If your tasks runs on Amazon EC2 instances, you must specify either a task-level memory value or a container-level memory value. This field is optional and any value can be used. If a task-level memory value is specified, the container-level memory value is optional. For more information regarding container-level memory and memory reservation, see [ContainerDefinition](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) .
+	//
+	// If your tasks runs on AWS Fargate , this field is required. You must use one of the following values. The value you choose determines your range of valid values for the `cpu` parameter.
+	//
+	// - 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available `cpu` values: 256 (.25 vCPU)
+	// - 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available `cpu` values: 512 (.5 vCPU)
+	// - 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available `cpu` values: 1024 (1 vCPU)
+	// - Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) - Available `cpu` values: 2048 (2 vCPU)
+	// - Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available `cpu` values: 4096 (4 vCPU).
 	Memory() *string
 	SetMemory(val *string)
+	// The Docker networking mode to use for the containers in the task.
+	//
+	// The valid values are `none` , `bridge` , `awsvpc` , and `host` . The default Docker network mode is `bridge` . If you are using the Fargate launch type, the `awsvpc` network mode is required. If you are using the EC2 launch type, any network mode can be used. If the network mode is set to `none` , you cannot specify port mappings in your container definitions, and the tasks containers do not have external connectivity. The `host` and `awsvpc` network modes offer the highest networking performance for containers because they use the EC2 network stack instead of the virtualized network stack provided by the `bridge` mode.
+	//
+	// With the `host` and `awsvpc` network modes, exposed container ports are mapped directly to the corresponding host port (for the `host` network mode) or the attached elastic network interface port (for the `awsvpc` network mode), so you cannot take advantage of dynamic host port mappings.
+	//
+	// If the network mode is `awsvpc` , the task is allocated an elastic network interface, and you must specify a [NetworkConfiguration](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_NetworkConfiguration.html) value when you create a service or run a task with the task definition. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide* .
+	//
+	// > Currently, only Amazon ECS-optimized AMIs, other Amazon Linux variants with the `ecs-init` package, or AWS Fargate infrastructure support the `awsvpc` network mode.
+	//
+	// If the network mode is `host` , you cannot run multiple instantiations of the same task on a single container instance when port mappings are used.
+	//
+	// Docker for Windows uses different network modes than Docker for Linux. When you register a task definition with Windows containers, you must not specify a network mode. If you use the console to register a task definition with Windows containers, you must choose the `<default>` network mode object.
+	//
+	// For more information, see [Network settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#network-settings) in the *Docker run reference* .
 	NetworkMode() *string
 	SetNetworkMode(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// The process namespace to use for the containers in the task.
+	//
+	// The valid values are `host` or `task` . If `host` is specified, then all containers within the tasks that specified the `host` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance. If `task` is specified, all containers within the specified task share the same process namespace. If no value is specified, the default is a private namespace. For more information, see [PID settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#pid-settings---pid) in the *Docker run reference* .
+	//
+	// If the `host` PID mode is used, be aware that there is a heightened risk of undesired process namespace expose. For more information, see [Docker security](https://docs.aws.amazon.com/https://docs.docker.com/engine/security/security/) .
+	//
+	// > This parameter is not supported for Windows containers or tasks run on AWS Fargate .
 	PidMode() *string
 	SetPidMode(val *string)
+	// An array of placement constraint objects to use for tasks.
+	//
+	// > This parameter isn't supported for tasks run on AWS Fargate .
 	PlacementConstraints() interface{}
 	SetPlacementConstraints(val interface{})
+	// The `ProxyConfiguration` property specifies the configuration details for the App Mesh proxy.
+	//
+	// Your Amazon ECS container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the `ecs-init` package to enable a proxy configuration. If your container instances are launched from the Amazon ECS-optimized AMI version `20190301` or later, then they contain the required versions of the container agent and `ecs-init` . For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide* .
 	ProxyConfiguration() interface{}
 	SetProxyConfiguration(val interface{})
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The task launch types the task definition was validated against.
+	//
+	// To determine which task launch types the task definition is validated for, see the `TaskDefinition$compatibilities` parameter.
 	RequiresCompatibilities() *[]*string
 	SetRequiresCompatibilities(val *[]*string)
+	// The operating system that your tasks definitions run on.
+	//
+	// A platform family is specified only for tasks using the Fargate launch type.
+	//
+	// When you specify a task definition in a service, this value must match the `runtimePlatform` value of the service.
 	RuntimePlatform() interface{}
 	SetRuntimePlatform(val interface{})
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// The metadata that you apply to the task definition to help you categorize and organize them.
+	//
+	// Each tag consists of a key and an optional value. You define both of them.
+	//
+	// The following basic restrictions apply to tags:
+	//
+	// - Maximum number of tags per resource - 50
+	// - For each resource, each tag key must be unique, and each tag key can have only one value.
+	// - Maximum key length - 128 Unicode characters in UTF-8
+	// - Maximum value length - 256 Unicode characters in UTF-8
+	// - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+	// - Tag keys and values are case-sensitive.
+	// - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
 	Tags() awscdk.TagManager
+	// The short name or full Amazon Resource Name (ARN) of the AWS Identity and Access Management role that grants containers in the task permission to call AWS APIs on your behalf.
+	//
+	// For more information, see [Amazon ECS Task Role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) in the *Amazon Elastic Container Service Developer Guide* .
+	//
+	// IAM roles for tasks on Windows require that the `-EnableTaskIAMRole` option is set when you launch the Amazon ECS-optimized Windows AMI. Your containers must also run some configuration code to use the feature. For more information, see [Windows IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html) in the *Amazon Elastic Container Service Developer Guide* .
 	TaskRoleArn() *string
 	SetTaskRoleArn(val *string)
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// The list of data volume definitions for the task.
+	//
+	// For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the *Amazon Elastic Container Service Developer Guide* .
+	//
+	// > The `host` and `sourcePath` parameters aren't supported for tasks run on AWS Fargate .
 	Volumes() interface{}
 	SetVolumes(val interface{})
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -5726,8 +8823,8 @@ func (j *jsiiProxy_CfnTaskDefinition) NetworkMode() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTaskDefinition) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnTaskDefinition) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5848,13 +8945,13 @@ func (j *jsiiProxy_CfnTaskDefinition) Volumes() interface{} {
 
 
 // Create a new `AWS::ECS::TaskDefinition`.
-func NewCfnTaskDefinition(scope constructs.Construct, id *string, props *CfnTaskDefinitionProps) CfnTaskDefinition {
+func NewCfnTaskDefinition(scope awscdk.Construct, id *string, props *CfnTaskDefinitionProps) CfnTaskDefinition {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnTaskDefinition{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition",
+		"monocdk.aws_ecs.CfnTaskDefinition",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5863,11 +8960,11 @@ func NewCfnTaskDefinition(scope constructs.Construct, id *string, props *CfnTask
 }
 
 // Create a new `AWS::ECS::TaskDefinition`.
-func NewCfnTaskDefinition_Override(c CfnTaskDefinition, scope constructs.Construct, id *string, props *CfnTaskDefinitionProps) {
+func NewCfnTaskDefinition_Override(c CfnTaskDefinition, scope awscdk.Construct, id *string, props *CfnTaskDefinitionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition",
+		"monocdk.aws_ecs.CfnTaskDefinition",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -6007,13 +9104,14 @@ func (j *jsiiProxy_CfnTaskDefinition) SetVolumes(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnTaskDefinition_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition",
+		"monocdk.aws_ecs.CfnTaskDefinition",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -6023,13 +9121,14 @@ func CfnTaskDefinition_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnTaskDefinition_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition",
+		"monocdk.aws_ecs.CfnTaskDefinition",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -6038,17 +9137,15 @@ func CfnTaskDefinition_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnTaskDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition",
+		"monocdk.aws_ecs.CfnTaskDefinition",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6061,14 +9158,13 @@ func CfnTaskDefinition_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition",
+		"monocdk.aws_ecs.CfnTaskDefinition",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnTaskDefinition) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6077,10 +9173,6 @@ func (c *jsiiProxy_CfnTaskDefinition) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnTaskDefinition) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6089,13 +9181,6 @@ func (c *jsiiProxy_CfnTaskDefinition) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnTaskDefinition) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6104,49 +9189,6 @@ func (c *jsiiProxy_CfnTaskDefinition) AddMetadata(key *string, value interface{}
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnTaskDefinition) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6155,7 +9197,6 @@ func (c *jsiiProxy_CfnTaskDefinition) AddOverride(path *string, value interface{
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnTaskDefinition) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6164,9 +9205,6 @@ func (c *jsiiProxy_CfnTaskDefinition) AddPropertyDeletionOverride(propertyPath *
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnTaskDefinition) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6175,15 +9213,6 @@ func (c *jsiiProxy_CfnTaskDefinition) AddPropertyOverride(propertyPath *string, 
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnTaskDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6192,10 +9221,6 @@ func (c *jsiiProxy_CfnTaskDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPo
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnTaskDefinition) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -6209,13 +9234,6 @@ func (c *jsiiProxy_CfnTaskDefinition) GetAtt(attributeName *string) awscdk.Refer
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnTaskDefinition) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -6229,7 +9247,6 @@ func (c *jsiiProxy_CfnTaskDefinition) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnTaskDefinition) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6238,12 +9255,48 @@ func (c *jsiiProxy_CfnTaskDefinition) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnTaskDefinition) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnTaskDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnTaskDefinition) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnTaskDefinition) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnTaskDefinition) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -6260,10 +9313,6 @@ func (c *jsiiProxy_CfnTaskDefinition) RenderProperties(props *map[string]interfa
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnTaskDefinition) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -6277,15 +9326,33 @@ func (c *jsiiProxy_CfnTaskDefinition) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnTaskDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnTaskDefinition) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnTaskDefinition) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6303,7 +9370,12 @@ func (c *jsiiProxy_CfnTaskDefinition) ValidateProperties(_properties interface{}
 
 // The authorization configuration details for the Amazon EFS file system.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   authorizationConfigProperty := &authorizationConfigProperty{
+//   	accessPointId: jsii.String("accessPointId"),
+//   	iam: jsii.String("iam"),
+//   }
 //
 type CfnTaskDefinition_AuthorizationConfigProperty struct {
 	// The Amazon EFS access point ID to use.
@@ -6320,7 +9392,182 @@ type CfnTaskDefinition_AuthorizationConfigProperty struct {
 //
 // Container definitions are used in task definitions to describe the different containers that are launched as part of a task.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   containerDefinitionProperty := &containerDefinitionProperty{
+//   	command: []*string{
+//   		jsii.String("command"),
+//   	},
+//   	cpu: jsii.Number(123),
+//   	dependsOn: []interface{}{
+//   		&containerDependencyProperty{
+//   			condition: jsii.String("condition"),
+//   			containerName: jsii.String("containerName"),
+//   		},
+//   	},
+//   	disableNetworking: jsii.Boolean(false),
+//   	dnsSearchDomains: []*string{
+//   		jsii.String("dnsSearchDomains"),
+//   	},
+//   	dnsServers: []*string{
+//   		jsii.String("dnsServers"),
+//   	},
+//   	dockerLabels: map[string]*string{
+//   		"dockerLabelsKey": jsii.String("dockerLabels"),
+//   	},
+//   	dockerSecurityOptions: []*string{
+//   		jsii.String("dockerSecurityOptions"),
+//   	},
+//   	entryPoint: []*string{
+//   		jsii.String("entryPoint"),
+//   	},
+//   	environment: []interface{}{
+//   		&keyValuePairProperty{
+//   			name: jsii.String("name"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	environmentFiles: []interface{}{
+//   		&environmentFileProperty{
+//   			type: jsii.String("type"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	essential: jsii.Boolean(false),
+//   	extraHosts: []interface{}{
+//   		&hostEntryProperty{
+//   			hostname: jsii.String("hostname"),
+//   			ipAddress: jsii.String("ipAddress"),
+//   		},
+//   	},
+//   	firelensConfiguration: &firelensConfigurationProperty{
+//   		options: map[string]*string{
+//   			"optionsKey": jsii.String("options"),
+//   		},
+//   		type: jsii.String("type"),
+//   	},
+//   	healthCheck: &healthCheckProperty{
+//   		command: []*string{
+//   			jsii.String("command"),
+//   		},
+//   		interval: jsii.Number(123),
+//   		retries: jsii.Number(123),
+//   		startPeriod: jsii.Number(123),
+//   		timeout: jsii.Number(123),
+//   	},
+//   	hostname: jsii.String("hostname"),
+//   	image: jsii.String("image"),
+//   	interactive: jsii.Boolean(false),
+//   	links: []*string{
+//   		jsii.String("links"),
+//   	},
+//   	linuxParameters: &linuxParametersProperty{
+//   		capabilities: &kernelCapabilitiesProperty{
+//   			add: []*string{
+//   				jsii.String("add"),
+//   			},
+//   			drop: []*string{
+//   				jsii.String("drop"),
+//   			},
+//   		},
+//   		devices: []interface{}{
+//   			&deviceProperty{
+//   				containerPath: jsii.String("containerPath"),
+//   				hostPath: jsii.String("hostPath"),
+//   				permissions: []*string{
+//   					jsii.String("permissions"),
+//   				},
+//   			},
+//   		},
+//   		initProcessEnabled: jsii.Boolean(false),
+//   		maxSwap: jsii.Number(123),
+//   		sharedMemorySize: jsii.Number(123),
+//   		swappiness: jsii.Number(123),
+//   		tmpfs: []interface{}{
+//   			&tmpfsProperty{
+//   				size: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				containerPath: jsii.String("containerPath"),
+//   				mountOptions: []*string{
+//   					jsii.String("mountOptions"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	logConfiguration: &logConfigurationProperty{
+//   		logDriver: jsii.String("logDriver"),
+//
+//   		// the properties below are optional
+//   		options: map[string]*string{
+//   			"optionsKey": jsii.String("options"),
+//   		},
+//   		secretOptions: []interface{}{
+//   			&secretProperty{
+//   				name: jsii.String("name"),
+//   				valueFrom: jsii.String("valueFrom"),
+//   			},
+//   		},
+//   	},
+//   	memory: jsii.Number(123),
+//   	memoryReservation: jsii.Number(123),
+//   	mountPoints: []interface{}{
+//   		&mountPointProperty{
+//   			containerPath: jsii.String("containerPath"),
+//   			readOnly: jsii.Boolean(false),
+//   			sourceVolume: jsii.String("sourceVolume"),
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//   	portMappings: []interface{}{
+//   		&portMappingProperty{
+//   			containerPort: jsii.Number(123),
+//   			hostPort: jsii.Number(123),
+//   			protocol: jsii.String("protocol"),
+//   		},
+//   	},
+//   	privileged: jsii.Boolean(false),
+//   	pseudoTerminal: jsii.Boolean(false),
+//   	readonlyRootFilesystem: jsii.Boolean(false),
+//   	repositoryCredentials: &repositoryCredentialsProperty{
+//   		credentialsParameter: jsii.String("credentialsParameter"),
+//   	},
+//   	resourceRequirements: []interface{}{
+//   		&resourceRequirementProperty{
+//   			type: jsii.String("type"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	secrets: []interface{}{
+//   		&secretProperty{
+//   			name: jsii.String("name"),
+//   			valueFrom: jsii.String("valueFrom"),
+//   		},
+//   	},
+//   	startTimeout: jsii.Number(123),
+//   	stopTimeout: jsii.Number(123),
+//   	systemControls: []interface{}{
+//   		&systemControlProperty{
+//   			namespace: jsii.String("namespace"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	ulimits: []interface{}{
+//   		&ulimitProperty{
+//   			hardLimit: jsii.Number(123),
+//   			name: jsii.String("name"),
+//   			softLimit: jsii.Number(123),
+//   		},
+//   	},
+//   	user: jsii.String("user"),
+//   	volumesFrom: []interface{}{
+//   		&volumeFromProperty{
+//   			readOnly: jsii.Boolean(false),
+//   			sourceContainer: jsii.String("sourceContainer"),
+//   		},
+//   	},
+//   	workingDirectory: jsii.String("workingDirectory"),
+//   }
 //
 type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	// The command that's passed to the container.
@@ -6389,7 +9636,7 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	//
 	// For more information about valid values, see [Docker Run Security Configuration](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
-	// Valid values: "no-new-privileges" | "apparmor:PROFILE" | "label:value" | "credentialspec:CredentialSpecFilePath"
+	// Valid values: "no-new-privileges" | "apparmor:PROFILE" | "label:value" | "credentialspec:CredentialSpecFilePath".
 	DockerSecurityOptions *[]*string `json:"dockerSecurityOptions" yaml:"dockerSecurityOptions"`
 	// > Early versions of the Amazon ECS container agent don't properly handle `entryPoint` parameters.
 	//
@@ -6612,7 +9859,12 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 //
 // > For tasks using the Fargate launch type, this parameter requires that the task or service uses platform version 1.3.0 or later.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   containerDependencyProperty := &containerDependencyProperty{
+//   	condition: jsii.String("condition"),
+//   	containerName: jsii.String("containerName"),
+//   }
 //
 type CfnTaskDefinition_ContainerDependencyProperty struct {
 	// The dependency condition of the container. The following are the available conditions and their behavior:.
@@ -6628,7 +9880,15 @@ type CfnTaskDefinition_ContainerDependencyProperty struct {
 
 // The `Device` property specifies an object representing a container instance host device.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   deviceProperty := &deviceProperty{
+//   	containerPath: jsii.String("containerPath"),
+//   	hostPath: jsii.String("hostPath"),
+//   	permissions: []*string{
+//   		jsii.String("permissions"),
+//   	},
+//   }
 //
 type CfnTaskDefinition_DeviceProperty struct {
 	// The path inside the container at which to expose the host device.
@@ -6645,7 +9905,19 @@ type CfnTaskDefinition_DeviceProperty struct {
 //
 // Docker volumes are only supported when you are using the EC2 launch type. Windows containers only support the use of the `local` driver. To use bind mounts, specify a `host` instead.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   dockerVolumeConfigurationProperty := &dockerVolumeConfigurationProperty{
+//   	autoprovision: jsii.Boolean(false),
+//   	driver: jsii.String("driver"),
+//   	driverOpts: map[string]*string{
+//   		"driverOptsKey": jsii.String("driverOpts"),
+//   	},
+//   	labels: map[string]*string{
+//   		"labelsKey": jsii.String("labels"),
+//   	},
+//   	scope: jsii.String("scope"),
+//   }
 //
 type CfnTaskDefinition_DockerVolumeConfigurationProperty struct {
 	// If this value is `true` , the Docker volume is created if it doesn't already exist.
@@ -6670,7 +9942,20 @@ type CfnTaskDefinition_DockerVolumeConfigurationProperty struct {
 	Scope *string `json:"scope" yaml:"scope"`
 }
 
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   efsVolumeConfigurationProperty := &efsVolumeConfigurationProperty{
+//   	fileSystemId: jsii.String("fileSystemId"),
+//
+//   	// the properties below are optional
+//   	authorizationConfig: &authorizationConfigProperty{
+//   		accessPointId: jsii.String("accessPointId"),
+//   		iam: jsii.String("iam"),
+//   	},
+//   	rootDirectory: jsii.String("rootDirectory"),
+//   	transitEncryption: jsii.String("transitEncryption"),
+//   	transitEncryptionPort: jsii.Number(123),
+//   }
 //
 type CfnTaskDefinition_EfsVolumeConfigurationProperty struct {
 	// `CfnTaskDefinition.EfsVolumeConfigurationProperty.FileSystemId`.
@@ -6696,7 +9981,12 @@ type CfnTaskDefinition_EfsVolumeConfigurationProperty struct {
 // - Linux platform version `1.4.0` or later.
 // - Windows platform version `1.0.0` or later.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   environmentFileProperty := &environmentFileProperty{
+//   	type: jsii.String("type"),
+//   	value: jsii.String("value"),
+//   }
 //
 type CfnTaskDefinition_EnvironmentFileProperty struct {
 	// The file type to use.
@@ -6713,7 +10003,11 @@ type CfnTaskDefinition_EnvironmentFileProperty struct {
 //
 // > This parameter is only supported for tasks hosted on Fargate using Linux platform version `1.4.0` or later. This parameter is not supported for Windows containers on Fargate.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   ephemeralStorageProperty := &ephemeralStorageProperty{
+//   	sizeInGiB: jsii.Number(123),
+//   }
 //
 type CfnTaskDefinition_EphemeralStorageProperty struct {
 	// The total amount, in GiB, of ephemeral storage to set for the task.
@@ -6726,7 +10020,14 @@ type CfnTaskDefinition_EphemeralStorageProperty struct {
 //
 // This is used to specify and configure a log router for container logs. For more information, see [Custom Log Routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   firelensConfigurationProperty := &firelensConfigurationProperty{
+//   	options: map[string]*string{
+//   		"optionsKey": jsii.String("options"),
+//   	},
+//   	type: jsii.String("type"),
+//   }
 //
 type CfnTaskDefinition_FirelensConfigurationProperty struct {
 	// The options to use when configuring the log router.
@@ -6737,7 +10038,7 @@ type CfnTaskDefinition_FirelensConfigurationProperty struct {
 	//
 	// - `enable-ecs-log-metadata` , which can be `true` or `false`
 	// - `config-file-type` , which can be `s3` or `file`
-	// - `config-file-value` , which is either an S3 ARN or a file path
+	// - `config-file-value` , which is either an S3 ARN or a file path.
 	Options interface{} `json:"options" yaml:"options"`
 	// The log router to use.
 	//
@@ -6755,7 +10056,17 @@ type CfnTaskDefinition_FirelensConfigurationProperty struct {
 // - Container health checks are supported for Fargate tasks if you are using platform version 1.1.0 or greater. For more information, see [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) .
 // - Container health checks are not supported for tasks that are part of a service that is configured to use a Classic Load Balancer.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   healthCheckProperty := &healthCheckProperty{
+//   	command: []*string{
+//   		jsii.String("command"),
+//   	},
+//   	interval: jsii.Number(123),
+//   	retries: jsii.Number(123),
+//   	startPeriod: jsii.Number(123),
+//   	timeout: jsii.Number(123),
+//   }
 //
 type CfnTaskDefinition_HealthCheckProperty struct {
 	// A string array representing the command that the container runs to determine if it is healthy.
@@ -6794,7 +10105,12 @@ type CfnTaskDefinition_HealthCheckProperty struct {
 
 // The `HostEntry` property specifies a hostname and an IP address that are added to the `/etc/hosts` file of a container through the `extraHosts` parameter of its `ContainerDefinition` resource.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   hostEntryProperty := &hostEntryProperty{
+//   	hostname: jsii.String("hostname"),
+//   	ipAddress: jsii.String("ipAddress"),
+//   }
 //
 type CfnTaskDefinition_HostEntryProperty struct {
 	// The hostname to use in the `/etc/hosts` entry.
@@ -6805,7 +10121,11 @@ type CfnTaskDefinition_HostEntryProperty struct {
 
 // The `HostVolumeProperties` property specifies details on a container instance bind mount host volume.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   hostVolumePropertiesProperty := &hostVolumePropertiesProperty{
+//   	sourcePath: jsii.String("sourcePath"),
+//   }
 //
 type CfnTaskDefinition_HostVolumePropertiesProperty struct {
 	// When the `host` parameter is used, specify a `sourcePath` to declare the path on the host container instance that's presented to the container.
@@ -6820,7 +10140,12 @@ type CfnTaskDefinition_HostVolumePropertiesProperty struct {
 //
 // For more information, see [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-eia.html) in the *Amazon Elastic Container Service Developer Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   inferenceAcceleratorProperty := &inferenceAcceleratorProperty{
+//   	deviceName: jsii.String("deviceName"),
+//   	deviceType: jsii.String("deviceType"),
+//   }
 //
 type CfnTaskDefinition_InferenceAcceleratorProperty struct {
 	// The Elastic Inference accelerator device name.
@@ -6835,7 +10160,16 @@ type CfnTaskDefinition_InferenceAcceleratorProperty struct {
 //
 // For more information on the default capabilities and the non-default available capabilities, see [Runtime privilege and Linux capabilities](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) in the *Docker run reference* . For more detailed information on these Linux capabilities, see the [capabilities(7)](https://docs.aws.amazon.com/http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   kernelCapabilitiesProperty := &kernelCapabilitiesProperty{
+//   	add: []*string{
+//   		jsii.String("add"),
+//   	},
+//   	drop: []*string{
+//   		jsii.String("drop"),
+//   	},
+//   }
 //
 type CfnTaskDefinition_KernelCapabilitiesProperty struct {
 	// The Linux capabilities for the container that have been added to the default configuration provided by Docker.
@@ -6844,19 +10178,24 @@ type CfnTaskDefinition_KernelCapabilitiesProperty struct {
 	//
 	// > Tasks launched on AWS Fargate only support adding the `SYS_PTRACE` kernel capability.
 	//
-	// Valid values: `"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"`
+	// Valid values: `"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"`.
 	Add *[]*string `json:"add" yaml:"add"`
 	// The Linux capabilities for the container that have been removed from the default configuration provided by Docker.
 	//
 	// This parameter maps to `CapDrop` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--cap-drop` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
-	// Valid values: `"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"`
+	// Valid values: `"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"`.
 	Drop *[]*string `json:"drop" yaml:"drop"`
 }
 
 // The `KeyValuePair` property specifies a key-value pair object.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   keyValuePairProperty := &keyValuePairProperty{
+//   	name: jsii.String("name"),
+//   	value: jsii.String("value"),
+//   }
 //
 type CfnTaskDefinition_KeyValuePairProperty struct {
 	// The name of the key-value pair.
@@ -6871,7 +10210,42 @@ type CfnTaskDefinition_KeyValuePairProperty struct {
 
 // The `LinuxParameters` property specifies Linux-specific options that are applied to the container, such as Linux [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html) .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   linuxParametersProperty := &linuxParametersProperty{
+//   	capabilities: &kernelCapabilitiesProperty{
+//   		add: []*string{
+//   			jsii.String("add"),
+//   		},
+//   		drop: []*string{
+//   			jsii.String("drop"),
+//   		},
+//   	},
+//   	devices: []interface{}{
+//   		&deviceProperty{
+//   			containerPath: jsii.String("containerPath"),
+//   			hostPath: jsii.String("hostPath"),
+//   			permissions: []*string{
+//   				jsii.String("permissions"),
+//   			},
+//   		},
+//   	},
+//   	initProcessEnabled: jsii.Boolean(false),
+//   	maxSwap: jsii.Number(123),
+//   	sharedMemorySize: jsii.Number(123),
+//   	swappiness: jsii.Number(123),
+//   	tmpfs: []interface{}{
+//   		&tmpfsProperty{
+//   			size: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			containerPath: jsii.String("containerPath"),
+//   			mountOptions: []*string{
+//   				jsii.String("mountOptions"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnTaskDefinition_LinuxParametersProperty struct {
 	// The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.
@@ -6918,7 +10292,22 @@ type CfnTaskDefinition_LinuxParametersProperty struct {
 
 // The `LogConfiguration` property specifies log configuration options to send to a custom log driver for the container.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   logConfigurationProperty := &logConfigurationProperty{
+//   	logDriver: jsii.String("logDriver"),
+//
+//   	// the properties below are optional
+//   	options: map[string]*string{
+//   		"optionsKey": jsii.String("options"),
+//   	},
+//   	secretOptions: []interface{}{
+//   		&secretProperty{
+//   			name: jsii.String("name"),
+//   			valueFrom: jsii.String("valueFrom"),
+//   		},
+//   	},
+//   }
 //
 type CfnTaskDefinition_LogConfigurationProperty struct {
 	// The log driver to use for the container.
@@ -6945,7 +10334,13 @@ type CfnTaskDefinition_LogConfigurationProperty struct {
 
 // The `MountPoint` property specifies details on a volume mount point that is used in a container definition.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   mountPointProperty := &mountPointProperty{
+//   	containerPath: jsii.String("containerPath"),
+//   	readOnly: jsii.Boolean(false),
+//   	sourceVolume: jsii.String("sourceVolume"),
+//   }
 //
 type CfnTaskDefinition_MountPointProperty struct {
 	// The path on the container to mount the host volume at.
@@ -6968,7 +10363,13 @@ type CfnTaskDefinition_MountPointProperty struct {
 //
 // After a task reaches the `RUNNING` status, manual and automatic host and container port assignments are visible in the `networkBindings` section of [DescribeTasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html) API responses.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   portMappingProperty := &portMappingProperty{
+//   	containerPort: jsii.Number(123),
+//   	hostPort: jsii.Number(123),
+//   	protocol: jsii.String("protocol"),
+//   }
 //
 type CfnTaskDefinition_PortMappingProperty struct {
 	// The port number on the container that's bound to the user-specified or automatically assigned host port.
@@ -7001,7 +10402,20 @@ type CfnTaskDefinition_PortMappingProperty struct {
 //
 // For tasks using the Fargate launch type, the task or service requires platform version 1.3.0 or later.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   proxyConfigurationProperty := &proxyConfigurationProperty{
+//   	containerName: jsii.String("containerName"),
+//
+//   	// the properties below are optional
+//   	proxyConfigurationProperties: []interface{}{
+//   		&keyValuePairProperty{
+//   			name: jsii.String("name"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	type: jsii.String("type"),
+//   }
 //
 type CfnTaskDefinition_ProxyConfigurationProperty struct {
 	// The name of the container that will serve as the App Mesh proxy.
@@ -7024,7 +10438,11 @@ type CfnTaskDefinition_ProxyConfigurationProperty struct {
 
 // The `RepositoryCredentials` property specifies the repository credentials for private registry authentication.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   repositoryCredentialsProperty := &repositoryCredentialsProperty{
+//   	credentialsParameter: jsii.String("credentialsParameter"),
+//   }
 //
 type CfnTaskDefinition_RepositoryCredentialsProperty struct {
 	// The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
@@ -7037,7 +10455,12 @@ type CfnTaskDefinition_RepositoryCredentialsProperty struct {
 //
 // The only supported resource is a GPU. For more information, see [Working with GPUs on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html) in the *Amazon Elastic Container Service Developer Guide*
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   resourceRequirementProperty := &resourceRequirementProperty{
+//   	type: jsii.String("type"),
+//   	value: jsii.String("value"),
+//   }
 //
 type CfnTaskDefinition_ResourceRequirementProperty struct {
 	// The type of resource to assign to a container.
@@ -7056,7 +10479,12 @@ type CfnTaskDefinition_ResourceRequirementProperty struct {
 //
 // For more informataion about `RuntimePlatform` , see [RuntimePlatform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) in the *Amazon Elastic Container Service Developer Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   runtimePlatformProperty := &runtimePlatformProperty{
+//   	cpuArchitecture: jsii.String("cpuArchitecture"),
+//   	operatingSystemFamily: jsii.String("operatingSystemFamily"),
+//   }
 //
 type CfnTaskDefinition_RuntimePlatformProperty struct {
 	// The CPU architecture.
@@ -7071,7 +10499,12 @@ type CfnTaskDefinition_RuntimePlatformProperty struct {
 //
 // For more information, see [Specifying Sensitive Data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   secretProperty := &secretProperty{
+//   	name: jsii.String("name"),
+//   	valueFrom: jsii.String("valueFrom"),
+//   }
 //
 type CfnTaskDefinition_SecretProperty struct {
 	// The name of the secret.
@@ -7095,7 +10528,12 @@ type CfnTaskDefinition_SecretProperty struct {
 // - For tasks that use the `awsvpc` network mode, if you set `systemControls` for any container, it applies to all containers in the task. If you set different `systemControls` for multiple containers in a single task, the container that's started last determines which `systemControls` take effect.
 // - For tasks that use the `host` network mode, the `systemControls` parameter applies to the container instance's kernel parameter and that of all containers of any tasks running on that container instance.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   systemControlProperty := &systemControlProperty{
+//   	namespace: jsii.String("namespace"),
+//   	value: jsii.String("value"),
+//   }
 //
 type CfnTaskDefinition_SystemControlProperty struct {
 	// The namespaced kernel parameter to set a `value` for.
@@ -7110,7 +10548,14 @@ type CfnTaskDefinition_SystemControlProperty struct {
 //
 // For more information, see [Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the *Amazon Elastic Container Service Developer Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   taskDefinitionPlacementConstraintProperty := &taskDefinitionPlacementConstraintProperty{
+//   	type: jsii.String("type"),
+//
+//   	// the properties below are optional
+//   	expression: jsii.String("expression"),
+//   }
 //
 type CfnTaskDefinition_TaskDefinitionPlacementConstraintProperty struct {
 	// The type of constraint.
@@ -7125,7 +10570,17 @@ type CfnTaskDefinition_TaskDefinitionPlacementConstraintProperty struct {
 
 // The `Tmpfs` property specifies the container path, mount options, and size of the tmpfs mount.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   tmpfsProperty := &tmpfsProperty{
+//   	size: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	containerPath: jsii.String("containerPath"),
+//   	mountOptions: []*string{
+//   		jsii.String("mountOptions"),
+//   	},
+//   }
 //
 type CfnTaskDefinition_TmpfsProperty struct {
 	// The maximum size (in MiB) of the tmpfs volume.
@@ -7134,13 +10589,19 @@ type CfnTaskDefinition_TmpfsProperty struct {
 	ContainerPath *string `json:"containerPath" yaml:"containerPath"`
 	// The list of tmpfs volume mount options.
 	//
-	// Valid values: `"defaults" | "ro" | "rw" | "suid" | "nosuid" | "dev" | "nodev" | "exec" | "noexec" | "sync" | "async" | "dirsync" | "remount" | "mand" | "nomand" | "atime" | "noatime" | "diratime" | "nodiratime" | "bind" | "rbind" | "unbindable" | "runbindable" | "private" | "rprivate" | "shared" | "rshared" | "slave" | "rslave" | "relatime" | "norelatime" | "strictatime" | "nostrictatime" | "mode" | "uid" | "gid" | "nr_inodes" | "nr_blocks" | "mpol"`
+	// Valid values: `"defaults" | "ro" | "rw" | "suid" | "nosuid" | "dev" | "nodev" | "exec" | "noexec" | "sync" | "async" | "dirsync" | "remount" | "mand" | "nomand" | "atime" | "noatime" | "diratime" | "nodiratime" | "bind" | "rbind" | "unbindable" | "runbindable" | "private" | "rprivate" | "shared" | "rshared" | "slave" | "rslave" | "relatime" | "norelatime" | "strictatime" | "nostrictatime" | "mode" | "uid" | "gid" | "nr_inodes" | "nr_blocks" | "mpol"`.
 	MountOptions *[]*string `json:"mountOptions" yaml:"mountOptions"`
 }
 
 // The `Ulimit` property specifies the `ulimit` settings to pass to the container.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   ulimitProperty := &ulimitProperty{
+//   	hardLimit: jsii.Number(123),
+//   	name: jsii.String("name"),
+//   	softLimit: jsii.Number(123),
+//   }
 //
 type CfnTaskDefinition_UlimitProperty struct {
 	// The hard limit for the ulimit type.
@@ -7153,7 +10614,12 @@ type CfnTaskDefinition_UlimitProperty struct {
 
 // The `VolumeFrom` property specifies details on a data volume from another container in the same task definition.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   volumeFromProperty := &volumeFromProperty{
+//   	readOnly: jsii.Boolean(false),
+//   	sourceContainer: jsii.String("sourceContainer"),
+//   }
 //
 type CfnTaskDefinition_VolumeFromProperty struct {
 	// If this value is `true` , the container has read-only access to the volume.
@@ -7168,7 +10634,37 @@ type CfnTaskDefinition_VolumeFromProperty struct {
 //
 // For tasks that use a Docker volume, specify a `DockerVolumeConfiguration` . For tasks that use a bind mount host volume, specify a `host` and optional `sourcePath` . For more information, see [Using Data Volumes in Tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   volumeProperty := &volumeProperty{
+//   	dockerVolumeConfiguration: &dockerVolumeConfigurationProperty{
+//   		autoprovision: jsii.Boolean(false),
+//   		driver: jsii.String("driver"),
+//   		driverOpts: map[string]*string{
+//   			"driverOptsKey": jsii.String("driverOpts"),
+//   		},
+//   		labels: map[string]*string{
+//   			"labelsKey": jsii.String("labels"),
+//   		},
+//   		scope: jsii.String("scope"),
+//   	},
+//   	efsVolumeConfiguration: &efsVolumeConfigurationProperty{
+//   		fileSystemId: jsii.String("fileSystemId"),
+//
+//   		// the properties below are optional
+//   		authorizationConfig: &authorizationConfigProperty{
+//   			accessPointId: jsii.String("accessPointId"),
+//   			iam: jsii.String("iam"),
+//   		},
+//   		rootDirectory: jsii.String("rootDirectory"),
+//   		transitEncryption: jsii.String("transitEncryption"),
+//   		transitEncryptionPort: jsii.Number(123),
+//   	},
+//   	host: &hostVolumePropertiesProperty{
+//   		sourcePath: jsii.String("sourcePath"),
+//   	},
+//   	name: jsii.String("name"),
+//   }
 //
 type CfnTaskDefinition_VolumeProperty struct {
 	// This parameter is specified when you use Docker volumes.
@@ -7193,7 +10689,267 @@ type CfnTaskDefinition_VolumeProperty struct {
 
 // Properties for defining a `CfnTaskDefinition`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   cfnTaskDefinitionProps := &cfnTaskDefinitionProps{
+//   	containerDefinitions: []interface{}{
+//   		&containerDefinitionProperty{
+//   			command: []*string{
+//   				jsii.String("command"),
+//   			},
+//   			cpu: jsii.Number(123),
+//   			dependsOn: []interface{}{
+//   				&containerDependencyProperty{
+//   					condition: jsii.String("condition"),
+//   					containerName: jsii.String("containerName"),
+//   				},
+//   			},
+//   			disableNetworking: jsii.Boolean(false),
+//   			dnsSearchDomains: []*string{
+//   				jsii.String("dnsSearchDomains"),
+//   			},
+//   			dnsServers: []*string{
+//   				jsii.String("dnsServers"),
+//   			},
+//   			dockerLabels: map[string]*string{
+//   				"dockerLabelsKey": jsii.String("dockerLabels"),
+//   			},
+//   			dockerSecurityOptions: []*string{
+//   				jsii.String("dockerSecurityOptions"),
+//   			},
+//   			entryPoint: []*string{
+//   				jsii.String("entryPoint"),
+//   			},
+//   			environment: []interface{}{
+//   				&keyValuePairProperty{
+//   					name: jsii.String("name"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   			environmentFiles: []interface{}{
+//   				&environmentFileProperty{
+//   					type: jsii.String("type"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   			essential: jsii.Boolean(false),
+//   			extraHosts: []interface{}{
+//   				&hostEntryProperty{
+//   					hostname: jsii.String("hostname"),
+//   					ipAddress: jsii.String("ipAddress"),
+//   				},
+//   			},
+//   			firelensConfiguration: &firelensConfigurationProperty{
+//   				options: map[string]*string{
+//   					"optionsKey": jsii.String("options"),
+//   				},
+//   				type: jsii.String("type"),
+//   			},
+//   			healthCheck: &healthCheckProperty{
+//   				command: []*string{
+//   					jsii.String("command"),
+//   				},
+//   				interval: jsii.Number(123),
+//   				retries: jsii.Number(123),
+//   				startPeriod: jsii.Number(123),
+//   				timeout: jsii.Number(123),
+//   			},
+//   			hostname: jsii.String("hostname"),
+//   			image: jsii.String("image"),
+//   			interactive: jsii.Boolean(false),
+//   			links: []*string{
+//   				jsii.String("links"),
+//   			},
+//   			linuxParameters: &linuxParametersProperty{
+//   				capabilities: &kernelCapabilitiesProperty{
+//   					add: []*string{
+//   						jsii.String("add"),
+//   					},
+//   					drop: []*string{
+//   						jsii.String("drop"),
+//   					},
+//   				},
+//   				devices: []interface{}{
+//   					&deviceProperty{
+//   						containerPath: jsii.String("containerPath"),
+//   						hostPath: jsii.String("hostPath"),
+//   						permissions: []*string{
+//   							jsii.String("permissions"),
+//   						},
+//   					},
+//   				},
+//   				initProcessEnabled: jsii.Boolean(false),
+//   				maxSwap: jsii.Number(123),
+//   				sharedMemorySize: jsii.Number(123),
+//   				swappiness: jsii.Number(123),
+//   				tmpfs: []interface{}{
+//   					&tmpfsProperty{
+//   						size: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						containerPath: jsii.String("containerPath"),
+//   						mountOptions: []*string{
+//   							jsii.String("mountOptions"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			logConfiguration: &logConfigurationProperty{
+//   				logDriver: jsii.String("logDriver"),
+//
+//   				// the properties below are optional
+//   				options: map[string]*string{
+//   					"optionsKey": jsii.String("options"),
+//   				},
+//   				secretOptions: []interface{}{
+//   					&secretProperty{
+//   						name: jsii.String("name"),
+//   						valueFrom: jsii.String("valueFrom"),
+//   					},
+//   				},
+//   			},
+//   			memory: jsii.Number(123),
+//   			memoryReservation: jsii.Number(123),
+//   			mountPoints: []interface{}{
+//   				&mountPointProperty{
+//   					containerPath: jsii.String("containerPath"),
+//   					readOnly: jsii.Boolean(false),
+//   					sourceVolume: jsii.String("sourceVolume"),
+//   				},
+//   			},
+//   			name: jsii.String("name"),
+//   			portMappings: []interface{}{
+//   				&portMappingProperty{
+//   					containerPort: jsii.Number(123),
+//   					hostPort: jsii.Number(123),
+//   					protocol: jsii.String("protocol"),
+//   				},
+//   			},
+//   			privileged: jsii.Boolean(false),
+//   			pseudoTerminal: jsii.Boolean(false),
+//   			readonlyRootFilesystem: jsii.Boolean(false),
+//   			repositoryCredentials: &repositoryCredentialsProperty{
+//   				credentialsParameter: jsii.String("credentialsParameter"),
+//   			},
+//   			resourceRequirements: []interface{}{
+//   				&resourceRequirementProperty{
+//   					type: jsii.String("type"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   			secrets: []interface{}{
+//   				&secretProperty{
+//   					name: jsii.String("name"),
+//   					valueFrom: jsii.String("valueFrom"),
+//   				},
+//   			},
+//   			startTimeout: jsii.Number(123),
+//   			stopTimeout: jsii.Number(123),
+//   			systemControls: []interface{}{
+//   				&systemControlProperty{
+//   					namespace: jsii.String("namespace"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   			ulimits: []interface{}{
+//   				&ulimitProperty{
+//   					hardLimit: jsii.Number(123),
+//   					name: jsii.String("name"),
+//   					softLimit: jsii.Number(123),
+//   				},
+//   			},
+//   			user: jsii.String("user"),
+//   			volumesFrom: []interface{}{
+//   				&volumeFromProperty{
+//   					readOnly: jsii.Boolean(false),
+//   					sourceContainer: jsii.String("sourceContainer"),
+//   				},
+//   			},
+//   			workingDirectory: jsii.String("workingDirectory"),
+//   		},
+//   	},
+//   	cpu: jsii.String("cpu"),
+//   	ephemeralStorage: &ephemeralStorageProperty{
+//   		sizeInGiB: jsii.Number(123),
+//   	},
+//   	executionRoleArn: jsii.String("executionRoleArn"),
+//   	family: jsii.String("family"),
+//   	inferenceAccelerators: []interface{}{
+//   		&inferenceAcceleratorProperty{
+//   			deviceName: jsii.String("deviceName"),
+//   			deviceType: jsii.String("deviceType"),
+//   		},
+//   	},
+//   	ipcMode: jsii.String("ipcMode"),
+//   	memory: jsii.String("memory"),
+//   	networkMode: jsii.String("networkMode"),
+//   	pidMode: jsii.String("pidMode"),
+//   	placementConstraints: []interface{}{
+//   		&taskDefinitionPlacementConstraintProperty{
+//   			type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			expression: jsii.String("expression"),
+//   		},
+//   	},
+//   	proxyConfiguration: &proxyConfigurationProperty{
+//   		containerName: jsii.String("containerName"),
+//
+//   		// the properties below are optional
+//   		proxyConfigurationProperties: []interface{}{
+//   			&keyValuePairProperty{
+//   				name: jsii.String("name"),
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   		type: jsii.String("type"),
+//   	},
+//   	requiresCompatibilities: []*string{
+//   		jsii.String("requiresCompatibilities"),
+//   	},
+//   	runtimePlatform: &runtimePlatformProperty{
+//   		cpuArchitecture: jsii.String("cpuArchitecture"),
+//   		operatingSystemFamily: jsii.String("operatingSystemFamily"),
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	taskRoleArn: jsii.String("taskRoleArn"),
+//   	volumes: []interface{}{
+//   		&volumeProperty{
+//   			dockerVolumeConfiguration: &dockerVolumeConfigurationProperty{
+//   				autoprovision: jsii.Boolean(false),
+//   				driver: jsii.String("driver"),
+//   				driverOpts: map[string]*string{
+//   					"driverOptsKey": jsii.String("driverOpts"),
+//   				},
+//   				labels: map[string]*string{
+//   					"labelsKey": jsii.String("labels"),
+//   				},
+//   				scope: jsii.String("scope"),
+//   			},
+//   			efsVolumeConfiguration: &efsVolumeConfigurationProperty{
+//   				fileSystemId: jsii.String("fileSystemId"),
+//
+//   				// the properties below are optional
+//   				authorizationConfig: &authorizationConfigProperty{
+//   					accessPointId: jsii.String("accessPointId"),
+//   					iam: jsii.String("iam"),
+//   				},
+//   				rootDirectory: jsii.String("rootDirectory"),
+//   				transitEncryption: jsii.String("transitEncryption"),
+//   				transitEncryptionPort: jsii.Number(123),
+//   			},
+//   			host: &hostVolumePropertiesProperty{
+//   				sourcePath: jsii.String("sourcePath"),
+//   			},
+//   			name: jsii.String("name"),
+//   		},
+//   	},
+//   }
 //
 type CfnTaskDefinitionProps struct {
 	// A list of container definitions in JSON format that describe the different containers that make up your task.
@@ -7210,7 +10966,7 @@ type CfnTaskDefinitionProps struct {
 	// - 512 (.5 vCPU) - Available `memory` values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)
 	// - 1024 (1 vCPU) - Available `memory` values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)
 	// - 2048 (2 vCPU) - Available `memory` values: Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)
-	// - 4096 (4 vCPU) - Available `memory` values: Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
+	// - 4096 (4 vCPU) - Available `memory` values: Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB).
 	Cpu *string `json:"cpu" yaml:"cpu"`
 	// The ephemeral storage settings to use for tasks run with the task definition.
 	EphemeralStorage interface{} `json:"ephemeralStorage" yaml:"ephemeralStorage"`
@@ -7251,7 +11007,7 @@ type CfnTaskDefinitionProps struct {
 	// - 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available `cpu` values: 512 (.5 vCPU)
 	// - 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available `cpu` values: 1024 (1 vCPU)
 	// - Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) - Available `cpu` values: 2048 (2 vCPU)
-	// - Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available `cpu` values: 4096 (4 vCPU)
+	// - Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available `cpu` values: 4096 (4 vCPU).
 	Memory *string `json:"memory" yaml:"memory"`
 	// The Docker networking mode to use for the containers in the task.
 	//
@@ -7327,55 +11083,305 @@ type CfnTaskDefinitionProps struct {
 //
 // Create a task set in the specified cluster and service. This is used when a service uses the `EXTERNAL` deployment controller type. For more information, see [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html) in the *Amazon Elastic Container Service Developer Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   cfnTaskSet := ecs.NewCfnTaskSet(this, jsii.String("MyCfnTaskSet"), &cfnTaskSetProps{
+//   	cluster: jsii.String("cluster"),
+//   	service: jsii.String("service"),
+//   	taskDefinition: jsii.String("taskDefinition"),
+//
+//   	// the properties below are optional
+//   	externalId: jsii.String("externalId"),
+//   	launchType: jsii.String("launchType"),
+//   	loadBalancers: []interface{}{
+//   		&loadBalancerProperty{
+//   			containerName: jsii.String("containerName"),
+//   			containerPort: jsii.Number(123),
+//   			loadBalancerName: jsii.String("loadBalancerName"),
+//   			targetGroupArn: jsii.String("targetGroupArn"),
+//   		},
+//   	},
+//   	networkConfiguration: &networkConfigurationProperty{
+//   		awsVpcConfiguration: &awsVpcConfigurationProperty{
+//   			subnets: []*string{
+//   				jsii.String("subnets"),
+//   			},
+//
+//   			// the properties below are optional
+//   			assignPublicIp: jsii.String("assignPublicIp"),
+//   			securityGroups: []*string{
+//   				jsii.String("securityGroups"),
+//   			},
+//   		},
+//   	},
+//   	platformVersion: jsii.String("platformVersion"),
+//   	scale: &scaleProperty{
+//   		unit: jsii.String("unit"),
+//   		value: jsii.Number(123),
+//   	},
+//   	serviceRegistries: []interface{}{
+//   		&serviceRegistryProperty{
+//   			containerName: jsii.String("containerName"),
+//   			containerPort: jsii.Number(123),
+//   			port: jsii.Number(123),
+//   			registryArn: jsii.String("registryArn"),
+//   		},
+//   	},
+//   })
 //
 type CfnTaskSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ID of the task set.
 	AttrId() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
 	Cluster() *string
 	SetCluster(val *string)
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// An optional non-unique tag that identifies this task set in external systems.
+	//
+	// If the task set is associated with a service discovery registry, the tasks in this task set will have the `ECS_TASK_SET_EXTERNAL_ID` AWS Cloud Map attribute set to the provided value.
 	ExternalId() *string
 	SetExternalId(val *string)
+	// The launch type that new tasks in the task set uses.
+	//
+	// For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide* .
+	//
+	// If a `launchType` is specified, the `capacityProviderStrategy` parameter must be omitted.
 	LaunchType() *string
 	SetLaunchType(val *string)
+	// A load balancer object representing the load balancer to use with the task set.
+	//
+	// The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
 	LoadBalancers() interface{}
 	SetLoadBalancers(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The network configuration for the task set.
 	NetworkConfiguration() interface{}
 	SetNetworkConfiguration(val interface{})
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// The platform version that the tasks in the task set uses.
+	//
+	// A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the `LATEST` platform version is used.
 	PlatformVersion() *string
 	SetPlatformVersion(val *string)
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// A floating-point percentage of your desired number of tasks to place and keep running in the task set.
 	Scale() interface{}
 	SetScale(val interface{})
+	// The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
 	Service() *string
 	SetService(val *string)
+	// The details of the service discovery registries to assign to this task set.
+	//
+	// For more information, see [Service Discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html) .
 	ServiceRegistries() interface{}
 	SetServiceRegistries(val interface{})
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// The task definition for the tasks in the task set to use.
 	TaskDefinition() *string
 	SetTaskDefinition(val *string)
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -7495,8 +11501,8 @@ func (j *jsiiProxy_CfnTaskSet) NetworkConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTaskSet) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnTaskSet) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -7587,13 +11593,13 @@ func (j *jsiiProxy_CfnTaskSet) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::ECS::TaskSet`.
-func NewCfnTaskSet(scope constructs.Construct, id *string, props *CfnTaskSetProps) CfnTaskSet {
+func NewCfnTaskSet(scope awscdk.Construct, id *string, props *CfnTaskSetProps) CfnTaskSet {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnTaskSet{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.CfnTaskSet",
+		"monocdk.aws_ecs.CfnTaskSet",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7602,11 +11608,11 @@ func NewCfnTaskSet(scope constructs.Construct, id *string, props *CfnTaskSetProp
 }
 
 // Create a new `AWS::ECS::TaskSet`.
-func NewCfnTaskSet_Override(c CfnTaskSet, scope constructs.Construct, id *string, props *CfnTaskSetProps) {
+func NewCfnTaskSet_Override(c CfnTaskSet, scope awscdk.Construct, id *string, props *CfnTaskSetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.CfnTaskSet",
+		"monocdk.aws_ecs.CfnTaskSet",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -7698,13 +11704,14 @@ func (j *jsiiProxy_CfnTaskSet) SetTaskDefinition(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnTaskSet_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.CfnTaskSet",
+		"monocdk.aws_ecs.CfnTaskSet",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -7714,13 +11721,14 @@ func CfnTaskSet_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnTaskSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.CfnTaskSet",
+		"monocdk.aws_ecs.CfnTaskSet",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -7729,17 +11737,15 @@ func CfnTaskSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnTaskSet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.CfnTaskSet",
+		"monocdk.aws_ecs.CfnTaskSet",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7752,14 +11758,13 @@ func CfnTaskSet_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.CfnTaskSet",
+		"monocdk.aws_ecs.CfnTaskSet",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnTaskSet) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7768,10 +11773,6 @@ func (c *jsiiProxy_CfnTaskSet) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnTaskSet) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7780,13 +11781,6 @@ func (c *jsiiProxy_CfnTaskSet) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnTaskSet) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7795,49 +11789,6 @@ func (c *jsiiProxy_CfnTaskSet) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnTaskSet) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7846,7 +11797,6 @@ func (c *jsiiProxy_CfnTaskSet) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnTaskSet) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7855,9 +11805,6 @@ func (c *jsiiProxy_CfnTaskSet) AddPropertyDeletionOverride(propertyPath *string)
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnTaskSet) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7866,15 +11813,6 @@ func (c *jsiiProxy_CfnTaskSet) AddPropertyOverride(propertyPath *string, value i
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnTaskSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7883,10 +11821,6 @@ func (c *jsiiProxy_CfnTaskSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnTaskSet) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -7900,13 +11834,6 @@ func (c *jsiiProxy_CfnTaskSet) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnTaskSet) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -7920,7 +11847,6 @@ func (c *jsiiProxy_CfnTaskSet) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnTaskSet) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7929,12 +11855,48 @@ func (c *jsiiProxy_CfnTaskSet) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnTaskSet) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnTaskSet) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnTaskSet) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnTaskSet) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnTaskSet) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -7951,10 +11913,6 @@ func (c *jsiiProxy_CfnTaskSet) RenderProperties(props *map[string]interface{}) *
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnTaskSet) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -7968,15 +11926,33 @@ func (c *jsiiProxy_CfnTaskSet) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnTaskSet) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnTaskSet) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnTaskSet) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -7994,7 +11970,19 @@ func (c *jsiiProxy_CfnTaskSet) ValidateProperties(_properties interface{}) {
 
 // The networking details for a task.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   awsVpcConfigurationProperty := &awsVpcConfigurationProperty{
+//   	subnets: []*string{
+//   		jsii.String("subnets"),
+//   	},
+//
+//   	// the properties below are optional
+//   	assignPublicIp: jsii.String("assignPublicIp"),
+//   	securityGroups: []*string{
+//   		jsii.String("securityGroups"),
+//   	},
+//   }
 //
 type CfnTaskSet_AwsVpcConfigurationProperty struct {
 	// The IDs of the subnets associated with the task or service.
@@ -8017,7 +12005,14 @@ type CfnTaskSet_AwsVpcConfigurationProperty struct {
 
 // Details on the load balancer or load balancers to use with a task set.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   loadBalancerProperty := &loadBalancerProperty{
+//   	containerName: jsii.String("containerName"),
+//   	containerPort: jsii.Number(123),
+//   	loadBalancerName: jsii.String("loadBalancerName"),
+//   	targetGroupArn: jsii.String("targetGroupArn"),
+//   }
 //
 type CfnTaskSet_LoadBalancerProperty struct {
 	// The name of the container (as it appears in a container definition) to associate with the load balancer.
@@ -8044,7 +12039,21 @@ type CfnTaskSet_LoadBalancerProperty struct {
 
 // The network configuration for a task.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   networkConfigurationProperty := &networkConfigurationProperty{
+//   	awsVpcConfiguration: &awsVpcConfigurationProperty{
+//   		subnets: []*string{
+//   			jsii.String("subnets"),
+//   		},
+//
+//   		// the properties below are optional
+//   		assignPublicIp: jsii.String("assignPublicIp"),
+//   		securityGroups: []*string{
+//   			jsii.String("securityGroups"),
+//   		},
+//   	},
+//   }
 //
 type CfnTaskSet_NetworkConfigurationProperty struct {
 	// The VPC subnets and security groups that are associated with a task.
@@ -8055,7 +12064,12 @@ type CfnTaskSet_NetworkConfigurationProperty struct {
 
 // A floating-point percentage of the desired number of tasks to place and keep running in the task set.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   scaleProperty := &scaleProperty{
+//   	unit: jsii.String("unit"),
+//   	value: jsii.Number(123),
+//   }
 //
 type CfnTaskSet_ScaleProperty struct {
 	// The unit of measure for the scale value.
@@ -8072,7 +12086,14 @@ type CfnTaskSet_ScaleProperty struct {
 //
 // When you add, update, or remove the service registries configuration, Amazon ECS starts a new deployment. New tasks are registered and deregistered to the updated service registry configuration.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   serviceRegistryProperty := &serviceRegistryProperty{
+//   	containerName: jsii.String("containerName"),
+//   	containerPort: jsii.Number(123),
+//   	port: jsii.Number(123),
+//   	registryArn: jsii.String("registryArn"),
+//   }
 //
 type CfnTaskSet_ServiceRegistryProperty struct {
 	// The container name value to be used for your service discovery service.
@@ -8095,7 +12116,51 @@ type CfnTaskSet_ServiceRegistryProperty struct {
 
 // Properties for defining a `CfnTaskSet`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   cfnTaskSetProps := &cfnTaskSetProps{
+//   	cluster: jsii.String("cluster"),
+//   	service: jsii.String("service"),
+//   	taskDefinition: jsii.String("taskDefinition"),
+//
+//   	// the properties below are optional
+//   	externalId: jsii.String("externalId"),
+//   	launchType: jsii.String("launchType"),
+//   	loadBalancers: []interface{}{
+//   		&loadBalancerProperty{
+//   			containerName: jsii.String("containerName"),
+//   			containerPort: jsii.Number(123),
+//   			loadBalancerName: jsii.String("loadBalancerName"),
+//   			targetGroupArn: jsii.String("targetGroupArn"),
+//   		},
+//   	},
+//   	networkConfiguration: &networkConfigurationProperty{
+//   		awsVpcConfiguration: &awsVpcConfigurationProperty{
+//   			subnets: []*string{
+//   				jsii.String("subnets"),
+//   			},
+//
+//   			// the properties below are optional
+//   			assignPublicIp: jsii.String("assignPublicIp"),
+//   			securityGroups: []*string{
+//   				jsii.String("securityGroups"),
+//   			},
+//   		},
+//   	},
+//   	platformVersion: jsii.String("platformVersion"),
+//   	scale: &scaleProperty{
+//   		unit: jsii.String("unit"),
+//   		value: jsii.Number(123),
+//   	},
+//   	serviceRegistries: []interface{}{
+//   		&serviceRegistryProperty{
+//   			containerName: jsii.String("containerName"),
+//   			containerPort: jsii.Number(123),
+//   			port: jsii.Number(123),
+//   			registryArn: jsii.String("registryArn"),
+//   		},
+//   	},
+//   }
 //
 type CfnTaskSetProps struct {
 	// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
@@ -8134,77 +12199,291 @@ type CfnTaskSetProps struct {
 
 // The options for creating an AWS Cloud Map namespace.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
 //
+//   var vpc vpc
+//   cloudMapNamespaceOptions := &cloudMapNamespaceOptions{
+//   	name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	type: servicediscovery.namespaceType_HTTP,
+//   	vpc: vpc,
+//   }
+//
+// Experimental.
 type CloudMapNamespaceOptions struct {
 	// The name of the namespace, such as example.com.
+	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 	// The type of CloudMap Namespace to create.
+	// Experimental.
 	Type awsservicediscovery.NamespaceType `json:"type" yaml:"type"`
 	// The VPC to associate the namespace with.
 	//
 	// This property is required for private DNS namespaces.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
 // The options to enabling AWS Cloud Map for an Amazon ECS service.
 //
-// TODO: EXAMPLE
+// Example:
+//   var taskDefinition taskDefinition
+//   var cluster cluster
 //
+//   service := ecs.NewEc2Service(this, jsii.String("Service"), &ec2ServiceProps{
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   	cloudMapOptions: &cloudMapOptions{
+//   		// Create A records - useful for AWSVPC network mode.
+//   		dnsRecordType: cloudmap.dnsRecordType_A,
+//   	},
+//   })
+//
+// Experimental.
 type CloudMapOptions struct {
 	// The service discovery namespace for the Cloud Map service to attach to the ECS service.
+	// Experimental.
 	CloudMapNamespace awsservicediscovery.INamespace `json:"cloudMapNamespace" yaml:"cloudMapNamespace"`
 	// The container to point to for a SRV record.
+	// Experimental.
 	Container ContainerDefinition `json:"container" yaml:"container"`
 	// The port to point to for a SRV record.
+	// Experimental.
 	ContainerPort *float64 `json:"containerPort" yaml:"containerPort"`
 	// The DNS record type that you want AWS Cloud Map to create.
 	//
 	// The supported record types are A or SRV.
+	// Experimental.
 	DnsRecordType awsservicediscovery.DnsRecordType `json:"dnsRecordType" yaml:"dnsRecordType"`
 	// The amount of time that you want DNS resolvers to cache the settings for this record.
+	// Experimental.
 	DnsTtl awscdk.Duration `json:"dnsTtl" yaml:"dnsTtl"`
 	// The number of 30-second intervals that you want Cloud Map to wait after receiving an UpdateInstanceCustomHealthStatus request before it changes the health status of a service instance.
 	//
-	// NOTE: This is used for HealthCheckCustomConfig
+	// NOTE: This is used for HealthCheckCustomConfig.
+	// Experimental.
 	FailureThreshold *float64 `json:"failureThreshold" yaml:"failureThreshold"`
 	// The name of the Cloud Map service to attach to the ECS service.
+	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 }
 
 // A regional grouping of one or more container instances on which you can run tasks and services.
 //
-// TODO: EXAMPLE
+// Example:
+//   var vpc vpc
 //
+//   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
+//   	vpc: vpc,
+//   })
+//
+//   autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
+//   	vpc: vpc,
+//   	instanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
+//   	machineImage: ecs.ecsOptimizedImage.amazonLinux2(),
+//   	minCapacity: jsii.Number(0),
+//   	maxCapacity: jsii.Number(100),
+//   })
+//
+//   capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &asgCapacityProviderProps{
+//   	autoScalingGroup: autoScalingGroup,
+//   })
+//   cluster.addAsgCapacityProvider(capacityProvider)
+//
+//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+//
+//   taskDefinition.addContainer(jsii.String("web"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	memoryReservationMiB: jsii.Number(256),
+//   })
+//
+//   ecs.NewEc2Service(this, jsii.String("EC2Service"), &ec2ServiceProps{
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   	capacityProviderStrategies: []capacityProviderStrategy{
+//   		&capacityProviderStrategy{
+//   			capacityProvider: capacityProvider.capacityProviderName,
+//   			weight: jsii.Number(1),
+//   		},
+//   	},
+//   })
+//
+// Experimental.
 type Cluster interface {
 	awscdk.Resource
 	ICluster
+	// Getter for autoscaling group added to cluster.
+	// Experimental.
 	AutoscalingGroup() awsautoscaling.IAutoScalingGroup
+	// The Amazon Resource Name (ARN) that identifies the cluster.
+	// Experimental.
 	ClusterArn() *string
+	// The name of the cluster.
+	// Experimental.
 	ClusterName() *string
+	// Manage the allowed network connections for the cluster with Security Groups.
+	// Experimental.
 	Connections() awsec2.Connections
+	// Getter for namespace added to cluster.
+	// Experimental.
 	DefaultCloudMapNamespace() awsservicediscovery.INamespace
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
+	// Getter for execute command configuration associated with the cluster.
+	// Experimental.
 	ExecuteCommandConfiguration() *ExecuteCommandConfiguration
+	// Whether the cluster has EC2 capacity associated with it.
+	// Experimental.
 	HasEc2Capacity() *bool
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
+	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
+	// The VPC associated with the cluster.
+	// Experimental.
 	Vpc() awsec2.IVpc
+	// This method adds an Auto Scaling Group Capacity Provider to a cluster.
+	// Experimental.
 	AddAsgCapacityProvider(provider AsgCapacityProvider, options *AddAutoScalingGroupCapacityOptions)
+	// This method adds compute capacity to a cluster using the specified AutoScalingGroup.
+	// Deprecated: Use {@link Cluster.addAsgCapacityProvider} instead.
+	AddAutoScalingGroup(autoScalingGroup awsautoscaling.AutoScalingGroup, options *AddAutoScalingGroupCapacityOptions)
+	// It is highly recommended to use {@link Cluster.addAsgCapacityProvider} instead of this method.
+	//
+	// This method adds compute capacity to a cluster by creating an AutoScalingGroup with the specified options.
+	//
+	// Returns the AutoScalingGroup so you can add autoscaling settings to it.
+	// Experimental.
 	AddCapacity(id *string, options *AddCapacityOptions) awsautoscaling.AutoScalingGroup
+	// This method enables the Fargate or Fargate Spot capacity providers on the cluster.
+	// See: {@link addAsgCapacityProvider} to add an Auto Scaling Group capacity provider to the cluster.
+	//
+	// Deprecated: Use {@link enableFargateCapacityProviders} instead.
+	AddCapacityProvider(provider *string)
+	// Add an AWS Cloud Map DNS namespace for this cluster.
+	//
+	// NOTE: HttpNamespaces are not supported, as ECS always requires a DNSConfig when registering an instance to a Cloud
+	// Map service.
+	// Experimental.
 	AddDefaultCloudMapNamespace(options *CloudMapNamespaceOptions) awsservicediscovery.INamespace
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Enable the Fargate capacity providers for this cluster.
+	// Experimental.
 	EnableFargateCapacityProviders()
+	// Experimental.
 	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// This method returns the specifed CloudWatch metric for this cluster.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// This method returns the CloudWatch metric for this clusters CPU reservation.
+	// Experimental.
 	MetricCpuReservation(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// This method returns the CloudWatch metric for this clusters CPU utilization.
+	// Experimental.
 	MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// This method returns the CloudWatch metric for this clusters memory reservation.
+	// Experimental.
 	MetricMemoryReservation(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// This method returns the CloudWatch metric for this clusters memory utilization.
+	// Experimental.
 	MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for Cluster
@@ -8293,8 +12572,8 @@ func (j *jsiiProxy_Cluster) HasEc2Capacity() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_Cluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Cluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -8335,13 +12614,14 @@ func (j *jsiiProxy_Cluster) Vpc() awsec2.IVpc {
 
 
 // Constructs a new instance of the Cluster class.
+// Experimental.
 func NewCluster(scope constructs.Construct, id *string, props *ClusterProps) Cluster {
 	_init_.Initialize()
 
 	j := jsiiProxy_Cluster{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.Cluster",
+		"monocdk.aws_ecs.Cluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -8350,11 +12630,12 @@ func NewCluster(scope constructs.Construct, id *string, props *ClusterProps) Clu
 }
 
 // Constructs a new instance of the Cluster class.
+// Experimental.
 func NewCluster_Override(c Cluster, scope constructs.Construct, id *string, props *ClusterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.Cluster",
+		"monocdk.aws_ecs.Cluster",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -8364,13 +12645,14 @@ func NewCluster_Override(c Cluster, scope constructs.Construct, id *string, prop
 //
 // This does not provide access to the vpc, hasEc2Capacity, or connections -
 // use the `fromClusterAttributes` method to access those properties.
+// Experimental.
 func Cluster_FromClusterArn(scope constructs.Construct, id *string, clusterArn *string) ICluster {
 	_init_.Initialize()
 
 	var returns ICluster
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.Cluster",
+		"monocdk.aws_ecs.Cluster",
 		"fromClusterArn",
 		[]interface{}{scope, id, clusterArn},
 		&returns,
@@ -8380,13 +12662,14 @@ func Cluster_FromClusterArn(scope constructs.Construct, id *string, clusterArn *
 }
 
 // Import an existing cluster to the stack from its attributes.
+// Experimental.
 func Cluster_FromClusterAttributes(scope constructs.Construct, id *string, attrs *ClusterAttributes) ICluster {
 	_init_.Initialize()
 
 	var returns ICluster
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.Cluster",
+		"monocdk.aws_ecs.Cluster",
 		"fromClusterAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -8395,17 +12678,15 @@ func Cluster_FromClusterAttributes(scope constructs.Construct, id *string, attrs
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Cluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.Cluster",
+		"monocdk.aws_ecs.Cluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8415,13 +12696,14 @@ func Cluster_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func Cluster_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func Cluster_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.Cluster",
+		"monocdk.aws_ecs.Cluster",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -8430,7 +12712,6 @@ func Cluster_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// This method adds an Auto Scaling Group Capacity Provider to a cluster.
 func (c *jsiiProxy_Cluster) AddAsgCapacityProvider(provider AsgCapacityProvider, options *AddAutoScalingGroupCapacityOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8439,11 +12720,14 @@ func (c *jsiiProxy_Cluster) AddAsgCapacityProvider(provider AsgCapacityProvider,
 	)
 }
 
-// It is highly recommended to use {@link Cluster.addAsgCapacityProvider} instead of this method.
-//
-// This method adds compute capacity to a cluster by creating an AutoScalingGroup with the specified options.
-//
-// Returns the AutoScalingGroup so you can add autoscaling settings to it.
+func (c *jsiiProxy_Cluster) AddAutoScalingGroup(autoScalingGroup awsautoscaling.AutoScalingGroup, options *AddAutoScalingGroupCapacityOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"addAutoScalingGroup",
+		[]interface{}{autoScalingGroup, options},
+	)
+}
+
 func (c *jsiiProxy_Cluster) AddCapacity(id *string, options *AddCapacityOptions) awsautoscaling.AutoScalingGroup {
 	var returns awsautoscaling.AutoScalingGroup
 
@@ -8457,10 +12741,14 @@ func (c *jsiiProxy_Cluster) AddCapacity(id *string, options *AddCapacityOptions)
 	return returns
 }
 
-// Add an AWS Cloud Map DNS namespace for this cluster.
-//
-// NOTE: HttpNamespaces are not supported, as ECS always requires a DNSConfig when registering an instance to a Cloud
-// Map service.
+func (c *jsiiProxy_Cluster) AddCapacityProvider(provider *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addCapacityProvider",
+		[]interface{}{provider},
+	)
+}
+
 func (c *jsiiProxy_Cluster) AddDefaultCloudMapNamespace(options *CloudMapNamespaceOptions) awsservicediscovery.INamespace {
 	var returns awsservicediscovery.INamespace
 
@@ -8474,15 +12762,6 @@ func (c *jsiiProxy_Cluster) AddDefaultCloudMapNamespace(options *CloudMapNamespa
 	return returns
 }
 
-// Apply the given removal policy to this resource.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_Cluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8491,7 +12770,6 @@ func (c *jsiiProxy_Cluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Enable the Fargate capacity providers for this cluster.
 func (c *jsiiProxy_Cluster) EnableFargateCapacityProviders() {
 	_jsii_.InvokeVoid(
 		c,
@@ -8513,12 +12791,6 @@ func (c *jsiiProxy_Cluster) GeneratePhysicalName() *string {
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
-//
-// Normally, this token will resolve to `arnAttr`, but if the resource is
-// referenced across environments, `arnComponents` will be used to synthesize
-// a concrete ARN with the resource's physical name. Make sure to reference
-// `this.physicalName` in `arnComponents`.
 func (c *jsiiProxy_Cluster) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -8532,11 +12804,6 @@ func (c *jsiiProxy_Cluster) GetResourceArnAttribute(arnAttr *string, arnComponen
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
-//
-// Normally, this token will resolve to `nameAttr`, but if the resource is
-// referenced across environments, it will be resolved to `this.physicalName`,
-// which will be a concrete name.
 func (c *jsiiProxy_Cluster) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -8550,7 +12817,6 @@ func (c *jsiiProxy_Cluster) GetResourceNameAttribute(nameAttr *string) *string {
 	return returns
 }
 
-// This method returns the specifed CloudWatch metric for this cluster.
 func (c *jsiiProxy_Cluster) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -8564,7 +12830,6 @@ func (c *jsiiProxy_Cluster) Metric(metricName *string, props *awscloudwatch.Metr
 	return returns
 }
 
-// This method returns the CloudWatch metric for this clusters CPU reservation.
 func (c *jsiiProxy_Cluster) MetricCpuReservation(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -8578,7 +12843,6 @@ func (c *jsiiProxy_Cluster) MetricCpuReservation(props *awscloudwatch.MetricOpti
 	return returns
 }
 
-// This method returns the CloudWatch metric for this clusters CPU utilization.
 func (c *jsiiProxy_Cluster) MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -8592,7 +12856,6 @@ func (c *jsiiProxy_Cluster) MetricCpuUtilization(props *awscloudwatch.MetricOpti
 	return returns
 }
 
-// This method returns the CloudWatch metric for this clusters memory reservation.
 func (c *jsiiProxy_Cluster) MetricMemoryReservation(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -8606,7 +12869,6 @@ func (c *jsiiProxy_Cluster) MetricMemoryReservation(props *awscloudwatch.MetricO
 	return returns
 }
 
-// This method returns the CloudWatch metric for this clusters memory utilization.
 func (c *jsiiProxy_Cluster) MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -8620,7 +12882,51 @@ func (c *jsiiProxy_Cluster) MetricMemoryUtilization(props *awscloudwatch.MetricO
 	return returns
 }
 
-// Returns a string representation of this construct.
+func (c *jsiiProxy_Cluster) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_Cluster) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_Cluster) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_Cluster) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_Cluster) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_Cluster) ToString() *string {
 	var returns *string
 
@@ -8634,60 +12940,177 @@ func (c *jsiiProxy_Cluster) ToString() *string {
 	return returns
 }
 
+func (c *jsiiProxy_Cluster) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // The properties to import from the ECS cluster.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import autoscaling "github.com/aws/aws-cdk-go/awscdk/aws_autoscaling"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
 //
+//   var autoScalingGroup autoScalingGroup
+//   var bucket bucket
+//   var key key
+//   var logGroup logGroup
+//   var namespace iNamespace
+//   var securityGroup securityGroup
+//   var vpc vpc
+//   clusterAttributes := &clusterAttributes{
+//   	clusterName: jsii.String("clusterName"),
+//   	securityGroups: []iSecurityGroup{
+//   		securityGroup,
+//   	},
+//   	vpc: vpc,
+//
+//   	// the properties below are optional
+//   	autoscalingGroup: autoScalingGroup,
+//   	clusterArn: jsii.String("clusterArn"),
+//   	defaultCloudMapNamespace: namespace,
+//   	executeCommandConfiguration: &executeCommandConfiguration{
+//   		kmsKey: key,
+//   		logConfiguration: &executeCommandLogConfiguration{
+//   			cloudWatchEncryptionEnabled: jsii.Boolean(false),
+//   			cloudWatchLogGroup: logGroup,
+//   			s3Bucket: bucket,
+//   			s3EncryptionEnabled: jsii.Boolean(false),
+//   			s3KeyPrefix: jsii.String("s3KeyPrefix"),
+//   		},
+//   		logging: ecs.executeCommandLogging_NONE,
+//   	},
+//   	hasEc2Capacity: jsii.Boolean(false),
+//   }
+//
+// Experimental.
 type ClusterAttributes struct {
 	// The name of the cluster.
+	// Experimental.
 	ClusterName *string `json:"clusterName" yaml:"clusterName"`
 	// The security groups associated with the container instances registered to the cluster.
+	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The VPC associated with the cluster.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Autoscaling group added to the cluster if capacity is added.
+	// Experimental.
 	AutoscalingGroup awsautoscaling.IAutoScalingGroup `json:"autoscalingGroup" yaml:"autoscalingGroup"`
 	// The Amazon Resource Name (ARN) that identifies the cluster.
+	// Experimental.
 	ClusterArn *string `json:"clusterArn" yaml:"clusterArn"`
 	// The AWS Cloud Map namespace to associate with the cluster.
+	// Experimental.
 	DefaultCloudMapNamespace awsservicediscovery.INamespace `json:"defaultCloudMapNamespace" yaml:"defaultCloudMapNamespace"`
 	// The execute command configuration for the cluster.
+	// Experimental.
 	ExecuteCommandConfiguration *ExecuteCommandConfiguration `json:"executeCommandConfiguration" yaml:"executeCommandConfiguration"`
 	// Specifies whether the cluster has EC2 instance capacity.
+	// Experimental.
 	HasEc2Capacity *bool `json:"hasEc2Capacity" yaml:"hasEc2Capacity"`
 }
 
 // The properties used to define an ECS cluster.
 //
-// TODO: EXAMPLE
+// Example:
+//   vpc := ec2.vpc.fromLookup(this, jsii.String("Vpc"), &vpcLookupOptions{
+//   	isDefault: jsii.Boolean(true),
+//   })
 //
+//   cluster := ecs.NewCluster(this, jsii.String("FargateCluster"), &clusterProps{
+//   	vpc: vpc,
+//   })
+//
+//   taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TD"), &taskDefinitionProps{
+//   	memoryMiB: jsii.String("512"),
+//   	cpu: jsii.String("256"),
+//   	compatibility: ecs.compatibility_FARGATE,
+//   })
+//
+//   containerDefinition := taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("foo/bar")),
+//   	memoryLimitMiB: jsii.Number(256),
+//   })
+//
+//   runTask := tasks.NewEcsRunTask(this, jsii.String("RunFargate"), &ecsRunTaskProps{
+//   	integrationPattern: sfn.integrationPattern_RUN_JOB,
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   	assignPublicIp: jsii.Boolean(true),
+//   	containerOverrides: []containerOverride{
+//   		&containerOverride{
+//   			containerDefinition: containerDefinition,
+//   			environment: []taskEnvironmentVariable{
+//   				&taskEnvironmentVariable{
+//   					name: jsii.String("SOME_KEY"),
+//   					value: sfn.jsonPath.stringAt(jsii.String("$.SomeKey")),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	launchTarget: tasks.NewEcsFargateLaunchTarget(),
+//   })
+//
+// Experimental.
 type ClusterProps struct {
 	// The ec2 capacity to add to the cluster.
+	// Experimental.
 	Capacity *AddCapacityOptions `json:"capacity" yaml:"capacity"`
+	// The capacity providers to add to the cluster.
+	// Deprecated: Use {@link ClusterProps.enableFargateCapacityProviders} instead.
+	CapacityProviders *[]*string `json:"capacityProviders" yaml:"capacityProviders"`
 	// The name for the cluster.
+	// Experimental.
 	ClusterName *string `json:"clusterName" yaml:"clusterName"`
 	// If true CloudWatch Container Insights will be enabled for the cluster.
+	// Experimental.
 	ContainerInsights *bool `json:"containerInsights" yaml:"containerInsights"`
 	// The service discovery namespace created in this cluster.
+	// Experimental.
 	DefaultCloudMapNamespace *CloudMapNamespaceOptions `json:"defaultCloudMapNamespace" yaml:"defaultCloudMapNamespace"`
 	// Whether to enable Fargate Capacity Providers.
+	// Experimental.
 	EnableFargateCapacityProviders *bool `json:"enableFargateCapacityProviders" yaml:"enableFargateCapacityProviders"`
 	// The execute command configuration for the cluster.
+	// Experimental.
 	ExecuteCommandConfiguration *ExecuteCommandConfiguration `json:"executeCommandConfiguration" yaml:"executeCommandConfiguration"`
 	// The VPC where your ECS instances will be running or your ENIs will be deployed.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
 // The common task definition attributes used across all types of task definitions.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
 //
+//   var role role
+//   commonTaskDefinitionAttributes := &commonTaskDefinitionAttributes{
+//   	taskDefinitionArn: jsii.String("taskDefinitionArn"),
+//
+//   	// the properties below are optional
+//   	networkMode: ecs.networkMode_NONE,
+//   	taskRole: role,
+//   }
+//
+// Experimental.
 type CommonTaskDefinitionAttributes struct {
 	// The arn of the task definition.
+	// Experimental.
 	TaskDefinitionArn *string `json:"taskDefinitionArn" yaml:"taskDefinitionArn"`
 	// The networking mode to use for the containers in the task.
+	// Experimental.
 	NetworkMode NetworkMode `json:"networkMode" yaml:"networkMode"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
+	// Experimental.
 	TaskRole awsiam.IRole `json:"taskRole" yaml:"taskRole"`
 }
 
@@ -8696,82 +13119,332 @@ type CommonTaskDefinitionAttributes struct {
 // For more information, see
 // [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html).
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
 //
+//   var proxyConfiguration proxyConfiguration
+//   var role role
+//   commonTaskDefinitionProps := &commonTaskDefinitionProps{
+//   	executionRole: role,
+//   	family: jsii.String("family"),
+//   	proxyConfiguration: proxyConfiguration,
+//   	taskRole: role,
+//   	volumes: []volume{
+//   		&volume{
+//   			name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			dockerVolumeConfiguration: &dockerVolumeConfiguration{
+//   				driver: jsii.String("driver"),
+//   				scope: ecs.scope_TASK,
+//
+//   				// the properties below are optional
+//   				autoprovision: jsii.Boolean(false),
+//   				driverOpts: map[string]*string{
+//   					"driverOptsKey": jsii.String("driverOpts"),
+//   				},
+//   				labels: map[string]*string{
+//   					"labelsKey": jsii.String("labels"),
+//   				},
+//   			},
+//   			efsVolumeConfiguration: &efsVolumeConfiguration{
+//   				fileSystemId: jsii.String("fileSystemId"),
+//
+//   				// the properties below are optional
+//   				authorizationConfig: &authorizationConfig{
+//   					accessPointId: jsii.String("accessPointId"),
+//   					iam: jsii.String("iam"),
+//   				},
+//   				rootDirectory: jsii.String("rootDirectory"),
+//   				transitEncryption: jsii.String("transitEncryption"),
+//   				transitEncryptionPort: jsii.Number(123),
+//   			},
+//   			host: &host{
+//   				sourcePath: jsii.String("sourcePath"),
+//   			},
+//   		},
+//   	},
+//   }
+//
+// Experimental.
 type CommonTaskDefinitionProps struct {
 	// The name of the IAM task execution role that grants the ECS agent permission to call AWS APIs on your behalf.
 	//
 	// The role will be used to retrieve container images from ECR and create CloudWatch log groups.
+	// Experimental.
 	ExecutionRole awsiam.IRole `json:"executionRole" yaml:"executionRole"`
 	// The name of a family that this task definition is registered to.
 	//
 	// A family groups multiple versions of a task definition.
+	// Experimental.
 	Family *string `json:"family" yaml:"family"`
 	// The configuration details for the App Mesh proxy.
+	// Experimental.
 	ProxyConfiguration ProxyConfiguration `json:"proxyConfiguration" yaml:"proxyConfiguration"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
+	// Experimental.
 	TaskRole awsiam.IRole `json:"taskRole" yaml:"taskRole"`
 	// The list of volume definitions for the task.
 	//
 	// For more information, see
 	// [Task Definition Parameter Volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide//task_definition_parameters.html#volumes).
+	// Experimental.
 	Volumes *[]*Volume `json:"volumes" yaml:"volumes"`
 }
 
 // The task launch type compatibility requirement.
 //
-// TODO: EXAMPLE
+// Example:
+//   vpc := ec2.vpc.fromLookup(this, jsii.String("Vpc"), &vpcLookupOptions{
+//   	isDefault: jsii.Boolean(true),
+//   })
 //
+//   cluster := ecs.NewCluster(this, jsii.String("Ec2Cluster"), &clusterProps{
+//   	vpc: vpc,
+//   })
+//   cluster.addCapacity(jsii.String("DefaultAutoScalingGroup"), &addCapacityOptions{
+//   	instanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
+//   	vpcSubnets: &subnetSelection{
+//   		subnetType: ec2.subnetType_PUBLIC,
+//   	},
+//   })
+//
+//   taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TD"), &taskDefinitionProps{
+//   	compatibility: ecs.compatibility_EC2,
+//   })
+//
+//   taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("foo/bar")),
+//   	memoryLimitMiB: jsii.Number(256),
+//   })
+//
+//   runTask := tasks.NewEcsRunTask(this, jsii.String("Run"), &ecsRunTaskProps{
+//   	integrationPattern: sfn.integrationPattern_RUN_JOB,
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   	launchTarget: tasks.NewEcsEc2LaunchTarget(&ecsEc2LaunchTargetOptions{
+//   		placementStrategies: []placementStrategy{
+//   			ecs.*placementStrategy.spreadAcrossInstances(),
+//   			ecs.*placementStrategy.packedByCpu(),
+//   			ecs.*placementStrategy.randomly(),
+//   		},
+//   		placementConstraints: []placementConstraint{
+//   			ecs.*placementConstraint.memberOf(jsii.String("blieptuut")),
+//   		},
+//   	}),
+//   })
+//
+// Experimental.
 type Compatibility string
 
 const (
+	// The task should specify the EC2 launch type.
+	// Experimental.
 	Compatibility_EC2 Compatibility = "EC2"
+	// The task should specify the Fargate launch type.
+	// Experimental.
 	Compatibility_FARGATE Compatibility = "FARGATE"
+	// The task can specify either the EC2 or Fargate launch types.
+	// Experimental.
 	Compatibility_EC2_AND_FARGATE Compatibility = "EC2_AND_FARGATE"
+	// The task should specify the External launch type.
+	// Experimental.
 	Compatibility_EXTERNAL Compatibility = "EXTERNAL"
 )
 
 // A container definition is used in a task definition to describe the containers that are launched as part of a task.
 //
-// TODO: EXAMPLE
+// Example:
+//   var taskDefinition taskDefinition
+//   var cluster cluster
 //
+//   // Add a container to the task definition
+//   specificContainer := taskDefinition.addContainer(jsii.String("Container"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("/aws/aws-example-app")),
+//   	memoryLimitMiB: jsii.Number(2048),
+//   })
+//
+//   // Add a port mapping
+//   specificContainer.addPortMappings(&portMapping{
+//   	containerPort: jsii.Number(7600),
+//   	protocol: ecs.protocol_TCP,
+//   })
+//
+//   ecs.NewEc2Service(this, jsii.String("Service"), &ec2ServiceProps{
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   	cloudMapOptions: &cloudMapOptions{
+//   		// Create SRV records - useful for bridge networking
+//   		dnsRecordType: cloudmap.dnsRecordType_SRV,
+//   		// Targets port TCP port 7600 `specificContainer`
+//   		container: specificContainer,
+//   		containerPort: jsii.Number(7600),
+//   	},
+//   })
+//
+// Experimental.
 type ContainerDefinition interface {
-	constructs.Construct
+	awscdk.Construct
+	// An array dependencies defined for container startup and shutdown.
+	// Experimental.
 	ContainerDependencies() *[]*ContainerDependency
+	// The name of this container.
+	// Experimental.
 	ContainerName() *string
+	// The port the container will listen on.
+	// Experimental.
 	ContainerPort() *float64
+	// The environment files for this container.
+	// Experimental.
 	EnvironmentFiles() *[]*EnvironmentFileConfig
+	// Specifies whether the container will be marked essential.
+	//
+	// If the essential parameter of a container is marked as true, and that container
+	// fails or stops for any reason, all other containers that are part of the task are
+	// stopped. If the essential parameter of a container is marked as false, then its
+	// failure does not affect the rest of the containers in a task.
+	//
+	// If this parameter is omitted, a container is assumed to be essential.
+	// Experimental.
 	Essential() *bool
+	// The name of the image referenced by this container.
+	// Experimental.
 	ImageName() *string
+	// The inbound rules associated with the security group the task or service will use.
+	//
+	// This property is only used for tasks that use the awsvpc network mode.
+	// Experimental.
 	IngressPort() *float64
+	// The Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.
+	// Experimental.
 	LinuxParameters() LinuxParameters
+	// The log configuration specification for the container.
+	// Experimental.
 	LogDriverConfig() *LogDriverConfig
+	// Whether there was at least one memory limit specified in this definition.
+	// Experimental.
 	MemoryLimitSpecified() *bool
+	// The mount points for data volumes in your container.
+	// Experimental.
 	MountPoints() *[]*MountPoint
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// The list of port mappings for the container.
+	//
+	// Port mappings allow containers to access ports
+	// on the host container instance to send or receive traffic.
+	// Experimental.
 	PortMappings() *[]*PortMapping
+	// Whether this container definition references a specific JSON field of a secret stored in Secrets Manager.
+	// Experimental.
 	ReferencesSecretJsonField() *bool
+	// The name of the task definition that includes this container definition.
+	// Experimental.
 	TaskDefinition() TaskDefinition
+	// An array of ulimits to set in the container.
+	// Experimental.
 	Ulimits() *[]*Ulimit
+	// The data volumes to mount from another container in the same task definition.
+	// Experimental.
 	VolumesFrom() *[]*VolumeFrom
+	// This method adds one or more container dependencies to the container.
+	// Experimental.
 	AddContainerDependencies(containerDependencies ...*ContainerDependency)
+	// This method adds an environment variable to the container.
+	// Experimental.
 	AddEnvironment(name *string, value *string)
+	// This method adds one or more resources to the container.
+	// Experimental.
 	AddInferenceAcceleratorResource(inferenceAcceleratorResources ...*string)
+	// This method adds a link which allows containers to communicate with each other without the need for port mappings.
+	//
+	// This parameter is only supported if the task definition is using the bridge network mode.
+	// Warning: The --link flag is a legacy feature of Docker. It may eventually be removed.
+	// Experimental.
 	AddLink(container ContainerDefinition, alias *string)
+	// This method adds one or more mount points for data volumes to the container.
+	// Experimental.
 	AddMountPoints(mountPoints ...*MountPoint)
+	// This method adds one or more port mappings to the container.
+	// Experimental.
 	AddPortMappings(portMappings ...*PortMapping)
+	// This method mounts temporary disk space to the container.
+	//
+	// This adds the correct container mountPoint and task definition volume.
+	// Experimental.
 	AddScratch(scratch *ScratchSpace)
+	// This method adds the specified statement to the IAM task execution policy in the task definition.
+	// Experimental.
 	AddToExecutionPolicy(statement awsiam.PolicyStatement)
+	// This method adds one or more ulimits to the container.
+	// Experimental.
 	AddUlimits(ulimits ...*Ulimit)
+	// This method adds one or more volumes to the container.
+	// Experimental.
 	AddVolumesFrom(volumesFrom ...*VolumeFrom)
+	// Returns the host port for the requested container port if it exists.
+	// Experimental.
 	FindPortMapping(containerPort *float64, protocol Protocol) *PortMapping
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Render this container definition to a CloudFormation object.
+	// Experimental.
 	RenderContainerDefinition(_taskDefinition TaskDefinition) *CfnTaskDefinition_ContainerDefinitionProperty
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ContainerDefinition
 type jsiiProxy_ContainerDefinition struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
 func (j *jsiiProxy_ContainerDefinition) ContainerDependencies() *[]*ContainerDependency {
@@ -8884,8 +13557,8 @@ func (j *jsiiProxy_ContainerDefinition) MountPoints() *[]*MountPoint {
 	return returns
 }
 
-func (j *jsiiProxy_ContainerDefinition) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ContainerDefinition) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -8946,13 +13619,14 @@ func (j *jsiiProxy_ContainerDefinition) VolumesFrom() *[]*VolumeFrom {
 
 
 // Constructs a new instance of the ContainerDefinition class.
+// Experimental.
 func NewContainerDefinition(scope constructs.Construct, id *string, props *ContainerDefinitionProps) ContainerDefinition {
 	_init_.Initialize()
 
 	j := jsiiProxy_ContainerDefinition{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.ContainerDefinition",
+		"monocdk.aws_ecs.ContainerDefinition",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -8961,27 +13635,26 @@ func NewContainerDefinition(scope constructs.Construct, id *string, props *Conta
 }
 
 // Constructs a new instance of the ContainerDefinition class.
+// Experimental.
 func NewContainerDefinition_Override(c ContainerDefinition, scope constructs.Construct, id *string, props *ContainerDefinitionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.ContainerDefinition",
+		"monocdk.aws_ecs.ContainerDefinition",
 		[]interface{}{scope, id, props},
 		c,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func ContainerDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.ContainerDefinition",
+		"monocdk.aws_ecs.ContainerDefinition",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8990,7 +13663,6 @@ func ContainerDefinition_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// This method adds one or more container dependencies to the container.
 func (c *jsiiProxy_ContainerDefinition) AddContainerDependencies(containerDependencies ...*ContainerDependency) {
 	args := []interface{}{}
 	for _, a := range containerDependencies {
@@ -9004,7 +13676,6 @@ func (c *jsiiProxy_ContainerDefinition) AddContainerDependencies(containerDepend
 	)
 }
 
-// This method adds an environment variable to the container.
 func (c *jsiiProxy_ContainerDefinition) AddEnvironment(name *string, value *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9013,7 +13684,6 @@ func (c *jsiiProxy_ContainerDefinition) AddEnvironment(name *string, value *stri
 	)
 }
 
-// This method adds one or more resources to the container.
 func (c *jsiiProxy_ContainerDefinition) AddInferenceAcceleratorResource(inferenceAcceleratorResources ...*string) {
 	args := []interface{}{}
 	for _, a := range inferenceAcceleratorResources {
@@ -9027,10 +13697,6 @@ func (c *jsiiProxy_ContainerDefinition) AddInferenceAcceleratorResource(inferenc
 	)
 }
 
-// This method adds a link which allows containers to communicate with each other without the need for port mappings.
-//
-// This parameter is only supported if the task definition is using the bridge network mode.
-// Warning: The --link flag is a legacy feature of Docker. It may eventually be removed.
 func (c *jsiiProxy_ContainerDefinition) AddLink(container ContainerDefinition, alias *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9039,7 +13705,6 @@ func (c *jsiiProxy_ContainerDefinition) AddLink(container ContainerDefinition, a
 	)
 }
 
-// This method adds one or more mount points for data volumes to the container.
 func (c *jsiiProxy_ContainerDefinition) AddMountPoints(mountPoints ...*MountPoint) {
 	args := []interface{}{}
 	for _, a := range mountPoints {
@@ -9053,7 +13718,6 @@ func (c *jsiiProxy_ContainerDefinition) AddMountPoints(mountPoints ...*MountPoin
 	)
 }
 
-// This method adds one or more port mappings to the container.
 func (c *jsiiProxy_ContainerDefinition) AddPortMappings(portMappings ...*PortMapping) {
 	args := []interface{}{}
 	for _, a := range portMappings {
@@ -9067,9 +13731,6 @@ func (c *jsiiProxy_ContainerDefinition) AddPortMappings(portMappings ...*PortMap
 	)
 }
 
-// This method mounts temporary disk space to the container.
-//
-// This adds the correct container mountPoint and task definition volume.
 func (c *jsiiProxy_ContainerDefinition) AddScratch(scratch *ScratchSpace) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9078,7 +13739,6 @@ func (c *jsiiProxy_ContainerDefinition) AddScratch(scratch *ScratchSpace) {
 	)
 }
 
-// This method adds the specified statement to the IAM task execution policy in the task definition.
 func (c *jsiiProxy_ContainerDefinition) AddToExecutionPolicy(statement awsiam.PolicyStatement) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9087,7 +13747,6 @@ func (c *jsiiProxy_ContainerDefinition) AddToExecutionPolicy(statement awsiam.Po
 	)
 }
 
-// This method adds one or more ulimits to the container.
 func (c *jsiiProxy_ContainerDefinition) AddUlimits(ulimits ...*Ulimit) {
 	args := []interface{}{}
 	for _, a := range ulimits {
@@ -9101,7 +13760,6 @@ func (c *jsiiProxy_ContainerDefinition) AddUlimits(ulimits ...*Ulimit) {
 	)
 }
 
-// This method adds one or more volumes to the container.
 func (c *jsiiProxy_ContainerDefinition) AddVolumesFrom(volumesFrom ...*VolumeFrom) {
 	args := []interface{}{}
 	for _, a := range volumesFrom {
@@ -9115,7 +13773,6 @@ func (c *jsiiProxy_ContainerDefinition) AddVolumesFrom(volumesFrom ...*VolumeFro
 	)
 }
 
-// Returns the host port for the requested container port if it exists.
 func (c *jsiiProxy_ContainerDefinition) FindPortMapping(containerPort *float64, protocol Protocol) *PortMapping {
 	var returns *PortMapping
 
@@ -9129,7 +13786,43 @@ func (c *jsiiProxy_ContainerDefinition) FindPortMapping(containerPort *float64, 
 	return returns
 }
 
-// Render this container definition to a CloudFormation object.
+func (c *jsiiProxy_ContainerDefinition) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_ContainerDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_ContainerDefinition) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_ContainerDefinition) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 func (c *jsiiProxy_ContainerDefinition) RenderContainerDefinition(_taskDefinition TaskDefinition) *CfnTaskDefinition_ContainerDefinitionProperty {
 	var returns *CfnTaskDefinition_ContainerDefinitionProperty
 
@@ -9143,7 +13836,14 @@ func (c *jsiiProxy_ContainerDefinition) RenderContainerDefinition(_taskDefinitio
 	return returns
 }
 
-// Returns a string representation of this construct.
+func (c *jsiiProxy_ContainerDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_ContainerDefinition) ToString() *string {
 	var returns *string
 
@@ -9157,45 +13857,97 @@ func (c *jsiiProxy_ContainerDefinition) ToString() *string {
 	return returns
 }
 
-// TODO: EXAMPLE
+func (c *jsiiProxy_ContainerDefinition) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Example:
+//   var taskDefinition taskDefinition
+//   var cluster cluster
 //
+//   // Add a container to the task definition
+//   specificContainer := taskDefinition.addContainer(jsii.String("Container"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("/aws/aws-example-app")),
+//   	memoryLimitMiB: jsii.Number(2048),
+//   })
+//
+//   // Add a port mapping
+//   specificContainer.addPortMappings(&portMapping{
+//   	containerPort: jsii.Number(7600),
+//   	protocol: ecs.protocol_TCP,
+//   })
+//
+//   ecs.NewEc2Service(this, jsii.String("Service"), &ec2ServiceProps{
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   	cloudMapOptions: &cloudMapOptions{
+//   		// Create SRV records - useful for bridge networking
+//   		dnsRecordType: cloudmap.dnsRecordType_SRV,
+//   		// Targets port TCP port 7600 `specificContainer`
+//   		container: specificContainer,
+//   		containerPort: jsii.Number(7600),
+//   	},
+//   })
+//
+// Experimental.
 type ContainerDefinitionOptions struct {
 	// The image used to start a container.
 	//
 	// This string is passed directly to the Docker daemon.
 	// Images in the Docker Hub registry are available by default.
 	// Other repositories are specified with either repository-url/image:tag or repository-url/image@digest.
-	// TODO: Update these to specify using classes of IContainerImage
+	// TODO: Update these to specify using classes of IContainerImage.
+	// Experimental.
 	Image ContainerImage `json:"image" yaml:"image"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
+	// Experimental.
 	Command *[]*string `json:"command" yaml:"command"`
 	// The name of the container.
+	// Experimental.
 	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// The minimum number of CPU units to reserve for the container.
+	// Experimental.
 	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// Specifies whether networking is disabled within the container.
 	//
 	// When this parameter is true, networking is disabled within the container.
+	// Experimental.
 	DisableNetworking *bool `json:"disableNetworking" yaml:"disableNetworking"`
 	// A list of DNS search domains that are presented to the container.
+	// Experimental.
 	DnsSearchDomains *[]*string `json:"dnsSearchDomains" yaml:"dnsSearchDomains"`
 	// A list of DNS servers that are presented to the container.
+	// Experimental.
 	DnsServers *[]*string `json:"dnsServers" yaml:"dnsServers"`
 	// A key/value map of labels to add to the container.
+	// Experimental.
 	DockerLabels *map[string]*string `json:"dockerLabels" yaml:"dockerLabels"`
 	// A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems.
+	// Experimental.
 	DockerSecurityOptions *[]*string `json:"dockerSecurityOptions" yaml:"dockerSecurityOptions"`
 	// The ENTRYPOINT value to pass to the container.
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
+	// Experimental.
 	EntryPoint *[]*string `json:"entryPoint" yaml:"entryPoint"`
 	// The environment variables to pass to the container.
+	// Experimental.
 	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The environment files to pass to the container.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html
 	//
+	// Experimental.
 	EnvironmentFiles *[]EnvironmentFile `json:"environmentFiles" yaml:"environmentFiles"`
 	// Specifies whether the container is marked essential.
 	//
@@ -9205,22 +13957,30 @@ type ContainerDefinitionOptions struct {
 	// affect the rest of the containers in a task. All tasks must have at least one essential container.
 	//
 	// If this parameter is omitted, a container is assumed to be essential.
+	// Experimental.
 	Essential *bool `json:"essential" yaml:"essential"`
 	// A list of hostnames and IP address mappings to append to the /etc/hosts file on the container.
+	// Experimental.
 	ExtraHosts *map[string]*string `json:"extraHosts" yaml:"extraHosts"`
 	// The number of GPUs assigned to the container.
+	// Experimental.
 	GpuCount *float64 `json:"gpuCount" yaml:"gpuCount"`
 	// The health check command and associated configuration parameters for the container.
+	// Experimental.
 	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
 	// The hostname to use for your container.
+	// Experimental.
 	Hostname *string `json:"hostname" yaml:"hostname"`
 	// The inference accelerators referenced by the container.
+	// Experimental.
 	InferenceAcceleratorResources *[]*string `json:"inferenceAcceleratorResources" yaml:"inferenceAcceleratorResources"`
 	// Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.
 	//
 	// For more information see [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html).
+	// Experimental.
 	LinuxParameters LinuxParameters `json:"linuxParameters" yaml:"linuxParameters"`
 	// The log configuration specification for the container.
+	// Experimental.
 	Logging LogDriver `json:"logging" yaml:"logging"`
 	// The amount (in MiB) of memory to present to the container.
 	//
@@ -9228,6 +13988,7 @@ type ContainerDefinitionOptions struct {
 	// is terminated.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required for non-Fargate services.
+	// Experimental.
 	MemoryLimitMiB *float64 `json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The soft limit (in MiB) of memory to reserve for the container.
 	//
@@ -9238,72 +13999,185 @@ type ContainerDefinitionOptions struct {
 	// instance, whichever comes first.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required for non-Fargate services.
+	// Experimental.
 	MemoryReservationMiB *float64 `json:"memoryReservationMiB" yaml:"memoryReservationMiB"`
 	// The port mappings to add to the container definition.
+	// Experimental.
 	PortMappings *[]*PortMapping `json:"portMappings" yaml:"portMappings"`
 	// Specifies whether the container is marked as privileged.
 	//
 	// When this parameter is true, the container is given elevated privileges on the host container instance (similar to the root user).
+	// Experimental.
 	Privileged *bool `json:"privileged" yaml:"privileged"`
 	// When this parameter is true, the container is given read-only access to its root file system.
+	// Experimental.
 	ReadonlyRootFilesystem *bool `json:"readonlyRootFilesystem" yaml:"readonlyRootFilesystem"`
 	// The secret environment variables to pass to the container.
+	// Experimental.
 	Secrets *map[string]Secret `json:"secrets" yaml:"secrets"`
 	// Time duration (in seconds) to wait before giving up on resolving dependencies for a container.
+	// Experimental.
 	StartTimeout awscdk.Duration `json:"startTimeout" yaml:"startTimeout"`
 	// Time duration (in seconds) to wait before the container is forcefully killed if it doesn't exit normally on its own.
+	// Experimental.
 	StopTimeout awscdk.Duration `json:"stopTimeout" yaml:"stopTimeout"`
 	// A list of namespaced kernel parameters to set in the container.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#container_definition_systemcontrols
 	//
+	// Experimental.
 	SystemControls *[]*SystemControl `json:"systemControls" yaml:"systemControls"`
 	// The user name to use inside the container.
+	// Experimental.
 	User *string `json:"user" yaml:"user"`
 	// The working directory in which to run commands inside the container.
+	// Experimental.
 	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
 }
 
 // The properties in a container definition.
 //
-// TODO: EXAMPLE
+// Example:
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
 //
+//   var containerImage containerImage
+//   var duration duration
+//   var environmentFile environmentFile
+//   var linuxParameters linuxParameters
+//   var logDriver logDriver
+//   var secret secret
+//   var taskDefinition taskDefinition
+//   containerDefinitionProps := &containerDefinitionProps{
+//   	image: containerImage,
+//   	taskDefinition: taskDefinition,
+//
+//   	// the properties below are optional
+//   	command: []*string{
+//   		jsii.String("command"),
+//   	},
+//   	containerName: jsii.String("containerName"),
+//   	cpu: jsii.Number(123),
+//   	disableNetworking: jsii.Boolean(false),
+//   	dnsSearchDomains: []*string{
+//   		jsii.String("dnsSearchDomains"),
+//   	},
+//   	dnsServers: []*string{
+//   		jsii.String("dnsServers"),
+//   	},
+//   	dockerLabels: map[string]*string{
+//   		"dockerLabelsKey": jsii.String("dockerLabels"),
+//   	},
+//   	dockerSecurityOptions: []*string{
+//   		jsii.String("dockerSecurityOptions"),
+//   	},
+//   	entryPoint: []*string{
+//   		jsii.String("entryPoint"),
+//   	},
+//   	environment: map[string]*string{
+//   		"environmentKey": jsii.String("environment"),
+//   	},
+//   	environmentFiles: []*environmentFile{
+//   		environmentFile,
+//   	},
+//   	essential: jsii.Boolean(false),
+//   	extraHosts: map[string]*string{
+//   		"extraHostsKey": jsii.String("extraHosts"),
+//   	},
+//   	gpuCount: jsii.Number(123),
+//   	healthCheck: &healthCheck{
+//   		command: []*string{
+//   			jsii.String("command"),
+//   		},
+//
+//   		// the properties below are optional
+//   		interval: duration,
+//   		retries: jsii.Number(123),
+//   		startPeriod: duration,
+//   		timeout: duration,
+//   	},
+//   	hostname: jsii.String("hostname"),
+//   	inferenceAcceleratorResources: []*string{
+//   		jsii.String("inferenceAcceleratorResources"),
+//   	},
+//   	linuxParameters: linuxParameters,
+//   	logging: logDriver,
+//   	memoryLimitMiB: jsii.Number(123),
+//   	memoryReservationMiB: jsii.Number(123),
+//   	portMappings: []portMapping{
+//   		&portMapping{
+//   			containerPort: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			hostPort: jsii.Number(123),
+//   			protocol: ecs.protocol_TCP,
+//   		},
+//   	},
+//   	privileged: jsii.Boolean(false),
+//   	readonlyRootFilesystem: jsii.Boolean(false),
+//   	secrets: map[string]*secret{
+//   		"secretsKey": secret,
+//   	},
+//   	startTimeout: duration,
+//   	stopTimeout: duration,
+//   	systemControls: []systemControl{
+//   		&systemControl{
+//   			namespace: jsii.String("namespace"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	user: jsii.String("user"),
+//   	workingDirectory: jsii.String("workingDirectory"),
+//   }
+//
+// Experimental.
 type ContainerDefinitionProps struct {
 	// The image used to start a container.
 	//
 	// This string is passed directly to the Docker daemon.
 	// Images in the Docker Hub registry are available by default.
 	// Other repositories are specified with either repository-url/image:tag or repository-url/image@digest.
-	// TODO: Update these to specify using classes of IContainerImage
+	// TODO: Update these to specify using classes of IContainerImage.
+	// Experimental.
 	Image ContainerImage `json:"image" yaml:"image"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
+	// Experimental.
 	Command *[]*string `json:"command" yaml:"command"`
 	// The name of the container.
+	// Experimental.
 	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// The minimum number of CPU units to reserve for the container.
+	// Experimental.
 	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// Specifies whether networking is disabled within the container.
 	//
 	// When this parameter is true, networking is disabled within the container.
+	// Experimental.
 	DisableNetworking *bool `json:"disableNetworking" yaml:"disableNetworking"`
 	// A list of DNS search domains that are presented to the container.
+	// Experimental.
 	DnsSearchDomains *[]*string `json:"dnsSearchDomains" yaml:"dnsSearchDomains"`
 	// A list of DNS servers that are presented to the container.
+	// Experimental.
 	DnsServers *[]*string `json:"dnsServers" yaml:"dnsServers"`
 	// A key/value map of labels to add to the container.
+	// Experimental.
 	DockerLabels *map[string]*string `json:"dockerLabels" yaml:"dockerLabels"`
 	// A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems.
+	// Experimental.
 	DockerSecurityOptions *[]*string `json:"dockerSecurityOptions" yaml:"dockerSecurityOptions"`
 	// The ENTRYPOINT value to pass to the container.
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
+	// Experimental.
 	EntryPoint *[]*string `json:"entryPoint" yaml:"entryPoint"`
 	// The environment variables to pass to the container.
+	// Experimental.
 	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The environment files to pass to the container.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html
 	//
+	// Experimental.
 	EnvironmentFiles *[]EnvironmentFile `json:"environmentFiles" yaml:"environmentFiles"`
 	// Specifies whether the container is marked essential.
 	//
@@ -9313,22 +14187,30 @@ type ContainerDefinitionProps struct {
 	// affect the rest of the containers in a task. All tasks must have at least one essential container.
 	//
 	// If this parameter is omitted, a container is assumed to be essential.
+	// Experimental.
 	Essential *bool `json:"essential" yaml:"essential"`
 	// A list of hostnames and IP address mappings to append to the /etc/hosts file on the container.
+	// Experimental.
 	ExtraHosts *map[string]*string `json:"extraHosts" yaml:"extraHosts"`
 	// The number of GPUs assigned to the container.
+	// Experimental.
 	GpuCount *float64 `json:"gpuCount" yaml:"gpuCount"`
 	// The health check command and associated configuration parameters for the container.
+	// Experimental.
 	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
 	// The hostname to use for your container.
+	// Experimental.
 	Hostname *string `json:"hostname" yaml:"hostname"`
 	// The inference accelerators referenced by the container.
+	// Experimental.
 	InferenceAcceleratorResources *[]*string `json:"inferenceAcceleratorResources" yaml:"inferenceAcceleratorResources"`
 	// Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.
 	//
 	// For more information see [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html).
+	// Experimental.
 	LinuxParameters LinuxParameters `json:"linuxParameters" yaml:"linuxParameters"`
 	// The log configuration specification for the container.
+	// Experimental.
 	Logging LogDriver `json:"logging" yaml:"logging"`
 	// The amount (in MiB) of memory to present to the container.
 	//
@@ -9336,6 +14218,7 @@ type ContainerDefinitionProps struct {
 	// is terminated.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required for non-Fargate services.
+	// Experimental.
 	MemoryLimitMiB *float64 `json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The soft limit (in MiB) of memory to reserve for the container.
 	//
@@ -9346,66 +14229,134 @@ type ContainerDefinitionProps struct {
 	// instance, whichever comes first.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required for non-Fargate services.
+	// Experimental.
 	MemoryReservationMiB *float64 `json:"memoryReservationMiB" yaml:"memoryReservationMiB"`
 	// The port mappings to add to the container definition.
+	// Experimental.
 	PortMappings *[]*PortMapping `json:"portMappings" yaml:"portMappings"`
 	// Specifies whether the container is marked as privileged.
 	//
 	// When this parameter is true, the container is given elevated privileges on the host container instance (similar to the root user).
+	// Experimental.
 	Privileged *bool `json:"privileged" yaml:"privileged"`
 	// When this parameter is true, the container is given read-only access to its root file system.
+	// Experimental.
 	ReadonlyRootFilesystem *bool `json:"readonlyRootFilesystem" yaml:"readonlyRootFilesystem"`
 	// The secret environment variables to pass to the container.
+	// Experimental.
 	Secrets *map[string]Secret `json:"secrets" yaml:"secrets"`
 	// Time duration (in seconds) to wait before giving up on resolving dependencies for a container.
+	// Experimental.
 	StartTimeout awscdk.Duration `json:"startTimeout" yaml:"startTimeout"`
 	// Time duration (in seconds) to wait before the container is forcefully killed if it doesn't exit normally on its own.
+	// Experimental.
 	StopTimeout awscdk.Duration `json:"stopTimeout" yaml:"stopTimeout"`
 	// A list of namespaced kernel parameters to set in the container.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#container_definition_systemcontrols
 	//
+	// Experimental.
 	SystemControls *[]*SystemControl `json:"systemControls" yaml:"systemControls"`
 	// The user name to use inside the container.
+	// Experimental.
 	User *string `json:"user" yaml:"user"`
 	// The working directory in which to run commands inside the container.
+	// Experimental.
 	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
 	// The name of the task definition that includes this container definition.
 	//
-	// [disable-awslint:ref-via-interface]
+	// [disable-awslint:ref-via-interface].
+	// Experimental.
 	TaskDefinition TaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 }
 
 // The details of a dependency on another container in the task definition.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//
+//   var containerDefinition containerDefinition
+//   containerDependency := &containerDependency{
+//   	container: containerDefinition,
+//
+//   	// the properties below are optional
+//   	condition: ecs.containerDependencyCondition_START,
+//   }
 //
 // See: https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDependency.html
 //
+// Experimental.
 type ContainerDependency struct {
 	// The container to depend on.
+	// Experimental.
 	Container ContainerDefinition `json:"container" yaml:"container"`
 	// The state the container needs to be in to satisfy the dependency and proceed with startup.
 	//
 	// Valid values are ContainerDependencyCondition.START, ContainerDependencyCondition.COMPLETE,
 	// ContainerDependencyCondition.SUCCESS and ContainerDependencyCondition.HEALTHY.
+	// Experimental.
 	Condition ContainerDependencyCondition `json:"condition" yaml:"condition"`
 }
 
+// Experimental.
 type ContainerDependencyCondition string
 
 const (
+	// This condition emulates the behavior of links and volumes today.
+	//
+	// It validates that a dependent container is started before permitting other containers to start.
+	// Experimental.
 	ContainerDependencyCondition_START ContainerDependencyCondition = "START"
+	// This condition validates that a dependent container runs to completion (exits) before permitting other containers to start.
+	//
+	// This can be useful for nonessential containers that run a script and then exit.
+	// Experimental.
 	ContainerDependencyCondition_COMPLETE ContainerDependencyCondition = "COMPLETE"
+	// This condition is the same as COMPLETE, but it also requires that the container exits with a zero status.
+	// Experimental.
 	ContainerDependencyCondition_SUCCESS ContainerDependencyCondition = "SUCCESS"
+	// This condition validates that the dependent container passes its Docker health check before permitting other containers to start.
+	//
+	// This requires that the dependent container has health checks configured. This condition is confirmed only at task startup.
+	// Experimental.
 	ContainerDependencyCondition_HEALTHY ContainerDependencyCondition = "HEALTHY"
 )
 
 // Constructs for types of container images.
 //
-// TODO: EXAMPLE
+// Example:
+//   var vpc vpc
 //
+//   cluster := ecs.NewCluster(this, jsii.String("FargateCPCluster"), &clusterProps{
+//   	vpc: vpc,
+//   	enableFargateCapacityProviders: jsii.Boolean(true),
+//   })
+//
+//   taskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"))
+//
+//   taskDefinition.addContainer(jsii.String("web"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   })
+//
+//   ecs.NewFargateService(this, jsii.String("FargateService"), &fargateServiceProps{
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   	capacityProviderStrategies: []capacityProviderStrategy{
+//   		&capacityProviderStrategy{
+//   			capacityProvider: jsii.String("FARGATE_SPOT"),
+//   			weight: jsii.Number(2),
+//   		},
+//   		&capacityProviderStrategy{
+//   			capacityProvider: jsii.String("FARGATE"),
+//   			weight: jsii.Number(1),
+//   		},
+//   	},
+//   })
+//
+// Experimental.
 type ContainerImage interface {
-	Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig
+	// Called when the image is used by a ContainerDefinition.
+	// Experimental.
+	Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig
 }
 
 // The jsii proxy struct for ContainerImage
@@ -9413,11 +14364,12 @@ type jsiiProxy_ContainerImage struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewContainerImage_Override(c ContainerImage) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.ContainerImage",
+		"monocdk.aws_ecs.ContainerImage",
 		nil, // no parameters
 		c,
 	)
@@ -9427,13 +14379,14 @@ func NewContainerImage_Override(c ContainerImage) {
 //
 // If you already have a `DockerImageAsset` instance, you can use the
 // `ContainerImage.fromDockerImageAsset` method instead.
+// Experimental.
 func ContainerImage_FromAsset(directory *string, props *AssetImageProps) AssetImage {
 	_init_.Initialize()
 
 	var returns AssetImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.ContainerImage",
+		"monocdk.aws_ecs.ContainerImage",
 		"fromAsset",
 		[]interface{}{directory, props},
 		&returns,
@@ -9443,13 +14396,14 @@ func ContainerImage_FromAsset(directory *string, props *AssetImageProps) AssetIm
 }
 
 // Use an existing `DockerImageAsset` for this container image.
+// Experimental.
 func ContainerImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) ContainerImage {
 	_init_.Initialize()
 
 	var returns ContainerImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.ContainerImage",
+		"monocdk.aws_ecs.ContainerImage",
 		"fromDockerImageAsset",
 		[]interface{}{asset},
 		&returns,
@@ -9459,13 +14413,14 @@ func ContainerImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) Co
 }
 
 // Reference an image in an ECR repository.
+// Experimental.
 func ContainerImage_FromEcrRepository(repository awsecr.IRepository, tag *string) EcrImage {
 	_init_.Initialize()
 
 	var returns EcrImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.ContainerImage",
+		"monocdk.aws_ecs.ContainerImage",
 		"fromEcrRepository",
 		[]interface{}{repository, tag},
 		&returns,
@@ -9475,13 +14430,14 @@ func ContainerImage_FromEcrRepository(repository awsecr.IRepository, tag *string
 }
 
 // Reference an image on DockerHub or another online registry.
+// Experimental.
 func ContainerImage_FromRegistry(name *string, props *RepositoryImageProps) RepositoryImage {
 	_init_.Initialize()
 
 	var returns RepositoryImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.ContainerImage",
+		"monocdk.aws_ecs.ContainerImage",
 		"fromRegistry",
 		[]interface{}{name, props},
 		&returns,
@@ -9494,13 +14450,14 @@ func ContainerImage_FromRegistry(name *string, props *RepositoryImageProps) Repo
 //
 // Use this method if the container image has already been created by another process (e.g. jib)
 // and you want to add it as a container image asset.
+// Experimental.
 func ContainerImage_FromTarball(tarballFile *string) ContainerImage {
 	_init_.Initialize()
 
 	var returns ContainerImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.ContainerImage",
+		"monocdk.aws_ecs.ContainerImage",
 		"fromTarball",
 		[]interface{}{tarballFile},
 		&returns,
@@ -9509,8 +14466,7 @@ func ContainerImage_FromTarball(tarballFile *string) ContainerImage {
 	return returns
 }
 
-// Called when the image is used by a ContainerDefinition.
-func (c *jsiiProxy_ContainerImage) Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
+func (c *jsiiProxy_ContainerImage) Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
 	var returns *ContainerImageConfig
 
 	_jsii_.Invoke(
@@ -9525,19 +14481,53 @@ func (c *jsiiProxy_ContainerImage) Bind(scope constructs.Construct, containerDef
 
 // The configuration for creating a container image.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   containerImageConfig := &containerImageConfig{
+//   	imageName: jsii.String("imageName"),
 //
+//   	// the properties below are optional
+//   	repositoryCredentials: &repositoryCredentialsProperty{
+//   		credentialsParameter: jsii.String("credentialsParameter"),
+//   	},
+//   }
+//
+// Experimental.
 type ContainerImageConfig struct {
 	// Specifies the name of the container image.
+	// Experimental.
 	ImageName *string `json:"imageName" yaml:"imageName"`
 	// Specifies the credentials used to access the image repository.
+	// Experimental.
 	RepositoryCredentials *CfnTaskDefinition_RepositoryCredentialsProperty `json:"repositoryCredentials" yaml:"repositoryCredentials"`
 }
 
 // The CpuArchitecture for Fargate Runtime Platform.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Create a Task Definition for the Windows container to start
+//   taskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &fargateTaskDefinitionProps{
+//   	runtimePlatform: &runtimePlatform{
+//   		operatingSystemFamily: ecs.operatingSystemFamily_WINDOWS_SERVER_2019_CORE(),
+//   		cpuArchitecture: ecs.cpuArchitecture_X86_64(),
+//   	},
+//   	cpu: jsii.Number(1024),
+//   	memoryLimitMiB: jsii.Number(2048),
+//   })
 //
+//   taskDefinition.addContainer(jsii.String("windowsservercore"), &containerDefinitionOptions{
+//   	logging: ecs.logDriver.awsLogs(&awsLogDriverProps{
+//   		streamPrefix: jsii.String("win-iis-on-fargate"),
+//   	}),
+//   	portMappings: []portMapping{
+//   		&portMapping{
+//   			containerPort: jsii.Number(80),
+//   		},
+//   	},
+//   	image: ecs.containerImage.fromRegistry(jsii.String("mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2019")),
+//   })
+//
+// Experimental.
 type CpuArchitecture interface {
 }
 
@@ -9549,13 +14539,14 @@ type jsiiProxy_CpuArchitecture struct {
 // Other cpu architecture.
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-runtimeplatform.html#cfn-ecs-taskdefinition-runtimeplatform-cpuarchitecture for all available cpu architecture.
 //
+// Experimental.
 func CpuArchitecture_Of(cpuArchitecture *string) CpuArchitecture {
 	_init_.Initialize()
 
 	var returns CpuArchitecture
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.CpuArchitecture",
+		"monocdk.aws_ecs.CpuArchitecture",
 		"of",
 		[]interface{}{cpuArchitecture},
 		&returns,
@@ -9568,7 +14559,7 @@ func CpuArchitecture_ARM64() CpuArchitecture {
 	_init_.Initialize()
 	var returns CpuArchitecture
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.CpuArchitecture",
+		"monocdk.aws_ecs.CpuArchitecture",
 		"ARM64",
 		&returns,
 	)
@@ -9579,7 +14570,7 @@ func CpuArchitecture_X86_64() CpuArchitecture {
 	_init_.Initialize()
 	var returns CpuArchitecture
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.CpuArchitecture",
+		"monocdk.aws_ecs.CpuArchitecture",
 		"X86_64",
 		&returns,
 	)
@@ -9588,8 +14579,22 @@ func CpuArchitecture_X86_64() CpuArchitecture {
 
 // The properties for enabling scaling based on CPU utilization.
 //
-// TODO: EXAMPLE
+// Example:
+//   var target applicationTargetGroup
+//   var service baseService
+//   scaling := service.autoScaleTaskCount(&enableScalingProps{
+//   	maxCapacity: jsii.Number(10),
+//   })
+//   scaling.scaleOnCpuUtilization(jsii.String("CpuScaling"), &cpuUtilizationScalingProps{
+//   	targetUtilizationPercent: jsii.Number(50),
+//   })
 //
+//   scaling.scaleOnRequestCount(jsii.String("RequestScaling"), &requestCountScalingProps{
+//   	requestsPerTarget: jsii.Number(10000),
+//   	targetGroup: target,
+//   })
+//
+// Experimental.
 type CpuUtilizationScalingProps struct {
 	// Indicates whether scale in by the target tracking policy is disabled.
 	//
@@ -9597,68 +14602,140 @@ type CpuUtilizationScalingProps struct {
 	// won't remove capacity from the scalable resource. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// scalable resource.
+	// Experimental.
 	DisableScaleIn *bool `json:"disableScaleIn" yaml:"disableScaleIn"`
 	// A name for the scaling policy.
+	// Experimental.
 	PolicyName *string `json:"policyName" yaml:"policyName"`
 	// Period after a scale in activity completes before another scale in activity can start.
+	// Experimental.
 	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown" yaml:"scaleInCooldown"`
 	// Period after a scale out activity completes before another scale out activity can start.
+	// Experimental.
 	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown" yaml:"scaleOutCooldown"`
 	// The target value for CPU utilization across all tasks in the service.
+	// Experimental.
 	TargetUtilizationPercent *float64 `json:"targetUtilizationPercent" yaml:"targetUtilizationPercent"`
 }
 
 // The deployment circuit breaker to use for the service.
 //
-// TODO: EXAMPLE
+// Example:
+//   var cluster cluster
+//   var taskDefinition taskDefinition
+//   service := ecs.NewFargateService(this, jsii.String("Service"), &fargateServiceProps{
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   	circuitBreaker: &deploymentCircuitBreaker{
+//   		rollback: jsii.Boolean(true),
+//   	},
+//   })
 //
+// Experimental.
 type DeploymentCircuitBreaker struct {
 	// Whether to enable rollback on deployment failure.
+	// Experimental.
 	Rollback *bool `json:"rollback" yaml:"rollback"`
 }
 
 // The deployment controller to use for the service.
 //
-// TODO: EXAMPLE
+// Example:
+//   var cluster cluster
+//   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
+//   	cluster: cluster,
+//   	memoryLimitMiB: jsii.Number(1024),
+//   	desiredCount: jsii.Number(1),
+//   	cpu: jsii.Number(512),
+//   	taskImageOptions: &applicationLoadBalancedTaskImageOptions{
+//   		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	},
+//   	deploymentController: &deploymentController{
+//   		type: ecs.deploymentControllerType_CODE_DEPLOY,
+//   	},
+//   })
 //
+// Experimental.
 type DeploymentController struct {
 	// The deployment controller type to use.
+	// Experimental.
 	Type DeploymentControllerType `json:"type" yaml:"type"`
 }
 
 // The deployment controller type to use for the service.
 //
-// TODO: EXAMPLE
+// Example:
+//   var cluster cluster
+//   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
+//   	cluster: cluster,
+//   	memoryLimitMiB: jsii.Number(1024),
+//   	desiredCount: jsii.Number(1),
+//   	cpu: jsii.Number(512),
+//   	taskImageOptions: &applicationLoadBalancedTaskImageOptions{
+//   		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	},
+//   	deploymentController: &deploymentController{
+//   		type: ecs.deploymentControllerType_CODE_DEPLOY,
+//   	},
+//   })
 //
+// Experimental.
 type DeploymentControllerType string
 
 const (
+	// The rolling update (ECS) deployment type involves replacing the current running version of the container with the latest version.
+	// Experimental.
 	DeploymentControllerType_ECS DeploymentControllerType = "ECS"
+	// The blue/green (CODE_DEPLOY) deployment type uses the blue/green deployment model powered by AWS CodeDeploy.
+	// Experimental.
 	DeploymentControllerType_CODE_DEPLOY DeploymentControllerType = "CODE_DEPLOY"
+	// The external (EXTERNAL) deployment type enables you to use any third-party deployment controller.
+	// Experimental.
 	DeploymentControllerType_EXTERNAL DeploymentControllerType = "EXTERNAL"
 )
 
 // A container instance host device.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   device := &device{
+//   	hostPath: jsii.String("hostPath"),
 //
+//   	// the properties below are optional
+//   	containerPath: jsii.String("containerPath"),
+//   	permissions: []devicePermission{
+//   		ecs.*devicePermission_READ,
+//   	},
+//   }
+//
+// Experimental.
 type Device struct {
 	// The path for the device on the host container instance.
+	// Experimental.
 	HostPath *string `json:"hostPath" yaml:"hostPath"`
 	// The path inside the container at which to expose the host device.
+	// Experimental.
 	ContainerPath *string `json:"containerPath" yaml:"containerPath"`
 	// The explicit permissions to provide to the container for the device.
 	//
 	// By default, the container has permissions for read, write, and mknod for the device.
+	// Experimental.
 	Permissions *[]DevicePermission `json:"permissions" yaml:"permissions"`
 }
 
 // Permissions for device access.
+// Experimental.
 type DevicePermission string
 
 const (
+	// Read.
+	// Experimental.
 	DevicePermission_READ DevicePermission = "READ"
+	// Write.
+	// Experimental.
 	DevicePermission_WRITE DevicePermission = "WRITE"
+	// Make a node.
+	// Experimental.
 	DevicePermission_MKNOD DevicePermission = "MKNOD"
 )
 
@@ -9666,67 +14743,305 @@ const (
 //
 // Docker volumes are only supported when you are using the EC2 launch type.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   dockerVolumeConfiguration := &dockerVolumeConfiguration{
+//   	driver: jsii.String("driver"),
+//   	scope: ecs.scope_TASK,
 //
+//   	// the properties below are optional
+//   	autoprovision: jsii.Boolean(false),
+//   	driverOpts: map[string]*string{
+//   		"driverOptsKey": jsii.String("driverOpts"),
+//   	},
+//   	labels: map[string]*string{
+//   		"labelsKey": jsii.String("labels"),
+//   	},
+//   }
+//
+// Experimental.
 type DockerVolumeConfiguration struct {
 	// The Docker volume driver to use.
+	// Experimental.
 	Driver *string `json:"driver" yaml:"driver"`
 	// The scope for the Docker volume that determines its lifecycle.
+	// Experimental.
 	Scope Scope `json:"scope" yaml:"scope"`
 	// Specifies whether the Docker volume should be created if it does not already exist.
 	//
 	// If true is specified, the Docker volume will be created for you.
+	// Experimental.
 	Autoprovision *bool `json:"autoprovision" yaml:"autoprovision"`
 	// A map of Docker driver-specific options passed through.
+	// Experimental.
 	DriverOpts *map[string]*string `json:"driverOpts" yaml:"driverOpts"`
 	// Custom metadata to add to your Docker volume.
+	// Experimental.
 	Labels *map[string]*string `json:"labels" yaml:"labels"`
 }
 
 // This creates a service using the EC2 launch type on an ECS cluster.
 //
-// TODO: EXAMPLE
+// Example:
+//   var cluster cluster
+//   var taskDefinition taskDefinition
+//   var vpc vpc
+//   service := ecs.NewEc2Service(this, jsii.String("Service"), &ec2ServiceProps{
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   })
 //
+//   lb := elb.NewLoadBalancer(this, jsii.String("LB"), &loadBalancerProps{
+//   	vpc: vpc,
+//   })
+//   lb.addListener(&loadBalancerListener{
+//   	externalPort: jsii.Number(80),
+//   })
+//   lb.addTarget(service.loadBalancerTarget(&loadBalancerTargetOptions{
+//   	containerName: jsii.String("MyContainer"),
+//   	containerPort: jsii.Number(80),
+//   }))
+//
+// Experimental.
 type Ec2Service interface {
 	BaseService
 	IEc2Service
+	// The details of the AWS Cloud Map service.
+	// Experimental.
 	CloudmapService() awsservicediscovery.Service
+	// Experimental.
 	SetCloudmapService(val awsservicediscovery.Service)
+	// The CloudMap service created for this service, if any.
+	// Experimental.
 	CloudMapService() awsservicediscovery.IService
+	// The cluster that hosts the service.
+	// Experimental.
 	Cluster() ICluster
+	// The security groups which manage the allowed network traffic for the service.
+	// Experimental.
 	Connections() awsec2.Connections
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
+	// A list of Elastic Load Balancing load balancer objects, containing the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer.
+	// Experimental.
 	LoadBalancers() *[]*CfnService_LoadBalancerProperty
+	// Experimental.
 	SetLoadBalancers(val *[]*CfnService_LoadBalancerProperty)
+	// A list of Elastic Load Balancing load balancer objects, containing the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer.
+	// Experimental.
 	NetworkConfiguration() *CfnService_NetworkConfigurationProperty
+	// Experimental.
 	SetNetworkConfiguration(val *CfnService_NetworkConfigurationProperty)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
+	// The Amazon Resource Name (ARN) of the service.
+	// Experimental.
 	ServiceArn() *string
+	// The name of the service.
+	// Experimental.
 	ServiceName() *string
+	// The details of the service discovery registries to assign to this service.
+	//
+	// For more information, see Service Discovery.
+	// Experimental.
 	ServiceRegistries() *[]*CfnService_ServiceRegistryProperty
+	// Experimental.
 	SetServiceRegistries(val *[]*CfnService_ServiceRegistryProperty)
+	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
+	// The task definition to use for tasks in the service.
+	// Experimental.
 	TaskDefinition() TaskDefinition
+	// Adds one or more placement constraints to use for tasks in the service.
+	//
+	// For more information, see
+	// [Amazon ECS Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html).
+	// Experimental.
 	AddPlacementConstraints(constraints ...PlacementConstraint)
+	// Adds one or more placement strategies to use for tasks in the service.
+	//
+	// For more information, see
+	// [Amazon ECS Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
+	// Experimental.
 	AddPlacementStrategies(strategies ...PlacementStrategy)
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Associates this service with a CloudMap service.
+	// Experimental.
 	AssociateCloudMapService(options *AssociateCloudMapServiceOptions)
+	// This method is called to attach this service to an Application Load Balancer.
+	//
+	// Don't call this function directly. Instead, call `listener.addTargets()`
+	// to add this service to a load balancer.
+	// Experimental.
 	AttachToApplicationTargetGroup(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
+	// Registers the service as a target of a Classic Load Balancer (CLB).
+	//
+	// Don't call this. Call `loadBalancer.addTarget()` instead.
+	// Experimental.
 	AttachToClassicLB(loadBalancer awselasticloadbalancing.LoadBalancer)
+	// This method is called to attach this service to a Network Load Balancer.
+	//
+	// Don't call this function directly. Instead, call `listener.addTargets()`
+	// to add this service to a load balancer.
+	// Experimental.
 	AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
+	// An attribute representing the minimum and maximum task count for an AutoScalingGroup.
+	// Experimental.
 	AutoScaleTaskCount(props *awsapplicationautoscaling.EnableScalingProps) ScalableTaskCount
+	// This method is called to create a networkConfiguration.
+	// Deprecated: use configureAwsVpcNetworkingWithSecurityGroups instead.
+	ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup)
+	// This method is called to create a networkConfiguration.
+	// Experimental.
 	ConfigureAwsVpcNetworkingWithSecurityGroups(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroups *[]awsec2.ISecurityGroup)
+	// Enable CloudMap service discovery for the service.
+	//
+	// Returns: The created CloudMap service.
+	// Experimental.
 	EnableCloudMap(options *CloudMapOptions) awsservicediscovery.Service
+	// Experimental.
 	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Return a load balancing target for a specific container and port.
+	//
+	// Use this function to create a load balancer target if you want to load balance to
+	// another container than the first essential container or the first mapped port on
+	// the container.
+	//
+	// Use the return value of this function where you would normally use a load balancer
+	// target, instead of the `Service` object itself.
+	//
+	// Example:
+	//   declare const listener: elbv2.ApplicationListener;
+	//   declare const service: ecs.BaseService;
+	//   listener.addTargets('ECS', {
+	//     port: 80,
+	//     targets: [service.loadBalancerTarget({
+	//       containerName: 'MyContainer',
+	//       containerPort: 1234,
+	//     })],
+	//   });
+	//
+	// Experimental.
 	LoadBalancerTarget(options *LoadBalancerTargetOptions) IEcsLoadBalancerTarget
+	// This method returns the specified CloudWatch metric name for this service.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// This method returns the CloudWatch metric for this service's CPU utilization.
+	// Experimental.
 	MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// This method returns the CloudWatch metric for this service's memory utilization.
+	// Experimental.
 	MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Use this function to create all load balancer targets to be registered in this service, add them to target groups, and attach target groups to listeners accordingly.
+	//
+	// Alternatively, you can use `listener.addTargets()` to create targets and add them to target groups.
+	//
+	// Example:
+	//   declare const listener: elbv2.ApplicationListener;
+	//   declare const service: ecs.BaseService;
+	//   service.registerLoadBalancerTargets(
+	//     {
+	//       containerName: 'web',
+	//       containerPort: 80,
+	//       newTargetGroupId: 'ECS',
+	//       listener: ecs.ListenerConfig.applicationListener(listener, {
+	//         protocol: elbv2.ApplicationProtocol.HTTPS
+	//       }),
+	//     },
+	//   )
+	//
+	// Experimental.
 	RegisterLoadBalancerTargets(targets ...*EcsTarget)
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validates this Ec2Service.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for Ec2Service
@@ -9805,8 +15120,8 @@ func (j *jsiiProxy_Ec2Service) NetworkConfiguration() *CfnService_NetworkConfigu
 	return returns
 }
 
-func (j *jsiiProxy_Ec2Service) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Ec2Service) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -9877,13 +15192,14 @@ func (j *jsiiProxy_Ec2Service) TaskDefinition() TaskDefinition {
 
 
 // Constructs a new instance of the Ec2Service class.
+// Experimental.
 func NewEc2Service(scope constructs.Construct, id *string, props *Ec2ServiceProps) Ec2Service {
 	_init_.Initialize()
 
 	j := jsiiProxy_Ec2Service{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.Ec2Service",
+		"monocdk.aws_ecs.Ec2Service",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -9892,11 +15208,12 @@ func NewEc2Service(scope constructs.Construct, id *string, props *Ec2ServiceProp
 }
 
 // Constructs a new instance of the Ec2Service class.
+// Experimental.
 func NewEc2Service_Override(e Ec2Service, scope constructs.Construct, id *string, props *Ec2ServiceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.Ec2Service",
+		"monocdk.aws_ecs.Ec2Service",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -9935,13 +15252,14 @@ func (j *jsiiProxy_Ec2Service) SetServiceRegistries(val *[]*CfnService_ServiceRe
 }
 
 // Imports from the specified service ARN.
+// Experimental.
 func Ec2Service_FromEc2ServiceArn(scope constructs.Construct, id *string, ec2ServiceArn *string) IEc2Service {
 	_init_.Initialize()
 
 	var returns IEc2Service
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.Ec2Service",
+		"monocdk.aws_ecs.Ec2Service",
 		"fromEc2ServiceArn",
 		[]interface{}{scope, id, ec2ServiceArn},
 		&returns,
@@ -9951,13 +15269,14 @@ func Ec2Service_FromEc2ServiceArn(scope constructs.Construct, id *string, ec2Ser
 }
 
 // Imports from the specified service attrributes.
+// Experimental.
 func Ec2Service_FromEc2ServiceAttributes(scope constructs.Construct, id *string, attrs *Ec2ServiceAttributes) IBaseService {
 	_init_.Initialize()
 
 	var returns IBaseService
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.Ec2Service",
+		"monocdk.aws_ecs.Ec2Service",
 		"fromEc2ServiceAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -9971,13 +15290,14 @@ func Ec2Service_FromEc2ServiceAttributes(scope constructs.Construct, id *string,
 // The format is the "new" format "arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name".
 // See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids
 //
+// Experimental.
 func Ec2Service_FromServiceArnWithCluster(scope constructs.Construct, id *string, serviceArn *string) IBaseService {
 	_init_.Initialize()
 
 	var returns IBaseService
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.Ec2Service",
+		"monocdk.aws_ecs.Ec2Service",
 		"fromServiceArnWithCluster",
 		[]interface{}{scope, id, serviceArn},
 		&returns,
@@ -9986,17 +15306,15 @@ func Ec2Service_FromServiceArnWithCluster(scope constructs.Construct, id *string
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Ec2Service_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.Ec2Service",
+		"monocdk.aws_ecs.Ec2Service",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -10006,13 +15324,14 @@ func Ec2Service_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func Ec2Service_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func Ec2Service_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.Ec2Service",
+		"monocdk.aws_ecs.Ec2Service",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -10021,10 +15340,6 @@ func Ec2Service_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Adds one or more placement constraints to use for tasks in the service.
-//
-// For more information, see
-// [Amazon ECS Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html).
 func (e *jsiiProxy_Ec2Service) AddPlacementConstraints(constraints ...PlacementConstraint) {
 	args := []interface{}{}
 	for _, a := range constraints {
@@ -10038,10 +15353,6 @@ func (e *jsiiProxy_Ec2Service) AddPlacementConstraints(constraints ...PlacementC
 	)
 }
 
-// Adds one or more placement strategies to use for tasks in the service.
-//
-// For more information, see
-// [Amazon ECS Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
 func (e *jsiiProxy_Ec2Service) AddPlacementStrategies(strategies ...PlacementStrategy) {
 	args := []interface{}{}
 	for _, a := range strategies {
@@ -10055,15 +15366,6 @@ func (e *jsiiProxy_Ec2Service) AddPlacementStrategies(strategies ...PlacementStr
 	)
 }
 
-// Apply the given removal policy to this resource.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (e *jsiiProxy_Ec2Service) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		e,
@@ -10072,7 +15374,6 @@ func (e *jsiiProxy_Ec2Service) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Associates this service with a CloudMap service.
 func (e *jsiiProxy_Ec2Service) AssociateCloudMapService(options *AssociateCloudMapServiceOptions) {
 	_jsii_.InvokeVoid(
 		e,
@@ -10081,10 +15382,6 @@ func (e *jsiiProxy_Ec2Service) AssociateCloudMapService(options *AssociateCloudM
 	)
 }
 
-// This method is called to attach this service to an Application Load Balancer.
-//
-// Don't call this function directly. Instead, call `listener.addTargets()`
-// to add this service to a load balancer.
 func (e *jsiiProxy_Ec2Service) AttachToApplicationTargetGroup(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
@@ -10098,9 +15395,6 @@ func (e *jsiiProxy_Ec2Service) AttachToApplicationTargetGroup(targetGroup awsela
 	return returns
 }
 
-// Registers the service as a target of a Classic Load Balancer (CLB).
-//
-// Don't call this. Call `loadBalancer.addTarget()` instead.
 func (e *jsiiProxy_Ec2Service) AttachToClassicLB(loadBalancer awselasticloadbalancing.LoadBalancer) {
 	_jsii_.InvokeVoid(
 		e,
@@ -10109,10 +15403,6 @@ func (e *jsiiProxy_Ec2Service) AttachToClassicLB(loadBalancer awselasticloadbala
 	)
 }
 
-// This method is called to attach this service to a Network Load Balancer.
-//
-// Don't call this function directly. Instead, call `listener.addTargets()`
-// to add this service to a load balancer.
 func (e *jsiiProxy_Ec2Service) AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
@@ -10126,7 +15416,6 @@ func (e *jsiiProxy_Ec2Service) AttachToNetworkTargetGroup(targetGroup awselastic
 	return returns
 }
 
-// An attribute representing the minimum and maximum task count for an AutoScalingGroup.
 func (e *jsiiProxy_Ec2Service) AutoScaleTaskCount(props *awsapplicationautoscaling.EnableScalingProps) ScalableTaskCount {
 	var returns ScalableTaskCount
 
@@ -10140,7 +15429,14 @@ func (e *jsiiProxy_Ec2Service) AutoScaleTaskCount(props *awsapplicationautoscali
 	return returns
 }
 
-// This method is called to create a networkConfiguration.
+func (e *jsiiProxy_Ec2Service) ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup) {
+	_jsii_.InvokeVoid(
+		e,
+		"configureAwsVpcNetworking",
+		[]interface{}{vpc, assignPublicIp, vpcSubnets, securityGroup},
+	)
+}
+
 func (e *jsiiProxy_Ec2Service) ConfigureAwsVpcNetworkingWithSecurityGroups(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroups *[]awsec2.ISecurityGroup) {
 	_jsii_.InvokeVoid(
 		e,
@@ -10149,9 +15445,6 @@ func (e *jsiiProxy_Ec2Service) ConfigureAwsVpcNetworkingWithSecurityGroups(vpc a
 	)
 }
 
-// Enable CloudMap service discovery for the service.
-//
-// Returns: The created CloudMap service
 func (e *jsiiProxy_Ec2Service) EnableCloudMap(options *CloudMapOptions) awsservicediscovery.Service {
 	var returns awsservicediscovery.Service
 
@@ -10178,12 +15471,6 @@ func (e *jsiiProxy_Ec2Service) GeneratePhysicalName() *string {
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
-//
-// Normally, this token will resolve to `arnAttr`, but if the resource is
-// referenced across environments, `arnComponents` will be used to synthesize
-// a concrete ARN with the resource's physical name. Make sure to reference
-// `this.physicalName` in `arnComponents`.
 func (e *jsiiProxy_Ec2Service) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -10197,11 +15484,6 @@ func (e *jsiiProxy_Ec2Service) GetResourceArnAttribute(arnAttr *string, arnCompo
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
-//
-// Normally, this token will resolve to `nameAttr`, but if the resource is
-// referenced across environments, it will be resolved to `this.physicalName`,
-// which will be a concrete name.
 func (e *jsiiProxy_Ec2Service) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -10215,17 +15497,6 @@ func (e *jsiiProxy_Ec2Service) GetResourceNameAttribute(nameAttr *string) *strin
 	return returns
 }
 
-// Return a load balancing target for a specific container and port.
-//
-// Use this function to create a load balancer target if you want to load balance to
-// another container than the first essential container or the first mapped port on
-// the container.
-//
-// Use the return value of this function where you would normally use a load balancer
-// target, instead of the `Service` object itself.
-//
-// TODO: EXAMPLE
-//
 func (e *jsiiProxy_Ec2Service) LoadBalancerTarget(options *LoadBalancerTargetOptions) IEcsLoadBalancerTarget {
 	var returns IEcsLoadBalancerTarget
 
@@ -10239,7 +15510,6 @@ func (e *jsiiProxy_Ec2Service) LoadBalancerTarget(options *LoadBalancerTargetOpt
 	return returns
 }
 
-// This method returns the specified CloudWatch metric name for this service.
 func (e *jsiiProxy_Ec2Service) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -10253,7 +15523,6 @@ func (e *jsiiProxy_Ec2Service) Metric(metricName *string, props *awscloudwatch.M
 	return returns
 }
 
-// This method returns the CloudWatch metric for this service's CPU utilization.
 func (e *jsiiProxy_Ec2Service) MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -10267,7 +15536,6 @@ func (e *jsiiProxy_Ec2Service) MetricCpuUtilization(props *awscloudwatch.MetricO
 	return returns
 }
 
-// This method returns the CloudWatch metric for this service's memory utilization.
 func (e *jsiiProxy_Ec2Service) MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -10281,12 +15549,43 @@ func (e *jsiiProxy_Ec2Service) MetricMemoryUtilization(props *awscloudwatch.Metr
 	return returns
 }
 
-// Use this function to create all load balancer targets to be registered in this service, add them to target groups, and attach target groups to listeners accordingly.
-//
-// Alternatively, you can use `listener.addTargets()` to create targets and add them to target groups.
-//
-// TODO: EXAMPLE
-//
+func (e *jsiiProxy_Ec2Service) OnPrepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (e *jsiiProxy_Ec2Service) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (e *jsiiProxy_Ec2Service) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_Ec2Service) Prepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 func (e *jsiiProxy_Ec2Service) RegisterLoadBalancerTargets(targets ...*EcsTarget) {
 	args := []interface{}{}
 	for _, a := range targets {
@@ -10300,7 +15599,14 @@ func (e *jsiiProxy_Ec2Service) RegisterLoadBalancerTargets(targets ...*EcsTarget
 	)
 }
 
-// Returns a string representation of this construct.
+func (e *jsiiProxy_Ec2Service) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (e *jsiiProxy_Ec2Service) ToString() *string {
 	var returns *string
 
@@ -10314,140 +15620,379 @@ func (e *jsiiProxy_Ec2Service) ToString() *string {
 	return returns
 }
 
+func (e *jsiiProxy_Ec2Service) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // The properties to import from the service using the EC2 launch type.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
 //
+//   var cluster cluster
+//   ec2ServiceAttributes := &ec2ServiceAttributes{
+//   	cluster: cluster,
+//
+//   	// the properties below are optional
+//   	serviceArn: jsii.String("serviceArn"),
+//   	serviceName: jsii.String("serviceName"),
+//   }
+//
+// Experimental.
 type Ec2ServiceAttributes struct {
 	// The cluster that hosts the service.
+	// Experimental.
 	Cluster ICluster `json:"cluster" yaml:"cluster"`
 	// The service ARN.
+	// Experimental.
 	ServiceArn *string `json:"serviceArn" yaml:"serviceArn"`
 	// The name of the service.
+	// Experimental.
 	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 }
 
 // The properties for defining a service using the EC2 launch type.
 //
-// TODO: EXAMPLE
+// Example:
+//   var cluster cluster
+//   var taskDefinition taskDefinition
+//   var vpc vpc
+//   service := ecs.NewEc2Service(this, jsii.String("Service"), &ec2ServiceProps{
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   })
 //
+//   lb := elb.NewLoadBalancer(this, jsii.String("LB"), &loadBalancerProps{
+//   	vpc: vpc,
+//   })
+//   lb.addListener(&loadBalancerListener{
+//   	externalPort: jsii.Number(80),
+//   })
+//   lb.addTarget(service.loadBalancerTarget(&loadBalancerTargetOptions{
+//   	containerName: jsii.String("MyContainer"),
+//   	containerPort: jsii.Number(80),
+//   }))
+//
+// Experimental.
 type Ec2ServiceProps struct {
 	// The name of the cluster that hosts the service.
+	// Experimental.
 	Cluster ICluster `json:"cluster" yaml:"cluster"`
 	// A list of Capacity Provider strategies used to place a service.
+	// Experimental.
 	CapacityProviderStrategies *[]*CapacityProviderStrategy `json:"capacityProviderStrategies" yaml:"capacityProviderStrategies"`
 	// Whether to enable the deployment circuit breaker.
 	//
 	// If this property is defined, circuit breaker will be implicitly
 	// enabled.
+	// Experimental.
 	CircuitBreaker *DeploymentCircuitBreaker `json:"circuitBreaker" yaml:"circuitBreaker"`
 	// The options for configuring an Amazon ECS service to use service discovery.
+	// Experimental.
 	CloudMapOptions *CloudMapOptions `json:"cloudMapOptions" yaml:"cloudMapOptions"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
+	// Experimental.
 	DeploymentController *DeploymentController `json:"deploymentController" yaml:"deploymentController"`
 	// The desired number of instantiations of the task definition to keep running on the service.
+	// Experimental.
 	DesiredCount *float64 `json:"desiredCount" yaml:"desiredCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
+	// Experimental.
 	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// Whether to enable the ability to execute into a container.
+	// Experimental.
 	EnableExecuteCommand *bool `json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
+	// Experimental.
 	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
+	// Experimental.
 	MaxHealthyPercent *float64 `json:"maxHealthyPercent" yaml:"maxHealthyPercent"`
 	// The minimum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that must continue to run and remain healthy during a deployment.
+	// Experimental.
 	MinHealthyPercent *float64 `json:"minHealthyPercent" yaml:"minHealthyPercent"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Valid values are: PropagatedTagSource.SERVICE, PropagatedTagSource.TASK_DEFINITION or PropagatedTagSource.NONE
+	// Experimental.
 	PropagateTags PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
+	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
+	//
+	// Tags can only be propagated to the tasks within the service during service creation.
+	// Deprecated: Use `propagateTags` instead.
+	PropagateTaskTagsFrom PropagatedTagSource `json:"propagateTaskTagsFrom" yaml:"propagateTaskTagsFrom"`
 	// The name of the service.
+	// Experimental.
 	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// The task definition to use for tasks in the service.
 	//
-	// [disable-awslint:ref-via-interface]
+	// [disable-awslint:ref-via-interface].
+	// Experimental.
 	TaskDefinition TaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 	// Specifies whether the task's elastic network interface receives a public IP address.
 	//
 	// If true, each task will receive a public IP address.
 	//
 	// This property is only used for tasks that use the awsvpc network mode.
+	// Experimental.
 	AssignPublicIp *bool `json:"assignPublicIp" yaml:"assignPublicIp"`
 	// Specifies whether the service will use the daemon scheduling strategy.
 	//
 	// If true, the service scheduler deploys exactly one task on each container instance in your cluster.
 	//
 	// When you are using this strategy, do not specify a desired number of tasks orany task placement strategies.
+	// Experimental.
 	Daemon *bool `json:"daemon" yaml:"daemon"`
 	// The placement constraints to use for tasks in the service.
 	//
 	// For more information, see
 	// [Amazon ECS Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html).
+	// Experimental.
 	PlacementConstraints *[]PlacementConstraint `json:"placementConstraints" yaml:"placementConstraints"`
 	// The placement strategies to use for tasks in the service.
 	//
 	// For more information, see
 	// [Amazon ECS Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
+	// Experimental.
 	PlacementStrategies *[]PlacementStrategy `json:"placementStrategies" yaml:"placementStrategies"`
 	// The security groups to associate with the service.
 	//
 	// If you do not specify a security group, a new security group is created.
 	//
 	// This property is only used for tasks that use the awsvpc network mode.
+	// Deprecated: use securityGroups instead.
+	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
+	// The security groups to associate with the service.
+	//
+	// If you do not specify a security group, a new security group is created.
+	//
+	// This property is only used for tasks that use the awsvpc network mode.
+	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The subnets to associate with the service.
 	//
 	// This property is only used for tasks that use the awsvpc network mode.
+	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // The details of a task definition run on an EC2 cluster.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Create a Task Definition for the container to start
+//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+//   taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("example-image")),
+//   	memoryLimitMiB: jsii.Number(256),
+//   	logging: ecs.logDrivers.splunk(&splunkLogDriverProps{
+//   		token: secretValue.secretsManager(jsii.String("my-splunk-token")),
+//   		url: jsii.String("my-splunk-url"),
+//   	}),
+//   })
 //
+// Experimental.
 type Ec2TaskDefinition interface {
 	TaskDefinition
 	IEc2TaskDefinition
+	// The task launch type compatibility requirement.
+	// Experimental.
 	Compatibility() Compatibility
+	// The container definitions.
+	// Experimental.
 	Containers() *[]ContainerDefinition
+	// Default container for this task.
+	//
+	// Load balancers will send traffic to this container. The first
+	// essential container that is added to this task will become the default
+	// container.
+	// Experimental.
 	DefaultContainer() ContainerDefinition
+	// Experimental.
 	SetDefaultContainer(val ContainerDefinition)
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
+	// The amount (in GiB) of ephemeral storage to be allocated to the task.
+	//
+	// Only supported in Fargate platform version 1.4.0 or later.
+	// Experimental.
 	EphemeralStorageGiB() *float64
+	// Execution role for this task definition.
+	// Experimental.
 	ExecutionRole() awsiam.IRole
+	// The name of a family that this task definition is registered to.
+	//
+	// A family groups multiple versions of a task definition.
+	// Experimental.
 	Family() *string
+	// Public getter method to access list of inference accelerators attached to the instance.
+	// Experimental.
 	InferenceAccelerators() *[]*InferenceAccelerator
+	// Return true if the task definition can be run on an EC2 cluster.
+	// Experimental.
 	IsEc2Compatible() *bool
+	// Return true if the task definition can be run on a ECS anywhere cluster.
+	// Experimental.
 	IsExternalCompatible() *bool
+	// Return true if the task definition can be run on a Fargate cluster.
+	// Experimental.
 	IsFargateCompatible() *bool
+	// The networking mode to use for the containers in the task.
+	// Experimental.
 	NetworkMode() NetworkMode
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
+	// Whether this task definition has at least a container that references a specific JSON field of a secret stored in Secrets Manager.
+	// Experimental.
 	ReferencesSecretJsonField() *bool
+	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
+	// The full Amazon Resource Name (ARN) of the task definition.
+	// Experimental.
 	TaskDefinitionArn() *string
+	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
+	// Experimental.
 	TaskRole() awsiam.IRole
+	// Adds a new container to the task definition.
+	// Experimental.
 	AddContainer(id *string, props *ContainerDefinitionOptions) ContainerDefinition
+	// Adds the specified extension to the task definition.
+	//
+	// Extension can be used to apply a packaged modification to
+	// a task definition.
+	// Experimental.
 	AddExtension(extension ITaskDefinitionExtension)
+	// Adds a firelens log router to the task definition.
+	// Experimental.
 	AddFirelensLogRouter(id *string, props *FirelensLogRouterDefinitionOptions) FirelensLogRouter
+	// Adds an inference accelerator to the task definition.
+	// Experimental.
 	AddInferenceAccelerator(inferenceAccelerator *InferenceAccelerator)
+	// Adds the specified placement constraint to the task definition.
+	// Experimental.
 	AddPlacementConstraint(constraint PlacementConstraint)
+	// Adds a policy statement to the task execution IAM role.
+	// Experimental.
 	AddToExecutionRolePolicy(statement awsiam.PolicyStatement)
+	// Adds a policy statement to the task IAM role.
+	// Experimental.
 	AddToTaskRolePolicy(statement awsiam.PolicyStatement)
+	// Adds a volume to the task definition.
+	// Experimental.
 	AddVolume(volume *Volume)
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Returns the container that match the provided containerName.
+	// Experimental.
 	FindContainer(containerName *string) ContainerDefinition
+	// Experimental.
 	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Creates the task execution IAM role if it doesn't already exist.
+	// Experimental.
 	ObtainExecutionRole() awsiam.IRole
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validates the task definition.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for Ec2TaskDefinition
@@ -10576,8 +16121,8 @@ func (j *jsiiProxy_Ec2TaskDefinition) NetworkMode() NetworkMode {
 	return returns
 }
 
-func (j *jsiiProxy_Ec2TaskDefinition) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Ec2TaskDefinition) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -10638,13 +16183,14 @@ func (j *jsiiProxy_Ec2TaskDefinition) TaskRole() awsiam.IRole {
 
 
 // Constructs a new instance of the Ec2TaskDefinition class.
+// Experimental.
 func NewEc2TaskDefinition(scope constructs.Construct, id *string, props *Ec2TaskDefinitionProps) Ec2TaskDefinition {
 	_init_.Initialize()
 
 	j := jsiiProxy_Ec2TaskDefinition{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.Ec2TaskDefinition",
+		"monocdk.aws_ecs.Ec2TaskDefinition",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -10653,11 +16199,12 @@ func NewEc2TaskDefinition(scope constructs.Construct, id *string, props *Ec2Task
 }
 
 // Constructs a new instance of the Ec2TaskDefinition class.
+// Experimental.
 func NewEc2TaskDefinition_Override(e Ec2TaskDefinition, scope constructs.Construct, id *string, props *Ec2TaskDefinitionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.Ec2TaskDefinition",
+		"monocdk.aws_ecs.Ec2TaskDefinition",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -10672,13 +16219,14 @@ func (j *jsiiProxy_Ec2TaskDefinition) SetDefaultContainer(val ContainerDefinitio
 }
 
 // Imports a task definition from the specified task definition ARN.
+// Experimental.
 func Ec2TaskDefinition_FromEc2TaskDefinitionArn(scope constructs.Construct, id *string, ec2TaskDefinitionArn *string) IEc2TaskDefinition {
 	_init_.Initialize()
 
 	var returns IEc2TaskDefinition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.Ec2TaskDefinition",
+		"monocdk.aws_ecs.Ec2TaskDefinition",
 		"fromEc2TaskDefinitionArn",
 		[]interface{}{scope, id, ec2TaskDefinitionArn},
 		&returns,
@@ -10688,13 +16236,14 @@ func Ec2TaskDefinition_FromEc2TaskDefinitionArn(scope constructs.Construct, id *
 }
 
 // Imports an existing Ec2 task definition from its attributes.
+// Experimental.
 func Ec2TaskDefinition_FromEc2TaskDefinitionAttributes(scope constructs.Construct, id *string, attrs *Ec2TaskDefinitionAttributes) IEc2TaskDefinition {
 	_init_.Initialize()
 
 	var returns IEc2TaskDefinition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.Ec2TaskDefinition",
+		"monocdk.aws_ecs.Ec2TaskDefinition",
 		"fromEc2TaskDefinitionAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -10706,13 +16255,14 @@ func Ec2TaskDefinition_FromEc2TaskDefinitionAttributes(scope constructs.Construc
 // Imports a task definition from the specified task definition ARN.
 //
 // The task will have a compatibility of EC2+Fargate.
+// Experimental.
 func Ec2TaskDefinition_FromTaskDefinitionArn(scope constructs.Construct, id *string, taskDefinitionArn *string) ITaskDefinition {
 	_init_.Initialize()
 
 	var returns ITaskDefinition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.Ec2TaskDefinition",
+		"monocdk.aws_ecs.Ec2TaskDefinition",
 		"fromTaskDefinitionArn",
 		[]interface{}{scope, id, taskDefinitionArn},
 		&returns,
@@ -10722,13 +16272,14 @@ func Ec2TaskDefinition_FromTaskDefinitionArn(scope constructs.Construct, id *str
 }
 
 // Create a task definition from a task definition reference.
+// Experimental.
 func Ec2TaskDefinition_FromTaskDefinitionAttributes(scope constructs.Construct, id *string, attrs *TaskDefinitionAttributes) ITaskDefinition {
 	_init_.Initialize()
 
 	var returns ITaskDefinition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.Ec2TaskDefinition",
+		"monocdk.aws_ecs.Ec2TaskDefinition",
 		"fromTaskDefinitionAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -10737,17 +16288,15 @@ func Ec2TaskDefinition_FromTaskDefinitionAttributes(scope constructs.Construct, 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Ec2TaskDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.Ec2TaskDefinition",
+		"monocdk.aws_ecs.Ec2TaskDefinition",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -10757,13 +16306,14 @@ func Ec2TaskDefinition_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func Ec2TaskDefinition_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func Ec2TaskDefinition_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.Ec2TaskDefinition",
+		"monocdk.aws_ecs.Ec2TaskDefinition",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -10772,7 +16322,6 @@ func Ec2TaskDefinition_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Adds a new container to the task definition.
 func (e *jsiiProxy_Ec2TaskDefinition) AddContainer(id *string, props *ContainerDefinitionOptions) ContainerDefinition {
 	var returns ContainerDefinition
 
@@ -10786,10 +16335,6 @@ func (e *jsiiProxy_Ec2TaskDefinition) AddContainer(id *string, props *ContainerD
 	return returns
 }
 
-// Adds the specified extension to the task definition.
-//
-// Extension can be used to apply a packaged modification to
-// a task definition.
 func (e *jsiiProxy_Ec2TaskDefinition) AddExtension(extension ITaskDefinitionExtension) {
 	_jsii_.InvokeVoid(
 		e,
@@ -10798,7 +16343,6 @@ func (e *jsiiProxy_Ec2TaskDefinition) AddExtension(extension ITaskDefinitionExte
 	)
 }
 
-// Adds a firelens log router to the task definition.
 func (e *jsiiProxy_Ec2TaskDefinition) AddFirelensLogRouter(id *string, props *FirelensLogRouterDefinitionOptions) FirelensLogRouter {
 	var returns FirelensLogRouter
 
@@ -10812,7 +16356,6 @@ func (e *jsiiProxy_Ec2TaskDefinition) AddFirelensLogRouter(id *string, props *Fi
 	return returns
 }
 
-// Adds an inference accelerator to the task definition.
 func (e *jsiiProxy_Ec2TaskDefinition) AddInferenceAccelerator(inferenceAccelerator *InferenceAccelerator) {
 	_jsii_.InvokeVoid(
 		e,
@@ -10821,7 +16364,6 @@ func (e *jsiiProxy_Ec2TaskDefinition) AddInferenceAccelerator(inferenceAccelerat
 	)
 }
 
-// Adds the specified placement constraint to the task definition.
 func (e *jsiiProxy_Ec2TaskDefinition) AddPlacementConstraint(constraint PlacementConstraint) {
 	_jsii_.InvokeVoid(
 		e,
@@ -10830,7 +16372,6 @@ func (e *jsiiProxy_Ec2TaskDefinition) AddPlacementConstraint(constraint Placemen
 	)
 }
 
-// Adds a policy statement to the task execution IAM role.
 func (e *jsiiProxy_Ec2TaskDefinition) AddToExecutionRolePolicy(statement awsiam.PolicyStatement) {
 	_jsii_.InvokeVoid(
 		e,
@@ -10839,7 +16380,6 @@ func (e *jsiiProxy_Ec2TaskDefinition) AddToExecutionRolePolicy(statement awsiam.
 	)
 }
 
-// Adds a policy statement to the task IAM role.
 func (e *jsiiProxy_Ec2TaskDefinition) AddToTaskRolePolicy(statement awsiam.PolicyStatement) {
 	_jsii_.InvokeVoid(
 		e,
@@ -10848,7 +16388,6 @@ func (e *jsiiProxy_Ec2TaskDefinition) AddToTaskRolePolicy(statement awsiam.Polic
 	)
 }
 
-// Adds a volume to the task definition.
 func (e *jsiiProxy_Ec2TaskDefinition) AddVolume(volume *Volume) {
 	_jsii_.InvokeVoid(
 		e,
@@ -10857,15 +16396,6 @@ func (e *jsiiProxy_Ec2TaskDefinition) AddVolume(volume *Volume) {
 	)
 }
 
-// Apply the given removal policy to this resource.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (e *jsiiProxy_Ec2TaskDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		e,
@@ -10874,7 +16404,6 @@ func (e *jsiiProxy_Ec2TaskDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPo
 	)
 }
 
-// Returns the container that match the provided containerName.
 func (e *jsiiProxy_Ec2TaskDefinition) FindContainer(containerName *string) ContainerDefinition {
 	var returns ContainerDefinition
 
@@ -10901,12 +16430,6 @@ func (e *jsiiProxy_Ec2TaskDefinition) GeneratePhysicalName() *string {
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
-//
-// Normally, this token will resolve to `arnAttr`, but if the resource is
-// referenced across environments, `arnComponents` will be used to synthesize
-// a concrete ARN with the resource's physical name. Make sure to reference
-// `this.physicalName` in `arnComponents`.
 func (e *jsiiProxy_Ec2TaskDefinition) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -10920,11 +16443,6 @@ func (e *jsiiProxy_Ec2TaskDefinition) GetResourceArnAttribute(arnAttr *string, a
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
-//
-// Normally, this token will resolve to `nameAttr`, but if the resource is
-// referenced across environments, it will be resolved to `this.physicalName`,
-// which will be a concrete name.
 func (e *jsiiProxy_Ec2TaskDefinition) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -10938,7 +16456,6 @@ func (e *jsiiProxy_Ec2TaskDefinition) GetResourceNameAttribute(nameAttr *string)
 	return returns
 }
 
-// Creates the task execution IAM role if it doesn't already exist.
 func (e *jsiiProxy_Ec2TaskDefinition) ObtainExecutionRole() awsiam.IRole {
 	var returns awsiam.IRole
 
@@ -10952,7 +16469,51 @@ func (e *jsiiProxy_Ec2TaskDefinition) ObtainExecutionRole() awsiam.IRole {
 	return returns
 }
 
-// Returns a string representation of this construct.
+func (e *jsiiProxy_Ec2TaskDefinition) OnPrepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (e *jsiiProxy_Ec2TaskDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (e *jsiiProxy_Ec2TaskDefinition) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_Ec2TaskDefinition) Prepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (e *jsiiProxy_Ec2TaskDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (e *jsiiProxy_Ec2TaskDefinition) ToString() *string {
 	var returns *string
 
@@ -10966,73 +16527,137 @@ func (e *jsiiProxy_Ec2TaskDefinition) ToString() *string {
 	return returns
 }
 
+func (e *jsiiProxy_Ec2TaskDefinition) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Attributes used to import an existing EC2 task definition.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
 //
+//   var role role
+//   ec2TaskDefinitionAttributes := &ec2TaskDefinitionAttributes{
+//   	taskDefinitionArn: jsii.String("taskDefinitionArn"),
+//
+//   	// the properties below are optional
+//   	networkMode: ecs.networkMode_NONE,
+//   	taskRole: role,
+//   }
+//
+// Experimental.
 type Ec2TaskDefinitionAttributes struct {
 	// The arn of the task definition.
+	// Experimental.
 	TaskDefinitionArn *string `json:"taskDefinitionArn" yaml:"taskDefinitionArn"`
 	// The networking mode to use for the containers in the task.
+	// Experimental.
 	NetworkMode NetworkMode `json:"networkMode" yaml:"networkMode"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
+	// Experimental.
 	TaskRole awsiam.IRole `json:"taskRole" yaml:"taskRole"`
 }
 
 // The properties for a task definition run on an EC2 cluster.
 //
-// TODO: EXAMPLE
+// Example:
+//   ec2TaskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"), &ec2TaskDefinitionProps{
+//   	networkMode: ecs.networkMode_BRIDGE,
+//   })
 //
+//   container := ec2TaskDefinition.addContainer(jsii.String("WebContainer"), &containerDefinitionOptions{
+//   	// Use an image from DockerHub
+//   	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	memoryLimitMiB: jsii.Number(1024),
+//   })
+//
+// Experimental.
 type Ec2TaskDefinitionProps struct {
 	// The name of the IAM task execution role that grants the ECS agent permission to call AWS APIs on your behalf.
 	//
 	// The role will be used to retrieve container images from ECR and create CloudWatch log groups.
+	// Experimental.
 	ExecutionRole awsiam.IRole `json:"executionRole" yaml:"executionRole"`
 	// The name of a family that this task definition is registered to.
 	//
 	// A family groups multiple versions of a task definition.
+	// Experimental.
 	Family *string `json:"family" yaml:"family"`
 	// The configuration details for the App Mesh proxy.
+	// Experimental.
 	ProxyConfiguration ProxyConfiguration `json:"proxyConfiguration" yaml:"proxyConfiguration"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
+	// Experimental.
 	TaskRole awsiam.IRole `json:"taskRole" yaml:"taskRole"`
 	// The list of volume definitions for the task.
 	//
 	// For more information, see
 	// [Task Definition Parameter Volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide//task_definition_parameters.html#volumes).
+	// Experimental.
 	Volumes *[]*Volume `json:"volumes" yaml:"volumes"`
 	// The inference accelerators to use for the containers in the task.
 	//
 	// Not supported in Fargate.
+	// Experimental.
 	InferenceAccelerators *[]*InferenceAccelerator `json:"inferenceAccelerators" yaml:"inferenceAccelerators"`
 	// The IPC resource namespace to use for the containers in the task.
 	//
 	// Not supported in Fargate and Windows containers.
+	// Experimental.
 	IpcMode IpcMode `json:"ipcMode" yaml:"ipcMode"`
 	// The Docker networking mode to use for the containers in the task.
 	//
 	// The valid values are NONE, BRIDGE, AWS_VPC, and HOST.
+	// Experimental.
 	NetworkMode NetworkMode `json:"networkMode" yaml:"networkMode"`
 	// The process namespace to use for the containers in the task.
 	//
 	// Not supported in Fargate and Windows containers.
+	// Experimental.
 	PidMode PidMode `json:"pidMode" yaml:"pidMode"`
 	// An array of placement constraint objects to use for the task.
 	//
 	// You can
 	// specify a maximum of 10 constraints per task (this limit includes
 	// constraints in the task definition and those specified at run time).
+	// Experimental.
 	PlacementConstraints *[]PlacementConstraint `json:"placementConstraints" yaml:"placementConstraints"`
 }
 
 // An image from an Amazon ECR repository.
 //
-// TODO: EXAMPLE
+// Example:
+//   import ecr "github.com/aws/aws-cdk-go/awscdk"
 //
+//   repo := ecr.repository.fromRepositoryName(this, jsii.String("batch-job-repo"), jsii.String("todo-list"))
+//
+//   batch.NewJobDefinition(this, jsii.String("batch-job-def-from-ecr"), &jobDefinitionProps{
+//   	container: &jobDefinitionContainer{
+//   		image: ecs.NewEcrImage(repo, jsii.String("latest")),
+//   	},
+//   })
+//
+// Experimental.
 type EcrImage interface {
 	ContainerImage
+	// The image name. Images in Amazon ECR repositories can be specified by either using the full registry/repository:tag or registry/repository@digest.
+	//
+	// For example, 012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>:latest or
+	// 012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>@sha256:94afd1f2e64d908bc90dbca0035a5b567EXAMPLE.
+	// Experimental.
 	ImageName() *string
-	Bind(_scope constructs.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig
+	// Called when the image is used by a ContainerDefinition.
+	// Experimental.
+	Bind(_scope awscdk.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig
 }
 
 // The jsii proxy struct for EcrImage
@@ -11052,13 +16677,14 @@ func (j *jsiiProxy_EcrImage) ImageName() *string {
 
 
 // Constructs a new instance of the EcrImage class.
+// Experimental.
 func NewEcrImage(repository awsecr.IRepository, tagOrDigest *string) EcrImage {
 	_init_.Initialize()
 
 	j := jsiiProxy_EcrImage{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.EcrImage",
+		"monocdk.aws_ecs.EcrImage",
 		[]interface{}{repository, tagOrDigest},
 		&j,
 	)
@@ -11067,11 +16693,12 @@ func NewEcrImage(repository awsecr.IRepository, tagOrDigest *string) EcrImage {
 }
 
 // Constructs a new instance of the EcrImage class.
+// Experimental.
 func NewEcrImage_Override(e EcrImage, repository awsecr.IRepository, tagOrDigest *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.EcrImage",
+		"monocdk.aws_ecs.EcrImage",
 		[]interface{}{repository, tagOrDigest},
 		e,
 	)
@@ -11081,13 +16708,14 @@ func NewEcrImage_Override(e EcrImage, repository awsecr.IRepository, tagOrDigest
 //
 // If you already have a `DockerImageAsset` instance, you can use the
 // `ContainerImage.fromDockerImageAsset` method instead.
+// Experimental.
 func EcrImage_FromAsset(directory *string, props *AssetImageProps) AssetImage {
 	_init_.Initialize()
 
 	var returns AssetImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.EcrImage",
+		"monocdk.aws_ecs.EcrImage",
 		"fromAsset",
 		[]interface{}{directory, props},
 		&returns,
@@ -11097,13 +16725,14 @@ func EcrImage_FromAsset(directory *string, props *AssetImageProps) AssetImage {
 }
 
 // Use an existing `DockerImageAsset` for this container image.
+// Experimental.
 func EcrImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) ContainerImage {
 	_init_.Initialize()
 
 	var returns ContainerImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.EcrImage",
+		"monocdk.aws_ecs.EcrImage",
 		"fromDockerImageAsset",
 		[]interface{}{asset},
 		&returns,
@@ -11113,13 +16742,14 @@ func EcrImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) Containe
 }
 
 // Reference an image in an ECR repository.
+// Experimental.
 func EcrImage_FromEcrRepository(repository awsecr.IRepository, tag *string) EcrImage {
 	_init_.Initialize()
 
 	var returns EcrImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.EcrImage",
+		"monocdk.aws_ecs.EcrImage",
 		"fromEcrRepository",
 		[]interface{}{repository, tag},
 		&returns,
@@ -11129,13 +16759,14 @@ func EcrImage_FromEcrRepository(repository awsecr.IRepository, tag *string) EcrI
 }
 
 // Reference an image on DockerHub or another online registry.
+// Experimental.
 func EcrImage_FromRegistry(name *string, props *RepositoryImageProps) RepositoryImage {
 	_init_.Initialize()
 
 	var returns RepositoryImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.EcrImage",
+		"monocdk.aws_ecs.EcrImage",
 		"fromRegistry",
 		[]interface{}{name, props},
 		&returns,
@@ -11148,13 +16779,14 @@ func EcrImage_FromRegistry(name *string, props *RepositoryImageProps) Repository
 //
 // Use this method if the container image has already been created by another process (e.g. jib)
 // and you want to add it as a container image asset.
+// Experimental.
 func EcrImage_FromTarball(tarballFile *string) ContainerImage {
 	_init_.Initialize()
 
 	var returns ContainerImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.EcrImage",
+		"monocdk.aws_ecs.EcrImage",
 		"fromTarball",
 		[]interface{}{tarballFile},
 		&returns,
@@ -11163,8 +16795,7 @@ func EcrImage_FromTarball(tarballFile *string) ContainerImage {
 	return returns
 }
 
-// Called when the image is used by a ContainerDefinition.
-func (e *jsiiProxy_EcrImage) Bind(_scope constructs.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
+func (e *jsiiProxy_EcrImage) Bind(_scope awscdk.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
 	var returns *ContainerImageConfig
 
 	_jsii_.Invoke(
@@ -11179,11 +16810,147 @@ func (e *jsiiProxy_EcrImage) Bind(_scope constructs.Construct, containerDefiniti
 
 // Construct a Linux or Windows machine image from the latest ECS Optimized AMI published in SSM.
 //
-// TODO: EXAMPLE
+// Example:
+//   var vpc vpc
+//   myComputeEnv := batch.NewComputeEnvironment(this, jsii.String("ComputeEnv"), &computeEnvironmentProps{
+//   	computeResources: &computeResources{
+//   		image: ecs.NewEcsOptimizedAmi(&ecsOptimizedAmiProps{
+//   			generation: ec2.amazonLinuxGeneration_AMAZON_LINUX_2,
+//   		}),
+//   		vpc: vpc,
+//   	},
+//   })
 //
+// Deprecated: see {@link EcsOptimizedImage#amazonLinux}, {@link EcsOptimizedImage#amazonLinux} and {@link EcsOptimizedImage#windows}.
+type EcsOptimizedAmi interface {
+	awsec2.IMachineImage
+	// Return the correct image.
+	// Deprecated: see {@link EcsOptimizedImage#amazonLinux}, {@link EcsOptimizedImage#amazonLinux} and {@link EcsOptimizedImage#windows}.
+	GetImage(scope awscdk.Construct) *awsec2.MachineImageConfig
+}
+
+// The jsii proxy struct for EcsOptimizedAmi
+type jsiiProxy_EcsOptimizedAmi struct {
+	internal.Type__awsec2IMachineImage
+}
+
+// Constructs a new instance of the EcsOptimizedAmi class.
+// Deprecated: see {@link EcsOptimizedImage#amazonLinux}, {@link EcsOptimizedImage#amazonLinux} and {@link EcsOptimizedImage#windows}.
+func NewEcsOptimizedAmi(props *EcsOptimizedAmiProps) EcsOptimizedAmi {
+	_init_.Initialize()
+
+	j := jsiiProxy_EcsOptimizedAmi{}
+
+	_jsii_.Create(
+		"monocdk.aws_ecs.EcsOptimizedAmi",
+		[]interface{}{props},
+		&j,
+	)
+
+	return &j
+}
+
+// Constructs a new instance of the EcsOptimizedAmi class.
+// Deprecated: see {@link EcsOptimizedImage#amazonLinux}, {@link EcsOptimizedImage#amazonLinux} and {@link EcsOptimizedImage#windows}.
+func NewEcsOptimizedAmi_Override(e EcsOptimizedAmi, props *EcsOptimizedAmiProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_ecs.EcsOptimizedAmi",
+		[]interface{}{props},
+		e,
+	)
+}
+
+func (e *jsiiProxy_EcsOptimizedAmi) GetImage(scope awscdk.Construct) *awsec2.MachineImageConfig {
+	var returns *awsec2.MachineImageConfig
+
+	_jsii_.Invoke(
+		e,
+		"getImage",
+		[]interface{}{scope},
+		&returns,
+	)
+
+	return returns
+}
+
+// The properties that define which ECS-optimized AMI is used.
+//
+// Example:
+//   var vpc vpc
+//   myComputeEnv := batch.NewComputeEnvironment(this, jsii.String("ComputeEnv"), &computeEnvironmentProps{
+//   	computeResources: &computeResources{
+//   		image: ecs.NewEcsOptimizedAmi(&ecsOptimizedAmiProps{
+//   			generation: ec2.amazonLinuxGeneration_AMAZON_LINUX_2,
+//   		}),
+//   		vpc: vpc,
+//   	},
+//   })
+//
+// Deprecated: see {@link EcsOptimizedImage}.
+type EcsOptimizedAmiProps struct {
+	// Whether the AMI ID is cached to be stable between deployments.
+	//
+	// By default, the newest image is used on each deployment. This will cause
+	// instances to be replaced whenever a new version is released, and may cause
+	// downtime if there aren't enough running instances in the AutoScalingGroup
+	// to reschedule the tasks on.
+	//
+	// If set to true, the AMI ID will be cached in `cdk.context.json` and the
+	// same value will be used on future runs. Your instances will not be replaced
+	// but your AMI version will grow old over time. To refresh the AMI lookup,
+	// you will have to evict the value from the cache using the `cdk context`
+	// command. See https://docs.aws.amazon.com/cdk/latest/guide/context.html for
+	// more information.
+	//
+	// Can not be set to `true` in environment-agnostic stacks.
+	// Deprecated: see {@link EcsOptimizedImage}.
+	CachedInContext *bool `json:"cachedInContext" yaml:"cachedInContext"`
+	// The Amazon Linux generation to use.
+	// Deprecated: see {@link EcsOptimizedImage}.
+	Generation awsec2.AmazonLinuxGeneration `json:"generation" yaml:"generation"`
+	// The ECS-optimized AMI variant to use.
+	// Deprecated: see {@link EcsOptimizedImage}.
+	HardwareType AmiHardwareType `json:"hardwareType" yaml:"hardwareType"`
+	// The Windows Server version to use.
+	// Deprecated: see {@link EcsOptimizedImage}.
+	WindowsVersion WindowsOptimizedVersion `json:"windowsVersion" yaml:"windowsVersion"`
+}
+
+// Construct a Linux or Windows machine image from the latest ECS Optimized AMI published in SSM.
+//
+// Example:
+//   var vpc vpc
+//
+//   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
+//   	vpc: vpc,
+//   })
+//
+//   // Either add default capacity
+//   cluster.addCapacity(jsii.String("DefaultAutoScalingGroupCapacity"), &addCapacityOptions{
+//   	instanceType: ec2.NewInstanceType(jsii.String("t2.xlarge")),
+//   	desiredCapacity: jsii.Number(3),
+//   })
+//
+//   // Or add customized capacity. Be sure to start the Amazon ECS-optimized AMI.
+//   autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
+//   	vpc: vpc,
+//   	instanceType: ec2.NewInstanceType(jsii.String("t2.xlarge")),
+//   	machineImage: ecs.ecsOptimizedImage.amazonLinux(),
+//   	// Or use Amazon ECS-Optimized Amazon Linux 2 AMI
+//   	// machineImage: EcsOptimizedImage.amazonLinux2(),
+//   	desiredCapacity: jsii.Number(3),
+//   })
+//
+//   cluster.addAutoScalingGroup(autoScalingGroup)
+//
+// Experimental.
 type EcsOptimizedImage interface {
 	awsec2.IMachineImage
-	GetImage(scope constructs.Construct) *awsec2.MachineImageConfig
+	// Return the correct image.
+	// Experimental.
+	GetImage(scope awscdk.Construct) *awsec2.MachineImageConfig
 }
 
 // The jsii proxy struct for EcsOptimizedImage
@@ -11192,13 +16959,14 @@ type jsiiProxy_EcsOptimizedImage struct {
 }
 
 // Construct an Amazon Linux AMI image from the latest ECS Optimized AMI published in SSM.
+// Experimental.
 func EcsOptimizedImage_AmazonLinux(options *EcsOptimizedImageOptions) EcsOptimizedImage {
 	_init_.Initialize()
 
 	var returns EcsOptimizedImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.EcsOptimizedImage",
+		"monocdk.aws_ecs.EcsOptimizedImage",
 		"amazonLinux",
 		[]interface{}{options},
 		&returns,
@@ -11208,13 +16976,14 @@ func EcsOptimizedImage_AmazonLinux(options *EcsOptimizedImageOptions) EcsOptimiz
 }
 
 // Construct an Amazon Linux 2 image from the latest ECS Optimized AMI published in SSM.
+// Experimental.
 func EcsOptimizedImage_AmazonLinux2(hardwareType AmiHardwareType, options *EcsOptimizedImageOptions) EcsOptimizedImage {
 	_init_.Initialize()
 
 	var returns EcsOptimizedImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.EcsOptimizedImage",
+		"monocdk.aws_ecs.EcsOptimizedImage",
 		"amazonLinux2",
 		[]interface{}{hardwareType, options},
 		&returns,
@@ -11224,13 +16993,14 @@ func EcsOptimizedImage_AmazonLinux2(hardwareType AmiHardwareType, options *EcsOp
 }
 
 // Construct a Windows image from the latest ECS Optimized AMI published in SSM.
+// Experimental.
 func EcsOptimizedImage_Windows(windowsVersion WindowsOptimizedVersion, options *EcsOptimizedImageOptions) EcsOptimizedImage {
 	_init_.Initialize()
 
 	var returns EcsOptimizedImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.EcsOptimizedImage",
+		"monocdk.aws_ecs.EcsOptimizedImage",
 		"windows",
 		[]interface{}{windowsVersion, options},
 		&returns,
@@ -11239,8 +17009,7 @@ func EcsOptimizedImage_Windows(windowsVersion WindowsOptimizedVersion, options *
 	return returns
 }
 
-// Return the correct image.
-func (e *jsiiProxy_EcsOptimizedImage) GetImage(scope constructs.Construct) *awsec2.MachineImageConfig {
+func (e *jsiiProxy_EcsOptimizedImage) GetImage(scope awscdk.Construct) *awsec2.MachineImageConfig {
 	var returns *awsec2.MachineImageConfig
 
 	_jsii_.Invoke(
@@ -11255,8 +17024,17 @@ func (e *jsiiProxy_EcsOptimizedImage) GetImage(scope constructs.Construct) *awse
 
 // Additional configuration properties for EcsOptimizedImage factory functions.
 //
-// TODO: EXAMPLE
+// Example:
+//   var vpc vpc
+//   autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
+//   	machineImage: ecs.ecsOptimizedImage.amazonLinux(&ecsOptimizedImageOptions{
+//   		cachedInContext: jsii.Boolean(true),
+//   	}),
+//   	vpc: vpc,
+//   	instanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
+//   })
 //
+// Experimental.
 type EcsOptimizedImageOptions struct {
 	// Whether the AMI ID is cached to be stable between deployments.
 	//
@@ -11273,59 +17051,141 @@ type EcsOptimizedImageOptions struct {
 	// more information.
 	//
 	// Can not be set to `true` in environment-agnostic stacks.
+	// Experimental.
 	CachedInContext *bool `json:"cachedInContext" yaml:"cachedInContext"`
 }
 
-// TODO: EXAMPLE
+// Example:
+//   var cluster cluster
+//   var taskDefinition taskDefinition
+//   var vpc vpc
+//   service := ecs.NewFargateService(this, jsii.String("Service"), &fargateServiceProps{
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   })
 //
+//   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &applicationLoadBalancerProps{
+//   	vpc: vpc,
+//   	internetFacing: jsii.Boolean(true),
+//   })
+//   listener := lb.addListener(jsii.String("Listener"), &baseApplicationListenerProps{
+//   	port: jsii.Number(80),
+//   })
+//   service.registerLoadBalancerTargets(&ecsTarget{
+//   	containerName: jsii.String("web"),
+//   	containerPort: jsii.Number(80),
+//   	newTargetGroupId: jsii.String("ECS"),
+//   	listener: ecs.listenerConfig.applicationListener(listener, &addApplicationTargetsProps{
+//   		protocol: elbv2.applicationProtocol_HTTPS,
+//   	}),
+//   })
+//
+// Experimental.
 type EcsTarget struct {
 	// The name of the container.
+	// Experimental.
 	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// Listener and properties for adding target group to the listener.
+	// Experimental.
 	Listener ListenerConfig `json:"listener" yaml:"listener"`
 	// ID for a target group to be created.
+	// Experimental.
 	NewTargetGroupId *string `json:"newTargetGroupId" yaml:"newTargetGroupId"`
 	// The port number of the container.
 	//
 	// Only applicable when using application/network load balancers.
+	// Experimental.
 	ContainerPort *float64 `json:"containerPort" yaml:"containerPort"`
 	// The protocol used for the port mapping.
 	//
 	// Only applicable when using application load balancers.
+	// Experimental.
 	Protocol Protocol `json:"protocol" yaml:"protocol"`
 }
 
 // The configuration for an Elastic FileSystem volume.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   efsVolumeConfiguration := &efsVolumeConfiguration{
+//   	fileSystemId: jsii.String("fileSystemId"),
 //
+//   	// the properties below are optional
+//   	authorizationConfig: &authorizationConfig{
+//   		accessPointId: jsii.String("accessPointId"),
+//   		iam: jsii.String("iam"),
+//   	},
+//   	rootDirectory: jsii.String("rootDirectory"),
+//   	transitEncryption: jsii.String("transitEncryption"),
+//   	transitEncryptionPort: jsii.Number(123),
+//   }
+//
+// Experimental.
 type EfsVolumeConfiguration struct {
 	// The Amazon EFS file system ID to use.
+	// Experimental.
 	FileSystemId *string `json:"fileSystemId" yaml:"fileSystemId"`
 	// The authorization configuration details for the Amazon EFS file system.
+	// Experimental.
 	AuthorizationConfig *AuthorizationConfig `json:"authorizationConfig" yaml:"authorizationConfig"`
 	// The directory within the Amazon EFS file system to mount as the root directory inside the host.
 	//
 	// Specifying / will have the same effect as omitting this parameter.
+	// Experimental.
 	RootDirectory *string `json:"rootDirectory" yaml:"rootDirectory"`
 	// Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server.
 	//
 	// Transit encryption must be enabled if Amazon EFS IAM authorization is used.
 	//
-	// Valid values: ENABLED | DISABLED
+	// Valid values: ENABLED | DISABLED.
+	// Experimental.
 	TransitEncryption *string `json:"transitEncryption" yaml:"transitEncryption"`
 	// The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.
 	//
 	// EFS mount helper uses.
+	// Experimental.
 	TransitEncryptionPort *float64 `json:"transitEncryptionPort" yaml:"transitEncryptionPort"`
 }
 
 // Constructs for types of environment files.
 //
-// TODO: EXAMPLE
+// Example:
+//   var secret secret
+//   var dbSecret secret
+//   var parameter stringParameter
+//   var taskDefinition taskDefinition
+//   var s3Bucket bucket
 //
+//   newContainer := taskDefinition.addContainer(jsii.String("container"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	memoryLimitMiB: jsii.Number(1024),
+//   	environment: map[string]*string{
+//   		 // clear text, not for sensitive data
+//   		"STAGE": jsii.String("prod"),
+//   	},
+//   	environmentFiles: []environmentFile{
+//   		ecs.*environmentFile.fromAsset(jsii.String("./demo-env-file.env")),
+//   		ecs.*environmentFile.fromBucket(s3Bucket, jsii.String("assets/demo-env-file.env")),
+//   	},
+//   	secrets: map[string]secret{
+//   		 // Retrieved from AWS Secrets Manager or AWS Systems Manager Parameter Store at container start-up.
+//   		"SECRET": ecs.*secret.fromSecretsManager(secret),
+//   		"DB_PASSWORD": ecs.*secret.fromSecretsManager(dbSecret, jsii.String("password")),
+//   		 // Reference a specific JSON field, (requires platform version 1.4.0 or later for Fargate tasks)
+//   		"API_KEY": ecs.*secret.fromSecretsManagerVersion(secret, &SecretVersionInfo{
+//   			"versionId": jsii.String("12345"),
+//   		}, jsii.String("apiKey")),
+//   		 // Reference a specific version of the secret by its version id or version stage (requires platform version 1.4.0 or later for Fargate tasks)
+//   		"PARAMETER": ecs.*secret.fromSsmParameter(parameter),
+//   	},
+//   })
+//   newContainer.addEnvironment(jsii.String("QUEUE_NAME"), jsii.String("MyQueue"))
+//
+// Experimental.
 type EnvironmentFile interface {
-	Bind(scope constructs.Construct) *EnvironmentFileConfig
+	// Called when the container is initialized to allow this object to bind to the stack.
+	// Experimental.
+	Bind(scope awscdk.Construct) *EnvironmentFileConfig
 }
 
 // The jsii proxy struct for EnvironmentFile
@@ -11333,24 +17193,26 @@ type jsiiProxy_EnvironmentFile struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewEnvironmentFile_Override(e EnvironmentFile) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.EnvironmentFile",
+		"monocdk.aws_ecs.EnvironmentFile",
 		nil, // no parameters
 		e,
 	)
 }
 
 // Loads the environment file from a local disk path.
+// Experimental.
 func EnvironmentFile_FromAsset(path *string, options *awss3assets.AssetOptions) AssetEnvironmentFile {
 	_init_.Initialize()
 
 	var returns AssetEnvironmentFile
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.EnvironmentFile",
+		"monocdk.aws_ecs.EnvironmentFile",
 		"fromAsset",
 		[]interface{}{path, options},
 		&returns,
@@ -11362,13 +17224,14 @@ func EnvironmentFile_FromAsset(path *string, options *awss3assets.AssetOptions) 
 // Loads the environment file from an S3 bucket.
 //
 // Returns: `S3EnvironmentFile` associated with the specified S3 object.
+// Experimental.
 func EnvironmentFile_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3EnvironmentFile {
 	_init_.Initialize()
 
 	var returns S3EnvironmentFile
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.EnvironmentFile",
+		"monocdk.aws_ecs.EnvironmentFile",
 		"fromBucket",
 		[]interface{}{bucket, key, objectVersion},
 		&returns,
@@ -11377,8 +17240,7 @@ func EnvironmentFile_FromBucket(bucket awss3.IBucket, key *string, objectVersion
 	return returns
 }
 
-// Called when the container is initialized to allow this object to bind to the stack.
-func (e *jsiiProxy_EnvironmentFile) Bind(scope constructs.Construct) *EnvironmentFileConfig {
+func (e *jsiiProxy_EnvironmentFile) Bind(scope awscdk.Construct) *EnvironmentFileConfig {
 	var returns *EnvironmentFileConfig
 
 	_jsii_.Invoke(
@@ -11393,19 +17255,36 @@ func (e *jsiiProxy_EnvironmentFile) Bind(scope constructs.Construct) *Environmen
 
 // Configuration for the environment file.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   environmentFileConfig := &environmentFileConfig{
+//   	fileType: ecs.environmentFileType_S3,
+//   	s3Location: &location{
+//   		bucketName: jsii.String("bucketName"),
+//   		objectKey: jsii.String("objectKey"),
 //
+//   		// the properties below are optional
+//   		objectVersion: jsii.String("objectVersion"),
+//   	},
+//   }
+//
+// Experimental.
 type EnvironmentFileConfig struct {
 	// The type of environment file.
+	// Experimental.
 	FileType EnvironmentFileType `json:"fileType" yaml:"fileType"`
 	// The location of the environment file in S3.
+	// Experimental.
 	S3Location *awss3.Location `json:"s3Location" yaml:"s3Location"`
 }
 
 // Type of environment file to be included in the container definition.
+// Experimental.
 type EnvironmentFileType string
 
 const (
+	// Environment file hosted on S3, referenced by object ARN.
+	// Experimental.
 	EnvironmentFileType_S3 EnvironmentFileType = "S3"
 )
 
@@ -11414,16 +17293,47 @@ const (
 // For more information, see
 // [ExecuteCommandConfiguration] https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html
 //
-// TODO: EXAMPLE
+// Example:
+//   var vpc vpc
+//   kmsKey := kms.NewKey(this, jsii.String("KmsKey"))
 //
+//   // Pass the KMS key in the `encryptionKey` field to associate the key to the log group
+//   logGroup := logs.NewLogGroup(this, jsii.String("LogGroup"), &logGroupProps{
+//   	encryptionKey: kmsKey,
+//   })
+//
+//   // Pass the KMS key in the `encryptionKey` field to associate the key to the S3 bucket
+//   execBucket := s3.NewBucket(this, jsii.String("EcsExecBucket"), &bucketProps{
+//   	encryptionKey: kmsKey,
+//   })
+//
+//   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
+//   	vpc: vpc,
+//   	executeCommandConfiguration: &executeCommandConfiguration{
+//   		kmsKey: kmsKey,
+//   		logConfiguration: &executeCommandLogConfiguration{
+//   			cloudWatchLogGroup: logGroup,
+//   			cloudWatchEncryptionEnabled: jsii.Boolean(true),
+//   			s3Bucket: execBucket,
+//   			s3EncryptionEnabled: jsii.Boolean(true),
+//   			s3KeyPrefix: jsii.String("exec-command-output"),
+//   		},
+//   		logging: ecs.executeCommandLogging_OVERRIDE,
+//   	},
+//   })
+//
+// Experimental.
 type ExecuteCommandConfiguration struct {
 	// The AWS Key Management Service key ID to encrypt the data between the local client and the container.
+	// Experimental.
 	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
 	// The log configuration for the results of the execute command actions.
 	//
 	// The logs can be sent to CloudWatch Logs or an Amazon S3 bucket.
+	// Experimental.
 	LogConfiguration *ExecuteCommandLogConfiguration `json:"logConfiguration" yaml:"logConfiguration"`
 	// The log settings to use for logging the execute command session.
+	// Experimental.
 	Logging ExecuteCommandLogging `json:"logging" yaml:"logging"`
 }
 
@@ -11432,22 +17342,55 @@ type ExecuteCommandConfiguration struct {
 // The logs can be sent to CloudWatch Logs and/ or an Amazon S3 bucket.
 // For more information, see [ExecuteCommandLogConfiguration] https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html
 //
-// TODO: EXAMPLE
+// Example:
+//   var vpc vpc
+//   kmsKey := kms.NewKey(this, jsii.String("KmsKey"))
 //
+//   // Pass the KMS key in the `encryptionKey` field to associate the key to the log group
+//   logGroup := logs.NewLogGroup(this, jsii.String("LogGroup"), &logGroupProps{
+//   	encryptionKey: kmsKey,
+//   })
+//
+//   // Pass the KMS key in the `encryptionKey` field to associate the key to the S3 bucket
+//   execBucket := s3.NewBucket(this, jsii.String("EcsExecBucket"), &bucketProps{
+//   	encryptionKey: kmsKey,
+//   })
+//
+//   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
+//   	vpc: vpc,
+//   	executeCommandConfiguration: &executeCommandConfiguration{
+//   		kmsKey: kmsKey,
+//   		logConfiguration: &executeCommandLogConfiguration{
+//   			cloudWatchLogGroup: logGroup,
+//   			cloudWatchEncryptionEnabled: jsii.Boolean(true),
+//   			s3Bucket: execBucket,
+//   			s3EncryptionEnabled: jsii.Boolean(true),
+//   			s3KeyPrefix: jsii.String("exec-command-output"),
+//   		},
+//   		logging: ecs.executeCommandLogging_OVERRIDE,
+//   	},
+//   })
+//
+// Experimental.
 type ExecuteCommandLogConfiguration struct {
 	// Whether or not to enable encryption on the CloudWatch logs.
+	// Experimental.
 	CloudWatchEncryptionEnabled *bool `json:"cloudWatchEncryptionEnabled" yaml:"cloudWatchEncryptionEnabled"`
 	// The name of the CloudWatch log group to send logs to.
 	//
 	// The CloudWatch log group must already be created.
+	// Experimental.
 	CloudWatchLogGroup awslogs.ILogGroup `json:"cloudWatchLogGroup" yaml:"cloudWatchLogGroup"`
 	// The name of the S3 bucket to send logs to.
 	//
 	// The S3 bucket must already be created.
+	// Experimental.
 	S3Bucket awss3.IBucket `json:"s3Bucket" yaml:"s3Bucket"`
 	// Whether or not to enable encryption on the CloudWatch logs.
+	// Experimental.
 	S3EncryptionEnabled *bool `json:"s3EncryptionEnabled" yaml:"s3EncryptionEnabled"`
 	// An optional folder in the S3 bucket to place logs in.
+	// Experimental.
 	S3KeyPrefix *string `json:"s3KeyPrefix" yaml:"s3KeyPrefix"`
 }
 
@@ -11456,58 +17399,256 @@ type ExecuteCommandLogConfiguration struct {
 // For more information, see
 // [Logging] https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logging
 //
-// TODO: EXAMPLE
+// Example:
+//   var vpc vpc
+//   kmsKey := kms.NewKey(this, jsii.String("KmsKey"))
 //
+//   // Pass the KMS key in the `encryptionKey` field to associate the key to the log group
+//   logGroup := logs.NewLogGroup(this, jsii.String("LogGroup"), &logGroupProps{
+//   	encryptionKey: kmsKey,
+//   })
+//
+//   // Pass the KMS key in the `encryptionKey` field to associate the key to the S3 bucket
+//   execBucket := s3.NewBucket(this, jsii.String("EcsExecBucket"), &bucketProps{
+//   	encryptionKey: kmsKey,
+//   })
+//
+//   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
+//   	vpc: vpc,
+//   	executeCommandConfiguration: &executeCommandConfiguration{
+//   		kmsKey: kmsKey,
+//   		logConfiguration: &executeCommandLogConfiguration{
+//   			cloudWatchLogGroup: logGroup,
+//   			cloudWatchEncryptionEnabled: jsii.Boolean(true),
+//   			s3Bucket: execBucket,
+//   			s3EncryptionEnabled: jsii.Boolean(true),
+//   			s3KeyPrefix: jsii.String("exec-command-output"),
+//   		},
+//   		logging: ecs.executeCommandLogging_OVERRIDE,
+//   	},
+//   })
+//
+// Experimental.
 type ExecuteCommandLogging string
 
 const (
+	// The execute command session is not logged.
+	// Experimental.
 	ExecuteCommandLogging_NONE ExecuteCommandLogging = "NONE"
+	// The awslogs configuration in the task definition is used.
+	//
+	// If no logging parameter is specified, it defaults to this value. If no awslogs log driver is configured in the task definition, the output won't be logged.
+	// Experimental.
 	ExecuteCommandLogging_DEFAULT ExecuteCommandLogging = "DEFAULT"
+	// Specify the logging details as a part of logConfiguration.
+	// Experimental.
 	ExecuteCommandLogging_OVERRIDE ExecuteCommandLogging = "OVERRIDE"
 )
 
 // This creates a service using the External launch type on an ECS cluster.
 //
-// TODO: EXAMPLE
+// Example:
+//   var cluster cluster
+//   var taskDefinition taskDefinition
 //
+//   service := ecs.NewExternalService(this, jsii.String("Service"), &externalServiceProps{
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   	desiredCount: jsii.Number(5),
+//   })
+//
+// Experimental.
 type ExternalService interface {
 	BaseService
 	IExternalService
+	// The details of the AWS Cloud Map service.
+	// Experimental.
 	CloudmapService() awsservicediscovery.Service
+	// Experimental.
 	SetCloudmapService(val awsservicediscovery.Service)
+	// The CloudMap service created for this service, if any.
+	// Experimental.
 	CloudMapService() awsservicediscovery.IService
+	// The cluster that hosts the service.
+	// Experimental.
 	Cluster() ICluster
+	// The security groups which manage the allowed network traffic for the service.
+	// Experimental.
 	Connections() awsec2.Connections
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
+	// A list of Elastic Load Balancing load balancer objects, containing the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer.
+	// Experimental.
 	LoadBalancers() *[]*CfnService_LoadBalancerProperty
+	// Experimental.
 	SetLoadBalancers(val *[]*CfnService_LoadBalancerProperty)
+	// A list of Elastic Load Balancing load balancer objects, containing the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer.
+	// Experimental.
 	NetworkConfiguration() *CfnService_NetworkConfigurationProperty
+	// Experimental.
 	SetNetworkConfiguration(val *CfnService_NetworkConfigurationProperty)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
+	// The Amazon Resource Name (ARN) of the service.
+	// Experimental.
 	ServiceArn() *string
+	// The name of the service.
+	// Experimental.
 	ServiceName() *string
+	// The details of the service discovery registries to assign to this service.
+	//
+	// For more information, see Service Discovery.
+	// Experimental.
 	ServiceRegistries() *[]*CfnService_ServiceRegistryProperty
+	// Experimental.
 	SetServiceRegistries(val *[]*CfnService_ServiceRegistryProperty)
+	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
+	// The task definition to use for tasks in the service.
+	// Experimental.
 	TaskDefinition() TaskDefinition
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Overriden method to throw error as `associateCloudMapService` is not supported for external service.
+	// Experimental.
 	AssociateCloudMapService(_options *AssociateCloudMapServiceOptions)
+	// Overriden method to throw error as `attachToApplicationTargetGroup` is not supported for external service.
+	// Experimental.
 	AttachToApplicationTargetGroup(_targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
+	// Registers the service as a target of a Classic Load Balancer (CLB).
+	//
+	// Don't call this. Call `loadBalancer.addTarget()` instead.
+	// Experimental.
 	AttachToClassicLB(loadBalancer awselasticloadbalancing.LoadBalancer)
+	// This method is called to attach this service to a Network Load Balancer.
+	//
+	// Don't call this function directly. Instead, call `listener.addTargets()`
+	// to add this service to a load balancer.
+	// Experimental.
 	AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
+	// Overriden method to throw error as `autoScaleTaskCount` is not supported for external service.
+	// Experimental.
 	AutoScaleTaskCount(_props *awsapplicationautoscaling.EnableScalingProps) ScalableTaskCount
+	// This method is called to create a networkConfiguration.
+	// Deprecated: use configureAwsVpcNetworkingWithSecurityGroups instead.
+	ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup)
+	// Overriden method to throw error as `configureAwsVpcNetworkingWithSecurityGroups` is not supported for external service.
+	// Experimental.
 	ConfigureAwsVpcNetworkingWithSecurityGroups(_vpc awsec2.IVpc, _assignPublicIp *bool, _vpcSubnets *awsec2.SubnetSelection, _securityGroups *[]awsec2.ISecurityGroup)
+	// Overriden method to throw error as `enableCloudMap` is not supported for external service.
+	// Experimental.
 	EnableCloudMap(_options *CloudMapOptions) awsservicediscovery.Service
+	// Experimental.
 	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Overriden method to throw error as `loadBalancerTarget` is not supported for external service.
+	// Experimental.
 	LoadBalancerTarget(_options *LoadBalancerTargetOptions) IEcsLoadBalancerTarget
+	// This method returns the specified CloudWatch metric name for this service.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// This method returns the CloudWatch metric for this service's CPU utilization.
+	// Experimental.
 	MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// This method returns the CloudWatch metric for this service's memory utilization.
+	// Experimental.
 	MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Overriden method to throw error as `registerLoadBalancerTargets` is not supported for external service.
+	// Experimental.
 	RegisterLoadBalancerTargets(_targets ...*EcsTarget)
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ExternalService
@@ -11586,8 +17727,8 @@ func (j *jsiiProxy_ExternalService) NetworkConfiguration() *CfnService_NetworkCo
 	return returns
 }
 
-func (j *jsiiProxy_ExternalService) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ExternalService) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -11658,13 +17799,14 @@ func (j *jsiiProxy_ExternalService) TaskDefinition() TaskDefinition {
 
 
 // Constructs a new instance of the ExternalService class.
+// Experimental.
 func NewExternalService(scope constructs.Construct, id *string, props *ExternalServiceProps) ExternalService {
 	_init_.Initialize()
 
 	j := jsiiProxy_ExternalService{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.ExternalService",
+		"monocdk.aws_ecs.ExternalService",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -11673,11 +17815,12 @@ func NewExternalService(scope constructs.Construct, id *string, props *ExternalS
 }
 
 // Constructs a new instance of the ExternalService class.
+// Experimental.
 func NewExternalService_Override(e ExternalService, scope constructs.Construct, id *string, props *ExternalServiceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.ExternalService",
+		"monocdk.aws_ecs.ExternalService",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -11716,13 +17859,14 @@ func (j *jsiiProxy_ExternalService) SetServiceRegistries(val *[]*CfnService_Serv
 }
 
 // Imports from the specified service ARN.
+// Experimental.
 func ExternalService_FromExternalServiceArn(scope constructs.Construct, id *string, externalServiceArn *string) IExternalService {
 	_init_.Initialize()
 
 	var returns IExternalService
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.ExternalService",
+		"monocdk.aws_ecs.ExternalService",
 		"fromExternalServiceArn",
 		[]interface{}{scope, id, externalServiceArn},
 		&returns,
@@ -11732,13 +17876,14 @@ func ExternalService_FromExternalServiceArn(scope constructs.Construct, id *stri
 }
 
 // Imports from the specified service attrributes.
+// Experimental.
 func ExternalService_FromExternalServiceAttributes(scope constructs.Construct, id *string, attrs *ExternalServiceAttributes) IBaseService {
 	_init_.Initialize()
 
 	var returns IBaseService
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.ExternalService",
+		"monocdk.aws_ecs.ExternalService",
 		"fromExternalServiceAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -11752,13 +17897,14 @@ func ExternalService_FromExternalServiceAttributes(scope constructs.Construct, i
 // The format is the "new" format "arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name".
 // See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids
 //
+// Experimental.
 func ExternalService_FromServiceArnWithCluster(scope constructs.Construct, id *string, serviceArn *string) IBaseService {
 	_init_.Initialize()
 
 	var returns IBaseService
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.ExternalService",
+		"monocdk.aws_ecs.ExternalService",
 		"fromServiceArnWithCluster",
 		[]interface{}{scope, id, serviceArn},
 		&returns,
@@ -11767,17 +17913,15 @@ func ExternalService_FromServiceArnWithCluster(scope constructs.Construct, id *s
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func ExternalService_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.ExternalService",
+		"monocdk.aws_ecs.ExternalService",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -11787,13 +17931,14 @@ func ExternalService_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func ExternalService_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func ExternalService_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.ExternalService",
+		"monocdk.aws_ecs.ExternalService",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -11802,15 +17947,6 @@ func ExternalService_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Apply the given removal policy to this resource.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (e *jsiiProxy_ExternalService) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		e,
@@ -11819,7 +17955,6 @@ func (e *jsiiProxy_ExternalService) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 	)
 }
 
-// Overriden method to throw error as `associateCloudMapService` is not supported for external service.
 func (e *jsiiProxy_ExternalService) AssociateCloudMapService(_options *AssociateCloudMapServiceOptions) {
 	_jsii_.InvokeVoid(
 		e,
@@ -11828,7 +17963,6 @@ func (e *jsiiProxy_ExternalService) AssociateCloudMapService(_options *Associate
 	)
 }
 
-// Overriden method to throw error as `attachToApplicationTargetGroup` is not supported for external service.
 func (e *jsiiProxy_ExternalService) AttachToApplicationTargetGroup(_targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
@@ -11842,9 +17976,6 @@ func (e *jsiiProxy_ExternalService) AttachToApplicationTargetGroup(_targetGroup 
 	return returns
 }
 
-// Registers the service as a target of a Classic Load Balancer (CLB).
-//
-// Don't call this. Call `loadBalancer.addTarget()` instead.
 func (e *jsiiProxy_ExternalService) AttachToClassicLB(loadBalancer awselasticloadbalancing.LoadBalancer) {
 	_jsii_.InvokeVoid(
 		e,
@@ -11853,10 +17984,6 @@ func (e *jsiiProxy_ExternalService) AttachToClassicLB(loadBalancer awselasticloa
 	)
 }
 
-// This method is called to attach this service to a Network Load Balancer.
-//
-// Don't call this function directly. Instead, call `listener.addTargets()`
-// to add this service to a load balancer.
 func (e *jsiiProxy_ExternalService) AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
@@ -11870,7 +17997,6 @@ func (e *jsiiProxy_ExternalService) AttachToNetworkTargetGroup(targetGroup awsel
 	return returns
 }
 
-// Overriden method to throw error as `autoScaleTaskCount` is not supported for external service.
 func (e *jsiiProxy_ExternalService) AutoScaleTaskCount(_props *awsapplicationautoscaling.EnableScalingProps) ScalableTaskCount {
 	var returns ScalableTaskCount
 
@@ -11884,7 +18010,14 @@ func (e *jsiiProxy_ExternalService) AutoScaleTaskCount(_props *awsapplicationaut
 	return returns
 }
 
-// Overriden method to throw error as `configureAwsVpcNetworkingWithSecurityGroups` is not supported for external service.
+func (e *jsiiProxy_ExternalService) ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup) {
+	_jsii_.InvokeVoid(
+		e,
+		"configureAwsVpcNetworking",
+		[]interface{}{vpc, assignPublicIp, vpcSubnets, securityGroup},
+	)
+}
+
 func (e *jsiiProxy_ExternalService) ConfigureAwsVpcNetworkingWithSecurityGroups(_vpc awsec2.IVpc, _assignPublicIp *bool, _vpcSubnets *awsec2.SubnetSelection, _securityGroups *[]awsec2.ISecurityGroup) {
 	_jsii_.InvokeVoid(
 		e,
@@ -11893,7 +18026,6 @@ func (e *jsiiProxy_ExternalService) ConfigureAwsVpcNetworkingWithSecurityGroups(
 	)
 }
 
-// Overriden method to throw error as `enableCloudMap` is not supported for external service.
 func (e *jsiiProxy_ExternalService) EnableCloudMap(_options *CloudMapOptions) awsservicediscovery.Service {
 	var returns awsservicediscovery.Service
 
@@ -11920,12 +18052,6 @@ func (e *jsiiProxy_ExternalService) GeneratePhysicalName() *string {
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
-//
-// Normally, this token will resolve to `arnAttr`, but if the resource is
-// referenced across environments, `arnComponents` will be used to synthesize
-// a concrete ARN with the resource's physical name. Make sure to reference
-// `this.physicalName` in `arnComponents`.
 func (e *jsiiProxy_ExternalService) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -11939,11 +18065,6 @@ func (e *jsiiProxy_ExternalService) GetResourceArnAttribute(arnAttr *string, arn
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
-//
-// Normally, this token will resolve to `nameAttr`, but if the resource is
-// referenced across environments, it will be resolved to `this.physicalName`,
-// which will be a concrete name.
 func (e *jsiiProxy_ExternalService) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -11957,7 +18078,6 @@ func (e *jsiiProxy_ExternalService) GetResourceNameAttribute(nameAttr *string) *
 	return returns
 }
 
-// Overriden method to throw error as `loadBalancerTarget` is not supported for external service.
 func (e *jsiiProxy_ExternalService) LoadBalancerTarget(_options *LoadBalancerTargetOptions) IEcsLoadBalancerTarget {
 	var returns IEcsLoadBalancerTarget
 
@@ -11971,7 +18091,6 @@ func (e *jsiiProxy_ExternalService) LoadBalancerTarget(_options *LoadBalancerTar
 	return returns
 }
 
-// This method returns the specified CloudWatch metric name for this service.
 func (e *jsiiProxy_ExternalService) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11985,7 +18104,6 @@ func (e *jsiiProxy_ExternalService) Metric(metricName *string, props *awscloudwa
 	return returns
 }
 
-// This method returns the CloudWatch metric for this service's CPU utilization.
 func (e *jsiiProxy_ExternalService) MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11999,7 +18117,6 @@ func (e *jsiiProxy_ExternalService) MetricCpuUtilization(props *awscloudwatch.Me
 	return returns
 }
 
-// This method returns the CloudWatch metric for this service's memory utilization.
 func (e *jsiiProxy_ExternalService) MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -12013,7 +18130,43 @@ func (e *jsiiProxy_ExternalService) MetricMemoryUtilization(props *awscloudwatch
 	return returns
 }
 
-// Overriden method to throw error as `registerLoadBalancerTargets` is not supported for external service.
+func (e *jsiiProxy_ExternalService) OnPrepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (e *jsiiProxy_ExternalService) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (e *jsiiProxy_ExternalService) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_ExternalService) Prepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 func (e *jsiiProxy_ExternalService) RegisterLoadBalancerTargets(_targets ...*EcsTarget) {
 	args := []interface{}{}
 	for _, a := range _targets {
@@ -12027,7 +18180,14 @@ func (e *jsiiProxy_ExternalService) RegisterLoadBalancerTargets(_targets ...*Ecs
 	)
 }
 
-// Returns a string representation of this construct.
+func (e *jsiiProxy_ExternalService) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (e *jsiiProxy_ExternalService) ToString() *string {
 	var returns *string
 
@@ -12041,112 +18201,326 @@ func (e *jsiiProxy_ExternalService) ToString() *string {
 	return returns
 }
 
+func (e *jsiiProxy_ExternalService) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // The properties to import from the service using the External launch type.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
 //
+//   var cluster cluster
+//   externalServiceAttributes := &externalServiceAttributes{
+//   	cluster: cluster,
+//
+//   	// the properties below are optional
+//   	serviceArn: jsii.String("serviceArn"),
+//   	serviceName: jsii.String("serviceName"),
+//   }
+//
+// Experimental.
 type ExternalServiceAttributes struct {
 	// The cluster that hosts the service.
+	// Experimental.
 	Cluster ICluster `json:"cluster" yaml:"cluster"`
 	// The service ARN.
+	// Experimental.
 	ServiceArn *string `json:"serviceArn" yaml:"serviceArn"`
 	// The name of the service.
+	// Experimental.
 	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 }
 
 // The properties for defining a service using the External launch type.
 //
-// TODO: EXAMPLE
+// Example:
+//   var cluster cluster
+//   var taskDefinition taskDefinition
 //
+//   service := ecs.NewExternalService(this, jsii.String("Service"), &externalServiceProps{
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   	desiredCount: jsii.Number(5),
+//   })
+//
+// Experimental.
 type ExternalServiceProps struct {
 	// The name of the cluster that hosts the service.
+	// Experimental.
 	Cluster ICluster `json:"cluster" yaml:"cluster"`
 	// A list of Capacity Provider strategies used to place a service.
+	// Experimental.
 	CapacityProviderStrategies *[]*CapacityProviderStrategy `json:"capacityProviderStrategies" yaml:"capacityProviderStrategies"`
 	// Whether to enable the deployment circuit breaker.
 	//
 	// If this property is defined, circuit breaker will be implicitly
 	// enabled.
+	// Experimental.
 	CircuitBreaker *DeploymentCircuitBreaker `json:"circuitBreaker" yaml:"circuitBreaker"`
 	// The options for configuring an Amazon ECS service to use service discovery.
+	// Experimental.
 	CloudMapOptions *CloudMapOptions `json:"cloudMapOptions" yaml:"cloudMapOptions"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
+	// Experimental.
 	DeploymentController *DeploymentController `json:"deploymentController" yaml:"deploymentController"`
 	// The desired number of instantiations of the task definition to keep running on the service.
+	// Experimental.
 	DesiredCount *float64 `json:"desiredCount" yaml:"desiredCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
+	// Experimental.
 	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// Whether to enable the ability to execute into a container.
+	// Experimental.
 	EnableExecuteCommand *bool `json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
+	// Experimental.
 	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
+	// Experimental.
 	MaxHealthyPercent *float64 `json:"maxHealthyPercent" yaml:"maxHealthyPercent"`
 	// The minimum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that must continue to run and remain healthy during a deployment.
+	// Experimental.
 	MinHealthyPercent *float64 `json:"minHealthyPercent" yaml:"minHealthyPercent"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Valid values are: PropagatedTagSource.SERVICE, PropagatedTagSource.TASK_DEFINITION or PropagatedTagSource.NONE
+	// Experimental.
 	PropagateTags PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
+	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
+	//
+	// Tags can only be propagated to the tasks within the service during service creation.
+	// Deprecated: Use `propagateTags` instead.
+	PropagateTaskTagsFrom PropagatedTagSource `json:"propagateTaskTagsFrom" yaml:"propagateTaskTagsFrom"`
 	// The name of the service.
+	// Experimental.
 	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// The task definition to use for tasks in the service.
 	//
-	// [disable-awslint:ref-via-interface]
+	// [disable-awslint:ref-via-interface].
+	// Experimental.
 	TaskDefinition TaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 	// The security groups to associate with the service.
 	//
 	// If you do not specify a security group, a new security group is created.
+	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 }
 
 // The details of a task definition run on an External cluster.
 //
-// TODO: EXAMPLE
+// Example:
+//   externalTaskDefinition := ecs.NewExternalTaskDefinition(this, jsii.String("TaskDef"))
 //
+//   container := externalTaskDefinition.addContainer(jsii.String("WebContainer"), &containerDefinitionOptions{
+//   	// Use an image from DockerHub
+//   	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	memoryLimitMiB: jsii.Number(1024),
+//   })
+//
+// Experimental.
 type ExternalTaskDefinition interface {
 	TaskDefinition
 	IExternalTaskDefinition
+	// The task launch type compatibility requirement.
+	// Experimental.
 	Compatibility() Compatibility
+	// The container definitions.
+	// Experimental.
 	Containers() *[]ContainerDefinition
+	// Default container for this task.
+	//
+	// Load balancers will send traffic to this container. The first
+	// essential container that is added to this task will become the default
+	// container.
+	// Experimental.
 	DefaultContainer() ContainerDefinition
+	// Experimental.
 	SetDefaultContainer(val ContainerDefinition)
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
+	// The amount (in GiB) of ephemeral storage to be allocated to the task.
+	//
+	// Only supported in Fargate platform version 1.4.0 or later.
+	// Experimental.
 	EphemeralStorageGiB() *float64
+	// Execution role for this task definition.
+	// Experimental.
 	ExecutionRole() awsiam.IRole
+	// The name of a family that this task definition is registered to.
+	//
+	// A family groups multiple versions of a task definition.
+	// Experimental.
 	Family() *string
+	// Public getter method to access list of inference accelerators attached to the instance.
+	// Experimental.
 	InferenceAccelerators() *[]*InferenceAccelerator
+	// Return true if the task definition can be run on an EC2 cluster.
+	// Experimental.
 	IsEc2Compatible() *bool
+	// Return true if the task definition can be run on a ECS anywhere cluster.
+	// Experimental.
 	IsExternalCompatible() *bool
+	// Return true if the task definition can be run on a Fargate cluster.
+	// Experimental.
 	IsFargateCompatible() *bool
+	// The networking mode to use for the containers in the task.
+	// Experimental.
 	NetworkMode() NetworkMode
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
+	// Whether this task definition has at least a container that references a specific JSON field of a secret stored in Secrets Manager.
+	// Experimental.
 	ReferencesSecretJsonField() *bool
+	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
+	// The full Amazon Resource Name (ARN) of the task definition.
+	// Experimental.
 	TaskDefinitionArn() *string
+	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
+	// Experimental.
 	TaskRole() awsiam.IRole
+	// Adds a new container to the task definition.
+	// Experimental.
 	AddContainer(id *string, props *ContainerDefinitionOptions) ContainerDefinition
+	// Adds the specified extension to the task definition.
+	//
+	// Extension can be used to apply a packaged modification to
+	// a task definition.
+	// Experimental.
 	AddExtension(extension ITaskDefinitionExtension)
+	// Adds a firelens log router to the task definition.
+	// Experimental.
 	AddFirelensLogRouter(id *string, props *FirelensLogRouterDefinitionOptions) FirelensLogRouter
+	// Overriden method to throw error as interface accelerators are not supported for external tasks.
+	// Experimental.
 	AddInferenceAccelerator(_inferenceAccelerator *InferenceAccelerator)
+	// Adds the specified placement constraint to the task definition.
+	// Experimental.
 	AddPlacementConstraint(constraint PlacementConstraint)
+	// Adds a policy statement to the task execution IAM role.
+	// Experimental.
 	AddToExecutionRolePolicy(statement awsiam.PolicyStatement)
+	// Adds a policy statement to the task IAM role.
+	// Experimental.
 	AddToTaskRolePolicy(statement awsiam.PolicyStatement)
+	// Overridden method to throw error, as volumes are not supported for external task definitions.
+	// Experimental.
 	AddVolume(_volume *Volume)
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Returns the container that match the provided containerName.
+	// Experimental.
 	FindContainer(containerName *string) ContainerDefinition
+	// Experimental.
 	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Creates the task execution IAM role if it doesn't already exist.
+	// Experimental.
 	ObtainExecutionRole() awsiam.IRole
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validates the task definition.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ExternalTaskDefinition
@@ -12275,8 +18649,8 @@ func (j *jsiiProxy_ExternalTaskDefinition) NetworkMode() NetworkMode {
 	return returns
 }
 
-func (j *jsiiProxy_ExternalTaskDefinition) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ExternalTaskDefinition) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -12337,13 +18711,14 @@ func (j *jsiiProxy_ExternalTaskDefinition) TaskRole() awsiam.IRole {
 
 
 // Constructs a new instance of the ExternalTaskDefinition class.
+// Experimental.
 func NewExternalTaskDefinition(scope constructs.Construct, id *string, props *ExternalTaskDefinitionProps) ExternalTaskDefinition {
 	_init_.Initialize()
 
 	j := jsiiProxy_ExternalTaskDefinition{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.ExternalTaskDefinition",
+		"monocdk.aws_ecs.ExternalTaskDefinition",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -12352,11 +18727,12 @@ func NewExternalTaskDefinition(scope constructs.Construct, id *string, props *Ex
 }
 
 // Constructs a new instance of the ExternalTaskDefinition class.
+// Experimental.
 func NewExternalTaskDefinition_Override(e ExternalTaskDefinition, scope constructs.Construct, id *string, props *ExternalTaskDefinitionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.ExternalTaskDefinition",
+		"monocdk.aws_ecs.ExternalTaskDefinition",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -12371,13 +18747,14 @@ func (j *jsiiProxy_ExternalTaskDefinition) SetDefaultContainer(val ContainerDefi
 }
 
 // Imports a task definition from the specified task definition ARN.
+// Experimental.
 func ExternalTaskDefinition_FromEc2TaskDefinitionArn(scope constructs.Construct, id *string, externalTaskDefinitionArn *string) IExternalTaskDefinition {
 	_init_.Initialize()
 
 	var returns IExternalTaskDefinition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.ExternalTaskDefinition",
+		"monocdk.aws_ecs.ExternalTaskDefinition",
 		"fromEc2TaskDefinitionArn",
 		[]interface{}{scope, id, externalTaskDefinitionArn},
 		&returns,
@@ -12387,13 +18764,14 @@ func ExternalTaskDefinition_FromEc2TaskDefinitionArn(scope constructs.Construct,
 }
 
 // Imports an existing External task definition from its attributes.
+// Experimental.
 func ExternalTaskDefinition_FromExternalTaskDefinitionAttributes(scope constructs.Construct, id *string, attrs *ExternalTaskDefinitionAttributes) IExternalTaskDefinition {
 	_init_.Initialize()
 
 	var returns IExternalTaskDefinition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.ExternalTaskDefinition",
+		"monocdk.aws_ecs.ExternalTaskDefinition",
 		"fromExternalTaskDefinitionAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -12405,13 +18783,14 @@ func ExternalTaskDefinition_FromExternalTaskDefinitionAttributes(scope construct
 // Imports a task definition from the specified task definition ARN.
 //
 // The task will have a compatibility of EC2+Fargate.
+// Experimental.
 func ExternalTaskDefinition_FromTaskDefinitionArn(scope constructs.Construct, id *string, taskDefinitionArn *string) ITaskDefinition {
 	_init_.Initialize()
 
 	var returns ITaskDefinition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.ExternalTaskDefinition",
+		"monocdk.aws_ecs.ExternalTaskDefinition",
 		"fromTaskDefinitionArn",
 		[]interface{}{scope, id, taskDefinitionArn},
 		&returns,
@@ -12421,13 +18800,14 @@ func ExternalTaskDefinition_FromTaskDefinitionArn(scope constructs.Construct, id
 }
 
 // Create a task definition from a task definition reference.
+// Experimental.
 func ExternalTaskDefinition_FromTaskDefinitionAttributes(scope constructs.Construct, id *string, attrs *TaskDefinitionAttributes) ITaskDefinition {
 	_init_.Initialize()
 
 	var returns ITaskDefinition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.ExternalTaskDefinition",
+		"monocdk.aws_ecs.ExternalTaskDefinition",
 		"fromTaskDefinitionAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -12436,17 +18816,15 @@ func ExternalTaskDefinition_FromTaskDefinitionAttributes(scope constructs.Constr
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func ExternalTaskDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.ExternalTaskDefinition",
+		"monocdk.aws_ecs.ExternalTaskDefinition",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -12456,13 +18834,14 @@ func ExternalTaskDefinition_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func ExternalTaskDefinition_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func ExternalTaskDefinition_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.ExternalTaskDefinition",
+		"monocdk.aws_ecs.ExternalTaskDefinition",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -12471,7 +18850,6 @@ func ExternalTaskDefinition_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Adds a new container to the task definition.
 func (e *jsiiProxy_ExternalTaskDefinition) AddContainer(id *string, props *ContainerDefinitionOptions) ContainerDefinition {
 	var returns ContainerDefinition
 
@@ -12485,10 +18863,6 @@ func (e *jsiiProxy_ExternalTaskDefinition) AddContainer(id *string, props *Conta
 	return returns
 }
 
-// Adds the specified extension to the task definition.
-//
-// Extension can be used to apply a packaged modification to
-// a task definition.
 func (e *jsiiProxy_ExternalTaskDefinition) AddExtension(extension ITaskDefinitionExtension) {
 	_jsii_.InvokeVoid(
 		e,
@@ -12497,7 +18871,6 @@ func (e *jsiiProxy_ExternalTaskDefinition) AddExtension(extension ITaskDefinitio
 	)
 }
 
-// Adds a firelens log router to the task definition.
 func (e *jsiiProxy_ExternalTaskDefinition) AddFirelensLogRouter(id *string, props *FirelensLogRouterDefinitionOptions) FirelensLogRouter {
 	var returns FirelensLogRouter
 
@@ -12511,7 +18884,6 @@ func (e *jsiiProxy_ExternalTaskDefinition) AddFirelensLogRouter(id *string, prop
 	return returns
 }
 
-// Overriden method to throw error as interface accelerators are not supported for external tasks.
 func (e *jsiiProxy_ExternalTaskDefinition) AddInferenceAccelerator(_inferenceAccelerator *InferenceAccelerator) {
 	_jsii_.InvokeVoid(
 		e,
@@ -12520,7 +18892,6 @@ func (e *jsiiProxy_ExternalTaskDefinition) AddInferenceAccelerator(_inferenceAcc
 	)
 }
 
-// Adds the specified placement constraint to the task definition.
 func (e *jsiiProxy_ExternalTaskDefinition) AddPlacementConstraint(constraint PlacementConstraint) {
 	_jsii_.InvokeVoid(
 		e,
@@ -12529,7 +18900,6 @@ func (e *jsiiProxy_ExternalTaskDefinition) AddPlacementConstraint(constraint Pla
 	)
 }
 
-// Adds a policy statement to the task execution IAM role.
 func (e *jsiiProxy_ExternalTaskDefinition) AddToExecutionRolePolicy(statement awsiam.PolicyStatement) {
 	_jsii_.InvokeVoid(
 		e,
@@ -12538,7 +18908,6 @@ func (e *jsiiProxy_ExternalTaskDefinition) AddToExecutionRolePolicy(statement aw
 	)
 }
 
-// Adds a policy statement to the task IAM role.
 func (e *jsiiProxy_ExternalTaskDefinition) AddToTaskRolePolicy(statement awsiam.PolicyStatement) {
 	_jsii_.InvokeVoid(
 		e,
@@ -12547,7 +18916,6 @@ func (e *jsiiProxy_ExternalTaskDefinition) AddToTaskRolePolicy(statement awsiam.
 	)
 }
 
-// Overridden method to throw error, as volumes are not supported for external task definitions.
 func (e *jsiiProxy_ExternalTaskDefinition) AddVolume(_volume *Volume) {
 	_jsii_.InvokeVoid(
 		e,
@@ -12556,15 +18924,6 @@ func (e *jsiiProxy_ExternalTaskDefinition) AddVolume(_volume *Volume) {
 	)
 }
 
-// Apply the given removal policy to this resource.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (e *jsiiProxy_ExternalTaskDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		e,
@@ -12573,7 +18932,6 @@ func (e *jsiiProxy_ExternalTaskDefinition) ApplyRemovalPolicy(policy awscdk.Remo
 	)
 }
 
-// Returns the container that match the provided containerName.
 func (e *jsiiProxy_ExternalTaskDefinition) FindContainer(containerName *string) ContainerDefinition {
 	var returns ContainerDefinition
 
@@ -12600,12 +18958,6 @@ func (e *jsiiProxy_ExternalTaskDefinition) GeneratePhysicalName() *string {
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
-//
-// Normally, this token will resolve to `arnAttr`, but if the resource is
-// referenced across environments, `arnComponents` will be used to synthesize
-// a concrete ARN with the resource's physical name. Make sure to reference
-// `this.physicalName` in `arnComponents`.
 func (e *jsiiProxy_ExternalTaskDefinition) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -12619,11 +18971,6 @@ func (e *jsiiProxy_ExternalTaskDefinition) GetResourceArnAttribute(arnAttr *stri
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
-//
-// Normally, this token will resolve to `nameAttr`, but if the resource is
-// referenced across environments, it will be resolved to `this.physicalName`,
-// which will be a concrete name.
 func (e *jsiiProxy_ExternalTaskDefinition) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -12637,7 +18984,6 @@ func (e *jsiiProxy_ExternalTaskDefinition) GetResourceNameAttribute(nameAttr *st
 	return returns
 }
 
-// Creates the task execution IAM role if it doesn't already exist.
 func (e *jsiiProxy_ExternalTaskDefinition) ObtainExecutionRole() awsiam.IRole {
 	var returns awsiam.IRole
 
@@ -12651,7 +18997,51 @@ func (e *jsiiProxy_ExternalTaskDefinition) ObtainExecutionRole() awsiam.IRole {
 	return returns
 }
 
-// Returns a string representation of this construct.
+func (e *jsiiProxy_ExternalTaskDefinition) OnPrepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (e *jsiiProxy_ExternalTaskDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (e *jsiiProxy_ExternalTaskDefinition) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_ExternalTaskDefinition) Prepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (e *jsiiProxy_ExternalTaskDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (e *jsiiProxy_ExternalTaskDefinition) ToString() *string {
 	var returns *string
 
@@ -12665,102 +19055,433 @@ func (e *jsiiProxy_ExternalTaskDefinition) ToString() *string {
 	return returns
 }
 
+func (e *jsiiProxy_ExternalTaskDefinition) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Attributes used to import an existing External task definition.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
 //
+//   var role role
+//   externalTaskDefinitionAttributes := &externalTaskDefinitionAttributes{
+//   	taskDefinitionArn: jsii.String("taskDefinitionArn"),
+//
+//   	// the properties below are optional
+//   	networkMode: ecs.networkMode_NONE,
+//   	taskRole: role,
+//   }
+//
+// Experimental.
 type ExternalTaskDefinitionAttributes struct {
 	// The arn of the task definition.
+	// Experimental.
 	TaskDefinitionArn *string `json:"taskDefinitionArn" yaml:"taskDefinitionArn"`
 	// The networking mode to use for the containers in the task.
+	// Experimental.
 	NetworkMode NetworkMode `json:"networkMode" yaml:"networkMode"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
+	// Experimental.
 	TaskRole awsiam.IRole `json:"taskRole" yaml:"taskRole"`
 }
 
 // The properties for a task definition run on an External cluster.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
 //
+//   var proxyConfiguration proxyConfiguration
+//   var role role
+//   externalTaskDefinitionProps := &externalTaskDefinitionProps{
+//   	executionRole: role,
+//   	family: jsii.String("family"),
+//   	proxyConfiguration: proxyConfiguration,
+//   	taskRole: role,
+//   	volumes: []volume{
+//   		&volume{
+//   			name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			dockerVolumeConfiguration: &dockerVolumeConfiguration{
+//   				driver: jsii.String("driver"),
+//   				scope: ecs.scope_TASK,
+//
+//   				// the properties below are optional
+//   				autoprovision: jsii.Boolean(false),
+//   				driverOpts: map[string]*string{
+//   					"driverOptsKey": jsii.String("driverOpts"),
+//   				},
+//   				labels: map[string]*string{
+//   					"labelsKey": jsii.String("labels"),
+//   				},
+//   			},
+//   			efsVolumeConfiguration: &efsVolumeConfiguration{
+//   				fileSystemId: jsii.String("fileSystemId"),
+//
+//   				// the properties below are optional
+//   				authorizationConfig: &authorizationConfig{
+//   					accessPointId: jsii.String("accessPointId"),
+//   					iam: jsii.String("iam"),
+//   				},
+//   				rootDirectory: jsii.String("rootDirectory"),
+//   				transitEncryption: jsii.String("transitEncryption"),
+//   				transitEncryptionPort: jsii.Number(123),
+//   			},
+//   			host: &host{
+//   				sourcePath: jsii.String("sourcePath"),
+//   			},
+//   		},
+//   	},
+//   }
+//
+// Experimental.
 type ExternalTaskDefinitionProps struct {
 	// The name of the IAM task execution role that grants the ECS agent permission to call AWS APIs on your behalf.
 	//
 	// The role will be used to retrieve container images from ECR and create CloudWatch log groups.
+	// Experimental.
 	ExecutionRole awsiam.IRole `json:"executionRole" yaml:"executionRole"`
 	// The name of a family that this task definition is registered to.
 	//
 	// A family groups multiple versions of a task definition.
+	// Experimental.
 	Family *string `json:"family" yaml:"family"`
 	// The configuration details for the App Mesh proxy.
+	// Experimental.
 	ProxyConfiguration ProxyConfiguration `json:"proxyConfiguration" yaml:"proxyConfiguration"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
+	// Experimental.
 	TaskRole awsiam.IRole `json:"taskRole" yaml:"taskRole"`
 	// The list of volume definitions for the task.
 	//
 	// For more information, see
 	// [Task Definition Parameter Volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide//task_definition_parameters.html#volumes).
+	// Experimental.
 	Volumes *[]*Volume `json:"volumes" yaml:"volumes"`
 }
 
 // The platform version on which to run your service.
 //
-// TODO: EXAMPLE
+// Example:
+//   var cluster cluster
+//   scheduledFargateTask := ecsPatterns.NewScheduledFargateTask(this, jsii.String("ScheduledFargateTask"), &scheduledFargateTaskProps{
+//   	cluster: cluster,
+//   	scheduledFargateTaskImageOptions: &scheduledFargateTaskImageOptions{
+//   		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   		memoryLimitMiB: jsii.Number(512),
+//   	},
+//   	schedule: appscaling.schedule.expression(jsii.String("rate(1 minute)")),
+//   	platformVersion: ecs.fargatePlatformVersion_LATEST,
+//   })
 //
 // See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html
 //
+// Experimental.
 type FargatePlatformVersion string
 
 const (
+	// The latest, recommended platform version.
+	// Experimental.
 	FargatePlatformVersion_LATEST FargatePlatformVersion = "LATEST"
+	// Version 1.4.0.
+	//
+	// Supports EFS endpoints, CAP_SYS_PTRACE Linux capability,
+	// network performance metrics in CloudWatch Container Insights,
+	// consolidated 20 GB ephemeral volume.
+	// Experimental.
 	FargatePlatformVersion_VERSION1_4 FargatePlatformVersion = "VERSION1_4"
+	// Version 1.3.0.
+	//
+	// Supports secrets, task recycling.
+	// Experimental.
 	FargatePlatformVersion_VERSION1_3 FargatePlatformVersion = "VERSION1_3"
+	// Version 1.2.0.
+	//
+	// Supports private registries.
+	// Experimental.
 	FargatePlatformVersion_VERSION1_2 FargatePlatformVersion = "VERSION1_2"
+	// Version 1.1.0.
+	//
+	// Supports task metadata, health checks, service discovery.
+	// Experimental.
 	FargatePlatformVersion_VERSION1_1 FargatePlatformVersion = "VERSION1_1"
+	// Initial release.
+	//
+	// Based on Amazon Linux 2017.09.
+	// Experimental.
 	FargatePlatformVersion_VERSION1_0 FargatePlatformVersion = "VERSION1_0"
 )
 
 // This creates a service using the Fargate launch type on an ECS cluster.
 //
-// TODO: EXAMPLE
+// Example:
+//   var cluster cluster
+//   var taskDefinition taskDefinition
+//   var vpc vpc
+//   service := ecs.NewFargateService(this, jsii.String("Service"), &fargateServiceProps{
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   })
 //
+//   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &applicationLoadBalancerProps{
+//   	vpc: vpc,
+//   	internetFacing: jsii.Boolean(true),
+//   })
+//   listener := lb.addListener(jsii.String("Listener"), &baseApplicationListenerProps{
+//   	port: jsii.Number(80),
+//   })
+//   service.registerLoadBalancerTargets(&ecsTarget{
+//   	containerName: jsii.String("web"),
+//   	containerPort: jsii.Number(80),
+//   	newTargetGroupId: jsii.String("ECS"),
+//   	listener: ecs.listenerConfig.applicationListener(listener, &addApplicationTargetsProps{
+//   		protocol: elbv2.applicationProtocol_HTTPS,
+//   	}),
+//   })
+//
+// Experimental.
 type FargateService interface {
 	BaseService
 	IFargateService
+	// The details of the AWS Cloud Map service.
+	// Experimental.
 	CloudmapService() awsservicediscovery.Service
+	// Experimental.
 	SetCloudmapService(val awsservicediscovery.Service)
+	// The CloudMap service created for this service, if any.
+	// Experimental.
 	CloudMapService() awsservicediscovery.IService
+	// The cluster that hosts the service.
+	// Experimental.
 	Cluster() ICluster
+	// The security groups which manage the allowed network traffic for the service.
+	// Experimental.
 	Connections() awsec2.Connections
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
+	// A list of Elastic Load Balancing load balancer objects, containing the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer.
+	// Experimental.
 	LoadBalancers() *[]*CfnService_LoadBalancerProperty
+	// Experimental.
 	SetLoadBalancers(val *[]*CfnService_LoadBalancerProperty)
+	// A list of Elastic Load Balancing load balancer objects, containing the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer.
+	// Experimental.
 	NetworkConfiguration() *CfnService_NetworkConfigurationProperty
+	// Experimental.
 	SetNetworkConfiguration(val *CfnService_NetworkConfigurationProperty)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
+	// The Amazon Resource Name (ARN) of the service.
+	// Experimental.
 	ServiceArn() *string
+	// The name of the service.
+	// Experimental.
 	ServiceName() *string
+	// The details of the service discovery registries to assign to this service.
+	//
+	// For more information, see Service Discovery.
+	// Experimental.
 	ServiceRegistries() *[]*CfnService_ServiceRegistryProperty
+	// Experimental.
 	SetServiceRegistries(val *[]*CfnService_ServiceRegistryProperty)
+	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
+	// The task definition to use for tasks in the service.
+	// Experimental.
 	TaskDefinition() TaskDefinition
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Associates this service with a CloudMap service.
+	// Experimental.
 	AssociateCloudMapService(options *AssociateCloudMapServiceOptions)
+	// This method is called to attach this service to an Application Load Balancer.
+	//
+	// Don't call this function directly. Instead, call `listener.addTargets()`
+	// to add this service to a load balancer.
+	// Experimental.
 	AttachToApplicationTargetGroup(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
+	// Registers the service as a target of a Classic Load Balancer (CLB).
+	//
+	// Don't call this. Call `loadBalancer.addTarget()` instead.
+	// Experimental.
 	AttachToClassicLB(loadBalancer awselasticloadbalancing.LoadBalancer)
+	// This method is called to attach this service to a Network Load Balancer.
+	//
+	// Don't call this function directly. Instead, call `listener.addTargets()`
+	// to add this service to a load balancer.
+	// Experimental.
 	AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
+	// An attribute representing the minimum and maximum task count for an AutoScalingGroup.
+	// Experimental.
 	AutoScaleTaskCount(props *awsapplicationautoscaling.EnableScalingProps) ScalableTaskCount
+	// This method is called to create a networkConfiguration.
+	// Deprecated: use configureAwsVpcNetworkingWithSecurityGroups instead.
+	ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup)
+	// This method is called to create a networkConfiguration.
+	// Experimental.
 	ConfigureAwsVpcNetworkingWithSecurityGroups(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroups *[]awsec2.ISecurityGroup)
+	// Enable CloudMap service discovery for the service.
+	//
+	// Returns: The created CloudMap service.
+	// Experimental.
 	EnableCloudMap(options *CloudMapOptions) awsservicediscovery.Service
+	// Experimental.
 	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Return a load balancing target for a specific container and port.
+	//
+	// Use this function to create a load balancer target if you want to load balance to
+	// another container than the first essential container or the first mapped port on
+	// the container.
+	//
+	// Use the return value of this function where you would normally use a load balancer
+	// target, instead of the `Service` object itself.
+	//
+	// Example:
+	//   declare const listener: elbv2.ApplicationListener;
+	//   declare const service: ecs.BaseService;
+	//   listener.addTargets('ECS', {
+	//     port: 80,
+	//     targets: [service.loadBalancerTarget({
+	//       containerName: 'MyContainer',
+	//       containerPort: 1234,
+	//     })],
+	//   });
+	//
+	// Experimental.
 	LoadBalancerTarget(options *LoadBalancerTargetOptions) IEcsLoadBalancerTarget
+	// This method returns the specified CloudWatch metric name for this service.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// This method returns the CloudWatch metric for this service's CPU utilization.
+	// Experimental.
 	MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// This method returns the CloudWatch metric for this service's memory utilization.
+	// Experimental.
 	MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Use this function to create all load balancer targets to be registered in this service, add them to target groups, and attach target groups to listeners accordingly.
+	//
+	// Alternatively, you can use `listener.addTargets()` to create targets and add them to target groups.
+	//
+	// Example:
+	//   declare const listener: elbv2.ApplicationListener;
+	//   declare const service: ecs.BaseService;
+	//   service.registerLoadBalancerTargets(
+	//     {
+	//       containerName: 'web',
+	//       containerPort: 80,
+	//       newTargetGroupId: 'ECS',
+	//       listener: ecs.ListenerConfig.applicationListener(listener, {
+	//         protocol: elbv2.ApplicationProtocol.HTTPS
+	//       }),
+	//     },
+	//   )
+	//
+	// Experimental.
 	RegisterLoadBalancerTargets(targets ...*EcsTarget)
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for FargateService
@@ -12839,8 +19560,8 @@ func (j *jsiiProxy_FargateService) NetworkConfiguration() *CfnService_NetworkCon
 	return returns
 }
 
-func (j *jsiiProxy_FargateService) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_FargateService) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -12911,13 +19632,14 @@ func (j *jsiiProxy_FargateService) TaskDefinition() TaskDefinition {
 
 
 // Constructs a new instance of the FargateService class.
+// Experimental.
 func NewFargateService(scope constructs.Construct, id *string, props *FargateServiceProps) FargateService {
 	_init_.Initialize()
 
 	j := jsiiProxy_FargateService{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.FargateService",
+		"monocdk.aws_ecs.FargateService",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -12926,11 +19648,12 @@ func NewFargateService(scope constructs.Construct, id *string, props *FargateSer
 }
 
 // Constructs a new instance of the FargateService class.
+// Experimental.
 func NewFargateService_Override(f FargateService, scope constructs.Construct, id *string, props *FargateServiceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.FargateService",
+		"monocdk.aws_ecs.FargateService",
 		[]interface{}{scope, id, props},
 		f,
 	)
@@ -12969,13 +19692,14 @@ func (j *jsiiProxy_FargateService) SetServiceRegistries(val *[]*CfnService_Servi
 }
 
 // Imports from the specified service ARN.
+// Experimental.
 func FargateService_FromFargateServiceArn(scope constructs.Construct, id *string, fargateServiceArn *string) IFargateService {
 	_init_.Initialize()
 
 	var returns IFargateService
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.FargateService",
+		"monocdk.aws_ecs.FargateService",
 		"fromFargateServiceArn",
 		[]interface{}{scope, id, fargateServiceArn},
 		&returns,
@@ -12985,13 +19709,14 @@ func FargateService_FromFargateServiceArn(scope constructs.Construct, id *string
 }
 
 // Imports from the specified service attrributes.
+// Experimental.
 func FargateService_FromFargateServiceAttributes(scope constructs.Construct, id *string, attrs *FargateServiceAttributes) IBaseService {
 	_init_.Initialize()
 
 	var returns IBaseService
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.FargateService",
+		"monocdk.aws_ecs.FargateService",
 		"fromFargateServiceAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -13005,13 +19730,14 @@ func FargateService_FromFargateServiceAttributes(scope constructs.Construct, id 
 // The format is the "new" format "arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name".
 // See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids
 //
+// Experimental.
 func FargateService_FromServiceArnWithCluster(scope constructs.Construct, id *string, serviceArn *string) IBaseService {
 	_init_.Initialize()
 
 	var returns IBaseService
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.FargateService",
+		"monocdk.aws_ecs.FargateService",
 		"fromServiceArnWithCluster",
 		[]interface{}{scope, id, serviceArn},
 		&returns,
@@ -13020,17 +19746,15 @@ func FargateService_FromServiceArnWithCluster(scope constructs.Construct, id *st
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func FargateService_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.FargateService",
+		"monocdk.aws_ecs.FargateService",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -13040,13 +19764,14 @@ func FargateService_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func FargateService_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func FargateService_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.FargateService",
+		"monocdk.aws_ecs.FargateService",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -13055,15 +19780,6 @@ func FargateService_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Apply the given removal policy to this resource.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (f *jsiiProxy_FargateService) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		f,
@@ -13072,7 +19788,6 @@ func (f *jsiiProxy_FargateService) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 	)
 }
 
-// Associates this service with a CloudMap service.
 func (f *jsiiProxy_FargateService) AssociateCloudMapService(options *AssociateCloudMapServiceOptions) {
 	_jsii_.InvokeVoid(
 		f,
@@ -13081,10 +19796,6 @@ func (f *jsiiProxy_FargateService) AssociateCloudMapService(options *AssociateCl
 	)
 }
 
-// This method is called to attach this service to an Application Load Balancer.
-//
-// Don't call this function directly. Instead, call `listener.addTargets()`
-// to add this service to a load balancer.
 func (f *jsiiProxy_FargateService) AttachToApplicationTargetGroup(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
@@ -13098,9 +19809,6 @@ func (f *jsiiProxy_FargateService) AttachToApplicationTargetGroup(targetGroup aw
 	return returns
 }
 
-// Registers the service as a target of a Classic Load Balancer (CLB).
-//
-// Don't call this. Call `loadBalancer.addTarget()` instead.
 func (f *jsiiProxy_FargateService) AttachToClassicLB(loadBalancer awselasticloadbalancing.LoadBalancer) {
 	_jsii_.InvokeVoid(
 		f,
@@ -13109,10 +19817,6 @@ func (f *jsiiProxy_FargateService) AttachToClassicLB(loadBalancer awselasticload
 	)
 }
 
-// This method is called to attach this service to a Network Load Balancer.
-//
-// Don't call this function directly. Instead, call `listener.addTargets()`
-// to add this service to a load balancer.
 func (f *jsiiProxy_FargateService) AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
@@ -13126,7 +19830,6 @@ func (f *jsiiProxy_FargateService) AttachToNetworkTargetGroup(targetGroup awsela
 	return returns
 }
 
-// An attribute representing the minimum and maximum task count for an AutoScalingGroup.
 func (f *jsiiProxy_FargateService) AutoScaleTaskCount(props *awsapplicationautoscaling.EnableScalingProps) ScalableTaskCount {
 	var returns ScalableTaskCount
 
@@ -13140,7 +19843,14 @@ func (f *jsiiProxy_FargateService) AutoScaleTaskCount(props *awsapplicationautos
 	return returns
 }
 
-// This method is called to create a networkConfiguration.
+func (f *jsiiProxy_FargateService) ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup) {
+	_jsii_.InvokeVoid(
+		f,
+		"configureAwsVpcNetworking",
+		[]interface{}{vpc, assignPublicIp, vpcSubnets, securityGroup},
+	)
+}
+
 func (f *jsiiProxy_FargateService) ConfigureAwsVpcNetworkingWithSecurityGroups(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroups *[]awsec2.ISecurityGroup) {
 	_jsii_.InvokeVoid(
 		f,
@@ -13149,9 +19859,6 @@ func (f *jsiiProxy_FargateService) ConfigureAwsVpcNetworkingWithSecurityGroups(v
 	)
 }
 
-// Enable CloudMap service discovery for the service.
-//
-// Returns: The created CloudMap service
 func (f *jsiiProxy_FargateService) EnableCloudMap(options *CloudMapOptions) awsservicediscovery.Service {
 	var returns awsservicediscovery.Service
 
@@ -13178,12 +19885,6 @@ func (f *jsiiProxy_FargateService) GeneratePhysicalName() *string {
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
-//
-// Normally, this token will resolve to `arnAttr`, but if the resource is
-// referenced across environments, `arnComponents` will be used to synthesize
-// a concrete ARN with the resource's physical name. Make sure to reference
-// `this.physicalName` in `arnComponents`.
 func (f *jsiiProxy_FargateService) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -13197,11 +19898,6 @@ func (f *jsiiProxy_FargateService) GetResourceArnAttribute(arnAttr *string, arnC
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
-//
-// Normally, this token will resolve to `nameAttr`, but if the resource is
-// referenced across environments, it will be resolved to `this.physicalName`,
-// which will be a concrete name.
 func (f *jsiiProxy_FargateService) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -13215,17 +19911,6 @@ func (f *jsiiProxy_FargateService) GetResourceNameAttribute(nameAttr *string) *s
 	return returns
 }
 
-// Return a load balancing target for a specific container and port.
-//
-// Use this function to create a load balancer target if you want to load balance to
-// another container than the first essential container or the first mapped port on
-// the container.
-//
-// Use the return value of this function where you would normally use a load balancer
-// target, instead of the `Service` object itself.
-//
-// TODO: EXAMPLE
-//
 func (f *jsiiProxy_FargateService) LoadBalancerTarget(options *LoadBalancerTargetOptions) IEcsLoadBalancerTarget {
 	var returns IEcsLoadBalancerTarget
 
@@ -13239,7 +19924,6 @@ func (f *jsiiProxy_FargateService) LoadBalancerTarget(options *LoadBalancerTarge
 	return returns
 }
 
-// This method returns the specified CloudWatch metric name for this service.
 func (f *jsiiProxy_FargateService) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -13253,7 +19937,6 @@ func (f *jsiiProxy_FargateService) Metric(metricName *string, props *awscloudwat
 	return returns
 }
 
-// This method returns the CloudWatch metric for this service's CPU utilization.
 func (f *jsiiProxy_FargateService) MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -13267,7 +19950,6 @@ func (f *jsiiProxy_FargateService) MetricCpuUtilization(props *awscloudwatch.Met
 	return returns
 }
 
-// This method returns the CloudWatch metric for this service's memory utilization.
 func (f *jsiiProxy_FargateService) MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -13281,12 +19963,43 @@ func (f *jsiiProxy_FargateService) MetricMemoryUtilization(props *awscloudwatch.
 	return returns
 }
 
-// Use this function to create all load balancer targets to be registered in this service, add them to target groups, and attach target groups to listeners accordingly.
-//
-// Alternatively, you can use `listener.addTargets()` to create targets and add them to target groups.
-//
-// TODO: EXAMPLE
-//
+func (f *jsiiProxy_FargateService) OnPrepare() {
+	_jsii_.InvokeVoid(
+		f,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (f *jsiiProxy_FargateService) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		f,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (f *jsiiProxy_FargateService) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		f,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FargateService) Prepare() {
+	_jsii_.InvokeVoid(
+		f,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 func (f *jsiiProxy_FargateService) RegisterLoadBalancerTargets(targets ...*EcsTarget) {
 	args := []interface{}{}
 	for _, a := range targets {
@@ -13300,7 +20013,14 @@ func (f *jsiiProxy_FargateService) RegisterLoadBalancerTargets(targets ...*EcsTa
 	)
 }
 
-// Returns a string representation of this construct.
+func (f *jsiiProxy_FargateService) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		f,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (f *jsiiProxy_FargateService) ToString() *string {
 	var returns *string
 
@@ -13314,124 +20034,362 @@ func (f *jsiiProxy_FargateService) ToString() *string {
 	return returns
 }
 
+func (f *jsiiProxy_FargateService) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		f,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // The properties to import from the service using the Fargate launch type.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
 //
+//   var cluster cluster
+//   fargateServiceAttributes := &fargateServiceAttributes{
+//   	cluster: cluster,
+//
+//   	// the properties below are optional
+//   	serviceArn: jsii.String("serviceArn"),
+//   	serviceName: jsii.String("serviceName"),
+//   }
+//
+// Experimental.
 type FargateServiceAttributes struct {
 	// The cluster that hosts the service.
+	// Experimental.
 	Cluster ICluster `json:"cluster" yaml:"cluster"`
 	// The service ARN.
+	// Experimental.
 	ServiceArn *string `json:"serviceArn" yaml:"serviceArn"`
 	// The name of the service.
+	// Experimental.
 	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 }
 
 // The properties for defining a service using the Fargate launch type.
 //
-// TODO: EXAMPLE
+// Example:
+//   var cluster cluster
+//   var taskDefinition taskDefinition
+//   var vpc vpc
+//   service := ecs.NewFargateService(this, jsii.String("Service"), &fargateServiceProps{
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   })
 //
+//   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &applicationLoadBalancerProps{
+//   	vpc: vpc,
+//   	internetFacing: jsii.Boolean(true),
+//   })
+//   listener := lb.addListener(jsii.String("Listener"), &baseApplicationListenerProps{
+//   	port: jsii.Number(80),
+//   })
+//   service.registerLoadBalancerTargets(&ecsTarget{
+//   	containerName: jsii.String("web"),
+//   	containerPort: jsii.Number(80),
+//   	newTargetGroupId: jsii.String("ECS"),
+//   	listener: ecs.listenerConfig.applicationListener(listener, &addApplicationTargetsProps{
+//   		protocol: elbv2.applicationProtocol_HTTPS,
+//   	}),
+//   })
+//
+// Experimental.
 type FargateServiceProps struct {
 	// The name of the cluster that hosts the service.
+	// Experimental.
 	Cluster ICluster `json:"cluster" yaml:"cluster"`
 	// A list of Capacity Provider strategies used to place a service.
+	// Experimental.
 	CapacityProviderStrategies *[]*CapacityProviderStrategy `json:"capacityProviderStrategies" yaml:"capacityProviderStrategies"`
 	// Whether to enable the deployment circuit breaker.
 	//
 	// If this property is defined, circuit breaker will be implicitly
 	// enabled.
+	// Experimental.
 	CircuitBreaker *DeploymentCircuitBreaker `json:"circuitBreaker" yaml:"circuitBreaker"`
 	// The options for configuring an Amazon ECS service to use service discovery.
+	// Experimental.
 	CloudMapOptions *CloudMapOptions `json:"cloudMapOptions" yaml:"cloudMapOptions"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
+	// Experimental.
 	DeploymentController *DeploymentController `json:"deploymentController" yaml:"deploymentController"`
 	// The desired number of instantiations of the task definition to keep running on the service.
+	// Experimental.
 	DesiredCount *float64 `json:"desiredCount" yaml:"desiredCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
+	// Experimental.
 	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// Whether to enable the ability to execute into a container.
+	// Experimental.
 	EnableExecuteCommand *bool `json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
+	// Experimental.
 	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
+	// Experimental.
 	MaxHealthyPercent *float64 `json:"maxHealthyPercent" yaml:"maxHealthyPercent"`
 	// The minimum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that must continue to run and remain healthy during a deployment.
+	// Experimental.
 	MinHealthyPercent *float64 `json:"minHealthyPercent" yaml:"minHealthyPercent"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Valid values are: PropagatedTagSource.SERVICE, PropagatedTagSource.TASK_DEFINITION or PropagatedTagSource.NONE
+	// Experimental.
 	PropagateTags PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
+	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
+	//
+	// Tags can only be propagated to the tasks within the service during service creation.
+	// Deprecated: Use `propagateTags` instead.
+	PropagateTaskTagsFrom PropagatedTagSource `json:"propagateTaskTagsFrom" yaml:"propagateTaskTagsFrom"`
 	// The name of the service.
+	// Experimental.
 	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// The task definition to use for tasks in the service.
 	//
-	// [disable-awslint:ref-via-interface]
+	// [disable-awslint:ref-via-interface].
+	// Experimental.
 	TaskDefinition TaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 	// Specifies whether the task's elastic network interface receives a public IP address.
 	//
 	// If true, each task will receive a public IP address.
+	// Experimental.
 	AssignPublicIp *bool `json:"assignPublicIp" yaml:"assignPublicIp"`
 	// The platform version on which to run your service.
 	//
 	// If one is not specified, the LATEST platform version is used by default. For more information, see
 	// [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html)
 	// in the Amazon Elastic Container Service Developer Guide.
+	// Experimental.
 	PlatformVersion FargatePlatformVersion `json:"platformVersion" yaml:"platformVersion"`
 	// The security groups to associate with the service.
 	//
 	// If you do not specify a security group, a new security group is created.
+	// Deprecated: use securityGroups instead.
+	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
+	// The security groups to associate with the service.
+	//
+	// If you do not specify a security group, a new security group is created.
+	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The subnets to associate with the service.
+	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // The details of a task definition run on a Fargate cluster.
 //
-// TODO: EXAMPLE
+// Example:
+//   fargateTaskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &fargateTaskDefinitionProps{
+//   	memoryLimitMiB: jsii.Number(512),
+//   	cpu: jsii.Number(256),
+//   })
+//   container := fargateTaskDefinition.addContainer(jsii.String("WebContainer"), &containerDefinitionOptions{
+//   	// Use an image from DockerHub
+//   	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   })
 //
+// Experimental.
 type FargateTaskDefinition interface {
 	TaskDefinition
 	IFargateTaskDefinition
+	// The task launch type compatibility requirement.
+	// Experimental.
 	Compatibility() Compatibility
+	// The container definitions.
+	// Experimental.
 	Containers() *[]ContainerDefinition
+	// Default container for this task.
+	//
+	// Load balancers will send traffic to this container. The first
+	// essential container that is added to this task will become the default
+	// container.
+	// Experimental.
 	DefaultContainer() ContainerDefinition
+	// Experimental.
 	SetDefaultContainer(val ContainerDefinition)
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
+	// The amount (in GiB) of ephemeral storage to be allocated to the task.
+	// Experimental.
 	EphemeralStorageGiB() *float64
+	// Execution role for this task definition.
+	// Experimental.
 	ExecutionRole() awsiam.IRole
+	// The name of a family that this task definition is registered to.
+	//
+	// A family groups multiple versions of a task definition.
+	// Experimental.
 	Family() *string
+	// Public getter method to access list of inference accelerators attached to the instance.
+	// Experimental.
 	InferenceAccelerators() *[]*InferenceAccelerator
+	// Return true if the task definition can be run on an EC2 cluster.
+	// Experimental.
 	IsEc2Compatible() *bool
+	// Return true if the task definition can be run on a ECS anywhere cluster.
+	// Experimental.
 	IsExternalCompatible() *bool
+	// Return true if the task definition can be run on a Fargate cluster.
+	// Experimental.
 	IsFargateCompatible() *bool
+	// The Docker networking mode to use for the containers in the task.
+	//
+	// Fargate tasks require the awsvpc network mode.
+	// Experimental.
 	NetworkMode() NetworkMode
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
+	// Whether this task definition has at least a container that references a specific JSON field of a secret stored in Secrets Manager.
+	// Experimental.
 	ReferencesSecretJsonField() *bool
+	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
+	// The full Amazon Resource Name (ARN) of the task definition.
+	// Experimental.
 	TaskDefinitionArn() *string
+	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
+	// Experimental.
 	TaskRole() awsiam.IRole
+	// Adds a new container to the task definition.
+	// Experimental.
 	AddContainer(id *string, props *ContainerDefinitionOptions) ContainerDefinition
+	// Adds the specified extension to the task definition.
+	//
+	// Extension can be used to apply a packaged modification to
+	// a task definition.
+	// Experimental.
 	AddExtension(extension ITaskDefinitionExtension)
+	// Adds a firelens log router to the task definition.
+	// Experimental.
 	AddFirelensLogRouter(id *string, props *FirelensLogRouterDefinitionOptions) FirelensLogRouter
+	// Adds an inference accelerator to the task definition.
+	// Experimental.
 	AddInferenceAccelerator(inferenceAccelerator *InferenceAccelerator)
+	// Adds the specified placement constraint to the task definition.
+	// Experimental.
 	AddPlacementConstraint(constraint PlacementConstraint)
+	// Adds a policy statement to the task execution IAM role.
+	// Experimental.
 	AddToExecutionRolePolicy(statement awsiam.PolicyStatement)
+	// Adds a policy statement to the task IAM role.
+	// Experimental.
 	AddToTaskRolePolicy(statement awsiam.PolicyStatement)
+	// Adds a volume to the task definition.
+	// Experimental.
 	AddVolume(volume *Volume)
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Returns the container that match the provided containerName.
+	// Experimental.
 	FindContainer(containerName *string) ContainerDefinition
+	// Experimental.
 	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Creates the task execution IAM role if it doesn't already exist.
+	// Experimental.
 	ObtainExecutionRole() awsiam.IRole
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validates the task definition.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for FargateTaskDefinition
@@ -13560,8 +20518,8 @@ func (j *jsiiProxy_FargateTaskDefinition) NetworkMode() NetworkMode {
 	return returns
 }
 
-func (j *jsiiProxy_FargateTaskDefinition) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_FargateTaskDefinition) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -13622,13 +20580,14 @@ func (j *jsiiProxy_FargateTaskDefinition) TaskRole() awsiam.IRole {
 
 
 // Constructs a new instance of the FargateTaskDefinition class.
+// Experimental.
 func NewFargateTaskDefinition(scope constructs.Construct, id *string, props *FargateTaskDefinitionProps) FargateTaskDefinition {
 	_init_.Initialize()
 
 	j := jsiiProxy_FargateTaskDefinition{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.FargateTaskDefinition",
+		"monocdk.aws_ecs.FargateTaskDefinition",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -13637,11 +20596,12 @@ func NewFargateTaskDefinition(scope constructs.Construct, id *string, props *Far
 }
 
 // Constructs a new instance of the FargateTaskDefinition class.
+// Experimental.
 func NewFargateTaskDefinition_Override(f FargateTaskDefinition, scope constructs.Construct, id *string, props *FargateTaskDefinitionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.FargateTaskDefinition",
+		"monocdk.aws_ecs.FargateTaskDefinition",
 		[]interface{}{scope, id, props},
 		f,
 	)
@@ -13656,13 +20616,14 @@ func (j *jsiiProxy_FargateTaskDefinition) SetDefaultContainer(val ContainerDefin
 }
 
 // Imports a task definition from the specified task definition ARN.
+// Experimental.
 func FargateTaskDefinition_FromFargateTaskDefinitionArn(scope constructs.Construct, id *string, fargateTaskDefinitionArn *string) IFargateTaskDefinition {
 	_init_.Initialize()
 
 	var returns IFargateTaskDefinition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.FargateTaskDefinition",
+		"monocdk.aws_ecs.FargateTaskDefinition",
 		"fromFargateTaskDefinitionArn",
 		[]interface{}{scope, id, fargateTaskDefinitionArn},
 		&returns,
@@ -13672,13 +20633,14 @@ func FargateTaskDefinition_FromFargateTaskDefinitionArn(scope constructs.Constru
 }
 
 // Import an existing Fargate task definition from its attributes.
+// Experimental.
 func FargateTaskDefinition_FromFargateTaskDefinitionAttributes(scope constructs.Construct, id *string, attrs *FargateTaskDefinitionAttributes) IFargateTaskDefinition {
 	_init_.Initialize()
 
 	var returns IFargateTaskDefinition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.FargateTaskDefinition",
+		"monocdk.aws_ecs.FargateTaskDefinition",
 		"fromFargateTaskDefinitionAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -13690,13 +20652,14 @@ func FargateTaskDefinition_FromFargateTaskDefinitionAttributes(scope constructs.
 // Imports a task definition from the specified task definition ARN.
 //
 // The task will have a compatibility of EC2+Fargate.
+// Experimental.
 func FargateTaskDefinition_FromTaskDefinitionArn(scope constructs.Construct, id *string, taskDefinitionArn *string) ITaskDefinition {
 	_init_.Initialize()
 
 	var returns ITaskDefinition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.FargateTaskDefinition",
+		"monocdk.aws_ecs.FargateTaskDefinition",
 		"fromTaskDefinitionArn",
 		[]interface{}{scope, id, taskDefinitionArn},
 		&returns,
@@ -13706,13 +20669,14 @@ func FargateTaskDefinition_FromTaskDefinitionArn(scope constructs.Construct, id 
 }
 
 // Create a task definition from a task definition reference.
+// Experimental.
 func FargateTaskDefinition_FromTaskDefinitionAttributes(scope constructs.Construct, id *string, attrs *TaskDefinitionAttributes) ITaskDefinition {
 	_init_.Initialize()
 
 	var returns ITaskDefinition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.FargateTaskDefinition",
+		"monocdk.aws_ecs.FargateTaskDefinition",
 		"fromTaskDefinitionAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -13721,17 +20685,15 @@ func FargateTaskDefinition_FromTaskDefinitionAttributes(scope constructs.Constru
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func FargateTaskDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.FargateTaskDefinition",
+		"monocdk.aws_ecs.FargateTaskDefinition",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -13741,13 +20703,14 @@ func FargateTaskDefinition_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func FargateTaskDefinition_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func FargateTaskDefinition_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.FargateTaskDefinition",
+		"monocdk.aws_ecs.FargateTaskDefinition",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -13756,7 +20719,6 @@ func FargateTaskDefinition_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Adds a new container to the task definition.
 func (f *jsiiProxy_FargateTaskDefinition) AddContainer(id *string, props *ContainerDefinitionOptions) ContainerDefinition {
 	var returns ContainerDefinition
 
@@ -13770,10 +20732,6 @@ func (f *jsiiProxy_FargateTaskDefinition) AddContainer(id *string, props *Contai
 	return returns
 }
 
-// Adds the specified extension to the task definition.
-//
-// Extension can be used to apply a packaged modification to
-// a task definition.
 func (f *jsiiProxy_FargateTaskDefinition) AddExtension(extension ITaskDefinitionExtension) {
 	_jsii_.InvokeVoid(
 		f,
@@ -13782,7 +20740,6 @@ func (f *jsiiProxy_FargateTaskDefinition) AddExtension(extension ITaskDefinition
 	)
 }
 
-// Adds a firelens log router to the task definition.
 func (f *jsiiProxy_FargateTaskDefinition) AddFirelensLogRouter(id *string, props *FirelensLogRouterDefinitionOptions) FirelensLogRouter {
 	var returns FirelensLogRouter
 
@@ -13796,7 +20753,6 @@ func (f *jsiiProxy_FargateTaskDefinition) AddFirelensLogRouter(id *string, props
 	return returns
 }
 
-// Adds an inference accelerator to the task definition.
 func (f *jsiiProxy_FargateTaskDefinition) AddInferenceAccelerator(inferenceAccelerator *InferenceAccelerator) {
 	_jsii_.InvokeVoid(
 		f,
@@ -13805,7 +20761,6 @@ func (f *jsiiProxy_FargateTaskDefinition) AddInferenceAccelerator(inferenceAccel
 	)
 }
 
-// Adds the specified placement constraint to the task definition.
 func (f *jsiiProxy_FargateTaskDefinition) AddPlacementConstraint(constraint PlacementConstraint) {
 	_jsii_.InvokeVoid(
 		f,
@@ -13814,7 +20769,6 @@ func (f *jsiiProxy_FargateTaskDefinition) AddPlacementConstraint(constraint Plac
 	)
 }
 
-// Adds a policy statement to the task execution IAM role.
 func (f *jsiiProxy_FargateTaskDefinition) AddToExecutionRolePolicy(statement awsiam.PolicyStatement) {
 	_jsii_.InvokeVoid(
 		f,
@@ -13823,7 +20777,6 @@ func (f *jsiiProxy_FargateTaskDefinition) AddToExecutionRolePolicy(statement aws
 	)
 }
 
-// Adds a policy statement to the task IAM role.
 func (f *jsiiProxy_FargateTaskDefinition) AddToTaskRolePolicy(statement awsiam.PolicyStatement) {
 	_jsii_.InvokeVoid(
 		f,
@@ -13832,7 +20785,6 @@ func (f *jsiiProxy_FargateTaskDefinition) AddToTaskRolePolicy(statement awsiam.P
 	)
 }
 
-// Adds a volume to the task definition.
 func (f *jsiiProxy_FargateTaskDefinition) AddVolume(volume *Volume) {
 	_jsii_.InvokeVoid(
 		f,
@@ -13841,15 +20793,6 @@ func (f *jsiiProxy_FargateTaskDefinition) AddVolume(volume *Volume) {
 	)
 }
 
-// Apply the given removal policy to this resource.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (f *jsiiProxy_FargateTaskDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		f,
@@ -13858,7 +20801,6 @@ func (f *jsiiProxy_FargateTaskDefinition) ApplyRemovalPolicy(policy awscdk.Remov
 	)
 }
 
-// Returns the container that match the provided containerName.
 func (f *jsiiProxy_FargateTaskDefinition) FindContainer(containerName *string) ContainerDefinition {
 	var returns ContainerDefinition
 
@@ -13885,12 +20827,6 @@ func (f *jsiiProxy_FargateTaskDefinition) GeneratePhysicalName() *string {
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
-//
-// Normally, this token will resolve to `arnAttr`, but if the resource is
-// referenced across environments, `arnComponents` will be used to synthesize
-// a concrete ARN with the resource's physical name. Make sure to reference
-// `this.physicalName` in `arnComponents`.
 func (f *jsiiProxy_FargateTaskDefinition) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -13904,11 +20840,6 @@ func (f *jsiiProxy_FargateTaskDefinition) GetResourceArnAttribute(arnAttr *strin
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
-//
-// Normally, this token will resolve to `nameAttr`, but if the resource is
-// referenced across environments, it will be resolved to `this.physicalName`,
-// which will be a concrete name.
 func (f *jsiiProxy_FargateTaskDefinition) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -13922,7 +20853,6 @@ func (f *jsiiProxy_FargateTaskDefinition) GetResourceNameAttribute(nameAttr *str
 	return returns
 }
 
-// Creates the task execution IAM role if it doesn't already exist.
 func (f *jsiiProxy_FargateTaskDefinition) ObtainExecutionRole() awsiam.IRole {
 	var returns awsiam.IRole
 
@@ -13936,7 +20866,51 @@ func (f *jsiiProxy_FargateTaskDefinition) ObtainExecutionRole() awsiam.IRole {
 	return returns
 }
 
-// Returns a string representation of this construct.
+func (f *jsiiProxy_FargateTaskDefinition) OnPrepare() {
+	_jsii_.InvokeVoid(
+		f,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (f *jsiiProxy_FargateTaskDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		f,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (f *jsiiProxy_FargateTaskDefinition) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		f,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FargateTaskDefinition) Prepare() {
+	_jsii_.InvokeVoid(
+		f,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (f *jsiiProxy_FargateTaskDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		f,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (f *jsiiProxy_FargateTaskDefinition) ToString() *string {
 	var returns *string
 
@@ -13950,40 +20924,81 @@ func (f *jsiiProxy_FargateTaskDefinition) ToString() *string {
 	return returns
 }
 
+func (f *jsiiProxy_FargateTaskDefinition) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		f,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Attributes used to import an existing Fargate task definition.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
 //
+//   var role role
+//   fargateTaskDefinitionAttributes := &fargateTaskDefinitionAttributes{
+//   	taskDefinitionArn: jsii.String("taskDefinitionArn"),
+//
+//   	// the properties below are optional
+//   	networkMode: ecs.networkMode_NONE,
+//   	taskRole: role,
+//   }
+//
+// Experimental.
 type FargateTaskDefinitionAttributes struct {
 	// The arn of the task definition.
+	// Experimental.
 	TaskDefinitionArn *string `json:"taskDefinitionArn" yaml:"taskDefinitionArn"`
 	// The networking mode to use for the containers in the task.
+	// Experimental.
 	NetworkMode NetworkMode `json:"networkMode" yaml:"networkMode"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
+	// Experimental.
 	TaskRole awsiam.IRole `json:"taskRole" yaml:"taskRole"`
 }
 
 // The properties for a task definition.
 //
-// TODO: EXAMPLE
+// Example:
+//   fargateTaskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &fargateTaskDefinitionProps{
+//   	memoryLimitMiB: jsii.Number(512),
+//   	cpu: jsii.Number(256),
+//   })
+//   container := fargateTaskDefinition.addContainer(jsii.String("WebContainer"), &containerDefinitionOptions{
+//   	// Use an image from DockerHub
+//   	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   })
 //
+// Experimental.
 type FargateTaskDefinitionProps struct {
 	// The name of the IAM task execution role that grants the ECS agent permission to call AWS APIs on your behalf.
 	//
 	// The role will be used to retrieve container images from ECR and create CloudWatch log groups.
+	// Experimental.
 	ExecutionRole awsiam.IRole `json:"executionRole" yaml:"executionRole"`
 	// The name of a family that this task definition is registered to.
 	//
 	// A family groups multiple versions of a task definition.
+	// Experimental.
 	Family *string `json:"family" yaml:"family"`
 	// The configuration details for the App Mesh proxy.
+	// Experimental.
 	ProxyConfiguration ProxyConfiguration `json:"proxyConfiguration" yaml:"proxyConfiguration"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
+	// Experimental.
 	TaskRole awsiam.IRole `json:"taskRole" yaml:"taskRole"`
 	// The list of volume definitions for the task.
 	//
 	// For more information, see
 	// [Task Definition Parameter Volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide//task_definition_parameters.html#volumes).
+	// Experimental.
 	Volumes *[]*Volume `json:"volumes" yaml:"volumes"`
 	// The number of cpu units used by the task.
 	//
@@ -13999,13 +21014,15 @@ type FargateTaskDefinitionProps struct {
 	//
 	// 2048 (2 vCPU) - Available memory values: Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)
 	//
-	// 4096 (4 vCPU) - Available memory values: Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
+	// 4096 (4 vCPU) - Available memory values: Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB).
+	// Experimental.
 	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// The amount (in GiB) of ephemeral storage to be allocated to the task.
 	//
 	// The maximum supported value is 200 GiB.
 	//
 	// NOTE: This parameter is only supported for tasks hosted on AWS Fargate using platform version 1.4.0 or later.
+	// Experimental.
 	EphemeralStorageGiB *float64 `json:"ephemeralStorageGiB" yaml:"ephemeralStorageGiB"`
 	// The amount (in MiB) of memory used by the task.
 	//
@@ -14020,21 +21037,45 @@ type FargateTaskDefinitionProps struct {
 	//
 	// Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) - Available cpu values: 2048 (2 vCPU)
 	//
-	// Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available cpu values: 4096 (4 vCPU)
+	// Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available cpu values: 4096 (4 vCPU).
+	// Experimental.
 	MemoryLimitMiB *float64 `json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The operating system that your task definitions are running on.
 	//
 	// A runtimePlatform is supported only for tasks using the Fargate launch type.
+	// Experimental.
 	RuntimePlatform *RuntimePlatform `json:"runtimePlatform" yaml:"runtimePlatform"`
 }
 
 // FireLens enables you to use task definition parameters to route logs to an AWS service   or AWS Partner Network (APN) destination for log storage and analytics.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
 //
+//   var secret secret
+//   fireLensLogDriver := ecs.NewFireLensLogDriver(&fireLensLogDriverProps{
+//   	env: []*string{
+//   		jsii.String("env"),
+//   	},
+//   	envRegex: jsii.String("envRegex"),
+//   	labels: []*string{
+//   		jsii.String("labels"),
+//   	},
+//   	options: map[string]*string{
+//   		"optionsKey": jsii.String("options"),
+//   	},
+//   	secretOptions: map[string]*secret{
+//   		"secretOptionsKey": secret,
+//   	},
+//   	tag: jsii.String("tag"),
+//   })
+//
+// Experimental.
 type FireLensLogDriver interface {
 	LogDriver
-	Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
+	// Called when the log driver is configured on a container.
+	// Experimental.
+	Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
 }
 
 // The jsii proxy struct for FireLensLogDriver
@@ -14043,13 +21084,14 @@ type jsiiProxy_FireLensLogDriver struct {
 }
 
 // Constructs a new instance of the FireLensLogDriver class.
+// Experimental.
 func NewFireLensLogDriver(props *FireLensLogDriverProps) FireLensLogDriver {
 	_init_.Initialize()
 
 	j := jsiiProxy_FireLensLogDriver{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.FireLensLogDriver",
+		"monocdk.aws_ecs.FireLensLogDriver",
 		[]interface{}{props},
 		&j,
 	)
@@ -14058,24 +21100,26 @@ func NewFireLensLogDriver(props *FireLensLogDriverProps) FireLensLogDriver {
 }
 
 // Constructs a new instance of the FireLensLogDriver class.
+// Experimental.
 func NewFireLensLogDriver_Override(f FireLensLogDriver, props *FireLensLogDriverProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.FireLensLogDriver",
+		"monocdk.aws_ecs.FireLensLogDriver",
 		[]interface{}{props},
 		f,
 	)
 }
 
 // Creates a log driver configuration that sends log information to CloudWatch Logs.
+// Experimental.
 func FireLensLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.FireLensLogDriver",
+		"monocdk.aws_ecs.FireLensLogDriver",
 		"awsLogs",
 		[]interface{}{props},
 		&returns,
@@ -14084,8 +21128,7 @@ func FireLensLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	return returns
 }
 
-// Called when the log driver is configured on a container.
-func (f *jsiiProxy_FireLensLogDriver) Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
+func (f *jsiiProxy_FireLensLogDriver) Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(
@@ -14100,96 +21143,367 @@ func (f *jsiiProxy_FireLensLogDriver) Bind(_scope constructs.Construct, _contain
 
 // Specifies the firelens log driver configuration options.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Create a Task Definition for the container to start
+//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+//   taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("example-image")),
+//   	memoryLimitMiB: jsii.Number(256),
+//   	logging: ecs.logDrivers.firelens(&fireLensLogDriverProps{
+//   		options: map[string]*string{
+//   			"Name": jsii.String("firehose"),
+//   			"region": jsii.String("us-west-2"),
+//   			"delivery_stream": jsii.String("my-stream"),
+//   		},
+//   	}),
+//   })
 //
+// Experimental.
 type FireLensLogDriverProps struct {
 	// The env option takes an array of keys.
 	//
 	// If there is collision between
 	// label and env keys, the value of the env takes precedence. Adds additional fields
 	// to the extra attributes of a logging message.
+	// Experimental.
 	Env *[]*string `json:"env" yaml:"env"`
 	// The env-regex option is similar to and compatible with env.
 	//
 	// Its value is a regular
 	// expression to match logging-related environment variables. It is used for advanced
 	// log tag options.
+	// Experimental.
 	EnvRegex *string `json:"envRegex" yaml:"envRegex"`
 	// The labels option takes an array of keys.
 	//
 	// If there is collision
 	// between label and env keys, the value of the env takes precedence. Adds additional
 	// fields to the extra attributes of a logging message.
+	// Experimental.
 	Labels *[]*string `json:"labels" yaml:"labels"`
 	// By default, Docker uses the first 12 characters of the container ID to tag log messages.
 	//
 	// Refer to the log tag option documentation for customizing the
 	// log tag format.
+	// Experimental.
 	Tag *string `json:"tag" yaml:"tag"`
 	// The configuration options to send to the log driver.
+	// Experimental.
 	Options *map[string]*string `json:"options" yaml:"options"`
 	// The secrets to pass to the log configuration.
+	// Experimental.
 	SecretOptions *map[string]Secret `json:"secretOptions" yaml:"secretOptions"`
 }
 
 // Firelens Configuration https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   firelensConfig := &firelensConfig{
+//   	type: ecs.firelensLogRouterType_FLUENTBIT,
 //
+//   	// the properties below are optional
+//   	options: &firelensOptions{
+//   		configFileValue: jsii.String("configFileValue"),
+//
+//   		// the properties below are optional
+//   		configFileType: ecs.firelensConfigFileType_S3,
+//   		enableECSLogMetadata: jsii.Boolean(false),
+//   	},
+//   }
+//
+// Experimental.
 type FirelensConfig struct {
 	// The log router to use.
+	// Experimental.
 	Type FirelensLogRouterType `json:"type" yaml:"type"`
 	// Firelens options.
+	// Experimental.
 	Options *FirelensOptions `json:"options" yaml:"options"`
 }
 
 // Firelens configuration file type, s3 or file path.
 //
 // https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef-customconfig
+// Experimental.
 type FirelensConfigFileType string
 
 const (
+	// s3.
+	// Experimental.
 	FirelensConfigFileType_S3 FirelensConfigFileType = "S3"
+	// fluentd.
+	// Experimental.
 	FirelensConfigFileType_FILE FirelensConfigFileType = "FILE"
 )
 
 // Firelens log router.
 //
-// TODO: EXAMPLE
+// Example:
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
 //
+//   var containerImage containerImage
+//   var duration duration
+//   var environmentFile environmentFile
+//   var linuxParameters linuxParameters
+//   var logDriver logDriver
+//   var secret secret
+//   var taskDefinition taskDefinition
+//   firelensLogRouter := ecs.NewFirelensLogRouter(this, jsii.String("MyFirelensLogRouter"), &firelensLogRouterProps{
+//   	firelensConfig: &firelensConfig{
+//   		type: ecs.firelensLogRouterType_FLUENTBIT,
+//
+//   		// the properties below are optional
+//   		options: &firelensOptions{
+//   			configFileValue: jsii.String("configFileValue"),
+//
+//   			// the properties below are optional
+//   			configFileType: ecs.firelensConfigFileType_S3,
+//   			enableECSLogMetadata: jsii.Boolean(false),
+//   		},
+//   	},
+//   	image: containerImage,
+//   	taskDefinition: taskDefinition,
+//
+//   	// the properties below are optional
+//   	command: []*string{
+//   		jsii.String("command"),
+//   	},
+//   	containerName: jsii.String("containerName"),
+//   	cpu: jsii.Number(123),
+//   	disableNetworking: jsii.Boolean(false),
+//   	dnsSearchDomains: []*string{
+//   		jsii.String("dnsSearchDomains"),
+//   	},
+//   	dnsServers: []*string{
+//   		jsii.String("dnsServers"),
+//   	},
+//   	dockerLabels: map[string]*string{
+//   		"dockerLabelsKey": jsii.String("dockerLabels"),
+//   	},
+//   	dockerSecurityOptions: []*string{
+//   		jsii.String("dockerSecurityOptions"),
+//   	},
+//   	entryPoint: []*string{
+//   		jsii.String("entryPoint"),
+//   	},
+//   	environment: map[string]*string{
+//   		"environmentKey": jsii.String("environment"),
+//   	},
+//   	environmentFiles: []*environmentFile{
+//   		environmentFile,
+//   	},
+//   	essential: jsii.Boolean(false),
+//   	extraHosts: map[string]*string{
+//   		"extraHostsKey": jsii.String("extraHosts"),
+//   	},
+//   	gpuCount: jsii.Number(123),
+//   	healthCheck: &healthCheck{
+//   		command: []*string{
+//   			jsii.String("command"),
+//   		},
+//
+//   		// the properties below are optional
+//   		interval: duration,
+//   		retries: jsii.Number(123),
+//   		startPeriod: duration,
+//   		timeout: duration,
+//   	},
+//   	hostname: jsii.String("hostname"),
+//   	inferenceAcceleratorResources: []*string{
+//   		jsii.String("inferenceAcceleratorResources"),
+//   	},
+//   	linuxParameters: linuxParameters,
+//   	logging: logDriver,
+//   	memoryLimitMiB: jsii.Number(123),
+//   	memoryReservationMiB: jsii.Number(123),
+//   	portMappings: []portMapping{
+//   		&portMapping{
+//   			containerPort: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			hostPort: jsii.Number(123),
+//   			protocol: ecs.protocol_TCP,
+//   		},
+//   	},
+//   	privileged: jsii.Boolean(false),
+//   	readonlyRootFilesystem: jsii.Boolean(false),
+//   	secrets: map[string]*secret{
+//   		"secretsKey": secret,
+//   	},
+//   	startTimeout: duration,
+//   	stopTimeout: duration,
+//   	systemControls: []systemControl{
+//   		&systemControl{
+//   			namespace: jsii.String("namespace"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	user: jsii.String("user"),
+//   	workingDirectory: jsii.String("workingDirectory"),
+//   })
+//
+// Experimental.
 type FirelensLogRouter interface {
 	ContainerDefinition
+	// An array dependencies defined for container startup and shutdown.
+	// Experimental.
 	ContainerDependencies() *[]*ContainerDependency
+	// The name of this container.
+	// Experimental.
 	ContainerName() *string
+	// The port the container will listen on.
+	// Experimental.
 	ContainerPort() *float64
+	// The environment files for this container.
+	// Experimental.
 	EnvironmentFiles() *[]*EnvironmentFileConfig
+	// Specifies whether the container will be marked essential.
+	//
+	// If the essential parameter of a container is marked as true, and that container
+	// fails or stops for any reason, all other containers that are part of the task are
+	// stopped. If the essential parameter of a container is marked as false, then its
+	// failure does not affect the rest of the containers in a task.
+	//
+	// If this parameter is omitted, a container is assumed to be essential.
+	// Experimental.
 	Essential() *bool
+	// Firelens configuration.
+	// Experimental.
 	FirelensConfig() *FirelensConfig
+	// The name of the image referenced by this container.
+	// Experimental.
 	ImageName() *string
+	// The inbound rules associated with the security group the task or service will use.
+	//
+	// This property is only used for tasks that use the awsvpc network mode.
+	// Experimental.
 	IngressPort() *float64
+	// The Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.
+	// Experimental.
 	LinuxParameters() LinuxParameters
+	// The log configuration specification for the container.
+	// Experimental.
 	LogDriverConfig() *LogDriverConfig
+	// Whether there was at least one memory limit specified in this definition.
+	// Experimental.
 	MemoryLimitSpecified() *bool
+	// The mount points for data volumes in your container.
+	// Experimental.
 	MountPoints() *[]*MountPoint
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// The list of port mappings for the container.
+	//
+	// Port mappings allow containers to access ports
+	// on the host container instance to send or receive traffic.
+	// Experimental.
 	PortMappings() *[]*PortMapping
+	// Whether this container definition references a specific JSON field of a secret stored in Secrets Manager.
+	// Experimental.
 	ReferencesSecretJsonField() *bool
+	// The name of the task definition that includes this container definition.
+	// Experimental.
 	TaskDefinition() TaskDefinition
+	// An array of ulimits to set in the container.
+	// Experimental.
 	Ulimits() *[]*Ulimit
+	// The data volumes to mount from another container in the same task definition.
+	// Experimental.
 	VolumesFrom() *[]*VolumeFrom
+	// This method adds one or more container dependencies to the container.
+	// Experimental.
 	AddContainerDependencies(containerDependencies ...*ContainerDependency)
+	// This method adds an environment variable to the container.
+	// Experimental.
 	AddEnvironment(name *string, value *string)
+	// This method adds one or more resources to the container.
+	// Experimental.
 	AddInferenceAcceleratorResource(inferenceAcceleratorResources ...*string)
+	// This method adds a link which allows containers to communicate with each other without the need for port mappings.
+	//
+	// This parameter is only supported if the task definition is using the bridge network mode.
+	// Warning: The --link flag is a legacy feature of Docker. It may eventually be removed.
+	// Experimental.
 	AddLink(container ContainerDefinition, alias *string)
+	// This method adds one or more mount points for data volumes to the container.
+	// Experimental.
 	AddMountPoints(mountPoints ...*MountPoint)
+	// This method adds one or more port mappings to the container.
+	// Experimental.
 	AddPortMappings(portMappings ...*PortMapping)
+	// This method mounts temporary disk space to the container.
+	//
+	// This adds the correct container mountPoint and task definition volume.
+	// Experimental.
 	AddScratch(scratch *ScratchSpace)
+	// This method adds the specified statement to the IAM task execution policy in the task definition.
+	// Experimental.
 	AddToExecutionPolicy(statement awsiam.PolicyStatement)
+	// This method adds one or more ulimits to the container.
+	// Experimental.
 	AddUlimits(ulimits ...*Ulimit)
+	// This method adds one or more volumes to the container.
+	// Experimental.
 	AddVolumesFrom(volumesFrom ...*VolumeFrom)
+	// Returns the host port for the requested container port if it exists.
+	// Experimental.
 	FindPortMapping(containerPort *float64, protocol Protocol) *PortMapping
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Render this container definition to a CloudFormation object.
+	// Experimental.
 	RenderContainerDefinition(_taskDefinition TaskDefinition) *CfnTaskDefinition_ContainerDefinitionProperty
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for FirelensLogRouter
@@ -14317,8 +21631,8 @@ func (j *jsiiProxy_FirelensLogRouter) MountPoints() *[]*MountPoint {
 	return returns
 }
 
-func (j *jsiiProxy_FirelensLogRouter) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_FirelensLogRouter) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -14379,13 +21693,14 @@ func (j *jsiiProxy_FirelensLogRouter) VolumesFrom() *[]*VolumeFrom {
 
 
 // Constructs a new instance of the FirelensLogRouter class.
+// Experimental.
 func NewFirelensLogRouter(scope constructs.Construct, id *string, props *FirelensLogRouterProps) FirelensLogRouter {
 	_init_.Initialize()
 
 	j := jsiiProxy_FirelensLogRouter{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.FirelensLogRouter",
+		"monocdk.aws_ecs.FirelensLogRouter",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -14394,27 +21709,26 @@ func NewFirelensLogRouter(scope constructs.Construct, id *string, props *Firelen
 }
 
 // Constructs a new instance of the FirelensLogRouter class.
+// Experimental.
 func NewFirelensLogRouter_Override(f FirelensLogRouter, scope constructs.Construct, id *string, props *FirelensLogRouterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.FirelensLogRouter",
+		"monocdk.aws_ecs.FirelensLogRouter",
 		[]interface{}{scope, id, props},
 		f,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func FirelensLogRouter_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.FirelensLogRouter",
+		"monocdk.aws_ecs.FirelensLogRouter",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -14423,7 +21737,6 @@ func FirelensLogRouter_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// This method adds one or more container dependencies to the container.
 func (f *jsiiProxy_FirelensLogRouter) AddContainerDependencies(containerDependencies ...*ContainerDependency) {
 	args := []interface{}{}
 	for _, a := range containerDependencies {
@@ -14437,7 +21750,6 @@ func (f *jsiiProxy_FirelensLogRouter) AddContainerDependencies(containerDependen
 	)
 }
 
-// This method adds an environment variable to the container.
 func (f *jsiiProxy_FirelensLogRouter) AddEnvironment(name *string, value *string) {
 	_jsii_.InvokeVoid(
 		f,
@@ -14446,7 +21758,6 @@ func (f *jsiiProxy_FirelensLogRouter) AddEnvironment(name *string, value *string
 	)
 }
 
-// This method adds one or more resources to the container.
 func (f *jsiiProxy_FirelensLogRouter) AddInferenceAcceleratorResource(inferenceAcceleratorResources ...*string) {
 	args := []interface{}{}
 	for _, a := range inferenceAcceleratorResources {
@@ -14460,10 +21771,6 @@ func (f *jsiiProxy_FirelensLogRouter) AddInferenceAcceleratorResource(inferenceA
 	)
 }
 
-// This method adds a link which allows containers to communicate with each other without the need for port mappings.
-//
-// This parameter is only supported if the task definition is using the bridge network mode.
-// Warning: The --link flag is a legacy feature of Docker. It may eventually be removed.
 func (f *jsiiProxy_FirelensLogRouter) AddLink(container ContainerDefinition, alias *string) {
 	_jsii_.InvokeVoid(
 		f,
@@ -14472,7 +21779,6 @@ func (f *jsiiProxy_FirelensLogRouter) AddLink(container ContainerDefinition, ali
 	)
 }
 
-// This method adds one or more mount points for data volumes to the container.
 func (f *jsiiProxy_FirelensLogRouter) AddMountPoints(mountPoints ...*MountPoint) {
 	args := []interface{}{}
 	for _, a := range mountPoints {
@@ -14486,7 +21792,6 @@ func (f *jsiiProxy_FirelensLogRouter) AddMountPoints(mountPoints ...*MountPoint)
 	)
 }
 
-// This method adds one or more port mappings to the container.
 func (f *jsiiProxy_FirelensLogRouter) AddPortMappings(portMappings ...*PortMapping) {
 	args := []interface{}{}
 	for _, a := range portMappings {
@@ -14500,9 +21805,6 @@ func (f *jsiiProxy_FirelensLogRouter) AddPortMappings(portMappings ...*PortMappi
 	)
 }
 
-// This method mounts temporary disk space to the container.
-//
-// This adds the correct container mountPoint and task definition volume.
 func (f *jsiiProxy_FirelensLogRouter) AddScratch(scratch *ScratchSpace) {
 	_jsii_.InvokeVoid(
 		f,
@@ -14511,7 +21813,6 @@ func (f *jsiiProxy_FirelensLogRouter) AddScratch(scratch *ScratchSpace) {
 	)
 }
 
-// This method adds the specified statement to the IAM task execution policy in the task definition.
 func (f *jsiiProxy_FirelensLogRouter) AddToExecutionPolicy(statement awsiam.PolicyStatement) {
 	_jsii_.InvokeVoid(
 		f,
@@ -14520,7 +21821,6 @@ func (f *jsiiProxy_FirelensLogRouter) AddToExecutionPolicy(statement awsiam.Poli
 	)
 }
 
-// This method adds one or more ulimits to the container.
 func (f *jsiiProxy_FirelensLogRouter) AddUlimits(ulimits ...*Ulimit) {
 	args := []interface{}{}
 	for _, a := range ulimits {
@@ -14534,7 +21834,6 @@ func (f *jsiiProxy_FirelensLogRouter) AddUlimits(ulimits ...*Ulimit) {
 	)
 }
 
-// This method adds one or more volumes to the container.
 func (f *jsiiProxy_FirelensLogRouter) AddVolumesFrom(volumesFrom ...*VolumeFrom) {
 	args := []interface{}{}
 	for _, a := range volumesFrom {
@@ -14548,7 +21847,6 @@ func (f *jsiiProxy_FirelensLogRouter) AddVolumesFrom(volumesFrom ...*VolumeFrom)
 	)
 }
 
-// Returns the host port for the requested container port if it exists.
 func (f *jsiiProxy_FirelensLogRouter) FindPortMapping(containerPort *float64, protocol Protocol) *PortMapping {
 	var returns *PortMapping
 
@@ -14562,7 +21860,43 @@ func (f *jsiiProxy_FirelensLogRouter) FindPortMapping(containerPort *float64, pr
 	return returns
 }
 
-// Render this container definition to a CloudFormation object.
+func (f *jsiiProxy_FirelensLogRouter) OnPrepare() {
+	_jsii_.InvokeVoid(
+		f,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (f *jsiiProxy_FirelensLogRouter) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		f,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (f *jsiiProxy_FirelensLogRouter) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		f,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FirelensLogRouter) Prepare() {
+	_jsii_.InvokeVoid(
+		f,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 func (f *jsiiProxy_FirelensLogRouter) RenderContainerDefinition(_taskDefinition TaskDefinition) *CfnTaskDefinition_ContainerDefinitionProperty {
 	var returns *CfnTaskDefinition_ContainerDefinitionProperty
 
@@ -14576,7 +21910,14 @@ func (f *jsiiProxy_FirelensLogRouter) RenderContainerDefinition(_taskDefinition 
 	return returns
 }
 
-// Returns a string representation of this construct.
+func (f *jsiiProxy_FirelensLogRouter) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		f,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (f *jsiiProxy_FirelensLogRouter) ToString() *string {
 	var returns *string
 
@@ -14590,47 +21931,173 @@ func (f *jsiiProxy_FirelensLogRouter) ToString() *string {
 	return returns
 }
 
+func (f *jsiiProxy_FirelensLogRouter) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		f,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // The options for creating a firelens log router.
 //
-// TODO: EXAMPLE
+// Example:
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
 //
+//   var containerImage containerImage
+//   var duration duration
+//   var environmentFile environmentFile
+//   var linuxParameters linuxParameters
+//   var logDriver logDriver
+//   var secret secret
+//   firelensLogRouterDefinitionOptions := &firelensLogRouterDefinitionOptions{
+//   	firelensConfig: &firelensConfig{
+//   		type: ecs.firelensLogRouterType_FLUENTBIT,
+//
+//   		// the properties below are optional
+//   		options: &firelensOptions{
+//   			configFileValue: jsii.String("configFileValue"),
+//
+//   			// the properties below are optional
+//   			configFileType: ecs.firelensConfigFileType_S3,
+//   			enableECSLogMetadata: jsii.Boolean(false),
+//   		},
+//   	},
+//   	image: containerImage,
+//
+//   	// the properties below are optional
+//   	command: []*string{
+//   		jsii.String("command"),
+//   	},
+//   	containerName: jsii.String("containerName"),
+//   	cpu: jsii.Number(123),
+//   	disableNetworking: jsii.Boolean(false),
+//   	dnsSearchDomains: []*string{
+//   		jsii.String("dnsSearchDomains"),
+//   	},
+//   	dnsServers: []*string{
+//   		jsii.String("dnsServers"),
+//   	},
+//   	dockerLabels: map[string]*string{
+//   		"dockerLabelsKey": jsii.String("dockerLabels"),
+//   	},
+//   	dockerSecurityOptions: []*string{
+//   		jsii.String("dockerSecurityOptions"),
+//   	},
+//   	entryPoint: []*string{
+//   		jsii.String("entryPoint"),
+//   	},
+//   	environment: map[string]*string{
+//   		"environmentKey": jsii.String("environment"),
+//   	},
+//   	environmentFiles: []*environmentFile{
+//   		environmentFile,
+//   	},
+//   	essential: jsii.Boolean(false),
+//   	extraHosts: map[string]*string{
+//   		"extraHostsKey": jsii.String("extraHosts"),
+//   	},
+//   	gpuCount: jsii.Number(123),
+//   	healthCheck: &healthCheck{
+//   		command: []*string{
+//   			jsii.String("command"),
+//   		},
+//
+//   		// the properties below are optional
+//   		interval: duration,
+//   		retries: jsii.Number(123),
+//   		startPeriod: duration,
+//   		timeout: duration,
+//   	},
+//   	hostname: jsii.String("hostname"),
+//   	inferenceAcceleratorResources: []*string{
+//   		jsii.String("inferenceAcceleratorResources"),
+//   	},
+//   	linuxParameters: linuxParameters,
+//   	logging: logDriver,
+//   	memoryLimitMiB: jsii.Number(123),
+//   	memoryReservationMiB: jsii.Number(123),
+//   	portMappings: []portMapping{
+//   		&portMapping{
+//   			containerPort: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			hostPort: jsii.Number(123),
+//   			protocol: ecs.protocol_TCP,
+//   		},
+//   	},
+//   	privileged: jsii.Boolean(false),
+//   	readonlyRootFilesystem: jsii.Boolean(false),
+//   	secrets: map[string]*secret{
+//   		"secretsKey": secret,
+//   	},
+//   	startTimeout: duration,
+//   	stopTimeout: duration,
+//   	systemControls: []systemControl{
+//   		&systemControl{
+//   			namespace: jsii.String("namespace"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	user: jsii.String("user"),
+//   	workingDirectory: jsii.String("workingDirectory"),
+//   }
+//
+// Experimental.
 type FirelensLogRouterDefinitionOptions struct {
 	// The image used to start a container.
 	//
 	// This string is passed directly to the Docker daemon.
 	// Images in the Docker Hub registry are available by default.
 	// Other repositories are specified with either repository-url/image:tag or repository-url/image@digest.
-	// TODO: Update these to specify using classes of IContainerImage
+	// TODO: Update these to specify using classes of IContainerImage.
+	// Experimental.
 	Image ContainerImage `json:"image" yaml:"image"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
+	// Experimental.
 	Command *[]*string `json:"command" yaml:"command"`
 	// The name of the container.
+	// Experimental.
 	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// The minimum number of CPU units to reserve for the container.
+	// Experimental.
 	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// Specifies whether networking is disabled within the container.
 	//
 	// When this parameter is true, networking is disabled within the container.
+	// Experimental.
 	DisableNetworking *bool `json:"disableNetworking" yaml:"disableNetworking"`
 	// A list of DNS search domains that are presented to the container.
+	// Experimental.
 	DnsSearchDomains *[]*string `json:"dnsSearchDomains" yaml:"dnsSearchDomains"`
 	// A list of DNS servers that are presented to the container.
+	// Experimental.
 	DnsServers *[]*string `json:"dnsServers" yaml:"dnsServers"`
 	// A key/value map of labels to add to the container.
+	// Experimental.
 	DockerLabels *map[string]*string `json:"dockerLabels" yaml:"dockerLabels"`
 	// A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems.
+	// Experimental.
 	DockerSecurityOptions *[]*string `json:"dockerSecurityOptions" yaml:"dockerSecurityOptions"`
 	// The ENTRYPOINT value to pass to the container.
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
+	// Experimental.
 	EntryPoint *[]*string `json:"entryPoint" yaml:"entryPoint"`
 	// The environment variables to pass to the container.
+	// Experimental.
 	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The environment files to pass to the container.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html
 	//
+	// Experimental.
 	EnvironmentFiles *[]EnvironmentFile `json:"environmentFiles" yaml:"environmentFiles"`
 	// Specifies whether the container is marked essential.
 	//
@@ -14640,22 +22107,30 @@ type FirelensLogRouterDefinitionOptions struct {
 	// affect the rest of the containers in a task. All tasks must have at least one essential container.
 	//
 	// If this parameter is omitted, a container is assumed to be essential.
+	// Experimental.
 	Essential *bool `json:"essential" yaml:"essential"`
 	// A list of hostnames and IP address mappings to append to the /etc/hosts file on the container.
+	// Experimental.
 	ExtraHosts *map[string]*string `json:"extraHosts" yaml:"extraHosts"`
 	// The number of GPUs assigned to the container.
+	// Experimental.
 	GpuCount *float64 `json:"gpuCount" yaml:"gpuCount"`
 	// The health check command and associated configuration parameters for the container.
+	// Experimental.
 	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
 	// The hostname to use for your container.
+	// Experimental.
 	Hostname *string `json:"hostname" yaml:"hostname"`
 	// The inference accelerators referenced by the container.
+	// Experimental.
 	InferenceAcceleratorResources *[]*string `json:"inferenceAcceleratorResources" yaml:"inferenceAcceleratorResources"`
 	// Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.
 	//
 	// For more information see [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html).
+	// Experimental.
 	LinuxParameters LinuxParameters `json:"linuxParameters" yaml:"linuxParameters"`
 	// The log configuration specification for the container.
+	// Experimental.
 	Logging LogDriver `json:"logging" yaml:"logging"`
 	// The amount (in MiB) of memory to present to the container.
 	//
@@ -14663,6 +22138,7 @@ type FirelensLogRouterDefinitionOptions struct {
 	// is terminated.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required for non-Fargate services.
+	// Experimental.
 	MemoryLimitMiB *float64 `json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The soft limit (in MiB) of memory to reserve for the container.
 	//
@@ -14673,74 +22149,200 @@ type FirelensLogRouterDefinitionOptions struct {
 	// instance, whichever comes first.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required for non-Fargate services.
+	// Experimental.
 	MemoryReservationMiB *float64 `json:"memoryReservationMiB" yaml:"memoryReservationMiB"`
 	// The port mappings to add to the container definition.
+	// Experimental.
 	PortMappings *[]*PortMapping `json:"portMappings" yaml:"portMappings"`
 	// Specifies whether the container is marked as privileged.
 	//
 	// When this parameter is true, the container is given elevated privileges on the host container instance (similar to the root user).
+	// Experimental.
 	Privileged *bool `json:"privileged" yaml:"privileged"`
 	// When this parameter is true, the container is given read-only access to its root file system.
+	// Experimental.
 	ReadonlyRootFilesystem *bool `json:"readonlyRootFilesystem" yaml:"readonlyRootFilesystem"`
 	// The secret environment variables to pass to the container.
+	// Experimental.
 	Secrets *map[string]Secret `json:"secrets" yaml:"secrets"`
 	// Time duration (in seconds) to wait before giving up on resolving dependencies for a container.
+	// Experimental.
 	StartTimeout awscdk.Duration `json:"startTimeout" yaml:"startTimeout"`
 	// Time duration (in seconds) to wait before the container is forcefully killed if it doesn't exit normally on its own.
+	// Experimental.
 	StopTimeout awscdk.Duration `json:"stopTimeout" yaml:"stopTimeout"`
 	// A list of namespaced kernel parameters to set in the container.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#container_definition_systemcontrols
 	//
+	// Experimental.
 	SystemControls *[]*SystemControl `json:"systemControls" yaml:"systemControls"`
 	// The user name to use inside the container.
+	// Experimental.
 	User *string `json:"user" yaml:"user"`
 	// The working directory in which to run commands inside the container.
+	// Experimental.
 	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
 	// Firelens configuration.
+	// Experimental.
 	FirelensConfig *FirelensConfig `json:"firelensConfig" yaml:"firelensConfig"`
 }
 
 // The properties in a firelens log router.
 //
-// TODO: EXAMPLE
+// Example:
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
 //
+//   var containerImage containerImage
+//   var duration duration
+//   var environmentFile environmentFile
+//   var linuxParameters linuxParameters
+//   var logDriver logDriver
+//   var secret secret
+//   var taskDefinition taskDefinition
+//   firelensLogRouterProps := &firelensLogRouterProps{
+//   	firelensConfig: &firelensConfig{
+//   		type: ecs.firelensLogRouterType_FLUENTBIT,
+//
+//   		// the properties below are optional
+//   		options: &firelensOptions{
+//   			configFileValue: jsii.String("configFileValue"),
+//
+//   			// the properties below are optional
+//   			configFileType: ecs.firelensConfigFileType_S3,
+//   			enableECSLogMetadata: jsii.Boolean(false),
+//   		},
+//   	},
+//   	image: containerImage,
+//   	taskDefinition: taskDefinition,
+//
+//   	// the properties below are optional
+//   	command: []*string{
+//   		jsii.String("command"),
+//   	},
+//   	containerName: jsii.String("containerName"),
+//   	cpu: jsii.Number(123),
+//   	disableNetworking: jsii.Boolean(false),
+//   	dnsSearchDomains: []*string{
+//   		jsii.String("dnsSearchDomains"),
+//   	},
+//   	dnsServers: []*string{
+//   		jsii.String("dnsServers"),
+//   	},
+//   	dockerLabels: map[string]*string{
+//   		"dockerLabelsKey": jsii.String("dockerLabels"),
+//   	},
+//   	dockerSecurityOptions: []*string{
+//   		jsii.String("dockerSecurityOptions"),
+//   	},
+//   	entryPoint: []*string{
+//   		jsii.String("entryPoint"),
+//   	},
+//   	environment: map[string]*string{
+//   		"environmentKey": jsii.String("environment"),
+//   	},
+//   	environmentFiles: []*environmentFile{
+//   		environmentFile,
+//   	},
+//   	essential: jsii.Boolean(false),
+//   	extraHosts: map[string]*string{
+//   		"extraHostsKey": jsii.String("extraHosts"),
+//   	},
+//   	gpuCount: jsii.Number(123),
+//   	healthCheck: &healthCheck{
+//   		command: []*string{
+//   			jsii.String("command"),
+//   		},
+//
+//   		// the properties below are optional
+//   		interval: duration,
+//   		retries: jsii.Number(123),
+//   		startPeriod: duration,
+//   		timeout: duration,
+//   	},
+//   	hostname: jsii.String("hostname"),
+//   	inferenceAcceleratorResources: []*string{
+//   		jsii.String("inferenceAcceleratorResources"),
+//   	},
+//   	linuxParameters: linuxParameters,
+//   	logging: logDriver,
+//   	memoryLimitMiB: jsii.Number(123),
+//   	memoryReservationMiB: jsii.Number(123),
+//   	portMappings: []portMapping{
+//   		&portMapping{
+//   			containerPort: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			hostPort: jsii.Number(123),
+//   			protocol: ecs.protocol_TCP,
+//   		},
+//   	},
+//   	privileged: jsii.Boolean(false),
+//   	readonlyRootFilesystem: jsii.Boolean(false),
+//   	secrets: map[string]*secret{
+//   		"secretsKey": secret,
+//   	},
+//   	startTimeout: duration,
+//   	stopTimeout: duration,
+//   	systemControls: []systemControl{
+//   		&systemControl{
+//   			namespace: jsii.String("namespace"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	user: jsii.String("user"),
+//   	workingDirectory: jsii.String("workingDirectory"),
+//   }
+//
+// Experimental.
 type FirelensLogRouterProps struct {
 	// The image used to start a container.
 	//
 	// This string is passed directly to the Docker daemon.
 	// Images in the Docker Hub registry are available by default.
 	// Other repositories are specified with either repository-url/image:tag or repository-url/image@digest.
-	// TODO: Update these to specify using classes of IContainerImage
+	// TODO: Update these to specify using classes of IContainerImage.
+	// Experimental.
 	Image ContainerImage `json:"image" yaml:"image"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
+	// Experimental.
 	Command *[]*string `json:"command" yaml:"command"`
 	// The name of the container.
+	// Experimental.
 	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// The minimum number of CPU units to reserve for the container.
+	// Experimental.
 	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// Specifies whether networking is disabled within the container.
 	//
 	// When this parameter is true, networking is disabled within the container.
+	// Experimental.
 	DisableNetworking *bool `json:"disableNetworking" yaml:"disableNetworking"`
 	// A list of DNS search domains that are presented to the container.
+	// Experimental.
 	DnsSearchDomains *[]*string `json:"dnsSearchDomains" yaml:"dnsSearchDomains"`
 	// A list of DNS servers that are presented to the container.
+	// Experimental.
 	DnsServers *[]*string `json:"dnsServers" yaml:"dnsServers"`
 	// A key/value map of labels to add to the container.
+	// Experimental.
 	DockerLabels *map[string]*string `json:"dockerLabels" yaml:"dockerLabels"`
 	// A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems.
+	// Experimental.
 	DockerSecurityOptions *[]*string `json:"dockerSecurityOptions" yaml:"dockerSecurityOptions"`
 	// The ENTRYPOINT value to pass to the container.
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
+	// Experimental.
 	EntryPoint *[]*string `json:"entryPoint" yaml:"entryPoint"`
 	// The environment variables to pass to the container.
+	// Experimental.
 	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The environment files to pass to the container.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html
 	//
+	// Experimental.
 	EnvironmentFiles *[]EnvironmentFile `json:"environmentFiles" yaml:"environmentFiles"`
 	// Specifies whether the container is marked essential.
 	//
@@ -14750,22 +22352,30 @@ type FirelensLogRouterProps struct {
 	// affect the rest of the containers in a task. All tasks must have at least one essential container.
 	//
 	// If this parameter is omitted, a container is assumed to be essential.
+	// Experimental.
 	Essential *bool `json:"essential" yaml:"essential"`
 	// A list of hostnames and IP address mappings to append to the /etc/hosts file on the container.
+	// Experimental.
 	ExtraHosts *map[string]*string `json:"extraHosts" yaml:"extraHosts"`
 	// The number of GPUs assigned to the container.
+	// Experimental.
 	GpuCount *float64 `json:"gpuCount" yaml:"gpuCount"`
 	// The health check command and associated configuration parameters for the container.
+	// Experimental.
 	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
 	// The hostname to use for your container.
+	// Experimental.
 	Hostname *string `json:"hostname" yaml:"hostname"`
 	// The inference accelerators referenced by the container.
+	// Experimental.
 	InferenceAcceleratorResources *[]*string `json:"inferenceAcceleratorResources" yaml:"inferenceAcceleratorResources"`
 	// Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.
 	//
 	// For more information see [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html).
+	// Experimental.
 	LinuxParameters LinuxParameters `json:"linuxParameters" yaml:"linuxParameters"`
 	// The log configuration specification for the container.
+	// Experimental.
 	Logging LogDriver `json:"logging" yaml:"logging"`
 	// The amount (in MiB) of memory to present to the container.
 	//
@@ -14773,6 +22383,7 @@ type FirelensLogRouterProps struct {
 	// is terminated.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required for non-Fargate services.
+	// Experimental.
 	MemoryLimitMiB *float64 `json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The soft limit (in MiB) of memory to reserve for the container.
 	//
@@ -14783,69 +22394,120 @@ type FirelensLogRouterProps struct {
 	// instance, whichever comes first.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required for non-Fargate services.
+	// Experimental.
 	MemoryReservationMiB *float64 `json:"memoryReservationMiB" yaml:"memoryReservationMiB"`
 	// The port mappings to add to the container definition.
+	// Experimental.
 	PortMappings *[]*PortMapping `json:"portMappings" yaml:"portMappings"`
 	// Specifies whether the container is marked as privileged.
 	//
 	// When this parameter is true, the container is given elevated privileges on the host container instance (similar to the root user).
+	// Experimental.
 	Privileged *bool `json:"privileged" yaml:"privileged"`
 	// When this parameter is true, the container is given read-only access to its root file system.
+	// Experimental.
 	ReadonlyRootFilesystem *bool `json:"readonlyRootFilesystem" yaml:"readonlyRootFilesystem"`
 	// The secret environment variables to pass to the container.
+	// Experimental.
 	Secrets *map[string]Secret `json:"secrets" yaml:"secrets"`
 	// Time duration (in seconds) to wait before giving up on resolving dependencies for a container.
+	// Experimental.
 	StartTimeout awscdk.Duration `json:"startTimeout" yaml:"startTimeout"`
 	// Time duration (in seconds) to wait before the container is forcefully killed if it doesn't exit normally on its own.
+	// Experimental.
 	StopTimeout awscdk.Duration `json:"stopTimeout" yaml:"stopTimeout"`
 	// A list of namespaced kernel parameters to set in the container.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#container_definition_systemcontrols
 	//
+	// Experimental.
 	SystemControls *[]*SystemControl `json:"systemControls" yaml:"systemControls"`
 	// The user name to use inside the container.
+	// Experimental.
 	User *string `json:"user" yaml:"user"`
 	// The working directory in which to run commands inside the container.
+	// Experimental.
 	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
 	// The name of the task definition that includes this container definition.
 	//
-	// [disable-awslint:ref-via-interface]
+	// [disable-awslint:ref-via-interface].
+	// Experimental.
 	TaskDefinition TaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 	// Firelens configuration.
+	// Experimental.
 	FirelensConfig *FirelensConfig `json:"firelensConfig" yaml:"firelensConfig"`
 }
 
 // Firelens log router type, fluentbit or fluentd.
 //
 // https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html
+// Experimental.
 type FirelensLogRouterType string
 
 const (
+	// fluentbit.
+	// Experimental.
 	FirelensLogRouterType_FLUENTBIT FirelensLogRouterType = "FLUENTBIT"
+	// fluentd.
+	// Experimental.
 	FirelensLogRouterType_FLUENTD FirelensLogRouterType = "FLUENTD"
 )
 
 // The options for firelens log router https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef-customconfig.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   firelensOptions := &firelensOptions{
+//   	configFileValue: jsii.String("configFileValue"),
 //
+//   	// the properties below are optional
+//   	configFileType: ecs.firelensConfigFileType_S3,
+//   	enableECSLogMetadata: jsii.Boolean(false),
+//   }
+//
+// Experimental.
 type FirelensOptions struct {
 	// Custom configuration file, S3 ARN or a file path.
+	// Experimental.
 	ConfigFileValue *string `json:"configFileValue" yaml:"configFileValue"`
 	// Custom configuration file, s3 or file.
+	// Experimental.
 	ConfigFileType FirelensConfigFileType `json:"configFileType" yaml:"configFileType"`
 	// By default, Amazon ECS adds additional fields in your log entries that help identify the source of the logs.
 	//
 	// You can disable this action by setting enable-ecs-log-metadata to false.
+	// Experimental.
 	EnableECSLogMetadata *bool `json:"enableECSLogMetadata" yaml:"enableECSLogMetadata"`
 }
 
 // A log driver that sends log information to journald Logs.
 //
-// TODO: EXAMPLE
+// Example:
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
 //
+//   var duration duration
+//   fluentdLogDriver := ecs.NewFluentdLogDriver(&fluentdLogDriverProps{
+//   	address: jsii.String("address"),
+//   	asyncConnect: jsii.Boolean(false),
+//   	bufferLimit: jsii.Number(123),
+//   	env: []*string{
+//   		jsii.String("env"),
+//   	},
+//   	envRegex: jsii.String("envRegex"),
+//   	labels: []*string{
+//   		jsii.String("labels"),
+//   	},
+//   	maxRetries: jsii.Number(123),
+//   	retryWait: duration,
+//   	subSecondPrecision: jsii.Boolean(false),
+//   	tag: jsii.String("tag"),
+//   })
+//
+// Experimental.
 type FluentdLogDriver interface {
 	LogDriver
-	Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
+	// Called when the log driver is configured on a container.
+	// Experimental.
+	Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
 }
 
 // The jsii proxy struct for FluentdLogDriver
@@ -14854,13 +22516,14 @@ type jsiiProxy_FluentdLogDriver struct {
 }
 
 // Constructs a new instance of the FluentdLogDriver class.
+// Experimental.
 func NewFluentdLogDriver(props *FluentdLogDriverProps) FluentdLogDriver {
 	_init_.Initialize()
 
 	j := jsiiProxy_FluentdLogDriver{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.FluentdLogDriver",
+		"monocdk.aws_ecs.FluentdLogDriver",
 		[]interface{}{props},
 		&j,
 	)
@@ -14869,24 +22532,26 @@ func NewFluentdLogDriver(props *FluentdLogDriverProps) FluentdLogDriver {
 }
 
 // Constructs a new instance of the FluentdLogDriver class.
+// Experimental.
 func NewFluentdLogDriver_Override(f FluentdLogDriver, props *FluentdLogDriverProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.FluentdLogDriver",
+		"monocdk.aws_ecs.FluentdLogDriver",
 		[]interface{}{props},
 		f,
 	)
 }
 
 // Creates a log driver configuration that sends log information to CloudWatch Logs.
+// Experimental.
 func FluentdLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.FluentdLogDriver",
+		"monocdk.aws_ecs.FluentdLogDriver",
 		"awsLogs",
 		[]interface{}{props},
 		&returns,
@@ -14895,8 +22560,7 @@ func FluentdLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	return returns
 }
 
-// Called when the log driver is configured on a container.
-func (f *jsiiProxy_FluentdLogDriver) Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
+func (f *jsiiProxy_FluentdLogDriver) Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(
@@ -14913,69 +22577,126 @@ func (f *jsiiProxy_FluentdLogDriver) Bind(_scope constructs.Construct, _containe
 //
 // [Source](https://docs.docker.com/config/containers/logging/fluentd/)
 //
-// TODO: EXAMPLE
+// Example:
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
 //
+//   var duration duration
+//   fluentdLogDriverProps := &fluentdLogDriverProps{
+//   	address: jsii.String("address"),
+//   	asyncConnect: jsii.Boolean(false),
+//   	bufferLimit: jsii.Number(123),
+//   	env: []*string{
+//   		jsii.String("env"),
+//   	},
+//   	envRegex: jsii.String("envRegex"),
+//   	labels: []*string{
+//   		jsii.String("labels"),
+//   	},
+//   	maxRetries: jsii.Number(123),
+//   	retryWait: duration,
+//   	subSecondPrecision: jsii.Boolean(false),
+//   	tag: jsii.String("tag"),
+//   }
+//
+// Experimental.
 type FluentdLogDriverProps struct {
 	// The env option takes an array of keys.
 	//
 	// If there is collision between
 	// label and env keys, the value of the env takes precedence. Adds additional fields
 	// to the extra attributes of a logging message.
+	// Experimental.
 	Env *[]*string `json:"env" yaml:"env"`
 	// The env-regex option is similar to and compatible with env.
 	//
 	// Its value is a regular
 	// expression to match logging-related environment variables. It is used for advanced
 	// log tag options.
+	// Experimental.
 	EnvRegex *string `json:"envRegex" yaml:"envRegex"`
 	// The labels option takes an array of keys.
 	//
 	// If there is collision
 	// between label and env keys, the value of the env takes precedence. Adds additional
 	// fields to the extra attributes of a logging message.
+	// Experimental.
 	Labels *[]*string `json:"labels" yaml:"labels"`
 	// By default, Docker uses the first 12 characters of the container ID to tag log messages.
 	//
 	// Refer to the log tag option documentation for customizing the
 	// log tag format.
+	// Experimental.
 	Tag *string `json:"tag" yaml:"tag"`
 	// By default, the logging driver connects to localhost:24224.
 	//
 	// Supply the
 	// address option to connect to a different address. tcp(default) and unix
 	// sockets are supported.
+	// Experimental.
 	Address *string `json:"address" yaml:"address"`
 	// Docker connects to Fluentd in the background.
 	//
 	// Messages are buffered until
 	// the connection is established.
+	// Experimental.
 	AsyncConnect *bool `json:"asyncConnect" yaml:"asyncConnect"`
 	// The amount of data to buffer before flushing to disk.
+	// Experimental.
 	BufferLimit *float64 `json:"bufferLimit" yaml:"bufferLimit"`
 	// The maximum number of retries.
+	// Experimental.
 	MaxRetries *float64 `json:"maxRetries" yaml:"maxRetries"`
 	// How long to wait between retries.
+	// Experimental.
 	RetryWait awscdk.Duration `json:"retryWait" yaml:"retryWait"`
 	// Generates event logs in nanosecond resolution.
+	// Experimental.
 	SubSecondPrecision *bool `json:"subSecondPrecision" yaml:"subSecondPrecision"`
 }
 
 // The type of compression the GELF driver uses to compress each log message.
+// Experimental.
 type GelfCompressionType string
 
 const (
+	// Experimental.
 	GelfCompressionType_GZIP GelfCompressionType = "GZIP"
+	// Experimental.
 	GelfCompressionType_ZLIB GelfCompressionType = "ZLIB"
+	// Experimental.
 	GelfCompressionType_NONE GelfCompressionType = "NONE"
 )
 
 // A log driver that sends log information to journald Logs.
 //
-// TODO: EXAMPLE
+// Example:
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
 //
+//   var duration duration
+//   gelfLogDriver := ecs.NewGelfLogDriver(&gelfLogDriverProps{
+//   	address: jsii.String("address"),
+//
+//   	// the properties below are optional
+//   	compressionLevel: jsii.Number(123),
+//   	compressionType: ecs.gelfCompressionType_GZIP,
+//   	env: []*string{
+//   		jsii.String("env"),
+//   	},
+//   	envRegex: jsii.String("envRegex"),
+//   	labels: []*string{
+//   		jsii.String("labels"),
+//   	},
+//   	tag: jsii.String("tag"),
+//   	tcpMaxReconnect: jsii.Number(123),
+//   	tcpReconnectDelay: duration,
+//   })
+//
+// Experimental.
 type GelfLogDriver interface {
 	LogDriver
-	Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
+	// Called when the log driver is configured on a container.
+	// Experimental.
+	Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
 }
 
 // The jsii proxy struct for GelfLogDriver
@@ -14984,13 +22705,14 @@ type jsiiProxy_GelfLogDriver struct {
 }
 
 // Constructs a new instance of the GelfLogDriver class.
+// Experimental.
 func NewGelfLogDriver(props *GelfLogDriverProps) GelfLogDriver {
 	_init_.Initialize()
 
 	j := jsiiProxy_GelfLogDriver{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.GelfLogDriver",
+		"monocdk.aws_ecs.GelfLogDriver",
 		[]interface{}{props},
 		&j,
 	)
@@ -14999,24 +22721,26 @@ func NewGelfLogDriver(props *GelfLogDriverProps) GelfLogDriver {
 }
 
 // Constructs a new instance of the GelfLogDriver class.
+// Experimental.
 func NewGelfLogDriver_Override(g GelfLogDriver, props *GelfLogDriverProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.GelfLogDriver",
+		"monocdk.aws_ecs.GelfLogDriver",
 		[]interface{}{props},
 		g,
 	)
 }
 
 // Creates a log driver configuration that sends log information to CloudWatch Logs.
+// Experimental.
 func GelfLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.GelfLogDriver",
+		"monocdk.aws_ecs.GelfLogDriver",
 		"awsLogs",
 		[]interface{}{props},
 		&returns,
@@ -15025,8 +22749,7 @@ func GelfLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	return returns
 }
 
-// Called when the log driver is configured on a container.
-func (g *jsiiProxy_GelfLogDriver) Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
+func (g *jsiiProxy_GelfLogDriver) Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(
@@ -15043,63 +22766,97 @@ func (g *jsiiProxy_GelfLogDriver) Bind(_scope constructs.Construct, _containerDe
 //
 // [Source](https://docs.docker.com/config/containers/logging/gelf/)
 //
-// TODO: EXAMPLE
+// Example:
+//   // Create a Task Definition for the container to start
+//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+//   taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("example-image")),
+//   	memoryLimitMiB: jsii.Number(256),
+//   	logging: ecs.logDrivers.gelf(&gelfLogDriverProps{
+//   		address: jsii.String("my-gelf-address"),
+//   	}),
+//   })
 //
+// Experimental.
 type GelfLogDriverProps struct {
 	// The env option takes an array of keys.
 	//
 	// If there is collision between
 	// label and env keys, the value of the env takes precedence. Adds additional fields
 	// to the extra attributes of a logging message.
+	// Experimental.
 	Env *[]*string `json:"env" yaml:"env"`
 	// The env-regex option is similar to and compatible with env.
 	//
 	// Its value is a regular
 	// expression to match logging-related environment variables. It is used for advanced
 	// log tag options.
+	// Experimental.
 	EnvRegex *string `json:"envRegex" yaml:"envRegex"`
 	// The labels option takes an array of keys.
 	//
 	// If there is collision
 	// between label and env keys, the value of the env takes precedence. Adds additional
 	// fields to the extra attributes of a logging message.
+	// Experimental.
 	Labels *[]*string `json:"labels" yaml:"labels"`
 	// By default, Docker uses the first 12 characters of the container ID to tag log messages.
 	//
 	// Refer to the log tag option documentation for customizing the
 	// log tag format.
+	// Experimental.
 	Tag *string `json:"tag" yaml:"tag"`
 	// The address of the GELF server.
 	//
 	// tcp and udp are the only supported URI
 	// specifier and you must specify the port.
+	// Experimental.
 	Address *string `json:"address" yaml:"address"`
 	// UDP Only The level of compression when gzip or zlib is the gelf-compression-type.
 	//
 	// An integer in the range of -1 to 9 (BestCompression). Higher levels provide more
 	// compression at lower speed. Either -1 or 0 disables compression.
+	// Experimental.
 	CompressionLevel *float64 `json:"compressionLevel" yaml:"compressionLevel"`
 	// UDP Only The type of compression the GELF driver uses to compress each log message.
 	//
 	// Allowed values are gzip, zlib and none.
+	// Experimental.
 	CompressionType GelfCompressionType `json:"compressionType" yaml:"compressionType"`
 	// TCP Only The maximum number of reconnection attempts when the connection drop.
 	//
 	// A positive integer.
+	// Experimental.
 	TcpMaxReconnect *float64 `json:"tcpMaxReconnect" yaml:"tcpMaxReconnect"`
 	// TCP Only The number of seconds to wait between reconnection attempts.
 	//
 	// A positive integer.
+	// Experimental.
 	TcpReconnectDelay awscdk.Duration `json:"tcpReconnectDelay" yaml:"tcpReconnectDelay"`
 }
 
 // A log driver that sends logs to the specified driver.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Create a Task Definition for the container to start
+//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+//   taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("example-image")),
+//   	memoryLimitMiB: jsii.Number(256),
+//   	logging: ecs.NewGenericLogDriver(&genericLogDriverProps{
+//   		logDriver: jsii.String("fluentd"),
+//   		options: map[string]*string{
+//   			"tag": jsii.String("example-tag"),
+//   		},
+//   	}),
+//   })
 //
+// Experimental.
 type GenericLogDriver interface {
 	LogDriver
-	Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
+	// Called when the log driver is configured on a container.
+	// Experimental.
+	Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
 }
 
 // The jsii proxy struct for GenericLogDriver
@@ -15108,13 +22865,14 @@ type jsiiProxy_GenericLogDriver struct {
 }
 
 // Constructs a new instance of the GenericLogDriver class.
+// Experimental.
 func NewGenericLogDriver(props *GenericLogDriverProps) GenericLogDriver {
 	_init_.Initialize()
 
 	j := jsiiProxy_GenericLogDriver{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.GenericLogDriver",
+		"monocdk.aws_ecs.GenericLogDriver",
 		[]interface{}{props},
 		&j,
 	)
@@ -15123,24 +22881,26 @@ func NewGenericLogDriver(props *GenericLogDriverProps) GenericLogDriver {
 }
 
 // Constructs a new instance of the GenericLogDriver class.
+// Experimental.
 func NewGenericLogDriver_Override(g GenericLogDriver, props *GenericLogDriverProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.GenericLogDriver",
+		"monocdk.aws_ecs.GenericLogDriver",
 		[]interface{}{props},
 		g,
 	)
 }
 
 // Creates a log driver configuration that sends log information to CloudWatch Logs.
+// Experimental.
 func GenericLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.GenericLogDriver",
+		"monocdk.aws_ecs.GenericLogDriver",
 		"awsLogs",
 		[]interface{}{props},
 		&returns,
@@ -15149,8 +22909,7 @@ func GenericLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	return returns
 }
 
-// Called when the log driver is configured on a container.
-func (g *jsiiProxy_GenericLogDriver) Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
+func (g *jsiiProxy_GenericLogDriver) Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(
@@ -15165,8 +22924,21 @@ func (g *jsiiProxy_GenericLogDriver) Bind(_scope constructs.Construct, _containe
 
 // The configuration to use when creating a log driver.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Create a Task Definition for the container to start
+//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+//   taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("example-image")),
+//   	memoryLimitMiB: jsii.Number(256),
+//   	logging: ecs.NewGenericLogDriver(&genericLogDriverProps{
+//   		logDriver: jsii.String("fluentd"),
+//   		options: map[string]*string{
+//   			"tag": jsii.String("example-tag"),
+//   		},
+//   	}),
+//   })
 //
+// Experimental.
 type GenericLogDriverProps struct {
 	// The log driver to use for the container.
 	//
@@ -15179,47 +22951,79 @@ type GenericLogDriverProps struct {
 	// For more information about using the awslogs log driver, see
 	// [Using the awslogs Log Driver](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html)
 	// in the Amazon Elastic Container Service Developer Guide.
+	// Experimental.
 	LogDriver *string `json:"logDriver" yaml:"logDriver"`
 	// The configuration options to send to the log driver.
+	// Experimental.
 	Options *map[string]*string `json:"options" yaml:"options"`
 	// The secrets to pass to the log configuration.
+	// Experimental.
 	SecretOptions *map[string]Secret `json:"secretOptions" yaml:"secretOptions"`
 }
 
 // The health check command and associated configuration parameters for the container.
 //
-// TODO: EXAMPLE
+// Example:
+//   var vpc vpc
+//   var securityGroup securityGroup
+//   queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(this, jsii.String("Service"), &queueProcessingFargateServiceProps{
+//   	vpc: vpc,
+//   	memoryLimitMiB: jsii.Number(512),
+//   	image: ecs.containerImage.fromRegistry(jsii.String("test")),
+//   	healthCheck: &healthCheck{
+//   		command: []*string{
+//   			jsii.String("CMD-SHELL"),
+//   			jsii.String("curl -f http://localhost/ || exit 1"),
+//   		},
+//   		// the properties below are optional
+//   		interval: duration.minutes(jsii.Number(30)),
+//   		retries: jsii.Number(123),
+//   		startPeriod: *duration.minutes(jsii.Number(30)),
+//   		timeout: *duration.minutes(jsii.Number(30)),
+//   	},
+//   })
 //
+// Experimental.
 type HealthCheck struct {
 	// A string array representing the command that the container runs to determine if it is healthy.
 	//
 	// The string array must start with CMD to execute the command arguments directly, or
 	// CMD-SHELL to run the command with the container's default shell.
 	//
-	// For example: [ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]
+	// For example: [ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ].
+	// Experimental.
 	Command *[]*string `json:"command" yaml:"command"`
 	// The time period in seconds between each health check execution.
 	//
 	// You may specify between 5 and 300 seconds.
+	// Experimental.
 	Interval awscdk.Duration `json:"interval" yaml:"interval"`
 	// The number of times to retry a failed health check before the container is considered unhealthy.
 	//
 	// You may specify between 1 and 10 retries.
+	// Experimental.
 	Retries *float64 `json:"retries" yaml:"retries"`
 	// The optional grace period within which to provide containers time to bootstrap before failed health checks count towards the maximum number of retries.
 	//
 	// You may specify between 0 and 300 seconds.
+	// Experimental.
 	StartPeriod awscdk.Duration `json:"startPeriod" yaml:"startPeriod"`
 	// The time period in seconds to wait for a health check to succeed before it is considered a failure.
 	//
 	// You may specify between 2 and 60 seconds.
+	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 }
 
 // The details on a container instance bind mount host volume.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   host := &host{
+//   	sourcePath: jsii.String("sourcePath"),
+//   }
 //
+// Experimental.
 type Host struct {
 	// Specifies the path on the host container instance that is presented to the container.
 	//
@@ -15227,13 +23031,16 @@ type Host struct {
 	// If the location does exist, the contents of the source path folder are exported.
 	//
 	// This property is not supported for tasks that use the Fargate launch type.
+	// Experimental.
 	SourcePath *string `json:"sourcePath" yaml:"sourcePath"`
 }
 
 // The interface for BaseService.
+// Experimental.
 type IBaseService interface {
 	IService
 	// The cluster that hosts the service.
+	// Experimental.
 	Cluster() ICluster
 }
 
@@ -15253,23 +23060,32 @@ func (j *jsiiProxy_IBaseService) Cluster() ICluster {
 }
 
 // A regional grouping of one or more container instances on which you can run tasks and services.
+// Experimental.
 type ICluster interface {
 	awscdk.IResource
 	// The autoscaling group added to the cluster if capacity is associated to the cluster.
+	// Experimental.
 	AutoscalingGroup() awsautoscaling.IAutoScalingGroup
 	// The Amazon Resource Name (ARN) that identifies the cluster.
+	// Experimental.
 	ClusterArn() *string
 	// The name of the cluster.
+	// Experimental.
 	ClusterName() *string
 	// Manage the allowed network connections for the cluster with Security Groups.
+	// Experimental.
 	Connections() awsec2.Connections
 	// The AWS Cloud Map namespace to associate with the cluster.
+	// Experimental.
 	DefaultCloudMapNamespace() awsservicediscovery.INamespace
 	// The execute command configuration for the cluster.
+	// Experimental.
 	ExecuteCommandConfiguration() *ExecuteCommandConfiguration
 	// Specifies whether the cluster has EC2 instance capacity.
+	// Experimental.
 	HasEc2Capacity() *bool
 	// The VPC associated with the cluster.
+	// Experimental.
 	Vpc() awsec2.IVpc
 }
 
@@ -15359,6 +23175,7 @@ func (j *jsiiProxy_ICluster) Vpc() awsec2.IVpc {
 }
 
 // The interface for a service using the EC2 launch type on an ECS cluster.
+// Experimental.
 type IEc2Service interface {
 	IService
 }
@@ -15369,6 +23186,7 @@ type jsiiProxy_IEc2Service struct {
 }
 
 // The interface of a task definition run on an EC2 cluster.
+// Experimental.
 type IEc2TaskDefinition interface {
 	ITaskDefinition
 }
@@ -15379,6 +23197,7 @@ type jsiiProxy_IEc2TaskDefinition struct {
 }
 
 // Interface for ECS load balancer target.
+// Experimental.
 type IEcsLoadBalancerTarget interface {
 	awselasticloadbalancingv2.IApplicationLoadBalancerTarget
 	awselasticloadbalancing.ILoadBalancerTarget
@@ -15393,6 +23212,7 @@ type jsiiProxy_IEcsLoadBalancerTarget struct {
 }
 
 // The interface for a service using the External launch type on an ECS cluster.
+// Experimental.
 type IExternalService interface {
 	IService
 }
@@ -15403,6 +23223,7 @@ type jsiiProxy_IExternalService struct {
 }
 
 // The interface of a task definition run on an External cluster.
+// Experimental.
 type IExternalTaskDefinition interface {
 	ITaskDefinition
 }
@@ -15413,6 +23234,7 @@ type jsiiProxy_IExternalTaskDefinition struct {
 }
 
 // The interface for a service using the Fargate launch type on an ECS cluster.
+// Experimental.
 type IFargateService interface {
 	IService
 }
@@ -15423,6 +23245,7 @@ type jsiiProxy_IFargateService struct {
 }
 
 // The interface of a task definition run on a Fargate cluster.
+// Experimental.
 type IFargateTaskDefinition interface {
 	ITaskDefinition
 }
@@ -15433,11 +23256,14 @@ type jsiiProxy_IFargateTaskDefinition struct {
 }
 
 // The interface for a service.
+// Experimental.
 type IService interface {
 	awscdk.IResource
 	// The Amazon Resource Name (ARN) of the service.
+	// Experimental.
 	ServiceArn() *string
 	// The name of the service.
+	// Experimental.
 	ServiceName() *string
 }
 
@@ -15467,23 +23293,32 @@ func (j *jsiiProxy_IService) ServiceName() *string {
 }
 
 // The interface for all task definitions.
+// Experimental.
 type ITaskDefinition interface {
 	awscdk.IResource
 	// What launch types this task definition should be compatible with.
+	// Experimental.
 	Compatibility() Compatibility
 	// Execution role for this task definition.
+	// Experimental.
 	ExecutionRole() awsiam.IRole
 	// Return true if the task definition can be run on an EC2 cluster.
+	// Experimental.
 	IsEc2Compatible() *bool
 	// Return true if the task definition can be run on a ECS Anywhere cluster.
+	// Experimental.
 	IsExternalCompatible() *bool
 	// Return true if the task definition can be run on a Fargate cluster.
+	// Experimental.
 	IsFargateCompatible() *bool
 	// The networking mode to use for the containers in the task.
+	// Experimental.
 	NetworkMode() NetworkMode
 	// ARN of this task definition.
+	// Experimental.
 	TaskDefinitionArn() *string
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
+	// Experimental.
 	TaskRole() awsiam.IRole
 }
 
@@ -15579,8 +23414,10 @@ func (j *jsiiProxy_ITaskDefinition) TaskRole() awsiam.IRole {
 // then be "added" to a TaskDefinition like so:
 //
 //     taskDefinition.addExtension(new MyExtension("some_parameter"));
+// Experimental.
 type ITaskDefinitionExtension interface {
 	// Apply the extension to the given TaskDefinition.
+	// Experimental.
 	Extend(taskDefinition TaskDefinition)
 }
 
@@ -15601,33 +23438,62 @@ func (i *jsiiProxy_ITaskDefinitionExtension) Extend(taskDefinition TaskDefinitio
 //
 // For more information, see [Elastic Inference Basics](https://docs.aws.amazon.com/elastic-inference/latest/developerguide/basics.html)
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   inferenceAccelerator := &inferenceAccelerator{
+//   	deviceName: jsii.String("deviceName"),
+//   	deviceType: jsii.String("deviceType"),
+//   }
 //
+// Experimental.
 type InferenceAccelerator struct {
 	// The Elastic Inference accelerator device name.
+	// Experimental.
 	DeviceName *string `json:"deviceName" yaml:"deviceName"`
 	// The Elastic Inference accelerator type to use.
 	//
 	// The allowed values are: eia2.medium, eia2.large and eia2.xlarge.
+	// Experimental.
 	DeviceType *string `json:"deviceType" yaml:"deviceType"`
 }
 
 // The IPC resource namespace to use for the containers in the task.
+// Experimental.
 type IpcMode string
 
 const (
+	// If none is specified, then IPC resources within the containers of a task are private and not shared with other containers in a task or on the container instance.
+	// Experimental.
 	IpcMode_NONE IpcMode = "NONE"
+	// If host is specified, then all containers within the tasks that specified the host IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance.
+	// Experimental.
 	IpcMode_HOST IpcMode = "HOST"
+	// If task is specified, all containers within the specified task share the same IPC resources.
+	// Experimental.
 	IpcMode_TASK IpcMode = "TASK"
 )
 
 // A log driver that sends log information to journald Logs.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   journaldLogDriver := ecs.NewJournaldLogDriver(&journaldLogDriverProps{
+//   	env: []*string{
+//   		jsii.String("env"),
+//   	},
+//   	envRegex: jsii.String("envRegex"),
+//   	labels: []*string{
+//   		jsii.String("labels"),
+//   	},
+//   	tag: jsii.String("tag"),
+//   })
 //
+// Experimental.
 type JournaldLogDriver interface {
 	LogDriver
-	Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
+	// Called when the log driver is configured on a container.
+	// Experimental.
+	Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
 }
 
 // The jsii proxy struct for JournaldLogDriver
@@ -15636,13 +23502,14 @@ type jsiiProxy_JournaldLogDriver struct {
 }
 
 // Constructs a new instance of the JournaldLogDriver class.
+// Experimental.
 func NewJournaldLogDriver(props *JournaldLogDriverProps) JournaldLogDriver {
 	_init_.Initialize()
 
 	j := jsiiProxy_JournaldLogDriver{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.JournaldLogDriver",
+		"monocdk.aws_ecs.JournaldLogDriver",
 		[]interface{}{props},
 		&j,
 	)
@@ -15651,24 +23518,26 @@ func NewJournaldLogDriver(props *JournaldLogDriverProps) JournaldLogDriver {
 }
 
 // Constructs a new instance of the JournaldLogDriver class.
+// Experimental.
 func NewJournaldLogDriver_Override(j JournaldLogDriver, props *JournaldLogDriverProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.JournaldLogDriver",
+		"monocdk.aws_ecs.JournaldLogDriver",
 		[]interface{}{props},
 		j,
 	)
 }
 
 // Creates a log driver configuration that sends log information to CloudWatch Logs.
+// Experimental.
 func JournaldLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.JournaldLogDriver",
+		"monocdk.aws_ecs.JournaldLogDriver",
 		"awsLogs",
 		[]interface{}{props},
 		&returns,
@@ -15677,8 +23546,7 @@ func JournaldLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	return returns
 }
 
-// Called when the log driver is configured on a container.
-func (j *jsiiProxy_JournaldLogDriver) Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
+func (j *jsiiProxy_JournaldLogDriver) Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(
@@ -15695,41 +23563,74 @@ func (j *jsiiProxy_JournaldLogDriver) Bind(_scope constructs.Construct, _contain
 //
 // [Source](https://docs.docker.com/config/containers/logging/journald/)
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   journaldLogDriverProps := &journaldLogDriverProps{
+//   	env: []*string{
+//   		jsii.String("env"),
+//   	},
+//   	envRegex: jsii.String("envRegex"),
+//   	labels: []*string{
+//   		jsii.String("labels"),
+//   	},
+//   	tag: jsii.String("tag"),
+//   }
 //
+// Experimental.
 type JournaldLogDriverProps struct {
 	// The env option takes an array of keys.
 	//
 	// If there is collision between
 	// label and env keys, the value of the env takes precedence. Adds additional fields
 	// to the extra attributes of a logging message.
+	// Experimental.
 	Env *[]*string `json:"env" yaml:"env"`
 	// The env-regex option is similar to and compatible with env.
 	//
 	// Its value is a regular
 	// expression to match logging-related environment variables. It is used for advanced
 	// log tag options.
+	// Experimental.
 	EnvRegex *string `json:"envRegex" yaml:"envRegex"`
 	// The labels option takes an array of keys.
 	//
 	// If there is collision
 	// between label and env keys, the value of the env takes precedence. Adds additional
 	// fields to the extra attributes of a logging message.
+	// Experimental.
 	Labels *[]*string `json:"labels" yaml:"labels"`
 	// By default, Docker uses the first 12 characters of the container ID to tag log messages.
 	//
 	// Refer to the log tag option documentation for customizing the
 	// log tag format.
+	// Experimental.
 	Tag *string `json:"tag" yaml:"tag"`
 }
 
 // A log driver that sends log information to json-file Logs.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   jsonFileLogDriver := ecs.NewJsonFileLogDriver(&jsonFileLogDriverProps{
+//   	compress: jsii.Boolean(false),
+//   	env: []*string{
+//   		jsii.String("env"),
+//   	},
+//   	envRegex: jsii.String("envRegex"),
+//   	labels: []*string{
+//   		jsii.String("labels"),
+//   	},
+//   	maxFile: jsii.Number(123),
+//   	maxSize: jsii.String("maxSize"),
+//   	tag: jsii.String("tag"),
+//   })
 //
+// Experimental.
 type JsonFileLogDriver interface {
 	LogDriver
-	Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
+	// Called when the log driver is configured on a container.
+	// Experimental.
+	Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
 }
 
 // The jsii proxy struct for JsonFileLogDriver
@@ -15738,13 +23639,14 @@ type jsiiProxy_JsonFileLogDriver struct {
 }
 
 // Constructs a new instance of the JsonFileLogDriver class.
+// Experimental.
 func NewJsonFileLogDriver(props *JsonFileLogDriverProps) JsonFileLogDriver {
 	_init_.Initialize()
 
 	j := jsiiProxy_JsonFileLogDriver{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.JsonFileLogDriver",
+		"monocdk.aws_ecs.JsonFileLogDriver",
 		[]interface{}{props},
 		&j,
 	)
@@ -15753,24 +23655,26 @@ func NewJsonFileLogDriver(props *JsonFileLogDriverProps) JsonFileLogDriver {
 }
 
 // Constructs a new instance of the JsonFileLogDriver class.
+// Experimental.
 func NewJsonFileLogDriver_Override(j JsonFileLogDriver, props *JsonFileLogDriverProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.JsonFileLogDriver",
+		"monocdk.aws_ecs.JsonFileLogDriver",
 		[]interface{}{props},
 		j,
 	)
 }
 
 // Creates a log driver configuration that sends log information to CloudWatch Logs.
+// Experimental.
 func JsonFileLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.JsonFileLogDriver",
+		"monocdk.aws_ecs.JsonFileLogDriver",
 		"awsLogs",
 		[]interface{}{props},
 		&returns,
@@ -15779,8 +23683,7 @@ func JsonFileLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	return returns
 }
 
-// Called when the log driver is configured on a container.
-func (j *jsiiProxy_JsonFileLogDriver) Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
+func (j *jsiiProxy_JsonFileLogDriver) Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(
@@ -15797,78 +23700,181 @@ func (j *jsiiProxy_JsonFileLogDriver) Bind(_scope constructs.Construct, _contain
 //
 // [Source](https://docs.docker.com/config/containers/logging/json-file/)
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   jsonFileLogDriverProps := &jsonFileLogDriverProps{
+//   	compress: jsii.Boolean(false),
+//   	env: []*string{
+//   		jsii.String("env"),
+//   	},
+//   	envRegex: jsii.String("envRegex"),
+//   	labels: []*string{
+//   		jsii.String("labels"),
+//   	},
+//   	maxFile: jsii.Number(123),
+//   	maxSize: jsii.String("maxSize"),
+//   	tag: jsii.String("tag"),
+//   }
 //
+// Experimental.
 type JsonFileLogDriverProps struct {
 	// The env option takes an array of keys.
 	//
 	// If there is collision between
 	// label and env keys, the value of the env takes precedence. Adds additional fields
 	// to the extra attributes of a logging message.
+	// Experimental.
 	Env *[]*string `json:"env" yaml:"env"`
 	// The env-regex option is similar to and compatible with env.
 	//
 	// Its value is a regular
 	// expression to match logging-related environment variables. It is used for advanced
 	// log tag options.
+	// Experimental.
 	EnvRegex *string `json:"envRegex" yaml:"envRegex"`
 	// The labels option takes an array of keys.
 	//
 	// If there is collision
 	// between label and env keys, the value of the env takes precedence. Adds additional
 	// fields to the extra attributes of a logging message.
+	// Experimental.
 	Labels *[]*string `json:"labels" yaml:"labels"`
 	// By default, Docker uses the first 12 characters of the container ID to tag log messages.
 	//
 	// Refer to the log tag option documentation for customizing the
 	// log tag format.
+	// Experimental.
 	Tag *string `json:"tag" yaml:"tag"`
 	// Toggles compression for rotated logs.
+	// Experimental.
 	Compress *bool `json:"compress" yaml:"compress"`
 	// The maximum number of log files that can be present.
 	//
 	// If rolling the logs creates
 	// excess files, the oldest file is removed. Only effective when max-size is also set.
 	// A positive integer.
+	// Experimental.
 	MaxFile *float64 `json:"maxFile" yaml:"maxFile"`
 	// The maximum size of the log before it is rolled.
 	//
 	// A positive integer plus a modifier
 	// representing the unit of measure (k, m, or g).
+	// Experimental.
 	MaxSize *string `json:"maxSize" yaml:"maxSize"`
 }
 
 // The launch type of an ECS service.
+// Experimental.
 type LaunchType string
 
 const (
+	// The service will be launched using the EC2 launch type.
+	// Experimental.
 	LaunchType_EC2 LaunchType = "EC2"
+	// The service will be launched using the FARGATE launch type.
+	// Experimental.
 	LaunchType_FARGATE LaunchType = "FARGATE"
+	// The service will be launched using the EXTERNAL launch type.
+	// Experimental.
 	LaunchType_EXTERNAL LaunchType = "EXTERNAL"
 )
 
 // Linux-specific options that are applied to the container.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   linuxParameters := ecs.NewLinuxParameters(this, jsii.String("MyLinuxParameters"), &linuxParametersProps{
+//   	initProcessEnabled: jsii.Boolean(false),
+//   	sharedMemorySize: jsii.Number(123),
+//   })
 //
+// Experimental.
 type LinuxParameters interface {
-	constructs.Construct
-	Node() constructs.Node
+	awscdk.Construct
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Adds one or more Linux capabilities to the Docker configuration of a container.
+	//
+	// Only works with EC2 launch type.
+	// Experimental.
 	AddCapabilities(cap ...Capability)
+	// Adds one or more host devices to a container.
+	// Experimental.
 	AddDevices(device ...*Device)
+	// Specifies the container path, mount options, and size (in MiB) of the tmpfs mount for a container.
+	//
+	// Only works with EC2 launch type.
+	// Experimental.
 	AddTmpfs(tmpfs ...*Tmpfs)
+	// Removes one or more Linux capabilities to the Docker configuration of a container.
+	//
+	// Only works with EC2 launch type.
+	// Experimental.
 	DropCapabilities(cap ...Capability)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Renders the Linux parameters to a CloudFormation object.
+	// Experimental.
 	RenderLinuxParameters() *CfnTaskDefinition_LinuxParametersProperty
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for LinuxParameters
 type jsiiProxy_LinuxParameters struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
-func (j *jsiiProxy_LinuxParameters) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_LinuxParameters) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -15879,13 +23885,14 @@ func (j *jsiiProxy_LinuxParameters) Node() constructs.Node {
 
 
 // Constructs a new instance of the LinuxParameters class.
+// Experimental.
 func NewLinuxParameters(scope constructs.Construct, id *string, props *LinuxParametersProps) LinuxParameters {
 	_init_.Initialize()
 
 	j := jsiiProxy_LinuxParameters{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.LinuxParameters",
+		"monocdk.aws_ecs.LinuxParameters",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -15894,27 +23901,26 @@ func NewLinuxParameters(scope constructs.Construct, id *string, props *LinuxPara
 }
 
 // Constructs a new instance of the LinuxParameters class.
+// Experimental.
 func NewLinuxParameters_Override(l LinuxParameters, scope constructs.Construct, id *string, props *LinuxParametersProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.LinuxParameters",
+		"monocdk.aws_ecs.LinuxParameters",
 		[]interface{}{scope, id, props},
 		l,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func LinuxParameters_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.LinuxParameters",
+		"monocdk.aws_ecs.LinuxParameters",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -15923,9 +23929,6 @@ func LinuxParameters_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Adds one or more Linux capabilities to the Docker configuration of a container.
-//
-// Only works with EC2 launch type.
 func (l *jsiiProxy_LinuxParameters) AddCapabilities(cap ...Capability) {
 	args := []interface{}{}
 	for _, a := range cap {
@@ -15939,7 +23942,6 @@ func (l *jsiiProxy_LinuxParameters) AddCapabilities(cap ...Capability) {
 	)
 }
 
-// Adds one or more host devices to a container.
 func (l *jsiiProxy_LinuxParameters) AddDevices(device ...*Device) {
 	args := []interface{}{}
 	for _, a := range device {
@@ -15953,9 +23955,6 @@ func (l *jsiiProxy_LinuxParameters) AddDevices(device ...*Device) {
 	)
 }
 
-// Specifies the container path, mount options, and size (in MiB) of the tmpfs mount for a container.
-//
-// Only works with EC2 launch type.
 func (l *jsiiProxy_LinuxParameters) AddTmpfs(tmpfs ...*Tmpfs) {
 	args := []interface{}{}
 	for _, a := range tmpfs {
@@ -15969,9 +23968,6 @@ func (l *jsiiProxy_LinuxParameters) AddTmpfs(tmpfs ...*Tmpfs) {
 	)
 }
 
-// Removes one or more Linux capabilities to the Docker configuration of a container.
-//
-// Only works with EC2 launch type.
 func (l *jsiiProxy_LinuxParameters) DropCapabilities(cap ...Capability) {
 	args := []interface{}{}
 	for _, a := range cap {
@@ -15985,7 +23981,43 @@ func (l *jsiiProxy_LinuxParameters) DropCapabilities(cap ...Capability) {
 	)
 }
 
-// Renders the Linux parameters to a CloudFormation object.
+func (l *jsiiProxy_LinuxParameters) OnPrepare() {
+	_jsii_.InvokeVoid(
+		l,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (l *jsiiProxy_LinuxParameters) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		l,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (l *jsiiProxy_LinuxParameters) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		l,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_LinuxParameters) Prepare() {
+	_jsii_.InvokeVoid(
+		l,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 func (l *jsiiProxy_LinuxParameters) RenderLinuxParameters() *CfnTaskDefinition_LinuxParametersProperty {
 	var returns *CfnTaskDefinition_LinuxParametersProperty
 
@@ -15999,7 +24031,14 @@ func (l *jsiiProxy_LinuxParameters) RenderLinuxParameters() *CfnTaskDefinition_L
 	return returns
 }
 
-// Returns a string representation of this construct.
+func (l *jsiiProxy_LinuxParameters) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		l,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (l *jsiiProxy_LinuxParameters) ToString() *string {
 	var returns *string
 
@@ -16013,22 +24052,69 @@ func (l *jsiiProxy_LinuxParameters) ToString() *string {
 	return returns
 }
 
+func (l *jsiiProxy_LinuxParameters) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		l,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // The properties for defining Linux-specific options that are applied to the container.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   linuxParametersProps := &linuxParametersProps{
+//   	initProcessEnabled: jsii.Boolean(false),
+//   	sharedMemorySize: jsii.Number(123),
+//   }
 //
+// Experimental.
 type LinuxParametersProps struct {
 	// Specifies whether to run an init process inside the container that forwards signals and reaps processes.
+	// Experimental.
 	InitProcessEnabled *bool `json:"initProcessEnabled" yaml:"initProcessEnabled"`
 	// The value for the size (in MiB) of the /dev/shm volume.
+	// Experimental.
 	SharedMemorySize *float64 `json:"sharedMemorySize" yaml:"sharedMemorySize"`
 }
 
 // Base class for configuring listener when registering targets.
 //
-// TODO: EXAMPLE
+// Example:
+//   var cluster cluster
+//   var taskDefinition taskDefinition
+//   var vpc vpc
+//   service := ecs.NewFargateService(this, jsii.String("Service"), &fargateServiceProps{
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   })
 //
+//   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &applicationLoadBalancerProps{
+//   	vpc: vpc,
+//   	internetFacing: jsii.Boolean(true),
+//   })
+//   listener := lb.addListener(jsii.String("Listener"), &baseApplicationListenerProps{
+//   	port: jsii.Number(80),
+//   })
+//   service.registerLoadBalancerTargets(&ecsTarget{
+//   	containerName: jsii.String("web"),
+//   	containerPort: jsii.Number(80),
+//   	newTargetGroupId: jsii.String("ECS"),
+//   	listener: ecs.listenerConfig.applicationListener(listener, &addApplicationTargetsProps{
+//   		protocol: elbv2.applicationProtocol_HTTPS,
+//   	}),
+//   })
+//
+// Experimental.
 type ListenerConfig interface {
+	// Create and attach a target group to listener.
+	// Experimental.
 	AddTargets(id *string, target *LoadBalancerTargetOptions, service BaseService)
 }
 
@@ -16037,24 +24123,26 @@ type jsiiProxy_ListenerConfig struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewListenerConfig_Override(l ListenerConfig) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.ListenerConfig",
+		"monocdk.aws_ecs.ListenerConfig",
 		nil, // no parameters
 		l,
 	)
 }
 
 // Create a config for adding target group to ALB listener.
+// Experimental.
 func ListenerConfig_ApplicationListener(listener awselasticloadbalancingv2.ApplicationListener, props *awselasticloadbalancingv2.AddApplicationTargetsProps) ListenerConfig {
 	_init_.Initialize()
 
 	var returns ListenerConfig
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.ListenerConfig",
+		"monocdk.aws_ecs.ListenerConfig",
 		"applicationListener",
 		[]interface{}{listener, props},
 		&returns,
@@ -16064,13 +24152,14 @@ func ListenerConfig_ApplicationListener(listener awselasticloadbalancingv2.Appli
 }
 
 // Create a config for adding target group to NLB listener.
+// Experimental.
 func ListenerConfig_NetworkListener(listener awselasticloadbalancingv2.NetworkListener, props *awselasticloadbalancingv2.AddNetworkTargetsProps) ListenerConfig {
 	_init_.Initialize()
 
 	var returns ListenerConfig
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.ListenerConfig",
+		"monocdk.aws_ecs.ListenerConfig",
 		"networkListener",
 		[]interface{}{listener, props},
 		&returns,
@@ -16079,7 +24168,6 @@ func ListenerConfig_NetworkListener(listener awselasticloadbalancingv2.NetworkLi
 	return returns
 }
 
-// Create and attach a target group to listener.
 func (l *jsiiProxy_ListenerConfig) AddTargets(id *string, target *LoadBalancerTargetOptions, service BaseService) {
 	_jsii_.InvokeVoid(
 		l,
@@ -16092,27 +24180,62 @@ func (l *jsiiProxy_ListenerConfig) AddTargets(id *string, target *LoadBalancerTa
 //
 // The port mapping for it must already have been created through addPortMapping().
 //
-// TODO: EXAMPLE
+// Example:
+//   var cluster cluster
+//   var taskDefinition taskDefinition
+//   var vpc vpc
+//   service := ecs.NewEc2Service(this, jsii.String("Service"), &ec2ServiceProps{
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   })
 //
+//   lb := elb.NewLoadBalancer(this, jsii.String("LB"), &loadBalancerProps{
+//   	vpc: vpc,
+//   })
+//   lb.addListener(&loadBalancerListener{
+//   	externalPort: jsii.Number(80),
+//   })
+//   lb.addTarget(service.loadBalancerTarget(&loadBalancerTargetOptions{
+//   	containerName: jsii.String("MyContainer"),
+//   	containerPort: jsii.Number(80),
+//   }))
+//
+// Experimental.
 type LoadBalancerTargetOptions struct {
 	// The name of the container.
+	// Experimental.
 	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// The port number of the container.
 	//
 	// Only applicable when using application/network load balancers.
+	// Experimental.
 	ContainerPort *float64 `json:"containerPort" yaml:"containerPort"`
 	// The protocol used for the port mapping.
 	//
 	// Only applicable when using application load balancers.
+	// Experimental.
 	Protocol Protocol `json:"protocol" yaml:"protocol"`
 }
 
 // The base class for log drivers.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Create a Task Definition for the container to start
+//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+//   taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("example-image")),
+//   	memoryLimitMiB: jsii.Number(256),
+//   	logging: ecs.logDrivers.splunk(&splunkLogDriverProps{
+//   		token: secretValue.secretsManager(jsii.String("my-splunk-token")),
+//   		url: jsii.String("my-splunk-url"),
+//   	}),
+//   })
 //
+// Experimental.
 type LogDriver interface {
-	Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *LogDriverConfig
+	// Called when the log driver is configured on a container.
+	// Experimental.
+	Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *LogDriverConfig
 }
 
 // The jsii proxy struct for LogDriver
@@ -16120,24 +24243,26 @@ type jsiiProxy_LogDriver struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewLogDriver_Override(l LogDriver) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.LogDriver",
+		"monocdk.aws_ecs.LogDriver",
 		nil, // no parameters
 		l,
 	)
 }
 
 // Creates a log driver configuration that sends log information to CloudWatch Logs.
+// Experimental.
 func LogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.LogDriver",
+		"monocdk.aws_ecs.LogDriver",
 		"awsLogs",
 		[]interface{}{props},
 		&returns,
@@ -16146,8 +24271,7 @@ func LogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	return returns
 }
 
-// Called when the log driver is configured on a container.
-func (l *jsiiProxy_LogDriver) Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *LogDriverConfig {
+func (l *jsiiProxy_LogDriver) Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *LogDriverConfig {
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(
@@ -16162,8 +24286,24 @@ func (l *jsiiProxy_LogDriver) Bind(scope constructs.Construct, containerDefiniti
 
 // The configuration to use when creating a log driver.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   logDriverConfig := &logDriverConfig{
+//   	logDriver: jsii.String("logDriver"),
 //
+//   	// the properties below are optional
+//   	options: map[string]*string{
+//   		"optionsKey": jsii.String("options"),
+//   	},
+//   	secretOptions: []secretProperty{
+//   		&secretProperty{
+//   			name: jsii.String("name"),
+//   			valueFrom: jsii.String("valueFrom"),
+//   		},
+//   	},
+//   }
+//
+// Experimental.
 type LogDriverConfig struct {
 	// The log driver to use for the container.
 	//
@@ -16181,17 +24321,30 @@ type LogDriverConfig struct {
 	// For more information about using the awsfirelens log driver, see
 	// [Custom Log Routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html)
 	// in the Amazon Elastic Container Service Developer Guide.
+	// Experimental.
 	LogDriver *string `json:"logDriver" yaml:"logDriver"`
 	// The configuration options to send to the log driver.
+	// Experimental.
 	Options *map[string]*string `json:"options" yaml:"options"`
 	// The secrets to pass to the log configuration.
+	// Experimental.
 	SecretOptions *[]*CfnTaskDefinition_SecretProperty `json:"secretOptions" yaml:"secretOptions"`
 }
 
 // The base class for log drivers.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Create a Task Definition for the container to start
+//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+//   taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("example-image")),
+//   	memoryLimitMiB: jsii.Number(256),
+//   	logging: ecs.logDrivers.awsLogs(&awsLogDriverProps{
+//   		streamPrefix: jsii.String("EventDemo"),
+//   	}),
+//   })
 //
+// Experimental.
 type LogDrivers interface {
 }
 
@@ -16200,13 +24353,14 @@ type jsiiProxy_LogDrivers struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewLogDrivers() LogDrivers {
 	_init_.Initialize()
 
 	j := jsiiProxy_LogDrivers{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.LogDrivers",
+		"monocdk.aws_ecs.LogDrivers",
 		nil, // no parameters
 		&j,
 	)
@@ -16214,24 +24368,26 @@ func NewLogDrivers() LogDrivers {
 	return &j
 }
 
+// Experimental.
 func NewLogDrivers_Override(l LogDrivers) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.LogDrivers",
+		"monocdk.aws_ecs.LogDrivers",
 		nil, // no parameters
 		l,
 	)
 }
 
 // Creates a log driver configuration that sends log information to CloudWatch Logs.
+// Experimental.
 func LogDrivers_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.LogDrivers",
+		"monocdk.aws_ecs.LogDrivers",
 		"awsLogs",
 		[]interface{}{props},
 		&returns,
@@ -16244,13 +24400,14 @@ func LogDrivers_AwsLogs(props *AwsLogDriverProps) LogDriver {
 //
 // For detail configurations, please refer to Amazon ECS FireLens Examples:
 // https://github.com/aws-samples/amazon-ecs-firelens-examples
+// Experimental.
 func LogDrivers_Firelens(props *FireLensLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.LogDrivers",
+		"monocdk.aws_ecs.LogDrivers",
 		"firelens",
 		[]interface{}{props},
 		&returns,
@@ -16260,13 +24417,14 @@ func LogDrivers_Firelens(props *FireLensLogDriverProps) LogDriver {
 }
 
 // Creates a log driver configuration that sends log information to fluentd Logs.
+// Experimental.
 func LogDrivers_Fluentd(props *FluentdLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.LogDrivers",
+		"monocdk.aws_ecs.LogDrivers",
 		"fluentd",
 		[]interface{}{props},
 		&returns,
@@ -16276,13 +24434,14 @@ func LogDrivers_Fluentd(props *FluentdLogDriverProps) LogDriver {
 }
 
 // Creates a log driver configuration that sends log information to gelf Logs.
+// Experimental.
 func LogDrivers_Gelf(props *GelfLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.LogDrivers",
+		"monocdk.aws_ecs.LogDrivers",
 		"gelf",
 		[]interface{}{props},
 		&returns,
@@ -16292,13 +24451,14 @@ func LogDrivers_Gelf(props *GelfLogDriverProps) LogDriver {
 }
 
 // Creates a log driver configuration that sends log information to journald Logs.
+// Experimental.
 func LogDrivers_Journald(props *JournaldLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.LogDrivers",
+		"monocdk.aws_ecs.LogDrivers",
 		"journald",
 		[]interface{}{props},
 		&returns,
@@ -16308,13 +24468,14 @@ func LogDrivers_Journald(props *JournaldLogDriverProps) LogDriver {
 }
 
 // Creates a log driver configuration that sends log information to json-file Logs.
+// Experimental.
 func LogDrivers_JsonFile(props *JsonFileLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.LogDrivers",
+		"monocdk.aws_ecs.LogDrivers",
 		"jsonFile",
 		[]interface{}{props},
 		&returns,
@@ -16324,13 +24485,14 @@ func LogDrivers_JsonFile(props *JsonFileLogDriverProps) LogDriver {
 }
 
 // Creates a log driver configuration that sends log information to splunk Logs.
+// Experimental.
 func LogDrivers_Splunk(props *SplunkLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.LogDrivers",
+		"monocdk.aws_ecs.LogDrivers",
 		"splunk",
 		[]interface{}{props},
 		&returns,
@@ -16340,13 +24502,14 @@ func LogDrivers_Splunk(props *SplunkLogDriverProps) LogDriver {
 }
 
 // Creates a log driver configuration that sends log information to syslog Logs.
+// Experimental.
 func LogDrivers_Syslog(props *SyslogLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.LogDrivers",
+		"monocdk.aws_ecs.LogDrivers",
 		"syslog",
 		[]interface{}{props},
 		&returns,
@@ -16357,19 +24520,55 @@ func LogDrivers_Syslog(props *SyslogLogDriverProps) LogDriver {
 
 // The machine image type.
 //
-// TODO: EXAMPLE
+// Example:
+//   var cluster cluster
 //
+//   cluster.addCapacity(jsii.String("graviton-cluster"), &addCapacityOptions{
+//   	minCapacity: jsii.Number(2),
+//   	instanceType: ec2.NewInstanceType(jsii.String("c6g.large")),
+//   	machineImageType: ecs.machineImageType_BOTTLEROCKET,
+//   })
+//
+// Experimental.
 type MachineImageType string
 
 const (
+	// Amazon ECS-optimized Amazon Linux 2 AMI.
+	// Experimental.
 	MachineImageType_AMAZON_LINUX_2 MachineImageType = "AMAZON_LINUX_2"
+	// Bottlerocket AMI.
+	// Experimental.
 	MachineImageType_BOTTLEROCKET MachineImageType = "BOTTLEROCKET"
 )
 
 // The properties for enabling scaling based on memory utilization.
 //
-// TODO: EXAMPLE
+// Example:
+//   var cluster cluster
+//   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
+//   	cluster: cluster,
+//   	memoryLimitMiB: jsii.Number(1024),
+//   	desiredCount: jsii.Number(1),
+//   	cpu: jsii.Number(512),
+//   	taskImageOptions: &applicationLoadBalancedTaskImageOptions{
+//   		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	},
+//   })
 //
+//   scalableTarget := loadBalancedFargateService.service.autoScaleTaskCount(&enableScalingProps{
+//   	minCapacity: jsii.Number(1),
+//   	maxCapacity: jsii.Number(20),
+//   })
+//
+//   scalableTarget.scaleOnCpuUtilization(jsii.String("CpuScaling"), &cpuUtilizationScalingProps{
+//   	targetUtilizationPercent: jsii.Number(50),
+//   })
+//
+//   scalableTarget.scaleOnMemoryUtilization(jsii.String("MemoryScaling"), &memoryUtilizationScalingProps{
+//   	targetUtilizationPercent: jsii.Number(50),
+//   })
+//
+// Experimental.
 type MemoryUtilizationScalingProps struct {
 	// Indicates whether scale in by the target tracking policy is disabled.
 	//
@@ -16377,53 +24576,116 @@ type MemoryUtilizationScalingProps struct {
 	// won't remove capacity from the scalable resource. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// scalable resource.
+	// Experimental.
 	DisableScaleIn *bool `json:"disableScaleIn" yaml:"disableScaleIn"`
 	// A name for the scaling policy.
+	// Experimental.
 	PolicyName *string `json:"policyName" yaml:"policyName"`
 	// Period after a scale in activity completes before another scale in activity can start.
+	// Experimental.
 	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown" yaml:"scaleInCooldown"`
 	// Period after a scale out activity completes before another scale out activity can start.
+	// Experimental.
 	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown" yaml:"scaleOutCooldown"`
 	// The target value for memory utilization across all tasks in the service.
+	// Experimental.
 	TargetUtilizationPercent *float64 `json:"targetUtilizationPercent" yaml:"targetUtilizationPercent"`
 }
 
 // The details of data volume mount points for a container.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   mountPoint := &mountPoint{
+//   	containerPath: jsii.String("containerPath"),
+//   	readOnly: jsii.Boolean(false),
+//   	sourceVolume: jsii.String("sourceVolume"),
+//   }
 //
+// Experimental.
 type MountPoint struct {
 	// The path on the container to mount the host volume at.
+	// Experimental.
 	ContainerPath *string `json:"containerPath" yaml:"containerPath"`
 	// Specifies whether to give the container read-only access to the volume.
 	//
 	// If this value is true, the container has read-only access to the volume.
 	// If this value is false, then the container can write to the volume.
+	// Experimental.
 	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
 	// The name of the volume to mount.
 	//
 	// Must be a volume name referenced in the name parameter of task definition volume.
+	// Experimental.
 	SourceVolume *string `json:"sourceVolume" yaml:"sourceVolume"`
 }
 
 // The networking mode to use for the containers in the task.
 //
-// TODO: EXAMPLE
+// Example:
+//   ec2TaskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"), &ec2TaskDefinitionProps{
+//   	networkMode: ecs.networkMode_BRIDGE,
+//   })
 //
+//   container := ec2TaskDefinition.addContainer(jsii.String("WebContainer"), &containerDefinitionOptions{
+//   	// Use an image from DockerHub
+//   	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	memoryLimitMiB: jsii.Number(1024),
+//   })
+//
+// Experimental.
 type NetworkMode string
 
 const (
+	// The task's containers do not have external connectivity and port mappings can't be specified in the container definition.
+	// Experimental.
 	NetworkMode_NONE NetworkMode = "NONE"
+	// The task utilizes Docker's built-in virtual network which runs inside each container instance.
+	// Experimental.
 	NetworkMode_BRIDGE NetworkMode = "BRIDGE"
+	// The task is allocated an elastic network interface.
+	// Experimental.
 	NetworkMode_AWS_VPC NetworkMode = "AWS_VPC"
+	// The task bypasses Docker's built-in virtual network and maps container ports directly to the EC2 instance's network interface directly.
+	//
+	// In this mode, you can't run multiple instantiations of the same task on a
+	// single container instance when port mappings are used.
+	// Experimental.
 	NetworkMode_HOST NetworkMode = "HOST"
+	// The task utilizes NAT network mode required by Windows containers.
+	//
+	// This is the only supported network mode for Windows containers. For more information, see
+	// [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#network_mode).
+	// Experimental.
 	NetworkMode_NAT NetworkMode = "NAT"
 )
 
 // The operating system for Fargate Runtime Platform.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Create a Task Definition for the Windows container to start
+//   taskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &fargateTaskDefinitionProps{
+//   	runtimePlatform: &runtimePlatform{
+//   		operatingSystemFamily: ecs.operatingSystemFamily_WINDOWS_SERVER_2019_CORE(),
+//   		cpuArchitecture: ecs.cpuArchitecture_X86_64(),
+//   	},
+//   	cpu: jsii.Number(1024),
+//   	memoryLimitMiB: jsii.Number(2048),
+//   })
 //
+//   taskDefinition.addContainer(jsii.String("windowsservercore"), &containerDefinitionOptions{
+//   	logging: ecs.logDriver.awsLogs(&awsLogDriverProps{
+//   		streamPrefix: jsii.String("win-iis-on-fargate"),
+//   	}),
+//   	portMappings: []portMapping{
+//   		&portMapping{
+//   			containerPort: jsii.Number(80),
+//   		},
+//   	},
+//   	image: ecs.containerImage.fromRegistry(jsii.String("mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2019")),
+//   })
+//
+// Experimental.
 type OperatingSystemFamily interface {
 }
 
@@ -16435,13 +24697,14 @@ type jsiiProxy_OperatingSystemFamily struct {
 // Other operating system family.
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-runtimeplatform.html#cfn-ecs-taskdefinition-runtimeplatform-operatingsystemfamily for all available operating system family.
 //
+// Experimental.
 func OperatingSystemFamily_Of(family *string) OperatingSystemFamily {
 	_init_.Initialize()
 
 	var returns OperatingSystemFamily
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"monocdk.aws_ecs.OperatingSystemFamily",
 		"of",
 		[]interface{}{family},
 		&returns,
@@ -16454,7 +24717,7 @@ func OperatingSystemFamily_LINUX() OperatingSystemFamily {
 	_init_.Initialize()
 	var returns OperatingSystemFamily
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"monocdk.aws_ecs.OperatingSystemFamily",
 		"LINUX",
 		&returns,
 	)
@@ -16465,7 +24728,7 @@ func OperatingSystemFamily_WINDOWS_SERVER_2004_CORE() OperatingSystemFamily {
 	_init_.Initialize()
 	var returns OperatingSystemFamily
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"monocdk.aws_ecs.OperatingSystemFamily",
 		"WINDOWS_SERVER_2004_CORE",
 		&returns,
 	)
@@ -16476,7 +24739,7 @@ func OperatingSystemFamily_WINDOWS_SERVER_2016_FULL() OperatingSystemFamily {
 	_init_.Initialize()
 	var returns OperatingSystemFamily
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"monocdk.aws_ecs.OperatingSystemFamily",
 		"WINDOWS_SERVER_2016_FULL",
 		&returns,
 	)
@@ -16487,7 +24750,7 @@ func OperatingSystemFamily_WINDOWS_SERVER_2019_CORE() OperatingSystemFamily {
 	_init_.Initialize()
 	var returns OperatingSystemFamily
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"monocdk.aws_ecs.OperatingSystemFamily",
 		"WINDOWS_SERVER_2019_CORE",
 		&returns,
 	)
@@ -16498,7 +24761,7 @@ func OperatingSystemFamily_WINDOWS_SERVER_2019_FULL() OperatingSystemFamily {
 	_init_.Initialize()
 	var returns OperatingSystemFamily
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"monocdk.aws_ecs.OperatingSystemFamily",
 		"WINDOWS_SERVER_2019_FULL",
 		&returns,
 	)
@@ -16509,7 +24772,7 @@ func OperatingSystemFamily_WINDOWS_SERVER_2022_CORE() OperatingSystemFamily {
 	_init_.Initialize()
 	var returns OperatingSystemFamily
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"monocdk.aws_ecs.OperatingSystemFamily",
 		"WINDOWS_SERVER_2022_CORE",
 		&returns,
 	)
@@ -16520,7 +24783,7 @@ func OperatingSystemFamily_WINDOWS_SERVER_2022_FULL() OperatingSystemFamily {
 	_init_.Initialize()
 	var returns OperatingSystemFamily
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"monocdk.aws_ecs.OperatingSystemFamily",
 		"WINDOWS_SERVER_2022_FULL",
 		&returns,
 	)
@@ -16531,7 +24794,7 @@ func OperatingSystemFamily_WINDOWS_SERVER_20H2_CORE() OperatingSystemFamily {
 	_init_.Initialize()
 	var returns OperatingSystemFamily
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"monocdk.aws_ecs.OperatingSystemFamily",
 		"WINDOWS_SERVER_20H2_CORE",
 		&returns,
 	)
@@ -16539,10 +24802,15 @@ func OperatingSystemFamily_WINDOWS_SERVER_20H2_CORE() OperatingSystemFamily {
 }
 
 // The process namespace to use for the containers in the task.
+// Experimental.
 type PidMode string
 
 const (
+	// If host is specified, then all containers within the tasks that specified the host PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance.
+	// Experimental.
 	PidMode_HOST PidMode = "HOST"
+	// If task is specified, all containers within the specified task share the same process namespace.
+	// Experimental.
 	PidMode_TASK PidMode = "TASK"
 )
 
@@ -16550,9 +24818,50 @@ const (
 //
 // Tasks will only be placed on instances that match these rules.
 //
-// TODO: EXAMPLE
+// Example:
+//   vpc := ec2.vpc.fromLookup(this, jsii.String("Vpc"), &vpcLookupOptions{
+//   	isDefault: jsii.Boolean(true),
+//   })
 //
+//   cluster := ecs.NewCluster(this, jsii.String("Ec2Cluster"), &clusterProps{
+//   	vpc: vpc,
+//   })
+//   cluster.addCapacity(jsii.String("DefaultAutoScalingGroup"), &addCapacityOptions{
+//   	instanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
+//   	vpcSubnets: &subnetSelection{
+//   		subnetType: ec2.subnetType_PUBLIC,
+//   	},
+//   })
+//
+//   taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TD"), &taskDefinitionProps{
+//   	compatibility: ecs.compatibility_EC2,
+//   })
+//
+//   taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("foo/bar")),
+//   	memoryLimitMiB: jsii.Number(256),
+//   })
+//
+//   runTask := tasks.NewEcsRunTask(this, jsii.String("Run"), &ecsRunTaskProps{
+//   	integrationPattern: sfn.integrationPattern_RUN_JOB,
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   	launchTarget: tasks.NewEcsEc2LaunchTarget(&ecsEc2LaunchTargetOptions{
+//   		placementStrategies: []placementStrategy{
+//   			ecs.*placementStrategy.spreadAcrossInstances(),
+//   			ecs.*placementStrategy.packedByCpu(),
+//   			ecs.*placementStrategy.randomly(),
+//   		},
+//   		placementConstraints: []placementConstraint{
+//   			ecs.*placementConstraint.memberOf(jsii.String("blieptuut")),
+//   		},
+//   	}),
+//   })
+//
+// Experimental.
 type PlacementConstraint interface {
+	// Return the placement JSON.
+	// Experimental.
 	ToJson() *[]*CfnService_PlacementConstraintProperty
 }
 
@@ -16562,13 +24871,14 @@ type jsiiProxy_PlacementConstraint struct {
 }
 
 // Use distinctInstance to ensure that each task in a particular group is running on a different container instance.
+// Experimental.
 func PlacementConstraint_DistinctInstances() PlacementConstraint {
 	_init_.Initialize()
 
 	var returns PlacementConstraint
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.PlacementConstraint",
+		"monocdk.aws_ecs.PlacementConstraint",
 		"distinctInstances",
 		nil, // no parameters
 		&returns,
@@ -16585,6 +24895,7 @@ func PlacementConstraint_DistinctInstances() PlacementConstraint {
 // You can specify multiple expressions in one call. The tasks will only be placed on instances matching all expressions.
 // See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html
 //
+// Experimental.
 func PlacementConstraint_MemberOf(expressions ...*string) PlacementConstraint {
 	_init_.Initialize()
 
@@ -16596,7 +24907,7 @@ func PlacementConstraint_MemberOf(expressions ...*string) PlacementConstraint {
 	var returns PlacementConstraint
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.PlacementConstraint",
+		"monocdk.aws_ecs.PlacementConstraint",
 		"memberOf",
 		args,
 		&returns,
@@ -16605,7 +24916,6 @@ func PlacementConstraint_MemberOf(expressions ...*string) PlacementConstraint {
 	return returns
 }
 
-// Return the placement JSON.
 func (p *jsiiProxy_PlacementConstraint) ToJson() *[]*CfnService_PlacementConstraintProperty {
 	var returns *[]*CfnService_PlacementConstraintProperty
 
@@ -16623,9 +24933,50 @@ func (p *jsiiProxy_PlacementConstraint) ToJson() *[]*CfnService_PlacementConstra
 //
 // Tasks will preferentially be placed on instances that match these rules.
 //
-// TODO: EXAMPLE
+// Example:
+//   vpc := ec2.vpc.fromLookup(this, jsii.String("Vpc"), &vpcLookupOptions{
+//   	isDefault: jsii.Boolean(true),
+//   })
 //
+//   cluster := ecs.NewCluster(this, jsii.String("Ec2Cluster"), &clusterProps{
+//   	vpc: vpc,
+//   })
+//   cluster.addCapacity(jsii.String("DefaultAutoScalingGroup"), &addCapacityOptions{
+//   	instanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
+//   	vpcSubnets: &subnetSelection{
+//   		subnetType: ec2.subnetType_PUBLIC,
+//   	},
+//   })
+//
+//   taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TD"), &taskDefinitionProps{
+//   	compatibility: ecs.compatibility_EC2,
+//   })
+//
+//   taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("foo/bar")),
+//   	memoryLimitMiB: jsii.Number(256),
+//   })
+//
+//   runTask := tasks.NewEcsRunTask(this, jsii.String("Run"), &ecsRunTaskProps{
+//   	integrationPattern: sfn.integrationPattern_RUN_JOB,
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   	launchTarget: tasks.NewEcsEc2LaunchTarget(&ecsEc2LaunchTargetOptions{
+//   		placementStrategies: []placementStrategy{
+//   			ecs.*placementStrategy.spreadAcrossInstances(),
+//   			ecs.*placementStrategy.packedByCpu(),
+//   			ecs.*placementStrategy.randomly(),
+//   		},
+//   		placementConstraints: []placementConstraint{
+//   			ecs.*placementConstraint.memberOf(jsii.String("blieptuut")),
+//   		},
+//   	}),
+//   })
+//
+// Experimental.
 type PlacementStrategy interface {
+	// Return the placement JSON.
+	// Experimental.
 	ToJson() *[]*CfnService_PlacementStrategyProperty
 }
 
@@ -16635,13 +24986,14 @@ type jsiiProxy_PlacementStrategy struct {
 }
 
 // Places tasks on the container instances with the least available capacity of the specified resource.
+// Experimental.
 func PlacementStrategy_PackedBy(resource BinPackResource) PlacementStrategy {
 	_init_.Initialize()
 
 	var returns PlacementStrategy
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.PlacementStrategy",
+		"monocdk.aws_ecs.PlacementStrategy",
 		"packedBy",
 		[]interface{}{resource},
 		&returns,
@@ -16653,13 +25005,14 @@ func PlacementStrategy_PackedBy(resource BinPackResource) PlacementStrategy {
 // Places tasks on container instances with the least available amount of CPU capacity.
 //
 // This minimizes the number of instances in use.
+// Experimental.
 func PlacementStrategy_PackedByCpu() PlacementStrategy {
 	_init_.Initialize()
 
 	var returns PlacementStrategy
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.PlacementStrategy",
+		"monocdk.aws_ecs.PlacementStrategy",
 		"packedByCpu",
 		nil, // no parameters
 		&returns,
@@ -16671,13 +25024,14 @@ func PlacementStrategy_PackedByCpu() PlacementStrategy {
 // Places tasks on container instances with the least available amount of memory capacity.
 //
 // This minimizes the number of instances in use.
+// Experimental.
 func PlacementStrategy_PackedByMemory() PlacementStrategy {
 	_init_.Initialize()
 
 	var returns PlacementStrategy
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.PlacementStrategy",
+		"monocdk.aws_ecs.PlacementStrategy",
 		"packedByMemory",
 		nil, // no parameters
 		&returns,
@@ -16687,13 +25041,14 @@ func PlacementStrategy_PackedByMemory() PlacementStrategy {
 }
 
 // Places tasks randomly.
+// Experimental.
 func PlacementStrategy_Randomly() PlacementStrategy {
 	_init_.Initialize()
 
 	var returns PlacementStrategy
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.PlacementStrategy",
+		"monocdk.aws_ecs.PlacementStrategy",
 		"randomly",
 		nil, // no parameters
 		&returns,
@@ -16707,6 +25062,7 @@ func PlacementStrategy_Randomly() PlacementStrategy {
 // You can use one of the built-in attributes found on `BuiltInAttributes`
 // or supply your own custom instance attributes. If more than one attribute
 // is supplied, spreading is done in order.
+// Experimental.
 func PlacementStrategy_SpreadAcross(fields ...*string) PlacementStrategy {
 	_init_.Initialize()
 
@@ -16718,7 +25074,7 @@ func PlacementStrategy_SpreadAcross(fields ...*string) PlacementStrategy {
 	var returns PlacementStrategy
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.PlacementStrategy",
+		"monocdk.aws_ecs.PlacementStrategy",
 		"spreadAcross",
 		args,
 		&returns,
@@ -16728,13 +25084,14 @@ func PlacementStrategy_SpreadAcross(fields ...*string) PlacementStrategy {
 }
 
 // Places tasks evenly across all container instances in the cluster.
+// Experimental.
 func PlacementStrategy_SpreadAcrossInstances() PlacementStrategy {
 	_init_.Initialize()
 
 	var returns PlacementStrategy
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.PlacementStrategy",
+		"monocdk.aws_ecs.PlacementStrategy",
 		"spreadAcrossInstances",
 		nil, // no parameters
 		&returns,
@@ -16743,7 +25100,6 @@ func PlacementStrategy_SpreadAcrossInstances() PlacementStrategy {
 	return returns
 }
 
-// Return the placement JSON.
 func (p *jsiiProxy_PlacementStrategy) ToJson() *[]*CfnService_PlacementStrategyProperty {
 	var returns *[]*CfnService_PlacementStrategyProperty
 
@@ -16759,8 +25115,14 @@ func (p *jsiiProxy_PlacementStrategy) ToJson() *[]*CfnService_PlacementStrategyP
 
 // Port mappings allow containers to access ports on the host container instance to send or receive traffic.
 //
-// TODO: EXAMPLE
+// Example:
+//   var container containerDefinition
 //
+//   container.addPortMappings(&portMapping{
+//   	containerPort: jsii.Number(3000),
+//   })
+//
+// Experimental.
 type PortMapping struct {
 	// The port number on the container that is bound to the user-specified or automatically assigned host port.
 	//
@@ -16770,6 +25132,7 @@ type PortMapping struct {
 	//
 	// For more information, see hostPort.
 	// Port mappings that are automatically assigned in this way do not count toward the 100 reserved ports limit of a container instance.
+	// Experimental.
 	ContainerPort *float64 `json:"containerPort" yaml:"containerPort"`
 	// The port number on the container instance to reserve for your container.
 	//
@@ -16781,36 +25144,79 @@ type PortMapping struct {
 	// you can omit the hostPort (or set it to 0) while specifying a containerPort and
 	// your container automatically receives a port in the ephemeral port range for
 	// your container instance operating system and Docker version.
+	// Experimental.
 	HostPort *float64 `json:"hostPort" yaml:"hostPort"`
 	// The protocol used for the port mapping.
 	//
 	// Valid values are Protocol.TCP and Protocol.UDP.
+	// Experimental.
 	Protocol Protocol `json:"protocol" yaml:"protocol"`
 }
 
 // Propagate tags from either service or task definition.
+// Experimental.
 type PropagatedTagSource string
 
 const (
+	// Propagate tags from service.
+	// Experimental.
 	PropagatedTagSource_SERVICE PropagatedTagSource = "SERVICE"
+	// Propagate tags from task definition.
+	// Experimental.
 	PropagatedTagSource_TASK_DEFINITION PropagatedTagSource = "TASK_DEFINITION"
+	// Do not propagate.
+	// Experimental.
 	PropagatedTagSource_NONE PropagatedTagSource = "NONE"
 )
 
 // Network protocol.
 //
-// TODO: EXAMPLE
+// Example:
+//   var taskDefinition taskDefinition
+//   var cluster cluster
 //
+//   // Add a container to the task definition
+//   specificContainer := taskDefinition.addContainer(jsii.String("Container"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("/aws/aws-example-app")),
+//   	memoryLimitMiB: jsii.Number(2048),
+//   })
+//
+//   // Add a port mapping
+//   specificContainer.addPortMappings(&portMapping{
+//   	containerPort: jsii.Number(7600),
+//   	protocol: ecs.protocol_TCP,
+//   })
+//
+//   ecs.NewEc2Service(this, jsii.String("Service"), &ec2ServiceProps{
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   	cloudMapOptions: &cloudMapOptions{
+//   		// Create SRV records - useful for bridge networking
+//   		dnsRecordType: cloudmap.dnsRecordType_SRV,
+//   		// Targets port TCP port 7600 `specificContainer`
+//   		container: specificContainer,
+//   		containerPort: jsii.Number(7600),
+//   	},
+//   })
+//
+// Experimental.
 type Protocol string
 
 const (
+	// TCP.
+	// Experimental.
 	Protocol_TCP Protocol = "TCP"
+	// UDP.
+	// Experimental.
 	Protocol_UDP Protocol = "UDP"
 )
 
 // The base class for proxy configurations.
+// Experimental.
 type ProxyConfiguration interface {
-	Bind(_scope constructs.Construct, _taskDefinition TaskDefinition) *CfnTaskDefinition_ProxyConfigurationProperty
+	// Called when the proxy configuration is configured on a task definition.
+	// Experimental.
+	Bind(_scope awscdk.Construct, _taskDefinition TaskDefinition) *CfnTaskDefinition_ProxyConfigurationProperty
 }
 
 // The jsii proxy struct for ProxyConfiguration
@@ -16818,18 +25224,18 @@ type jsiiProxy_ProxyConfiguration struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewProxyConfiguration_Override(p ProxyConfiguration) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.ProxyConfiguration",
+		"monocdk.aws_ecs.ProxyConfiguration",
 		nil, // no parameters
 		p,
 	)
 }
 
-// Called when the proxy configuration is configured on a task definition.
-func (p *jsiiProxy_ProxyConfiguration) Bind(_scope constructs.Construct, _taskDefinition TaskDefinition) *CfnTaskDefinition_ProxyConfigurationProperty {
+func (p *jsiiProxy_ProxyConfiguration) Bind(_scope awscdk.Construct, _taskDefinition TaskDefinition) *CfnTaskDefinition_ProxyConfigurationProperty {
 	var returns *CfnTaskDefinition_ProxyConfigurationProperty
 
 	_jsii_.Invoke(
@@ -16844,8 +25250,11 @@ func (p *jsiiProxy_ProxyConfiguration) Bind(_scope constructs.Construct, _taskDe
 
 // The base class for proxy configurations.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   proxyConfigurations := ecs.NewProxyConfigurations()
 //
+// Experimental.
 type ProxyConfigurations interface {
 }
 
@@ -16854,13 +25263,14 @@ type jsiiProxy_ProxyConfigurations struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewProxyConfigurations() ProxyConfigurations {
 	_init_.Initialize()
 
 	j := jsiiProxy_ProxyConfigurations{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.ProxyConfigurations",
+		"monocdk.aws_ecs.ProxyConfigurations",
 		nil, // no parameters
 		&j,
 	)
@@ -16868,24 +25278,26 @@ func NewProxyConfigurations() ProxyConfigurations {
 	return &j
 }
 
+// Experimental.
 func NewProxyConfigurations_Override(p ProxyConfigurations) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.ProxyConfigurations",
+		"monocdk.aws_ecs.ProxyConfigurations",
 		nil, // no parameters
 		p,
 	)
 }
 
 // Constructs a new instance of the ProxyConfiguration class.
+// Experimental.
 func ProxyConfigurations_AppMeshProxyConfiguration(props *AppMeshProxyConfigurationConfigProps) ProxyConfiguration {
 	_init_.Initialize()
 
 	var returns ProxyConfiguration
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.ProxyConfigurations",
+		"monocdk.aws_ecs.ProxyConfigurations",
 		"appMeshProxyConfiguration",
 		[]interface{}{props},
 		&returns,
@@ -16899,11 +25311,18 @@ func ProxyConfigurations_AppMeshProxyConfiguration(props *AppMeshProxyConfigurat
 // For images hosted in Amazon ECR, see
 // [EcrImage](https://docs.aws.amazon.com/AmazonECR/latest/userguide/images.html).
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr_assets "github.com/aws/aws-cdk-go/awscdk/aws_ecr_assets"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
 //
+//   var dockerImageAsset dockerImageAsset
+//   repositoryImage := ecs.repositoryImage.fromDockerImageAsset(dockerImageAsset)
+//
+// Experimental.
 type RepositoryImage interface {
 	ContainerImage
-	Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig
+	// Called when the image is used by a ContainerDefinition.
+	// Experimental.
+	Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig
 }
 
 // The jsii proxy struct for RepositoryImage
@@ -16912,13 +25331,14 @@ type jsiiProxy_RepositoryImage struct {
 }
 
 // Constructs a new instance of the RepositoryImage class.
+// Experimental.
 func NewRepositoryImage(imageName *string, props *RepositoryImageProps) RepositoryImage {
 	_init_.Initialize()
 
 	j := jsiiProxy_RepositoryImage{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.RepositoryImage",
+		"monocdk.aws_ecs.RepositoryImage",
 		[]interface{}{imageName, props},
 		&j,
 	)
@@ -16927,11 +25347,12 @@ func NewRepositoryImage(imageName *string, props *RepositoryImageProps) Reposito
 }
 
 // Constructs a new instance of the RepositoryImage class.
+// Experimental.
 func NewRepositoryImage_Override(r RepositoryImage, imageName *string, props *RepositoryImageProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.RepositoryImage",
+		"monocdk.aws_ecs.RepositoryImage",
 		[]interface{}{imageName, props},
 		r,
 	)
@@ -16941,13 +25362,14 @@ func NewRepositoryImage_Override(r RepositoryImage, imageName *string, props *Re
 //
 // If you already have a `DockerImageAsset` instance, you can use the
 // `ContainerImage.fromDockerImageAsset` method instead.
+// Experimental.
 func RepositoryImage_FromAsset(directory *string, props *AssetImageProps) AssetImage {
 	_init_.Initialize()
 
 	var returns AssetImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.RepositoryImage",
+		"monocdk.aws_ecs.RepositoryImage",
 		"fromAsset",
 		[]interface{}{directory, props},
 		&returns,
@@ -16957,13 +25379,14 @@ func RepositoryImage_FromAsset(directory *string, props *AssetImageProps) AssetI
 }
 
 // Use an existing `DockerImageAsset` for this container image.
+// Experimental.
 func RepositoryImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) ContainerImage {
 	_init_.Initialize()
 
 	var returns ContainerImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.RepositoryImage",
+		"monocdk.aws_ecs.RepositoryImage",
 		"fromDockerImageAsset",
 		[]interface{}{asset},
 		&returns,
@@ -16973,13 +25396,14 @@ func RepositoryImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) C
 }
 
 // Reference an image in an ECR repository.
+// Experimental.
 func RepositoryImage_FromEcrRepository(repository awsecr.IRepository, tag *string) EcrImage {
 	_init_.Initialize()
 
 	var returns EcrImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.RepositoryImage",
+		"monocdk.aws_ecs.RepositoryImage",
 		"fromEcrRepository",
 		[]interface{}{repository, tag},
 		&returns,
@@ -16989,13 +25413,14 @@ func RepositoryImage_FromEcrRepository(repository awsecr.IRepository, tag *strin
 }
 
 // Reference an image on DockerHub or another online registry.
+// Experimental.
 func RepositoryImage_FromRegistry(name *string, props *RepositoryImageProps) RepositoryImage {
 	_init_.Initialize()
 
 	var returns RepositoryImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.RepositoryImage",
+		"monocdk.aws_ecs.RepositoryImage",
 		"fromRegistry",
 		[]interface{}{name, props},
 		&returns,
@@ -17008,13 +25433,14 @@ func RepositoryImage_FromRegistry(name *string, props *RepositoryImageProps) Rep
 //
 // Use this method if the container image has already been created by another process (e.g. jib)
 // and you want to add it as a container image asset.
+// Experimental.
 func RepositoryImage_FromTarball(tarballFile *string) ContainerImage {
 	_init_.Initialize()
 
 	var returns ContainerImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.RepositoryImage",
+		"monocdk.aws_ecs.RepositoryImage",
 		"fromTarball",
 		[]interface{}{tarballFile},
 		&returns,
@@ -17023,8 +25449,7 @@ func RepositoryImage_FromTarball(tarballFile *string) ContainerImage {
 	return returns
 }
 
-// Called when the image is used by a ContainerDefinition.
-func (r *jsiiProxy_RepositoryImage) Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
+func (r *jsiiProxy_RepositoryImage) Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
 	var returns *ContainerImageConfig
 
 	_jsii_.Invoke(
@@ -17039,19 +25464,41 @@ func (r *jsiiProxy_RepositoryImage) Bind(scope constructs.Construct, containerDe
 
 // The properties for an image hosted in a public or private repository.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import secretsmanager "github.com/aws/aws-cdk-go/awscdk/aws_secretsmanager"
 //
+//   var secret secret
+//   repositoryImageProps := &repositoryImageProps{
+//   	credentials: secret,
+//   }
+//
+// Experimental.
 type RepositoryImageProps struct {
 	// The secret to expose to the container that contains the credentials for the image repository.
 	//
 	// The supported value is the full ARN of an AWS Secrets Manager secret.
+	// Experimental.
 	Credentials awssecretsmanager.ISecret `json:"credentials" yaml:"credentials"`
 }
 
 // The properties for enabling scaling based on Application Load Balancer (ALB) request counts.
 //
-// TODO: EXAMPLE
+// Example:
+//   var target applicationTargetGroup
+//   var service baseService
+//   scaling := service.autoScaleTaskCount(&enableScalingProps{
+//   	maxCapacity: jsii.Number(10),
+//   })
+//   scaling.scaleOnCpuUtilization(jsii.String("CpuScaling"), &cpuUtilizationScalingProps{
+//   	targetUtilizationPercent: jsii.Number(50),
+//   })
 //
+//   scaling.scaleOnRequestCount(jsii.String("RequestScaling"), &requestCountScalingProps{
+//   	requestsPerTarget: jsii.Number(10000),
+//   	targetGroup: target,
+//   })
+//
+// Experimental.
 type RequestCountScalingProps struct {
 	// Indicates whether scale in by the target tracking policy is disabled.
 	//
@@ -17059,37 +25506,74 @@ type RequestCountScalingProps struct {
 	// won't remove capacity from the scalable resource. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// scalable resource.
+	// Experimental.
 	DisableScaleIn *bool `json:"disableScaleIn" yaml:"disableScaleIn"`
 	// A name for the scaling policy.
+	// Experimental.
 	PolicyName *string `json:"policyName" yaml:"policyName"`
 	// Period after a scale in activity completes before another scale in activity can start.
+	// Experimental.
 	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown" yaml:"scaleInCooldown"`
 	// Period after a scale out activity completes before another scale out activity can start.
+	// Experimental.
 	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown" yaml:"scaleOutCooldown"`
 	// The number of ALB requests per target.
+	// Experimental.
 	RequestsPerTarget *float64 `json:"requestsPerTarget" yaml:"requestsPerTarget"`
 	// The ALB target group name.
+	// Experimental.
 	TargetGroup awselasticloadbalancingv2.ApplicationTargetGroup `json:"targetGroup" yaml:"targetGroup"`
 }
 
 // The interface for Runtime Platform.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Create a Task Definition for the Windows container to start
+//   taskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &fargateTaskDefinitionProps{
+//   	runtimePlatform: &runtimePlatform{
+//   		operatingSystemFamily: ecs.operatingSystemFamily_WINDOWS_SERVER_2019_CORE(),
+//   		cpuArchitecture: ecs.cpuArchitecture_X86_64(),
+//   	},
+//   	cpu: jsii.Number(1024),
+//   	memoryLimitMiB: jsii.Number(2048),
+//   })
 //
+//   taskDefinition.addContainer(jsii.String("windowsservercore"), &containerDefinitionOptions{
+//   	logging: ecs.logDriver.awsLogs(&awsLogDriverProps{
+//   		streamPrefix: jsii.String("win-iis-on-fargate"),
+//   	}),
+//   	portMappings: []portMapping{
+//   		&portMapping{
+//   			containerPort: jsii.Number(80),
+//   		},
+//   	},
+//   	image: ecs.containerImage.fromRegistry(jsii.String("mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2019")),
+//   })
+//
+// Experimental.
 type RuntimePlatform struct {
 	// The CpuArchitecture for Fargate Runtime Platform.
+	// Experimental.
 	CpuArchitecture CpuArchitecture `json:"cpuArchitecture" yaml:"cpuArchitecture"`
 	// The operating system for Fargate Runtime Platform.
+	// Experimental.
 	OperatingSystemFamily OperatingSystemFamily `json:"operatingSystemFamily" yaml:"operatingSystemFamily"`
 }
 
 // Environment file from S3.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
 //
+//   var bucket bucket
+//   s3EnvironmentFile := ecs.NewS3EnvironmentFile(bucket, jsii.String("key"), jsii.String("objectVersion"))
+//
+// Experimental.
 type S3EnvironmentFile interface {
 	EnvironmentFile
-	Bind(_scope constructs.Construct) *EnvironmentFileConfig
+	// Called when the container is initialized to allow this object to bind to the stack.
+	// Experimental.
+	Bind(_scope awscdk.Construct) *EnvironmentFileConfig
 }
 
 // The jsii proxy struct for S3EnvironmentFile
@@ -17097,13 +25581,14 @@ type jsiiProxy_S3EnvironmentFile struct {
 	jsiiProxy_EnvironmentFile
 }
 
+// Experimental.
 func NewS3EnvironmentFile(bucket awss3.IBucket, key *string, objectVersion *string) S3EnvironmentFile {
 	_init_.Initialize()
 
 	j := jsiiProxy_S3EnvironmentFile{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.S3EnvironmentFile",
+		"monocdk.aws_ecs.S3EnvironmentFile",
 		[]interface{}{bucket, key, objectVersion},
 		&j,
 	)
@@ -17111,24 +25596,26 @@ func NewS3EnvironmentFile(bucket awss3.IBucket, key *string, objectVersion *stri
 	return &j
 }
 
+// Experimental.
 func NewS3EnvironmentFile_Override(s S3EnvironmentFile, bucket awss3.IBucket, key *string, objectVersion *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.S3EnvironmentFile",
+		"monocdk.aws_ecs.S3EnvironmentFile",
 		[]interface{}{bucket, key, objectVersion},
 		s,
 	)
 }
 
 // Loads the environment file from a local disk path.
+// Experimental.
 func S3EnvironmentFile_FromAsset(path *string, options *awss3assets.AssetOptions) AssetEnvironmentFile {
 	_init_.Initialize()
 
 	var returns AssetEnvironmentFile
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.S3EnvironmentFile",
+		"monocdk.aws_ecs.S3EnvironmentFile",
 		"fromAsset",
 		[]interface{}{path, options},
 		&returns,
@@ -17140,13 +25627,14 @@ func S3EnvironmentFile_FromAsset(path *string, options *awss3assets.AssetOptions
 // Loads the environment file from an S3 bucket.
 //
 // Returns: `S3EnvironmentFile` associated with the specified S3 object.
+// Experimental.
 func S3EnvironmentFile_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3EnvironmentFile {
 	_init_.Initialize()
 
 	var returns S3EnvironmentFile
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.S3EnvironmentFile",
+		"monocdk.aws_ecs.S3EnvironmentFile",
 		"fromBucket",
 		[]interface{}{bucket, key, objectVersion},
 		&returns,
@@ -17155,8 +25643,7 @@ func S3EnvironmentFile_FromBucket(bucket awss3.IBucket, key *string, objectVersi
 	return returns
 }
 
-// Called when the container is initialized to allow this object to bind to the stack.
-func (s *jsiiProxy_S3EnvironmentFile) Bind(_scope constructs.Construct) *EnvironmentFileConfig {
+func (s *jsiiProxy_S3EnvironmentFile) Bind(_scope awscdk.Construct) *EnvironmentFileConfig {
 	var returns *EnvironmentFileConfig
 
 	_jsii_.Invoke(
@@ -17171,22 +25658,117 @@ func (s *jsiiProxy_S3EnvironmentFile) Bind(_scope constructs.Construct) *Environ
 
 // The scalable attribute representing task count.
 //
-// TODO: EXAMPLE
+// Example:
+//   var cluster cluster
+//   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
+//   	cluster: cluster,
+//   	memoryLimitMiB: jsii.Number(1024),
+//   	desiredCount: jsii.Number(1),
+//   	cpu: jsii.Number(512),
+//   	taskImageOptions: &applicationLoadBalancedTaskImageOptions{
+//   		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	},
+//   })
 //
+//   scalableTarget := loadBalancedFargateService.service.autoScaleTaskCount(&enableScalingProps{
+//   	minCapacity: jsii.Number(1),
+//   	maxCapacity: jsii.Number(20),
+//   })
+//
+//   scalableTarget.scaleOnCpuUtilization(jsii.String("CpuScaling"), &cpuUtilizationScalingProps{
+//   	targetUtilizationPercent: jsii.Number(50),
+//   })
+//
+//   scalableTarget.scaleOnMemoryUtilization(jsii.String("MemoryScaling"), &memoryUtilizationScalingProps{
+//   	targetUtilizationPercent: jsii.Number(50),
+//   })
+//
+// Experimental.
 type ScalableTaskCount interface {
 	awsapplicationautoscaling.BaseScalableAttribute
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Experimental.
 	Props() *awsapplicationautoscaling.BaseScalableAttributeProps
+	// Scale out or in based on a metric value.
+	// Experimental.
 	DoScaleOnMetric(id *string, props *awsapplicationautoscaling.BasicStepScalingPolicyProps)
+	// Scale out or in based on time.
+	// Experimental.
 	DoScaleOnSchedule(id *string, props *awsapplicationautoscaling.ScalingSchedule)
+	// Scale out or in in order to keep a metric around a target value.
+	// Experimental.
 	DoScaleToTrackMetric(id *string, props *awsapplicationautoscaling.BasicTargetTrackingScalingPolicyProps)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Scales in or out to achieve a target CPU utilization.
+	// Experimental.
 	ScaleOnCpuUtilization(id *string, props *CpuUtilizationScalingProps)
+	// Scales in or out to achieve a target memory utilization.
+	// Experimental.
 	ScaleOnMemoryUtilization(id *string, props *MemoryUtilizationScalingProps)
+	// Scales in or out based on a specified metric value.
+	// Experimental.
 	ScaleOnMetric(id *string, props *awsapplicationautoscaling.BasicStepScalingPolicyProps)
+	// Scales in or out to achieve a target Application Load Balancer request count per target.
+	// Experimental.
 	ScaleOnRequestCount(id *string, props *RequestCountScalingProps)
+	// Scales in or out based on a specified scheduled time.
+	// Experimental.
 	ScaleOnSchedule(id *string, props *awsapplicationautoscaling.ScalingSchedule)
+	// Scales in or out to achieve a target on a custom metric.
+	// Experimental.
 	ScaleToTrackCustomMetric(id *string, props *TrackCustomMetricProps)
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ScalableTaskCount
@@ -17194,8 +25776,8 @@ type jsiiProxy_ScalableTaskCount struct {
 	internal.Type__awsapplicationautoscalingBaseScalableAttribute
 }
 
-func (j *jsiiProxy_ScalableTaskCount) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ScalableTaskCount) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -17216,13 +25798,14 @@ func (j *jsiiProxy_ScalableTaskCount) Props() *awsapplicationautoscaling.BaseSca
 
 
 // Constructs a new instance of the ScalableTaskCount class.
+// Experimental.
 func NewScalableTaskCount(scope constructs.Construct, id *string, props *ScalableTaskCountProps) ScalableTaskCount {
 	_init_.Initialize()
 
 	j := jsiiProxy_ScalableTaskCount{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.ScalableTaskCount",
+		"monocdk.aws_ecs.ScalableTaskCount",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -17231,27 +25814,26 @@ func NewScalableTaskCount(scope constructs.Construct, id *string, props *Scalabl
 }
 
 // Constructs a new instance of the ScalableTaskCount class.
+// Experimental.
 func NewScalableTaskCount_Override(s ScalableTaskCount, scope constructs.Construct, id *string, props *ScalableTaskCountProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.ScalableTaskCount",
+		"monocdk.aws_ecs.ScalableTaskCount",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func ScalableTaskCount_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.ScalableTaskCount",
+		"monocdk.aws_ecs.ScalableTaskCount",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -17260,7 +25842,6 @@ func ScalableTaskCount_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Scale out or in based on a metric value.
 func (s *jsiiProxy_ScalableTaskCount) DoScaleOnMetric(id *string, props *awsapplicationautoscaling.BasicStepScalingPolicyProps) {
 	_jsii_.InvokeVoid(
 		s,
@@ -17269,7 +25850,6 @@ func (s *jsiiProxy_ScalableTaskCount) DoScaleOnMetric(id *string, props *awsappl
 	)
 }
 
-// Scale out or in based on time.
 func (s *jsiiProxy_ScalableTaskCount) DoScaleOnSchedule(id *string, props *awsapplicationautoscaling.ScalingSchedule) {
 	_jsii_.InvokeVoid(
 		s,
@@ -17278,7 +25858,6 @@ func (s *jsiiProxy_ScalableTaskCount) DoScaleOnSchedule(id *string, props *awsap
 	)
 }
 
-// Scale out or in in order to keep a metric around a target value.
 func (s *jsiiProxy_ScalableTaskCount) DoScaleToTrackMetric(id *string, props *awsapplicationautoscaling.BasicTargetTrackingScalingPolicyProps) {
 	_jsii_.InvokeVoid(
 		s,
@@ -17287,7 +25866,43 @@ func (s *jsiiProxy_ScalableTaskCount) DoScaleToTrackMetric(id *string, props *aw
 	)
 }
 
-// Scales in or out to achieve a target CPU utilization.
+func (s *jsiiProxy_ScalableTaskCount) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_ScalableTaskCount) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (s *jsiiProxy_ScalableTaskCount) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ScalableTaskCount) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 func (s *jsiiProxy_ScalableTaskCount) ScaleOnCpuUtilization(id *string, props *CpuUtilizationScalingProps) {
 	_jsii_.InvokeVoid(
 		s,
@@ -17296,7 +25911,6 @@ func (s *jsiiProxy_ScalableTaskCount) ScaleOnCpuUtilization(id *string, props *C
 	)
 }
 
-// Scales in or out to achieve a target memory utilization.
 func (s *jsiiProxy_ScalableTaskCount) ScaleOnMemoryUtilization(id *string, props *MemoryUtilizationScalingProps) {
 	_jsii_.InvokeVoid(
 		s,
@@ -17305,7 +25919,6 @@ func (s *jsiiProxy_ScalableTaskCount) ScaleOnMemoryUtilization(id *string, props
 	)
 }
 
-// Scales in or out based on a specified metric value.
 func (s *jsiiProxy_ScalableTaskCount) ScaleOnMetric(id *string, props *awsapplicationautoscaling.BasicStepScalingPolicyProps) {
 	_jsii_.InvokeVoid(
 		s,
@@ -17314,7 +25927,6 @@ func (s *jsiiProxy_ScalableTaskCount) ScaleOnMetric(id *string, props *awsapplic
 	)
 }
 
-// Scales in or out to achieve a target Application Load Balancer request count per target.
 func (s *jsiiProxy_ScalableTaskCount) ScaleOnRequestCount(id *string, props *RequestCountScalingProps) {
 	_jsii_.InvokeVoid(
 		s,
@@ -17323,7 +25935,6 @@ func (s *jsiiProxy_ScalableTaskCount) ScaleOnRequestCount(id *string, props *Req
 	)
 }
 
-// Scales in or out based on a specified scheduled time.
 func (s *jsiiProxy_ScalableTaskCount) ScaleOnSchedule(id *string, props *awsapplicationautoscaling.ScalingSchedule) {
 	_jsii_.InvokeVoid(
 		s,
@@ -17332,7 +25943,6 @@ func (s *jsiiProxy_ScalableTaskCount) ScaleOnSchedule(id *string, props *awsappl
 	)
 }
 
-// Scales in or out to achieve a target on a custom metric.
 func (s *jsiiProxy_ScalableTaskCount) ScaleToTrackCustomMetric(id *string, props *TrackCustomMetricProps) {
 	_jsii_.InvokeVoid(
 		s,
@@ -17341,7 +25951,14 @@ func (s *jsiiProxy_ScalableTaskCount) ScaleToTrackCustomMetric(id *string, props
 	)
 }
 
-// Returns a string representation of this construct.
+func (s *jsiiProxy_ScalableTaskCount) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (s *jsiiProxy_ScalableTaskCount) ToString() *string {
 	var returns *string
 
@@ -17355,22 +25972,55 @@ func (s *jsiiProxy_ScalableTaskCount) ToString() *string {
 	return returns
 }
 
+func (s *jsiiProxy_ScalableTaskCount) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // The properties of a scalable attribute representing task count.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import applicationautoscaling "github.com/aws/aws-cdk-go/awscdk/aws_applicationautoscaling"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
 //
+//   var role role
+//   scalableTaskCountProps := &scalableTaskCountProps{
+//   	dimension: jsii.String("dimension"),
+//   	maxCapacity: jsii.Number(123),
+//   	resourceId: jsii.String("resourceId"),
+//   	role: role,
+//   	serviceNamespace: applicationautoscaling.serviceNamespace_ECS,
+//
+//   	// the properties below are optional
+//   	minCapacity: jsii.Number(123),
+//   }
+//
+// Experimental.
 type ScalableTaskCountProps struct {
 	// Maximum capacity to scale to.
+	// Experimental.
 	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// Minimum capacity to scale to.
+	// Experimental.
 	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
 	// Scalable dimension of the attribute.
+	// Experimental.
 	Dimension *string `json:"dimension" yaml:"dimension"`
 	// Resource ID of the attribute.
+	// Experimental.
 	ResourceId *string `json:"resourceId" yaml:"resourceId"`
 	// Role to use for scaling.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Service namespace of the scalable attribute.
+	// Experimental.
 	ServiceNamespace awsapplicationautoscaling.ServiceNamespace `json:"serviceNamespace" yaml:"serviceNamespace"`
 }
 
@@ -17378,39 +26028,93 @@ type ScalableTaskCountProps struct {
 //
 // Docker volumes that are scoped to a task are automatically provisioned when the task starts and destroyed when the task stops.
 // Docker volumes that are scoped as shared persist after the task stops.
+// Experimental.
 type Scope string
 
 const (
+	// Docker volumes that are scoped to a task are automatically provisioned when the task starts and destroyed when the task stops.
+	// Experimental.
 	Scope_TASK Scope = "TASK"
+	// Docker volumes that are scoped as shared persist after the task stops.
+	// Experimental.
 	Scope_SHARED Scope = "SHARED"
 )
 
 // The temporary disk space mounted to the container.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   scratchSpace := &scratchSpace{
+//   	containerPath: jsii.String("containerPath"),
+//   	name: jsii.String("name"),
+//   	readOnly: jsii.Boolean(false),
+//   	sourcePath: jsii.String("sourcePath"),
+//   }
 //
+// Experimental.
 type ScratchSpace struct {
 	// The path on the container to mount the scratch volume at.
+	// Experimental.
 	ContainerPath *string `json:"containerPath" yaml:"containerPath"`
 	// The name of the scratch volume to mount.
 	//
 	// Must be a volume name referenced in the name parameter of task definition volume.
+	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 	// Specifies whether to give the container read-only access to the scratch volume.
 	//
 	// If this value is true, the container has read-only access to the scratch volume.
 	// If this value is false, then the container can write to the scratch volume.
+	// Experimental.
 	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	// Experimental.
 	SourcePath *string `json:"sourcePath" yaml:"sourcePath"`
 }
 
 // A secret environment variable.
 //
-// TODO: EXAMPLE
+// Example:
+//   var secret secret
+//   var dbSecret secret
+//   var parameter stringParameter
+//   var taskDefinition taskDefinition
+//   var s3Bucket bucket
 //
+//   newContainer := taskDefinition.addContainer(jsii.String("container"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	memoryLimitMiB: jsii.Number(1024),
+//   	environment: map[string]*string{
+//   		 // clear text, not for sensitive data
+//   		"STAGE": jsii.String("prod"),
+//   	},
+//   	environmentFiles: []environmentFile{
+//   		ecs.*environmentFile.fromAsset(jsii.String("./demo-env-file.env")),
+//   		ecs.*environmentFile.fromBucket(s3Bucket, jsii.String("assets/demo-env-file.env")),
+//   	},
+//   	secrets: map[string]secret{
+//   		 // Retrieved from AWS Secrets Manager or AWS Systems Manager Parameter Store at container start-up.
+//   		"SECRET": ecs.*secret.fromSecretsManager(secret),
+//   		"DB_PASSWORD": ecs.*secret.fromSecretsManager(dbSecret, jsii.String("password")),
+//   		 // Reference a specific JSON field, (requires platform version 1.4.0 or later for Fargate tasks)
+//   		"API_KEY": ecs.*secret.fromSecretsManagerVersion(secret, &SecretVersionInfo{
+//   			"versionId": jsii.String("12345"),
+//   		}, jsii.String("apiKey")),
+//   		 // Reference a specific version of the secret by its version id or version stage (requires platform version 1.4.0 or later for Fargate tasks)
+//   		"PARAMETER": ecs.*secret.fromSsmParameter(parameter),
+//   	},
+//   })
+//   newContainer.addEnvironment(jsii.String("QUEUE_NAME"), jsii.String("MyQueue"))
+//
+// Experimental.
 type Secret interface {
+	// The ARN of the secret.
+	// Experimental.
 	Arn() *string
+	// Whether this secret uses a specific JSON field.
+	// Experimental.
 	HasField() *bool
+	// Grants reading the secret to a principal.
+	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 }
 
@@ -17440,24 +26144,26 @@ func (j *jsiiProxy_Secret) HasField() *bool {
 }
 
 
+// Experimental.
 func NewSecret_Override(s Secret) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.Secret",
+		"monocdk.aws_ecs.Secret",
 		nil, // no parameters
 		s,
 	)
 }
 
 // Creates a environment variable value from a secret stored in AWS Secrets Manager.
+// Experimental.
 func Secret_FromSecretsManager(secret awssecretsmanager.ISecret, field *string) Secret {
 	_init_.Initialize()
 
 	var returns Secret
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.Secret",
+		"monocdk.aws_ecs.Secret",
 		"fromSecretsManager",
 		[]interface{}{secret, field},
 		&returns,
@@ -17467,13 +26173,14 @@ func Secret_FromSecretsManager(secret awssecretsmanager.ISecret, field *string) 
 }
 
 // Creates a environment variable value from a secret stored in AWS Secrets Manager.
+// Experimental.
 func Secret_FromSecretsManagerVersion(secret awssecretsmanager.ISecret, versionInfo *SecretVersionInfo, field *string) Secret {
 	_init_.Initialize()
 
 	var returns Secret
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.Secret",
+		"monocdk.aws_ecs.Secret",
 		"fromSecretsManagerVersion",
 		[]interface{}{secret, versionInfo, field},
 		&returns,
@@ -17483,13 +26190,14 @@ func Secret_FromSecretsManagerVersion(secret awssecretsmanager.ISecret, versionI
 }
 
 // Creates an environment variable value from a parameter stored in AWS Systems Manager Parameter Store.
+// Experimental.
 func Secret_FromSsmParameter(parameter awsssm.IParameter) Secret {
 	_init_.Initialize()
 
 	var returns Secret
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.Secret",
+		"monocdk.aws_ecs.Secret",
 		"fromSsmParameter",
 		[]interface{}{parameter},
 		&returns,
@@ -17498,7 +26206,6 @@ func Secret_FromSsmParameter(parameter awsssm.IParameter) Secret {
 	return returns
 }
 
-// Grants reading the secret to a principal.
 func (s *jsiiProxy_Secret) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -17514,22 +26221,87 @@ func (s *jsiiProxy_Secret) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
 
 // Specify the secret's version id or version stage.
 //
-// TODO: EXAMPLE
+// Example:
+//   var secret secret
+//   var dbSecret secret
+//   var parameter stringParameter
+//   var taskDefinition taskDefinition
+//   var s3Bucket bucket
 //
+//   newContainer := taskDefinition.addContainer(jsii.String("container"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	memoryLimitMiB: jsii.Number(1024),
+//   	environment: map[string]*string{
+//   		 // clear text, not for sensitive data
+//   		"STAGE": jsii.String("prod"),
+//   	},
+//   	environmentFiles: []environmentFile{
+//   		ecs.*environmentFile.fromAsset(jsii.String("./demo-env-file.env")),
+//   		ecs.*environmentFile.fromBucket(s3Bucket, jsii.String("assets/demo-env-file.env")),
+//   	},
+//   	secrets: map[string]secret{
+//   		 // Retrieved from AWS Secrets Manager or AWS Systems Manager Parameter Store at container start-up.
+//   		"SECRET": ecs.*secret.fromSecretsManager(secret),
+//   		"DB_PASSWORD": ecs.*secret.fromSecretsManager(dbSecret, jsii.String("password")),
+//   		 // Reference a specific JSON field, (requires platform version 1.4.0 or later for Fargate tasks)
+//   		"API_KEY": ecs.*secret.fromSecretsManagerVersion(secret, &SecretVersionInfo{
+//   			"versionId": jsii.String("12345"),
+//   		}, jsii.String("apiKey")),
+//   		 // Reference a specific version of the secret by its version id or version stage (requires platform version 1.4.0 or later for Fargate tasks)
+//   		"PARAMETER": ecs.*secret.fromSsmParameter(parameter),
+//   	},
+//   })
+//   newContainer.addEnvironment(jsii.String("QUEUE_NAME"), jsii.String("MyQueue"))
+//
+// Experimental.
 type SecretVersionInfo struct {
 	// version id of the secret.
+	// Experimental.
 	VersionId *string `json:"versionId" yaml:"versionId"`
 	// version stage of the secret.
+	// Experimental.
 	VersionStage *string `json:"versionStage" yaml:"versionStage"`
 }
 
 // A log driver that sends log information to splunk Logs.
 //
-// TODO: EXAMPLE
+// Example:
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
 //
+//   var secret secret
+//   var secretValue secretValue
+//   splunkLogDriver := ecs.NewSplunkLogDriver(&splunkLogDriverProps{
+//   	url: jsii.String("url"),
+//
+//   	// the properties below are optional
+//   	caName: jsii.String("caName"),
+//   	caPath: jsii.String("caPath"),
+//   	env: []*string{
+//   		jsii.String("env"),
+//   	},
+//   	envRegex: jsii.String("envRegex"),
+//   	format: ecs.splunkLogFormat_INLINE,
+//   	gzip: jsii.Boolean(false),
+//   	gzipLevel: jsii.Number(123),
+//   	index: jsii.String("index"),
+//   	insecureSkipVerify: jsii.String("insecureSkipVerify"),
+//   	labels: []*string{
+//   		jsii.String("labels"),
+//   	},
+//   	secretToken: secret,
+//   	source: jsii.String("source"),
+//   	sourceType: jsii.String("sourceType"),
+//   	tag: jsii.String("tag"),
+//   	token: secretValue,
+//   	verifyConnection: jsii.Boolean(false),
+//   })
+//
+// Experimental.
 type SplunkLogDriver interface {
 	LogDriver
-	Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
+	// Called when the log driver is configured on a container.
+	// Experimental.
+	Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
 }
 
 // The jsii proxy struct for SplunkLogDriver
@@ -17538,13 +26310,14 @@ type jsiiProxy_SplunkLogDriver struct {
 }
 
 // Constructs a new instance of the SplunkLogDriver class.
+// Experimental.
 func NewSplunkLogDriver(props *SplunkLogDriverProps) SplunkLogDriver {
 	_init_.Initialize()
 
 	j := jsiiProxy_SplunkLogDriver{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.SplunkLogDriver",
+		"monocdk.aws_ecs.SplunkLogDriver",
 		[]interface{}{props},
 		&j,
 	)
@@ -17553,24 +26326,26 @@ func NewSplunkLogDriver(props *SplunkLogDriverProps) SplunkLogDriver {
 }
 
 // Constructs a new instance of the SplunkLogDriver class.
+// Experimental.
 func NewSplunkLogDriver_Override(s SplunkLogDriver, props *SplunkLogDriverProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.SplunkLogDriver",
+		"monocdk.aws_ecs.SplunkLogDriver",
 		[]interface{}{props},
 		s,
 	)
 }
 
 // Creates a log driver configuration that sends log information to CloudWatch Logs.
+// Experimental.
 func SplunkLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.SplunkLogDriver",
+		"monocdk.aws_ecs.SplunkLogDriver",
 		"awsLogs",
 		[]interface{}{props},
 		&returns,
@@ -17579,8 +26354,7 @@ func SplunkLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	return returns
 }
 
-// Called when the log driver is configured on a container.
-func (s *jsiiProxy_SplunkLogDriver) Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
+func (s *jsiiProxy_SplunkLogDriver) Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(
@@ -17597,52 +26371,75 @@ func (s *jsiiProxy_SplunkLogDriver) Bind(_scope constructs.Construct, _container
 //
 // [Source](https://docs.docker.com/config/containers/logging/splunk/)
 //
-// TODO: EXAMPLE
+// Example:
+//   // Create a Task Definition for the container to start
+//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+//   taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("example-image")),
+//   	memoryLimitMiB: jsii.Number(256),
+//   	logging: ecs.logDrivers.splunk(&splunkLogDriverProps{
+//   		token: secretValue.secretsManager(jsii.String("my-splunk-token")),
+//   		url: jsii.String("my-splunk-url"),
+//   	}),
+//   })
 //
+// Experimental.
 type SplunkLogDriverProps struct {
 	// The env option takes an array of keys.
 	//
 	// If there is collision between
 	// label and env keys, the value of the env takes precedence. Adds additional fields
 	// to the extra attributes of a logging message.
+	// Experimental.
 	Env *[]*string `json:"env" yaml:"env"`
 	// The env-regex option is similar to and compatible with env.
 	//
 	// Its value is a regular
 	// expression to match logging-related environment variables. It is used for advanced
 	// log tag options.
+	// Experimental.
 	EnvRegex *string `json:"envRegex" yaml:"envRegex"`
 	// The labels option takes an array of keys.
 	//
 	// If there is collision
 	// between label and env keys, the value of the env takes precedence. Adds additional
 	// fields to the extra attributes of a logging message.
+	// Experimental.
 	Labels *[]*string `json:"labels" yaml:"labels"`
 	// By default, Docker uses the first 12 characters of the container ID to tag log messages.
 	//
 	// Refer to the log tag option documentation for customizing the
 	// log tag format.
+	// Experimental.
 	Tag *string `json:"tag" yaml:"tag"`
 	// Path to your Splunk Enterprise, self-service Splunk Cloud instance, or Splunk Cloud managed cluster (including port and scheme used by HTTP Event Collector) in one of the following formats: https://your_splunk_instance:8088 or https://input-prd-p-XXXXXXX.cloud.splunk.com:8088 or https://http-inputs-XXXXXXXX.splunkcloud.com.
+	// Experimental.
 	Url *string `json:"url" yaml:"url"`
 	// Name to use for validating server certificate.
+	// Experimental.
 	CaName *string `json:"caName" yaml:"caName"`
 	// Path to root certificate.
+	// Experimental.
 	CaPath *string `json:"caPath" yaml:"caPath"`
 	// Message format.
 	//
 	// Can be inline, json or raw.
+	// Experimental.
 	Format SplunkLogFormat `json:"format" yaml:"format"`
 	// Enable/disable gzip compression to send events to Splunk Enterprise or Splunk Cloud instance.
+	// Experimental.
 	Gzip *bool `json:"gzip" yaml:"gzip"`
 	// Set compression level for gzip.
 	//
 	// Valid values are -1 (default), 0 (no compression),
 	// 1 (best speed) ... 9 (best compression).
+	// Experimental.
 	GzipLevel *float64 `json:"gzipLevel" yaml:"gzipLevel"`
 	// Event index.
+	// Experimental.
 	Index *string `json:"index" yaml:"index"`
 	// Ignore server certificate validation.
+	// Experimental.
 	InsecureSkipVerify *string `json:"insecureSkipVerify" yaml:"insecureSkipVerify"`
 	// Splunk HTTP Event Collector token (Secret).
 	//
@@ -17650,31 +26447,68 @@ type SplunkLogDriverProps struct {
 	// resolved or viewable as plain text.
 	//
 	// Please provide at least one of `token` or `secretToken`.
+	// Experimental.
 	SecretToken Secret `json:"secretToken" yaml:"secretToken"`
 	// Event source.
+	// Experimental.
 	Source *string `json:"source" yaml:"source"`
 	// Event source type.
+	// Experimental.
 	SourceType *string `json:"sourceType" yaml:"sourceType"`
+	// Splunk HTTP Event Collector token.
+	//
+	// The splunk-token is added to the Options property of the Log Driver Configuration. So the secret value will be resolved and
+	// viewable in plain text in the console.
+	//
+	// Please provide at least one of `token` or `secretToken`.
+	// Deprecated: Use {@link SplunkLogDriverProps.secretToken} instead.
+	Token awscdk.SecretValue `json:"token" yaml:"token"`
 	// Verify on start, that docker can connect to Splunk server.
+	// Experimental.
 	VerifyConnection *bool `json:"verifyConnection" yaml:"verifyConnection"`
 }
 
 // Log Message Format.
+// Experimental.
 type SplunkLogFormat string
 
 const (
+	// Experimental.
 	SplunkLogFormat_INLINE SplunkLogFormat = "INLINE"
+	// Experimental.
 	SplunkLogFormat_JSON SplunkLogFormat = "JSON"
+	// Experimental.
 	SplunkLogFormat_RAW SplunkLogFormat = "RAW"
 )
 
 // A log driver that sends log information to syslog Logs.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   syslogLogDriver := ecs.NewSyslogLogDriver(&syslogLogDriverProps{
+//   	address: jsii.String("address"),
+//   	env: []*string{
+//   		jsii.String("env"),
+//   	},
+//   	envRegex: jsii.String("envRegex"),
+//   	facility: jsii.String("facility"),
+//   	format: jsii.String("format"),
+//   	labels: []*string{
+//   		jsii.String("labels"),
+//   	},
+//   	tag: jsii.String("tag"),
+//   	tlsCaCert: jsii.String("tlsCaCert"),
+//   	tlsCert: jsii.String("tlsCert"),
+//   	tlsKey: jsii.String("tlsKey"),
+//   	tlsSkipVerify: jsii.Boolean(false),
+//   })
 //
+// Experimental.
 type SyslogLogDriver interface {
 	LogDriver
-	Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
+	// Called when the log driver is configured on a container.
+	// Experimental.
+	Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
 }
 
 // The jsii proxy struct for SyslogLogDriver
@@ -17683,13 +26517,14 @@ type jsiiProxy_SyslogLogDriver struct {
 }
 
 // Constructs a new instance of the SyslogLogDriver class.
+// Experimental.
 func NewSyslogLogDriver(props *SyslogLogDriverProps) SyslogLogDriver {
 	_init_.Initialize()
 
 	j := jsiiProxy_SyslogLogDriver{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.SyslogLogDriver",
+		"monocdk.aws_ecs.SyslogLogDriver",
 		[]interface{}{props},
 		&j,
 	)
@@ -17698,24 +26533,26 @@ func NewSyslogLogDriver(props *SyslogLogDriverProps) SyslogLogDriver {
 }
 
 // Constructs a new instance of the SyslogLogDriver class.
+// Experimental.
 func NewSyslogLogDriver_Override(s SyslogLogDriver, props *SyslogLogDriverProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.SyslogLogDriver",
+		"monocdk.aws_ecs.SyslogLogDriver",
 		[]interface{}{props},
 		s,
 	)
 }
 
 // Creates a log driver configuration that sends log information to CloudWatch Logs.
+// Experimental.
 func SyslogLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.SyslogLogDriver",
+		"monocdk.aws_ecs.SyslogLogDriver",
 		"awsLogs",
 		[]interface{}{props},
 		&returns,
@@ -17724,8 +26561,7 @@ func SyslogLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	return returns
 }
 
-// Called when the log driver is configured on a container.
-func (s *jsiiProxy_SyslogLogDriver) Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
+func (s *jsiiProxy_SyslogLogDriver) Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(
@@ -17742,42 +26578,67 @@ func (s *jsiiProxy_SyslogLogDriver) Bind(_scope constructs.Construct, _container
 //
 // [Source](https://docs.docker.com/config/containers/logging/syslog/)
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   syslogLogDriverProps := &syslogLogDriverProps{
+//   	address: jsii.String("address"),
+//   	env: []*string{
+//   		jsii.String("env"),
+//   	},
+//   	envRegex: jsii.String("envRegex"),
+//   	facility: jsii.String("facility"),
+//   	format: jsii.String("format"),
+//   	labels: []*string{
+//   		jsii.String("labels"),
+//   	},
+//   	tag: jsii.String("tag"),
+//   	tlsCaCert: jsii.String("tlsCaCert"),
+//   	tlsCert: jsii.String("tlsCert"),
+//   	tlsKey: jsii.String("tlsKey"),
+//   	tlsSkipVerify: jsii.Boolean(false),
+//   }
 //
+// Experimental.
 type SyslogLogDriverProps struct {
 	// The env option takes an array of keys.
 	//
 	// If there is collision between
 	// label and env keys, the value of the env takes precedence. Adds additional fields
 	// to the extra attributes of a logging message.
+	// Experimental.
 	Env *[]*string `json:"env" yaml:"env"`
 	// The env-regex option is similar to and compatible with env.
 	//
 	// Its value is a regular
 	// expression to match logging-related environment variables. It is used for advanced
 	// log tag options.
+	// Experimental.
 	EnvRegex *string `json:"envRegex" yaml:"envRegex"`
 	// The labels option takes an array of keys.
 	//
 	// If there is collision
 	// between label and env keys, the value of the env takes precedence. Adds additional
 	// fields to the extra attributes of a logging message.
+	// Experimental.
 	Labels *[]*string `json:"labels" yaml:"labels"`
 	// By default, Docker uses the first 12 characters of the container ID to tag log messages.
 	//
 	// Refer to the log tag option documentation for customizing the
 	// log tag format.
+	// Experimental.
 	Tag *string `json:"tag" yaml:"tag"`
 	// The address of an external syslog server.
 	//
 	// The URI specifier may be
 	// [tcp|udp|tcp+tls]://host:port, unix://path, or unixgram://path.
+	// Experimental.
 	Address *string `json:"address" yaml:"address"`
 	// The syslog facility to use.
 	//
 	// Can be the number or name for any valid
 	// syslog facility. See the syslog documentation:
 	// https://tools.ietf.org/html/rfc5424#section-6.2.1.
+	// Experimental.
 	Facility *string `json:"facility" yaml:"facility"`
 	// The syslog message format to use.
 	//
@@ -17785,36 +26646,49 @@ type SyslogLogDriverProps struct {
 	// format is used, without a specified hostname. Specify rfc3164 for the RFC-3164
 	// compatible format, rfc5424 for RFC-5424 compatible format, or rfc5424micro
 	// for RFC-5424 compatible format with microsecond timestamp resolution.
+	// Experimental.
 	Format *string `json:"format" yaml:"format"`
 	// The absolute path to the trust certificates signed by the CA.
 	//
 	// Ignored
 	// if the address protocol is not tcp+tls.
+	// Experimental.
 	TlsCaCert *string `json:"tlsCaCert" yaml:"tlsCaCert"`
 	// The absolute path to the TLS certificate file.
 	//
 	// Ignored if the address
 	// protocol is not tcp+tls.
+	// Experimental.
 	TlsCert *string `json:"tlsCert" yaml:"tlsCert"`
 	// The absolute path to the TLS key file.
 	//
 	// Ignored if the address protocol
 	// is not tcp+tls.
+	// Experimental.
 	TlsKey *string `json:"tlsKey" yaml:"tlsKey"`
 	// If set to true, TLS verification is skipped when connecting to the syslog daemon.
 	//
 	// Ignored if the address protocol is not tcp+tls.
+	// Experimental.
 	TlsSkipVerify *bool `json:"tlsSkipVerify" yaml:"tlsSkipVerify"`
 }
 
 // Kernel parameters to set in the container.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   systemControl := &systemControl{
+//   	namespace: jsii.String("namespace"),
+//   	value: jsii.String("value"),
+//   }
 //
+// Experimental.
 type SystemControl struct {
 	// The namespaced kernel parameter for which to set a value.
+	// Experimental.
 	Namespace *string `json:"namespace" yaml:"namespace"`
 	// The value for the namespaced kernel parameter specified in namespace.
+	// Experimental.
 	Value *string `json:"value" yaml:"value"`
 }
 
@@ -17824,15 +26698,224 @@ type SystemControl struct {
 // for example in a CodePipeline that pushes a new tag of the image to the repository during a build step,
 // and then provides that new tag through the CloudFormation Parameter in the deploy step.
 //
-// TODO: EXAMPLE
+// Example:
+//   /**
+//    * These are the construction properties for {@link EcsAppStack}.
+//    * They extend the standard Stack properties,
+//    * but also require providing the ContainerImage that the service will use.
+//    * That Image will be provided from the Stack containing the CodePipeline.
+//    */
+//   type ecsAppStackProps struct {
+//   	stackProps
+//   	image containerImage
+//   }
 //
-// See: #tagParameterName
+//   /**
+//    * This is the Stack containing a simple ECS Service that uses the provided ContainerImage.
+//    */
+//   type EcsAppStack struct {
+//   	stack
+//   }
 //
+//   func NewEcsAppStack(scope construct, id *string, props ecsAppStackProps) *EcsAppStack {
+//   	this := &EcsAppStack{}
+//   	cdk.NewStack_Override(this, scope, id, props)
+//
+//   	taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TaskDefinition"), &taskDefinitionProps{
+//   		compatibility: ecs.compatibility_FARGATE,
+//   		cpu: jsii.String("1024"),
+//   		memoryMiB: jsii.String("2048"),
+//   	})
+//   	taskDefinition.addContainer(jsii.String("AppContainer"), &containerDefinitionOptions{
+//   		image: props.image,
+//   	})
+//   	ecs.NewFargateService(this, jsii.String("EcsService"), &fargateServiceProps{
+//   		taskDefinition: taskDefinition,
+//   		cluster: ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
+//   			vpc: ec2.NewVpc(this, jsii.String("Vpc"), &vpcProps{
+//   				maxAzs: jsii.Number(1),
+//   			}),
+//   		}),
+//   	})
+//   	return this
+//   }
+//
+//   /**
+//    * This is the Stack containing the CodePipeline definition that deploys an ECS Service.
+//    */
+//   type PipelineStack struct {
+//   	stack
+//   	tagParameterContainerImage tagParameterContainerImage
+//   }tagParameterContainerImage tagParameterContainerImage
+//
+//   func NewPipelineStack(scope construct, id *string, props stackProps) *PipelineStack {
+//   	this := &PipelineStack{}
+//   	cdk.NewStack_Override(this, scope, id, props)
+//
+//   	/* ********** ECS part **************** */
+//
+//   	// this is the ECR repository where the built Docker image will be pushed
+//   	appEcrRepo := ecr.NewRepository(this, jsii.String("EcsDeployRepository"))
+//   	// the build that creates the Docker image, and pushes it to the ECR repo
+//   	appCodeDockerBuild := codebuild.NewPipelineProject(this, jsii.String("AppCodeDockerImageBuildAndPushProject"), &pipelineProjectProps{
+//   		environment: &buildEnvironment{
+//   			// we need to run Docker
+//   			privileged: jsii.Boolean(true),
+//   		},
+//   		buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
+//   			"version": jsii.String("0.2"),
+//   			"phases": map[string]map[string][]*string{
+//   				"build": map[string][]*string{
+//   					"commands": []*string{
+//   						jsii.String("$(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)"),
+//   						jsii.String("docker build -t $REPOSITORY_URI:$CODEBUILD_RESOLVED_SOURCE_VERSION ."),
+//   					},
+//   				},
+//   				"post_build": map[string][]*string{
+//   					"commands": []*string{
+//   						jsii.String("docker push $REPOSITORY_URI:$CODEBUILD_RESOLVED_SOURCE_VERSION"),
+//   						jsii.String("export imageTag=$CODEBUILD_RESOLVED_SOURCE_VERSION"),
+//   					},
+//   				},
+//   			},
+//   			"env": map[string][]*string{
+//   				// save the imageTag environment variable as a CodePipeline Variable
+//   				"exported-variables": []*string{
+//   					jsii.String("imageTag"),
+//   				},
+//   			},
+//   		}),
+//   		environmentVariables: map[string]buildEnvironmentVariable{
+//   			"REPOSITORY_URI": &buildEnvironmentVariable{
+//   				"value": appEcrRepo.repositoryUri,
+//   			},
+//   		},
+//   	})
+//   	// needed for `docker push`
+//   	appEcrRepo.grantPullPush(appCodeDockerBuild)
+//   	// create the ContainerImage used for the ECS application Stack
+//   	this.tagParameterContainerImage = ecs.NewTagParameterContainerImage(appEcrRepo)
+//
+//   	cdkCodeBuild := codebuild.NewPipelineProject(this, jsii.String("CdkCodeBuildProject"), &pipelineProjectProps{
+//   		buildSpec: codebuild.*buildSpec.fromObject(map[string]interface{}{
+//   			"version": jsii.String("0.2"),
+//   			"phases": map[string]map[string][]*string{
+//   				"install": map[string][]*string{
+//   					"commands": []*string{
+//   						jsii.String("npm install"),
+//   					},
+//   				},
+//   				"build": map[string][]*string{
+//   					"commands": []*string{
+//   						jsii.String("npx cdk synth --verbose"),
+//   					},
+//   				},
+//   			},
+//   			"artifacts": map[string]*string{
+//   				// store the entire Cloud Assembly as the output artifact
+//   				"base-directory": jsii.String("cdk.out"),
+//   				"files": jsii.String("**/*"),
+//   			},
+//   		}),
+//   	})
+//
+//   	/* ********** Pipeline part **************** */
+//
+//   	appCodeSourceOutput := codepipeline.NewArtifact()
+//   	cdkCodeSourceOutput := codepipeline.NewArtifact()
+//   	cdkCodeBuildOutput := codepipeline.NewArtifact()
+//   	appCodeBuildAction := codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
+//   		actionName: jsii.String("AppCodeDockerImageBuildAndPush"),
+//   		project: appCodeDockerBuild,
+//   		input: appCodeSourceOutput,
+//   	})
+//   	codepipeline.NewPipeline(this, jsii.String("CodePipelineDeployingEcsApplication"), &pipelineProps{
+//   		artifactBucket: s3.NewBucket(this, jsii.String("ArtifactBucket"), &bucketProps{
+//   			removalPolicy: cdk.removalPolicy_DESTROY,
+//   		}),
+//   		stages: []stageProps{
+//   			&stageProps{
+//   				stageName: jsii.String("Source"),
+//   				actions: []iAction{
+//   					// this is the Action that takes the source of your application code
+//   					codepipeline_actions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
+//   						actionName: jsii.String("AppCodeSource"),
+//   						repository: codecommit.NewRepository(this, jsii.String("AppCodeSourceRepository"), &repositoryProps{
+//   							repositoryName: jsii.String("AppCodeSourceRepository"),
+//   						}),
+//   						output: appCodeSourceOutput,
+//   					}),
+//   					// this is the Action that takes the source of your CDK code
+//   					// (which would probably include this Pipeline code as well)
+//   					codepipeline_actions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
+//   						actionName: jsii.String("CdkCodeSource"),
+//   						repository: codecommit.NewRepository(this, jsii.String("CdkCodeSourceRepository"), &repositoryProps{
+//   							repositoryName: jsii.String("CdkCodeSourceRepository"),
+//   						}),
+//   						output: cdkCodeSourceOutput,
+//   					}),
+//   				},
+//   			},
+//   			&stageProps{
+//   				stageName: jsii.String("Build"),
+//   				actions: []*iAction{
+//   					appCodeBuildAction,
+//   					codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
+//   						actionName: jsii.String("CdkCodeBuildAndSynth"),
+//   						project: cdkCodeBuild,
+//   						input: cdkCodeSourceOutput,
+//   						outputs: []artifact{
+//   							cdkCodeBuildOutput,
+//   						},
+//   					}),
+//   				},
+//   			},
+//   			&stageProps{
+//   				stageName: jsii.String("Deploy"),
+//   				actions: []*iAction{
+//   					codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&cloudFormationCreateUpdateStackActionProps{
+//   						actionName: jsii.String("CFN_Deploy"),
+//   						stackName: jsii.String("SampleEcsStackDeployedFromCodePipeline"),
+//   						// this name has to be the same name as used below in the CDK code for the application Stack
+//   						templatePath: cdkCodeBuildOutput.atPath(jsii.String("EcsStackDeployedInPipeline.template.json")),
+//   						adminPermissions: jsii.Boolean(true),
+//   						parameterOverrides: map[string]interface{}{
+//   							// read the tag pushed to the ECR repository from the CodePipeline Variable saved by the application build step,
+//   							// and pass it as the CloudFormation Parameter for the tag
+//   							this.tagParameterContainerImage.tagParameterName: appCodeBuildAction.variable(jsii.String("imageTag")),
+//   						},
+//   					}),
+//   				},
+//   			},
+//   		},
+//   	})
+//   	return this
+//   }
+//
+//   app := cdk.NewApp()
+//
+//   // the CodePipeline Stack needs to be created first
+//   pipelineStack := NewPipelineStack(app, jsii.String("aws-cdk-pipeline-ecs-separate-sources"))
+//   // we supply the image to the ECS application Stack from the CodePipeline Stack
+//   // we supply the image to the ECS application Stack from the CodePipeline Stack
+//   NewEcsAppStack(app, jsii.String("EcsStackDeployedInPipeline"), &ecsAppStackProps{
+//   	image: pipelineStack.tagParameterContainerImage,
+//   })
+//
+// See: #tagParameterName.
+//
+// Experimental.
 type TagParameterContainerImage interface {
 	ContainerImage
+	// Returns the name of the CloudFormation Parameter that represents the tag of the image in the ECR repository.
+	// Experimental.
 	TagParameterName() *string
+	// Returns the value of the CloudFormation Parameter that represents the tag of the image in the ECR repository.
+	// Experimental.
 	TagParameterValue() *string
-	Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig
+	// Called when the image is used by a ContainerDefinition.
+	// Experimental.
+	Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig
 }
 
 // The jsii proxy struct for TagParameterContainerImage
@@ -17861,13 +26944,14 @@ func (j *jsiiProxy_TagParameterContainerImage) TagParameterValue() *string {
 }
 
 
+// Experimental.
 func NewTagParameterContainerImage(repository awsecr.IRepository) TagParameterContainerImage {
 	_init_.Initialize()
 
 	j := jsiiProxy_TagParameterContainerImage{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.TagParameterContainerImage",
+		"monocdk.aws_ecs.TagParameterContainerImage",
 		[]interface{}{repository},
 		&j,
 	)
@@ -17875,11 +26959,12 @@ func NewTagParameterContainerImage(repository awsecr.IRepository) TagParameterCo
 	return &j
 }
 
+// Experimental.
 func NewTagParameterContainerImage_Override(t TagParameterContainerImage, repository awsecr.IRepository) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.TagParameterContainerImage",
+		"monocdk.aws_ecs.TagParameterContainerImage",
 		[]interface{}{repository},
 		t,
 	)
@@ -17889,13 +26974,14 @@ func NewTagParameterContainerImage_Override(t TagParameterContainerImage, reposi
 //
 // If you already have a `DockerImageAsset` instance, you can use the
 // `ContainerImage.fromDockerImageAsset` method instead.
+// Experimental.
 func TagParameterContainerImage_FromAsset(directory *string, props *AssetImageProps) AssetImage {
 	_init_.Initialize()
 
 	var returns AssetImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.TagParameterContainerImage",
+		"monocdk.aws_ecs.TagParameterContainerImage",
 		"fromAsset",
 		[]interface{}{directory, props},
 		&returns,
@@ -17905,13 +26991,14 @@ func TagParameterContainerImage_FromAsset(directory *string, props *AssetImagePr
 }
 
 // Use an existing `DockerImageAsset` for this container image.
+// Experimental.
 func TagParameterContainerImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) ContainerImage {
 	_init_.Initialize()
 
 	var returns ContainerImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.TagParameterContainerImage",
+		"monocdk.aws_ecs.TagParameterContainerImage",
 		"fromDockerImageAsset",
 		[]interface{}{asset},
 		&returns,
@@ -17921,13 +27008,14 @@ func TagParameterContainerImage_FromDockerImageAsset(asset awsecrassets.DockerIm
 }
 
 // Reference an image in an ECR repository.
+// Experimental.
 func TagParameterContainerImage_FromEcrRepository(repository awsecr.IRepository, tag *string) EcrImage {
 	_init_.Initialize()
 
 	var returns EcrImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.TagParameterContainerImage",
+		"monocdk.aws_ecs.TagParameterContainerImage",
 		"fromEcrRepository",
 		[]interface{}{repository, tag},
 		&returns,
@@ -17937,13 +27025,14 @@ func TagParameterContainerImage_FromEcrRepository(repository awsecr.IRepository,
 }
 
 // Reference an image on DockerHub or another online registry.
+// Experimental.
 func TagParameterContainerImage_FromRegistry(name *string, props *RepositoryImageProps) RepositoryImage {
 	_init_.Initialize()
 
 	var returns RepositoryImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.TagParameterContainerImage",
+		"monocdk.aws_ecs.TagParameterContainerImage",
 		"fromRegistry",
 		[]interface{}{name, props},
 		&returns,
@@ -17956,13 +27045,14 @@ func TagParameterContainerImage_FromRegistry(name *string, props *RepositoryImag
 //
 // Use this method if the container image has already been created by another process (e.g. jib)
 // and you want to add it as a container image asset.
+// Experimental.
 func TagParameterContainerImage_FromTarball(tarballFile *string) ContainerImage {
 	_init_.Initialize()
 
 	var returns ContainerImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.TagParameterContainerImage",
+		"monocdk.aws_ecs.TagParameterContainerImage",
 		"fromTarball",
 		[]interface{}{tarballFile},
 		&returns,
@@ -17971,8 +27061,7 @@ func TagParameterContainerImage_FromTarball(tarballFile *string) ContainerImage 
 	return returns
 }
 
-// Called when the image is used by a ContainerDefinition.
-func (t *jsiiProxy_TagParameterContainerImage) Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
+func (t *jsiiProxy_TagParameterContainerImage) Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
 	var returns *ContainerImageConfig
 
 	_jsii_.Invoke(
@@ -17987,45 +27076,219 @@ func (t *jsiiProxy_TagParameterContainerImage) Bind(scope constructs.Construct, 
 
 // The base class for all task definitions.
 //
-// TODO: EXAMPLE
+// Example:
+//   var cluster cluster
+//   var taskDefinition taskDefinition
+//   var vpc vpc
+//   service := ecs.NewFargateService(this, jsii.String("Service"), &fargateServiceProps{
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   })
 //
+//   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &applicationLoadBalancerProps{
+//   	vpc: vpc,
+//   	internetFacing: jsii.Boolean(true),
+//   })
+//   listener := lb.addListener(jsii.String("Listener"), &baseApplicationListenerProps{
+//   	port: jsii.Number(80),
+//   })
+//   service.registerLoadBalancerTargets(&ecsTarget{
+//   	containerName: jsii.String("web"),
+//   	containerPort: jsii.Number(80),
+//   	newTargetGroupId: jsii.String("ECS"),
+//   	listener: ecs.listenerConfig.applicationListener(listener, &addApplicationTargetsProps{
+//   		protocol: elbv2.applicationProtocol_HTTPS,
+//   	}),
+//   })
+//
+// Experimental.
 type TaskDefinition interface {
 	awscdk.Resource
 	ITaskDefinition
+	// The task launch type compatibility requirement.
+	// Experimental.
 	Compatibility() Compatibility
+	// The container definitions.
+	// Experimental.
 	Containers() *[]ContainerDefinition
+	// Default container for this task.
+	//
+	// Load balancers will send traffic to this container. The first
+	// essential container that is added to this task will become the default
+	// container.
+	// Experimental.
 	DefaultContainer() ContainerDefinition
+	// Experimental.
 	SetDefaultContainer(val ContainerDefinition)
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
+	// The amount (in GiB) of ephemeral storage to be allocated to the task.
+	//
+	// Only supported in Fargate platform version 1.4.0 or later.
+	// Experimental.
 	EphemeralStorageGiB() *float64
+	// Execution role for this task definition.
+	// Experimental.
 	ExecutionRole() awsiam.IRole
+	// The name of a family that this task definition is registered to.
+	//
+	// A family groups multiple versions of a task definition.
+	// Experimental.
 	Family() *string
+	// Public getter method to access list of inference accelerators attached to the instance.
+	// Experimental.
 	InferenceAccelerators() *[]*InferenceAccelerator
+	// Return true if the task definition can be run on an EC2 cluster.
+	// Experimental.
 	IsEc2Compatible() *bool
+	// Return true if the task definition can be run on a ECS anywhere cluster.
+	// Experimental.
 	IsExternalCompatible() *bool
+	// Return true if the task definition can be run on a Fargate cluster.
+	// Experimental.
 	IsFargateCompatible() *bool
+	// The networking mode to use for the containers in the task.
+	// Experimental.
 	NetworkMode() NetworkMode
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
+	// Whether this task definition has at least a container that references a specific JSON field of a secret stored in Secrets Manager.
+	// Experimental.
 	ReferencesSecretJsonField() *bool
+	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
+	// The full Amazon Resource Name (ARN) of the task definition.
+	// Experimental.
 	TaskDefinitionArn() *string
+	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
+	// Experimental.
 	TaskRole() awsiam.IRole
+	// Adds a new container to the task definition.
+	// Experimental.
 	AddContainer(id *string, props *ContainerDefinitionOptions) ContainerDefinition
+	// Adds the specified extension to the task definition.
+	//
+	// Extension can be used to apply a packaged modification to
+	// a task definition.
+	// Experimental.
 	AddExtension(extension ITaskDefinitionExtension)
+	// Adds a firelens log router to the task definition.
+	// Experimental.
 	AddFirelensLogRouter(id *string, props *FirelensLogRouterDefinitionOptions) FirelensLogRouter
+	// Adds an inference accelerator to the task definition.
+	// Experimental.
 	AddInferenceAccelerator(inferenceAccelerator *InferenceAccelerator)
+	// Adds the specified placement constraint to the task definition.
+	// Experimental.
 	AddPlacementConstraint(constraint PlacementConstraint)
+	// Adds a policy statement to the task execution IAM role.
+	// Experimental.
 	AddToExecutionRolePolicy(statement awsiam.PolicyStatement)
+	// Adds a policy statement to the task IAM role.
+	// Experimental.
 	AddToTaskRolePolicy(statement awsiam.PolicyStatement)
+	// Adds a volume to the task definition.
+	// Experimental.
 	AddVolume(volume *Volume)
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Returns the container that match the provided containerName.
+	// Experimental.
 	FindContainer(containerName *string) ContainerDefinition
+	// Experimental.
 	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Creates the task execution IAM role if it doesn't already exist.
+	// Experimental.
 	ObtainExecutionRole() awsiam.IRole
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validates the task definition.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for TaskDefinition
@@ -18154,8 +27417,8 @@ func (j *jsiiProxy_TaskDefinition) NetworkMode() NetworkMode {
 	return returns
 }
 
-func (j *jsiiProxy_TaskDefinition) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_TaskDefinition) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -18216,13 +27479,14 @@ func (j *jsiiProxy_TaskDefinition) TaskRole() awsiam.IRole {
 
 
 // Constructs a new instance of the TaskDefinition class.
+// Experimental.
 func NewTaskDefinition(scope constructs.Construct, id *string, props *TaskDefinitionProps) TaskDefinition {
 	_init_.Initialize()
 
 	j := jsiiProxy_TaskDefinition{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.TaskDefinition",
+		"monocdk.aws_ecs.TaskDefinition",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -18231,11 +27495,12 @@ func NewTaskDefinition(scope constructs.Construct, id *string, props *TaskDefini
 }
 
 // Constructs a new instance of the TaskDefinition class.
+// Experimental.
 func NewTaskDefinition_Override(t TaskDefinition, scope constructs.Construct, id *string, props *TaskDefinitionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.TaskDefinition",
+		"monocdk.aws_ecs.TaskDefinition",
 		[]interface{}{scope, id, props},
 		t,
 	)
@@ -18252,13 +27517,14 @@ func (j *jsiiProxy_TaskDefinition) SetDefaultContainer(val ContainerDefinition) 
 // Imports a task definition from the specified task definition ARN.
 //
 // The task will have a compatibility of EC2+Fargate.
+// Experimental.
 func TaskDefinition_FromTaskDefinitionArn(scope constructs.Construct, id *string, taskDefinitionArn *string) ITaskDefinition {
 	_init_.Initialize()
 
 	var returns ITaskDefinition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.TaskDefinition",
+		"monocdk.aws_ecs.TaskDefinition",
 		"fromTaskDefinitionArn",
 		[]interface{}{scope, id, taskDefinitionArn},
 		&returns,
@@ -18268,13 +27534,14 @@ func TaskDefinition_FromTaskDefinitionArn(scope constructs.Construct, id *string
 }
 
 // Create a task definition from a task definition reference.
+// Experimental.
 func TaskDefinition_FromTaskDefinitionAttributes(scope constructs.Construct, id *string, attrs *TaskDefinitionAttributes) ITaskDefinition {
 	_init_.Initialize()
 
 	var returns ITaskDefinition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.TaskDefinition",
+		"monocdk.aws_ecs.TaskDefinition",
 		"fromTaskDefinitionAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -18283,17 +27550,15 @@ func TaskDefinition_FromTaskDefinitionAttributes(scope constructs.Construct, id 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func TaskDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.TaskDefinition",
+		"monocdk.aws_ecs.TaskDefinition",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -18303,13 +27568,14 @@ func TaskDefinition_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func TaskDefinition_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func TaskDefinition_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.TaskDefinition",
+		"monocdk.aws_ecs.TaskDefinition",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -18318,7 +27584,6 @@ func TaskDefinition_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Adds a new container to the task definition.
 func (t *jsiiProxy_TaskDefinition) AddContainer(id *string, props *ContainerDefinitionOptions) ContainerDefinition {
 	var returns ContainerDefinition
 
@@ -18332,10 +27597,6 @@ func (t *jsiiProxy_TaskDefinition) AddContainer(id *string, props *ContainerDefi
 	return returns
 }
 
-// Adds the specified extension to the task definition.
-//
-// Extension can be used to apply a packaged modification to
-// a task definition.
 func (t *jsiiProxy_TaskDefinition) AddExtension(extension ITaskDefinitionExtension) {
 	_jsii_.InvokeVoid(
 		t,
@@ -18344,7 +27605,6 @@ func (t *jsiiProxy_TaskDefinition) AddExtension(extension ITaskDefinitionExtensi
 	)
 }
 
-// Adds a firelens log router to the task definition.
 func (t *jsiiProxy_TaskDefinition) AddFirelensLogRouter(id *string, props *FirelensLogRouterDefinitionOptions) FirelensLogRouter {
 	var returns FirelensLogRouter
 
@@ -18358,7 +27618,6 @@ func (t *jsiiProxy_TaskDefinition) AddFirelensLogRouter(id *string, props *Firel
 	return returns
 }
 
-// Adds an inference accelerator to the task definition.
 func (t *jsiiProxy_TaskDefinition) AddInferenceAccelerator(inferenceAccelerator *InferenceAccelerator) {
 	_jsii_.InvokeVoid(
 		t,
@@ -18367,7 +27626,6 @@ func (t *jsiiProxy_TaskDefinition) AddInferenceAccelerator(inferenceAccelerator 
 	)
 }
 
-// Adds the specified placement constraint to the task definition.
 func (t *jsiiProxy_TaskDefinition) AddPlacementConstraint(constraint PlacementConstraint) {
 	_jsii_.InvokeVoid(
 		t,
@@ -18376,7 +27634,6 @@ func (t *jsiiProxy_TaskDefinition) AddPlacementConstraint(constraint PlacementCo
 	)
 }
 
-// Adds a policy statement to the task execution IAM role.
 func (t *jsiiProxy_TaskDefinition) AddToExecutionRolePolicy(statement awsiam.PolicyStatement) {
 	_jsii_.InvokeVoid(
 		t,
@@ -18385,7 +27642,6 @@ func (t *jsiiProxy_TaskDefinition) AddToExecutionRolePolicy(statement awsiam.Pol
 	)
 }
 
-// Adds a policy statement to the task IAM role.
 func (t *jsiiProxy_TaskDefinition) AddToTaskRolePolicy(statement awsiam.PolicyStatement) {
 	_jsii_.InvokeVoid(
 		t,
@@ -18394,7 +27650,6 @@ func (t *jsiiProxy_TaskDefinition) AddToTaskRolePolicy(statement awsiam.PolicySt
 	)
 }
 
-// Adds a volume to the task definition.
 func (t *jsiiProxy_TaskDefinition) AddVolume(volume *Volume) {
 	_jsii_.InvokeVoid(
 		t,
@@ -18403,15 +27658,6 @@ func (t *jsiiProxy_TaskDefinition) AddVolume(volume *Volume) {
 	)
 }
 
-// Apply the given removal policy to this resource.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (t *jsiiProxy_TaskDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		t,
@@ -18420,7 +27666,6 @@ func (t *jsiiProxy_TaskDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 	)
 }
 
-// Returns the container that match the provided containerName.
 func (t *jsiiProxy_TaskDefinition) FindContainer(containerName *string) ContainerDefinition {
 	var returns ContainerDefinition
 
@@ -18447,12 +27692,6 @@ func (t *jsiiProxy_TaskDefinition) GeneratePhysicalName() *string {
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
-//
-// Normally, this token will resolve to `arnAttr`, but if the resource is
-// referenced across environments, `arnComponents` will be used to synthesize
-// a concrete ARN with the resource's physical name. Make sure to reference
-// `this.physicalName` in `arnComponents`.
 func (t *jsiiProxy_TaskDefinition) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -18466,11 +27705,6 @@ func (t *jsiiProxy_TaskDefinition) GetResourceArnAttribute(arnAttr *string, arnC
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
-//
-// Normally, this token will resolve to `nameAttr`, but if the resource is
-// referenced across environments, it will be resolved to `this.physicalName`,
-// which will be a concrete name.
 func (t *jsiiProxy_TaskDefinition) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -18484,7 +27718,6 @@ func (t *jsiiProxy_TaskDefinition) GetResourceNameAttribute(nameAttr *string) *s
 	return returns
 }
 
-// Creates the task execution IAM role if it doesn't already exist.
 func (t *jsiiProxy_TaskDefinition) ObtainExecutionRole() awsiam.IRole {
 	var returns awsiam.IRole
 
@@ -18498,7 +27731,51 @@ func (t *jsiiProxy_TaskDefinition) ObtainExecutionRole() awsiam.IRole {
 	return returns
 }
 
-// Returns a string representation of this construct.
+func (t *jsiiProxy_TaskDefinition) OnPrepare() {
+	_jsii_.InvokeVoid(
+		t,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (t *jsiiProxy_TaskDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		t,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (t *jsiiProxy_TaskDefinition) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		t,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TaskDefinition) Prepare() {
+	_jsii_.InvokeVoid(
+		t,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (t *jsiiProxy_TaskDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		t,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (t *jsiiProxy_TaskDefinition) ToString() *string {
 	var returns *string
 
@@ -18512,44 +27789,118 @@ func (t *jsiiProxy_TaskDefinition) ToString() *string {
 	return returns
 }
 
+func (t *jsiiProxy_TaskDefinition) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		t,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // A reference to an existing task definition.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
 //
+//   var role role
+//   taskDefinitionAttributes := &taskDefinitionAttributes{
+//   	taskDefinitionArn: jsii.String("taskDefinitionArn"),
+//
+//   	// the properties below are optional
+//   	compatibility: ecs.compatibility_EC2,
+//   	networkMode: ecs.networkMode_NONE,
+//   	taskRole: role,
+//   }
+//
+// Experimental.
 type TaskDefinitionAttributes struct {
 	// The arn of the task definition.
+	// Experimental.
 	TaskDefinitionArn *string `json:"taskDefinitionArn" yaml:"taskDefinitionArn"`
 	// The networking mode to use for the containers in the task.
+	// Experimental.
 	NetworkMode NetworkMode `json:"networkMode" yaml:"networkMode"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
+	// Experimental.
 	TaskRole awsiam.IRole `json:"taskRole" yaml:"taskRole"`
 	// What launch types this task definition should be compatible with.
+	// Experimental.
 	Compatibility Compatibility `json:"compatibility" yaml:"compatibility"`
 }
 
 // The properties for task definitions.
 //
-// TODO: EXAMPLE
+// Example:
+//   vpc := ec2.vpc.fromLookup(this, jsii.String("Vpc"), &vpcLookupOptions{
+//   	isDefault: jsii.Boolean(true),
+//   })
 //
+//   cluster := ecs.NewCluster(this, jsii.String("Ec2Cluster"), &clusterProps{
+//   	vpc: vpc,
+//   })
+//   cluster.addCapacity(jsii.String("DefaultAutoScalingGroup"), &addCapacityOptions{
+//   	instanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
+//   	vpcSubnets: &subnetSelection{
+//   		subnetType: ec2.subnetType_PUBLIC,
+//   	},
+//   })
+//
+//   taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TD"), &taskDefinitionProps{
+//   	compatibility: ecs.compatibility_EC2,
+//   })
+//
+//   taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("foo/bar")),
+//   	memoryLimitMiB: jsii.Number(256),
+//   })
+//
+//   runTask := tasks.NewEcsRunTask(this, jsii.String("Run"), &ecsRunTaskProps{
+//   	integrationPattern: sfn.integrationPattern_RUN_JOB,
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   	launchTarget: tasks.NewEcsEc2LaunchTarget(&ecsEc2LaunchTargetOptions{
+//   		placementStrategies: []placementStrategy{
+//   			ecs.*placementStrategy.spreadAcrossInstances(),
+//   			ecs.*placementStrategy.packedByCpu(),
+//   			ecs.*placementStrategy.randomly(),
+//   		},
+//   		placementConstraints: []placementConstraint{
+//   			ecs.*placementConstraint.memberOf(jsii.String("blieptuut")),
+//   		},
+//   	}),
+//   })
+//
+// Experimental.
 type TaskDefinitionProps struct {
 	// The name of the IAM task execution role that grants the ECS agent permission to call AWS APIs on your behalf.
 	//
 	// The role will be used to retrieve container images from ECR and create CloudWatch log groups.
+	// Experimental.
 	ExecutionRole awsiam.IRole `json:"executionRole" yaml:"executionRole"`
 	// The name of a family that this task definition is registered to.
 	//
 	// A family groups multiple versions of a task definition.
+	// Experimental.
 	Family *string `json:"family" yaml:"family"`
 	// The configuration details for the App Mesh proxy.
+	// Experimental.
 	ProxyConfiguration ProxyConfiguration `json:"proxyConfiguration" yaml:"proxyConfiguration"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
+	// Experimental.
 	TaskRole awsiam.IRole `json:"taskRole" yaml:"taskRole"`
 	// The list of volume definitions for the task.
 	//
 	// For more information, see
 	// [Task Definition Parameter Volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide//task_definition_parameters.html#volumes).
+	// Experimental.
 	Volumes *[]*Volume `json:"volumes" yaml:"volumes"`
 	// The task launch type compatiblity requirement.
+	// Experimental.
 	Compatibility Compatibility `json:"compatibility" yaml:"compatibility"`
 	// The number of cpu units used by the task.
 	//
@@ -18565,19 +27916,23 @@ type TaskDefinitionProps struct {
 	//
 	// 2048 (2 vCPU) - Available memory values: Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)
 	//
-	// 4096 (4 vCPU) - Available memory values: Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
+	// 4096 (4 vCPU) - Available memory values: Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB).
+	// Experimental.
 	Cpu *string `json:"cpu" yaml:"cpu"`
 	// The amount (in GiB) of ephemeral storage to be allocated to the task.
 	//
 	// Only supported in Fargate platform version 1.4.0 or later.
+	// Experimental.
 	EphemeralStorageGiB *float64 `json:"ephemeralStorageGiB" yaml:"ephemeralStorageGiB"`
 	// The inference accelerators to use for the containers in the task.
 	//
 	// Not supported in Fargate.
+	// Experimental.
 	InferenceAccelerators *[]*InferenceAccelerator `json:"inferenceAccelerators" yaml:"inferenceAccelerators"`
 	// The IPC resource namespace to use for the containers in the task.
 	//
 	// Not supported in Fargate and Windows containers.
+	// Experimental.
 	IpcMode IpcMode `json:"ipcMode" yaml:"ipcMode"`
 	// The amount (in MiB) of memory used by the task.
 	//
@@ -18593,15 +27948,18 @@ type TaskDefinitionProps struct {
 	//
 	// Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) - Available cpu values: 2048 (2 vCPU)
 	//
-	// Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available cpu values: 4096 (4 vCPU)
+	// Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available cpu values: 4096 (4 vCPU).
+	// Experimental.
 	MemoryMiB *string `json:"memoryMiB" yaml:"memoryMiB"`
 	// The networking mode to use for the containers in the task.
 	//
 	// On Fargate, the only supported networking mode is AwsVpc.
+	// Experimental.
 	NetworkMode NetworkMode `json:"networkMode" yaml:"networkMode"`
 	// The process namespace to use for the containers in the task.
 	//
 	// Not supported in Fargate and Windows containers.
+	// Experimental.
 	PidMode PidMode `json:"pidMode" yaml:"pidMode"`
 	// The placement constraints to use for tasks in the service.
 	//
@@ -18609,78 +27967,149 @@ type TaskDefinitionProps struct {
 	// constraints in the task definition and those specified at run time).
 	//
 	// Not supported in Fargate.
+	// Experimental.
 	PlacementConstraints *[]PlacementConstraint `json:"placementConstraints" yaml:"placementConstraints"`
 	// The operating system that your task definitions are running on.
 	//
 	// A runtimePlatform is supported only for tasks using the Fargate launch type.
+	// Experimental.
 	RuntimePlatform *RuntimePlatform `json:"runtimePlatform" yaml:"runtimePlatform"`
 }
 
 // The details of a tmpfs mount for a container.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   tmpfs := &tmpfs{
+//   	containerPath: jsii.String("containerPath"),
+//   	size: jsii.Number(123),
 //
+//   	// the properties below are optional
+//   	mountOptions: []tmpfsMountOption{
+//   		ecs.*tmpfsMountOption_DEFAULTS,
+//   	},
+//   }
+//
+// Experimental.
 type Tmpfs struct {
 	// The absolute file path where the tmpfs volume is to be mounted.
+	// Experimental.
 	ContainerPath *string `json:"containerPath" yaml:"containerPath"`
 	// The size (in MiB) of the tmpfs volume.
+	// Experimental.
 	Size *float64 `json:"size" yaml:"size"`
 	// The list of tmpfs volume mount options.
 	//
 	// For more information, see
 	// [TmpfsMountOptions](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Tmpfs.html).
+	// Experimental.
 	MountOptions *[]TmpfsMountOption `json:"mountOptions" yaml:"mountOptions"`
 }
 
 // The supported options for a tmpfs mount for a container.
+// Experimental.
 type TmpfsMountOption string
 
 const (
+	// Experimental.
 	TmpfsMountOption_DEFAULTS TmpfsMountOption = "DEFAULTS"
+	// Experimental.
 	TmpfsMountOption_RO TmpfsMountOption = "RO"
+	// Experimental.
 	TmpfsMountOption_RW TmpfsMountOption = "RW"
+	// Experimental.
 	TmpfsMountOption_SUID TmpfsMountOption = "SUID"
+	// Experimental.
 	TmpfsMountOption_NOSUID TmpfsMountOption = "NOSUID"
+	// Experimental.
 	TmpfsMountOption_DEV TmpfsMountOption = "DEV"
+	// Experimental.
 	TmpfsMountOption_NODEV TmpfsMountOption = "NODEV"
+	// Experimental.
 	TmpfsMountOption_EXEC TmpfsMountOption = "EXEC"
+	// Experimental.
 	TmpfsMountOption_NOEXEC TmpfsMountOption = "NOEXEC"
+	// Experimental.
 	TmpfsMountOption_SYNC TmpfsMountOption = "SYNC"
+	// Experimental.
 	TmpfsMountOption_ASYNC TmpfsMountOption = "ASYNC"
+	// Experimental.
 	TmpfsMountOption_DIRSYNC TmpfsMountOption = "DIRSYNC"
+	// Experimental.
 	TmpfsMountOption_REMOUNT TmpfsMountOption = "REMOUNT"
+	// Experimental.
 	TmpfsMountOption_MAND TmpfsMountOption = "MAND"
+	// Experimental.
 	TmpfsMountOption_NOMAND TmpfsMountOption = "NOMAND"
+	// Experimental.
 	TmpfsMountOption_ATIME TmpfsMountOption = "ATIME"
+	// Experimental.
 	TmpfsMountOption_NOATIME TmpfsMountOption = "NOATIME"
+	// Experimental.
 	TmpfsMountOption_DIRATIME TmpfsMountOption = "DIRATIME"
+	// Experimental.
 	TmpfsMountOption_NODIRATIME TmpfsMountOption = "NODIRATIME"
+	// Experimental.
 	TmpfsMountOption_BIND TmpfsMountOption = "BIND"
+	// Experimental.
 	TmpfsMountOption_RBIND TmpfsMountOption = "RBIND"
+	// Experimental.
 	TmpfsMountOption_UNBINDABLE TmpfsMountOption = "UNBINDABLE"
+	// Experimental.
 	TmpfsMountOption_RUNBINDABLE TmpfsMountOption = "RUNBINDABLE"
+	// Experimental.
 	TmpfsMountOption_PRIVATE TmpfsMountOption = "PRIVATE"
+	// Experimental.
 	TmpfsMountOption_RPRIVATE TmpfsMountOption = "RPRIVATE"
+	// Experimental.
 	TmpfsMountOption_SHARED TmpfsMountOption = "SHARED"
+	// Experimental.
 	TmpfsMountOption_RSHARED TmpfsMountOption = "RSHARED"
+	// Experimental.
 	TmpfsMountOption_SLAVE TmpfsMountOption = "SLAVE"
+	// Experimental.
 	TmpfsMountOption_RSLAVE TmpfsMountOption = "RSLAVE"
+	// Experimental.
 	TmpfsMountOption_RELATIME TmpfsMountOption = "RELATIME"
+	// Experimental.
 	TmpfsMountOption_NORELATIME TmpfsMountOption = "NORELATIME"
+	// Experimental.
 	TmpfsMountOption_STRICTATIME TmpfsMountOption = "STRICTATIME"
+	// Experimental.
 	TmpfsMountOption_NOSTRICTATIME TmpfsMountOption = "NOSTRICTATIME"
+	// Experimental.
 	TmpfsMountOption_MODE TmpfsMountOption = "MODE"
+	// Experimental.
 	TmpfsMountOption_UID TmpfsMountOption = "UID"
+	// Experimental.
 	TmpfsMountOption_GID TmpfsMountOption = "GID"
+	// Experimental.
 	TmpfsMountOption_NR_INODES TmpfsMountOption = "NR_INODES"
+	// Experimental.
 	TmpfsMountOption_NR_BLOCKS TmpfsMountOption = "NR_BLOCKS"
+	// Experimental.
 	TmpfsMountOption_MPOL TmpfsMountOption = "MPOL"
 )
 
 // The properties for enabling target tracking scaling based on a custom CloudWatch metric.
 //
-// TODO: EXAMPLE
+// Example:
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
 //
+//   var duration duration
+//   var metric metric
+//   trackCustomMetricProps := &trackCustomMetricProps{
+//   	metric: metric,
+//   	targetValue: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	disableScaleIn: jsii.Boolean(false),
+//   	policyName: jsii.String("policyName"),
+//   	scaleInCooldown: duration,
+//   	scaleOutCooldown: duration,
+//   }
+//
+// Experimental.
 type TrackCustomMetricProps struct {
 	// Indicates whether scale in by the target tracking policy is disabled.
 	//
@@ -18688,21 +28117,27 @@ type TrackCustomMetricProps struct {
 	// won't remove capacity from the scalable resource. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// scalable resource.
+	// Experimental.
 	DisableScaleIn *bool `json:"disableScaleIn" yaml:"disableScaleIn"`
 	// A name for the scaling policy.
+	// Experimental.
 	PolicyName *string `json:"policyName" yaml:"policyName"`
 	// Period after a scale in activity completes before another scale in activity can start.
+	// Experimental.
 	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown" yaml:"scaleInCooldown"`
 	// Period after a scale out activity completes before another scale out activity can start.
+	// Experimental.
 	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown" yaml:"scaleOutCooldown"`
 	// The custom CloudWatch metric to track.
 	//
 	// The metric must represent utilization; that is, you will always get the following behavior:
 	//
 	// - metric > targetValue => scale out
-	// - metric < targetValue => scale in
+	// - metric < targetValue => scale in.
+	// Experimental.
 	Metric awscloudwatch.IMetric `json:"metric" yaml:"metric"`
 	// The target value for the custom CloudWatch metric.
+	// Experimental.
 	TargetValue *float64 `json:"targetValue" yaml:"targetValue"`
 }
 
@@ -18710,37 +28145,63 @@ type TrackCustomMetricProps struct {
 //
 // NOTE: Does not work for Windows containers.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   ulimit := &ulimit{
+//   	hardLimit: jsii.Number(123),
+//   	name: ecs.ulimitName_CORE,
+//   	softLimit: jsii.Number(123),
+//   }
 //
+// Experimental.
 type Ulimit struct {
 	// The hard limit for the ulimit type.
+	// Experimental.
 	HardLimit *float64 `json:"hardLimit" yaml:"hardLimit"`
 	// The type of the ulimit.
 	//
 	// For more information, see [UlimitName](https://docs.aws.amazon.com/cdk/api/latest/typescript/api/aws-ecs/ulimitname.html#aws_ecs_UlimitName).
+	// Experimental.
 	Name UlimitName `json:"name" yaml:"name"`
 	// The soft limit for the ulimit type.
+	// Experimental.
 	SoftLimit *float64 `json:"softLimit" yaml:"softLimit"`
 }
 
 // Type of resource to set a limit on.
+// Experimental.
 type UlimitName string
 
 const (
+	// Experimental.
 	UlimitName_CORE UlimitName = "CORE"
+	// Experimental.
 	UlimitName_CPU UlimitName = "CPU"
+	// Experimental.
 	UlimitName_DATA UlimitName = "DATA"
+	// Experimental.
 	UlimitName_FSIZE UlimitName = "FSIZE"
+	// Experimental.
 	UlimitName_LOCKS UlimitName = "LOCKS"
+	// Experimental.
 	UlimitName_MEMLOCK UlimitName = "MEMLOCK"
+	// Experimental.
 	UlimitName_MSGQUEUE UlimitName = "MSGQUEUE"
+	// Experimental.
 	UlimitName_NICE UlimitName = "NICE"
+	// Experimental.
 	UlimitName_NOFILE UlimitName = "NOFILE"
+	// Experimental.
 	UlimitName_NPROC UlimitName = "NPROC"
+	// Experimental.
 	UlimitName_RSS UlimitName = "RSS"
+	// Experimental.
 	UlimitName_RTPRIO UlimitName = "RTPRIO"
+	// Experimental.
 	UlimitName_RTTIME UlimitName = "RTTIME"
+	// Experimental.
 	UlimitName_SIGPENDING UlimitName = "SIGPENDING"
+	// Experimental.
 	UlimitName_STACK UlimitName = "STACK"
 )
 
@@ -18751,19 +28212,35 @@ const (
 //
 // For more information, see [Using Data Volumes in Tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html).
 //
-// TODO: EXAMPLE
+// Example:
+//   fargateTaskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &fargateTaskDefinitionProps{
+//   	memoryLimitMiB: jsii.Number(512),
+//   	cpu: jsii.Number(256),
+//   })
+//   volume := map[string]interface{}{
+//   	// Use an Elastic FileSystem
+//   	"name": jsii.String("mydatavolume"),
+//   	"efsVolumeConfiguration": map[string]*string{
+//   		"fileSystemId": jsii.String("EFS"),
+//   	},
+//   }
 //
+//   container := fargateTaskDefinition.addVolume(volume)
+//
+// Experimental.
 type Volume struct {
 	// The name of the volume.
 	//
 	// Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed.
 	// This name is referenced in the sourceVolume parameter of container definition mountPoints.
+	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 	// This property is specified when you are using Docker volumes.
 	//
 	// Docker volumes are only supported when you are using the EC2 launch type.
 	// Windows containers only support the use of the local driver.
 	// To use bind mounts, specify a host instead.
+	// Experimental.
 	DockerVolumeConfiguration *DockerVolumeConfiguration `json:"dockerVolumeConfiguration" yaml:"dockerVolumeConfiguration"`
 	// This property is specified when you are using Amazon EFS.
 	//
@@ -18772,6 +28249,7 @@ type Volume struct {
 	// The supervisor container uses a small amount of the task's memory.
 	// The supervisor container is visible when querying the task metadata version 4 endpoint,
 	// but is not visible in CloudWatch Container Insights.
+	// Experimental.
 	EfsVolumeConfiguration *EfsVolumeConfiguration `json:"efsVolumeConfiguration" yaml:"efsVolumeConfiguration"`
 	// This property is specified when you are using bind mount host volumes.
 	//
@@ -18780,28 +28258,40 @@ type Volume struct {
 	// host container instance and where it is stored. If the host parameter is empty, then the Docker
 	// daemon assigns a host path for your data volume. However, the data is not guaranteed to persist
 	// after the containers associated with it stop running.
+	// Experimental.
 	Host *Host `json:"host" yaml:"host"`
 }
 
 // The details on a data volume from another container in the same task definition.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
+//   volumeFrom := &volumeFrom{
+//   	readOnly: jsii.Boolean(false),
+//   	sourceContainer: jsii.String("sourceContainer"),
+//   }
 //
+// Experimental.
 type VolumeFrom struct {
 	// Specifies whether the container has read-only access to the volume.
 	//
 	// If this value is true, the container has read-only access to the volume.
 	// If this value is false, then the container can write to the volume.
+	// Experimental.
 	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
 	// The name of another container within the same task definition from which to mount volumes.
+	// Experimental.
 	SourceContainer *string `json:"sourceContainer" yaml:"sourceContainer"`
 }
 
 // ECS-optimized Windows version list.
+// Experimental.
 type WindowsOptimizedVersion string
 
 const (
+	// Experimental.
 	WindowsOptimizedVersion_SERVER_2019 WindowsOptimizedVersion = "SERVER_2019"
+	// Experimental.
 	WindowsOptimizedVersion_SERVER_2016 WindowsOptimizedVersion = "SERVER_2016"
 )
 

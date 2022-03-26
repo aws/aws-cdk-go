@@ -1,27 +1,70 @@
 package awselasticloadbalancingv2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscertificatemanager"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Properties for adding a new action to a listener.
 //
-// TODO: EXAMPLE
+// Example:
+//   var listener applicationListener
 //
+//   listener.addAction(jsii.String("Fixed"), &addApplicationActionProps{
+//   	priority: jsii.Number(10),
+//   	conditions: []listenerCondition{
+//   		elbv2.*listenerCondition.pathPatterns([]*string{
+//   			jsii.String("/ok"),
+//   		}),
+//   	},
+//   	action: elbv2.listenerAction.fixedResponse(jsii.Number(200), &fixedResponseOptions{
+//   		contentType: elbv2.contentType_TEXT_PLAIN,
+//   		messageBody: jsii.String("OK"),
+//   	}),
+//   })
+//
+// Experimental.
 type AddApplicationActionProps struct {
 	// Rule applies if matches the conditions.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
 	//
+	// Experimental.
 	Conditions *[]ListenerCondition `json:"conditions" yaml:"conditions"`
+	// Rule applies if the requested host matches the indicated host.
+	//
+	// May contain up to three '*' wildcards.
+	//
+	// Requires that priority is set.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
+	//
+	// Deprecated: Use `conditions` instead.
+	HostHeader *string `json:"hostHeader" yaml:"hostHeader"`
+	// Rule applies if the requested path matches the given path pattern.
+	//
+	// May contain up to three '*' wildcards.
+	//
+	// Requires that priority is set.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
+	//
+	// Deprecated: Use `conditions` instead.
+	PathPattern *string `json:"pathPattern" yaml:"pathPattern"`
+	// Rule applies if the requested path matches any of the given patterns.
+	//
+	// May contain up to three '*' wildcards.
+	//
+	// Requires that priority is set.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
+	//
+	// Deprecated: Use `conditions` instead.
+	PathPatterns *[]*string `json:"pathPatterns" yaml:"pathPatterns"`
 	// Priority of this target group.
 	//
 	// The rule with the lowest priority will be used for every request.
@@ -29,20 +72,71 @@ type AddApplicationActionProps struct {
 	// defaults, and must not have conditions.
 	//
 	// Priorities must be unique.
+	// Experimental.
 	Priority *float64 `json:"priority" yaml:"priority"`
 	// Action to perform.
+	// Experimental.
 	Action ListenerAction `json:"action" yaml:"action"`
 }
 
 // Properties for adding a new target group to a listener.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
 //
+//   var applicationTargetGroup applicationTargetGroup
+//   var listenerCondition listenerCondition
+//   addApplicationTargetGroupsProps := &addApplicationTargetGroupsProps{
+//   	targetGroups: []iApplicationTargetGroup{
+//   		applicationTargetGroup,
+//   	},
+//
+//   	// the properties below are optional
+//   	conditions: []*listenerCondition{
+//   		listenerCondition,
+//   	},
+//   	hostHeader: jsii.String("hostHeader"),
+//   	pathPattern: jsii.String("pathPattern"),
+//   	pathPatterns: []*string{
+//   		jsii.String("pathPatterns"),
+//   	},
+//   	priority: jsii.Number(123),
+//   }
+//
+// Experimental.
 type AddApplicationTargetGroupsProps struct {
 	// Rule applies if matches the conditions.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
 	//
+	// Experimental.
 	Conditions *[]ListenerCondition `json:"conditions" yaml:"conditions"`
+	// Rule applies if the requested host matches the indicated host.
+	//
+	// May contain up to three '*' wildcards.
+	//
+	// Requires that priority is set.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
+	//
+	// Deprecated: Use `conditions` instead.
+	HostHeader *string `json:"hostHeader" yaml:"hostHeader"`
+	// Rule applies if the requested path matches the given path pattern.
+	//
+	// May contain up to three '*' wildcards.
+	//
+	// Requires that priority is set.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
+	//
+	// Deprecated: Use `conditions` instead.
+	PathPattern *string `json:"pathPattern" yaml:"pathPattern"`
+	// Rule applies if the requested path matches any of the given patterns.
+	//
+	// May contain up to three '*' wildcards.
+	//
+	// Requires that priority is set.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
+	//
+	// Deprecated: Use `conditions` instead.
+	PathPatterns *[]*string `json:"pathPatterns" yaml:"pathPatterns"`
 	// Priority of this target group.
 	//
 	// The rule with the lowest priority will be used for every request.
@@ -50,20 +144,82 @@ type AddApplicationTargetGroupsProps struct {
 	// defaults, and must not have conditions.
 	//
 	// Priorities must be unique.
+	// Experimental.
 	Priority *float64 `json:"priority" yaml:"priority"`
 	// Target groups to forward requests to.
+	// Experimental.
 	TargetGroups *[]IApplicationTargetGroup `json:"targetGroups" yaml:"targetGroups"`
 }
 
 // Properties for adding new targets to a listener.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type AutoScalingGroup awscdk.AutoScalingGroup
+//   var asg autoScalingGroup
 //
+//   var vpc vpc
+//
+//   // Create the load balancer in a VPC. 'internetFacing' is 'false'
+//   // by default, which creates an internal load balancer.
+//   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &applicationLoadBalancerProps{
+//   	vpc: vpc,
+//   	internetFacing: jsii.Boolean(true),
+//   })
+//
+//   // Add a listener and open up the load balancer's security group
+//   // to the world.
+//   listener := lb.addListener(jsii.String("Listener"), &baseApplicationListenerProps{
+//   	port: jsii.Number(80),
+//
+//   	// 'open: true' is the default, you can leave it out if you want. Set it
+//   	// to 'false' and use `listener.connections` if you want to be selective
+//   	// about who can access the load balancer.
+//   	open: jsii.Boolean(true),
+//   })
+//
+//   // Create an AutoScaling group and add it as a load balancing
+//   // target to the listener.
+//   listener.addTargets(jsii.String("ApplicationFleet"), &addApplicationTargetsProps{
+//   	port: jsii.Number(8080),
+//   	targets: []iApplicationLoadBalancerTarget{
+//   		asg,
+//   	},
+//   })
+//
+// Experimental.
 type AddApplicationTargetsProps struct {
 	// Rule applies if matches the conditions.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
 	//
+	// Experimental.
 	Conditions *[]ListenerCondition `json:"conditions" yaml:"conditions"`
+	// Rule applies if the requested host matches the indicated host.
+	//
+	// May contain up to three '*' wildcards.
+	//
+	// Requires that priority is set.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
+	//
+	// Deprecated: Use `conditions` instead.
+	HostHeader *string `json:"hostHeader" yaml:"hostHeader"`
+	// Rule applies if the requested path matches the given path pattern.
+	//
+	// May contain up to three '*' wildcards.
+	//
+	// Requires that priority is set.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
+	//
+	// Deprecated: Use `conditions` instead.
+	PathPattern *string `json:"pathPattern" yaml:"pathPattern"`
+	// Rule applies if the requested path matches any of the given patterns.
+	//
+	// May contain up to three '*' wildcards.
+	//
+	// Requires that priority is set.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
+	//
+	// Deprecated: Use `conditions` instead.
+	PathPatterns *[]*string `json:"pathPatterns" yaml:"pathPatterns"`
 	// Priority of this target group.
 	//
 	// The rule with the lowest priority will be used for every request.
@@ -71,26 +227,34 @@ type AddApplicationTargetsProps struct {
 	// defaults, and must not have conditions.
 	//
 	// Priorities must be unique.
+	// Experimental.
 	Priority *float64 `json:"priority" yaml:"priority"`
 	// The amount of time for Elastic Load Balancing to wait before deregistering a target.
 	//
 	// The range is 0-3600 seconds.
+	// Experimental.
 	DeregistrationDelay awscdk.Duration `json:"deregistrationDelay" yaml:"deregistrationDelay"`
 	// Health check configuration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#aws-resource-elasticloadbalancingv2-targetgroup-properties
 	//
+	// Experimental.
 	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
 	// The load balancing algorithm to select targets for routing requests.
+	// Experimental.
 	LoadBalancingAlgorithmType TargetGroupLoadBalancingAlgorithmType `json:"loadBalancingAlgorithmType" yaml:"loadBalancingAlgorithmType"`
 	// The port on which the listener listens for requests.
+	// Experimental.
 	Port *float64 `json:"port" yaml:"port"`
 	// The protocol to use.
+	// Experimental.
 	Protocol ApplicationProtocol `json:"protocol" yaml:"protocol"`
 	// The protocol version to use.
+	// Experimental.
 	ProtocolVersion ApplicationProtocolVersion `json:"protocolVersion" yaml:"protocolVersion"`
 	// The time period during which the load balancer sends a newly registered target a linearly increasing share of the traffic to the target group.
 	//
 	// The range is 30-900 seconds (15 minutes).
+	// Experimental.
 	SlowStart awscdk.Duration `json:"slowStart" yaml:"slowStart"`
 	// The stickiness cookie expiration period.
 	//
@@ -98,6 +262,7 @@ type AddApplicationTargetsProps struct {
 	//
 	// After this period, the cookie is considered stale. The minimum value is
 	// 1 second and the maximum value is 7 days (604800 seconds).
+	// Experimental.
 	StickinessCookieDuration awscdk.Duration `json:"stickinessCookieDuration" yaml:"stickinessCookieDuration"`
 	// The name of an application-based stickiness cookie.
 	//
@@ -108,73 +273,80 @@ type AddApplicationTargetsProps struct {
 	// If `stickinessCookieDuration` is not set, `stickinessCookieName` will be omitted.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/sticky-sessions.html
 	//
+	// Experimental.
 	StickinessCookieName *string `json:"stickinessCookieName" yaml:"stickinessCookieName"`
 	// The name of the target group.
 	//
 	// This name must be unique per region per account, can have a maximum of
 	// 32 characters, must contain only alphanumeric characters or hyphens, and
 	// must not begin or end with a hyphen.
+	// Experimental.
 	TargetGroupName *string `json:"targetGroupName" yaml:"targetGroupName"`
 	// The targets to add to this target group.
 	//
 	// Can be `Instance`, `IPAddress`, or any self-registering load balancing
 	// target. All target must be of the same type.
+	// Experimental.
 	Targets *[]IApplicationLoadBalancerTarget `json:"targets" yaml:"targets"`
 }
 
-// Properties for adding a new action to a listener.
+// Properties for adding a fixed response to a listener.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
 //
-type AddNetworkActionProps struct {
-	// Action to perform.
-	Action NetworkListenerAction `json:"action" yaml:"action"`
-}
-
-// Properties for adding new network targets to a listener.
+//   var listenerCondition listenerCondition
+//   addFixedResponseProps := &addFixedResponseProps{
+//   	statusCode: jsii.String("statusCode"),
 //
-// TODO: EXAMPLE
+//   	// the properties below are optional
+//   	conditions: []*listenerCondition{
+//   		listenerCondition,
+//   	},
+//   	contentType: elasticloadbalancingv2.contentType_TEXT_PLAIN,
+//   	hostHeader: jsii.String("hostHeader"),
+//   	messageBody: jsii.String("messageBody"),
+//   	pathPattern: jsii.String("pathPattern"),
+//   	pathPatterns: []*string{
+//   		jsii.String("pathPatterns"),
+//   	},
+//   	priority: jsii.Number(123),
+//   }
 //
-type AddNetworkTargetsProps struct {
-	// The port on which the listener listens for requests.
-	Port *float64 `json:"port" yaml:"port"`
-	// The amount of time for Elastic Load Balancing to wait before deregistering a target.
-	//
-	// The range is 0-3600 seconds.
-	DeregistrationDelay awscdk.Duration `json:"deregistrationDelay" yaml:"deregistrationDelay"`
-	// Health check configuration.
-	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#aws-resource-elasticloadbalancingv2-targetgroup-properties
-	//
-	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
-	// Indicates whether client IP preservation is enabled.
-	PreserveClientIp *bool `json:"preserveClientIp" yaml:"preserveClientIp"`
-	// Protocol for target group, expects TCP, TLS, UDP, or TCP_UDP.
-	Protocol Protocol `json:"protocol" yaml:"protocol"`
-	// Indicates whether Proxy Protocol version 2 is enabled.
-	ProxyProtocolV2 *bool `json:"proxyProtocolV2" yaml:"proxyProtocolV2"`
-	// The name of the target group.
-	//
-	// This name must be unique per region per account, can have a maximum of
-	// 32 characters, must contain only alphanumeric characters or hyphens, and
-	// must not begin or end with a hyphen.
-	TargetGroupName *string `json:"targetGroupName" yaml:"targetGroupName"`
-	// The targets to add to this target group.
-	//
-	// Can be `Instance`, `IPAddress`, or any self-registering load balancing
-	// target. If you use either `Instance` or `IPAddress` as targets, all
-	// target must be of the same type.
-	Targets *[]INetworkLoadBalancerTarget `json:"targets" yaml:"targets"`
-}
-
-// Properties for adding a conditional load balancing rule.
-//
-// TODO: EXAMPLE
-//
-type AddRuleProps struct {
+// Deprecated: Use `ApplicationListener.addAction` instead.
+type AddFixedResponseProps struct {
 	// Rule applies if matches the conditions.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
 	//
+	// Deprecated: Use `ApplicationListener.addAction` instead.
 	Conditions *[]ListenerCondition `json:"conditions" yaml:"conditions"`
+	// Rule applies if the requested host matches the indicated host.
+	//
+	// May contain up to three '*' wildcards.
+	//
+	// Requires that priority is set.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
+	//
+	// Deprecated: Use `conditions` instead.
+	HostHeader *string `json:"hostHeader" yaml:"hostHeader"`
+	// Rule applies if the requested path matches the given path pattern.
+	//
+	// May contain up to three '*' wildcards.
+	//
+	// Requires that priority is set.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
+	//
+	// Deprecated: Use `conditions` instead.
+	PathPattern *string `json:"pathPattern" yaml:"pathPattern"`
+	// Rule applies if the requested path matches any of the given patterns.
+	//
+	// May contain up to three '*' wildcards.
+	//
+	// Requires that priority is set.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
+	//
+	// Deprecated: Use `conditions` instead.
+	PathPatterns *[]*string `json:"pathPatterns" yaml:"pathPatterns"`
 	// Priority of this target group.
 	//
 	// The rule with the lowest priority will be used for every request.
@@ -182,47 +354,475 @@ type AddRuleProps struct {
 	// defaults, and must not have conditions.
 	//
 	// Priorities must be unique.
+	// Deprecated: Use `ApplicationListener.addAction` instead.
+	Priority *float64 `json:"priority" yaml:"priority"`
+	// The HTTP response code (2XX, 4XX or 5XX).
+	// Deprecated: Use `ApplicationListener.addAction` instead.
+	StatusCode *string `json:"statusCode" yaml:"statusCode"`
+	// The content type.
+	// Deprecated: Use `ApplicationListener.addAction` instead.
+	ContentType ContentType `json:"contentType" yaml:"contentType"`
+	// The message.
+	// Deprecated: Use `ApplicationListener.addAction` instead.
+	MessageBody *string `json:"messageBody" yaml:"messageBody"`
+}
+
+// Properties for adding a new action to a listener.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//
+//   var networkListenerAction networkListenerAction
+//   addNetworkActionProps := &addNetworkActionProps{
+//   	action: networkListenerAction,
+//   }
+//
+// Experimental.
+type AddNetworkActionProps struct {
+	// Action to perform.
+	// Experimental.
+	Action NetworkListenerAction `json:"action" yaml:"action"`
+}
+
+// Properties for adding new network targets to a listener.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpNlbIntegration awscdk.HttpNlbIntegration
+//
+//   vpc := ec2.NewVpc(this, jsii.String("VPC"))
+//   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("lb"), &networkLoadBalancerProps{
+//   	vpc: vpc,
+//   })
+//   listener := lb.addListener(jsii.String("listener"), &baseNetworkListenerProps{
+//   	port: jsii.Number(80),
+//   })
+//   listener.addTargets(jsii.String("target"), &addNetworkTargetsProps{
+//   	port: jsii.Number(80),
+//   })
+//
+//   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
+//   	defaultIntegration: NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
+//   })
+//
+// Experimental.
+type AddNetworkTargetsProps struct {
+	// The port on which the listener listens for requests.
+	// Experimental.
+	Port *float64 `json:"port" yaml:"port"`
+	// The amount of time for Elastic Load Balancing to wait before deregistering a target.
+	//
+	// The range is 0-3600 seconds.
+	// Experimental.
+	DeregistrationDelay awscdk.Duration `json:"deregistrationDelay" yaml:"deregistrationDelay"`
+	// Health check configuration.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#aws-resource-elasticloadbalancingv2-targetgroup-properties
+	//
+	// Experimental.
+	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
+	// Indicates whether client IP preservation is enabled.
+	// Experimental.
+	PreserveClientIp *bool `json:"preserveClientIp" yaml:"preserveClientIp"`
+	// Protocol for target group, expects TCP, TLS, UDP, or TCP_UDP.
+	// Experimental.
+	Protocol Protocol `json:"protocol" yaml:"protocol"`
+	// Indicates whether Proxy Protocol version 2 is enabled.
+	// Experimental.
+	ProxyProtocolV2 *bool `json:"proxyProtocolV2" yaml:"proxyProtocolV2"`
+	// The name of the target group.
+	//
+	// This name must be unique per region per account, can have a maximum of
+	// 32 characters, must contain only alphanumeric characters or hyphens, and
+	// must not begin or end with a hyphen.
+	// Experimental.
+	TargetGroupName *string `json:"targetGroupName" yaml:"targetGroupName"`
+	// The targets to add to this target group.
+	//
+	// Can be `Instance`, `IPAddress`, or any self-registering load balancing
+	// target. If you use either `Instance` or `IPAddress` as targets, all
+	// target must be of the same type.
+	// Experimental.
+	Targets *[]INetworkLoadBalancerTarget `json:"targets" yaml:"targets"`
+}
+
+// Properties for adding a redirect response to a listener.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//
+//   var listenerCondition listenerCondition
+//   addRedirectResponseProps := &addRedirectResponseProps{
+//   	statusCode: jsii.String("statusCode"),
+//
+//   	// the properties below are optional
+//   	conditions: []*listenerCondition{
+//   		listenerCondition,
+//   	},
+//   	host: jsii.String("host"),
+//   	hostHeader: jsii.String("hostHeader"),
+//   	path: jsii.String("path"),
+//   	pathPattern: jsii.String("pathPattern"),
+//   	pathPatterns: []*string{
+//   		jsii.String("pathPatterns"),
+//   	},
+//   	port: jsii.String("port"),
+//   	priority: jsii.Number(123),
+//   	protocol: jsii.String("protocol"),
+//   	query: jsii.String("query"),
+//   }
+//
+// Deprecated: Use `ApplicationListener.addAction` instead.
+type AddRedirectResponseProps struct {
+	// Rule applies if matches the conditions.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
+	//
+	// Deprecated: Use `ApplicationListener.addAction` instead.
+	Conditions *[]ListenerCondition `json:"conditions" yaml:"conditions"`
+	// Rule applies if the requested host matches the indicated host.
+	//
+	// May contain up to three '*' wildcards.
+	//
+	// Requires that priority is set.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
+	//
+	// Deprecated: Use `conditions` instead.
+	HostHeader *string `json:"hostHeader" yaml:"hostHeader"`
+	// Rule applies if the requested path matches the given path pattern.
+	//
+	// May contain up to three '*' wildcards.
+	//
+	// Requires that priority is set.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
+	//
+	// Deprecated: Use `conditions` instead.
+	PathPattern *string `json:"pathPattern" yaml:"pathPattern"`
+	// Rule applies if the requested path matches any of the given patterns.
+	//
+	// May contain up to three '*' wildcards.
+	//
+	// Requires that priority is set.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
+	//
+	// Deprecated: Use `conditions` instead.
+	PathPatterns *[]*string `json:"pathPatterns" yaml:"pathPatterns"`
+	// Priority of this target group.
+	//
+	// The rule with the lowest priority will be used for every request.
+	// If priority is not given, these target groups will be added as
+	// defaults, and must not have conditions.
+	//
+	// Priorities must be unique.
+	// Deprecated: Use `ApplicationListener.addAction` instead.
+	Priority *float64 `json:"priority" yaml:"priority"`
+	// The HTTP redirect code (HTTP_301 or HTTP_302).
+	// Deprecated: Use `ApplicationListener.addAction` instead.
+	StatusCode *string `json:"statusCode" yaml:"statusCode"`
+	// The hostname.
+	//
+	// This component is not percent-encoded. The hostname can contain #{host}.
+	// Deprecated: Use `ApplicationListener.addAction` instead.
+	Host *string `json:"host" yaml:"host"`
+	// The absolute path, starting with the leading "/".
+	//
+	// This component is not percent-encoded.
+	// The path can contain #{host}, #{path}, and #{port}.
+	// Deprecated: Use `ApplicationListener.addAction` instead.
+	Path *string `json:"path" yaml:"path"`
+	// The port.
+	//
+	// You can specify a value from 1 to 65535 or #{port}.
+	// Deprecated: Use `ApplicationListener.addAction` instead.
+	Port *string `json:"port" yaml:"port"`
+	// The protocol.
+	//
+	// You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP,
+	// HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+	// Deprecated: Use `ApplicationListener.addAction` instead.
+	Protocol *string `json:"protocol" yaml:"protocol"`
+	// The query parameters, URL-encoded when necessary, but not percent-encoded.
+	//
+	// Do not include the leading "?", as it is automatically added.
+	// You can specify any of the reserved keywords.
+	// Deprecated: Use `ApplicationListener.addAction` instead.
+	Query *string `json:"query" yaml:"query"`
+}
+
+// Properties for adding a conditional load balancing rule.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//
+//   var listenerCondition listenerCondition
+//   addRuleProps := &addRuleProps{
+//   	conditions: []*listenerCondition{
+//   		listenerCondition,
+//   	},
+//   	hostHeader: jsii.String("hostHeader"),
+//   	pathPattern: jsii.String("pathPattern"),
+//   	pathPatterns: []*string{
+//   		jsii.String("pathPatterns"),
+//   	},
+//   	priority: jsii.Number(123),
+//   }
+//
+// Experimental.
+type AddRuleProps struct {
+	// Rule applies if matches the conditions.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
+	//
+	// Experimental.
+	Conditions *[]ListenerCondition `json:"conditions" yaml:"conditions"`
+	// Rule applies if the requested host matches the indicated host.
+	//
+	// May contain up to three '*' wildcards.
+	//
+	// Requires that priority is set.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
+	//
+	// Deprecated: Use `conditions` instead.
+	HostHeader *string `json:"hostHeader" yaml:"hostHeader"`
+	// Rule applies if the requested path matches the given path pattern.
+	//
+	// May contain up to three '*' wildcards.
+	//
+	// Requires that priority is set.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
+	//
+	// Deprecated: Use `conditions` instead.
+	PathPattern *string `json:"pathPattern" yaml:"pathPattern"`
+	// Rule applies if the requested path matches any of the given patterns.
+	//
+	// May contain up to three '*' wildcards.
+	//
+	// Requires that priority is set.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
+	//
+	// Deprecated: Use `conditions` instead.
+	PathPatterns *[]*string `json:"pathPatterns" yaml:"pathPatterns"`
+	// Priority of this target group.
+	//
+	// The rule with the lowest priority will be used for every request.
+	// If priority is not given, these target groups will be added as
+	// defaults, and must not have conditions.
+	//
+	// Priorities must be unique.
+	// Experimental.
 	Priority *float64 `json:"priority" yaml:"priority"`
 }
 
 // Application-Layer Protocol Negotiation Policies for network load balancers.
 //
 // Which protocols should be used over a secure connection.
+// Experimental.
 type AlpnPolicy string
 
 const (
+	// Negotiate only HTTP/1.*. The ALPN preference list is http/1.1, http/1.0.
+	// Experimental.
 	AlpnPolicy_HTTP1_ONLY AlpnPolicy = "HTTP1_ONLY"
+	// Negotiate only HTTP/2.
+	//
+	// The ALPN preference list is h2.
+	// Experimental.
 	AlpnPolicy_HTTP2_ONLY AlpnPolicy = "HTTP2_ONLY"
+	// Prefer HTTP/1.* over HTTP/2 (which can be useful for HTTP/2 testing). The ALPN preference list is http/1.1, http/1.0, h2.
+	// Experimental.
 	AlpnPolicy_HTTP2_OPTIONAL AlpnPolicy = "HTTP2_OPTIONAL"
+	// Prefer HTTP/2 over HTTP/1.*. The ALPN preference list is h2, http/1.1, http/1.0.
+	// Experimental.
 	AlpnPolicy_HTTP2_PREFERRED AlpnPolicy = "HTTP2_PREFERRED"
+	// Do not negotiate ALPN.
+	// Experimental.
 	AlpnPolicy_NONE AlpnPolicy = "NONE"
 )
 
 // Define an ApplicationListener.
 //
-// TODO: EXAMPLE
+// Example:
+//   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var alb applicationLoadBalancer
+//   listener := alb.addListener(jsii.String("Listener"), &baseApplicationListenerProps{
+//   	port: jsii.Number(80),
+//   })
+//   targetGroup := listener.addTargets(jsii.String("Fleet"), &addApplicationTargetsProps{
+//   	port: jsii.Number(80),
+//   })
+//
+//   deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("DeploymentGroup"), &serverDeploymentGroupProps{
+//   	loadBalancer: codedeploy.loadBalancer.application(targetGroup),
+//   })
+//
+// Experimental.
 type ApplicationListener interface {
 	BaseListener
 	IApplicationListener
+	// Manage connections to this ApplicationListener.
+	// Experimental.
 	Connections() awsec2.Connections
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
+	// Experimental.
 	ListenerArn() *string
+	// Load balancer this listener is associated with.
+	// Experimental.
 	LoadBalancer() IApplicationLoadBalancer
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
+	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
+	// Perform the given default action on incoming requests.
+	//
+	// This allows full control of the default action of the load balancer,
+	// including Action chaining, fixed responses and redirect responses. See
+	// the `ListenerAction` class for all options.
+	//
+	// It's possible to add routing conditions to the Action added in this way.
+	// At least one Action must be added without conditions (which becomes the
+	// default Action).
+	// Experimental.
 	AddAction(id *string, props *AddApplicationActionProps)
+	// Add one or more certificates to this listener.
+	//
+	// After the first certificate, this creates ApplicationListenerCertificates
+	// resources since cloudformation requires the certificates array on the
+	// listener resource to have a length of 1.
+	// Deprecated: Use `addCertificates` instead.
+	AddCertificateArns(id *string, arns *[]*string)
+	// Add one or more certificates to this listener.
+	//
+	// After the first certificate, this creates ApplicationListenerCertificates
+	// resources since cloudformation requires the certificates array on the
+	// listener resource to have a length of 1.
+	// Experimental.
 	AddCertificates(id *string, certificates *[]IListenerCertificate)
+	// Add a fixed response.
+	// Deprecated: Use `addAction()` instead.
+	AddFixedResponse(id *string, props *AddFixedResponseProps)
+	// Add a redirect response.
+	// Deprecated: Use `addAction()` instead.
+	AddRedirectResponse(id *string, props *AddRedirectResponseProps)
+	// Load balance incoming requests to the given target groups.
+	//
+	// All target groups will be load balanced to with equal weight and without
+	// stickiness. For a more complex configuration than that, use `addAction()`.
+	//
+	// It's possible to add routing conditions to the TargetGroups added in this
+	// way. At least one TargetGroup must be added without conditions (which will
+	// become the default Action for this listener).
+	// Experimental.
 	AddTargetGroups(id *string, props *AddApplicationTargetGroupsProps)
+	// Load balance incoming requests to the given load balancing targets.
+	//
+	// This method implicitly creates an ApplicationTargetGroup for the targets
+	// involved, and a 'forward' action to route traffic to the given TargetGroup.
+	//
+	// If you want more control over the precise setup, create the TargetGroup
+	// and use `addAction` yourself.
+	//
+	// It's possible to add conditions to the targets added in this way. At least
+	// one set of targets must be added without conditions.
+	//
+	// Returns: The newly created target group.
+	// Experimental.
 	AddTargets(id *string, props *AddApplicationTargetsProps) ApplicationTargetGroup
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
 	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Register that a connectable that has been added to this load balancer.
+	//
+	// Don't call this directly. It is called by ApplicationTargetGroup.
+	// Experimental.
 	RegisterConnectable(connectable awsec2.IConnectable, portRange awsec2.Port)
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
-	ValidateListener() *[]*string
+	// Validate this listener.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ApplicationListener
@@ -271,8 +871,8 @@ func (j *jsiiProxy_ApplicationListener) LoadBalancer() IApplicationLoadBalancer 
 	return returns
 }
 
-func (j *jsiiProxy_ApplicationListener) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ApplicationListener) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -302,13 +902,14 @@ func (j *jsiiProxy_ApplicationListener) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewApplicationListener(scope constructs.Construct, id *string, props *ApplicationListenerProps) ApplicationListener {
 	_init_.Initialize()
 
 	j := jsiiProxy_ApplicationListener{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationListener",
+		"monocdk.aws_elasticloadbalancingv2.ApplicationListener",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -316,24 +917,26 @@ func NewApplicationListener(scope constructs.Construct, id *string, props *Appli
 	return &j
 }
 
+// Experimental.
 func NewApplicationListener_Override(a ApplicationListener, scope constructs.Construct, id *string, props *ApplicationListenerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationListener",
+		"monocdk.aws_elasticloadbalancingv2.ApplicationListener",
 		[]interface{}{scope, id, props},
 		a,
 	)
 }
 
 // Import an existing listener.
+// Experimental.
 func ApplicationListener_FromApplicationListenerAttributes(scope constructs.Construct, id *string, attrs *ApplicationListenerAttributes) IApplicationListener {
 	_init_.Initialize()
 
 	var returns IApplicationListener
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationListener",
+		"monocdk.aws_elasticloadbalancingv2.ApplicationListener",
 		"fromApplicationListenerAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -343,13 +946,14 @@ func ApplicationListener_FromApplicationListenerAttributes(scope constructs.Cons
 }
 
 // Look up an ApplicationListener.
+// Experimental.
 func ApplicationListener_FromLookup(scope constructs.Construct, id *string, options *ApplicationListenerLookupOptions) IApplicationListener {
 	_init_.Initialize()
 
 	var returns IApplicationListener
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationListener",
+		"monocdk.aws_elasticloadbalancingv2.ApplicationListener",
 		"fromLookup",
 		[]interface{}{scope, id, options},
 		&returns,
@@ -358,17 +962,15 @@ func ApplicationListener_FromLookup(scope constructs.Construct, id *string, opti
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func ApplicationListener_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationListener",
+		"monocdk.aws_elasticloadbalancingv2.ApplicationListener",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -378,13 +980,14 @@ func ApplicationListener_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func ApplicationListener_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func ApplicationListener_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationListener",
+		"monocdk.aws_elasticloadbalancingv2.ApplicationListener",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -393,15 +996,6 @@ func ApplicationListener_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Perform the given default action on incoming requests.
-//
-// This allows full control of the default action of the load balancer,
-// including Action chaining, fixed responses and redirect responses. See
-// the `ListenerAction` class for all options.
-//
-// It's possible to add routing conditions to the Action added in this way.
-// At least one Action must be added without conditions (which becomes the
-// default Action).
 func (a *jsiiProxy_ApplicationListener) AddAction(id *string, props *AddApplicationActionProps) {
 	_jsii_.InvokeVoid(
 		a,
@@ -410,11 +1004,14 @@ func (a *jsiiProxy_ApplicationListener) AddAction(id *string, props *AddApplicat
 	)
 }
 
-// Add one or more certificates to this listener.
-//
-// After the first certificate, this creates ApplicationListenerCertificates
-// resources since cloudformation requires the certificates array on the
-// listener resource to have a length of 1.
+func (a *jsiiProxy_ApplicationListener) AddCertificateArns(id *string, arns *[]*string) {
+	_jsii_.InvokeVoid(
+		a,
+		"addCertificateArns",
+		[]interface{}{id, arns},
+	)
+}
+
 func (a *jsiiProxy_ApplicationListener) AddCertificates(id *string, certificates *[]IListenerCertificate) {
 	_jsii_.InvokeVoid(
 		a,
@@ -423,14 +1020,22 @@ func (a *jsiiProxy_ApplicationListener) AddCertificates(id *string, certificates
 	)
 }
 
-// Load balance incoming requests to the given target groups.
-//
-// All target groups will be load balanced to with equal weight and without
-// stickiness. For a more complex configuration than that, use `addAction()`.
-//
-// It's possible to add routing conditions to the TargetGroups added in this
-// way. At least one TargetGroup must be added without conditions (which will
-// become the default Action for this listener).
+func (a *jsiiProxy_ApplicationListener) AddFixedResponse(id *string, props *AddFixedResponseProps) {
+	_jsii_.InvokeVoid(
+		a,
+		"addFixedResponse",
+		[]interface{}{id, props},
+	)
+}
+
+func (a *jsiiProxy_ApplicationListener) AddRedirectResponse(id *string, props *AddRedirectResponseProps) {
+	_jsii_.InvokeVoid(
+		a,
+		"addRedirectResponse",
+		[]interface{}{id, props},
+	)
+}
+
 func (a *jsiiProxy_ApplicationListener) AddTargetGroups(id *string, props *AddApplicationTargetGroupsProps) {
 	_jsii_.InvokeVoid(
 		a,
@@ -439,18 +1044,6 @@ func (a *jsiiProxy_ApplicationListener) AddTargetGroups(id *string, props *AddAp
 	)
 }
 
-// Load balance incoming requests to the given load balancing targets.
-//
-// This method implicitly creates an ApplicationTargetGroup for the targets
-// involved, and a 'forward' action to route traffic to the given TargetGroup.
-//
-// If you want more control over the precise setup, create the TargetGroup
-// and use `addAction` yourself.
-//
-// It's possible to add conditions to the targets added in this way. At least
-// one set of targets must be added without conditions.
-//
-// Returns: The newly created target group
 func (a *jsiiProxy_ApplicationListener) AddTargets(id *string, props *AddApplicationTargetsProps) ApplicationTargetGroup {
 	var returns ApplicationTargetGroup
 
@@ -464,15 +1057,6 @@ func (a *jsiiProxy_ApplicationListener) AddTargets(id *string, props *AddApplica
 	return returns
 }
 
-// Apply the given removal policy to this resource.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (a *jsiiProxy_ApplicationListener) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		a,
@@ -494,12 +1078,6 @@ func (a *jsiiProxy_ApplicationListener) GeneratePhysicalName() *string {
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
-//
-// Normally, this token will resolve to `arnAttr`, but if the resource is
-// referenced across environments, `arnComponents` will be used to synthesize
-// a concrete ARN with the resource's physical name. Make sure to reference
-// `this.physicalName` in `arnComponents`.
 func (a *jsiiProxy_ApplicationListener) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -513,11 +1091,6 @@ func (a *jsiiProxy_ApplicationListener) GetResourceArnAttribute(arnAttr *string,
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
-//
-// Normally, this token will resolve to `nameAttr`, but if the resource is
-// referenced across environments, it will be resolved to `this.physicalName`,
-// which will be a concrete name.
 func (a *jsiiProxy_ApplicationListener) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -531,9 +1104,43 @@ func (a *jsiiProxy_ApplicationListener) GetResourceNameAttribute(nameAttr *strin
 	return returns
 }
 
-// Register that a connectable that has been added to this load balancer.
-//
-// Don't call this directly. It is called by ApplicationTargetGroup.
+func (a *jsiiProxy_ApplicationListener) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (a *jsiiProxy_ApplicationListener) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (a *jsiiProxy_ApplicationListener) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_ApplicationListener) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 func (a *jsiiProxy_ApplicationListener) RegisterConnectable(connectable awsec2.IConnectable, portRange awsec2.Port) {
 	_jsii_.InvokeVoid(
 		a,
@@ -542,7 +1149,14 @@ func (a *jsiiProxy_ApplicationListener) RegisterConnectable(connectable awsec2.I
 	)
 }
 
-// Returns a string representation of this construct.
+func (a *jsiiProxy_ApplicationListener) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (a *jsiiProxy_ApplicationListener) ToString() *string {
 	var returns *string
 
@@ -556,13 +1170,12 @@ func (a *jsiiProxy_ApplicationListener) ToString() *string {
 	return returns
 }
 
-// Validate this listener.
-func (a *jsiiProxy_ApplicationListener) ValidateListener() *[]*string {
+func (a *jsiiProxy_ApplicationListener) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		a,
-		"validateListener",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -572,34 +1185,126 @@ func (a *jsiiProxy_ApplicationListener) ValidateListener() *[]*string {
 
 // Properties to reference an existing listener.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
 //
+//   var securityGroup securityGroup
+//   applicationListenerAttributes := &applicationListenerAttributes{
+//   	listenerArn: jsii.String("listenerArn"),
+//
+//   	// the properties below are optional
+//   	defaultPort: jsii.Number(123),
+//   	securityGroup: securityGroup,
+//   	securityGroupAllowsAllOutbound: jsii.Boolean(false),
+//   	securityGroupId: jsii.String("securityGroupId"),
+//   }
+//
+// Experimental.
 type ApplicationListenerAttributes struct {
 	// ARN of the listener.
+	// Experimental.
 	ListenerArn *string `json:"listenerArn" yaml:"listenerArn"`
 	// The default port on which this listener is listening.
+	// Experimental.
 	DefaultPort *float64 `json:"defaultPort" yaml:"defaultPort"`
 	// Security group of the load balancer this listener is associated with.
+	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
+	// Whether the imported security group allows all outbound traffic or not when imported using `securityGroupId`.
+	//
+	// Unless set to `false`, no egress rules will be added to the security group.
+	// Deprecated: use `securityGroup` instead.
+	SecurityGroupAllowsAllOutbound *bool `json:"securityGroupAllowsAllOutbound" yaml:"securityGroupAllowsAllOutbound"`
+	// Security group ID of the load balancer this listener is associated with.
+	// Deprecated: use `securityGroup` instead.
+	SecurityGroupId *string `json:"securityGroupId" yaml:"securityGroupId"`
 }
 
 // Add certificates to a listener.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
 //
+//   var applicationListener applicationListener
+//   var listenerCertificate listenerCertificate
+//   applicationListenerCertificate := elasticloadbalancingv2.NewApplicationListenerCertificate(this, jsii.String("MyApplicationListenerCertificate"), &applicationListenerCertificateProps{
+//   	listener: applicationListener,
+//
+//   	// the properties below are optional
+//   	certificateArns: []*string{
+//   		jsii.String("certificateArns"),
+//   	},
+//   	certificates: []iListenerCertificate{
+//   		listenerCertificate,
+//   	},
+//   })
+//
+// Experimental.
 type ApplicationListenerCertificate interface {
-	constructs.Construct
-	Node() constructs.Node
+	awscdk.Construct
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ApplicationListenerCertificate
 type jsiiProxy_ApplicationListenerCertificate struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
-func (j *jsiiProxy_ApplicationListenerCertificate) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ApplicationListenerCertificate) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -609,13 +1314,14 @@ func (j *jsiiProxy_ApplicationListenerCertificate) Node() constructs.Node {
 }
 
 
+// Experimental.
 func NewApplicationListenerCertificate(scope constructs.Construct, id *string, props *ApplicationListenerCertificateProps) ApplicationListenerCertificate {
 	_init_.Initialize()
 
 	j := jsiiProxy_ApplicationListenerCertificate{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationListenerCertificate",
+		"monocdk.aws_elasticloadbalancingv2.ApplicationListenerCertificate",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -623,27 +1329,26 @@ func NewApplicationListenerCertificate(scope constructs.Construct, id *string, p
 	return &j
 }
 
+// Experimental.
 func NewApplicationListenerCertificate_Override(a ApplicationListenerCertificate, scope constructs.Construct, id *string, props *ApplicationListenerCertificateProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationListenerCertificate",
+		"monocdk.aws_elasticloadbalancingv2.ApplicationListenerCertificate",
 		[]interface{}{scope, id, props},
 		a,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func ApplicationListenerCertificate_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationListenerCertificate",
+		"monocdk.aws_elasticloadbalancingv2.ApplicationListenerCertificate",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -652,7 +1357,51 @@ func ApplicationListenerCertificate_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
+func (a *jsiiProxy_ApplicationListenerCertificate) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (a *jsiiProxy_ApplicationListenerCertificate) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (a *jsiiProxy_ApplicationListenerCertificate) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_ApplicationListenerCertificate) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (a *jsiiProxy_ApplicationListenerCertificate) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (a *jsiiProxy_ApplicationListenerCertificate) ToString() *string {
 	var returns *string
 
@@ -666,44 +1415,121 @@ func (a *jsiiProxy_ApplicationListenerCertificate) ToString() *string {
 	return returns
 }
 
+func (a *jsiiProxy_ApplicationListenerCertificate) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties for adding a set of certificates to a listener.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
 //
+//   var applicationListener applicationListener
+//   var listenerCertificate listenerCertificate
+//   applicationListenerCertificateProps := &applicationListenerCertificateProps{
+//   	listener: applicationListener,
+//
+//   	// the properties below are optional
+//   	certificateArns: []*string{
+//   		jsii.String("certificateArns"),
+//   	},
+//   	certificates: []iListenerCertificate{
+//   		listenerCertificate,
+//   	},
+//   }
+//
+// Experimental.
 type ApplicationListenerCertificateProps struct {
 	// The listener to attach the rule to.
+	// Experimental.
 	Listener IApplicationListener `json:"listener" yaml:"listener"`
+	// ARNs of certificates to attach.
+	//
+	// Duplicates are not allowed.
+	// Deprecated: Use `certificates` instead.
+	CertificateArns *[]*string `json:"certificateArns" yaml:"certificateArns"`
 	// Certificates to attach.
 	//
 	// Duplicates are not allowed.
+	// Experimental.
 	Certificates *[]IListenerCertificate `json:"certificates" yaml:"certificates"`
 }
 
 // Options for ApplicationListener lookup.
 //
-// TODO: EXAMPLE
+// Example:
+//   listener := elbv2.applicationListener.fromLookup(this, jsii.String("ALBListener"), &applicationListenerLookupOptions{
+//   	loadBalancerArn: jsii.String("arn:aws:elasticloadbalancing:us-east-2:123456789012:loadbalancer/app/my-load-balancer/1234567890123456"),
+//   	listenerProtocol: elbv2.applicationProtocol_HTTPS,
+//   	listenerPort: jsii.Number(443),
+//   })
 //
+// Experimental.
 type ApplicationListenerLookupOptions struct {
 	// Filter listeners by listener port.
+	// Experimental.
 	ListenerPort *float64 `json:"listenerPort" yaml:"listenerPort"`
 	// Filter listeners by associated load balancer arn.
+	// Experimental.
 	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Filter listeners by associated load balancer tags.
+	// Experimental.
 	LoadBalancerTags *map[string]*string `json:"loadBalancerTags" yaml:"loadBalancerTags"`
 	// ARN of the listener to look up.
+	// Experimental.
 	ListenerArn *string `json:"listenerArn" yaml:"listenerArn"`
 	// Filter listeners by listener protocol.
+	// Experimental.
 	ListenerProtocol ApplicationProtocol `json:"listenerProtocol" yaml:"listenerProtocol"`
 }
 
 // Properties for defining a standalone ApplicationListener.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
 //
+//   var applicationLoadBalancer applicationLoadBalancer
+//   var applicationTargetGroup applicationTargetGroup
+//   var listenerAction listenerAction
+//   var listenerCertificate listenerCertificate
+//   applicationListenerProps := &applicationListenerProps{
+//   	loadBalancer: applicationLoadBalancer,
+//
+//   	// the properties below are optional
+//   	certificateArns: []*string{
+//   		jsii.String("certificateArns"),
+//   	},
+//   	certificates: []iListenerCertificate{
+//   		listenerCertificate,
+//   	},
+//   	defaultAction: listenerAction,
+//   	defaultTargetGroups: []iApplicationTargetGroup{
+//   		applicationTargetGroup,
+//   	},
+//   	open: jsii.Boolean(false),
+//   	port: jsii.Number(123),
+//   	protocol: elasticloadbalancingv2.applicationProtocol_HTTP,
+//   	sslPolicy: elasticloadbalancingv2.sslPolicy_RECOMMENDED,
+//   }
+//
+// Experimental.
 type ApplicationListenerProps struct {
+	// The certificates to use on this listener.
+	// Deprecated: Use the `certificates` property instead.
+	CertificateArns *[]*string `json:"certificateArns" yaml:"certificateArns"`
 	// Certificate list of ACM cert ARNs.
 	//
 	// You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
+	// Experimental.
 	Certificates *[]IListenerCertificate `json:"certificates" yaml:"certificates"`
 	// Default action to take for requests to this listener.
 	//
@@ -713,6 +1539,7 @@ type ApplicationListenerProps struct {
 	// See the `ListenerAction` class for all options.
 	//
 	// Cannot be specified together with `defaultTargetGroups`.
+	// Experimental.
 	DefaultAction ListenerAction `json:"defaultAction" yaml:"defaultAction"`
 	// Default target groups to load balance to.
 	//
@@ -721,6 +1548,7 @@ type ApplicationListenerProps struct {
 	// either `defaultAction` or `addAction()`.
 	//
 	// Cannot be specified together with `defaultAction`.
+	// Experimental.
 	DefaultTargetGroups *[]IApplicationTargetGroup `json:"defaultTargetGroups" yaml:"defaultTargetGroups"`
 	// Allow anyone to connect to the load balancer on the listener port.
 	//
@@ -731,33 +1559,147 @@ type ApplicationListenerProps struct {
 	// If you want to be more selective about who can access this load
 	// balancer, set this to `false` and use the listener's `connections`
 	// object to selectively grant access to the load balancer on the listener port.
+	// Experimental.
 	Open *bool `json:"open" yaml:"open"`
 	// The port on which the listener listens for requests.
+	// Experimental.
 	Port *float64 `json:"port" yaml:"port"`
 	// The protocol to use.
+	// Experimental.
 	Protocol ApplicationProtocol `json:"protocol" yaml:"protocol"`
 	// The security policy that defines which ciphers and protocols are supported.
+	// Experimental.
 	SslPolicy SslPolicy `json:"sslPolicy" yaml:"sslPolicy"`
 	// The load balancer to attach this listener to.
+	// Experimental.
 	LoadBalancer IApplicationLoadBalancer `json:"loadBalancer" yaml:"loadBalancer"`
 }
 
 // Define a new listener rule.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
 //
+//   var applicationListener applicationListener
+//   var applicationTargetGroup applicationTargetGroup
+//   var listenerAction listenerAction
+//   var listenerCondition listenerCondition
+//   applicationListenerRule := elasticloadbalancingv2.NewApplicationListenerRule(this, jsii.String("MyApplicationListenerRule"), &applicationListenerRuleProps{
+//   	listener: applicationListener,
+//   	priority: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	action: listenerAction,
+//   	conditions: []*listenerCondition{
+//   		listenerCondition,
+//   	},
+//   	fixedResponse: &fixedResponse{
+//   		statusCode: jsii.String("statusCode"),
+//
+//   		// the properties below are optional
+//   		contentType: elasticloadbalancingv2.contentType_TEXT_PLAIN,
+//   		messageBody: jsii.String("messageBody"),
+//   	},
+//   	hostHeader: jsii.String("hostHeader"),
+//   	pathPattern: jsii.String("pathPattern"),
+//   	pathPatterns: []*string{
+//   		jsii.String("pathPatterns"),
+//   	},
+//   	redirectResponse: &redirectResponse{
+//   		statusCode: jsii.String("statusCode"),
+//
+//   		// the properties below are optional
+//   		host: jsii.String("host"),
+//   		path: jsii.String("path"),
+//   		port: jsii.String("port"),
+//   		protocol: jsii.String("protocol"),
+//   		query: jsii.String("query"),
+//   	},
+//   	targetGroups: []iApplicationTargetGroup{
+//   		applicationTargetGroup,
+//   	},
+//   })
+//
+// Experimental.
 type ApplicationListenerRule interface {
-	constructs.Construct
+	awscdk.Construct
+	// The ARN of this rule.
+	// Experimental.
 	ListenerRuleArn() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Add a non-standard condition to this rule.
+	// Experimental.
 	AddCondition(condition ListenerCondition)
+	// Add a fixed response.
+	// Deprecated: Use configureAction instead.
+	AddFixedResponse(fixedResponse *FixedResponse)
+	// Add a redirect response.
+	// Deprecated: Use configureAction instead.
+	AddRedirectResponse(redirectResponse *RedirectResponse)
+	// Add a TargetGroup to load balance to.
+	// Deprecated: Use configureAction instead.
+	AddTargetGroup(targetGroup IApplicationTargetGroup)
+	// Configure the action to perform for this rule.
+	// Experimental.
 	ConfigureAction(action ListenerAction)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Add a non-standard condition to this rule.
+	//
+	// If the condition conflicts with an already set condition, it will be overwritten by the one you specified.
+	// Deprecated: use `addCondition` instead.
+	SetCondition(field *string, values *[]*string)
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the rule.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ApplicationListenerRule
 type jsiiProxy_ApplicationListenerRule struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
 func (j *jsiiProxy_ApplicationListenerRule) ListenerRuleArn() *string {
@@ -770,8 +1712,8 @@ func (j *jsiiProxy_ApplicationListenerRule) ListenerRuleArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ApplicationListenerRule) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ApplicationListenerRule) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -781,13 +1723,14 @@ func (j *jsiiProxy_ApplicationListenerRule) Node() constructs.Node {
 }
 
 
+// Experimental.
 func NewApplicationListenerRule(scope constructs.Construct, id *string, props *ApplicationListenerRuleProps) ApplicationListenerRule {
 	_init_.Initialize()
 
 	j := jsiiProxy_ApplicationListenerRule{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationListenerRule",
+		"monocdk.aws_elasticloadbalancingv2.ApplicationListenerRule",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -795,27 +1738,26 @@ func NewApplicationListenerRule(scope constructs.Construct, id *string, props *A
 	return &j
 }
 
+// Experimental.
 func NewApplicationListenerRule_Override(a ApplicationListenerRule, scope constructs.Construct, id *string, props *ApplicationListenerRuleProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationListenerRule",
+		"monocdk.aws_elasticloadbalancingv2.ApplicationListenerRule",
 		[]interface{}{scope, id, props},
 		a,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func ApplicationListenerRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationListenerRule",
+		"monocdk.aws_elasticloadbalancingv2.ApplicationListenerRule",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -824,7 +1766,6 @@ func ApplicationListenerRule_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Add a non-standard condition to this rule.
 func (a *jsiiProxy_ApplicationListenerRule) AddCondition(condition ListenerCondition) {
 	_jsii_.InvokeVoid(
 		a,
@@ -833,7 +1774,30 @@ func (a *jsiiProxy_ApplicationListenerRule) AddCondition(condition ListenerCondi
 	)
 }
 
-// Configure the action to perform for this rule.
+func (a *jsiiProxy_ApplicationListenerRule) AddFixedResponse(fixedResponse *FixedResponse) {
+	_jsii_.InvokeVoid(
+		a,
+		"addFixedResponse",
+		[]interface{}{fixedResponse},
+	)
+}
+
+func (a *jsiiProxy_ApplicationListenerRule) AddRedirectResponse(redirectResponse *RedirectResponse) {
+	_jsii_.InvokeVoid(
+		a,
+		"addRedirectResponse",
+		[]interface{}{redirectResponse},
+	)
+}
+
+func (a *jsiiProxy_ApplicationListenerRule) AddTargetGroup(targetGroup IApplicationTargetGroup) {
+	_jsii_.InvokeVoid(
+		a,
+		"addTargetGroup",
+		[]interface{}{targetGroup},
+	)
+}
+
 func (a *jsiiProxy_ApplicationListenerRule) ConfigureAction(action ListenerAction) {
 	_jsii_.InvokeVoid(
 		a,
@@ -842,7 +1806,59 @@ func (a *jsiiProxy_ApplicationListenerRule) ConfigureAction(action ListenerActio
 	)
 }
 
-// Returns a string representation of this construct.
+func (a *jsiiProxy_ApplicationListenerRule) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (a *jsiiProxy_ApplicationListenerRule) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (a *jsiiProxy_ApplicationListenerRule) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_ApplicationListenerRule) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (a *jsiiProxy_ApplicationListenerRule) SetCondition(field *string, values *[]*string) {
+	_jsii_.InvokeVoid(
+		a,
+		"setCondition",
+		[]interface{}{field, values},
+	)
+}
+
+func (a *jsiiProxy_ApplicationListenerRule) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (a *jsiiProxy_ApplicationListenerRule) ToString() *string {
 	var returns *string
 
@@ -856,91 +1872,405 @@ func (a *jsiiProxy_ApplicationListenerRule) ToString() *string {
 	return returns
 }
 
+func (a *jsiiProxy_ApplicationListenerRule) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties for defining a listener rule.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
 //
+//   var applicationListener applicationListener
+//   var applicationTargetGroup applicationTargetGroup
+//   var listenerAction listenerAction
+//   var listenerCondition listenerCondition
+//   applicationListenerRuleProps := &applicationListenerRuleProps{
+//   	listener: applicationListener,
+//   	priority: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	action: listenerAction,
+//   	conditions: []*listenerCondition{
+//   		listenerCondition,
+//   	},
+//   	fixedResponse: &fixedResponse{
+//   		statusCode: jsii.String("statusCode"),
+//
+//   		// the properties below are optional
+//   		contentType: elasticloadbalancingv2.contentType_TEXT_PLAIN,
+//   		messageBody: jsii.String("messageBody"),
+//   	},
+//   	hostHeader: jsii.String("hostHeader"),
+//   	pathPattern: jsii.String("pathPattern"),
+//   	pathPatterns: []*string{
+//   		jsii.String("pathPatterns"),
+//   	},
+//   	redirectResponse: &redirectResponse{
+//   		statusCode: jsii.String("statusCode"),
+//
+//   		// the properties below are optional
+//   		host: jsii.String("host"),
+//   		path: jsii.String("path"),
+//   		port: jsii.String("port"),
+//   		protocol: jsii.String("protocol"),
+//   		query: jsii.String("query"),
+//   	},
+//   	targetGroups: []iApplicationTargetGroup{
+//   		applicationTargetGroup,
+//   	},
+//   }
+//
+// Experimental.
 type ApplicationListenerRuleProps struct {
 	// Priority of the rule.
 	//
 	// The rule with the lowest priority will be used for every request.
 	//
 	// Priorities must be unique.
+	// Experimental.
 	Priority *float64 `json:"priority" yaml:"priority"`
 	// Action to perform when requests are received.
 	//
 	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
+	// Experimental.
 	Action ListenerAction `json:"action" yaml:"action"`
 	// Rule applies if matches the conditions.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
 	//
+	// Experimental.
 	Conditions *[]ListenerCondition `json:"conditions" yaml:"conditions"`
+	// Fixed response to return.
+	//
+	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
+	// Deprecated: Use `action` instead.
+	FixedResponse *FixedResponse `json:"fixedResponse" yaml:"fixedResponse"`
+	// Rule applies if the requested host matches the indicated host.
+	//
+	// May contain up to three '*' wildcards.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
+	//
+	// Deprecated: Use `conditions` instead.
+	HostHeader *string `json:"hostHeader" yaml:"hostHeader"`
+	// Rule applies if the requested path matches the given path pattern.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
+	//
+	// Deprecated: Use `conditions` instead.
+	PathPattern *string `json:"pathPattern" yaml:"pathPattern"`
+	// Rule applies if the requested path matches any of the given patterns.
+	//
+	// Paths may contain up to three '*' wildcards.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
+	//
+	// Deprecated: Use `conditions` instead.
+	PathPatterns *[]*string `json:"pathPatterns" yaml:"pathPatterns"`
+	// Redirect response to return.
+	//
+	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
+	// Deprecated: Use `action` instead.
+	RedirectResponse *RedirectResponse `json:"redirectResponse" yaml:"redirectResponse"`
 	// Target groups to forward requests to.
 	//
 	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
 	//
 	// Implies a `forward` action.
+	// Experimental.
 	TargetGroups *[]IApplicationTargetGroup `json:"targetGroups" yaml:"targetGroups"`
 	// The listener to attach the rule to.
+	// Experimental.
 	Listener IApplicationListener `json:"listener" yaml:"listener"`
 }
 
 // Define an Application Load Balancer.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpAlbIntegration awscdk.HttpAlbIntegration
 //
+//   vpc := ec2.NewVpc(this, jsii.String("VPC"))
+//   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("lb"), &applicationLoadBalancerProps{
+//   	vpc: vpc,
+//   })
+//   listener := lb.addListener(jsii.String("listener"), &baseApplicationListenerProps{
+//   	port: jsii.Number(80),
+//   })
+//   listener.addTargets(jsii.String("target"), &addApplicationTargetsProps{
+//   	port: jsii.Number(80),
+//   })
+//
+//   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
+//   	defaultIntegration: NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener),
+//   })
+//
+// Experimental.
 type ApplicationLoadBalancer interface {
 	BaseLoadBalancer
 	IApplicationLoadBalancer
+	// The network connections associated with this resource.
+	// Experimental.
 	Connections() awsec2.Connections
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
+	// The IP Address Type for this load balancer.
+	// Experimental.
 	IpAddressType() IpAddressType
+	// A list of listeners that have been added to the load balancer.
+	//
+	// This list is only valid for owned constructs.
+	// Experimental.
 	Listeners() *[]ApplicationListener
+	// The ARN of this load balancer.
+	//
+	// Example value: `arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-internal-load-balancer/50dc6c495c0c9188`.
+	// Experimental.
 	LoadBalancerArn() *string
+	// The canonical hosted zone ID of this load balancer.
+	//
+	// Example value: `Z2P70J7EXAMPLE`.
+	// Experimental.
 	LoadBalancerCanonicalHostedZoneId() *string
+	// The DNS name of this load balancer.
+	//
+	// Example value: `my-load-balancer-424835706.us-west-2.elb.amazonaws.com`
+	// Experimental.
 	LoadBalancerDnsName() *string
+	// The full name of this load balancer.
+	//
+	// Example value: `app/my-load-balancer/50dc6c495c0c9188`.
+	// Experimental.
 	LoadBalancerFullName() *string
+	// The name of this load balancer.
+	//
+	// Example value: `my-load-balancer`.
+	// Experimental.
 	LoadBalancerName() *string
+	// Experimental.
 	LoadBalancerSecurityGroups() *[]*string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
+	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
+	// The VPC this load balancer has been created in.
+	//
+	// This property is always defined (not `null` or `undefined`) for sub-classes of `BaseLoadBalancer`.
+	// Experimental.
 	Vpc() awsec2.IVpc
+	// Add a new listener to this load balancer.
+	// Experimental.
 	AddListener(id *string, props *BaseApplicationListenerProps) ApplicationListener
+	// Add a redirection listener to this load balancer.
+	// Experimental.
 	AddRedirect(props *ApplicationLoadBalancerRedirectConfig) ApplicationListener
+	// Add a security group to this load balancer.
+	// Experimental.
 	AddSecurityGroup(securityGroup awsec2.ISecurityGroup)
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
 	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Enable access logging for this load balancer.
+	//
+	// A region must be specified on the stack containing the load balancer; you cannot enable logging on
+	// environment-agnostic stacks. See https://docs.aws.amazon.com/cdk/latest/guide/environments.html
+	// Experimental.
 	LogAccessLogs(bucket awss3.IBucket, prefix *string)
+	// Return the given named metric for this Application Load Balancer.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of concurrent TCP connections active from clients to the load balancer and from the load balancer to targets.
+	// Experimental.
 	MetricActiveConnectionCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of TLS connections initiated by the client that did not establish a session with the load balancer.
+	//
+	// Possible causes include a
+	// mismatch of ciphers or protocols.
+	// Experimental.
 	MetricClientTlsNegotiationErrorCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of load balancer capacity units (LCU) used by your load balancer.
+	// Experimental.
 	MetricConsumedLCUs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of user authentications that could not be completed.
+	//
+	// Because an authenticate action was misconfigured, the load balancer
+	// couldn't establish a connection with the IdP, or the load balancer
+	// couldn't complete the authentication flow due to an internal error.
+	// Experimental.
 	MetricElbAuthError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of user authentications that could not be completed because the IdP denied access to the user or an authorization code was used more than once.
+	// Experimental.
 	MetricElbAuthFailure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The time elapsed, in milliseconds, to query the IdP for the ID token and user info.
+	//
+	// If one or more of these operations fail, this is the time to failure.
+	// Experimental.
 	MetricElbAuthLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of authenticate actions that were successful.
+	//
+	// This metric is incremented at the end of the authentication workflow,
+	// after the load balancer has retrieved the user claims from the IdP.
+	// Experimental.
 	MetricElbAuthSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of HTTP 3xx/4xx/5xx codes that originate from the load balancer.
+	//
+	// This does not include any response codes generated by the targets.
+	// Experimental.
 	MetricHttpCodeElb(code HttpCodeElb, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of HTTP 2xx/3xx/4xx/5xx response codes generated by all targets in the load balancer.
+	//
+	// This does not include any response codes generated by the load balancer.
+	// Experimental.
 	MetricHttpCodeTarget(code HttpCodeTarget, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of fixed-response actions that were successful.
+	// Experimental.
 	MetricHttpFixedResponseCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of redirect actions that were successful.
+	// Experimental.
 	MetricHttpRedirectCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of redirect actions that couldn't be completed because the URL in the response location header is larger than 8K.
+	// Experimental.
 	MetricHttpRedirectUrlLimitExceededCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of bytes processed by the load balancer over IPv6.
+	// Experimental.
 	MetricIpv6ProcessedBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of IPv6 requests received by the load balancer.
+	// Experimental.
 	MetricIpv6RequestCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of new TCP connections established from clients to the load balancer and from the load balancer to targets.
+	// Experimental.
 	MetricNewConnectionCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of bytes processed by the load balancer over IPv4 and IPv6.
+	// Experimental.
 	MetricProcessedBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of connections that were rejected because the load balancer had reached its maximum number of connections.
+	// Experimental.
 	MetricRejectedConnectionCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of requests processed over IPv4 and IPv6.
+	//
+	// This count includes only the requests with a response generated by a target of the load balancer.
+	// Experimental.
 	MetricRequestCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of rules processed by the load balancer given a request rate averaged over an hour.
+	// Experimental.
 	MetricRuleEvaluations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of connections that were not successfully established between the load balancer and target.
+	// Experimental.
 	MetricTargetConnectionErrorCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The time elapsed, in seconds, after the request leaves the load balancer until a response from the target is received.
+	// Experimental.
 	MetricTargetResponseTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of TLS connections initiated by the load balancer that did not establish a session with the target.
+	//
+	// Possible causes include a mismatch of ciphers or protocols.
+	// Experimental.
 	MetricTargetTLSNegotiationErrorCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Remove an attribute from the load balancer.
+	// Experimental.
 	RemoveAttribute(key *string)
+	// Set a non-standard attribute on the load balancer.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#load-balancer-attributes
+	//
+	// Experimental.
 	SetAttribute(key *string, value *string)
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
-	ValidateLoadBalancer() *[]*string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ApplicationLoadBalancer
@@ -1049,8 +2379,8 @@ func (j *jsiiProxy_ApplicationLoadBalancer) LoadBalancerSecurityGroups() *[]*str
 	return returns
 }
 
-func (j *jsiiProxy_ApplicationLoadBalancer) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ApplicationLoadBalancer) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1090,13 +2420,14 @@ func (j *jsiiProxy_ApplicationLoadBalancer) Vpc() awsec2.IVpc {
 }
 
 
+// Experimental.
 func NewApplicationLoadBalancer(scope constructs.Construct, id *string, props *ApplicationLoadBalancerProps) ApplicationLoadBalancer {
 	_init_.Initialize()
 
 	j := jsiiProxy_ApplicationLoadBalancer{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer",
+		"monocdk.aws_elasticloadbalancingv2.ApplicationLoadBalancer",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1104,24 +2435,26 @@ func NewApplicationLoadBalancer(scope constructs.Construct, id *string, props *A
 	return &j
 }
 
+// Experimental.
 func NewApplicationLoadBalancer_Override(a ApplicationLoadBalancer, scope constructs.Construct, id *string, props *ApplicationLoadBalancerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer",
+		"monocdk.aws_elasticloadbalancingv2.ApplicationLoadBalancer",
 		[]interface{}{scope, id, props},
 		a,
 	)
 }
 
 // Import an existing Application Load Balancer.
+// Experimental.
 func ApplicationLoadBalancer_FromApplicationLoadBalancerAttributes(scope constructs.Construct, id *string, attrs *ApplicationLoadBalancerAttributes) IApplicationLoadBalancer {
 	_init_.Initialize()
 
 	var returns IApplicationLoadBalancer
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer",
+		"monocdk.aws_elasticloadbalancingv2.ApplicationLoadBalancer",
 		"fromApplicationLoadBalancerAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -1131,13 +2464,14 @@ func ApplicationLoadBalancer_FromApplicationLoadBalancerAttributes(scope constru
 }
 
 // Look up an application load balancer.
+// Experimental.
 func ApplicationLoadBalancer_FromLookup(scope constructs.Construct, id *string, options *ApplicationLoadBalancerLookupOptions) IApplicationLoadBalancer {
 	_init_.Initialize()
 
 	var returns IApplicationLoadBalancer
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer",
+		"monocdk.aws_elasticloadbalancingv2.ApplicationLoadBalancer",
 		"fromLookup",
 		[]interface{}{scope, id, options},
 		&returns,
@@ -1146,17 +2480,15 @@ func ApplicationLoadBalancer_FromLookup(scope constructs.Construct, id *string, 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func ApplicationLoadBalancer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer",
+		"monocdk.aws_elasticloadbalancingv2.ApplicationLoadBalancer",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1166,13 +2498,14 @@ func ApplicationLoadBalancer_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func ApplicationLoadBalancer_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func ApplicationLoadBalancer_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer",
+		"monocdk.aws_elasticloadbalancingv2.ApplicationLoadBalancer",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -1181,7 +2514,6 @@ func ApplicationLoadBalancer_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Add a new listener to this load balancer.
 func (a *jsiiProxy_ApplicationLoadBalancer) AddListener(id *string, props *BaseApplicationListenerProps) ApplicationListener {
 	var returns ApplicationListener
 
@@ -1195,7 +2527,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) AddListener(id *string, props *BaseA
 	return returns
 }
 
-// Add a redirection listener to this load balancer.
 func (a *jsiiProxy_ApplicationLoadBalancer) AddRedirect(props *ApplicationLoadBalancerRedirectConfig) ApplicationListener {
 	var returns ApplicationListener
 
@@ -1209,7 +2540,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) AddRedirect(props *ApplicationLoadBa
 	return returns
 }
 
-// Add a security group to this load balancer.
 func (a *jsiiProxy_ApplicationLoadBalancer) AddSecurityGroup(securityGroup awsec2.ISecurityGroup) {
 	_jsii_.InvokeVoid(
 		a,
@@ -1218,15 +2548,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) AddSecurityGroup(securityGroup awsec
 	)
 }
 
-// Apply the given removal policy to this resource.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (a *jsiiProxy_ApplicationLoadBalancer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		a,
@@ -1248,12 +2569,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) GeneratePhysicalName() *string {
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
-//
-// Normally, this token will resolve to `arnAttr`, but if the resource is
-// referenced across environments, `arnComponents` will be used to synthesize
-// a concrete ARN with the resource's physical name. Make sure to reference
-// `this.physicalName` in `arnComponents`.
 func (a *jsiiProxy_ApplicationLoadBalancer) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -1267,11 +2582,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) GetResourceArnAttribute(arnAttr *str
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
-//
-// Normally, this token will resolve to `nameAttr`, but if the resource is
-// referenced across environments, it will be resolved to `this.physicalName`,
-// which will be a concrete name.
 func (a *jsiiProxy_ApplicationLoadBalancer) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -1285,10 +2595,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) GetResourceNameAttribute(nameAttr *s
 	return returns
 }
 
-// Enable access logging for this load balancer.
-//
-// A region must be specified on the stack containing the load balancer; you cannot enable logging on
-// environment-agnostic stacks. See https://docs.aws.amazon.com/cdk/latest/guide/environments.html
 func (a *jsiiProxy_ApplicationLoadBalancer) LogAccessLogs(bucket awss3.IBucket, prefix *string) {
 	_jsii_.InvokeVoid(
 		a,
@@ -1297,7 +2603,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) LogAccessLogs(bucket awss3.IBucket, 
 	)
 }
 
-// Return the given named metric for this Application Load Balancer.
 func (a *jsiiProxy_ApplicationLoadBalancer) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1311,7 +2616,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) Metric(metricName *string, props *aw
 	return returns
 }
 
-// The total number of concurrent TCP connections active from clients to the load balancer and from the load balancer to targets.
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricActiveConnectionCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1325,10 +2629,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricActiveConnectionCount(props *a
 	return returns
 }
 
-// The number of TLS connections initiated by the client that did not establish a session with the load balancer.
-//
-// Possible causes include a
-// mismatch of ciphers or protocols.
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricClientTlsNegotiationErrorCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1342,7 +2642,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricClientTlsNegotiationErrorCount
 	return returns
 }
 
-// The number of load balancer capacity units (LCU) used by your load balancer.
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricConsumedLCUs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1356,11 +2655,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricConsumedLCUs(props *awscloudwa
 	return returns
 }
 
-// The number of user authentications that could not be completed.
-//
-// Because an authenticate action was misconfigured, the load balancer
-// couldn't establish a connection with the IdP, or the load balancer
-// couldn't complete the authentication flow due to an internal error.
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricElbAuthError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1374,7 +2668,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricElbAuthError(props *awscloudwa
 	return returns
 }
 
-// The number of user authentications that could not be completed because the IdP denied access to the user or an authorization code was used more than once.
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricElbAuthFailure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1388,9 +2681,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricElbAuthFailure(props *awscloud
 	return returns
 }
 
-// The time elapsed, in milliseconds, to query the IdP for the ID token and user info.
-//
-// If one or more of these operations fail, this is the time to failure.
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricElbAuthLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1404,10 +2694,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricElbAuthLatency(props *awscloud
 	return returns
 }
 
-// The number of authenticate actions that were successful.
-//
-// This metric is incremented at the end of the authentication workflow,
-// after the load balancer has retrieved the user claims from the IdP.
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricElbAuthSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1421,9 +2707,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricElbAuthSuccess(props *awscloud
 	return returns
 }
 
-// The number of HTTP 3xx/4xx/5xx codes that originate from the load balancer.
-//
-// This does not include any response codes generated by the targets.
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricHttpCodeElb(code HttpCodeElb, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1437,9 +2720,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricHttpCodeElb(code HttpCodeElb, 
 	return returns
 }
 
-// The number of HTTP 2xx/3xx/4xx/5xx response codes generated by all targets in the load balancer.
-//
-// This does not include any response codes generated by the load balancer.
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricHttpCodeTarget(code HttpCodeTarget, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1453,7 +2733,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricHttpCodeTarget(code HttpCodeTa
 	return returns
 }
 
-// The number of fixed-response actions that were successful.
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricHttpFixedResponseCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1467,7 +2746,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricHttpFixedResponseCount(props *
 	return returns
 }
 
-// The number of redirect actions that were successful.
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricHttpRedirectCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1481,7 +2759,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricHttpRedirectCount(props *awscl
 	return returns
 }
 
-// The number of redirect actions that couldn't be completed because the URL in the response location header is larger than 8K.
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricHttpRedirectUrlLimitExceededCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1495,7 +2772,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricHttpRedirectUrlLimitExceededCo
 	return returns
 }
 
-// The total number of bytes processed by the load balancer over IPv6.
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricIpv6ProcessedBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1509,7 +2785,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricIpv6ProcessedBytes(props *awsc
 	return returns
 }
 
-// The number of IPv6 requests received by the load balancer.
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricIpv6RequestCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1523,7 +2798,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricIpv6RequestCount(props *awsclo
 	return returns
 }
 
-// The total number of new TCP connections established from clients to the load balancer and from the load balancer to targets.
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricNewConnectionCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1537,7 +2811,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricNewConnectionCount(props *awsc
 	return returns
 }
 
-// The total number of bytes processed by the load balancer over IPv4 and IPv6.
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricProcessedBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1551,7 +2824,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricProcessedBytes(props *awscloud
 	return returns
 }
 
-// The number of connections that were rejected because the load balancer had reached its maximum number of connections.
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricRejectedConnectionCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1565,9 +2837,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricRejectedConnectionCount(props 
 	return returns
 }
 
-// The number of requests processed over IPv4 and IPv6.
-//
-// This count includes only the requests with a response generated by a target of the load balancer.
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricRequestCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1581,7 +2850,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricRequestCount(props *awscloudwa
 	return returns
 }
 
-// The number of rules processed by the load balancer given a request rate averaged over an hour.
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricRuleEvaluations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1595,7 +2863,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricRuleEvaluations(props *awsclou
 	return returns
 }
 
-// The number of connections that were not successfully established between the load balancer and target.
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricTargetConnectionErrorCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1609,7 +2876,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricTargetConnectionErrorCount(pro
 	return returns
 }
 
-// The time elapsed, in seconds, after the request leaves the load balancer until a response from the target is received.
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricTargetResponseTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1623,9 +2889,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricTargetResponseTime(props *awsc
 	return returns
 }
 
-// The number of TLS connections initiated by the load balancer that did not establish a session with the target.
-//
-// Possible causes include a mismatch of ciphers or protocols.
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricTargetTLSNegotiationErrorCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1639,7 +2902,43 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricTargetTLSNegotiationErrorCount
 	return returns
 }
 
-// Remove an attribute from the load balancer.
+func (a *jsiiProxy_ApplicationLoadBalancer) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (a *jsiiProxy_ApplicationLoadBalancer) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (a *jsiiProxy_ApplicationLoadBalancer) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_ApplicationLoadBalancer) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 func (a *jsiiProxy_ApplicationLoadBalancer) RemoveAttribute(key *string) {
 	_jsii_.InvokeVoid(
 		a,
@@ -1648,9 +2947,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) RemoveAttribute(key *string) {
 	)
 }
 
-// Set a non-standard attribute on the load balancer.
-// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#load-balancer-attributes
-//
 func (a *jsiiProxy_ApplicationLoadBalancer) SetAttribute(key *string, value *string) {
 	_jsii_.InvokeVoid(
 		a,
@@ -1659,7 +2955,14 @@ func (a *jsiiProxy_ApplicationLoadBalancer) SetAttribute(key *string, value *str
 	)
 }
 
-// Returns a string representation of this construct.
+func (a *jsiiProxy_ApplicationLoadBalancer) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (a *jsiiProxy_ApplicationLoadBalancer) ToString() *string {
 	var returns *string
 
@@ -1673,12 +2976,12 @@ func (a *jsiiProxy_ApplicationLoadBalancer) ToString() *string {
 	return returns
 }
 
-func (a *jsiiProxy_ApplicationLoadBalancer) ValidateLoadBalancer() *[]*string {
+func (a *jsiiProxy_ApplicationLoadBalancer) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		a,
-		"validateLoadBalancer",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1688,67 +2991,135 @@ func (a *jsiiProxy_ApplicationLoadBalancer) ValidateLoadBalancer() *[]*string {
 
 // Properties to reference an existing load balancer.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
 //
+//   var vpc vpc
+//   applicationLoadBalancerAttributes := &applicationLoadBalancerAttributes{
+//   	loadBalancerArn: jsii.String("loadBalancerArn"),
+//   	securityGroupId: jsii.String("securityGroupId"),
+//
+//   	// the properties below are optional
+//   	loadBalancerCanonicalHostedZoneId: jsii.String("loadBalancerCanonicalHostedZoneId"),
+//   	loadBalancerDnsName: jsii.String("loadBalancerDnsName"),
+//   	securityGroupAllowsAllOutbound: jsii.Boolean(false),
+//   	vpc: vpc,
+//   }
+//
+// Experimental.
 type ApplicationLoadBalancerAttributes struct {
 	// ARN of the load balancer.
+	// Experimental.
 	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// ID of the load balancer's security group.
+	// Experimental.
 	SecurityGroupId *string `json:"securityGroupId" yaml:"securityGroupId"`
 	// The canonical hosted zone ID of this load balancer.
+	// Experimental.
 	LoadBalancerCanonicalHostedZoneId *string `json:"loadBalancerCanonicalHostedZoneId" yaml:"loadBalancerCanonicalHostedZoneId"`
 	// The DNS name of this load balancer.
+	// Experimental.
 	LoadBalancerDnsName *string `json:"loadBalancerDnsName" yaml:"loadBalancerDnsName"`
 	// Whether the security group allows all outbound traffic or not.
 	//
 	// Unless set to `false`, no egress rules will be added to the security group.
+	// Experimental.
 	SecurityGroupAllowsAllOutbound *bool `json:"securityGroupAllowsAllOutbound" yaml:"securityGroupAllowsAllOutbound"`
 	// The VPC this load balancer has been created in, if available.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
 // Options for looking up an ApplicationLoadBalancer.
 //
-// TODO: EXAMPLE
+// Example:
+//   loadBalancer := elbv2.applicationLoadBalancer.fromLookup(this, jsii.String("ALB"), &applicationLoadBalancerLookupOptions{
+//   	loadBalancerArn: jsii.String("arn:aws:elasticloadbalancing:us-east-2:123456789012:loadbalancer/app/my-load-balancer/1234567890123456"),
+//   })
 //
+// Experimental.
 type ApplicationLoadBalancerLookupOptions struct {
 	// Find by load balancer's ARN.
+	// Experimental.
 	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Match load balancer tags.
+	// Experimental.
 	LoadBalancerTags *map[string]*string `json:"loadBalancerTags" yaml:"loadBalancerTags"`
 }
 
 // Properties for defining an Application Load Balancer.
 //
-// TODO: EXAMPLE
+// Example:
+//   var cluster cluster
+//   var taskDefinition taskDefinition
+//   var vpc vpc
+//   service := ecs.NewFargateService(this, jsii.String("Service"), &fargateServiceProps{
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   })
 //
+//   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &applicationLoadBalancerProps{
+//   	vpc: vpc,
+//   	internetFacing: jsii.Boolean(true),
+//   })
+//   listener := lb.addListener(jsii.String("Listener"), &baseApplicationListenerProps{
+//   	port: jsii.Number(80),
+//   })
+//   service.registerLoadBalancerTargets(&ecsTarget{
+//   	containerName: jsii.String("web"),
+//   	containerPort: jsii.Number(80),
+//   	newTargetGroupId: jsii.String("ECS"),
+//   	listener: ecs.listenerConfig.applicationListener(listener, &addApplicationTargetsProps{
+//   		protocol: elbv2.applicationProtocol_HTTPS,
+//   	}),
+//   })
+//
+// Experimental.
 type ApplicationLoadBalancerProps struct {
 	// The VPC network to place the load balancer in.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Indicates whether deletion protection is enabled.
+	// Experimental.
 	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// Whether the load balancer has an internet-routable address.
+	// Experimental.
 	InternetFacing *bool `json:"internetFacing" yaml:"internetFacing"`
 	// Name of the load balancer.
+	// Experimental.
 	LoadBalancerName *string `json:"loadBalancerName" yaml:"loadBalancerName"`
 	// Which subnets place the load balancer in.
+	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// Indicates whether HTTP/2 is enabled.
+	// Experimental.
 	Http2Enabled *bool `json:"http2Enabled" yaml:"http2Enabled"`
 	// The load balancer idle timeout, in seconds.
+	// Experimental.
 	IdleTimeout awscdk.Duration `json:"idleTimeout" yaml:"idleTimeout"`
 	// The type of IP addresses to use.
 	//
 	// Only applies to application load balancers.
+	// Experimental.
 	IpAddressType IpAddressType `json:"ipAddressType" yaml:"ipAddressType"`
 	// Security group to associate with this load balancer.
+	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
 }
 
 // Properties for a redirection config.
 //
-// TODO: EXAMPLE
+// Example:
+//   var lb applicationLoadBalancer
 //
+//   lb.addRedirect(&applicationLoadBalancerRedirectConfig{
+//   	sourceProtocol: elbv2.applicationProtocol_HTTPS,
+//   	sourcePort: jsii.Number(8443),
+//   	targetProtocol: elbv2.*applicationProtocol_HTTP,
+//   	targetPort: jsii.Number(8080),
+//   })
+//
+// Experimental.
 type ApplicationLoadBalancerRedirectConfig struct {
 	// Allow anyone to connect to this listener.
 	//
@@ -1759,80 +3130,269 @@ type ApplicationLoadBalancerRedirectConfig struct {
 	// If you want to be more selective about who can access this load
 	// balancer, set this to `false` and use the listener's `connections`
 	// object to selectively grant access to the listener.
+	// Experimental.
 	Open *bool `json:"open" yaml:"open"`
 	// The port number to listen to.
+	// Experimental.
 	SourcePort *float64 `json:"sourcePort" yaml:"sourcePort"`
 	// The protocol of the listener being created.
+	// Experimental.
 	SourceProtocol ApplicationProtocol `json:"sourceProtocol" yaml:"sourceProtocol"`
 	// The port number to redirect to.
+	// Experimental.
 	TargetPort *float64 `json:"targetPort" yaml:"targetPort"`
 	// The protocol of the redirection target.
+	// Experimental.
 	TargetProtocol ApplicationProtocol `json:"targetProtocol" yaml:"targetProtocol"`
 }
 
 // Load balancing protocol for application load balancers.
 //
-// TODO: EXAMPLE
+// Example:
+//   var listener applicationListener
+//   var service baseService
+//   service.registerLoadBalancerTargets(&ecsTarget{
+//   	containerName: jsii.String("web"),
+//   	containerPort: jsii.Number(80),
+//   	newTargetGroupId: jsii.String("ECS"),
+//   	listener: ecs.listenerConfig.applicationListener(listener, &addApplicationTargetsProps{
+//   		protocol: elbv2.applicationProtocol_HTTPS,
+//   	}),
+//   })
 //
+// Experimental.
 type ApplicationProtocol string
 
 const (
+	// HTTP.
+	// Experimental.
 	ApplicationProtocol_HTTP ApplicationProtocol = "HTTP"
+	// HTTPS.
+	// Experimental.
 	ApplicationProtocol_HTTPS ApplicationProtocol = "HTTPS"
 )
 
 // Load balancing protocol version for application load balancers.
 //
-// TODO: EXAMPLE
+// Example:
+//   var vpc vpc
 //
+//   tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TG"), &applicationTargetGroupProps{
+//   	targetType: elbv2.targetType_IP,
+//   	port: jsii.Number(50051),
+//   	protocol: elbv2.applicationProtocol_HTTP,
+//   	protocolVersion: elbv2.applicationProtocolVersion_GRPC,
+//   	healthCheck: &healthCheck{
+//   		enabled: jsii.Boolean(true),
+//   		healthyGrpcCodes: jsii.String("0-99"),
+//   	},
+//   	vpc: vpc,
+//   })
+//
+// Experimental.
 type ApplicationProtocolVersion string
 
 const (
+	// GRPC.
+	// Experimental.
 	ApplicationProtocolVersion_GRPC ApplicationProtocolVersion = "GRPC"
+	// HTTP1.
+	// Experimental.
 	ApplicationProtocolVersion_HTTP1 ApplicationProtocolVersion = "HTTP1"
+	// HTTP2.
+	// Experimental.
 	ApplicationProtocolVersion_HTTP2 ApplicationProtocolVersion = "HTTP2"
 )
 
 // Define an Application Target Group.
 //
-// TODO: EXAMPLE
+// Example:
+//   var vpc vpc
 //
+//   // Target group with duration-based stickiness with load-balancer generated cookie
+//   tg1 := elbv2.NewApplicationTargetGroup(this, jsii.String("TG1"), &applicationTargetGroupProps{
+//   	targetType: elbv2.targetType_INSTANCE,
+//   	port: jsii.Number(80),
+//   	stickinessCookieDuration: duration.minutes(jsii.Number(5)),
+//   	vpc: vpc,
+//   })
+//
+//   // Target group with application-based stickiness
+//   tg2 := elbv2.NewApplicationTargetGroup(this, jsii.String("TG2"), &applicationTargetGroupProps{
+//   	targetType: elbv2.*targetType_INSTANCE,
+//   	port: jsii.Number(80),
+//   	stickinessCookieDuration: *duration.minutes(jsii.Number(5)),
+//   	stickinessCookieName: jsii.String("MyDeliciousCookie"),
+//   	vpc: vpc,
+//   })
+//
+// Experimental.
 type ApplicationTargetGroup interface {
 	TargetGroupBase
 	IApplicationTargetGroup
+	// Default port configured for members of this target group.
+	// Experimental.
 	DefaultPort() *float64
+	// Full name of first load balancer.
+	// Experimental.
 	FirstLoadBalancerFullName() *string
+	// Experimental.
 	HealthCheck() *HealthCheck
+	// Experimental.
 	SetHealthCheck(val *HealthCheck)
+	// A token representing a list of ARNs of the load balancers that route traffic to this target group.
+	// Experimental.
 	LoadBalancerArns() *string
-	LoadBalancerAttached() constructs.IDependable
-	LoadBalancerAttachedDependencies() constructs.DependencyGroup
-	Node() constructs.Node
+	// List of constructs that need to be depended on to ensure the TargetGroup is associated to a load balancer.
+	// Experimental.
+	LoadBalancerAttached() awscdk.IDependable
+	// Configurable dependable with all resources that lead to load balancer attachment.
+	// Experimental.
+	LoadBalancerAttachedDependencies() awscdk.ConcreteDependable
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// The ARN of the target group.
+	// Experimental.
 	TargetGroupArn() *string
+	// The full name of the target group.
+	// Experimental.
 	TargetGroupFullName() *string
+	// ARNs of load balancers load balancing to this TargetGroup.
+	// Experimental.
 	TargetGroupLoadBalancerArns() *[]*string
+	// The name of the target group.
+	// Experimental.
 	TargetGroupName() *string
+	// The types of the directly registered members of this target group.
+	// Experimental.
 	TargetType() TargetType
+	// Experimental.
 	SetTargetType(val TargetType)
+	// Register the given load balancing target as part of this group.
+	// Experimental.
 	AddLoadBalancerTarget(props *LoadBalancerTargetProps)
+	// Add a load balancing target to this target group.
+	// Experimental.
 	AddTarget(targets ...IApplicationLoadBalancerTarget)
+	// Set/replace the target group's health check.
+	// Experimental.
 	ConfigureHealthCheck(healthCheck *HealthCheck)
+	// Enable sticky routing via a cookie to members of this target group.
+	//
+	// Note: If the `cookieName` parameter is set, application-based stickiness will be applied,
+	// otherwise it defaults to duration-based stickiness attributes (`lb_cookie`).
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/sticky-sessions.html
+	//
+	// Experimental.
 	EnableCookieStickiness(duration awscdk.Duration, cookieName *string)
+	// Return the given named metric for this Application Load Balancer Target Group.
+	//
+	// Returns the metric for this target group from the point of view of the first
+	// load balancer load balancing to it. If you have multiple load balancers load
+	// sending traffic to the same target group, you will have to override the dimensions
+	// on this metric.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of healthy hosts in the target group.
+	// Experimental.
 	MetricHealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of HTTP 2xx/3xx/4xx/5xx response codes generated by all targets in this target group.
+	//
+	// This does not include any response codes generated by the load balancer.
+	// Experimental.
 	MetricHttpCodeTarget(code HttpCodeTarget, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of IPv6 requests received by the target group.
+	// Experimental.
 	MetricIpv6RequestCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of requests processed over IPv4 and IPv6.
+	//
+	// This count includes only the requests with a response generated by a target of the load balancer.
+	// Experimental.
 	MetricRequestCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The average number of requests received by each target in a target group.
+	//
+	// The only valid statistic is Sum. Note that this represents the average not the sum.
+	// Experimental.
 	MetricRequestCountPerTarget(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of connections that were not successfully established between the load balancer and target.
+	// Experimental.
 	MetricTargetConnectionErrorCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The time elapsed, in seconds, after the request leaves the load balancer until a response from the target is received.
+	// Experimental.
 	MetricTargetResponseTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of TLS connections initiated by the load balancer that did not establish a session with the target.
+	//
+	// Possible causes include a mismatch of ciphers or protocols.
+	// Experimental.
 	MetricTargetTLSNegotiationErrorCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of unhealthy hosts in the target group.
+	// Experimental.
 	MetricUnhealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Register a connectable as a member of this target group.
+	//
+	// Don't call this directly. It will be called by load balancing targets.
+	// Experimental.
 	RegisterConnectable(connectable awsec2.IConnectable, portRange awsec2.Port)
+	// Register a listener that is load balancing to this target group.
+	//
+	// Don't call this directly. It will be called by listeners.
+	// Experimental.
 	RegisterListener(listener IApplicationListener, associatingConstruct constructs.IConstruct)
+	// Set a non-standard attribute on the target group.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes
+	//
+	// Experimental.
 	SetAttribute(key *string, value *string)
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
-	ValidateTargetGroup() *[]*string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ApplicationTargetGroup
@@ -1881,8 +3441,8 @@ func (j *jsiiProxy_ApplicationTargetGroup) LoadBalancerArns() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ApplicationTargetGroup) LoadBalancerAttached() constructs.IDependable {
-	var returns constructs.IDependable
+func (j *jsiiProxy_ApplicationTargetGroup) LoadBalancerAttached() awscdk.IDependable {
+	var returns awscdk.IDependable
 	_jsii_.Get(
 		j,
 		"loadBalancerAttached",
@@ -1891,8 +3451,8 @@ func (j *jsiiProxy_ApplicationTargetGroup) LoadBalancerAttached() constructs.IDe
 	return returns
 }
 
-func (j *jsiiProxy_ApplicationTargetGroup) LoadBalancerAttachedDependencies() constructs.DependencyGroup {
-	var returns constructs.DependencyGroup
+func (j *jsiiProxy_ApplicationTargetGroup) LoadBalancerAttachedDependencies() awscdk.ConcreteDependable {
+	var returns awscdk.ConcreteDependable
 	_jsii_.Get(
 		j,
 		"loadBalancerAttachedDependencies",
@@ -1901,8 +3461,8 @@ func (j *jsiiProxy_ApplicationTargetGroup) LoadBalancerAttachedDependencies() co
 	return returns
 }
 
-func (j *jsiiProxy_ApplicationTargetGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ApplicationTargetGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1962,13 +3522,14 @@ func (j *jsiiProxy_ApplicationTargetGroup) TargetType() TargetType {
 }
 
 
+// Experimental.
 func NewApplicationTargetGroup(scope constructs.Construct, id *string, props *ApplicationTargetGroupProps) ApplicationTargetGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_ApplicationTargetGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup",
+		"monocdk.aws_elasticloadbalancingv2.ApplicationTargetGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1976,11 +3537,12 @@ func NewApplicationTargetGroup(scope constructs.Construct, id *string, props *Ap
 	return &j
 }
 
+// Experimental.
 func NewApplicationTargetGroup_Override(a ApplicationTargetGroup, scope constructs.Construct, id *string, props *ApplicationTargetGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup",
+		"monocdk.aws_elasticloadbalancingv2.ApplicationTargetGroup",
 		[]interface{}{scope, id, props},
 		a,
 	)
@@ -2003,13 +3565,14 @@ func (j *jsiiProxy_ApplicationTargetGroup) SetTargetType(val TargetType) {
 }
 
 // Import an existing target group.
+// Experimental.
 func ApplicationTargetGroup_FromTargetGroupAttributes(scope constructs.Construct, id *string, attrs *TargetGroupAttributes) IApplicationTargetGroup {
 	_init_.Initialize()
 
 	var returns IApplicationTargetGroup
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup",
+		"monocdk.aws_elasticloadbalancingv2.ApplicationTargetGroup",
 		"fromTargetGroupAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -2018,17 +3581,32 @@ func ApplicationTargetGroup_FromTargetGroupAttributes(scope constructs.Construct
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Import an existing target group.
+// Deprecated: Use `fromTargetGroupAttributes` instead.
+func ApplicationTargetGroup_Import(scope constructs.Construct, id *string, props *TargetGroupImportProps) IApplicationTargetGroup {
+	_init_.Initialize()
+
+	var returns IApplicationTargetGroup
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_elasticloadbalancingv2.ApplicationTargetGroup",
+		"import",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
 func ApplicationTargetGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup",
+		"monocdk.aws_elasticloadbalancingv2.ApplicationTargetGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2037,7 +3615,6 @@ func ApplicationTargetGroup_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Register the given load balancing target as part of this group.
 func (a *jsiiProxy_ApplicationTargetGroup) AddLoadBalancerTarget(props *LoadBalancerTargetProps) {
 	_jsii_.InvokeVoid(
 		a,
@@ -2046,7 +3623,6 @@ func (a *jsiiProxy_ApplicationTargetGroup) AddLoadBalancerTarget(props *LoadBala
 	)
 }
 
-// Add a load balancing target to this target group.
 func (a *jsiiProxy_ApplicationTargetGroup) AddTarget(targets ...IApplicationLoadBalancerTarget) {
 	args := []interface{}{}
 	for _, a := range targets {
@@ -2060,7 +3636,6 @@ func (a *jsiiProxy_ApplicationTargetGroup) AddTarget(targets ...IApplicationLoad
 	)
 }
 
-// Set/replace the target group's health check.
 func (a *jsiiProxy_ApplicationTargetGroup) ConfigureHealthCheck(healthCheck *HealthCheck) {
 	_jsii_.InvokeVoid(
 		a,
@@ -2069,12 +3644,6 @@ func (a *jsiiProxy_ApplicationTargetGroup) ConfigureHealthCheck(healthCheck *Hea
 	)
 }
 
-// Enable sticky routing via a cookie to members of this target group.
-//
-// Note: If the `cookieName` parameter is set, application-based stickiness will be applied,
-// otherwise it defaults to duration-based stickiness attributes (`lb_cookie`).
-// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/sticky-sessions.html
-//
 func (a *jsiiProxy_ApplicationTargetGroup) EnableCookieStickiness(duration awscdk.Duration, cookieName *string) {
 	_jsii_.InvokeVoid(
 		a,
@@ -2083,12 +3652,6 @@ func (a *jsiiProxy_ApplicationTargetGroup) EnableCookieStickiness(duration awscd
 	)
 }
 
-// Return the given named metric for this Application Load Balancer Target Group.
-//
-// Returns the metric for this target group from the point of view of the first
-// load balancer load balancing to it. If you have multiple load balancers load
-// sending traffic to the same target group, you will have to override the dimensions
-// on this metric.
 func (a *jsiiProxy_ApplicationTargetGroup) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2102,7 +3665,6 @@ func (a *jsiiProxy_ApplicationTargetGroup) Metric(metricName *string, props *aws
 	return returns
 }
 
-// The number of healthy hosts in the target group.
 func (a *jsiiProxy_ApplicationTargetGroup) MetricHealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2116,9 +3678,6 @@ func (a *jsiiProxy_ApplicationTargetGroup) MetricHealthyHostCount(props *awsclou
 	return returns
 }
 
-// The number of HTTP 2xx/3xx/4xx/5xx response codes generated by all targets in this target group.
-//
-// This does not include any response codes generated by the load balancer.
 func (a *jsiiProxy_ApplicationTargetGroup) MetricHttpCodeTarget(code HttpCodeTarget, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2132,7 +3691,6 @@ func (a *jsiiProxy_ApplicationTargetGroup) MetricHttpCodeTarget(code HttpCodeTar
 	return returns
 }
 
-// The number of IPv6 requests received by the target group.
 func (a *jsiiProxy_ApplicationTargetGroup) MetricIpv6RequestCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2146,9 +3704,6 @@ func (a *jsiiProxy_ApplicationTargetGroup) MetricIpv6RequestCount(props *awsclou
 	return returns
 }
 
-// The number of requests processed over IPv4 and IPv6.
-//
-// This count includes only the requests with a response generated by a target of the load balancer.
 func (a *jsiiProxy_ApplicationTargetGroup) MetricRequestCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2162,9 +3717,6 @@ func (a *jsiiProxy_ApplicationTargetGroup) MetricRequestCount(props *awscloudwat
 	return returns
 }
 
-// The average number of requests received by each target in a target group.
-//
-// The only valid statistic is Sum. Note that this represents the average not the sum.
 func (a *jsiiProxy_ApplicationTargetGroup) MetricRequestCountPerTarget(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2178,7 +3730,6 @@ func (a *jsiiProxy_ApplicationTargetGroup) MetricRequestCountPerTarget(props *aw
 	return returns
 }
 
-// The number of connections that were not successfully established between the load balancer and target.
 func (a *jsiiProxy_ApplicationTargetGroup) MetricTargetConnectionErrorCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2192,7 +3743,6 @@ func (a *jsiiProxy_ApplicationTargetGroup) MetricTargetConnectionErrorCount(prop
 	return returns
 }
 
-// The time elapsed, in seconds, after the request leaves the load balancer until a response from the target is received.
 func (a *jsiiProxy_ApplicationTargetGroup) MetricTargetResponseTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2206,9 +3756,6 @@ func (a *jsiiProxy_ApplicationTargetGroup) MetricTargetResponseTime(props *awscl
 	return returns
 }
 
-// The number of TLS connections initiated by the load balancer that did not establish a session with the target.
-//
-// Possible causes include a mismatch of ciphers or protocols.
 func (a *jsiiProxy_ApplicationTargetGroup) MetricTargetTLSNegotiationErrorCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2222,7 +3769,6 @@ func (a *jsiiProxy_ApplicationTargetGroup) MetricTargetTLSNegotiationErrorCount(
 	return returns
 }
 
-// The number of unhealthy hosts in the target group.
 func (a *jsiiProxy_ApplicationTargetGroup) MetricUnhealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2236,9 +3782,43 @@ func (a *jsiiProxy_ApplicationTargetGroup) MetricUnhealthyHostCount(props *awscl
 	return returns
 }
 
-// Register a connectable as a member of this target group.
-//
-// Don't call this directly. It will be called by load balancing targets.
+func (a *jsiiProxy_ApplicationTargetGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (a *jsiiProxy_ApplicationTargetGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (a *jsiiProxy_ApplicationTargetGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_ApplicationTargetGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 func (a *jsiiProxy_ApplicationTargetGroup) RegisterConnectable(connectable awsec2.IConnectable, portRange awsec2.Port) {
 	_jsii_.InvokeVoid(
 		a,
@@ -2247,9 +3827,6 @@ func (a *jsiiProxy_ApplicationTargetGroup) RegisterConnectable(connectable awsec
 	)
 }
 
-// Register a listener that is load balancing to this target group.
-//
-// Don't call this directly. It will be called by listeners.
 func (a *jsiiProxy_ApplicationTargetGroup) RegisterListener(listener IApplicationListener, associatingConstruct constructs.IConstruct) {
 	_jsii_.InvokeVoid(
 		a,
@@ -2258,9 +3835,6 @@ func (a *jsiiProxy_ApplicationTargetGroup) RegisterListener(listener IApplicatio
 	)
 }
 
-// Set a non-standard attribute on the target group.
-// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes
-//
 func (a *jsiiProxy_ApplicationTargetGroup) SetAttribute(key *string, value *string) {
 	_jsii_.InvokeVoid(
 		a,
@@ -2269,7 +3843,14 @@ func (a *jsiiProxy_ApplicationTargetGroup) SetAttribute(key *string, value *stri
 	)
 }
 
-// Returns a string representation of this construct.
+func (a *jsiiProxy_ApplicationTargetGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (a *jsiiProxy_ApplicationTargetGroup) ToString() *string {
 	var returns *string
 
@@ -2283,12 +3864,12 @@ func (a *jsiiProxy_ApplicationTargetGroup) ToString() *string {
 	return returns
 }
 
-func (a *jsiiProxy_ApplicationTargetGroup) ValidateTargetGroup() *[]*string {
+func (a *jsiiProxy_ApplicationTargetGroup) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		a,
-		"validateTargetGroup",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2298,44 +3879,73 @@ func (a *jsiiProxy_ApplicationTargetGroup) ValidateTargetGroup() *[]*string {
 
 // Properties for defining an Application Target Group.
 //
-// TODO: EXAMPLE
+// Example:
+//   var vpc vpc
 //
+//   // Target group with duration-based stickiness with load-balancer generated cookie
+//   tg1 := elbv2.NewApplicationTargetGroup(this, jsii.String("TG1"), &applicationTargetGroupProps{
+//   	targetType: elbv2.targetType_INSTANCE,
+//   	port: jsii.Number(80),
+//   	stickinessCookieDuration: duration.minutes(jsii.Number(5)),
+//   	vpc: vpc,
+//   })
+//
+//   // Target group with application-based stickiness
+//   tg2 := elbv2.NewApplicationTargetGroup(this, jsii.String("TG2"), &applicationTargetGroupProps{
+//   	targetType: elbv2.*targetType_INSTANCE,
+//   	port: jsii.Number(80),
+//   	stickinessCookieDuration: *duration.minutes(jsii.Number(5)),
+//   	stickinessCookieName: jsii.String("MyDeliciousCookie"),
+//   	vpc: vpc,
+//   })
+//
+// Experimental.
 type ApplicationTargetGroupProps struct {
 	// The amount of time for Elastic Load Balancing to wait before deregistering a target.
 	//
 	// The range is 0-3600 seconds.
+	// Experimental.
 	DeregistrationDelay awscdk.Duration `json:"deregistrationDelay" yaml:"deregistrationDelay"`
 	// Health check configuration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#aws-resource-elasticloadbalancingv2-targetgroup-properties
 	//
+	// Experimental.
 	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
 	// The name of the target group.
 	//
 	// This name must be unique per region per account, can have a maximum of
 	// 32 characters, must contain only alphanumeric characters or hyphens, and
 	// must not begin or end with a hyphen.
+	// Experimental.
 	TargetGroupName *string `json:"targetGroupName" yaml:"targetGroupName"`
 	// The type of targets registered to this TargetGroup, either IP or Instance.
 	//
 	// All targets registered into the group must be of this type. If you
 	// register targets to the TargetGroup in the CDK app, the TargetType is
 	// determined automatically.
+	// Experimental.
 	TargetType TargetType `json:"targetType" yaml:"targetType"`
 	// The virtual private cloud (VPC).
 	//
-	// only if `TargetType` is `Ip` or `InstanceId`
+	// only if `TargetType` is `Ip` or `InstanceId`.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The load balancing algorithm to select targets for routing requests.
+	// Experimental.
 	LoadBalancingAlgorithmType TargetGroupLoadBalancingAlgorithmType `json:"loadBalancingAlgorithmType" yaml:"loadBalancingAlgorithmType"`
 	// The port on which the listener listens for requests.
+	// Experimental.
 	Port *float64 `json:"port" yaml:"port"`
 	// The protocol to use.
+	// Experimental.
 	Protocol ApplicationProtocol `json:"protocol" yaml:"protocol"`
 	// The protocol version to use.
+	// Experimental.
 	ProtocolVersion ApplicationProtocolVersion `json:"protocolVersion" yaml:"protocolVersion"`
 	// The time period during which the load balancer sends a newly registered target a linearly increasing share of the traffic to the target group.
 	//
 	// The range is 30-900 seconds (15 minutes).
+	// Experimental.
 	SlowStart awscdk.Duration `json:"slowStart" yaml:"slowStart"`
 	// The stickiness cookie expiration period.
 	//
@@ -2343,6 +3953,7 @@ type ApplicationTargetGroupProps struct {
 	//
 	// After this period, the cookie is considered stale. The minimum value is
 	// 1 second and the maximum value is 7 days (604800 seconds).
+	// Experimental.
 	StickinessCookieDuration awscdk.Duration `json:"stickinessCookieDuration" yaml:"stickinessCookieDuration"`
 	// The name of an application-based stickiness cookie.
 	//
@@ -2353,64 +3964,118 @@ type ApplicationTargetGroupProps struct {
 	// If `stickinessCookieDuration` is not set, `stickinessCookieName` will be omitted.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/sticky-sessions.html
 	//
+	// Experimental.
 	StickinessCookieName *string `json:"stickinessCookieName" yaml:"stickinessCookieName"`
 	// The targets to add to this target group.
 	//
 	// Can be `Instance`, `IPAddress`, or any self-registering load balancing
 	// target. If you use either `Instance` or `IPAddress` as targets, all
 	// target must be of the same type.
+	// Experimental.
 	Targets *[]IApplicationLoadBalancerTarget `json:"targets" yaml:"targets"`
 }
 
 // Options for `ListenerAction.authenciateOidc()`.
 //
-// TODO: EXAMPLE
+// Example:
+//   var listener applicationListener
+//   var myTargetGroup applicationTargetGroup
 //
+//   listener.addAction(jsii.String("DefaultAction"), &addApplicationActionProps{
+//   	action: elbv2.listenerAction.authenticateOidc(&authenticateOidcOptions{
+//   		authorizationEndpoint: jsii.String("https://example.com/openid"),
+//   		// Other OIDC properties here
+//   		clientId: jsii.String("..."),
+//   		clientSecret: secretValue.secretsManager(jsii.String("...")),
+//   		issuer: jsii.String("..."),
+//   		tokenEndpoint: jsii.String("..."),
+//   		userInfoEndpoint: jsii.String("..."),
+//
+//   		// Next
+//   		next: elbv2.*listenerAction.forward([]iApplicationTargetGroup{
+//   			myTargetGroup,
+//   		}),
+//   	}),
+//   })
+//
+// Experimental.
 type AuthenticateOidcOptions struct {
 	// The authorization endpoint of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	// Experimental.
 	AuthorizationEndpoint *string `json:"authorizationEndpoint" yaml:"authorizationEndpoint"`
 	// The OAuth 2.0 client identifier.
+	// Experimental.
 	ClientId *string `json:"clientId" yaml:"clientId"`
 	// The OAuth 2.0 client secret.
+	// Experimental.
 	ClientSecret awscdk.SecretValue `json:"clientSecret" yaml:"clientSecret"`
 	// The OIDC issuer identifier of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	// Experimental.
 	Issuer *string `json:"issuer" yaml:"issuer"`
 	// What action to execute next.
+	// Experimental.
 	Next ListenerAction `json:"next" yaml:"next"`
 	// The token endpoint of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	// Experimental.
 	TokenEndpoint *string `json:"tokenEndpoint" yaml:"tokenEndpoint"`
 	// The user info endpoint of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	// Experimental.
 	UserInfoEndpoint *string `json:"userInfoEndpoint" yaml:"userInfoEndpoint"`
 	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
+	// Experimental.
 	AuthenticationRequestExtraParams *map[string]*string `json:"authenticationRequestExtraParams" yaml:"authenticationRequestExtraParams"`
 	// The behavior if the user is not authenticated.
+	// Experimental.
 	OnUnauthenticatedRequest UnauthenticatedAction `json:"onUnauthenticatedRequest" yaml:"onUnauthenticatedRequest"`
 	// The set of user claims to be requested from the IdP.
 	//
 	// To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
+	// Experimental.
 	Scope *string `json:"scope" yaml:"scope"`
 	// The name of the cookie used to maintain session information.
+	// Experimental.
 	SessionCookieName *string `json:"sessionCookieName" yaml:"sessionCookieName"`
 	// The maximum duration of the authentication session.
+	// Experimental.
 	SessionTimeout awscdk.Duration `json:"sessionTimeout" yaml:"sessionTimeout"`
 }
 
 // Basic properties for an ApplicationListener.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpAlbIntegration awscdk.HttpAlbIntegration
 //
+//   var lb applicationLoadBalancer
+//   listener := lb.addListener(jsii.String("listener"), &baseApplicationListenerProps{
+//   	port: jsii.Number(80),
+//   })
+//   listener.addTargets(jsii.String("target"), &addApplicationTargetsProps{
+//   	port: jsii.Number(80),
+//   })
+//
+//   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
+//   	defaultIntegration: NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &httpAlbIntegrationProps{
+//   		parameterMapping: apigwv2.NewParameterMapping().appendHeader(jsii.String("header2"), apigwv2.mappingValue.requestHeader(jsii.String("header1"))).removeHeader(jsii.String("header1")),
+//   	}),
+//   })
+//
+// Experimental.
 type BaseApplicationListenerProps struct {
+	// The certificates to use on this listener.
+	// Deprecated: Use the `certificates` property instead.
+	CertificateArns *[]*string `json:"certificateArns" yaml:"certificateArns"`
 	// Certificate list of ACM cert ARNs.
 	//
 	// You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
+	// Experimental.
 	Certificates *[]IListenerCertificate `json:"certificates" yaml:"certificates"`
 	// Default action to take for requests to this listener.
 	//
@@ -2420,6 +4085,7 @@ type BaseApplicationListenerProps struct {
 	// See the `ListenerAction` class for all options.
 	//
 	// Cannot be specified together with `defaultTargetGroups`.
+	// Experimental.
 	DefaultAction ListenerAction `json:"defaultAction" yaml:"defaultAction"`
 	// Default target groups to load balance to.
 	//
@@ -2428,6 +4094,7 @@ type BaseApplicationListenerProps struct {
 	// either `defaultAction` or `addAction()`.
 	//
 	// Cannot be specified together with `defaultAction`.
+	// Experimental.
 	DefaultTargetGroups *[]IApplicationTargetGroup `json:"defaultTargetGroups" yaml:"defaultTargetGroups"`
 	// Allow anyone to connect to the load balancer on the listener port.
 	//
@@ -2438,56 +4105,224 @@ type BaseApplicationListenerProps struct {
 	// If you want to be more selective about who can access this load
 	// balancer, set this to `false` and use the listener's `connections`
 	// object to selectively grant access to the load balancer on the listener port.
+	// Experimental.
 	Open *bool `json:"open" yaml:"open"`
 	// The port on which the listener listens for requests.
+	// Experimental.
 	Port *float64 `json:"port" yaml:"port"`
 	// The protocol to use.
+	// Experimental.
 	Protocol ApplicationProtocol `json:"protocol" yaml:"protocol"`
 	// The security policy that defines which ciphers and protocols are supported.
+	// Experimental.
 	SslPolicy SslPolicy `json:"sslPolicy" yaml:"sslPolicy"`
 }
 
 // Basic properties for defining a rule on a listener.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
 //
+//   var applicationTargetGroup applicationTargetGroup
+//   var listenerAction listenerAction
+//   var listenerCondition listenerCondition
+//   baseApplicationListenerRuleProps := &baseApplicationListenerRuleProps{
+//   	priority: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	action: listenerAction,
+//   	conditions: []*listenerCondition{
+//   		listenerCondition,
+//   	},
+//   	fixedResponse: &fixedResponse{
+//   		statusCode: jsii.String("statusCode"),
+//
+//   		// the properties below are optional
+//   		contentType: elasticloadbalancingv2.contentType_TEXT_PLAIN,
+//   		messageBody: jsii.String("messageBody"),
+//   	},
+//   	hostHeader: jsii.String("hostHeader"),
+//   	pathPattern: jsii.String("pathPattern"),
+//   	pathPatterns: []*string{
+//   		jsii.String("pathPatterns"),
+//   	},
+//   	redirectResponse: &redirectResponse{
+//   		statusCode: jsii.String("statusCode"),
+//
+//   		// the properties below are optional
+//   		host: jsii.String("host"),
+//   		path: jsii.String("path"),
+//   		port: jsii.String("port"),
+//   		protocol: jsii.String("protocol"),
+//   		query: jsii.String("query"),
+//   	},
+//   	targetGroups: []iApplicationTargetGroup{
+//   		applicationTargetGroup,
+//   	},
+//   }
+//
+// Experimental.
 type BaseApplicationListenerRuleProps struct {
 	// Priority of the rule.
 	//
 	// The rule with the lowest priority will be used for every request.
 	//
 	// Priorities must be unique.
+	// Experimental.
 	Priority *float64 `json:"priority" yaml:"priority"`
 	// Action to perform when requests are received.
 	//
 	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
+	// Experimental.
 	Action ListenerAction `json:"action" yaml:"action"`
 	// Rule applies if matches the conditions.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
 	//
+	// Experimental.
 	Conditions *[]ListenerCondition `json:"conditions" yaml:"conditions"`
+	// Fixed response to return.
+	//
+	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
+	// Deprecated: Use `action` instead.
+	FixedResponse *FixedResponse `json:"fixedResponse" yaml:"fixedResponse"`
+	// Rule applies if the requested host matches the indicated host.
+	//
+	// May contain up to three '*' wildcards.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
+	//
+	// Deprecated: Use `conditions` instead.
+	HostHeader *string `json:"hostHeader" yaml:"hostHeader"`
+	// Rule applies if the requested path matches the given path pattern.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
+	//
+	// Deprecated: Use `conditions` instead.
+	PathPattern *string `json:"pathPattern" yaml:"pathPattern"`
+	// Rule applies if the requested path matches any of the given patterns.
+	//
+	// Paths may contain up to three '*' wildcards.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
+	//
+	// Deprecated: Use `conditions` instead.
+	PathPatterns *[]*string `json:"pathPatterns" yaml:"pathPatterns"`
+	// Redirect response to return.
+	//
+	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
+	// Deprecated: Use `action` instead.
+	RedirectResponse *RedirectResponse `json:"redirectResponse" yaml:"redirectResponse"`
 	// Target groups to forward requests to.
 	//
 	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
 	//
 	// Implies a `forward` action.
+	// Experimental.
 	TargetGroups *[]IApplicationTargetGroup `json:"targetGroups" yaml:"targetGroups"`
 }
 
 // Base class for listeners.
+// Experimental.
 type BaseListener interface {
 	awscdk.Resource
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
+	// Experimental.
 	ListenerArn() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
+	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
 	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
-	ValidateListener() *[]*string
+	// Validate this listener.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for BaseListener
@@ -2515,8 +4350,8 @@ func (j *jsiiProxy_BaseListener) ListenerArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_BaseListener) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_BaseListener) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2546,27 +4381,26 @@ func (j *jsiiProxy_BaseListener) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewBaseListener_Override(b BaseListener, scope constructs.Construct, id *string, additionalProps interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.BaseListener",
+		"monocdk.aws_elasticloadbalancingv2.BaseListener",
 		[]interface{}{scope, id, additionalProps},
 		b,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func BaseListener_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.BaseListener",
+		"monocdk.aws_elasticloadbalancingv2.BaseListener",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2576,13 +4410,14 @@ func BaseListener_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func BaseListener_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func BaseListener_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.BaseListener",
+		"monocdk.aws_elasticloadbalancingv2.BaseListener",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -2591,15 +4426,6 @@ func BaseListener_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Apply the given removal policy to this resource.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (b *jsiiProxy_BaseListener) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		b,
@@ -2621,12 +4447,6 @@ func (b *jsiiProxy_BaseListener) GeneratePhysicalName() *string {
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
-//
-// Normally, this token will resolve to `arnAttr`, but if the resource is
-// referenced across environments, `arnComponents` will be used to synthesize
-// a concrete ARN with the resource's physical name. Make sure to reference
-// `this.physicalName` in `arnComponents`.
 func (b *jsiiProxy_BaseListener) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -2640,11 +4460,6 @@ func (b *jsiiProxy_BaseListener) GetResourceArnAttribute(arnAttr *string, arnCom
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
-//
-// Normally, this token will resolve to `nameAttr`, but if the resource is
-// referenced across environments, it will be resolved to `this.physicalName`,
-// which will be a concrete name.
 func (b *jsiiProxy_BaseListener) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -2658,7 +4473,51 @@ func (b *jsiiProxy_BaseListener) GetResourceNameAttribute(nameAttr *string) *str
 	return returns
 }
 
-// Returns a string representation of this construct.
+func (b *jsiiProxy_BaseListener) OnPrepare() {
+	_jsii_.InvokeVoid(
+		b,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (b *jsiiProxy_BaseListener) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		b,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (b *jsiiProxy_BaseListener) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		b,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (b *jsiiProxy_BaseListener) Prepare() {
+	_jsii_.InvokeVoid(
+		b,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (b *jsiiProxy_BaseListener) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		b,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (b *jsiiProxy_BaseListener) ToString() *string {
 	var returns *string
 
@@ -2672,13 +4531,12 @@ func (b *jsiiProxy_BaseListener) ToString() *string {
 	return returns
 }
 
-// Validate this listener.
-func (b *jsiiProxy_BaseListener) ValidateListener() *[]*string {
+func (b *jsiiProxy_BaseListener) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		b,
-		"validateListener",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2688,40 +4546,181 @@ func (b *jsiiProxy_BaseListener) ValidateListener() *[]*string {
 
 // Options for listener lookup.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   baseListenerLookupOptions := &baseListenerLookupOptions{
+//   	listenerPort: jsii.Number(123),
+//   	loadBalancerArn: jsii.String("loadBalancerArn"),
+//   	loadBalancerTags: map[string]*string{
+//   		"loadBalancerTagsKey": jsii.String("loadBalancerTags"),
+//   	},
+//   }
 //
+// Experimental.
 type BaseListenerLookupOptions struct {
 	// Filter listeners by listener port.
+	// Experimental.
 	ListenerPort *float64 `json:"listenerPort" yaml:"listenerPort"`
 	// Filter listeners by associated load balancer arn.
+	// Experimental.
 	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Filter listeners by associated load balancer tags.
+	// Experimental.
 	LoadBalancerTags *map[string]*string `json:"loadBalancerTags" yaml:"loadBalancerTags"`
 }
 
 // Base class for both Application and Network Load Balancers.
+// Experimental.
 type BaseLoadBalancer interface {
 	awscdk.Resource
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
+	// The ARN of this load balancer.
+	//
+	// Example value: `arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-internal-load-balancer/50dc6c495c0c9188`.
+	// Experimental.
 	LoadBalancerArn() *string
+	// The canonical hosted zone ID of this load balancer.
+	//
+	// Example value: `Z2P70J7EXAMPLE`.
+	// Experimental.
 	LoadBalancerCanonicalHostedZoneId() *string
+	// The DNS name of this load balancer.
+	//
+	// Example value: `my-load-balancer-424835706.us-west-2.elb.amazonaws.com`
+	// Experimental.
 	LoadBalancerDnsName() *string
+	// The full name of this load balancer.
+	//
+	// Example value: `app/my-load-balancer/50dc6c495c0c9188`.
+	// Experimental.
 	LoadBalancerFullName() *string
+	// The name of this load balancer.
+	//
+	// Example value: `my-load-balancer`.
+	// Experimental.
 	LoadBalancerName() *string
+	// Experimental.
 	LoadBalancerSecurityGroups() *[]*string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
+	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
+	// The VPC this load balancer has been created in.
+	//
+	// This property is always defined (not `null` or `undefined`) for sub-classes of `BaseLoadBalancer`.
+	// Experimental.
 	Vpc() awsec2.IVpc
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
 	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Enable access logging for this load balancer.
+	//
+	// A region must be specified on the stack containing the load balancer; you cannot enable logging on
+	// environment-agnostic stacks. See https://docs.aws.amazon.com/cdk/latest/guide/environments.html
+	// Experimental.
 	LogAccessLogs(bucket awss3.IBucket, prefix *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Remove an attribute from the load balancer.
+	// Experimental.
 	RemoveAttribute(key *string)
+	// Set a non-standard attribute on the load balancer.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#load-balancer-attributes
+	//
+	// Experimental.
 	SetAttribute(key *string, value *string)
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
-	ValidateLoadBalancer() *[]*string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for BaseLoadBalancer
@@ -2799,8 +4798,8 @@ func (j *jsiiProxy_BaseLoadBalancer) LoadBalancerSecurityGroups() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_BaseLoadBalancer) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_BaseLoadBalancer) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2840,27 +4839,26 @@ func (j *jsiiProxy_BaseLoadBalancer) Vpc() awsec2.IVpc {
 }
 
 
+// Experimental.
 func NewBaseLoadBalancer_Override(b BaseLoadBalancer, scope constructs.Construct, id *string, baseProps *BaseLoadBalancerProps, additionalProps interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.BaseLoadBalancer",
+		"monocdk.aws_elasticloadbalancingv2.BaseLoadBalancer",
 		[]interface{}{scope, id, baseProps, additionalProps},
 		b,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func BaseLoadBalancer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.BaseLoadBalancer",
+		"monocdk.aws_elasticloadbalancingv2.BaseLoadBalancer",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2870,13 +4868,14 @@ func BaseLoadBalancer_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func BaseLoadBalancer_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func BaseLoadBalancer_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.BaseLoadBalancer",
+		"monocdk.aws_elasticloadbalancingv2.BaseLoadBalancer",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -2885,15 +4884,6 @@ func BaseLoadBalancer_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Apply the given removal policy to this resource.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (b *jsiiProxy_BaseLoadBalancer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		b,
@@ -2915,12 +4905,6 @@ func (b *jsiiProxy_BaseLoadBalancer) GeneratePhysicalName() *string {
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
-//
-// Normally, this token will resolve to `arnAttr`, but if the resource is
-// referenced across environments, `arnComponents` will be used to synthesize
-// a concrete ARN with the resource's physical name. Make sure to reference
-// `this.physicalName` in `arnComponents`.
 func (b *jsiiProxy_BaseLoadBalancer) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -2934,11 +4918,6 @@ func (b *jsiiProxy_BaseLoadBalancer) GetResourceArnAttribute(arnAttr *string, ar
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
-//
-// Normally, this token will resolve to `nameAttr`, but if the resource is
-// referenced across environments, it will be resolved to `this.physicalName`,
-// which will be a concrete name.
 func (b *jsiiProxy_BaseLoadBalancer) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -2952,10 +4931,6 @@ func (b *jsiiProxy_BaseLoadBalancer) GetResourceNameAttribute(nameAttr *string) 
 	return returns
 }
 
-// Enable access logging for this load balancer.
-//
-// A region must be specified on the stack containing the load balancer; you cannot enable logging on
-// environment-agnostic stacks. See https://docs.aws.amazon.com/cdk/latest/guide/environments.html
 func (b *jsiiProxy_BaseLoadBalancer) LogAccessLogs(bucket awss3.IBucket, prefix *string) {
 	_jsii_.InvokeVoid(
 		b,
@@ -2964,7 +4939,43 @@ func (b *jsiiProxy_BaseLoadBalancer) LogAccessLogs(bucket awss3.IBucket, prefix 
 	)
 }
 
-// Remove an attribute from the load balancer.
+func (b *jsiiProxy_BaseLoadBalancer) OnPrepare() {
+	_jsii_.InvokeVoid(
+		b,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (b *jsiiProxy_BaseLoadBalancer) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		b,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (b *jsiiProxy_BaseLoadBalancer) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		b,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (b *jsiiProxy_BaseLoadBalancer) Prepare() {
+	_jsii_.InvokeVoid(
+		b,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 func (b *jsiiProxy_BaseLoadBalancer) RemoveAttribute(key *string) {
 	_jsii_.InvokeVoid(
 		b,
@@ -2973,9 +4984,6 @@ func (b *jsiiProxy_BaseLoadBalancer) RemoveAttribute(key *string) {
 	)
 }
 
-// Set a non-standard attribute on the load balancer.
-// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#load-balancer-attributes
-//
 func (b *jsiiProxy_BaseLoadBalancer) SetAttribute(key *string, value *string) {
 	_jsii_.InvokeVoid(
 		b,
@@ -2984,7 +4992,14 @@ func (b *jsiiProxy_BaseLoadBalancer) SetAttribute(key *string, value *string) {
 	)
 }
 
-// Returns a string representation of this construct.
+func (b *jsiiProxy_BaseLoadBalancer) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		b,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (b *jsiiProxy_BaseLoadBalancer) ToString() *string {
 	var returns *string
 
@@ -2998,12 +5013,12 @@ func (b *jsiiProxy_BaseLoadBalancer) ToString() *string {
 	return returns
 }
 
-func (b *jsiiProxy_BaseLoadBalancer) ValidateLoadBalancer() *[]*string {
+func (b *jsiiProxy_BaseLoadBalancer) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		b,
-		"validateLoadBalancer",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3013,48 +5028,112 @@ func (b *jsiiProxy_BaseLoadBalancer) ValidateLoadBalancer() *[]*string {
 
 // Options for looking up load balancers.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   baseLoadBalancerLookupOptions := &baseLoadBalancerLookupOptions{
+//   	loadBalancerArn: jsii.String("loadBalancerArn"),
+//   	loadBalancerTags: map[string]*string{
+//   		"loadBalancerTagsKey": jsii.String("loadBalancerTags"),
+//   	},
+//   }
 //
+// Experimental.
 type BaseLoadBalancerLookupOptions struct {
 	// Find by load balancer's ARN.
+	// Experimental.
 	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Match load balancer tags.
+	// Experimental.
 	LoadBalancerTags *map[string]*string `json:"loadBalancerTags" yaml:"loadBalancerTags"`
 }
 
 // Shared properties of both Application and Network Load Balancers.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
 //
+//   var subnet subnet
+//   var subnetFilter subnetFilter
+//   var vpc vpc
+//   baseLoadBalancerProps := &baseLoadBalancerProps{
+//   	vpc: vpc,
+//
+//   	// the properties below are optional
+//   	deletionProtection: jsii.Boolean(false),
+//   	internetFacing: jsii.Boolean(false),
+//   	loadBalancerName: jsii.String("loadBalancerName"),
+//   	vpcSubnets: &subnetSelection{
+//   		availabilityZones: []*string{
+//   			jsii.String("availabilityZones"),
+//   		},
+//   		onePerAz: jsii.Boolean(false),
+//   		subnetFilters: []*subnetFilter{
+//   			subnetFilter,
+//   		},
+//   		subnetGroupName: jsii.String("subnetGroupName"),
+//   		subnetName: jsii.String("subnetName"),
+//   		subnets: []iSubnet{
+//   			subnet,
+//   		},
+//   		subnetType: ec2.subnetType_ISOLATED,
+//   	},
+//   }
+//
+// Experimental.
 type BaseLoadBalancerProps struct {
 	// The VPC network to place the load balancer in.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Indicates whether deletion protection is enabled.
+	// Experimental.
 	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// Whether the load balancer has an internet-routable address.
+	// Experimental.
 	InternetFacing *bool `json:"internetFacing" yaml:"internetFacing"`
 	// Name of the load balancer.
+	// Experimental.
 	LoadBalancerName *string `json:"loadBalancerName" yaml:"loadBalancerName"`
 	// Which subnets place the load balancer in.
+	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // Basic properties for a Network Listener.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpNlbIntegration awscdk.HttpNlbIntegration
 //
+//   vpc := ec2.NewVpc(this, jsii.String("VPC"))
+//   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("lb"), &networkLoadBalancerProps{
+//   	vpc: vpc,
+//   })
+//   listener := lb.addListener(jsii.String("listener"), &baseNetworkListenerProps{
+//   	port: jsii.Number(80),
+//   })
+//   listener.addTargets(jsii.String("target"), &addNetworkTargetsProps{
+//   	port: jsii.Number(80),
+//   })
+//
+//   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
+//   	defaultIntegration: NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
+//   })
+//
+// Experimental.
 type BaseNetworkListenerProps struct {
 	// The port on which the listener listens for requests.
+	// Experimental.
 	Port *float64 `json:"port" yaml:"port"`
 	// Application-Layer Protocol Negotiation (ALPN) is a TLS extension that is sent on the initial TLS handshake hello messages.
 	//
 	// ALPN enables the application layer to negotiate which protocols should be used over a secure connection, such as HTTP/1 and HTTP/2.
 	//
 	// Can only be specified together with Protocol TLS.
+	// Experimental.
 	AlpnPolicy AlpnPolicy `json:"alpnPolicy" yaml:"alpnPolicy"`
 	// Certificate list of ACM cert ARNs.
 	//
 	// You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
+	// Experimental.
 	Certificates *[]IListenerCertificate `json:"certificates" yaml:"certificates"`
 	// Default action to take for requests to this listener.
 	//
@@ -3063,6 +5142,7 @@ type BaseNetworkListenerProps struct {
 	// all options.
 	//
 	// Cannot be specified together with `defaultTargetGroups`.
+	// Experimental.
 	DefaultAction NetworkListenerAction `json:"defaultAction" yaml:"defaultAction"`
 	// Default target groups to load balance to.
 	//
@@ -3071,41 +5151,72 @@ type BaseNetworkListenerProps struct {
 	// either `defaultAction` or `addAction()`.
 	//
 	// Cannot be specified together with `defaultAction`.
+	// Experimental.
 	DefaultTargetGroups *[]INetworkTargetGroup `json:"defaultTargetGroups" yaml:"defaultTargetGroups"`
 	// Protocol for listener, expects TCP, TLS, UDP, or TCP_UDP.
+	// Experimental.
 	Protocol Protocol `json:"protocol" yaml:"protocol"`
 	// SSL Policy.
+	// Experimental.
 	SslPolicy SslPolicy `json:"sslPolicy" yaml:"sslPolicy"`
 }
 
 // Basic properties of both Application and Network Target Groups.
 //
-// TODO: EXAMPLE
+// Example:
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
 //
+//   var duration duration
+//   var vpc vpc
+//   baseTargetGroupProps := &baseTargetGroupProps{
+//   	deregistrationDelay: duration,
+//   	healthCheck: &healthCheck{
+//   		enabled: jsii.Boolean(false),
+//   		healthyGrpcCodes: jsii.String("healthyGrpcCodes"),
+//   		healthyHttpCodes: jsii.String("healthyHttpCodes"),
+//   		healthyThresholdCount: jsii.Number(123),
+//   		interval: duration,
+//   		path: jsii.String("path"),
+//   		port: jsii.String("port"),
+//   		protocol: elasticloadbalancingv2.protocol_HTTP,
+//   		timeout: duration,
+//   		unhealthyThresholdCount: jsii.Number(123),
+//   	},
+//   	targetGroupName: jsii.String("targetGroupName"),
+//   	targetType: elasticloadbalancingv2.targetType_INSTANCE,
+//   	vpc: vpc,
+//   }
+//
+// Experimental.
 type BaseTargetGroupProps struct {
 	// The amount of time for Elastic Load Balancing to wait before deregistering a target.
 	//
 	// The range is 0-3600 seconds.
+	// Experimental.
 	DeregistrationDelay awscdk.Duration `json:"deregistrationDelay" yaml:"deregistrationDelay"`
 	// Health check configuration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#aws-resource-elasticloadbalancingv2-targetgroup-properties
 	//
+	// Experimental.
 	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
 	// The name of the target group.
 	//
 	// This name must be unique per region per account, can have a maximum of
 	// 32 characters, must contain only alphanumeric characters or hyphens, and
 	// must not begin or end with a hyphen.
+	// Experimental.
 	TargetGroupName *string `json:"targetGroupName" yaml:"targetGroupName"`
 	// The type of targets registered to this TargetGroup, either IP or Instance.
 	//
 	// All targets registered into the group must be of this type. If you
 	// register targets to the TargetGroup in the CDK app, the TargetType is
 	// determined automatically.
+	// Experimental.
 	TargetType TargetType `json:"targetType" yaml:"targetType"`
 	// The virtual private cloud (VPC).
 	//
-	// only if `TargetType` is `Ip` or `InstanceId`
+	// only if `TargetType` is `Ip` or `InstanceId`.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
@@ -3113,49 +5224,338 @@ type BaseTargetGroupProps struct {
 //
 // Specifies a listener for an Application Load Balancer or Network Load Balancer.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   cfnListener := elasticloadbalancingv2.NewCfnListener(this, jsii.String("MyCfnListener"), &cfnListenerProps{
+//   	defaultActions: []interface{}{
+//   		&actionProperty{
+//   			type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			authenticateCognitoConfig: &authenticateCognitoConfigProperty{
+//   				userPoolArn: jsii.String("userPoolArn"),
+//   				userPoolClientId: jsii.String("userPoolClientId"),
+//   				userPoolDomain: jsii.String("userPoolDomain"),
+//
+//   				// the properties below are optional
+//   				authenticationRequestExtraParams: map[string]*string{
+//   					"authenticationRequestExtraParamsKey": jsii.String("authenticationRequestExtraParams"),
+//   				},
+//   				onUnauthenticatedRequest: jsii.String("onUnauthenticatedRequest"),
+//   				scope: jsii.String("scope"),
+//   				sessionCookieName: jsii.String("sessionCookieName"),
+//   				sessionTimeout: jsii.String("sessionTimeout"),
+//   			},
+//   			authenticateOidcConfig: &authenticateOidcConfigProperty{
+//   				authorizationEndpoint: jsii.String("authorizationEndpoint"),
+//   				clientId: jsii.String("clientId"),
+//   				clientSecret: jsii.String("clientSecret"),
+//   				issuer: jsii.String("issuer"),
+//   				tokenEndpoint: jsii.String("tokenEndpoint"),
+//   				userInfoEndpoint: jsii.String("userInfoEndpoint"),
+//
+//   				// the properties below are optional
+//   				authenticationRequestExtraParams: map[string]*string{
+//   					"authenticationRequestExtraParamsKey": jsii.String("authenticationRequestExtraParams"),
+//   				},
+//   				onUnauthenticatedRequest: jsii.String("onUnauthenticatedRequest"),
+//   				scope: jsii.String("scope"),
+//   				sessionCookieName: jsii.String("sessionCookieName"),
+//   				sessionTimeout: jsii.String("sessionTimeout"),
+//   			},
+//   			fixedResponseConfig: &fixedResponseConfigProperty{
+//   				statusCode: jsii.String("statusCode"),
+//
+//   				// the properties below are optional
+//   				contentType: jsii.String("contentType"),
+//   				messageBody: jsii.String("messageBody"),
+//   			},
+//   			forwardConfig: &forwardConfigProperty{
+//   				targetGroups: []interface{}{
+//   					&targetGroupTupleProperty{
+//   						targetGroupArn: jsii.String("targetGroupArn"),
+//   						weight: jsii.Number(123),
+//   					},
+//   				},
+//   				targetGroupStickinessConfig: &targetGroupStickinessConfigProperty{
+//   					durationSeconds: jsii.Number(123),
+//   					enabled: jsii.Boolean(false),
+//   				},
+//   			},
+//   			order: jsii.Number(123),
+//   			redirectConfig: &redirectConfigProperty{
+//   				statusCode: jsii.String("statusCode"),
+//
+//   				// the properties below are optional
+//   				host: jsii.String("host"),
+//   				path: jsii.String("path"),
+//   				port: jsii.String("port"),
+//   				protocol: jsii.String("protocol"),
+//   				query: jsii.String("query"),
+//   			},
+//   			targetGroupArn: jsii.String("targetGroupArn"),
+//   		},
+//   	},
+//   	loadBalancerArn: jsii.String("loadBalancerArn"),
+//
+//   	// the properties below are optional
+//   	alpnPolicy: []*string{
+//   		jsii.String("alpnPolicy"),
+//   	},
+//   	certificates: []interface{}{
+//   		&certificateProperty{
+//   			certificateArn: jsii.String("certificateArn"),
+//   		},
+//   	},
+//   	port: jsii.Number(123),
+//   	protocol: jsii.String("protocol"),
+//   	sslPolicy: jsii.String("sslPolicy"),
+//   })
 //
 type CfnListener interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
 	AlpnPolicy() *[]*string
 	SetAlpnPolicy(val *[]*string)
+	// The Amazon Resource Name (ARN) of the listener.
 	AttrListenerArn() *string
+	// The default SSL server certificate for a secure listener.
+	//
+	// You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
+	//
+	// To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html) .
 	Certificates() interface{}
 	SetCertificates(val interface{})
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The actions for the default rule. You cannot define a condition for a default rule.
+	//
+	// To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html) .
 	DefaultActions() interface{}
 	SetDefaultActions(val interface{})
+	// The Amazon Resource Name (ARN) of the load balancer.
 	LoadBalancerArn() *string
 	SetLoadBalancerArn(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// The port on which the load balancer is listening.
+	//
+	// You cannot specify a port for a Gateway Load Balancer.
 	Port() *float64
 	SetPort(val *float64)
+	// The protocol for connections from clients to the load balancer.
+	//
+	// For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
 	Protocol() *string
 	SetProtocol(val *string)
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
+	//
+	// For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies) in the *Network Load Balancers Guide* .
 	SslPolicy() *string
 	SetSslPolicy(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -3265,8 +5665,8 @@ func (j *jsiiProxy_CfnListener) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnListener) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnListener) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3337,13 +5737,13 @@ func (j *jsiiProxy_CfnListener) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::ElasticLoadBalancingV2::Listener`.
-func NewCfnListener(scope constructs.Construct, id *string, props *CfnListenerProps) CfnListener {
+func NewCfnListener(scope awscdk.Construct, id *string, props *CfnListenerProps) CfnListener {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnListener{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListener",
+		"monocdk.aws_elasticloadbalancingv2.CfnListener",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3352,11 +5752,11 @@ func NewCfnListener(scope constructs.Construct, id *string, props *CfnListenerPr
 }
 
 // Create a new `AWS::ElasticLoadBalancingV2::Listener`.
-func NewCfnListener_Override(c CfnListener, scope constructs.Construct, id *string, props *CfnListenerProps) {
+func NewCfnListener_Override(c CfnListener, scope awscdk.Construct, id *string, props *CfnListenerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListener",
+		"monocdk.aws_elasticloadbalancingv2.CfnListener",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3424,13 +5824,14 @@ func (j *jsiiProxy_CfnListener) SetSslPolicy(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnListener_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListener",
+		"monocdk.aws_elasticloadbalancingv2.CfnListener",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3440,13 +5841,14 @@ func CfnListener_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnListener_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListener",
+		"monocdk.aws_elasticloadbalancingv2.CfnListener",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3455,17 +5857,15 @@ func CfnListener_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnListener_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListener",
+		"monocdk.aws_elasticloadbalancingv2.CfnListener",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3478,14 +5878,13 @@ func CfnListener_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListener",
+		"monocdk.aws_elasticloadbalancingv2.CfnListener",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnListener) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3494,10 +5893,6 @@ func (c *jsiiProxy_CfnListener) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnListener) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3506,13 +5901,6 @@ func (c *jsiiProxy_CfnListener) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnListener) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3521,49 +5909,6 @@ func (c *jsiiProxy_CfnListener) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnListener) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3572,7 +5917,6 @@ func (c *jsiiProxy_CfnListener) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnListener) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3581,9 +5925,6 @@ func (c *jsiiProxy_CfnListener) AddPropertyDeletionOverride(propertyPath *string
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnListener) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3592,15 +5933,6 @@ func (c *jsiiProxy_CfnListener) AddPropertyOverride(propertyPath *string, value 
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnListener) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3609,10 +5941,6 @@ func (c *jsiiProxy_CfnListener) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnListener) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3626,13 +5954,6 @@ func (c *jsiiProxy_CfnListener) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnListener) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3646,7 +5967,6 @@ func (c *jsiiProxy_CfnListener) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnListener) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3655,12 +5975,48 @@ func (c *jsiiProxy_CfnListener) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnListener) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnListener) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnListener) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnListener) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnListener) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3677,10 +6033,6 @@ func (c *jsiiProxy_CfnListener) RenderProperties(props *map[string]interface{}) 
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnListener) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3694,15 +6046,33 @@ func (c *jsiiProxy_CfnListener) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnListener) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnListener) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnListener) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3720,7 +6090,75 @@ func (c *jsiiProxy_CfnListener) ValidateProperties(_properties interface{}) {
 
 // Specifies an action for a listener rule.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   actionProperty := &actionProperty{
+//   	type: jsii.String("type"),
+//
+//   	// the properties below are optional
+//   	authenticateCognitoConfig: &authenticateCognitoConfigProperty{
+//   		userPoolArn: jsii.String("userPoolArn"),
+//   		userPoolClientId: jsii.String("userPoolClientId"),
+//   		userPoolDomain: jsii.String("userPoolDomain"),
+//
+//   		// the properties below are optional
+//   		authenticationRequestExtraParams: map[string]*string{
+//   			"authenticationRequestExtraParamsKey": jsii.String("authenticationRequestExtraParams"),
+//   		},
+//   		onUnauthenticatedRequest: jsii.String("onUnauthenticatedRequest"),
+//   		scope: jsii.String("scope"),
+//   		sessionCookieName: jsii.String("sessionCookieName"),
+//   		sessionTimeout: jsii.String("sessionTimeout"),
+//   	},
+//   	authenticateOidcConfig: &authenticateOidcConfigProperty{
+//   		authorizationEndpoint: jsii.String("authorizationEndpoint"),
+//   		clientId: jsii.String("clientId"),
+//   		clientSecret: jsii.String("clientSecret"),
+//   		issuer: jsii.String("issuer"),
+//   		tokenEndpoint: jsii.String("tokenEndpoint"),
+//   		userInfoEndpoint: jsii.String("userInfoEndpoint"),
+//
+//   		// the properties below are optional
+//   		authenticationRequestExtraParams: map[string]*string{
+//   			"authenticationRequestExtraParamsKey": jsii.String("authenticationRequestExtraParams"),
+//   		},
+//   		onUnauthenticatedRequest: jsii.String("onUnauthenticatedRequest"),
+//   		scope: jsii.String("scope"),
+//   		sessionCookieName: jsii.String("sessionCookieName"),
+//   		sessionTimeout: jsii.String("sessionTimeout"),
+//   	},
+//   	fixedResponseConfig: &fixedResponseConfigProperty{
+//   		statusCode: jsii.String("statusCode"),
+//
+//   		// the properties below are optional
+//   		contentType: jsii.String("contentType"),
+//   		messageBody: jsii.String("messageBody"),
+//   	},
+//   	forwardConfig: &forwardConfigProperty{
+//   		targetGroups: []interface{}{
+//   			&targetGroupTupleProperty{
+//   				targetGroupArn: jsii.String("targetGroupArn"),
+//   				weight: jsii.Number(123),
+//   			},
+//   		},
+//   		targetGroupStickinessConfig: &targetGroupStickinessConfigProperty{
+//   			durationSeconds: jsii.Number(123),
+//   			enabled: jsii.Boolean(false),
+//   		},
+//   	},
+//   	order: jsii.Number(123),
+//   	redirectConfig: &redirectConfigProperty{
+//   		statusCode: jsii.String("statusCode"),
+//
+//   		// the properties below are optional
+//   		host: jsii.String("host"),
+//   		path: jsii.String("path"),
+//   		port: jsii.String("port"),
+//   		protocol: jsii.String("protocol"),
+//   		query: jsii.String("query"),
+//   	},
+//   	targetGroupArn: jsii.String("targetGroupArn"),
+//   }
 //
 type CfnListener_ActionProperty struct {
 	// The type of action.
@@ -3757,7 +6195,22 @@ type CfnListener_ActionProperty struct {
 
 // Specifies information required when integrating with Amazon Cognito to authenticate users.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   authenticateCognitoConfigProperty := &authenticateCognitoConfigProperty{
+//   	userPoolArn: jsii.String("userPoolArn"),
+//   	userPoolClientId: jsii.String("userPoolClientId"),
+//   	userPoolDomain: jsii.String("userPoolDomain"),
+//
+//   	// the properties below are optional
+//   	authenticationRequestExtraParams: map[string]*string{
+//   		"authenticationRequestExtraParamsKey": jsii.String("authenticationRequestExtraParams"),
+//   	},
+//   	onUnauthenticatedRequest: jsii.String("onUnauthenticatedRequest"),
+//   	scope: jsii.String("scope"),
+//   	sessionCookieName: jsii.String("sessionCookieName"),
+//   	sessionTimeout: jsii.String("sessionTimeout"),
+//   }
 //
 type CfnListener_AuthenticateCognitoConfigProperty struct {
 	// The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
@@ -3790,7 +6243,25 @@ type CfnListener_AuthenticateCognitoConfigProperty struct {
 
 // Specifies information required using an identity provide (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   authenticateOidcConfigProperty := &authenticateOidcConfigProperty{
+//   	authorizationEndpoint: jsii.String("authorizationEndpoint"),
+//   	clientId: jsii.String("clientId"),
+//   	clientSecret: jsii.String("clientSecret"),
+//   	issuer: jsii.String("issuer"),
+//   	tokenEndpoint: jsii.String("tokenEndpoint"),
+//   	userInfoEndpoint: jsii.String("userInfoEndpoint"),
+//
+//   	// the properties below are optional
+//   	authenticationRequestExtraParams: map[string]*string{
+//   		"authenticationRequestExtraParamsKey": jsii.String("authenticationRequestExtraParams"),
+//   	},
+//   	onUnauthenticatedRequest: jsii.String("onUnauthenticatedRequest"),
+//   	scope: jsii.String("scope"),
+//   	sessionCookieName: jsii.String("sessionCookieName"),
+//   	sessionTimeout: jsii.String("sessionTimeout"),
+//   }
 //
 type CfnListener_AuthenticateOidcConfigProperty struct {
 	// The authorization endpoint of the IdP.
@@ -3837,7 +6308,11 @@ type CfnListener_AuthenticateOidcConfigProperty struct {
 
 // Specifies an SSL server certificate to use as the default certificate for a secure listener.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   certificateProperty := &certificateProperty{
+//   	certificateArn: jsii.String("certificateArn"),
+//   }
 //
 type CfnListener_CertificateProperty struct {
 	// The Amazon Resource Name (ARN) of the certificate.
@@ -3846,14 +6321,22 @@ type CfnListener_CertificateProperty struct {
 
 // Specifies information required when returning a custom HTTP response.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   fixedResponseConfigProperty := &fixedResponseConfigProperty{
+//   	statusCode: jsii.String("statusCode"),
+//
+//   	// the properties below are optional
+//   	contentType: jsii.String("contentType"),
+//   	messageBody: jsii.String("messageBody"),
+//   }
 //
 type CfnListener_FixedResponseConfigProperty struct {
 	// The HTTP response code (2XX, 4XX, or 5XX).
 	StatusCode *string `json:"statusCode" yaml:"statusCode"`
 	// The content type.
 	//
-	// Valid Values: text/plain | text/css | text/html | application/javascript | application/json
+	// Valid Values: text/plain | text/css | text/html | application/javascript | application/json.
 	ContentType *string `json:"contentType" yaml:"contentType"`
 	// The message.
 	MessageBody *string `json:"messageBody" yaml:"messageBody"`
@@ -3863,7 +6346,20 @@ type CfnListener_FixedResponseConfigProperty struct {
 //
 // For Network Load Balancers, you can specify a single target group. Specify only when `Type` is `forward` . If you specify both `ForwardConfig` and `TargetGroupArn` , you can specify only one target group using `ForwardConfig` and it must be the same target group specified in `TargetGroupArn` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   forwardConfigProperty := &forwardConfigProperty{
+//   	targetGroups: []interface{}{
+//   		&targetGroupTupleProperty{
+//   			targetGroupArn: jsii.String("targetGroupArn"),
+//   			weight: jsii.Number(123),
+//   		},
+//   	},
+//   	targetGroupStickinessConfig: &targetGroupStickinessConfigProperty{
+//   		durationSeconds: jsii.Number(123),
+//   		enabled: jsii.Boolean(false),
+//   	},
+//   }
 //
 type CfnListener_ForwardConfigProperty struct {
 	// Information about how traffic will be distributed between multiple target groups in a forward rule.
@@ -3886,7 +6382,18 @@ type CfnListener_ForwardConfigProperty struct {
 //
 // For example, you can change the path to "/new/#{path}", the hostname to "example.#{host}", or the query to "#{query}&value=xyz".
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   redirectConfigProperty := &redirectConfigProperty{
+//   	statusCode: jsii.String("statusCode"),
+//
+//   	// the properties below are optional
+//   	host: jsii.String("host"),
+//   	path: jsii.String("path"),
+//   	port: jsii.String("port"),
+//   	protocol: jsii.String("protocol"),
+//   	query: jsii.String("query"),
+//   }
 //
 type CfnListener_RedirectConfigProperty struct {
 	// The HTTP redirect code.
@@ -3917,7 +6424,12 @@ type CfnListener_RedirectConfigProperty struct {
 
 // Information about the target group stickiness for a rule.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   targetGroupStickinessConfigProperty := &targetGroupStickinessConfigProperty{
+//   	durationSeconds: jsii.Number(123),
+//   	enabled: jsii.Boolean(false),
+//   }
 //
 type CfnListener_TargetGroupStickinessConfigProperty struct {
 	// The time period, in seconds, during which requests from a client should be routed to the same target group.
@@ -3930,7 +6442,12 @@ type CfnListener_TargetGroupStickinessConfigProperty struct {
 
 // Information about how traffic will be distributed between multiple target groups in a forward rule.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   targetGroupTupleProperty := &targetGroupTupleProperty{
+//   	targetGroupArn: jsii.String("targetGroupArn"),
+//   	weight: jsii.Number(123),
+//   }
 //
 type CfnListener_TargetGroupTupleProperty struct {
 	// The Amazon Resource Name (ARN) of the target group.
@@ -3945,38 +6462,234 @@ type CfnListener_TargetGroupTupleProperty struct {
 //
 // Specifies an SSL server certificate to add to the certificate list for an HTTPS or TLS listener.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   cfnListenerCertificate := elasticloadbalancingv2.NewCfnListenerCertificate(this, jsii.String("MyCfnListenerCertificate"), &cfnListenerCertificateProps{
+//   	certificates: []interface{}{
+//   		&certificateProperty{
+//   			certificateArn: jsii.String("certificateArn"),
+//   		},
+//   	},
+//   	listenerArn: jsii.String("listenerArn"),
+//   })
 //
 type CfnListenerCertificate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The certificate.
+	//
+	// You can specify one certificate per resource.
 	Certificates() interface{}
 	SetCertificates(val interface{})
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The Amazon Resource Name (ARN) of the listener.
 	ListenerArn() *string
 	SetListenerArn(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -4056,8 +6769,8 @@ func (j *jsiiProxy_CfnListenerCertificate) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnListenerCertificate) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnListenerCertificate) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4098,13 +6811,13 @@ func (j *jsiiProxy_CfnListenerCertificate) UpdatedProperites() *map[string]inter
 
 
 // Create a new `AWS::ElasticLoadBalancingV2::ListenerCertificate`.
-func NewCfnListenerCertificate(scope constructs.Construct, id *string, props *CfnListenerCertificateProps) CfnListenerCertificate {
+func NewCfnListenerCertificate(scope awscdk.Construct, id *string, props *CfnListenerCertificateProps) CfnListenerCertificate {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnListenerCertificate{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListenerCertificate",
+		"monocdk.aws_elasticloadbalancingv2.CfnListenerCertificate",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4113,11 +6826,11 @@ func NewCfnListenerCertificate(scope constructs.Construct, id *string, props *Cf
 }
 
 // Create a new `AWS::ElasticLoadBalancingV2::ListenerCertificate`.
-func NewCfnListenerCertificate_Override(c CfnListenerCertificate, scope constructs.Construct, id *string, props *CfnListenerCertificateProps) {
+func NewCfnListenerCertificate_Override(c CfnListenerCertificate, scope awscdk.Construct, id *string, props *CfnListenerCertificateProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListenerCertificate",
+		"monocdk.aws_elasticloadbalancingv2.CfnListenerCertificate",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4145,13 +6858,14 @@ func (j *jsiiProxy_CfnListenerCertificate) SetListenerArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnListenerCertificate_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListenerCertificate",
+		"monocdk.aws_elasticloadbalancingv2.CfnListenerCertificate",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4161,13 +6875,14 @@ func CfnListenerCertificate_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnListenerCertificate_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListenerCertificate",
+		"monocdk.aws_elasticloadbalancingv2.CfnListenerCertificate",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4176,17 +6891,15 @@ func CfnListenerCertificate_IsCfnResource(construct constructs.IConstruct) *bool
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnListenerCertificate_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListenerCertificate",
+		"monocdk.aws_elasticloadbalancingv2.CfnListenerCertificate",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4199,14 +6912,13 @@ func CfnListenerCertificate_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListenerCertificate",
+		"monocdk.aws_elasticloadbalancingv2.CfnListenerCertificate",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnListenerCertificate) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4215,10 +6927,6 @@ func (c *jsiiProxy_CfnListenerCertificate) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnListenerCertificate) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4227,13 +6935,6 @@ func (c *jsiiProxy_CfnListenerCertificate) AddDependsOn(target awscdk.CfnResourc
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnListenerCertificate) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4242,49 +6943,6 @@ func (c *jsiiProxy_CfnListenerCertificate) AddMetadata(key *string, value interf
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnListenerCertificate) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4293,7 +6951,6 @@ func (c *jsiiProxy_CfnListenerCertificate) AddOverride(path *string, value inter
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnListenerCertificate) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4302,9 +6959,6 @@ func (c *jsiiProxy_CfnListenerCertificate) AddPropertyDeletionOverride(propertyP
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnListenerCertificate) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4313,15 +6967,6 @@ func (c *jsiiProxy_CfnListenerCertificate) AddPropertyOverride(propertyPath *str
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnListenerCertificate) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4330,10 +6975,6 @@ func (c *jsiiProxy_CfnListenerCertificate) ApplyRemovalPolicy(policy awscdk.Remo
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnListenerCertificate) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4347,13 +6988,6 @@ func (c *jsiiProxy_CfnListenerCertificate) GetAtt(attributeName *string) awscdk.
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnListenerCertificate) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4367,7 +7001,6 @@ func (c *jsiiProxy_CfnListenerCertificate) GetMetadata(key *string) interface{} 
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnListenerCertificate) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4376,12 +7009,48 @@ func (c *jsiiProxy_CfnListenerCertificate) Inspect(inspector awscdk.TreeInspecto
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnListenerCertificate) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnListenerCertificate) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnListenerCertificate) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnListenerCertificate) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnListenerCertificate) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -4398,10 +7067,6 @@ func (c *jsiiProxy_CfnListenerCertificate) RenderProperties(props *map[string]in
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnListenerCertificate) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4415,15 +7080,33 @@ func (c *jsiiProxy_CfnListenerCertificate) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnListenerCertificate) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnListenerCertificate) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnListenerCertificate) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4441,7 +7124,11 @@ func (c *jsiiProxy_CfnListenerCertificate) ValidateProperties(_properties interf
 
 // Specifies an SSL server certificate for the certificate list of a secure listener.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   certificateProperty := &certificateProperty{
+//   	certificateArn: jsii.String("certificateArn"),
+//   }
 //
 type CfnListenerCertificate_CertificateProperty struct {
 	// The Amazon Resource Name (ARN) of the certificate.
@@ -4450,7 +7137,16 @@ type CfnListenerCertificate_CertificateProperty struct {
 
 // Properties for defining a `CfnListenerCertificate`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   cfnListenerCertificateProps := &cfnListenerCertificateProps{
+//   	certificates: []interface{}{
+//   		&certificateProperty{
+//   			certificateArn: jsii.String("certificateArn"),
+//   		},
+//   	},
+//   	listenerArn: jsii.String("listenerArn"),
+//   }
 //
 type CfnListenerCertificateProps struct {
 	// The certificate.
@@ -4463,7 +7159,93 @@ type CfnListenerCertificateProps struct {
 
 // Properties for defining a `CfnListener`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   cfnListenerProps := &cfnListenerProps{
+//   	defaultActions: []interface{}{
+//   		&actionProperty{
+//   			type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			authenticateCognitoConfig: &authenticateCognitoConfigProperty{
+//   				userPoolArn: jsii.String("userPoolArn"),
+//   				userPoolClientId: jsii.String("userPoolClientId"),
+//   				userPoolDomain: jsii.String("userPoolDomain"),
+//
+//   				// the properties below are optional
+//   				authenticationRequestExtraParams: map[string]*string{
+//   					"authenticationRequestExtraParamsKey": jsii.String("authenticationRequestExtraParams"),
+//   				},
+//   				onUnauthenticatedRequest: jsii.String("onUnauthenticatedRequest"),
+//   				scope: jsii.String("scope"),
+//   				sessionCookieName: jsii.String("sessionCookieName"),
+//   				sessionTimeout: jsii.String("sessionTimeout"),
+//   			},
+//   			authenticateOidcConfig: &authenticateOidcConfigProperty{
+//   				authorizationEndpoint: jsii.String("authorizationEndpoint"),
+//   				clientId: jsii.String("clientId"),
+//   				clientSecret: jsii.String("clientSecret"),
+//   				issuer: jsii.String("issuer"),
+//   				tokenEndpoint: jsii.String("tokenEndpoint"),
+//   				userInfoEndpoint: jsii.String("userInfoEndpoint"),
+//
+//   				// the properties below are optional
+//   				authenticationRequestExtraParams: map[string]*string{
+//   					"authenticationRequestExtraParamsKey": jsii.String("authenticationRequestExtraParams"),
+//   				},
+//   				onUnauthenticatedRequest: jsii.String("onUnauthenticatedRequest"),
+//   				scope: jsii.String("scope"),
+//   				sessionCookieName: jsii.String("sessionCookieName"),
+//   				sessionTimeout: jsii.String("sessionTimeout"),
+//   			},
+//   			fixedResponseConfig: &fixedResponseConfigProperty{
+//   				statusCode: jsii.String("statusCode"),
+//
+//   				// the properties below are optional
+//   				contentType: jsii.String("contentType"),
+//   				messageBody: jsii.String("messageBody"),
+//   			},
+//   			forwardConfig: &forwardConfigProperty{
+//   				targetGroups: []interface{}{
+//   					&targetGroupTupleProperty{
+//   						targetGroupArn: jsii.String("targetGroupArn"),
+//   						weight: jsii.Number(123),
+//   					},
+//   				},
+//   				targetGroupStickinessConfig: &targetGroupStickinessConfigProperty{
+//   					durationSeconds: jsii.Number(123),
+//   					enabled: jsii.Boolean(false),
+//   				},
+//   			},
+//   			order: jsii.Number(123),
+//   			redirectConfig: &redirectConfigProperty{
+//   				statusCode: jsii.String("statusCode"),
+//
+//   				// the properties below are optional
+//   				host: jsii.String("host"),
+//   				path: jsii.String("path"),
+//   				port: jsii.String("port"),
+//   				protocol: jsii.String("protocol"),
+//   				query: jsii.String("query"),
+//   			},
+//   			targetGroupArn: jsii.String("targetGroupArn"),
+//   		},
+//   	},
+//   	loadBalancerArn: jsii.String("loadBalancerArn"),
+//
+//   	// the properties below are optional
+//   	alpnPolicy: []*string{
+//   		jsii.String("alpnPolicy"),
+//   	},
+//   	certificates: []interface{}{
+//   		&certificateProperty{
+//   			certificateArn: jsii.String("certificateArn"),
+//   		},
+//   	},
+//   	port: jsii.Number(123),
+//   	protocol: jsii.String("protocol"),
+//   	sslPolicy: jsii.String("sslPolicy"),
+//   }
 //
 type CfnListenerProps struct {
 	// The actions for the default rule. You cannot define a condition for a default rule.
@@ -4498,44 +7280,356 @@ type CfnListenerProps struct {
 //
 // Specifies a listener rule. The listener must be associated with an Application Load Balancer. Each rule consists of a priority, one or more actions, and one or more conditions.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   cfnListenerRule := elasticloadbalancingv2.NewCfnListenerRule(this, jsii.String("MyCfnListenerRule"), &cfnListenerRuleProps{
+//   	actions: []interface{}{
+//   		&actionProperty{
+//   			type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			authenticateCognitoConfig: &authenticateCognitoConfigProperty{
+//   				userPoolArn: jsii.String("userPoolArn"),
+//   				userPoolClientId: jsii.String("userPoolClientId"),
+//   				userPoolDomain: jsii.String("userPoolDomain"),
+//
+//   				// the properties below are optional
+//   				authenticationRequestExtraParams: map[string]*string{
+//   					"authenticationRequestExtraParamsKey": jsii.String("authenticationRequestExtraParams"),
+//   				},
+//   				onUnauthenticatedRequest: jsii.String("onUnauthenticatedRequest"),
+//   				scope: jsii.String("scope"),
+//   				sessionCookieName: jsii.String("sessionCookieName"),
+//   				sessionTimeout: jsii.Number(123),
+//   			},
+//   			authenticateOidcConfig: &authenticateOidcConfigProperty{
+//   				authorizationEndpoint: jsii.String("authorizationEndpoint"),
+//   				clientId: jsii.String("clientId"),
+//   				clientSecret: jsii.String("clientSecret"),
+//   				issuer: jsii.String("issuer"),
+//   				tokenEndpoint: jsii.String("tokenEndpoint"),
+//   				userInfoEndpoint: jsii.String("userInfoEndpoint"),
+//
+//   				// the properties below are optional
+//   				authenticationRequestExtraParams: map[string]*string{
+//   					"authenticationRequestExtraParamsKey": jsii.String("authenticationRequestExtraParams"),
+//   				},
+//   				onUnauthenticatedRequest: jsii.String("onUnauthenticatedRequest"),
+//   				scope: jsii.String("scope"),
+//   				sessionCookieName: jsii.String("sessionCookieName"),
+//   				sessionTimeout: jsii.Number(123),
+//   				useExistingClientSecret: jsii.Boolean(false),
+//   			},
+//   			fixedResponseConfig: &fixedResponseConfigProperty{
+//   				statusCode: jsii.String("statusCode"),
+//
+//   				// the properties below are optional
+//   				contentType: jsii.String("contentType"),
+//   				messageBody: jsii.String("messageBody"),
+//   			},
+//   			forwardConfig: &forwardConfigProperty{
+//   				targetGroups: []interface{}{
+//   					&targetGroupTupleProperty{
+//   						targetGroupArn: jsii.String("targetGroupArn"),
+//   						weight: jsii.Number(123),
+//   					},
+//   				},
+//   				targetGroupStickinessConfig: &targetGroupStickinessConfigProperty{
+//   					durationSeconds: jsii.Number(123),
+//   					enabled: jsii.Boolean(false),
+//   				},
+//   			},
+//   			order: jsii.Number(123),
+//   			redirectConfig: &redirectConfigProperty{
+//   				statusCode: jsii.String("statusCode"),
+//
+//   				// the properties below are optional
+//   				host: jsii.String("host"),
+//   				path: jsii.String("path"),
+//   				port: jsii.String("port"),
+//   				protocol: jsii.String("protocol"),
+//   				query: jsii.String("query"),
+//   			},
+//   			targetGroupArn: jsii.String("targetGroupArn"),
+//   		},
+//   	},
+//   	conditions: []interface{}{
+//   		&ruleConditionProperty{
+//   			field: jsii.String("field"),
+//   			hostHeaderConfig: &hostHeaderConfigProperty{
+//   				values: []*string{
+//   					jsii.String("values"),
+//   				},
+//   			},
+//   			httpHeaderConfig: &httpHeaderConfigProperty{
+//   				httpHeaderName: jsii.String("httpHeaderName"),
+//   				values: []*string{
+//   					jsii.String("values"),
+//   				},
+//   			},
+//   			httpRequestMethodConfig: &httpRequestMethodConfigProperty{
+//   				values: []*string{
+//   					jsii.String("values"),
+//   				},
+//   			},
+//   			pathPatternConfig: &pathPatternConfigProperty{
+//   				values: []*string{
+//   					jsii.String("values"),
+//   				},
+//   			},
+//   			queryStringConfig: &queryStringConfigProperty{
+//   				values: []interface{}{
+//   					&queryStringKeyValueProperty{
+//   						key: jsii.String("key"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   			sourceIpConfig: &sourceIpConfigProperty{
+//   				values: []*string{
+//   					jsii.String("values"),
+//   				},
+//   			},
+//   			values: []*string{
+//   				jsii.String("values"),
+//   			},
+//   		},
+//   	},
+//   	listenerArn: jsii.String("listenerArn"),
+//   	priority: jsii.Number(123),
+//   })
 //
 type CfnListenerRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The actions.
+	//
+	// The rule must include exactly one of the following types of actions: `forward` , `fixed-response` , or `redirect` , and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action.
 	Actions() interface{}
 	SetActions(val interface{})
+	// Indicates whether this is the default rule.
 	AttrIsDefault() awscdk.IResolvable
+	// The Amazon Resource Name (ARN) of the rule.
 	AttrRuleArn() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// The conditions.
+	//
+	// The rule can optionally include up to one of each of the following conditions: `http-request-method` , `host-header` , `path-pattern` , and `source-ip` . A rule can also optionally include one or more of each of the following conditions: `http-header` and `query-string` .
 	Conditions() interface{}
 	SetConditions(val interface{})
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The Amazon Resource Name (ARN) of the listener.
 	ListenerArn() *string
 	SetListenerArn(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// The rule priority. A listener can't have multiple rules with the same priority.
+	//
+	// If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
 	Priority() *float64
 	SetPriority(val *float64)
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -4645,8 +7739,8 @@ func (j *jsiiProxy_CfnListenerRule) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnListenerRule) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnListenerRule) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4697,13 +7791,13 @@ func (j *jsiiProxy_CfnListenerRule) UpdatedProperites() *map[string]interface{} 
 
 
 // Create a new `AWS::ElasticLoadBalancingV2::ListenerRule`.
-func NewCfnListenerRule(scope constructs.Construct, id *string, props *CfnListenerRuleProps) CfnListenerRule {
+func NewCfnListenerRule(scope awscdk.Construct, id *string, props *CfnListenerRuleProps) CfnListenerRule {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnListenerRule{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListenerRule",
+		"monocdk.aws_elasticloadbalancingv2.CfnListenerRule",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4712,11 +7806,11 @@ func NewCfnListenerRule(scope constructs.Construct, id *string, props *CfnListen
 }
 
 // Create a new `AWS::ElasticLoadBalancingV2::ListenerRule`.
-func NewCfnListenerRule_Override(c CfnListenerRule, scope constructs.Construct, id *string, props *CfnListenerRuleProps) {
+func NewCfnListenerRule_Override(c CfnListenerRule, scope awscdk.Construct, id *string, props *CfnListenerRuleProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListenerRule",
+		"monocdk.aws_elasticloadbalancingv2.CfnListenerRule",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4760,13 +7854,14 @@ func (j *jsiiProxy_CfnListenerRule) SetPriority(val *float64) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnListenerRule_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListenerRule",
+		"monocdk.aws_elasticloadbalancingv2.CfnListenerRule",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4776,13 +7871,14 @@ func CfnListenerRule_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnListenerRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListenerRule",
+		"monocdk.aws_elasticloadbalancingv2.CfnListenerRule",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4791,17 +7887,15 @@ func CfnListenerRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnListenerRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListenerRule",
+		"monocdk.aws_elasticloadbalancingv2.CfnListenerRule",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4814,14 +7908,13 @@ func CfnListenerRule_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListenerRule",
+		"monocdk.aws_elasticloadbalancingv2.CfnListenerRule",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnListenerRule) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4830,10 +7923,6 @@ func (c *jsiiProxy_CfnListenerRule) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnListenerRule) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4842,13 +7931,6 @@ func (c *jsiiProxy_CfnListenerRule) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnListenerRule) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4857,49 +7939,6 @@ func (c *jsiiProxy_CfnListenerRule) AddMetadata(key *string, value interface{}) 
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnListenerRule) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4908,7 +7947,6 @@ func (c *jsiiProxy_CfnListenerRule) AddOverride(path *string, value interface{})
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnListenerRule) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4917,9 +7955,6 @@ func (c *jsiiProxy_CfnListenerRule) AddPropertyDeletionOverride(propertyPath *st
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnListenerRule) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4928,15 +7963,6 @@ func (c *jsiiProxy_CfnListenerRule) AddPropertyOverride(propertyPath *string, va
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnListenerRule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4945,10 +7971,6 @@ func (c *jsiiProxy_CfnListenerRule) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnListenerRule) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4962,13 +7984,6 @@ func (c *jsiiProxy_CfnListenerRule) GetAtt(attributeName *string) awscdk.Referen
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnListenerRule) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4982,7 +7997,6 @@ func (c *jsiiProxy_CfnListenerRule) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnListenerRule) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4991,12 +8005,48 @@ func (c *jsiiProxy_CfnListenerRule) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnListenerRule) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnListenerRule) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnListenerRule) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnListenerRule) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnListenerRule) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -5013,10 +8063,6 @@ func (c *jsiiProxy_CfnListenerRule) RenderProperties(props *map[string]interface
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnListenerRule) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -5030,15 +8076,33 @@ func (c *jsiiProxy_CfnListenerRule) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnListenerRule) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnListenerRule) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnListenerRule) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5056,7 +8120,76 @@ func (c *jsiiProxy_CfnListenerRule) ValidateProperties(_properties interface{}) 
 
 // Specifies an action for a listener rule.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   actionProperty := &actionProperty{
+//   	type: jsii.String("type"),
+//
+//   	// the properties below are optional
+//   	authenticateCognitoConfig: &authenticateCognitoConfigProperty{
+//   		userPoolArn: jsii.String("userPoolArn"),
+//   		userPoolClientId: jsii.String("userPoolClientId"),
+//   		userPoolDomain: jsii.String("userPoolDomain"),
+//
+//   		// the properties below are optional
+//   		authenticationRequestExtraParams: map[string]*string{
+//   			"authenticationRequestExtraParamsKey": jsii.String("authenticationRequestExtraParams"),
+//   		},
+//   		onUnauthenticatedRequest: jsii.String("onUnauthenticatedRequest"),
+//   		scope: jsii.String("scope"),
+//   		sessionCookieName: jsii.String("sessionCookieName"),
+//   		sessionTimeout: jsii.Number(123),
+//   	},
+//   	authenticateOidcConfig: &authenticateOidcConfigProperty{
+//   		authorizationEndpoint: jsii.String("authorizationEndpoint"),
+//   		clientId: jsii.String("clientId"),
+//   		clientSecret: jsii.String("clientSecret"),
+//   		issuer: jsii.String("issuer"),
+//   		tokenEndpoint: jsii.String("tokenEndpoint"),
+//   		userInfoEndpoint: jsii.String("userInfoEndpoint"),
+//
+//   		// the properties below are optional
+//   		authenticationRequestExtraParams: map[string]*string{
+//   			"authenticationRequestExtraParamsKey": jsii.String("authenticationRequestExtraParams"),
+//   		},
+//   		onUnauthenticatedRequest: jsii.String("onUnauthenticatedRequest"),
+//   		scope: jsii.String("scope"),
+//   		sessionCookieName: jsii.String("sessionCookieName"),
+//   		sessionTimeout: jsii.Number(123),
+//   		useExistingClientSecret: jsii.Boolean(false),
+//   	},
+//   	fixedResponseConfig: &fixedResponseConfigProperty{
+//   		statusCode: jsii.String("statusCode"),
+//
+//   		// the properties below are optional
+//   		contentType: jsii.String("contentType"),
+//   		messageBody: jsii.String("messageBody"),
+//   	},
+//   	forwardConfig: &forwardConfigProperty{
+//   		targetGroups: []interface{}{
+//   			&targetGroupTupleProperty{
+//   				targetGroupArn: jsii.String("targetGroupArn"),
+//   				weight: jsii.Number(123),
+//   			},
+//   		},
+//   		targetGroupStickinessConfig: &targetGroupStickinessConfigProperty{
+//   			durationSeconds: jsii.Number(123),
+//   			enabled: jsii.Boolean(false),
+//   		},
+//   	},
+//   	order: jsii.Number(123),
+//   	redirectConfig: &redirectConfigProperty{
+//   		statusCode: jsii.String("statusCode"),
+//
+//   		// the properties below are optional
+//   		host: jsii.String("host"),
+//   		path: jsii.String("path"),
+//   		port: jsii.String("port"),
+//   		protocol: jsii.String("protocol"),
+//   		query: jsii.String("query"),
+//   	},
+//   	targetGroupArn: jsii.String("targetGroupArn"),
+//   }
 //
 type CfnListenerRule_ActionProperty struct {
 	// The type of action.
@@ -5093,7 +8226,22 @@ type CfnListenerRule_ActionProperty struct {
 
 // Specifies information required when integrating with Amazon Cognito to authenticate users.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   authenticateCognitoConfigProperty := &authenticateCognitoConfigProperty{
+//   	userPoolArn: jsii.String("userPoolArn"),
+//   	userPoolClientId: jsii.String("userPoolClientId"),
+//   	userPoolDomain: jsii.String("userPoolDomain"),
+//
+//   	// the properties below are optional
+//   	authenticationRequestExtraParams: map[string]*string{
+//   		"authenticationRequestExtraParamsKey": jsii.String("authenticationRequestExtraParams"),
+//   	},
+//   	onUnauthenticatedRequest: jsii.String("onUnauthenticatedRequest"),
+//   	scope: jsii.String("scope"),
+//   	sessionCookieName: jsii.String("sessionCookieName"),
+//   	sessionTimeout: jsii.Number(123),
+//   }
 //
 type CfnListenerRule_AuthenticateCognitoConfigProperty struct {
 	// The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
@@ -5126,7 +8274,26 @@ type CfnListenerRule_AuthenticateCognitoConfigProperty struct {
 
 // Specifies information required using an identity provide (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   authenticateOidcConfigProperty := &authenticateOidcConfigProperty{
+//   	authorizationEndpoint: jsii.String("authorizationEndpoint"),
+//   	clientId: jsii.String("clientId"),
+//   	clientSecret: jsii.String("clientSecret"),
+//   	issuer: jsii.String("issuer"),
+//   	tokenEndpoint: jsii.String("tokenEndpoint"),
+//   	userInfoEndpoint: jsii.String("userInfoEndpoint"),
+//
+//   	// the properties below are optional
+//   	authenticationRequestExtraParams: map[string]*string{
+//   		"authenticationRequestExtraParamsKey": jsii.String("authenticationRequestExtraParams"),
+//   	},
+//   	onUnauthenticatedRequest: jsii.String("onUnauthenticatedRequest"),
+//   	scope: jsii.String("scope"),
+//   	sessionCookieName: jsii.String("sessionCookieName"),
+//   	sessionTimeout: jsii.Number(123),
+//   	useExistingClientSecret: jsii.Boolean(false),
+//   }
 //
 type CfnListenerRule_AuthenticateOidcConfigProperty struct {
 	// The authorization endpoint of the IdP.
@@ -5177,14 +8344,22 @@ type CfnListenerRule_AuthenticateOidcConfigProperty struct {
 
 // Specifies information required when returning a custom HTTP response.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   fixedResponseConfigProperty := &fixedResponseConfigProperty{
+//   	statusCode: jsii.String("statusCode"),
+//
+//   	// the properties below are optional
+//   	contentType: jsii.String("contentType"),
+//   	messageBody: jsii.String("messageBody"),
+//   }
 //
 type CfnListenerRule_FixedResponseConfigProperty struct {
 	// The HTTP response code (2XX, 4XX, or 5XX).
 	StatusCode *string `json:"statusCode" yaml:"statusCode"`
 	// The content type.
 	//
-	// Valid Values: text/plain | text/css | text/html | application/javascript | application/json
+	// Valid Values: text/plain | text/css | text/html | application/javascript | application/json.
 	ContentType *string `json:"contentType" yaml:"contentType"`
 	// The message.
 	MessageBody *string `json:"messageBody" yaml:"messageBody"`
@@ -5194,7 +8369,20 @@ type CfnListenerRule_FixedResponseConfigProperty struct {
 //
 // For Network Load Balancers, you can specify a single target group. Specify only when `Type` is `forward` . If you specify both `ForwardConfig` and `TargetGroupArn` , you can specify only one target group using `ForwardConfig` and it must be the same target group specified in `TargetGroupArn` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   forwardConfigProperty := &forwardConfigProperty{
+//   	targetGroups: []interface{}{
+//   		&targetGroupTupleProperty{
+//   			targetGroupArn: jsii.String("targetGroupArn"),
+//   			weight: jsii.Number(123),
+//   		},
+//   	},
+//   	targetGroupStickinessConfig: &targetGroupStickinessConfigProperty{
+//   		durationSeconds: jsii.Number(123),
+//   		enabled: jsii.Boolean(false),
+//   	},
+//   }
 //
 type CfnListenerRule_ForwardConfigProperty struct {
 	// Information about how traffic will be distributed between multiple target groups in a forward rule.
@@ -5205,7 +8393,13 @@ type CfnListenerRule_ForwardConfigProperty struct {
 
 // Information about a host header condition.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   hostHeaderConfigProperty := &hostHeaderConfigProperty{
+//   	values: []*string{
+//   		jsii.String("values"),
+//   	},
+//   }
 //
 type CfnListenerRule_HostHeaderConfigProperty struct {
 	// One or more host names.
@@ -5220,7 +8414,14 @@ type CfnListenerRule_HostHeaderConfigProperty struct {
 //
 // There is a set of standard HTTP header fields. You can also define custom HTTP header fields.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   httpHeaderConfigProperty := &httpHeaderConfigProperty{
+//   	httpHeaderName: jsii.String("httpHeaderName"),
+//   	values: []*string{
+//   		jsii.String("values"),
+//   	},
+//   }
 //
 type CfnListenerRule_HttpHeaderConfigProperty struct {
 	// The name of the HTTP header field.
@@ -5241,7 +8442,13 @@ type CfnListenerRule_HttpHeaderConfigProperty struct {
 //
 // HTTP defines a set of request methods, also referred to as HTTP verbs. For more information, see the [HTTP Method Registry](https://docs.aws.amazon.com/https://www.iana.org/assignments/http-methods/http-methods.xhtml) . You can also define custom HTTP methods.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   httpRequestMethodConfigProperty := &httpRequestMethodConfigProperty{
+//   	values: []*string{
+//   		jsii.String("values"),
+//   	},
+//   }
 //
 type CfnListenerRule_HttpRequestMethodConfigProperty struct {
 	// The name of the request method.
@@ -5254,7 +8461,13 @@ type CfnListenerRule_HttpRequestMethodConfigProperty struct {
 
 // Information about a path pattern condition.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   pathPatternConfigProperty := &pathPatternConfigProperty{
+//   	values: []*string{
+//   		jsii.String("values"),
+//   	},
+//   }
 //
 type CfnListenerRule_PathPatternConfigProperty struct {
 	// One or more path patterns to compare against the request URL.
@@ -5269,7 +8482,16 @@ type CfnListenerRule_PathPatternConfigProperty struct {
 //
 // The query string component of a URI starts after the first '?' character and is terminated by either a '#' character or the end of the URI. A typical query string contains key/value pairs separated by '&' characters. The allowed characters are specified by RFC 3986. Any character can be percentage encoded.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   queryStringConfigProperty := &queryStringConfigProperty{
+//   	values: []interface{}{
+//   		&queryStringKeyValueProperty{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnListenerRule_QueryStringConfigProperty struct {
 	// One or more key/value pairs or values to find in the query string.
@@ -5282,7 +8504,12 @@ type CfnListenerRule_QueryStringConfigProperty struct {
 
 // Information about a key/value pair.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   queryStringKeyValueProperty := &queryStringKeyValueProperty{
+//   	key: jsii.String("key"),
+//   	value: jsii.String("value"),
+//   }
 //
 type CfnListenerRule_QueryStringKeyValueProperty struct {
 	// The key.
@@ -5307,7 +8534,18 @@ type CfnListenerRule_QueryStringKeyValueProperty struct {
 //
 // For example, you can change the path to "/new/#{path}", the hostname to "example.#{host}", or the query to "#{query}&value=xyz".
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   redirectConfigProperty := &redirectConfigProperty{
+//   	statusCode: jsii.String("statusCode"),
+//
+//   	// the properties below are optional
+//   	host: jsii.String("host"),
+//   	path: jsii.String("path"),
+//   	port: jsii.String("port"),
+//   	protocol: jsii.String("protocol"),
+//   	query: jsii.String("query"),
+//   }
 //
 type CfnListenerRule_RedirectConfigProperty struct {
 	// The HTTP redirect code.
@@ -5338,7 +8576,48 @@ type CfnListenerRule_RedirectConfigProperty struct {
 
 // Specifies a condition for a listener rule.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   ruleConditionProperty := &ruleConditionProperty{
+//   	field: jsii.String("field"),
+//   	hostHeaderConfig: &hostHeaderConfigProperty{
+//   		values: []*string{
+//   			jsii.String("values"),
+//   		},
+//   	},
+//   	httpHeaderConfig: &httpHeaderConfigProperty{
+//   		httpHeaderName: jsii.String("httpHeaderName"),
+//   		values: []*string{
+//   			jsii.String("values"),
+//   		},
+//   	},
+//   	httpRequestMethodConfig: &httpRequestMethodConfigProperty{
+//   		values: []*string{
+//   			jsii.String("values"),
+//   		},
+//   	},
+//   	pathPatternConfig: &pathPatternConfigProperty{
+//   		values: []*string{
+//   			jsii.String("values"),
+//   		},
+//   	},
+//   	queryStringConfig: &queryStringConfigProperty{
+//   		values: []interface{}{
+//   			&queryStringKeyValueProperty{
+//   				key: jsii.String("key"),
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   	sourceIpConfig: &sourceIpConfigProperty{
+//   		values: []*string{
+//   			jsii.String("values"),
+//   		},
+//   	},
+//   	values: []*string{
+//   		jsii.String("values"),
+//   	},
+//   }
 //
 type CfnListenerRule_RuleConditionProperty struct {
 	// The field in the HTTP request. The following are the possible values:.
@@ -5348,7 +8627,7 @@ type CfnListenerRule_RuleConditionProperty struct {
 	// - `host-header`
 	// - `path-pattern`
 	// - `query-string`
-	// - `source-ip`
+	// - `source-ip`.
 	Field *string `json:"field" yaml:"field"`
 	// Information for a host header condition.
 	//
@@ -5399,7 +8678,13 @@ type CfnListenerRule_RuleConditionProperty struct {
 //
 // You can use this condition to route based on the IP address of the source that connects to the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the IP address of the client.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   sourceIpConfigProperty := &sourceIpConfigProperty{
+//   	values: []*string{
+//   		jsii.String("values"),
+//   	},
+//   }
 //
 type CfnListenerRule_SourceIpConfigProperty struct {
 	// One or more source IP addresses, in CIDR format.
@@ -5412,7 +8697,12 @@ type CfnListenerRule_SourceIpConfigProperty struct {
 
 // Information about the target group stickiness for a rule.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   targetGroupStickinessConfigProperty := &targetGroupStickinessConfigProperty{
+//   	durationSeconds: jsii.Number(123),
+//   	enabled: jsii.Boolean(false),
+//   }
 //
 type CfnListenerRule_TargetGroupStickinessConfigProperty struct {
 	// The time period, in seconds, during which requests from a client should be routed to the same target group.
@@ -5425,7 +8715,12 @@ type CfnListenerRule_TargetGroupStickinessConfigProperty struct {
 
 // Information about how traffic will be distributed between multiple target groups in a forward rule.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   targetGroupTupleProperty := &targetGroupTupleProperty{
+//   	targetGroupArn: jsii.String("targetGroupArn"),
+//   	weight: jsii.Number(123),
+//   }
 //
 type CfnListenerRule_TargetGroupTupleProperty struct {
 	// The Amazon Resource Name (ARN) of the target group.
@@ -5438,7 +8733,124 @@ type CfnListenerRule_TargetGroupTupleProperty struct {
 
 // Properties for defining a `CfnListenerRule`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   cfnListenerRuleProps := &cfnListenerRuleProps{
+//   	actions: []interface{}{
+//   		&actionProperty{
+//   			type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			authenticateCognitoConfig: &authenticateCognitoConfigProperty{
+//   				userPoolArn: jsii.String("userPoolArn"),
+//   				userPoolClientId: jsii.String("userPoolClientId"),
+//   				userPoolDomain: jsii.String("userPoolDomain"),
+//
+//   				// the properties below are optional
+//   				authenticationRequestExtraParams: map[string]*string{
+//   					"authenticationRequestExtraParamsKey": jsii.String("authenticationRequestExtraParams"),
+//   				},
+//   				onUnauthenticatedRequest: jsii.String("onUnauthenticatedRequest"),
+//   				scope: jsii.String("scope"),
+//   				sessionCookieName: jsii.String("sessionCookieName"),
+//   				sessionTimeout: jsii.Number(123),
+//   			},
+//   			authenticateOidcConfig: &authenticateOidcConfigProperty{
+//   				authorizationEndpoint: jsii.String("authorizationEndpoint"),
+//   				clientId: jsii.String("clientId"),
+//   				clientSecret: jsii.String("clientSecret"),
+//   				issuer: jsii.String("issuer"),
+//   				tokenEndpoint: jsii.String("tokenEndpoint"),
+//   				userInfoEndpoint: jsii.String("userInfoEndpoint"),
+//
+//   				// the properties below are optional
+//   				authenticationRequestExtraParams: map[string]*string{
+//   					"authenticationRequestExtraParamsKey": jsii.String("authenticationRequestExtraParams"),
+//   				},
+//   				onUnauthenticatedRequest: jsii.String("onUnauthenticatedRequest"),
+//   				scope: jsii.String("scope"),
+//   				sessionCookieName: jsii.String("sessionCookieName"),
+//   				sessionTimeout: jsii.Number(123),
+//   				useExistingClientSecret: jsii.Boolean(false),
+//   			},
+//   			fixedResponseConfig: &fixedResponseConfigProperty{
+//   				statusCode: jsii.String("statusCode"),
+//
+//   				// the properties below are optional
+//   				contentType: jsii.String("contentType"),
+//   				messageBody: jsii.String("messageBody"),
+//   			},
+//   			forwardConfig: &forwardConfigProperty{
+//   				targetGroups: []interface{}{
+//   					&targetGroupTupleProperty{
+//   						targetGroupArn: jsii.String("targetGroupArn"),
+//   						weight: jsii.Number(123),
+//   					},
+//   				},
+//   				targetGroupStickinessConfig: &targetGroupStickinessConfigProperty{
+//   					durationSeconds: jsii.Number(123),
+//   					enabled: jsii.Boolean(false),
+//   				},
+//   			},
+//   			order: jsii.Number(123),
+//   			redirectConfig: &redirectConfigProperty{
+//   				statusCode: jsii.String("statusCode"),
+//
+//   				// the properties below are optional
+//   				host: jsii.String("host"),
+//   				path: jsii.String("path"),
+//   				port: jsii.String("port"),
+//   				protocol: jsii.String("protocol"),
+//   				query: jsii.String("query"),
+//   			},
+//   			targetGroupArn: jsii.String("targetGroupArn"),
+//   		},
+//   	},
+//   	conditions: []interface{}{
+//   		&ruleConditionProperty{
+//   			field: jsii.String("field"),
+//   			hostHeaderConfig: &hostHeaderConfigProperty{
+//   				values: []*string{
+//   					jsii.String("values"),
+//   				},
+//   			},
+//   			httpHeaderConfig: &httpHeaderConfigProperty{
+//   				httpHeaderName: jsii.String("httpHeaderName"),
+//   				values: []*string{
+//   					jsii.String("values"),
+//   				},
+//   			},
+//   			httpRequestMethodConfig: &httpRequestMethodConfigProperty{
+//   				values: []*string{
+//   					jsii.String("values"),
+//   				},
+//   			},
+//   			pathPatternConfig: &pathPatternConfigProperty{
+//   				values: []*string{
+//   					jsii.String("values"),
+//   				},
+//   			},
+//   			queryStringConfig: &queryStringConfigProperty{
+//   				values: []interface{}{
+//   					&queryStringKeyValueProperty{
+//   						key: jsii.String("key"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   			sourceIpConfig: &sourceIpConfigProperty{
+//   				values: []*string{
+//   					jsii.String("values"),
+//   				},
+//   			},
+//   			values: []*string{
+//   				jsii.String("values"),
+//   			},
+//   		},
+//   	},
+//   	listenerArn: jsii.String("listenerArn"),
+//   	priority: jsii.Number(123),
+//   }
 //
 type CfnListenerRuleProps struct {
 	// The actions.
@@ -5461,56 +8873,336 @@ type CfnListenerRuleProps struct {
 //
 // Specifies an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   cfnLoadBalancer := elasticloadbalancingv2.NewCfnLoadBalancer(this, jsii.String("MyCfnLoadBalancer"), &cfnLoadBalancerProps{
+//   	ipAddressType: jsii.String("ipAddressType"),
+//   	loadBalancerAttributes: []interface{}{
+//   		&loadBalancerAttributeProperty{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//   	scheme: jsii.String("scheme"),
+//   	securityGroups: []*string{
+//   		jsii.String("securityGroups"),
+//   	},
+//   	subnetMappings: []interface{}{
+//   		&subnetMappingProperty{
+//   			subnetId: jsii.String("subnetId"),
+//
+//   			// the properties below are optional
+//   			allocationId: jsii.String("allocationId"),
+//   			iPv6Address: jsii.String("iPv6Address"),
+//   			privateIPv4Address: jsii.String("privateIPv4Address"),
+//   		},
+//   	},
+//   	subnets: []*string{
+//   		jsii.String("subnets"),
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	type: jsii.String("type"),
+//   })
 //
 type CfnLoadBalancer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ID of the Amazon Route 53 hosted zone associated with the load balancer.
+	//
+	// For example, `Z2P70J7EXAMPLE` .
 	AttrCanonicalHostedZoneId() *string
+	// The DNS name for the load balancer.
+	//
+	// For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
 	AttrDnsName() *string
+	// The full name of the load balancer.
+	//
+	// For example, `app/my-load-balancer/50dc6c495c0c9188` .
 	AttrLoadBalancerFullName() *string
+	// The name of the load balancer.
+	//
+	// For example, `my-load-balancer` .
 	AttrLoadBalancerName() *string
+	// The IDs of the security groups for the load balancer.
 	AttrSecurityGroups() *[]*string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The IP address type.
+	//
+	// The possible values are `ipv4` (for IPv4 addresses) and `dualstack` (for IPv4 and IPv6 addresses). You can’t specify `dualstack` for a load balancer with a UDP or TCP_UDP listener.
 	IpAddressType() *string
 	SetIpAddressType(val *string)
+	// The load balancer attributes.
 	LoadBalancerAttributes() interface{}
 	SetLoadBalancerAttributes(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The name of the load balancer.
+	//
+	// This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
+	//
+	// If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The nodes of an Internet-facing load balancer have public IP addresses.
+	//
+	// The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
+	//
+	// The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
+	//
+	// The default is an Internet-facing load balancer.
+	//
+	// You cannot specify a scheme for a Gateway Load Balancer.
 	Scheme() *string
 	SetScheme(val *string)
+	// [Application Load Balancers] The IDs of the security groups for the load balancer.
 	SecurityGroups() *[]*string
 	SetSecurityGroups(val *[]*string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// The IDs of the public subnets.
+	//
+	// You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
+	//
+	// [Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
+	//
+	// [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+	//
+	// [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+	//
+	// [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
+	//
+	// [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP addresses for your subnets.
 	SubnetMappings() interface{}
 	SetSubnetMappings(val interface{})
+	// The IDs of the public subnets.
+	//
+	// You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
+	//
+	// [Application Load Balancers] You must specify subnets from at least two Availability Zones.
+	//
+	// [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+	//
+	// [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+	//
+	// [Network Load Balancers] You can specify subnets from one or more Availability Zones.
+	//
+	// [Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
 	Subnets() *[]*string
 	SetSubnets(val *[]*string)
+	// The tags to assign to the load balancer.
 	Tags() awscdk.TagManager
+	// The type of load balancer.
+	//
+	// The default is `application` .
 	Type() *string
 	SetType(val *string)
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -5650,8 +9342,8 @@ func (j *jsiiProxy_CfnLoadBalancer) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoadBalancer) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnLoadBalancer) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5752,13 +9444,13 @@ func (j *jsiiProxy_CfnLoadBalancer) UpdatedProperites() *map[string]interface{} 
 
 
 // Create a new `AWS::ElasticLoadBalancingV2::LoadBalancer`.
-func NewCfnLoadBalancer(scope constructs.Construct, id *string, props *CfnLoadBalancerProps) CfnLoadBalancer {
+func NewCfnLoadBalancer(scope awscdk.Construct, id *string, props *CfnLoadBalancerProps) CfnLoadBalancer {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLoadBalancer{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnLoadBalancer",
+		"monocdk.aws_elasticloadbalancingv2.CfnLoadBalancer",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5767,11 +9459,11 @@ func NewCfnLoadBalancer(scope constructs.Construct, id *string, props *CfnLoadBa
 }
 
 // Create a new `AWS::ElasticLoadBalancingV2::LoadBalancer`.
-func NewCfnLoadBalancer_Override(c CfnLoadBalancer, scope constructs.Construct, id *string, props *CfnLoadBalancerProps) {
+func NewCfnLoadBalancer_Override(c CfnLoadBalancer, scope awscdk.Construct, id *string, props *CfnLoadBalancerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnLoadBalancer",
+		"monocdk.aws_elasticloadbalancingv2.CfnLoadBalancer",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5847,13 +9539,14 @@ func (j *jsiiProxy_CfnLoadBalancer) SetType(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnLoadBalancer_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnLoadBalancer",
+		"monocdk.aws_elasticloadbalancingv2.CfnLoadBalancer",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -5863,13 +9556,14 @@ func CfnLoadBalancer_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnLoadBalancer_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnLoadBalancer",
+		"monocdk.aws_elasticloadbalancingv2.CfnLoadBalancer",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -5878,17 +9572,15 @@ func CfnLoadBalancer_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnLoadBalancer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnLoadBalancer",
+		"monocdk.aws_elasticloadbalancingv2.CfnLoadBalancer",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5901,14 +9593,13 @@ func CfnLoadBalancer_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnLoadBalancer",
+		"monocdk.aws_elasticloadbalancingv2.CfnLoadBalancer",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnLoadBalancer) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5917,10 +9608,6 @@ func (c *jsiiProxy_CfnLoadBalancer) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnLoadBalancer) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5929,13 +9616,6 @@ func (c *jsiiProxy_CfnLoadBalancer) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnLoadBalancer) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5944,49 +9624,6 @@ func (c *jsiiProxy_CfnLoadBalancer) AddMetadata(key *string, value interface{}) 
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnLoadBalancer) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5995,7 +9632,6 @@ func (c *jsiiProxy_CfnLoadBalancer) AddOverride(path *string, value interface{})
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnLoadBalancer) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6004,9 +9640,6 @@ func (c *jsiiProxy_CfnLoadBalancer) AddPropertyDeletionOverride(propertyPath *st
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnLoadBalancer) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6015,15 +9648,6 @@ func (c *jsiiProxy_CfnLoadBalancer) AddPropertyOverride(propertyPath *string, va
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnLoadBalancer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6032,10 +9656,6 @@ func (c *jsiiProxy_CfnLoadBalancer) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnLoadBalancer) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -6049,13 +9669,6 @@ func (c *jsiiProxy_CfnLoadBalancer) GetAtt(attributeName *string) awscdk.Referen
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnLoadBalancer) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -6069,7 +9682,6 @@ func (c *jsiiProxy_CfnLoadBalancer) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnLoadBalancer) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6078,12 +9690,48 @@ func (c *jsiiProxy_CfnLoadBalancer) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnLoadBalancer) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnLoadBalancer) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnLoadBalancer) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnLoadBalancer) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnLoadBalancer) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -6100,10 +9748,6 @@ func (c *jsiiProxy_CfnLoadBalancer) RenderProperties(props *map[string]interface
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnLoadBalancer) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -6117,15 +9761,33 @@ func (c *jsiiProxy_CfnLoadBalancer) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnLoadBalancer) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnLoadBalancer) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnLoadBalancer) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6143,7 +9805,12 @@ func (c *jsiiProxy_CfnLoadBalancer) ValidateProperties(_properties interface{}) 
 
 // Specifies an attribute for an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   loadBalancerAttributeProperty := &loadBalancerAttributeProperty{
+//   	key: jsii.String("key"),
+//   	value: jsii.String("value"),
+//   }
 //
 type CfnLoadBalancer_LoadBalancerAttributeProperty struct {
 	// The name of the attribute.
@@ -6179,7 +9846,16 @@ type CfnLoadBalancer_LoadBalancerAttributeProperty struct {
 
 // Specifies a subnet for a load balancer.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   subnetMappingProperty := &subnetMappingProperty{
+//   	subnetId: jsii.String("subnetId"),
+//
+//   	// the properties below are optional
+//   	allocationId: jsii.String("allocationId"),
+//   	iPv6Address: jsii.String("iPv6Address"),
+//   	privateIPv4Address: jsii.String("privateIPv4Address"),
+//   }
 //
 type CfnLoadBalancer_SubnetMappingProperty struct {
 	// The ID of the subnet.
@@ -6194,7 +9870,42 @@ type CfnLoadBalancer_SubnetMappingProperty struct {
 
 // Properties for defining a `CfnLoadBalancer`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   cfnLoadBalancerProps := &cfnLoadBalancerProps{
+//   	ipAddressType: jsii.String("ipAddressType"),
+//   	loadBalancerAttributes: []interface{}{
+//   		&loadBalancerAttributeProperty{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//   	scheme: jsii.String("scheme"),
+//   	securityGroups: []*string{
+//   		jsii.String("securityGroups"),
+//   	},
+//   	subnetMappings: []interface{}{
+//   		&subnetMappingProperty{
+//   			subnetId: jsii.String("subnetId"),
+//
+//   			// the properties below are optional
+//   			allocationId: jsii.String("allocationId"),
+//   			iPv6Address: jsii.String("iPv6Address"),
+//   			privateIPv4Address: jsii.String("privateIPv4Address"),
+//   		},
+//   	},
+//   	subnets: []*string{
+//   		jsii.String("subnets"),
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	type: jsii.String("type"),
+//   }
 //
 type CfnLoadBalancerProps struct {
 	// The IP address type.
@@ -6263,74 +9974,363 @@ type CfnLoadBalancerProps struct {
 //
 // Before you register a Lambda function as a target, you must create a `AWS::Lambda::Permission` resource that grants the Elastic Load Balancing service principal permission to invoke the Lambda function.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   cfnTargetGroup := elasticloadbalancingv2.NewCfnTargetGroup(this, jsii.String("MyCfnTargetGroup"), &cfnTargetGroupProps{
+//   	healthCheckEnabled: jsii.Boolean(false),
+//   	healthCheckIntervalSeconds: jsii.Number(123),
+//   	healthCheckPath: jsii.String("healthCheckPath"),
+//   	healthCheckPort: jsii.String("healthCheckPort"),
+//   	healthCheckProtocol: jsii.String("healthCheckProtocol"),
+//   	healthCheckTimeoutSeconds: jsii.Number(123),
+//   	healthyThresholdCount: jsii.Number(123),
+//   	ipAddressType: jsii.String("ipAddressType"),
+//   	matcher: &matcherProperty{
+//   		grpcCode: jsii.String("grpcCode"),
+//   		httpCode: jsii.String("httpCode"),
+//   	},
+//   	name: jsii.String("name"),
+//   	port: jsii.Number(123),
+//   	protocol: jsii.String("protocol"),
+//   	protocolVersion: jsii.String("protocolVersion"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	targetGroupAttributes: []interface{}{
+//   		&targetGroupAttributeProperty{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	targets: []interface{}{
+//   		&targetDescriptionProperty{
+//   			id: jsii.String("id"),
+//
+//   			// the properties below are optional
+//   			availabilityZone: jsii.String("availabilityZone"),
+//   			port: jsii.Number(123),
+//   		},
+//   	},
+//   	targetType: jsii.String("targetType"),
+//   	unhealthyThresholdCount: jsii.Number(123),
+//   	vpcId: jsii.String("vpcId"),
+//   })
 //
 type CfnTargetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Names (ARNs) of the load balancers that route traffic to this target group.
 	AttrLoadBalancerArns() *[]*string
+	// The full name of the target group.
+	//
+	// For example, `targetgroup/my-target-group/cbf133c568e0d028` .
 	AttrTargetGroupFullName() *string
+	// The name of the target group.
+	//
+	// For example, `my-target-group` .
 	AttrTargetGroupName() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// Indicates whether health checks are enabled.
+	//
+	// If the target type is `lambda` , health checks are disabled by default but can be enabled. If the target type is `instance` , `ip` , or `alb` , health checks are always enabled and cannot be disabled.
 	HealthCheckEnabled() interface{}
 	SetHealthCheckEnabled(val interface{})
+	// The approximate amount of time, in seconds, between health checks of an individual target.
+	//
+	// If the target group protocol is HTTP or HTTPS, the default is 30 seconds. If the target group protocol is TCP, TLS, UDP, or TCP_UDP, the supported values are 10 and 30 seconds and the default is 30 seconds. If the target group protocol is GENEVE, the default is 10 seconds. If the target type is `lambda` , the default is 35 seconds.
 	HealthCheckIntervalSeconds() *float64
 	SetHealthCheckIntervalSeconds(val *float64)
+	// [HTTP/HTTPS health checks] The destination for health checks on the targets.
+	//
+	// [HTTP1 or HTTP2 protocol version] The ping path. The default is /.
+	//
+	// [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is / AWS .ALB/healthcheck.
 	HealthCheckPath() *string
 	SetHealthCheckPath(val *string)
+	// The port the load balancer uses when performing health checks on targets.
+	//
+	// If the protocol is HTTP, HTTPS, TCP, TLS, UDP, or TCP_UDP, the default is `traffic-port` , which is the port on which each target receives traffic from the load balancer. If the protocol is GENEVE, the default is port 80.
 	HealthCheckPort() *string
 	SetHealthCheckPort(val *string)
+	// The protocol the load balancer uses when performing health checks on targets.
+	//
+	// For Application Load Balancers, the default is HTTP. For Network Load Balancers and Gateway Load Balancers, the default is TCP. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. The GENEVE, TLS, UDP, and TCP_UDP protocols are not supported for health checks.
 	HealthCheckProtocol() *string
 	SetHealthCheckProtocol(val *string)
+	// The amount of time, in seconds, during which no response from a target means a failed health check.
+	//
+	// For target groups with a protocol of HTTP, HTTPS, or GENEVE, the default is 5 seconds. For target groups with a protocol of TCP or TLS, this value must be 6 seconds for HTTP health checks and 10 seconds for TCP and HTTPS health checks. If the target type is `lambda` , the default is 30 seconds.
 	HealthCheckTimeoutSeconds() *float64
 	SetHealthCheckTimeoutSeconds(val *float64)
+	// The number of consecutive health checks successes required before considering an unhealthy target healthy.
+	//
+	// For target groups with a protocol of HTTP or HTTPS, the default is 5. For target groups with a protocol of TCP, TLS, or GENEVE, the default is 3. If the target type is `lambda` , the default is 5.
 	HealthyThresholdCount() *float64
 	SetHealthyThresholdCount(val *float64)
+	// The type of IP address used for this target group.
+	//
+	// The possible values are `ipv4` and `ipv6` . This is an optional parameter. If not specified, the IP address type defaults to `ipv4` .
 	IpAddressType() *string
 	SetIpAddressType(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.
 	Matcher() interface{}
 	SetMatcher(val interface{})
+	// The name of the target group.
+	//
+	// This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// The port on which the targets receive traffic.
+	//
+	// This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081.
 	Port() *float64
 	SetPort(val *float64)
+	// The protocol to use for routing traffic to the targets.
+	//
+	// For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, or TCP_UDP. For Gateway Load Balancers, the supported protocol is GENEVE. A TCP_UDP listener must be associated with a TCP_UDP target group. If the target is a Lambda function, this parameter does not apply.
 	Protocol() *string
 	SetProtocol(val *string)
+	// [HTTP/HTTPS protocol] The protocol version.
+	//
+	// The possible values are `GRPC` , `HTTP1` , and `HTTP2` .
 	ProtocolVersion() *string
 	SetProtocolVersion(val *string)
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// The tags.
 	Tags() awscdk.TagManager
+	// The attributes.
 	TargetGroupAttributes() interface{}
 	SetTargetGroupAttributes(val interface{})
+	// The targets.
 	Targets() interface{}
 	SetTargets(val interface{})
+	// The type of target that you must specify when registering targets with this target group.
+	//
+	// You can't specify targets for a target group using more than one target type.
+	//
+	// - `instance` - Register targets by instance ID. This is the default value.
+	// - `ip` - Register targets by IP address. You can specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
+	// - `lambda` - Register a single Lambda function as a target.
+	// - `alb` - Register a single Application Load Balancer as a target.
 	TargetType() *string
 	SetTargetType(val *string)
+	// The number of consecutive health check failures required before considering a target unhealthy.
+	//
+	// If the target group protocol is HTTP or HTTPS, the default is 2. If the target group protocol is TCP or TLS, this value must be the same as the healthy threshold count. If the target group protocol is GENEVE, the default is 3. If the target type is `lambda` , the default is 2.
 	UnhealthyThresholdCount() *float64
 	SetUnhealthyThresholdCount(val *float64)
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// The identifier of the virtual private cloud (VPC).
+	//
+	// If the target is a Lambda function, this parameter does not apply. Otherwise, this parameter is required.
 	VpcId() *string
 	SetVpcId(val *string)
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -6520,8 +10520,8 @@ func (j *jsiiProxy_CfnTargetGroup) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTargetGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnTargetGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -6652,13 +10652,13 @@ func (j *jsiiProxy_CfnTargetGroup) VpcId() *string {
 
 
 // Create a new `AWS::ElasticLoadBalancingV2::TargetGroup`.
-func NewCfnTargetGroup(scope constructs.Construct, id *string, props *CfnTargetGroupProps) CfnTargetGroup {
+func NewCfnTargetGroup(scope awscdk.Construct, id *string, props *CfnTargetGroupProps) CfnTargetGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnTargetGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnTargetGroup",
+		"monocdk.aws_elasticloadbalancingv2.CfnTargetGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6667,11 +10667,11 @@ func NewCfnTargetGroup(scope constructs.Construct, id *string, props *CfnTargetG
 }
 
 // Create a new `AWS::ElasticLoadBalancingV2::TargetGroup`.
-func NewCfnTargetGroup_Override(c CfnTargetGroup, scope constructs.Construct, id *string, props *CfnTargetGroupProps) {
+func NewCfnTargetGroup_Override(c CfnTargetGroup, scope awscdk.Construct, id *string, props *CfnTargetGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnTargetGroup",
+		"monocdk.aws_elasticloadbalancingv2.CfnTargetGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -6827,13 +10827,14 @@ func (j *jsiiProxy_CfnTargetGroup) SetVpcId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnTargetGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnTargetGroup",
+		"monocdk.aws_elasticloadbalancingv2.CfnTargetGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -6843,13 +10844,14 @@ func CfnTargetGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnTargetGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnTargetGroup",
+		"monocdk.aws_elasticloadbalancingv2.CfnTargetGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -6858,17 +10860,15 @@ func CfnTargetGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnTargetGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnTargetGroup",
+		"monocdk.aws_elasticloadbalancingv2.CfnTargetGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6881,14 +10881,13 @@ func CfnTargetGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnTargetGroup",
+		"monocdk.aws_elasticloadbalancingv2.CfnTargetGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnTargetGroup) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6897,10 +10896,6 @@ func (c *jsiiProxy_CfnTargetGroup) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnTargetGroup) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6909,13 +10904,6 @@ func (c *jsiiProxy_CfnTargetGroup) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnTargetGroup) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6924,49 +10912,6 @@ func (c *jsiiProxy_CfnTargetGroup) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnTargetGroup) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6975,7 +10920,6 @@ func (c *jsiiProxy_CfnTargetGroup) AddOverride(path *string, value interface{}) 
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnTargetGroup) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6984,9 +10928,6 @@ func (c *jsiiProxy_CfnTargetGroup) AddPropertyDeletionOverride(propertyPath *str
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnTargetGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6995,15 +10936,6 @@ func (c *jsiiProxy_CfnTargetGroup) AddPropertyOverride(propertyPath *string, val
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnTargetGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7012,10 +10944,6 @@ func (c *jsiiProxy_CfnTargetGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnTargetGroup) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -7029,13 +10957,6 @@ func (c *jsiiProxy_CfnTargetGroup) GetAtt(attributeName *string) awscdk.Referenc
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnTargetGroup) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -7049,7 +10970,6 @@ func (c *jsiiProxy_CfnTargetGroup) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnTargetGroup) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7058,12 +10978,48 @@ func (c *jsiiProxy_CfnTargetGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnTargetGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnTargetGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnTargetGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnTargetGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnTargetGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -7080,10 +11036,6 @@ func (c *jsiiProxy_CfnTargetGroup) RenderProperties(props *map[string]interface{
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnTargetGroup) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -7097,15 +11049,33 @@ func (c *jsiiProxy_CfnTargetGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnTargetGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnTargetGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnTargetGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -7123,7 +11093,12 @@ func (c *jsiiProxy_CfnTargetGroup) ValidateProperties(_properties interface{}) {
 
 // Specifies the HTTP codes that healthy targets must use when responding to an HTTP health check.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   matcherProperty := &matcherProperty{
+//   	grpcCode: jsii.String("grpcCode"),
+//   	httpCode: jsii.String("httpCode"),
+//   }
 //
 type CfnTargetGroup_MatcherProperty struct {
 	// You can specify values between 0 and 99.
@@ -7142,7 +11117,15 @@ type CfnTargetGroup_MatcherProperty struct {
 
 // Specifies a target to add to a target group.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   targetDescriptionProperty := &targetDescriptionProperty{
+//   	id: jsii.String("id"),
+//
+//   	// the properties below are optional
+//   	availabilityZone: jsii.String("availabilityZone"),
+//   	port: jsii.Number(123),
+//   }
 //
 type CfnTargetGroup_TargetDescriptionProperty struct {
 	// The ID of the target.
@@ -7169,7 +11152,12 @@ type CfnTargetGroup_TargetDescriptionProperty struct {
 
 // Specifies a target group attribute.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   targetGroupAttributeProperty := &targetGroupAttributeProperty{
+//   	key: jsii.String("key"),
+//   	value: jsii.String("value"),
+//   }
 //
 type CfnTargetGroup_TargetGroupAttributeProperty struct {
 	// The name of the attribute.
@@ -7207,7 +11195,50 @@ type CfnTargetGroup_TargetGroupAttributeProperty struct {
 
 // Properties for defining a `CfnTargetGroup`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   cfnTargetGroupProps := &cfnTargetGroupProps{
+//   	healthCheckEnabled: jsii.Boolean(false),
+//   	healthCheckIntervalSeconds: jsii.Number(123),
+//   	healthCheckPath: jsii.String("healthCheckPath"),
+//   	healthCheckPort: jsii.String("healthCheckPort"),
+//   	healthCheckProtocol: jsii.String("healthCheckProtocol"),
+//   	healthCheckTimeoutSeconds: jsii.Number(123),
+//   	healthyThresholdCount: jsii.Number(123),
+//   	ipAddressType: jsii.String("ipAddressType"),
+//   	matcher: &matcherProperty{
+//   		grpcCode: jsii.String("grpcCode"),
+//   		httpCode: jsii.String("httpCode"),
+//   	},
+//   	name: jsii.String("name"),
+//   	port: jsii.Number(123),
+//   	protocol: jsii.String("protocol"),
+//   	protocolVersion: jsii.String("protocolVersion"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	targetGroupAttributes: []interface{}{
+//   		&targetGroupAttributeProperty{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	targets: []interface{}{
+//   		&targetDescriptionProperty{
+//   			id: jsii.String("id"),
+//
+//   			// the properties below are optional
+//   			availabilityZone: jsii.String("availabilityZone"),
+//   			port: jsii.Number(123),
+//   		},
+//   	},
+//   	targetType: jsii.String("targetType"),
+//   	unhealthyThresholdCount: jsii.Number(123),
+//   	vpcId: jsii.String("vpcId"),
+//   }
 //
 type CfnTargetGroupProps struct {
 	// Indicates whether health checks are enabled.
@@ -7287,111 +11318,245 @@ type CfnTargetGroupProps struct {
 	VpcId *string `json:"vpcId" yaml:"vpcId"`
 }
 
+// The content type for a fixed response.
+//
+// Example:
+//   var listener applicationListener
+//
+//   listener.addAction(jsii.String("Fixed"), &addApplicationActionProps{
+//   	priority: jsii.Number(10),
+//   	conditions: []listenerCondition{
+//   		elbv2.*listenerCondition.pathPatterns([]*string{
+//   			jsii.String("/ok"),
+//   		}),
+//   	},
+//   	action: elbv2.listenerAction.fixedResponse(jsii.Number(200), &fixedResponseOptions{
+//   		contentType: elbv2.contentType_TEXT_PLAIN,
+//   		messageBody: jsii.String("OK"),
+//   	}),
+//   })
+//
+// Deprecated: superceded by `FixedResponseOptions`.
+type ContentType string
+
+const (
+	// Deprecated: superceded by `FixedResponseOptions`.
+	ContentType_TEXT_PLAIN ContentType = "TEXT_PLAIN"
+	// Deprecated: superceded by `FixedResponseOptions`.
+	ContentType_TEXT_CSS ContentType = "TEXT_CSS"
+	// Deprecated: superceded by `FixedResponseOptions`.
+	ContentType_TEXT_HTML ContentType = "TEXT_HTML"
+	// Deprecated: superceded by `FixedResponseOptions`.
+	ContentType_APPLICATION_JAVASCRIPT ContentType = "APPLICATION_JAVASCRIPT"
+	// Deprecated: superceded by `FixedResponseOptions`.
+	ContentType_APPLICATION_JSON ContentType = "APPLICATION_JSON"
+)
+
+// A fixed response.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   fixedResponse := &fixedResponse{
+//   	statusCode: jsii.String("statusCode"),
+//
+//   	// the properties below are optional
+//   	contentType: elasticloadbalancingv2.contentType_TEXT_PLAIN,
+//   	messageBody: jsii.String("messageBody"),
+//   }
+//
+// Deprecated: superceded by `ListenerAction.fixedResponse()`.
+type FixedResponse struct {
+	// The HTTP response code (2XX, 4XX or 5XX).
+	// Deprecated: superceded by `ListenerAction.fixedResponse()`.
+	StatusCode *string `json:"statusCode" yaml:"statusCode"`
+	// The content type.
+	// Deprecated: superceded by `ListenerAction.fixedResponse()`.
+	ContentType ContentType `json:"contentType" yaml:"contentType"`
+	// The message.
+	// Deprecated: superceded by `ListenerAction.fixedResponse()`.
+	MessageBody *string `json:"messageBody" yaml:"messageBody"`
+}
+
 // Options for `ListenerAction.fixedResponse()`.
 //
-// TODO: EXAMPLE
+// Example:
+//   var listener applicationListener
 //
+//   listener.addAction(jsii.String("Fixed"), &addApplicationActionProps{
+//   	priority: jsii.Number(10),
+//   	conditions: []listenerCondition{
+//   		elbv2.*listenerCondition.pathPatterns([]*string{
+//   			jsii.String("/ok"),
+//   		}),
+//   	},
+//   	action: elbv2.listenerAction.fixedResponse(jsii.Number(200), &fixedResponseOptions{
+//   		contentType: elbv2.contentType_TEXT_PLAIN,
+//   		messageBody: jsii.String("OK"),
+//   	}),
+//   })
+//
+// Experimental.
 type FixedResponseOptions struct {
 	// Content Type of the response.
 	//
-	// Valid Values: text/plain | text/css | text/html | application/javascript | application/json
+	// Valid Values: text/plain | text/css | text/html | application/javascript | application/json.
+	// Experimental.
 	ContentType *string `json:"contentType" yaml:"contentType"`
 	// The response body.
+	// Experimental.
 	MessageBody *string `json:"messageBody" yaml:"messageBody"`
 }
 
 // Options for `ListenerAction.forward()`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
 //
+//   var duration duration
+//   forwardOptions := &forwardOptions{
+//   	stickinessDuration: duration,
+//   }
+//
+// Experimental.
 type ForwardOptions struct {
 	// For how long clients should be directed to the same target group.
 	//
 	// Range between 1 second and 7 days.
+	// Experimental.
 	StickinessDuration awscdk.Duration `json:"stickinessDuration" yaml:"stickinessDuration"`
 }
 
 // Properties for configuring a health check.
 //
-// TODO: EXAMPLE
+// Example:
+//   var cluster cluster
+//   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
+//   	cluster: cluster,
+//   	memoryLimitMiB: jsii.Number(1024),
+//   	cpu: jsii.Number(512),
+//   	taskImageOptions: &applicationLoadBalancedTaskImageOptions{
+//   		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	},
+//   })
 //
+//   loadBalancedFargateService.targetGroup.configureHealthCheck(&healthCheck{
+//   	path: jsii.String("/custom-health-path"),
+//   })
+//
+// Experimental.
 type HealthCheck struct {
 	// Indicates whether health checks are enabled.
 	//
 	// If the target type is lambda,
 	// health checks are disabled by default but can be enabled. If the target type
 	// is instance or ip, health checks are always enabled and cannot be disabled.
+	// Experimental.
 	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// GRPC code to use when checking for a successful response from a target.
 	//
 	// You can specify values between 0 and 99. You can specify multiple values
 	// (for example, "0,1") or a range of values (for example, "0-5").
+	// Experimental.
 	HealthyGrpcCodes *string `json:"healthyGrpcCodes" yaml:"healthyGrpcCodes"`
 	// HTTP code to use when checking for a successful response from a target.
 	//
 	// For Application Load Balancers, you can specify values between 200 and
 	// 499, and the default value is 200. You can specify multiple values (for
 	// example, "200,202") or a range of values (for example, "200-299").
+	// Experimental.
 	HealthyHttpCodes *string `json:"healthyHttpCodes" yaml:"healthyHttpCodes"`
 	// The number of consecutive health checks successes required before considering an unhealthy target healthy.
 	//
 	// For Application Load Balancers, the default is 5. For Network Load Balancers, the default is 3.
+	// Experimental.
 	HealthyThresholdCount *float64 `json:"healthyThresholdCount" yaml:"healthyThresholdCount"`
 	// The approximate number of seconds between health checks for an individual target.
+	// Experimental.
 	Interval awscdk.Duration `json:"interval" yaml:"interval"`
 	// The ping path destination where Elastic Load Balancing sends health check requests.
+	// Experimental.
 	Path *string `json:"path" yaml:"path"`
 	// The port that the load balancer uses when performing health checks on the targets.
+	// Experimental.
 	Port *string `json:"port" yaml:"port"`
 	// The protocol the load balancer uses when performing health checks on targets.
 	//
 	// The TCP protocol is supported for health checks only if the protocol of the target group is TCP, TLS, UDP, or TCP_UDP.
 	// The TLS, UDP, and TCP_UDP protocols are not supported for health checks.
+	// Experimental.
 	Protocol Protocol `json:"protocol" yaml:"protocol"`
 	// The amount of time, in seconds, during which no response from a target means a failed health check.
 	//
 	// For Application Load Balancers, the range is 2-60 seconds and the
 	// default is 5 seconds. For Network Load Balancers, this is 10 seconds for
 	// TCP and HTTPS health checks and 6 seconds for HTTP health checks.
+	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The number of consecutive health check failures required before considering a target unhealthy.
 	//
 	// For Application Load Balancers, the default is 2. For Network Load
 	// Balancers, this value must be the same as the healthy threshold count.
+	// Experimental.
 	UnhealthyThresholdCount *float64 `json:"unhealthyThresholdCount" yaml:"unhealthyThresholdCount"`
 }
 
 // Count of HTTP status originating from the load balancer.
 //
 // This count does not include any response codes generated by the targets.
+// Experimental.
 type HttpCodeElb string
 
 const (
+	// The number of HTTP 3XX redirection codes that originate from the load balancer.
+	// Experimental.
 	HttpCodeElb_ELB_3XX_COUNT HttpCodeElb = "ELB_3XX_COUNT"
+	// The number of HTTP 4XX client error codes that originate from the load balancer.
+	//
+	// Client errors are generated when requests are malformed or incomplete.
+	// These requests have not been received by the target. This count does not
+	// include any response codes generated by the targets.
+	// Experimental.
 	HttpCodeElb_ELB_4XX_COUNT HttpCodeElb = "ELB_4XX_COUNT"
+	// The number of HTTP 5XX server error codes that originate from the load balancer.
+	// Experimental.
 	HttpCodeElb_ELB_5XX_COUNT HttpCodeElb = "ELB_5XX_COUNT"
 )
 
 // Count of HTTP status originating from the targets.
+// Experimental.
 type HttpCodeTarget string
 
 const (
+	// The number of 2xx response codes from targets.
+	// Experimental.
 	HttpCodeTarget_TARGET_2XX_COUNT HttpCodeTarget = "TARGET_2XX_COUNT"
+	// The number of 3xx response codes from targets.
+	// Experimental.
 	HttpCodeTarget_TARGET_3XX_COUNT HttpCodeTarget = "TARGET_3XX_COUNT"
+	// The number of 4xx response codes from targets.
+	// Experimental.
 	HttpCodeTarget_TARGET_4XX_COUNT HttpCodeTarget = "TARGET_4XX_COUNT"
+	// The number of 5xx response codes from targets.
+	// Experimental.
 	HttpCodeTarget_TARGET_5XX_COUNT HttpCodeTarget = "TARGET_5XX_COUNT"
 )
 
 // Properties to reference an existing listener.
+// Experimental.
 type IApplicationListener interface {
 	awsec2.IConnectable
 	awscdk.IResource
 	// Add one or more certificates to this listener.
+	// Deprecated: use `addCertificates()`.
+	AddCertificateArns(id *string, arns *[]*string)
+	// Add one or more certificates to this listener.
+	// Experimental.
 	AddCertificates(id *string, certificates *[]IListenerCertificate)
 	// Load balance incoming requests to the given target groups.
 	//
 	// It's possible to add conditions to the TargetGroups added in this way.
 	// At least one TargetGroup must be added without conditions.
+	// Experimental.
 	AddTargetGroups(id *string, props *AddApplicationTargetGroupsProps)
 	// Load balance incoming requests to the given load balancing targets.
 	//
@@ -7401,13 +11566,16 @@ type IApplicationListener interface {
 	// It's possible to add conditions to the targets added in this way. At least
 	// one set of targets must be added without conditions.
 	//
-	// Returns: The newly created target group
+	// Returns: The newly created target group.
+	// Experimental.
 	AddTargets(id *string, props *AddApplicationTargetsProps) ApplicationTargetGroup
 	// Register that a connectable that has been added to this load balancer.
 	//
 	// Don't call this directly. It is called by ApplicationTargetGroup.
+	// Experimental.
 	RegisterConnectable(connectable awsec2.IConnectable, portRange awsec2.Port)
 	// ARN of the listener.
+	// Experimental.
 	ListenerArn() *string
 }
 
@@ -7415,6 +11583,14 @@ type IApplicationListener interface {
 type jsiiProxy_IApplicationListener struct {
 	internal.Type__awsec2IConnectable
 	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_IApplicationListener) AddCertificateArns(id *string, arns *[]*string) {
+	_jsii_.InvokeVoid(
+		i,
+		"addCertificateArns",
+		[]interface{}{id, arns},
+	)
 }
 
 func (i *jsiiProxy_IApplicationListener) AddCertificates(id *string, certificates *[]IListenerCertificate) {
@@ -7492,8 +11668,8 @@ func (j *jsiiProxy_IApplicationListener) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IApplicationListener) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IApplicationListener) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -7513,23 +11689,29 @@ func (j *jsiiProxy_IApplicationListener) Stack() awscdk.Stack {
 }
 
 // An application load balancer.
+// Experimental.
 type IApplicationLoadBalancer interface {
 	awsec2.IConnectable
 	ILoadBalancerV2
 	// Add a new listener to this load balancer.
+	// Experimental.
 	AddListener(id *string, props *BaseApplicationListenerProps) ApplicationListener
 	// The IP Address Type for this load balancer.
+	// Experimental.
 	IpAddressType() IpAddressType
 	// A list of listeners that have been added to the load balancer.
 	//
 	// This list is only valid for owned constructs.
+	// Experimental.
 	Listeners() *[]ApplicationListener
 	// The ARN of this load balancer.
+	// Experimental.
 	LoadBalancerArn() *string
 	// The VPC this load balancer has been created in (if available).
 	//
 	// If this interface is the result of an import call to fromApplicationLoadBalancerAttributes,
 	// the vpc attribute will be undefined unless specified in the optional properties of that method.
+	// Experimental.
 	Vpc() awsec2.IVpc
 }
 
@@ -7640,8 +11822,8 @@ func (j *jsiiProxy_IApplicationLoadBalancer) LoadBalancerDnsName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IApplicationLoadBalancer) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IApplicationLoadBalancer) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -7661,11 +11843,13 @@ func (j *jsiiProxy_IApplicationLoadBalancer) Stack() awscdk.Stack {
 }
 
 // Interface for constructs that can be targets of an application load balancer.
+// Experimental.
 type IApplicationLoadBalancerTarget interface {
 	// Attach load-balanced target to a TargetGroup.
 	//
 	// May return JSON to directly add to the [Targets] list, or return undefined
 	// if the target will register itself with the load balancer.
+	// Experimental.
 	AttachToApplicationTargetGroup(targetGroup IApplicationTargetGroup) *LoadBalancerTargetProps
 }
 
@@ -7688,17 +11872,21 @@ func (i *jsiiProxy_IApplicationLoadBalancerTarget) AttachToApplicationTargetGrou
 }
 
 // A Target Group for Application Load Balancers.
+// Experimental.
 type IApplicationTargetGroup interface {
 	ITargetGroup
 	// Add a load balancing target to this target group.
+	// Experimental.
 	AddTarget(targets ...IApplicationLoadBalancerTarget)
 	// Register a connectable as a member of this target group.
 	//
 	// Don't call this directly. It will be called by load balancing targets.
+	// Experimental.
 	RegisterConnectable(connectable awsec2.IConnectable, portRange awsec2.Port)
 	// Register a listener that is load balancing to this target group.
 	//
 	// Don't call this directly. It will be called by listeners.
+	// Experimental.
 	RegisterListener(listener IApplicationListener, associatingConstruct constructs.IConstruct)
 }
 
@@ -7737,8 +11925,10 @@ func (i *jsiiProxy_IApplicationTargetGroup) RegisterListener(listener IApplicati
 }
 
 // Interface for listener actions.
+// Experimental.
 type IListenerAction interface {
 	// Render the actions in this chain.
+	// Experimental.
 	RenderActions() *[]*CfnListener_ActionProperty
 }
 
@@ -7761,8 +11951,10 @@ func (i *jsiiProxy_IListenerAction) RenderActions() *[]*CfnListener_ActionProper
 }
 
 // A certificate source for an ELBv2 listener.
+// Experimental.
 type IListenerCertificate interface {
 	// The ARN of the certificate to use.
+	// Experimental.
 	CertificateArn() *string
 }
 
@@ -7781,15 +11973,18 @@ func (j *jsiiProxy_IListenerCertificate) CertificateArn() *string {
 	return returns
 }
 
+// Experimental.
 type ILoadBalancerV2 interface {
 	awscdk.IResource
 	// The canonical hosted zone ID of this load balancer.
 	//
-	// Example value: `Z2P70J7EXAMPLE`
+	// Example value: `Z2P70J7EXAMPLE`.
+	// Experimental.
 	LoadBalancerCanonicalHostedZoneId() *string
 	// The DNS name of this load balancer.
 	//
 	// Example value: `my-load-balancer-424835706.us-west-2.elb.amazonaws.com`
+	// Experimental.
 	LoadBalancerDnsName() *string
 }
 
@@ -7819,9 +12014,11 @@ func (j *jsiiProxy_ILoadBalancerV2) LoadBalancerDnsName() *string {
 }
 
 // Properties to reference an existing listener.
+// Experimental.
 type INetworkListener interface {
 	awscdk.IResource
 	// ARN of the listener.
+	// Experimental.
 	ListenerArn() *string
 }
 
@@ -7840,15 +12037,31 @@ func (j *jsiiProxy_INetworkListener) ListenerArn() *string {
 	return returns
 }
 
+// Properties for adding a certificate to a listener.
+//
+// This interface exists for backwards compatibility.
+// Deprecated: Use IListenerCertificate instead.
+type INetworkListenerCertificateProps interface {
+	IListenerCertificate
+}
+
+// The jsii proxy for INetworkListenerCertificateProps
+type jsiiProxy_INetworkListenerCertificateProps struct {
+	jsiiProxy_IListenerCertificate
+}
+
 // A network load balancer.
+// Experimental.
 type INetworkLoadBalancer interface {
 	ILoadBalancerV2
 	awsec2.IVpcEndpointServiceLoadBalancer
 	// Add a listener to this load balancer.
 	//
-	// Returns: The newly created listener
+	// Returns: The newly created listener.
+	// Experimental.
 	AddListener(id *string, props *BaseNetworkListenerProps) NetworkListener
 	// The VPC this load balancer has been created in (if available).
+	// Experimental.
 	Vpc() awsec2.IVpc
 }
 
@@ -7929,8 +12142,8 @@ func (j *jsiiProxy_INetworkLoadBalancer) LoadBalancerDnsName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_INetworkLoadBalancer) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_INetworkLoadBalancer) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -7950,11 +12163,13 @@ func (j *jsiiProxy_INetworkLoadBalancer) Stack() awscdk.Stack {
 }
 
 // Interface for constructs that can be targets of an network load balancer.
+// Experimental.
 type INetworkLoadBalancerTarget interface {
 	// Attach load-balanced target to a TargetGroup.
 	//
 	// May return JSON to directly add to the [Targets] list, or return undefined
 	// if the target will register itself with the load balancer.
+	// Experimental.
 	AttachToNetworkTargetGroup(targetGroup INetworkTargetGroup) *LoadBalancerTargetProps
 }
 
@@ -7977,13 +12192,16 @@ func (i *jsiiProxy_INetworkLoadBalancerTarget) AttachToNetworkTargetGroup(target
 }
 
 // A network target group.
+// Experimental.
 type INetworkTargetGroup interface {
 	ITargetGroup
 	// Add a load balancing target to this target group.
+	// Experimental.
 	AddTarget(targets ...INetworkLoadBalancerTarget)
 	// Register a listener that is load balancing to this target group.
 	//
 	// Don't call this directly. It will be called by listeners.
+	// Experimental.
 	RegisterListener(listener INetworkListener)
 }
 
@@ -8014,21 +12232,26 @@ func (i *jsiiProxy_INetworkTargetGroup) RegisterListener(listener INetworkListen
 }
 
 // A target group.
+// Experimental.
 type ITargetGroup interface {
-	constructs.IConstruct
+	awscdk.IConstruct
 	// A token representing a list of ARNs of the load balancers that route traffic to this target group.
+	// Experimental.
 	LoadBalancerArns() *string
 	// Return an object to depend on the listeners added to this target group.
-	LoadBalancerAttached() constructs.IDependable
+	// Experimental.
+	LoadBalancerAttached() awscdk.IDependable
 	// ARN of the target group.
+	// Experimental.
 	TargetGroupArn() *string
 	// The name of the target group.
+	// Experimental.
 	TargetGroupName() *string
 }
 
 // The jsii proxy for ITargetGroup
 type jsiiProxy_ITargetGroup struct {
-	internal.Type__constructsIConstruct
+	internal.Type__awscdkIConstruct
 }
 
 func (j *jsiiProxy_ITargetGroup) LoadBalancerArns() *string {
@@ -8041,8 +12264,8 @@ func (j *jsiiProxy_ITargetGroup) LoadBalancerArns() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ITargetGroup) LoadBalancerAttached() constructs.IDependable {
-	var returns constructs.IDependable
+func (j *jsiiProxy_ITargetGroup) LoadBalancerAttached() awscdk.IDependable {
+	var returns awscdk.IDependable
 	_jsii_.Get(
 		j,
 		"loadBalancerAttached",
@@ -8071,13 +12294,227 @@ func (j *jsiiProxy_ITargetGroup) TargetGroupName() *string {
 	return returns
 }
 
+// An EC2 instance that is the target for load balancing.
+//
+// If you register a target of this type, you are responsible for making
+// sure the load balancer's security group can connect to the instance.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   instanceTarget := elasticloadbalancingv2.NewInstanceTarget(jsii.String("instanceId"), jsii.Number(123))
+//
+// Deprecated: Use IpTarget from the.
+type InstanceTarget interface {
+	IApplicationLoadBalancerTarget
+	INetworkLoadBalancerTarget
+	// Register this instance target with a load balancer.
+	//
+	// Don't call this, it is called automatically when you add the target to a
+	// load balancer.
+	// Deprecated: Use IpTarget from the.
+	AttachToApplicationTargetGroup(targetGroup IApplicationTargetGroup) *LoadBalancerTargetProps
+	// Register this instance target with a load balancer.
+	//
+	// Don't call this, it is called automatically when you add the target to a
+	// load balancer.
+	// Deprecated: Use IpTarget from the.
+	AttachToNetworkTargetGroup(targetGroup INetworkTargetGroup) *LoadBalancerTargetProps
+}
+
+// The jsii proxy struct for InstanceTarget
+type jsiiProxy_InstanceTarget struct {
+	jsiiProxy_IApplicationLoadBalancerTarget
+	jsiiProxy_INetworkLoadBalancerTarget
+}
+
+// Create a new Instance target.
+// Deprecated: Use IpTarget from the.
+func NewInstanceTarget(instanceId *string, port *float64) InstanceTarget {
+	_init_.Initialize()
+
+	j := jsiiProxy_InstanceTarget{}
+
+	_jsii_.Create(
+		"monocdk.aws_elasticloadbalancingv2.InstanceTarget",
+		[]interface{}{instanceId, port},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a new Instance target.
+// Deprecated: Use IpTarget from the.
+func NewInstanceTarget_Override(i InstanceTarget, instanceId *string, port *float64) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_elasticloadbalancingv2.InstanceTarget",
+		[]interface{}{instanceId, port},
+		i,
+	)
+}
+
+func (i *jsiiProxy_InstanceTarget) AttachToApplicationTargetGroup(targetGroup IApplicationTargetGroup) *LoadBalancerTargetProps {
+	var returns *LoadBalancerTargetProps
+
+	_jsii_.Invoke(
+		i,
+		"attachToApplicationTargetGroup",
+		[]interface{}{targetGroup},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_InstanceTarget) AttachToNetworkTargetGroup(targetGroup INetworkTargetGroup) *LoadBalancerTargetProps {
+	var returns *LoadBalancerTargetProps
+
+	_jsii_.Invoke(
+		i,
+		"attachToNetworkTargetGroup",
+		[]interface{}{targetGroup},
+		&returns,
+	)
+
+	return returns
+}
+
 // What kind of addresses to allocate to the load balancer.
+// Experimental.
 type IpAddressType string
 
 const (
+	// Allocate IPv4 addresses.
+	// Experimental.
 	IpAddressType_IPV4 IpAddressType = "IPV4"
+	// Allocate both IPv4 and IPv6 addresses.
+	// Experimental.
 	IpAddressType_DUAL_STACK IpAddressType = "DUAL_STACK"
 )
+
+// An IP address that is a target for load balancing.
+//
+// Specify IP addresses from the subnets of the virtual private cloud (VPC) for
+// the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and
+// 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify
+// publicly routable IP addresses.
+//
+// If you register a target of this type, you are responsible for making
+// sure the load balancer's security group can send packets to the IP address.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   ipTarget := elasticloadbalancingv2.NewIpTarget(jsii.String("ipAddress"), jsii.Number(123), jsii.String("availabilityZone"))
+//
+// Deprecated: Use IpTarget from the.
+type IpTarget interface {
+	IApplicationLoadBalancerTarget
+	INetworkLoadBalancerTarget
+	// Register this instance target with a load balancer.
+	//
+	// Don't call this, it is called automatically when you add the target to a
+	// load balancer.
+	// Deprecated: Use IpTarget from the.
+	AttachToApplicationTargetGroup(targetGroup IApplicationTargetGroup) *LoadBalancerTargetProps
+	// Register this instance target with a load balancer.
+	//
+	// Don't call this, it is called automatically when you add the target to a
+	// load balancer.
+	// Deprecated: Use IpTarget from the.
+	AttachToNetworkTargetGroup(targetGroup INetworkTargetGroup) *LoadBalancerTargetProps
+}
+
+// The jsii proxy struct for IpTarget
+type jsiiProxy_IpTarget struct {
+	jsiiProxy_IApplicationLoadBalancerTarget
+	jsiiProxy_INetworkLoadBalancerTarget
+}
+
+// Create a new IPAddress target.
+//
+// The availabilityZone parameter determines whether the target receives
+// traffic from the load balancer nodes in the specified Availability Zone
+// or from all enabled Availability Zones for the load balancer.
+//
+// This parameter is not supported if the target type of the target group
+// is instance. If the IP address is in a subnet of the VPC for the target
+// group, the Availability Zone is automatically detected and this
+// parameter is optional. If the IP address is outside the VPC, this
+// parameter is required.
+//
+// With an Application Load Balancer, if the IP address is outside the VPC
+// for the target group, the only supported value is all.
+//
+// Default is automatic.
+// Deprecated: Use IpTarget from the.
+func NewIpTarget(ipAddress *string, port *float64, availabilityZone *string) IpTarget {
+	_init_.Initialize()
+
+	j := jsiiProxy_IpTarget{}
+
+	_jsii_.Create(
+		"monocdk.aws_elasticloadbalancingv2.IpTarget",
+		[]interface{}{ipAddress, port, availabilityZone},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a new IPAddress target.
+//
+// The availabilityZone parameter determines whether the target receives
+// traffic from the load balancer nodes in the specified Availability Zone
+// or from all enabled Availability Zones for the load balancer.
+//
+// This parameter is not supported if the target type of the target group
+// is instance. If the IP address is in a subnet of the VPC for the target
+// group, the Availability Zone is automatically detected and this
+// parameter is optional. If the IP address is outside the VPC, this
+// parameter is required.
+//
+// With an Application Load Balancer, if the IP address is outside the VPC
+// for the target group, the only supported value is all.
+//
+// Default is automatic.
+// Deprecated: Use IpTarget from the.
+func NewIpTarget_Override(i IpTarget, ipAddress *string, port *float64, availabilityZone *string) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_elasticloadbalancingv2.IpTarget",
+		[]interface{}{ipAddress, port, availabilityZone},
+		i,
+	)
+}
+
+func (i *jsiiProxy_IpTarget) AttachToApplicationTargetGroup(targetGroup IApplicationTargetGroup) *LoadBalancerTargetProps {
+	var returns *LoadBalancerTargetProps
+
+	_jsii_.Invoke(
+		i,
+		"attachToApplicationTargetGroup",
+		[]interface{}{targetGroup},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IpTarget) AttachToNetworkTargetGroup(targetGroup INetworkTargetGroup) *LoadBalancerTargetProps {
+	var returns *LoadBalancerTargetProps
+
+	_jsii_.Invoke(
+		i,
+		"attachToNetworkTargetGroup",
+		[]interface{}{targetGroup},
+		&returns,
+	)
+
+	return returns
+}
 
 // What to do when a client makes a request to a listener.
 //
@@ -8094,13 +12531,46 @@ const (
 // `ListenerAction` because this is the class most users interact
 // with, and we want to make it not too visually overwhelming).
 //
-// TODO: EXAMPLE
+// Example:
+//   var listener applicationListener
+//   var myTargetGroup applicationTargetGroup
 //
+//   listener.addAction(jsii.String("DefaultAction"), &addApplicationActionProps{
+//   	action: elbv2.listenerAction.authenticateOidc(&authenticateOidcOptions{
+//   		authorizationEndpoint: jsii.String("https://example.com/openid"),
+//   		// Other OIDC properties here
+//   		clientId: jsii.String("..."),
+//   		clientSecret: secretValue.secretsManager(jsii.String("...")),
+//   		issuer: jsii.String("..."),
+//   		tokenEndpoint: jsii.String("..."),
+//   		userInfoEndpoint: jsii.String("..."),
+//
+//   		// Next
+//   		next: elbv2.*listenerAction.forward([]iApplicationTargetGroup{
+//   			myTargetGroup,
+//   		}),
+//   	}),
+//   })
+//
+// Experimental.
 type ListenerAction interface {
 	IListenerAction
+	// Experimental.
 	Next() ListenerAction
-	Bind(scope constructs.Construct, listener IApplicationListener, associatingConstruct constructs.IConstruct)
+	// Called when the action is being used in a listener.
+	// Experimental.
+	Bind(scope awscdk.Construct, listener IApplicationListener, associatingConstruct awscdk.IConstruct)
+	// Render the actions in this chain.
+	// Experimental.
 	RenderActions() *[]*CfnListener_ActionProperty
+	// Renumber the "order" fields in the actions array.
+	//
+	// We don't number for 0 or 1 elements, but otherwise number them 1...#actions
+	// so ELB knows about the right order.
+	//
+	// Do this in `ListenerAction` instead of in `Listener` so that we give
+	// users the opportunity to override by subclassing and overriding `renderActions`.
+	// Experimental.
 	Renumber(actions *[]*CfnListener_ActionProperty) *[]*CfnListener_ActionProperty
 }
 
@@ -8125,13 +12595,14 @@ func (j *jsiiProxy_ListenerAction) Next() ListenerAction {
 // The default class should be good enough for most cases and
 // should be created by using one of the static factory functions,
 // but allow overriding to make sure we allow flexibility for the future.
+// Experimental.
 func NewListenerAction(actionJson *CfnListener_ActionProperty, next ListenerAction) ListenerAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_ListenerAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerAction",
+		"monocdk.aws_elasticloadbalancingv2.ListenerAction",
 		[]interface{}{actionJson, next},
 		&j,
 	)
@@ -8144,11 +12615,12 @@ func NewListenerAction(actionJson *CfnListener_ActionProperty, next ListenerActi
 // The default class should be good enough for most cases and
 // should be created by using one of the static factory functions,
 // but allow overriding to make sure we allow flexibility for the future.
+// Experimental.
 func NewListenerAction_Override(l ListenerAction, actionJson *CfnListener_ActionProperty, next ListenerAction) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerAction",
+		"monocdk.aws_elasticloadbalancingv2.ListenerAction",
 		[]interface{}{actionJson, next},
 		l,
 	)
@@ -8157,13 +12629,14 @@ func NewListenerAction_Override(l ListenerAction, actionJson *CfnListener_Action
 // Authenticate using an identity provider (IdP) that is compliant with OpenID Connect (OIDC).
 // See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/listener-authenticate-users.html#oidc-requirements
 //
+// Experimental.
 func ListenerAction_AuthenticateOidc(options *AuthenticateOidcOptions) ListenerAction {
 	_init_.Initialize()
 
 	var returns ListenerAction
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerAction",
+		"monocdk.aws_elasticloadbalancingv2.ListenerAction",
 		"authenticateOidc",
 		[]interface{}{options},
 		&returns,
@@ -8175,13 +12648,14 @@ func ListenerAction_AuthenticateOidc(options *AuthenticateOidcOptions) ListenerA
 // Return a fixed response.
 // See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#fixed-response-actions
 //
+// Experimental.
 func ListenerAction_FixedResponse(statusCode *float64, options *FixedResponseOptions) ListenerAction {
 	_init_.Initialize()
 
 	var returns ListenerAction
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerAction",
+		"monocdk.aws_elasticloadbalancingv2.ListenerAction",
 		"fixedResponse",
 		[]interface{}{statusCode, options},
 		&returns,
@@ -8193,13 +12667,14 @@ func ListenerAction_FixedResponse(statusCode *float64, options *FixedResponseOpt
 // Forward to one or more Target Groups.
 // See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#forward-actions
 //
+// Experimental.
 func ListenerAction_Forward(targetGroups *[]IApplicationTargetGroup, options *ForwardOptions) ListenerAction {
 	_init_.Initialize()
 
 	var returns ListenerAction
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerAction",
+		"monocdk.aws_elasticloadbalancingv2.ListenerAction",
 		"forward",
 		[]interface{}{targetGroups, options},
 		&returns,
@@ -8227,13 +12702,14 @@ func ListenerAction_Forward(targetGroups *[]IApplicationTargetGroup, options *Fo
 // "example.#{host}", or the query to "#{query}&value=xyz".
 // See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#redirect-actions
 //
+// Experimental.
 func ListenerAction_Redirect(options *RedirectOptions) ListenerAction {
 	_init_.Initialize()
 
 	var returns ListenerAction
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerAction",
+		"monocdk.aws_elasticloadbalancingv2.ListenerAction",
 		"redirect",
 		[]interface{}{options},
 		&returns,
@@ -8245,13 +12721,14 @@ func ListenerAction_Redirect(options *RedirectOptions) ListenerAction {
 // Forward to one or more Target Groups which are weighted differently.
 // See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#forward-actions
 //
+// Experimental.
 func ListenerAction_WeightedForward(targetGroups *[]*WeightedTargetGroup, options *ForwardOptions) ListenerAction {
 	_init_.Initialize()
 
 	var returns ListenerAction
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerAction",
+		"monocdk.aws_elasticloadbalancingv2.ListenerAction",
 		"weightedForward",
 		[]interface{}{targetGroups, options},
 		&returns,
@@ -8260,8 +12737,7 @@ func ListenerAction_WeightedForward(targetGroups *[]*WeightedTargetGroup, option
 	return returns
 }
 
-// Called when the action is being used in a listener.
-func (l *jsiiProxy_ListenerAction) Bind(scope constructs.Construct, listener IApplicationListener, associatingConstruct constructs.IConstruct) {
+func (l *jsiiProxy_ListenerAction) Bind(scope awscdk.Construct, listener IApplicationListener, associatingConstruct awscdk.IConstruct) {
 	_jsii_.InvokeVoid(
 		l,
 		"bind",
@@ -8269,7 +12745,6 @@ func (l *jsiiProxy_ListenerAction) Bind(scope constructs.Construct, listener IAp
 	)
 }
 
-// Render the actions in this chain.
 func (l *jsiiProxy_ListenerAction) RenderActions() *[]*CfnListener_ActionProperty {
 	var returns *[]*CfnListener_ActionProperty
 
@@ -8283,13 +12758,6 @@ func (l *jsiiProxy_ListenerAction) RenderActions() *[]*CfnListener_ActionPropert
 	return returns
 }
 
-// Renumber the "order" fields in the actions array.
-//
-// We don't number for 0 or 1 elements, but otherwise number them 1...#actions
-// so ELB knows about the right order.
-//
-// Do this in `ListenerAction` instead of in `Listener` so that we give
-// users the opportunity to override by subclassing and overriding `renderActions`.
 func (l *jsiiProxy_ListenerAction) Renumber(actions *[]*CfnListener_ActionProperty) *[]*CfnListener_ActionProperty {
 	var returns *[]*CfnListener_ActionProperty
 
@@ -8305,10 +12773,15 @@ func (l *jsiiProxy_ListenerAction) Renumber(actions *[]*CfnListener_ActionProper
 
 // A certificate source for an ELBv2 listener.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   listenerCertificate := elasticloadbalancingv2.listenerCertificate.fromArn(jsii.String("certificateArn"))
 //
+// Experimental.
 type ListenerCertificate interface {
 	IListenerCertificate
+	// The ARN of the certificate to use.
+	// Experimental.
 	CertificateArn() *string
 }
 
@@ -8328,13 +12801,14 @@ func (j *jsiiProxy_ListenerCertificate) CertificateArn() *string {
 }
 
 
+// Experimental.
 func NewListenerCertificate(certificateArn *string) ListenerCertificate {
 	_init_.Initialize()
 
 	j := jsiiProxy_ListenerCertificate{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerCertificate",
+		"monocdk.aws_elasticloadbalancingv2.ListenerCertificate",
 		[]interface{}{certificateArn},
 		&j,
 	)
@@ -8342,24 +12816,26 @@ func NewListenerCertificate(certificateArn *string) ListenerCertificate {
 	return &j
 }
 
+// Experimental.
 func NewListenerCertificate_Override(l ListenerCertificate, certificateArn *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerCertificate",
+		"monocdk.aws_elasticloadbalancingv2.ListenerCertificate",
 		[]interface{}{certificateArn},
 		l,
 	)
 }
 
 // Use any certificate, identified by its ARN, as a listener certificate.
+// Experimental.
 func ListenerCertificate_FromArn(certificateArn *string) ListenerCertificate {
 	_init_.Initialize()
 
 	var returns ListenerCertificate
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerCertificate",
+		"monocdk.aws_elasticloadbalancingv2.ListenerCertificate",
 		"fromArn",
 		[]interface{}{certificateArn},
 		&returns,
@@ -8369,13 +12845,14 @@ func ListenerCertificate_FromArn(certificateArn *string) ListenerCertificate {
 }
 
 // Use an ACM certificate as a listener certificate.
+// Experimental.
 func ListenerCertificate_FromCertificateManager(acmCertificate awscertificatemanager.ICertificate) ListenerCertificate {
 	_init_.Initialize()
 
 	var returns ListenerCertificate
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerCertificate",
+		"monocdk.aws_elasticloadbalancingv2.ListenerCertificate",
 		"fromCertificateManager",
 		[]interface{}{acmCertificate},
 		&returns,
@@ -8386,9 +12863,31 @@ func ListenerCertificate_FromCertificateManager(acmCertificate awscertificateman
 
 // ListenerCondition providers definition.
 //
-// TODO: EXAMPLE
+// Example:
+//   var listener applicationListener
+//   var asg autoScalingGroup
 //
+//   listener.addTargets(jsii.String("Example.Com Fleet"), &addApplicationTargetsProps{
+//   	priority: jsii.Number(10),
+//   	conditions: []listenerCondition{
+//   		elbv2.*listenerCondition.hostHeaders([]*string{
+//   			jsii.String("example.com"),
+//   		}),
+//   		elbv2.*listenerCondition.pathPatterns([]*string{
+//   			jsii.String("/ok"),
+//   			jsii.String("/path"),
+//   		}),
+//   	},
+//   	port: jsii.Number(8080),
+//   	targets: []iApplicationLoadBalancerTarget{
+//   		asg,
+//   	},
+//   })
+//
+// Experimental.
 type ListenerCondition interface {
+	// Render the raw Cfn listener rule condition object.
+	// Experimental.
 	RenderRawCondition() interface{}
 }
 
@@ -8397,24 +12896,26 @@ type jsiiProxy_ListenerCondition struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewListenerCondition_Override(l ListenerCondition) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerCondition",
+		"monocdk.aws_elasticloadbalancingv2.ListenerCondition",
 		nil, // no parameters
 		l,
 	)
 }
 
 // Create a host-header listener rule condition.
+// Experimental.
 func ListenerCondition_HostHeaders(values *[]*string) ListenerCondition {
 	_init_.Initialize()
 
 	var returns ListenerCondition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerCondition",
+		"monocdk.aws_elasticloadbalancingv2.ListenerCondition",
 		"hostHeaders",
 		[]interface{}{values},
 		&returns,
@@ -8424,13 +12925,14 @@ func ListenerCondition_HostHeaders(values *[]*string) ListenerCondition {
 }
 
 // Create a http-header listener rule condition.
+// Experimental.
 func ListenerCondition_HttpHeader(name *string, values *[]*string) ListenerCondition {
 	_init_.Initialize()
 
 	var returns ListenerCondition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerCondition",
+		"monocdk.aws_elasticloadbalancingv2.ListenerCondition",
 		"httpHeader",
 		[]interface{}{name, values},
 		&returns,
@@ -8440,13 +12942,14 @@ func ListenerCondition_HttpHeader(name *string, values *[]*string) ListenerCondi
 }
 
 // Create a http-request-method listener rule condition.
+// Experimental.
 func ListenerCondition_HttpRequestMethods(values *[]*string) ListenerCondition {
 	_init_.Initialize()
 
 	var returns ListenerCondition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerCondition",
+		"monocdk.aws_elasticloadbalancingv2.ListenerCondition",
 		"httpRequestMethods",
 		[]interface{}{values},
 		&returns,
@@ -8456,13 +12959,14 @@ func ListenerCondition_HttpRequestMethods(values *[]*string) ListenerCondition {
 }
 
 // Create a path-pattern listener rule condition.
+// Experimental.
 func ListenerCondition_PathPatterns(values *[]*string) ListenerCondition {
 	_init_.Initialize()
 
 	var returns ListenerCondition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerCondition",
+		"monocdk.aws_elasticloadbalancingv2.ListenerCondition",
 		"pathPatterns",
 		[]interface{}{values},
 		&returns,
@@ -8472,13 +12976,14 @@ func ListenerCondition_PathPatterns(values *[]*string) ListenerCondition {
 }
 
 // Create a query-string listener rule condition.
+// Experimental.
 func ListenerCondition_QueryStrings(values *[]*QueryStringCondition) ListenerCondition {
 	_init_.Initialize()
 
 	var returns ListenerCondition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerCondition",
+		"monocdk.aws_elasticloadbalancingv2.ListenerCondition",
 		"queryStrings",
 		[]interface{}{values},
 		&returns,
@@ -8488,13 +12993,14 @@ func ListenerCondition_QueryStrings(values *[]*QueryStringCondition) ListenerCon
 }
 
 // Create a source-ip listener rule condition.
+// Experimental.
 func ListenerCondition_SourceIps(values *[]*string) ListenerCondition {
 	_init_.Initialize()
 
 	var returns ListenerCondition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerCondition",
+		"monocdk.aws_elasticloadbalancingv2.ListenerCondition",
 		"sourceIps",
 		[]interface{}{values},
 		&returns,
@@ -8503,7 +13009,6 @@ func ListenerCondition_SourceIps(values *[]*string) ListenerCondition {
 	return returns
 }
 
-// Render the raw Cfn listener rule condition object.
 func (l *jsiiProxy_ListenerCondition) RenderRawCondition() interface{} {
 	var returns interface{}
 
@@ -8519,50 +13024,203 @@ func (l *jsiiProxy_ListenerCondition) RenderRawCondition() interface{} {
 
 // Result of attaching a target to load balancer.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
 //
+//   var targetJson interface{}
+//   loadBalancerTargetProps := &loadBalancerTargetProps{
+//   	targetType: elasticloadbalancingv2.targetType_INSTANCE,
+//
+//   	// the properties below are optional
+//   	targetJson: targetJson,
+//   }
+//
+// Experimental.
 type LoadBalancerTargetProps struct {
 	// What kind of target this is.
+	// Experimental.
 	TargetType TargetType `json:"targetType" yaml:"targetType"`
 	// JSON representing the target's direct addition to the TargetGroup list.
 	//
 	// May be omitted if the target is going to register itself later.
+	// Experimental.
 	TargetJson interface{} `json:"targetJson" yaml:"targetJson"`
 }
 
 // Options for `NetworkListenerAction.forward()`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
 //
+//   var duration duration
+//   networkForwardOptions := &networkForwardOptions{
+//   	stickinessDuration: duration,
+//   }
+//
+// Experimental.
 type NetworkForwardOptions struct {
 	// For how long clients should be directed to the same target group.
 	//
 	// Range between 1 second and 7 days.
+	// Experimental.
 	StickinessDuration awscdk.Duration `json:"stickinessDuration" yaml:"stickinessDuration"`
 }
 
 // Define a Network Listener.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpNlbIntegration awscdk.HttpNlbIntegration
 //
+//   vpc := ec2.NewVpc(this, jsii.String("VPC"))
+//   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("lb"), &networkLoadBalancerProps{
+//   	vpc: vpc,
+//   })
+//   listener := lb.addListener(jsii.String("listener"), &baseNetworkListenerProps{
+//   	port: jsii.Number(80),
+//   })
+//   listener.addTargets(jsii.String("target"), &addNetworkTargetsProps{
+//   	port: jsii.Number(80),
+//   })
+//
+//   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
+//   	defaultIntegration: NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
+//   })
+//
+// Experimental.
 type NetworkListener interface {
 	BaseListener
 	INetworkListener
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
+	// Experimental.
 	ListenerArn() *string
+	// The load balancer this listener is attached to.
+	// Experimental.
 	LoadBalancer() INetworkLoadBalancer
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
+	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
+	// Perform the given Action on incoming requests.
+	//
+	// This allows full control of the default Action of the load balancer,
+	// including weighted forwarding. See the `NetworkListenerAction` class for
+	// all options.
+	// Experimental.
 	AddAction(_id *string, props *AddNetworkActionProps)
+	// Load balance incoming requests to the given target groups.
+	//
+	// All target groups will be load balanced to with equal weight and without
+	// stickiness. For a more complex configuration than that, use `addAction()`.
+	// Experimental.
 	AddTargetGroups(_id *string, targetGroups ...INetworkTargetGroup)
+	// Load balance incoming requests to the given load balancing targets.
+	//
+	// This method implicitly creates a NetworkTargetGroup for the targets
+	// involved, and a 'forward' action to route traffic to the given TargetGroup.
+	//
+	// If you want more control over the precise setup, create the TargetGroup
+	// and use `addAction` yourself.
+	//
+	// It's possible to add conditions to the targets added in this way. At least
+	// one set of targets must be added without conditions.
+	//
+	// Returns: The newly created target group.
+	// Experimental.
 	AddTargets(id *string, props *AddNetworkTargetsProps) NetworkTargetGroup
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
 	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
-	ValidateListener() *[]*string
+	// Validate this listener.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for NetworkListener
@@ -8601,8 +13259,8 @@ func (j *jsiiProxy_NetworkListener) LoadBalancer() INetworkLoadBalancer {
 	return returns
 }
 
-func (j *jsiiProxy_NetworkListener) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_NetworkListener) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -8632,13 +13290,14 @@ func (j *jsiiProxy_NetworkListener) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewNetworkListener(scope constructs.Construct, id *string, props *NetworkListenerProps) NetworkListener {
 	_init_.Initialize()
 
 	j := jsiiProxy_NetworkListener{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkListener",
+		"monocdk.aws_elasticloadbalancingv2.NetworkListener",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -8646,24 +13305,26 @@ func NewNetworkListener(scope constructs.Construct, id *string, props *NetworkLi
 	return &j
 }
 
+// Experimental.
 func NewNetworkListener_Override(n NetworkListener, scope constructs.Construct, id *string, props *NetworkListenerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkListener",
+		"monocdk.aws_elasticloadbalancingv2.NetworkListener",
 		[]interface{}{scope, id, props},
 		n,
 	)
 }
 
 // Looks up a network listener.
+// Experimental.
 func NetworkListener_FromLookup(scope constructs.Construct, id *string, options *NetworkListenerLookupOptions) INetworkListener {
 	_init_.Initialize()
 
 	var returns INetworkListener
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkListener",
+		"monocdk.aws_elasticloadbalancingv2.NetworkListener",
 		"fromLookup",
 		[]interface{}{scope, id, options},
 		&returns,
@@ -8673,13 +13334,14 @@ func NetworkListener_FromLookup(scope constructs.Construct, id *string, options 
 }
 
 // Import an existing listener.
+// Experimental.
 func NetworkListener_FromNetworkListenerArn(scope constructs.Construct, id *string, networkListenerArn *string) INetworkListener {
 	_init_.Initialize()
 
 	var returns INetworkListener
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkListener",
+		"monocdk.aws_elasticloadbalancingv2.NetworkListener",
 		"fromNetworkListenerArn",
 		[]interface{}{scope, id, networkListenerArn},
 		&returns,
@@ -8688,17 +13350,15 @@ func NetworkListener_FromNetworkListenerArn(scope constructs.Construct, id *stri
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func NetworkListener_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkListener",
+		"monocdk.aws_elasticloadbalancingv2.NetworkListener",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8708,13 +13368,14 @@ func NetworkListener_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func NetworkListener_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func NetworkListener_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkListener",
+		"monocdk.aws_elasticloadbalancingv2.NetworkListener",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -8723,11 +13384,6 @@ func NetworkListener_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Perform the given Action on incoming requests.
-//
-// This allows full control of the default Action of the load balancer,
-// including weighted forwarding. See the `NetworkListenerAction` class for
-// all options.
 func (n *jsiiProxy_NetworkListener) AddAction(_id *string, props *AddNetworkActionProps) {
 	_jsii_.InvokeVoid(
 		n,
@@ -8736,10 +13392,6 @@ func (n *jsiiProxy_NetworkListener) AddAction(_id *string, props *AddNetworkActi
 	)
 }
 
-// Load balance incoming requests to the given target groups.
-//
-// All target groups will be load balanced to with equal weight and without
-// stickiness. For a more complex configuration than that, use `addAction()`.
 func (n *jsiiProxy_NetworkListener) AddTargetGroups(_id *string, targetGroups ...INetworkTargetGroup) {
 	args := []interface{}{_id}
 	for _, a := range targetGroups {
@@ -8753,18 +13405,6 @@ func (n *jsiiProxy_NetworkListener) AddTargetGroups(_id *string, targetGroups ..
 	)
 }
 
-// Load balance incoming requests to the given load balancing targets.
-//
-// This method implicitly creates a NetworkTargetGroup for the targets
-// involved, and a 'forward' action to route traffic to the given TargetGroup.
-//
-// If you want more control over the precise setup, create the TargetGroup
-// and use `addAction` yourself.
-//
-// It's possible to add conditions to the targets added in this way. At least
-// one set of targets must be added without conditions.
-//
-// Returns: The newly created target group
 func (n *jsiiProxy_NetworkListener) AddTargets(id *string, props *AddNetworkTargetsProps) NetworkTargetGroup {
 	var returns NetworkTargetGroup
 
@@ -8778,15 +13418,6 @@ func (n *jsiiProxy_NetworkListener) AddTargets(id *string, props *AddNetworkTarg
 	return returns
 }
 
-// Apply the given removal policy to this resource.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (n *jsiiProxy_NetworkListener) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		n,
@@ -8808,12 +13439,6 @@ func (n *jsiiProxy_NetworkListener) GeneratePhysicalName() *string {
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
-//
-// Normally, this token will resolve to `arnAttr`, but if the resource is
-// referenced across environments, `arnComponents` will be used to synthesize
-// a concrete ARN with the resource's physical name. Make sure to reference
-// `this.physicalName` in `arnComponents`.
 func (n *jsiiProxy_NetworkListener) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -8827,11 +13452,6 @@ func (n *jsiiProxy_NetworkListener) GetResourceArnAttribute(arnAttr *string, arn
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
-//
-// Normally, this token will resolve to `nameAttr`, but if the resource is
-// referenced across environments, it will be resolved to `this.physicalName`,
-// which will be a concrete name.
 func (n *jsiiProxy_NetworkListener) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -8845,7 +13465,51 @@ func (n *jsiiProxy_NetworkListener) GetResourceNameAttribute(nameAttr *string) *
 	return returns
 }
 
-// Returns a string representation of this construct.
+func (n *jsiiProxy_NetworkListener) OnPrepare() {
+	_jsii_.InvokeVoid(
+		n,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (n *jsiiProxy_NetworkListener) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		n,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (n *jsiiProxy_NetworkListener) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		n,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (n *jsiiProxy_NetworkListener) Prepare() {
+	_jsii_.InvokeVoid(
+		n,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (n *jsiiProxy_NetworkListener) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		n,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (n *jsiiProxy_NetworkListener) ToString() *string {
 	var returns *string
 
@@ -8859,13 +13523,12 @@ func (n *jsiiProxy_NetworkListener) ToString() *string {
 	return returns
 }
 
-// Validate this listener.
-func (n *jsiiProxy_NetworkListener) ValidateListener() *[]*string {
+func (n *jsiiProxy_NetworkListener) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		n,
-		"validateListener",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -8884,13 +13547,36 @@ func (n *jsiiProxy_NetworkListener) ValidateListener() *[]*string {
 // If an action supports chaining, the next action can be indicated
 // by passing it in the `next` property.
 //
-// TODO: EXAMPLE
+// Example:
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
 //
+//   var duration duration
+//   var networkTargetGroup networkTargetGroup
+//   networkListenerAction := elasticloadbalancingv2.networkListenerAction.forward([]iNetworkTargetGroup{
+//   	networkTargetGroup,
+//   }, &networkForwardOptions{
+//   	stickinessDuration: duration,
+//   })
+//
+// Experimental.
 type NetworkListenerAction interface {
 	IListenerAction
+	// Experimental.
 	Next() NetworkListenerAction
-	Bind(scope constructs.Construct, listener INetworkListener)
+	// Called when the action is being used in a listener.
+	// Experimental.
+	Bind(scope awscdk.Construct, listener INetworkListener)
+	// Render the actions in this chain.
+	// Experimental.
 	RenderActions() *[]*CfnListener_ActionProperty
+	// Renumber the "order" fields in the actions array.
+	//
+	// We don't number for 0 or 1 elements, but otherwise number them 1...#actions
+	// so ELB knows about the right order.
+	//
+	// Do this in `NetworkListenerAction` instead of in `Listener` so that we give
+	// users the opportunity to override by subclassing and overriding `renderActions`.
+	// Experimental.
 	Renumber(actions *[]*CfnListener_ActionProperty) *[]*CfnListener_ActionProperty
 }
 
@@ -8915,13 +13601,14 @@ func (j *jsiiProxy_NetworkListenerAction) Next() NetworkListenerAction {
 // The default class should be good enough for most cases and
 // should be created by using one of the static factory functions,
 // but allow overriding to make sure we allow flexibility for the future.
+// Experimental.
 func NewNetworkListenerAction(actionJson *CfnListener_ActionProperty, next NetworkListenerAction) NetworkListenerAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_NetworkListenerAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkListenerAction",
+		"monocdk.aws_elasticloadbalancingv2.NetworkListenerAction",
 		[]interface{}{actionJson, next},
 		&j,
 	)
@@ -8934,24 +13621,26 @@ func NewNetworkListenerAction(actionJson *CfnListener_ActionProperty, next Netwo
 // The default class should be good enough for most cases and
 // should be created by using one of the static factory functions,
 // but allow overriding to make sure we allow flexibility for the future.
+// Experimental.
 func NewNetworkListenerAction_Override(n NetworkListenerAction, actionJson *CfnListener_ActionProperty, next NetworkListenerAction) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkListenerAction",
+		"monocdk.aws_elasticloadbalancingv2.NetworkListenerAction",
 		[]interface{}{actionJson, next},
 		n,
 	)
 }
 
 // Forward to one or more Target Groups.
+// Experimental.
 func NetworkListenerAction_Forward(targetGroups *[]INetworkTargetGroup, options *NetworkForwardOptions) NetworkListenerAction {
 	_init_.Initialize()
 
 	var returns NetworkListenerAction
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkListenerAction",
+		"monocdk.aws_elasticloadbalancingv2.NetworkListenerAction",
 		"forward",
 		[]interface{}{targetGroups, options},
 		&returns,
@@ -8961,13 +13650,14 @@ func NetworkListenerAction_Forward(targetGroups *[]INetworkTargetGroup, options 
 }
 
 // Forward to one or more Target Groups which are weighted differently.
+// Experimental.
 func NetworkListenerAction_WeightedForward(targetGroups *[]*NetworkWeightedTargetGroup, options *NetworkForwardOptions) NetworkListenerAction {
 	_init_.Initialize()
 
 	var returns NetworkListenerAction
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkListenerAction",
+		"monocdk.aws_elasticloadbalancingv2.NetworkListenerAction",
 		"weightedForward",
 		[]interface{}{targetGroups, options},
 		&returns,
@@ -8976,8 +13666,7 @@ func NetworkListenerAction_WeightedForward(targetGroups *[]*NetworkWeightedTarge
 	return returns
 }
 
-// Called when the action is being used in a listener.
-func (n *jsiiProxy_NetworkListenerAction) Bind(scope constructs.Construct, listener INetworkListener) {
+func (n *jsiiProxy_NetworkListenerAction) Bind(scope awscdk.Construct, listener INetworkListener) {
 	_jsii_.InvokeVoid(
 		n,
 		"bind",
@@ -8985,7 +13674,6 @@ func (n *jsiiProxy_NetworkListenerAction) Bind(scope constructs.Construct, liste
 	)
 }
 
-// Render the actions in this chain.
 func (n *jsiiProxy_NetworkListenerAction) RenderActions() *[]*CfnListener_ActionProperty {
 	var returns *[]*CfnListener_ActionProperty
 
@@ -8999,13 +13687,6 @@ func (n *jsiiProxy_NetworkListenerAction) RenderActions() *[]*CfnListener_Action
 	return returns
 }
 
-// Renumber the "order" fields in the actions array.
-//
-// We don't number for 0 or 1 elements, but otherwise number them 1...#actions
-// so ELB knows about the right order.
-//
-// Do this in `NetworkListenerAction` instead of in `Listener` so that we give
-// users the opportunity to override by subclassing and overriding `renderActions`.
 func (n *jsiiProxy_NetworkListenerAction) Renumber(actions *[]*CfnListener_ActionProperty) *[]*CfnListener_ActionProperty {
 	var returns *[]*CfnListener_ActionProperty
 
@@ -9021,35 +13702,73 @@ func (n *jsiiProxy_NetworkListenerAction) Renumber(actions *[]*CfnListener_Actio
 
 // Options for looking up a network listener.
 //
-// TODO: EXAMPLE
+// Example:
+//   listener := elbv2.networkListener.fromLookup(this, jsii.String("ALBListener"), &networkListenerLookupOptions{
+//   	loadBalancerTags: map[string]*string{
+//   		"Cluster": jsii.String("MyClusterName"),
+//   	},
+//   	listenerProtocol: elbv2.protocol_TCP,
+//   	listenerPort: jsii.Number(12345),
+//   })
 //
+// Experimental.
 type NetworkListenerLookupOptions struct {
 	// Filter listeners by listener port.
+	// Experimental.
 	ListenerPort *float64 `json:"listenerPort" yaml:"listenerPort"`
 	// Filter listeners by associated load balancer arn.
+	// Experimental.
 	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Filter listeners by associated load balancer tags.
+	// Experimental.
 	LoadBalancerTags *map[string]*string `json:"loadBalancerTags" yaml:"loadBalancerTags"`
 	// Protocol of the listener port.
+	// Experimental.
 	ListenerProtocol Protocol `json:"listenerProtocol" yaml:"listenerProtocol"`
 }
 
 // Properties for a Network Listener attached to a Load Balancer.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
 //
+//   var listenerCertificate listenerCertificate
+//   var networkListenerAction networkListenerAction
+//   var networkLoadBalancer networkLoadBalancer
+//   var networkTargetGroup networkTargetGroup
+//   networkListenerProps := &networkListenerProps{
+//   	loadBalancer: networkLoadBalancer,
+//   	port: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	alpnPolicy: elasticloadbalancingv2.alpnPolicy_HTTP1_ONLY,
+//   	certificates: []iListenerCertificate{
+//   		listenerCertificate,
+//   	},
+//   	defaultAction: networkListenerAction,
+//   	defaultTargetGroups: []iNetworkTargetGroup{
+//   		networkTargetGroup,
+//   	},
+//   	protocol: elasticloadbalancingv2.protocol_HTTP,
+//   	sslPolicy: elasticloadbalancingv2.sslPolicy_RECOMMENDED,
+//   }
+//
+// Experimental.
 type NetworkListenerProps struct {
 	// The port on which the listener listens for requests.
+	// Experimental.
 	Port *float64 `json:"port" yaml:"port"`
 	// Application-Layer Protocol Negotiation (ALPN) is a TLS extension that is sent on the initial TLS handshake hello messages.
 	//
 	// ALPN enables the application layer to negotiate which protocols should be used over a secure connection, such as HTTP/1 and HTTP/2.
 	//
 	// Can only be specified together with Protocol TLS.
+	// Experimental.
 	AlpnPolicy AlpnPolicy `json:"alpnPolicy" yaml:"alpnPolicy"`
 	// Certificate list of ACM cert ARNs.
 	//
 	// You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
+	// Experimental.
 	Certificates *[]IListenerCertificate `json:"certificates" yaml:"certificates"`
 	// Default action to take for requests to this listener.
 	//
@@ -9058,6 +13777,7 @@ type NetworkListenerProps struct {
 	// all options.
 	//
 	// Cannot be specified together with `defaultTargetGroups`.
+	// Experimental.
 	DefaultAction NetworkListenerAction `json:"defaultAction" yaml:"defaultAction"`
 	// Default target groups to load balance to.
 	//
@@ -9066,51 +13786,234 @@ type NetworkListenerProps struct {
 	// either `defaultAction` or `addAction()`.
 	//
 	// Cannot be specified together with `defaultAction`.
+	// Experimental.
 	DefaultTargetGroups *[]INetworkTargetGroup `json:"defaultTargetGroups" yaml:"defaultTargetGroups"`
 	// Protocol for listener, expects TCP, TLS, UDP, or TCP_UDP.
+	// Experimental.
 	Protocol Protocol `json:"protocol" yaml:"protocol"`
 	// SSL Policy.
+	// Experimental.
 	SslPolicy SslPolicy `json:"sslPolicy" yaml:"sslPolicy"`
 	// The load balancer to attach this listener to.
+	// Experimental.
 	LoadBalancer INetworkLoadBalancer `json:"loadBalancer" yaml:"loadBalancer"`
 }
 
 // Define a new network load balancer.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpNlbIntegration awscdk.HttpNlbIntegration
 //
+//   vpc := ec2.NewVpc(this, jsii.String("VPC"))
+//   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("lb"), &networkLoadBalancerProps{
+//   	vpc: vpc,
+//   })
+//   listener := lb.addListener(jsii.String("listener"), &baseNetworkListenerProps{
+//   	port: jsii.Number(80),
+//   })
+//   listener.addTargets(jsii.String("target"), &addNetworkTargetsProps{
+//   	port: jsii.Number(80),
+//   })
+//
+//   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
+//   	defaultIntegration: NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
+//   })
+//
+// Experimental.
 type NetworkLoadBalancer interface {
 	BaseLoadBalancer
 	INetworkLoadBalancer
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
+	// The ARN of this load balancer.
+	//
+	// Example value: `arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-internal-load-balancer/50dc6c495c0c9188`.
+	// Experimental.
 	LoadBalancerArn() *string
+	// The canonical hosted zone ID of this load balancer.
+	//
+	// Example value: `Z2P70J7EXAMPLE`.
+	// Experimental.
 	LoadBalancerCanonicalHostedZoneId() *string
+	// The DNS name of this load balancer.
+	//
+	// Example value: `my-load-balancer-424835706.us-west-2.elb.amazonaws.com`
+	// Experimental.
 	LoadBalancerDnsName() *string
+	// The full name of this load balancer.
+	//
+	// Example value: `app/my-load-balancer/50dc6c495c0c9188`.
+	// Experimental.
 	LoadBalancerFullName() *string
+	// The name of this load balancer.
+	//
+	// Example value: `my-load-balancer`.
+	// Experimental.
 	LoadBalancerName() *string
+	// Experimental.
 	LoadBalancerSecurityGroups() *[]*string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
+	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
+	// The VPC this load balancer has been created in.
+	//
+	// This property is always defined (not `null` or `undefined`) for sub-classes of `BaseLoadBalancer`.
+	// Experimental.
 	Vpc() awsec2.IVpc
+	// Add a listener to this load balancer.
+	//
+	// Returns: The newly created listener.
+	// Experimental.
 	AddListener(id *string, props *BaseNetworkListenerProps) NetworkListener
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
 	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Enable access logging for this load balancer.
+	//
+	// A region must be specified on the stack containing the load balancer; you cannot enable logging on
+	// environment-agnostic stacks. See https://docs.aws.amazon.com/cdk/latest/guide/environments.html
+	// Experimental.
 	LogAccessLogs(bucket awss3.IBucket, prefix *string)
+	// Return the given named metric for this Network Load Balancer.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of concurrent TCP flows (or connections) from clients to targets.
+	//
+	// This metric includes connections in the SYN_SENT and ESTABLISHED states.
+	// TCP connections are not terminated at the load balancer, so a client
+	// opening a TCP connection to a target counts as a single flow.
+	// Experimental.
 	MetricActiveFlowCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of load balancer capacity units (LCU) used by your load balancer.
+	// Experimental.
 	MetricConsumedLCUs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of targets that are considered healthy.
+	// Deprecated: use ``NetworkTargetGroup.metricHealthyHostCount`` instead
+	MetricHealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of new TCP flows (or connections) established from clients to targets in the time period.
+	// Experimental.
 	MetricNewFlowCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of bytes processed by the load balancer, including TCP/IP headers.
+	// Experimental.
 	MetricProcessedBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of reset (RST) packets sent from a client to a target.
+	//
+	// These resets are generated by the client and forwarded by the load balancer.
+	// Experimental.
 	MetricTcpClientResetCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of reset (RST) packets generated by the load balancer.
+	// Experimental.
 	MetricTcpElbResetCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of reset (RST) packets sent from a target to a client.
+	//
+	// These resets are generated by the target and forwarded by the load balancer.
+	// Experimental.
 	MetricTcpTargetResetCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of targets that are considered unhealthy.
+	// Deprecated: use ``NetworkTargetGroup.metricUnHealthyHostCount`` instead
+	MetricUnHealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Remove an attribute from the load balancer.
+	// Experimental.
 	RemoveAttribute(key *string)
+	// Set a non-standard attribute on the load balancer.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#load-balancer-attributes
+	//
+	// Experimental.
 	SetAttribute(key *string, value *string)
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
-	ValidateLoadBalancer() *[]*string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for NetworkLoadBalancer
@@ -9189,8 +14092,8 @@ func (j *jsiiProxy_NetworkLoadBalancer) LoadBalancerSecurityGroups() *[]*string 
 	return returns
 }
 
-func (j *jsiiProxy_NetworkLoadBalancer) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_NetworkLoadBalancer) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -9230,13 +14133,14 @@ func (j *jsiiProxy_NetworkLoadBalancer) Vpc() awsec2.IVpc {
 }
 
 
+// Experimental.
 func NewNetworkLoadBalancer(scope constructs.Construct, id *string, props *NetworkLoadBalancerProps) NetworkLoadBalancer {
 	_init_.Initialize()
 
 	j := jsiiProxy_NetworkLoadBalancer{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer",
+		"monocdk.aws_elasticloadbalancingv2.NetworkLoadBalancer",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -9244,24 +14148,26 @@ func NewNetworkLoadBalancer(scope constructs.Construct, id *string, props *Netwo
 	return &j
 }
 
+// Experimental.
 func NewNetworkLoadBalancer_Override(n NetworkLoadBalancer, scope constructs.Construct, id *string, props *NetworkLoadBalancerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer",
+		"monocdk.aws_elasticloadbalancingv2.NetworkLoadBalancer",
 		[]interface{}{scope, id, props},
 		n,
 	)
 }
 
 // Looks up the network load balancer.
+// Experimental.
 func NetworkLoadBalancer_FromLookup(scope constructs.Construct, id *string, options *NetworkLoadBalancerLookupOptions) INetworkLoadBalancer {
 	_init_.Initialize()
 
 	var returns INetworkLoadBalancer
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer",
+		"monocdk.aws_elasticloadbalancingv2.NetworkLoadBalancer",
 		"fromLookup",
 		[]interface{}{scope, id, options},
 		&returns,
@@ -9270,13 +14176,14 @@ func NetworkLoadBalancer_FromLookup(scope constructs.Construct, id *string, opti
 	return returns
 }
 
+// Experimental.
 func NetworkLoadBalancer_FromNetworkLoadBalancerAttributes(scope constructs.Construct, id *string, attrs *NetworkLoadBalancerAttributes) INetworkLoadBalancer {
 	_init_.Initialize()
 
 	var returns INetworkLoadBalancer
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer",
+		"monocdk.aws_elasticloadbalancingv2.NetworkLoadBalancer",
 		"fromNetworkLoadBalancerAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -9285,17 +14192,15 @@ func NetworkLoadBalancer_FromNetworkLoadBalancerAttributes(scope constructs.Cons
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func NetworkLoadBalancer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer",
+		"monocdk.aws_elasticloadbalancingv2.NetworkLoadBalancer",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -9305,13 +14210,14 @@ func NetworkLoadBalancer_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func NetworkLoadBalancer_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func NetworkLoadBalancer_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer",
+		"monocdk.aws_elasticloadbalancingv2.NetworkLoadBalancer",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -9320,9 +14226,6 @@ func NetworkLoadBalancer_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Add a listener to this load balancer.
-//
-// Returns: The newly created listener
 func (n *jsiiProxy_NetworkLoadBalancer) AddListener(id *string, props *BaseNetworkListenerProps) NetworkListener {
 	var returns NetworkListener
 
@@ -9336,15 +14239,6 @@ func (n *jsiiProxy_NetworkLoadBalancer) AddListener(id *string, props *BaseNetwo
 	return returns
 }
 
-// Apply the given removal policy to this resource.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (n *jsiiProxy_NetworkLoadBalancer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		n,
@@ -9366,12 +14260,6 @@ func (n *jsiiProxy_NetworkLoadBalancer) GeneratePhysicalName() *string {
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
-//
-// Normally, this token will resolve to `arnAttr`, but if the resource is
-// referenced across environments, `arnComponents` will be used to synthesize
-// a concrete ARN with the resource's physical name. Make sure to reference
-// `this.physicalName` in `arnComponents`.
 func (n *jsiiProxy_NetworkLoadBalancer) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -9385,11 +14273,6 @@ func (n *jsiiProxy_NetworkLoadBalancer) GetResourceArnAttribute(arnAttr *string,
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
-//
-// Normally, this token will resolve to `nameAttr`, but if the resource is
-// referenced across environments, it will be resolved to `this.physicalName`,
-// which will be a concrete name.
 func (n *jsiiProxy_NetworkLoadBalancer) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -9403,10 +14286,6 @@ func (n *jsiiProxy_NetworkLoadBalancer) GetResourceNameAttribute(nameAttr *strin
 	return returns
 }
 
-// Enable access logging for this load balancer.
-//
-// A region must be specified on the stack containing the load balancer; you cannot enable logging on
-// environment-agnostic stacks. See https://docs.aws.amazon.com/cdk/latest/guide/environments.html
 func (n *jsiiProxy_NetworkLoadBalancer) LogAccessLogs(bucket awss3.IBucket, prefix *string) {
 	_jsii_.InvokeVoid(
 		n,
@@ -9415,7 +14294,6 @@ func (n *jsiiProxy_NetworkLoadBalancer) LogAccessLogs(bucket awss3.IBucket, pref
 	)
 }
 
-// Return the given named metric for this Network Load Balancer.
 func (n *jsiiProxy_NetworkLoadBalancer) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -9429,11 +14307,6 @@ func (n *jsiiProxy_NetworkLoadBalancer) Metric(metricName *string, props *awsclo
 	return returns
 }
 
-// The total number of concurrent TCP flows (or connections) from clients to targets.
-//
-// This metric includes connections in the SYN_SENT and ESTABLISHED states.
-// TCP connections are not terminated at the load balancer, so a client
-// opening a TCP connection to a target counts as a single flow.
 func (n *jsiiProxy_NetworkLoadBalancer) MetricActiveFlowCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -9447,7 +14320,6 @@ func (n *jsiiProxy_NetworkLoadBalancer) MetricActiveFlowCount(props *awscloudwat
 	return returns
 }
 
-// The number of load balancer capacity units (LCU) used by your load balancer.
 func (n *jsiiProxy_NetworkLoadBalancer) MetricConsumedLCUs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -9461,7 +14333,19 @@ func (n *jsiiProxy_NetworkLoadBalancer) MetricConsumedLCUs(props *awscloudwatch.
 	return returns
 }
 
-// The total number of new TCP flows (or connections) established from clients to targets in the time period.
+func (n *jsiiProxy_NetworkLoadBalancer) MetricHealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		n,
+		"metricHealthyHostCount",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
 func (n *jsiiProxy_NetworkLoadBalancer) MetricNewFlowCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -9475,7 +14359,6 @@ func (n *jsiiProxy_NetworkLoadBalancer) MetricNewFlowCount(props *awscloudwatch.
 	return returns
 }
 
-// The total number of bytes processed by the load balancer, including TCP/IP headers.
 func (n *jsiiProxy_NetworkLoadBalancer) MetricProcessedBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -9489,9 +14372,6 @@ func (n *jsiiProxy_NetworkLoadBalancer) MetricProcessedBytes(props *awscloudwatc
 	return returns
 }
 
-// The total number of reset (RST) packets sent from a client to a target.
-//
-// These resets are generated by the client and forwarded by the load balancer.
 func (n *jsiiProxy_NetworkLoadBalancer) MetricTcpClientResetCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -9505,7 +14385,6 @@ func (n *jsiiProxy_NetworkLoadBalancer) MetricTcpClientResetCount(props *awsclou
 	return returns
 }
 
-// The total number of reset (RST) packets generated by the load balancer.
 func (n *jsiiProxy_NetworkLoadBalancer) MetricTcpElbResetCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -9519,9 +14398,6 @@ func (n *jsiiProxy_NetworkLoadBalancer) MetricTcpElbResetCount(props *awscloudwa
 	return returns
 }
 
-// The total number of reset (RST) packets sent from a target to a client.
-//
-// These resets are generated by the target and forwarded by the load balancer.
 func (n *jsiiProxy_NetworkLoadBalancer) MetricTcpTargetResetCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -9535,7 +14411,56 @@ func (n *jsiiProxy_NetworkLoadBalancer) MetricTcpTargetResetCount(props *awsclou
 	return returns
 }
 
-// Remove an attribute from the load balancer.
+func (n *jsiiProxy_NetworkLoadBalancer) MetricUnHealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		n,
+		"metricUnHealthyHostCount",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (n *jsiiProxy_NetworkLoadBalancer) OnPrepare() {
+	_jsii_.InvokeVoid(
+		n,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (n *jsiiProxy_NetworkLoadBalancer) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		n,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (n *jsiiProxy_NetworkLoadBalancer) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		n,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (n *jsiiProxy_NetworkLoadBalancer) Prepare() {
+	_jsii_.InvokeVoid(
+		n,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 func (n *jsiiProxy_NetworkLoadBalancer) RemoveAttribute(key *string) {
 	_jsii_.InvokeVoid(
 		n,
@@ -9544,9 +14469,6 @@ func (n *jsiiProxy_NetworkLoadBalancer) RemoveAttribute(key *string) {
 	)
 }
 
-// Set a non-standard attribute on the load balancer.
-// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#load-balancer-attributes
-//
 func (n *jsiiProxy_NetworkLoadBalancer) SetAttribute(key *string, value *string) {
 	_jsii_.InvokeVoid(
 		n,
@@ -9555,7 +14477,14 @@ func (n *jsiiProxy_NetworkLoadBalancer) SetAttribute(key *string, value *string)
 	)
 }
 
-// Returns a string representation of this construct.
+func (n *jsiiProxy_NetworkLoadBalancer) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		n,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (n *jsiiProxy_NetworkLoadBalancer) ToString() *string {
 	var returns *string
 
@@ -9569,12 +14498,12 @@ func (n *jsiiProxy_NetworkLoadBalancer) ToString() *string {
 	return returns
 }
 
-func (n *jsiiProxy_NetworkLoadBalancer) ValidateLoadBalancer() *[]*string {
+func (n *jsiiProxy_NetworkLoadBalancer) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		n,
-		"validateLoadBalancer",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -9584,79 +14513,257 @@ func (n *jsiiProxy_NetworkLoadBalancer) ValidateLoadBalancer() *[]*string {
 
 // Properties to reference an existing load balancer.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Create an Accelerator
+//   accelerator := globalaccelerator.NewAccelerator(this, jsii.String("Accelerator"))
 //
+//   // Create a Listener
+//   listener := accelerator.addListener(jsii.String("Listener"), &listenerOptions{
+//   	portRanges: []portRange{
+//   		&portRange{
+//   			fromPort: jsii.Number(80),
+//   		},
+//   		&portRange{
+//   			fromPort: jsii.Number(443),
+//   		},
+//   	},
+//   })
+//
+//   // Import the Load Balancers
+//   nlb1 := elbv2.networkLoadBalancer.fromNetworkLoadBalancerAttributes(this, jsii.String("NLB1"), &networkLoadBalancerAttributes{
+//   	loadBalancerArn: jsii.String("arn:aws:elasticloadbalancing:us-west-2:111111111111:loadbalancer/app/my-load-balancer1/e16bef66805b"),
+//   })
+//   nlb2 := elbv2.networkLoadBalancer.fromNetworkLoadBalancerAttributes(this, jsii.String("NLB2"), &networkLoadBalancerAttributes{
+//   	loadBalancerArn: jsii.String("arn:aws:elasticloadbalancing:ap-south-1:111111111111:loadbalancer/app/my-load-balancer2/5513dc2ea8a1"),
+//   })
+//
+//   // Add one EndpointGroup for each Region we are targeting
+//   listener.addEndpointGroup(jsii.String("Group1"), &endpointGroupOptions{
+//   	endpoints: []iEndpoint{
+//   		ga_endpoints.NewNetworkLoadBalancerEndpoint(nlb1),
+//   	},
+//   })
+//   listener.addEndpointGroup(jsii.String("Group2"), &endpointGroupOptions{
+//   	// Imported load balancers automatically calculate their Region from the ARN.
+//   	// If you are load balancing to other resources, you must also pass a `region`
+//   	// parameter here.
+//   	endpoints: []*iEndpoint{
+//   		ga_endpoints.NewNetworkLoadBalancerEndpoint(nlb2),
+//   	},
+//   })
+//
+// Experimental.
 type NetworkLoadBalancerAttributes struct {
 	// ARN of the load balancer.
+	// Experimental.
 	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// The canonical hosted zone ID of this load balancer.
+	// Experimental.
 	LoadBalancerCanonicalHostedZoneId *string `json:"loadBalancerCanonicalHostedZoneId" yaml:"loadBalancerCanonicalHostedZoneId"`
 	// The DNS name of this load balancer.
+	// Experimental.
 	LoadBalancerDnsName *string `json:"loadBalancerDnsName" yaml:"loadBalancerDnsName"`
 	// The VPC to associate with the load balancer.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
 // Options for looking up an NetworkLoadBalancer.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   networkLoadBalancerLookupOptions := &networkLoadBalancerLookupOptions{
+//   	loadBalancerArn: jsii.String("loadBalancerArn"),
+//   	loadBalancerTags: map[string]*string{
+//   		"loadBalancerTagsKey": jsii.String("loadBalancerTags"),
+//   	},
+//   }
 //
+// Experimental.
 type NetworkLoadBalancerLookupOptions struct {
 	// Find by load balancer's ARN.
+	// Experimental.
 	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Match load balancer tags.
+	// Experimental.
 	LoadBalancerTags *map[string]*string `json:"loadBalancerTags" yaml:"loadBalancerTags"`
 }
 
 // Properties for a network load balancer.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpNlbIntegration awscdk.HttpNlbIntegration
 //
+//   vpc := ec2.NewVpc(this, jsii.String("VPC"))
+//   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("lb"), &networkLoadBalancerProps{
+//   	vpc: vpc,
+//   })
+//   listener := lb.addListener(jsii.String("listener"), &baseNetworkListenerProps{
+//   	port: jsii.Number(80),
+//   })
+//   listener.addTargets(jsii.String("target"), &addNetworkTargetsProps{
+//   	port: jsii.Number(80),
+//   })
+//
+//   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
+//   	defaultIntegration: NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
+//   })
+//
+// Experimental.
 type NetworkLoadBalancerProps struct {
 	// The VPC network to place the load balancer in.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Indicates whether deletion protection is enabled.
+	// Experimental.
 	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// Whether the load balancer has an internet-routable address.
+	// Experimental.
 	InternetFacing *bool `json:"internetFacing" yaml:"internetFacing"`
 	// Name of the load balancer.
+	// Experimental.
 	LoadBalancerName *string `json:"loadBalancerName" yaml:"loadBalancerName"`
 	// Which subnets place the load balancer in.
+	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// Indicates whether cross-zone load balancing is enabled.
+	// Experimental.
 	CrossZoneEnabled *bool `json:"crossZoneEnabled" yaml:"crossZoneEnabled"`
 }
 
 // Define a Network Target Group.
 //
-// TODO: EXAMPLE
+// Example:
+//   var listener networkListener
+//   var asg1 autoScalingGroup
+//   var asg2 autoScalingGroup
 //
+//   group := listener.addTargets(jsii.String("AppFleet"), &addNetworkTargetsProps{
+//   	port: jsii.Number(443),
+//   	targets: []iNetworkLoadBalancerTarget{
+//   		asg1,
+//   	},
+//   })
+//
+//   group.addTarget(asg2)
+//
+// Experimental.
 type NetworkTargetGroup interface {
 	TargetGroupBase
 	INetworkTargetGroup
+	// Default port configured for members of this target group.
+	// Experimental.
 	DefaultPort() *float64
+	// Full name of first load balancer.
+	// Experimental.
 	FirstLoadBalancerFullName() *string
+	// Experimental.
 	HealthCheck() *HealthCheck
+	// Experimental.
 	SetHealthCheck(val *HealthCheck)
+	// A token representing a list of ARNs of the load balancers that route traffic to this target group.
+	// Experimental.
 	LoadBalancerArns() *string
-	LoadBalancerAttached() constructs.IDependable
-	LoadBalancerAttachedDependencies() constructs.DependencyGroup
-	Node() constructs.Node
+	// List of constructs that need to be depended on to ensure the TargetGroup is associated to a load balancer.
+	// Experimental.
+	LoadBalancerAttached() awscdk.IDependable
+	// Configurable dependable with all resources that lead to load balancer attachment.
+	// Experimental.
+	LoadBalancerAttachedDependencies() awscdk.ConcreteDependable
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// The ARN of the target group.
+	// Experimental.
 	TargetGroupArn() *string
+	// The full name of the target group.
+	// Experimental.
 	TargetGroupFullName() *string
+	// ARNs of load balancers load balancing to this TargetGroup.
+	// Experimental.
 	TargetGroupLoadBalancerArns() *[]*string
+	// The name of the target group.
+	// Experimental.
 	TargetGroupName() *string
+	// The types of the directly registered members of this target group.
+	// Experimental.
 	TargetType() TargetType
+	// Experimental.
 	SetTargetType(val TargetType)
+	// Register the given load balancing target as part of this group.
+	// Experimental.
 	AddLoadBalancerTarget(props *LoadBalancerTargetProps)
+	// Add a load balancing target to this target group.
+	// Experimental.
 	AddTarget(targets ...INetworkLoadBalancerTarget)
+	// Set/replace the target group's health check.
+	// Experimental.
 	ConfigureHealthCheck(healthCheck *HealthCheck)
+	// The number of targets that are considered healthy.
+	// Experimental.
 	MetricHealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of targets that are considered unhealthy.
+	// Experimental.
 	MetricUnHealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Register a listener that is load balancing to this target group.
+	//
+	// Don't call this directly. It will be called by listeners.
+	// Experimental.
 	RegisterListener(listener INetworkListener)
+	// Set a non-standard attribute on the target group.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes
+	//
+	// Experimental.
 	SetAttribute(key *string, value *string)
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
-	ValidateTargetGroup() *[]*string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for NetworkTargetGroup
@@ -9705,8 +14812,8 @@ func (j *jsiiProxy_NetworkTargetGroup) LoadBalancerArns() *string {
 	return returns
 }
 
-func (j *jsiiProxy_NetworkTargetGroup) LoadBalancerAttached() constructs.IDependable {
-	var returns constructs.IDependable
+func (j *jsiiProxy_NetworkTargetGroup) LoadBalancerAttached() awscdk.IDependable {
+	var returns awscdk.IDependable
 	_jsii_.Get(
 		j,
 		"loadBalancerAttached",
@@ -9715,8 +14822,8 @@ func (j *jsiiProxy_NetworkTargetGroup) LoadBalancerAttached() constructs.IDepend
 	return returns
 }
 
-func (j *jsiiProxy_NetworkTargetGroup) LoadBalancerAttachedDependencies() constructs.DependencyGroup {
-	var returns constructs.DependencyGroup
+func (j *jsiiProxy_NetworkTargetGroup) LoadBalancerAttachedDependencies() awscdk.ConcreteDependable {
+	var returns awscdk.ConcreteDependable
 	_jsii_.Get(
 		j,
 		"loadBalancerAttachedDependencies",
@@ -9725,8 +14832,8 @@ func (j *jsiiProxy_NetworkTargetGroup) LoadBalancerAttachedDependencies() constr
 	return returns
 }
 
-func (j *jsiiProxy_NetworkTargetGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_NetworkTargetGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -9786,13 +14893,14 @@ func (j *jsiiProxy_NetworkTargetGroup) TargetType() TargetType {
 }
 
 
+// Experimental.
 func NewNetworkTargetGroup(scope constructs.Construct, id *string, props *NetworkTargetGroupProps) NetworkTargetGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_NetworkTargetGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup",
+		"monocdk.aws_elasticloadbalancingv2.NetworkTargetGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -9800,11 +14908,12 @@ func NewNetworkTargetGroup(scope constructs.Construct, id *string, props *Networ
 	return &j
 }
 
+// Experimental.
 func NewNetworkTargetGroup_Override(n NetworkTargetGroup, scope constructs.Construct, id *string, props *NetworkTargetGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup",
+		"monocdk.aws_elasticloadbalancingv2.NetworkTargetGroup",
 		[]interface{}{scope, id, props},
 		n,
 	)
@@ -9827,13 +14936,14 @@ func (j *jsiiProxy_NetworkTargetGroup) SetTargetType(val TargetType) {
 }
 
 // Import an existing target group.
+// Experimental.
 func NetworkTargetGroup_FromTargetGroupAttributes(scope constructs.Construct, id *string, attrs *TargetGroupAttributes) INetworkTargetGroup {
 	_init_.Initialize()
 
 	var returns INetworkTargetGroup
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup",
+		"monocdk.aws_elasticloadbalancingv2.NetworkTargetGroup",
 		"fromTargetGroupAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -9842,17 +14952,32 @@ func NetworkTargetGroup_FromTargetGroupAttributes(scope constructs.Construct, id
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Import an existing listener.
+// Deprecated: Use `fromTargetGroupAttributes` instead.
+func NetworkTargetGroup_Import(scope constructs.Construct, id *string, props *TargetGroupImportProps) INetworkTargetGroup {
+	_init_.Initialize()
+
+	var returns INetworkTargetGroup
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_elasticloadbalancingv2.NetworkTargetGroup",
+		"import",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
 func NetworkTargetGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup",
+		"monocdk.aws_elasticloadbalancingv2.NetworkTargetGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -9861,7 +14986,6 @@ func NetworkTargetGroup_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Register the given load balancing target as part of this group.
 func (n *jsiiProxy_NetworkTargetGroup) AddLoadBalancerTarget(props *LoadBalancerTargetProps) {
 	_jsii_.InvokeVoid(
 		n,
@@ -9870,7 +14994,6 @@ func (n *jsiiProxy_NetworkTargetGroup) AddLoadBalancerTarget(props *LoadBalancer
 	)
 }
 
-// Add a load balancing target to this target group.
 func (n *jsiiProxy_NetworkTargetGroup) AddTarget(targets ...INetworkLoadBalancerTarget) {
 	args := []interface{}{}
 	for _, a := range targets {
@@ -9884,7 +15007,6 @@ func (n *jsiiProxy_NetworkTargetGroup) AddTarget(targets ...INetworkLoadBalancer
 	)
 }
 
-// Set/replace the target group's health check.
 func (n *jsiiProxy_NetworkTargetGroup) ConfigureHealthCheck(healthCheck *HealthCheck) {
 	_jsii_.InvokeVoid(
 		n,
@@ -9893,7 +15015,6 @@ func (n *jsiiProxy_NetworkTargetGroup) ConfigureHealthCheck(healthCheck *HealthC
 	)
 }
 
-// The number of targets that are considered healthy.
 func (n *jsiiProxy_NetworkTargetGroup) MetricHealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -9907,7 +15028,6 @@ func (n *jsiiProxy_NetworkTargetGroup) MetricHealthyHostCount(props *awscloudwat
 	return returns
 }
 
-// The number of targets that are considered unhealthy.
 func (n *jsiiProxy_NetworkTargetGroup) MetricUnHealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -9921,9 +15041,43 @@ func (n *jsiiProxy_NetworkTargetGroup) MetricUnHealthyHostCount(props *awscloudw
 	return returns
 }
 
-// Register a listener that is load balancing to this target group.
-//
-// Don't call this directly. It will be called by listeners.
+func (n *jsiiProxy_NetworkTargetGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		n,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (n *jsiiProxy_NetworkTargetGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		n,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (n *jsiiProxy_NetworkTargetGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		n,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (n *jsiiProxy_NetworkTargetGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		n,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 func (n *jsiiProxy_NetworkTargetGroup) RegisterListener(listener INetworkListener) {
 	_jsii_.InvokeVoid(
 		n,
@@ -9932,9 +15086,6 @@ func (n *jsiiProxy_NetworkTargetGroup) RegisterListener(listener INetworkListene
 	)
 }
 
-// Set a non-standard attribute on the target group.
-// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes
-//
 func (n *jsiiProxy_NetworkTargetGroup) SetAttribute(key *string, value *string) {
 	_jsii_.InvokeVoid(
 		n,
@@ -9943,7 +15094,14 @@ func (n *jsiiProxy_NetworkTargetGroup) SetAttribute(key *string, value *string) 
 	)
 }
 
-// Returns a string representation of this construct.
+func (n *jsiiProxy_NetworkTargetGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		n,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (n *jsiiProxy_NetworkTargetGroup) ToString() *string {
 	var returns *string
 
@@ -9957,12 +15115,12 @@ func (n *jsiiProxy_NetworkTargetGroup) ToString() *string {
 	return returns
 }
 
-func (n *jsiiProxy_NetworkTargetGroup) ValidateTargetGroup() *[]*string {
+func (n *jsiiProxy_NetworkTargetGroup) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		n,
-		"validateTargetGroup",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -9972,85 +15130,170 @@ func (n *jsiiProxy_NetworkTargetGroup) ValidateTargetGroup() *[]*string {
 
 // Properties for a new Network Target Group.
 //
-// TODO: EXAMPLE
+// Example:
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
 //
+//   var duration duration
+//   var networkLoadBalancerTarget iNetworkLoadBalancerTarget
+//   var vpc vpc
+//   networkTargetGroupProps := &networkTargetGroupProps{
+//   	port: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	deregistrationDelay: duration,
+//   	healthCheck: &healthCheck{
+//   		enabled: jsii.Boolean(false),
+//   		healthyGrpcCodes: jsii.String("healthyGrpcCodes"),
+//   		healthyHttpCodes: jsii.String("healthyHttpCodes"),
+//   		healthyThresholdCount: jsii.Number(123),
+//   		interval: duration,
+//   		path: jsii.String("path"),
+//   		port: jsii.String("port"),
+//   		protocol: elasticloadbalancingv2.protocol_HTTP,
+//   		timeout: duration,
+//   		unhealthyThresholdCount: jsii.Number(123),
+//   	},
+//   	preserveClientIp: jsii.Boolean(false),
+//   	protocol: elasticloadbalancingv2.*protocol_HTTP,
+//   	proxyProtocolV2: jsii.Boolean(false),
+//   	targetGroupName: jsii.String("targetGroupName"),
+//   	targets: []*iNetworkLoadBalancerTarget{
+//   		networkLoadBalancerTarget,
+//   	},
+//   	targetType: elasticloadbalancingv2.targetType_INSTANCE,
+//   	vpc: vpc,
+//   }
+//
+// Experimental.
 type NetworkTargetGroupProps struct {
 	// The amount of time for Elastic Load Balancing to wait before deregistering a target.
 	//
 	// The range is 0-3600 seconds.
+	// Experimental.
 	DeregistrationDelay awscdk.Duration `json:"deregistrationDelay" yaml:"deregistrationDelay"`
 	// Health check configuration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#aws-resource-elasticloadbalancingv2-targetgroup-properties
 	//
+	// Experimental.
 	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
 	// The name of the target group.
 	//
 	// This name must be unique per region per account, can have a maximum of
 	// 32 characters, must contain only alphanumeric characters or hyphens, and
 	// must not begin or end with a hyphen.
+	// Experimental.
 	TargetGroupName *string `json:"targetGroupName" yaml:"targetGroupName"`
 	// The type of targets registered to this TargetGroup, either IP or Instance.
 	//
 	// All targets registered into the group must be of this type. If you
 	// register targets to the TargetGroup in the CDK app, the TargetType is
 	// determined automatically.
+	// Experimental.
 	TargetType TargetType `json:"targetType" yaml:"targetType"`
 	// The virtual private cloud (VPC).
 	//
-	// only if `TargetType` is `Ip` or `InstanceId`
+	// only if `TargetType` is `Ip` or `InstanceId`.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The port on which the listener listens for requests.
+	// Experimental.
 	Port *float64 `json:"port" yaml:"port"`
 	// Indicates whether client IP preservation is enabled.
+	// Experimental.
 	PreserveClientIp *bool `json:"preserveClientIp" yaml:"preserveClientIp"`
 	// Protocol for target group, expects TCP, TLS, UDP, or TCP_UDP.
+	// Experimental.
 	Protocol Protocol `json:"protocol" yaml:"protocol"`
 	// Indicates whether Proxy Protocol version 2 is enabled.
+	// Experimental.
 	ProxyProtocolV2 *bool `json:"proxyProtocolV2" yaml:"proxyProtocolV2"`
 	// The targets to add to this target group.
 	//
 	// Can be `Instance`, `IPAddress`, or any self-registering load balancing
 	// target. If you use either `Instance` or `IPAddress` as targets, all
 	// target must be of the same type.
+	// Experimental.
 	Targets *[]INetworkLoadBalancerTarget `json:"targets" yaml:"targets"`
 }
 
 // A Target Group and weight combination.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
 //
+//   var networkTargetGroup networkTargetGroup
+//   networkWeightedTargetGroup := &networkWeightedTargetGroup{
+//   	targetGroup: networkTargetGroup,
+//
+//   	// the properties below are optional
+//   	weight: jsii.Number(123),
+//   }
+//
+// Experimental.
 type NetworkWeightedTargetGroup struct {
 	// The target group.
+	// Experimental.
 	TargetGroup INetworkTargetGroup `json:"targetGroup" yaml:"targetGroup"`
 	// The target group's weight.
 	//
 	// Range is [0..1000).
+	// Experimental.
 	Weight *float64 `json:"weight" yaml:"weight"`
 }
 
 // Backend protocol for network load balancers and health checks.
 //
-// TODO: EXAMPLE
+// Example:
+//   listener := elbv2.networkListener.fromLookup(this, jsii.String("ALBListener"), &networkListenerLookupOptions{
+//   	loadBalancerTags: map[string]*string{
+//   		"Cluster": jsii.String("MyClusterName"),
+//   	},
+//   	listenerProtocol: elbv2.protocol_TCP,
+//   	listenerPort: jsii.Number(12345),
+//   })
 //
+// Experimental.
 type Protocol string
 
 const (
+	// HTTP (ALB health checks and NLB health checks).
+	// Experimental.
 	Protocol_HTTP Protocol = "HTTP"
+	// HTTPS (ALB health checks and NLB health checks).
+	// Experimental.
 	Protocol_HTTPS Protocol = "HTTPS"
+	// TCP (NLB, NLB health checks).
+	// Experimental.
 	Protocol_TCP Protocol = "TCP"
+	// TLS (NLB).
+	// Experimental.
 	Protocol_TLS Protocol = "TLS"
+	// UDP (NLB).
+	// Experimental.
 	Protocol_UDP Protocol = "UDP"
+	// Listen to both TCP and UDP on the same port (NLB).
+	// Experimental.
 	Protocol_TCP_UDP Protocol = "TCP_UDP"
 )
 
 // Properties for the key/value pair of the query string.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   queryStringCondition := &queryStringCondition{
+//   	value: jsii.String("value"),
 //
+//   	// the properties below are optional
+//   	key: jsii.String("key"),
+//   }
+//
+// Experimental.
 type QueryStringCondition struct {
 	// The query string value for the condition.
+	// Experimental.
 	Value *string `json:"value" yaml:"value"`
 	// The query string key for the condition.
+	// Experimental.
 	Key *string `json:"key" yaml:"key"`
 }
 
@@ -10072,32 +15315,98 @@ type QueryStringCondition struct {
 // For example, you can change the path to "/new/#{path}", the hostname to
 // "example.#{host}", or the query to "#{query}&value=xyz".
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   redirectOptions := &redirectOptions{
+//   	host: jsii.String("host"),
+//   	path: jsii.String("path"),
+//   	permanent: jsii.Boolean(false),
+//   	port: jsii.String("port"),
+//   	protocol: jsii.String("protocol"),
+//   	query: jsii.String("query"),
+//   }
 //
+// Experimental.
 type RedirectOptions struct {
 	// The hostname.
 	//
 	// This component is not percent-encoded. The hostname can contain #{host}.
+	// Experimental.
 	Host *string `json:"host" yaml:"host"`
 	// The absolute path, starting with the leading "/".
 	//
 	// This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
+	// Experimental.
 	Path *string `json:"path" yaml:"path"`
 	// The HTTP redirect code.
 	//
 	// The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
+	// Experimental.
 	Permanent *bool `json:"permanent" yaml:"permanent"`
 	// The port.
 	//
 	// You can specify a value from 1 to 65535 or #{port}.
+	// Experimental.
 	Port *string `json:"port" yaml:"port"`
 	// The protocol.
 	//
 	// You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+	// Experimental.
 	Protocol *string `json:"protocol" yaml:"protocol"`
 	// The query parameters, URL-encoded when necessary, but not percent-encoded.
 	//
 	// Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
+	// Experimental.
+	Query *string `json:"query" yaml:"query"`
+}
+
+// A redirect response.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   redirectResponse := &redirectResponse{
+//   	statusCode: jsii.String("statusCode"),
+//
+//   	// the properties below are optional
+//   	host: jsii.String("host"),
+//   	path: jsii.String("path"),
+//   	port: jsii.String("port"),
+//   	protocol: jsii.String("protocol"),
+//   	query: jsii.String("query"),
+//   }
+//
+// Deprecated: superceded by `ListenerAction.redirect()`.
+type RedirectResponse struct {
+	// The HTTP redirect code (HTTP_301 or HTTP_302).
+	// Deprecated: superceded by `ListenerAction.redirect()`.
+	StatusCode *string `json:"statusCode" yaml:"statusCode"`
+	// The hostname.
+	//
+	// This component is not percent-encoded. The hostname can contain #{host}.
+	// Deprecated: superceded by `ListenerAction.redirect()`.
+	Host *string `json:"host" yaml:"host"`
+	// The absolute path, starting with the leading "/".
+	//
+	// This component is not percent-encoded.
+	// The path can contain #{host}, #{path}, and #{port}.
+	// Deprecated: superceded by `ListenerAction.redirect()`.
+	Path *string `json:"path" yaml:"path"`
+	// The port.
+	//
+	// You can specify a value from 1 to 65535 or #{port}.
+	// Deprecated: superceded by `ListenerAction.redirect()`.
+	Port *string `json:"port" yaml:"port"`
+	// The protocol.
+	//
+	// You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP,
+	// HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+	// Deprecated: superceded by `ListenerAction.redirect()`.
+	Protocol *string `json:"protocol" yaml:"protocol"`
+	// The query parameters, URL-encoded when necessary, but not percent-encoded.
+	//
+	// Do not include the leading "?", as it is automatically added.
+	// You can specify any of the reserved keywords.
+	// Deprecated: superceded by `ListenerAction.redirect()`.
 	Query *string `json:"query" yaml:"query"`
 }
 
@@ -10111,64 +15420,209 @@ type RedirectOptions struct {
 // standards that require disabling certain TLS protocol versions, or to
 // support legacy clients that require deprecated ciphers.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HostedZone awscdk.HostedZoneimport awscdk "github.com/aws/aws-cdk-go/awscdk"type Certificate awscdk.Certificateimport awscdk "github.com/aws/aws-cdk-go/awscdk"type SslPolicy awscdk.SslPolicy
+//
+//   var vpc vpc
+//   var cluster cluster
+//
+//   domainZone := hostedZone.fromLookup(this, jsii.String("Zone"), &hostedZoneProviderProps{
+//   	domainName: jsii.String("example.com"),
+//   })
+//   certificate := certificate.fromCertificateArn(this, jsii.String("Cert"), jsii.String("arn:aws:acm:us-east-1:123456:certificate/abcdefg"))
+//   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
+//   	vpc: vpc,
+//   	cluster: cluster,
+//   	certificate: certificate,
+//   	sslPolicy: sslPolicy_RECOMMENDED,
+//   	domainName: jsii.String("api.example.com"),
+//   	domainZone: domainZone,
+//   	redirectHTTP: jsii.Boolean(true),
+//   	taskImageOptions: &applicationLoadBalancedTaskImageOptions{
+//   		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	},
+//   })
 //
 // See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html
 //
+// Experimental.
 type SslPolicy string
 
 const (
+	// The recommended security policy.
+	// Experimental.
 	SslPolicy_RECOMMENDED SslPolicy = "RECOMMENDED"
+	// Strong foward secrecy ciphers and TLV1.2 only (2020 edition). Same as FORWARD_SECRECY_TLS12_RES, but only supports GCM versions of the TLS ciphers.
+	// Experimental.
 	SslPolicy_FORWARD_SECRECY_TLS12_RES_GCM SslPolicy = "FORWARD_SECRECY_TLS12_RES_GCM"
+	// Strong forward secrecy ciphers and TLS1.2 only.
+	// Experimental.
 	SslPolicy_FORWARD_SECRECY_TLS12_RES SslPolicy = "FORWARD_SECRECY_TLS12_RES"
+	// Forward secrecy ciphers and TLS1.2 only.
+	// Experimental.
 	SslPolicy_FORWARD_SECRECY_TLS12 SslPolicy = "FORWARD_SECRECY_TLS12"
+	// Forward secrecy ciphers only with TLS1.1 and higher.
+	// Experimental.
 	SslPolicy_FORWARD_SECRECY_TLS11 SslPolicy = "FORWARD_SECRECY_TLS11"
+	// Forward secrecy ciphers only.
+	// Experimental.
 	SslPolicy_FORWARD_SECRECY SslPolicy = "FORWARD_SECRECY"
+	// TLS1.2 only and no SHA ciphers.
+	// Experimental.
 	SslPolicy_TLS12 SslPolicy = "TLS12"
+	// TLS1.2 only with all ciphers.
+	// Experimental.
 	SslPolicy_TLS12_EXT SslPolicy = "TLS12_EXT"
+	// TLS1.1 and higher with all ciphers.
+	// Experimental.
 	SslPolicy_TLS11 SslPolicy = "TLS11"
+	// Support for DES-CBC3-SHA.
+	//
+	// Do not use this security policy unless you must support a legacy client
+	// that requires the DES-CBC3-SHA cipher, which is a weak cipher.
+	// Experimental.
 	SslPolicy_LEGACY SslPolicy = "LEGACY"
 )
 
 // Properties to reference an existing target group.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   targetGroupAttributes := &targetGroupAttributes{
+//   	targetGroupArn: jsii.String("targetGroupArn"),
 //
+//   	// the properties below are optional
+//   	defaultPort: jsii.String("defaultPort"),
+//   	loadBalancerArns: jsii.String("loadBalancerArns"),
+//   }
+//
+// Experimental.
 type TargetGroupAttributes struct {
 	// ARN of the target group.
+	// Experimental.
 	TargetGroupArn *string `json:"targetGroupArn" yaml:"targetGroupArn"`
+	// Port target group is listening on.
+	// Deprecated: - This property is unused and the wrong type. No need to use it.
+	DefaultPort *string `json:"defaultPort" yaml:"defaultPort"`
 	// A Token representing the list of ARNs for the load balancer routing to this target group.
+	// Experimental.
 	LoadBalancerArns *string `json:"loadBalancerArns" yaml:"loadBalancerArns"`
 }
 
 // Define the target of a load balancer.
+// Experimental.
 type TargetGroupBase interface {
-	constructs.Construct
+	awscdk.Construct
 	ITargetGroup
+	// Default port configured for members of this target group.
+	// Experimental.
 	DefaultPort() *float64
+	// Full name of first load balancer.
+	//
+	// This identifier is emitted as a dimensions of the metrics of this target
+	// group.
+	//
+	// Example value: `app/my-load-balancer/123456789`.
+	// Experimental.
 	FirstLoadBalancerFullName() *string
+	// Experimental.
 	HealthCheck() *HealthCheck
+	// Experimental.
 	SetHealthCheck(val *HealthCheck)
+	// A token representing a list of ARNs of the load balancers that route traffic to this target group.
+	// Experimental.
 	LoadBalancerArns() *string
-	LoadBalancerAttached() constructs.IDependable
-	LoadBalancerAttachedDependencies() constructs.DependencyGroup
-	Node() constructs.Node
+	// List of constructs that need to be depended on to ensure the TargetGroup is associated to a load balancer.
+	// Experimental.
+	LoadBalancerAttached() awscdk.IDependable
+	// Configurable dependable with all resources that lead to load balancer attachment.
+	// Experimental.
+	LoadBalancerAttachedDependencies() awscdk.ConcreteDependable
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// The ARN of the target group.
+	// Experimental.
 	TargetGroupArn() *string
+	// The full name of the target group.
+	// Experimental.
 	TargetGroupFullName() *string
+	// ARNs of load balancers load balancing to this TargetGroup.
+	// Experimental.
 	TargetGroupLoadBalancerArns() *[]*string
+	// The name of the target group.
+	// Experimental.
 	TargetGroupName() *string
+	// The types of the directly registered members of this target group.
+	// Experimental.
 	TargetType() TargetType
+	// Experimental.
 	SetTargetType(val TargetType)
+	// Register the given load balancing target as part of this group.
+	// Experimental.
 	AddLoadBalancerTarget(props *LoadBalancerTargetProps)
+	// Set/replace the target group's health check.
+	// Experimental.
 	ConfigureHealthCheck(healthCheck *HealthCheck)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Set a non-standard attribute on the target group.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes
+	//
+	// Experimental.
 	SetAttribute(key *string, value *string)
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
-	ValidateTargetGroup() *[]*string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for TargetGroupBase
 type jsiiProxy_TargetGroupBase struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 	jsiiProxy_ITargetGroup
 }
 
@@ -10212,8 +15666,8 @@ func (j *jsiiProxy_TargetGroupBase) LoadBalancerArns() *string {
 	return returns
 }
 
-func (j *jsiiProxy_TargetGroupBase) LoadBalancerAttached() constructs.IDependable {
-	var returns constructs.IDependable
+func (j *jsiiProxy_TargetGroupBase) LoadBalancerAttached() awscdk.IDependable {
+	var returns awscdk.IDependable
 	_jsii_.Get(
 		j,
 		"loadBalancerAttached",
@@ -10222,8 +15676,8 @@ func (j *jsiiProxy_TargetGroupBase) LoadBalancerAttached() constructs.IDependabl
 	return returns
 }
 
-func (j *jsiiProxy_TargetGroupBase) LoadBalancerAttachedDependencies() constructs.DependencyGroup {
-	var returns constructs.DependencyGroup
+func (j *jsiiProxy_TargetGroupBase) LoadBalancerAttachedDependencies() awscdk.ConcreteDependable {
+	var returns awscdk.ConcreteDependable
 	_jsii_.Get(
 		j,
 		"loadBalancerAttachedDependencies",
@@ -10232,8 +15686,8 @@ func (j *jsiiProxy_TargetGroupBase) LoadBalancerAttachedDependencies() construct
 	return returns
 }
 
-func (j *jsiiProxy_TargetGroupBase) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_TargetGroupBase) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -10293,11 +15747,12 @@ func (j *jsiiProxy_TargetGroupBase) TargetType() TargetType {
 }
 
 
+// Experimental.
 func NewTargetGroupBase_Override(t TargetGroupBase, scope constructs.Construct, id *string, baseProps *BaseTargetGroupProps, additionalProps interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.TargetGroupBase",
+		"monocdk.aws_elasticloadbalancingv2.TargetGroupBase",
 		[]interface{}{scope, id, baseProps, additionalProps},
 		t,
 	)
@@ -10319,17 +15774,15 @@ func (j *jsiiProxy_TargetGroupBase) SetTargetType(val TargetType) {
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func TargetGroupBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.TargetGroupBase",
+		"monocdk.aws_elasticloadbalancingv2.TargetGroupBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -10338,7 +15791,6 @@ func TargetGroupBase_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Register the given load balancing target as part of this group.
 func (t *jsiiProxy_TargetGroupBase) AddLoadBalancerTarget(props *LoadBalancerTargetProps) {
 	_jsii_.InvokeVoid(
 		t,
@@ -10347,7 +15799,6 @@ func (t *jsiiProxy_TargetGroupBase) AddLoadBalancerTarget(props *LoadBalancerTar
 	)
 }
 
-// Set/replace the target group's health check.
 func (t *jsiiProxy_TargetGroupBase) ConfigureHealthCheck(healthCheck *HealthCheck) {
 	_jsii_.InvokeVoid(
 		t,
@@ -10356,9 +15807,43 @@ func (t *jsiiProxy_TargetGroupBase) ConfigureHealthCheck(healthCheck *HealthChec
 	)
 }
 
-// Set a non-standard attribute on the target group.
-// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes
-//
+func (t *jsiiProxy_TargetGroupBase) OnPrepare() {
+	_jsii_.InvokeVoid(
+		t,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (t *jsiiProxy_TargetGroupBase) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		t,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (t *jsiiProxy_TargetGroupBase) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		t,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TargetGroupBase) Prepare() {
+	_jsii_.InvokeVoid(
+		t,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 func (t *jsiiProxy_TargetGroupBase) SetAttribute(key *string, value *string) {
 	_jsii_.InvokeVoid(
 		t,
@@ -10367,7 +15852,14 @@ func (t *jsiiProxy_TargetGroupBase) SetAttribute(key *string, value *string) {
 	)
 }
 
-// Returns a string representation of this construct.
+func (t *jsiiProxy_TargetGroupBase) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		t,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (t *jsiiProxy_TargetGroupBase) ToString() *string {
 	var returns *string
 
@@ -10381,12 +15873,12 @@ func (t *jsiiProxy_TargetGroupBase) ToString() *string {
 	return returns
 }
 
-func (t *jsiiProxy_TargetGroupBase) ValidateTargetGroup() *[]*string {
+func (t *jsiiProxy_TargetGroupBase) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		t,
-		"validateTargetGroup",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -10394,46 +15886,117 @@ func (t *jsiiProxy_TargetGroupBase) ValidateTargetGroup() *[]*string {
 	return returns
 }
 
+// Properties to reference an existing target group.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   targetGroupImportProps := &targetGroupImportProps{
+//   	targetGroupArn: jsii.String("targetGroupArn"),
+//
+//   	// the properties below are optional
+//   	defaultPort: jsii.String("defaultPort"),
+//   	loadBalancerArns: jsii.String("loadBalancerArns"),
+//   }
+//
+// Deprecated: Use TargetGroupAttributes instead.
+type TargetGroupImportProps struct {
+	// ARN of the target group.
+	// Deprecated: Use TargetGroupAttributes instead.
+	TargetGroupArn *string `json:"targetGroupArn" yaml:"targetGroupArn"`
+	// Port target group is listening on.
+	// Deprecated: - This property is unused and the wrong type. No need to use it.
+	DefaultPort *string `json:"defaultPort" yaml:"defaultPort"`
+	// A Token representing the list of ARNs for the load balancer routing to this target group.
+	// Deprecated: Use TargetGroupAttributes instead.
+	LoadBalancerArns *string `json:"loadBalancerArns" yaml:"loadBalancerArns"`
+}
+
 // Load balancing algorithmm type for target groups.
+// Experimental.
 type TargetGroupLoadBalancingAlgorithmType string
 
 const (
+	// round_robin.
+	// Experimental.
 	TargetGroupLoadBalancingAlgorithmType_ROUND_ROBIN TargetGroupLoadBalancingAlgorithmType = "ROUND_ROBIN"
+	// least_outstanding_requests.
+	// Experimental.
 	TargetGroupLoadBalancingAlgorithmType_LEAST_OUTSTANDING_REQUESTS TargetGroupLoadBalancingAlgorithmType = "LEAST_OUTSTANDING_REQUESTS"
 )
 
 // How to interpret the load balancing target identifiers.
 //
-// TODO: EXAMPLE
+// Example:
+//   var vpc vpc
 //
+//   tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TG"), &applicationTargetGroupProps{
+//   	targetType: elbv2.targetType_IP,
+//   	port: jsii.Number(50051),
+//   	protocol: elbv2.applicationProtocol_HTTP,
+//   	protocolVersion: elbv2.applicationProtocolVersion_GRPC,
+//   	healthCheck: &healthCheck{
+//   		enabled: jsii.Boolean(true),
+//   		healthyGrpcCodes: jsii.String("0-99"),
+//   	},
+//   	vpc: vpc,
+//   })
+//
+// Experimental.
 type TargetType string
 
 const (
+	// Targets identified by instance ID.
+	// Experimental.
 	TargetType_INSTANCE TargetType = "INSTANCE"
+	// Targets identified by IP address.
+	// Experimental.
 	TargetType_IP TargetType = "IP"
+	// Target is a single Lambda Function.
+	// Experimental.
 	TargetType_LAMBDA TargetType = "LAMBDA"
+	// Target is a single Application Load Balancer.
+	// Experimental.
 	TargetType_ALB TargetType = "ALB"
 )
 
 // What to do with unauthenticated requests.
+// Experimental.
 type UnauthenticatedAction string
 
 const (
+	// Return an HTTP 401 Unauthorized error.
+	// Experimental.
 	UnauthenticatedAction_DENY UnauthenticatedAction = "DENY"
+	// Allow the request to be forwarded to the target.
+	// Experimental.
 	UnauthenticatedAction_ALLOW UnauthenticatedAction = "ALLOW"
+	// Redirect the request to the IdP authorization endpoint.
+	// Experimental.
 	UnauthenticatedAction_AUTHENTICATE UnauthenticatedAction = "AUTHENTICATE"
 )
 
 // A Target Group and weight combination.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
 //
+//   var applicationTargetGroup applicationTargetGroup
+//   weightedTargetGroup := &weightedTargetGroup{
+//   	targetGroup: applicationTargetGroup,
+//
+//   	// the properties below are optional
+//   	weight: jsii.Number(123),
+//   }
+//
+// Experimental.
 type WeightedTargetGroup struct {
 	// The target group.
+	// Experimental.
 	TargetGroup IApplicationTargetGroup `json:"targetGroup" yaml:"targetGroup"`
 	// The target group's weight.
 	//
 	// Range is [0..1000).
+	// Experimental.
 	Weight *float64 `json:"weight" yaml:"weight"`
 }
 

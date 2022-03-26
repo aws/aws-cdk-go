@@ -1,16 +1,16 @@
 package awscodepipeline
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestarnotifications"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awscodestarnotifications"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Low-level class for generic CodePipeline Actions implementing the {@link IAction} interface.
@@ -18,13 +18,27 @@ import (
 // Contains some common logic that can be re-used by all {@link IAction} implementations.
 // If you're writing your own Action class,
 // feel free to extend this class.
+// Experimental.
 type Action interface {
 	IAction
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *ActionProperties
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *ActionProperties
-	Bind(scope constructs.Construct, stage IStage, options *ActionBindOptions) *ActionConfig
-	Bound(scope constructs.Construct, stage IStage, options *ActionBindOptions) *ActionConfig
+	// The callback invoked when this Action is added to a Pipeline.
+	// Experimental.
+	Bind(scope awscdk.Construct, stage IStage, options *ActionBindOptions) *ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(scope awscdk.Construct, stage IStage, options *ActionBindOptions) *ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -54,18 +68,18 @@ func (j *jsiiProxy_Action) ProvidedActionProperties() *ActionProperties {
 }
 
 
+// Experimental.
 func NewAction_Override(a Action) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline.Action",
+		"monocdk.aws_codepipeline.Action",
 		nil, // no parameters
 		a,
 	)
 }
 
-// The callback invoked when this Action is added to a Pipeline.
-func (a *jsiiProxy_Action) Bind(scope constructs.Construct, stage IStage, options *ActionBindOptions) *ActionConfig {
+func (a *jsiiProxy_Action) Bind(scope awscdk.Construct, stage IStage, options *ActionBindOptions) *ActionConfig {
 	var returns *ActionConfig
 
 	_jsii_.Invoke(
@@ -78,8 +92,7 @@ func (a *jsiiProxy_Action) Bind(scope constructs.Construct, stage IStage, option
 	return returns
 }
 
-// This is a renamed version of the {@link IAction.bind} method.
-func (a *jsiiProxy_Action) Bound(scope constructs.Construct, stage IStage, options *ActionBindOptions) *ActionConfig {
+func (a *jsiiProxy_Action) Bound(scope awscdk.Construct, stage IStage, options *ActionBindOptions) *ActionConfig {
 	var returns *ActionConfig
 
 	_jsii_.Invoke(
@@ -92,7 +105,6 @@ func (a *jsiiProxy_Action) Bound(scope constructs.Construct, stage IStage, optio
 	return returns
 }
 
-// Creates an Event that will be triggered whenever the state of this Action changes.
 func (a *jsiiProxy_Action) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -124,52 +136,140 @@ func (a *jsiiProxy_Action) VariableExpression(variableName *string) *string {
 // The constraints for each action type are documented on the
 // {@link https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html Pipeline Structure Reference} page.
 //
-// TODO: EXAMPLE
+// Example:
+//   // MyAction is some action type that produces variables, like EcrSourceAction
+//   myAction := NewMyAction(&myActionProps{
+//   	// ...
+//   	actionName: jsii.String("myAction"),
+//   })
+//   NewOtherAction(&otherActionProps{
+//   	// ...
+//   	config: myAction.variables.myVariable,
+//   	actionName: jsii.String("otherAction"),
+//   })
 //
+// Experimental.
 type ActionArtifactBounds struct {
+	// Experimental.
 	MaxInputs *float64 `json:"maxInputs" yaml:"maxInputs"`
+	// Experimental.
 	MaxOutputs *float64 `json:"maxOutputs" yaml:"maxOutputs"`
+	// Experimental.
 	MinInputs *float64 `json:"minInputs" yaml:"minInputs"`
+	// Experimental.
 	MinOutputs *float64 `json:"minOutputs" yaml:"minOutputs"`
 }
 
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
 //
+//   var bucket bucket
+//   var role role
+//   actionBindOptions := &actionBindOptions{
+//   	bucket: bucket,
+//   	role: role,
+//   }
+//
+// Experimental.
 type ActionBindOptions struct {
+	// Experimental.
 	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 }
 
-// TODO: EXAMPLE
+// Example:
+//   // MyAction is some action type that produces variables, like EcrSourceAction
+//   myAction := NewMyAction(&myActionProps{
+//   	// ...
+//   	actionName: jsii.String("myAction"),
+//   })
+//   NewOtherAction(&otherActionProps{
+//   	// ...
+//   	config: myAction.variables.myVariable,
+//   	actionName: jsii.String("otherAction"),
+//   })
 //
+// Experimental.
 type ActionCategory string
 
 const (
+	// Experimental.
 	ActionCategory_SOURCE ActionCategory = "SOURCE"
+	// Experimental.
 	ActionCategory_BUILD ActionCategory = "BUILD"
+	// Experimental.
 	ActionCategory_TEST ActionCategory = "TEST"
+	// Experimental.
 	ActionCategory_APPROVAL ActionCategory = "APPROVAL"
+	// Experimental.
 	ActionCategory_DEPLOY ActionCategory = "DEPLOY"
+	// Experimental.
 	ActionCategory_INVOKE ActionCategory = "INVOKE"
 )
 
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
 //
+//   var configuration interface{}
+//   actionConfig := &actionConfig{
+//   	configuration: configuration,
+//   }
+//
+// Experimental.
 type ActionConfig struct {
+	// Experimental.
 	Configuration interface{} `json:"configuration" yaml:"configuration"`
 }
 
-// TODO: EXAMPLE
+// Example:
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
 //
+//   var artifact artifact
+//   var resource resource
+//   var role role
+//   actionProperties := &actionProperties{
+//   	actionName: jsii.String("actionName"),
+//   	artifactBounds: &actionArtifactBounds{
+//   		maxInputs: jsii.Number(123),
+//   		maxOutputs: jsii.Number(123),
+//   		minInputs: jsii.Number(123),
+//   		minOutputs: jsii.Number(123),
+//   	},
+//   	category: codepipeline.actionCategory_SOURCE,
+//   	provider: jsii.String("provider"),
+//
+//   	// the properties below are optional
+//   	account: jsii.String("account"),
+//   	inputs: []*artifact{
+//   		artifact,
+//   	},
+//   	outputs: []*artifact{
+//   		artifact,
+//   	},
+//   	owner: jsii.String("owner"),
+//   	region: jsii.String("region"),
+//   	resource: resource,
+//   	role: role,
+//   	runOrder: jsii.Number(123),
+//   	variablesNamespace: jsii.String("variablesNamespace"),
+//   	version: jsii.String("version"),
+//   }
+//
+// Experimental.
 type ActionProperties struct {
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
+	// Experimental.
 	ArtifactBounds *ActionArtifactBounds `json:"artifactBounds" yaml:"artifactBounds"`
 	// The category of the action.
 	//
 	// The category defines which action type the owner
 	// (the entity that performs the action) performs.
+	// Experimental.
 	Category ActionCategory `json:"category" yaml:"category"`
 	// The service provider that the action calls.
+	// Experimental.
 	Provider *string `json:"provider" yaml:"provider"`
 	// The account the Action is supposed to live in.
 	//
@@ -179,9 +279,13 @@ type ActionProperties struct {
 	// are not backed by any resource, and they still might want to be cross-account.
 	// In general, a concrete Action class should specify either {@link resource},
 	// or {@link account} - but not both.
+	// Experimental.
 	Account *string `json:"account" yaml:"account"`
+	// Experimental.
 	Inputs *[]Artifact `json:"inputs" yaml:"inputs"`
+	// Experimental.
 	Outputs *[]Artifact `json:"outputs" yaml:"outputs"`
+	// Experimental.
 	Owner *string `json:"owner" yaml:"owner"`
 	// The AWS region the given Action resides in.
 	//
@@ -189,19 +293,25 @@ type ActionProperties struct {
 	// You can provide their names with the {@link PipelineProps#crossRegionReplicationBuckets} property.
 	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
+	// Experimental.
 	Region *string `json:"region" yaml:"region"`
 	// The optional resource that is backing this Action.
 	//
 	// This is used for automatically handling Actions backed by
 	// resources from a different account and/or region.
+	// Experimental.
 	Resource awscdk.IResource `json:"resource" yaml:"resource"`
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The order in which AWS CodePipeline runs this action. For more information, see the AWS CodePipeline User Guide.
 	//
 	// https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	// Experimental.
 	Version *string `json:"version" yaml:"version"`
 }
 
@@ -209,18 +319,67 @@ type ActionProperties struct {
 //
 // Artifacts can be used as input by some actions.
 //
-// TODO: EXAMPLE
+// Example:
+//   // later:
+//   var project pipelineProjectlambdaInvokeAction := codepipeline_actions.NewLambdaInvokeAction(&lambdaInvokeActionProps{
+//   	actionName: jsii.String("Lambda"),
+//   	lambda: lambda.NewFunction(this, jsii.String("Func"), &functionProps{
+//   		runtime: lambda.runtime_NODEJS_12_X(),
+//   		handler: jsii.String("index.handler"),
+//   		code: lambda.code.fromInline(jsii.String("\n        const AWS = require('aws-sdk');\n\n        exports.handler = async function(event, context) {\n            const codepipeline = new AWS.CodePipeline();\n            await codepipeline.putJobSuccessResult({\n                jobId: event['CodePipeline.job'].id,\n                outputVariables: {\n                    MY_VAR: \"some value\",\n                },\n            }).promise();\n        }\n    ")),
+//   	}),
+//   	variablesNamespace: jsii.String("MyNamespace"),
+//   })
+//   sourceOutput := codepipeline.NewArtifact()
+//   codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
+//   	actionName: jsii.String("CodeBuild"),
+//   	project: project,
+//   	input: sourceOutput,
+//   	environmentVariables: map[string]buildEnvironmentVariable{
+//   		"MyVar": &buildEnvironmentVariable{
+//   			"value": lambdaInvokeAction.variable(jsii.String("MY_VAR")),
+//   		},
+//   	},
+//   })
 //
+// Experimental.
 type Artifact interface {
+	// Experimental.
 	ArtifactName() *string
+	// The artifact attribute for the name of the S3 bucket where the artifact is stored.
+	// Experimental.
 	BucketName() *string
+	// The artifact attribute for The name of the .zip file that contains the artifact that is generated by AWS CodePipeline, such as 1ABCyZZ.zip.
+	// Experimental.
 	ObjectKey() *string
+	// Returns the location of the .zip file in S3 that this Artifact represents. Used by Lambda's `CfnParametersCode` when being deployed in a CodePipeline.
+	// Experimental.
 	S3Location() *awss3.Location
+	// The artifact attribute of the Amazon Simple Storage Service (Amazon S3) URL of the artifact, such as https://s3-us-west-2.amazonaws.com/artifactstorebucket-yivczw8jma0c/test/TemplateSo/1ABCyZZ.zip.
+	// Experimental.
 	Url() *string
+	// Returns an ArtifactPath for a file within this artifact.
+	//
+	// CfnOutput is in the form "<artifact-name>::<file-name>".
+	// Experimental.
 	AtPath(fileName *string) ArtifactPath
+	// Retrieve the metadata stored in this artifact under the given key.
+	//
+	// If there is no metadata stored under the given key,
+	// null will be returned.
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Returns a token for a value inside a JSON file within this artifact.
+	// Experimental.
 	GetParam(jsonFile *string, keyName *string) *string
+	// Add arbitrary extra payload to the artifact under a given key.
+	//
+	// This can be used by CodePipeline actions to communicate data between themselves.
+	// If metadata was already present under the given key,
+	// it will be overwritten with the new value.
+	// Experimental.
 	SetMetadata(key *string, value interface{})
+	// Experimental.
 	ToString() *string
 }
 
@@ -280,13 +439,14 @@ func (j *jsiiProxy_Artifact) Url() *string {
 }
 
 
+// Experimental.
 func NewArtifact(artifactName *string) Artifact {
 	_init_.Initialize()
 
 	j := jsiiProxy_Artifact{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline.Artifact",
+		"monocdk.aws_codepipeline.Artifact",
 		[]interface{}{artifactName},
 		&j,
 	)
@@ -294,11 +454,12 @@ func NewArtifact(artifactName *string) Artifact {
 	return &j
 }
 
+// Experimental.
 func NewArtifact_Override(a Artifact, artifactName *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline.Artifact",
+		"monocdk.aws_codepipeline.Artifact",
 		[]interface{}{artifactName},
 		a,
 	)
@@ -307,13 +468,14 @@ func NewArtifact_Override(a Artifact, artifactName *string) {
 // A static factory method used to create instances of the Artifact class.
 //
 // Mainly meant to be used from `decdk`.
+// Experimental.
 func Artifact_Artifact(name *string) Artifact {
 	_init_.Initialize()
 
 	var returns Artifact
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline.Artifact",
+		"monocdk.aws_codepipeline.Artifact",
 		"artifact",
 		[]interface{}{name},
 		&returns,
@@ -322,9 +484,6 @@ func Artifact_Artifact(name *string) Artifact {
 	return returns
 }
 
-// Returns an ArtifactPath for a file within this artifact.
-//
-// CfnOutput is in the form "<artifact-name>::<file-name>"
 func (a *jsiiProxy_Artifact) AtPath(fileName *string) ArtifactPath {
 	var returns ArtifactPath
 
@@ -338,10 +497,6 @@ func (a *jsiiProxy_Artifact) AtPath(fileName *string) ArtifactPath {
 	return returns
 }
 
-// Retrieve the metadata stored in this artifact under the given key.
-//
-// If there is no metadata stored under the given key,
-// null will be returned.
 func (a *jsiiProxy_Artifact) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -355,7 +510,6 @@ func (a *jsiiProxy_Artifact) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Returns a token for a value inside a JSON file within this artifact.
 func (a *jsiiProxy_Artifact) GetParam(jsonFile *string, keyName *string) *string {
 	var returns *string
 
@@ -369,11 +523,6 @@ func (a *jsiiProxy_Artifact) GetParam(jsonFile *string, keyName *string) *string
 	return returns
 }
 
-// Add arbitrary extra payload to the artifact under a given key.
-//
-// This can be used by CodePipeline actions to communicate data between themselves.
-// If metadata was already present under the given key,
-// it will be overwritten with the new value.
 func (a *jsiiProxy_Artifact) SetMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		a,
@@ -400,11 +549,67 @@ func (a *jsiiProxy_Artifact) ToString() *string {
 // The most common use case for this is specifying the template file
 // for a CloudFormation action.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Source stage: read from repository
+//   repo := codecommit.NewRepository(stack, jsii.String("TemplateRepo"), &repositoryProps{
+//   	repositoryName: jsii.String("template-repo"),
+//   })
+//   sourceOutput := codepipeline.NewArtifact(jsii.String("SourceArtifact"))
+//   source := cpactions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
+//   	actionName: jsii.String("Source"),
+//   	repository: repo,
+//   	output: sourceOutput,
+//   	trigger: cpactions.codeCommitTrigger_POLL,
+//   })
+//   sourceStage := map[string]interface{}{
+//   	"stageName": jsii.String("Source"),
+//   	"actions": []CodeCommitSourceAction{
+//   		source,
+//   	},
+//   }
 //
+//   // Deployment stage: create and deploy changeset with manual approval
+//   stackName := "OurStack"
+//   changeSetName := "StagedChangeSet"
+//
+//   prodStage := map[string]interface{}{
+//   	"stageName": jsii.String("Deploy"),
+//   	"actions": []interface{}{
+//   		cpactions.NewCloudFormationCreateReplaceChangeSetAction(&CloudFormationCreateReplaceChangeSetActionProps{
+//   			"actionName": jsii.String("PrepareChanges"),
+//   			"stackName": jsii.String(stackName),
+//   			"changeSetName": jsii.String(changeSetName),
+//   			"adminPermissions": jsii.Boolean(true),
+//   			"templatePath": sourceOutput.atPath(jsii.String("template.yaml")),
+//   			"runOrder": jsii.Number(1),
+//   		}),
+//   		cpactions.NewManualApprovalAction(&ManualApprovalActionProps{
+//   			"actionName": jsii.String("ApproveChanges"),
+//   			"runOrder": jsii.Number(2),
+//   		}),
+//   		cpactions.NewCloudFormationExecuteChangeSetAction(&CloudFormationExecuteChangeSetActionProps{
+//   			"actionName": jsii.String("ExecuteChanges"),
+//   			"stackName": jsii.String(stackName),
+//   			"changeSetName": jsii.String(changeSetName),
+//   			"runOrder": jsii.Number(3),
+//   		}),
+//   	},
+//   }
+//
+//   codepipeline.NewPipeline(stack, jsii.String("Pipeline"), &pipelineProps{
+//   	stages: []stageProps{
+//   		sourceStage,
+//   		prodStage,
+//   	},
+//   })
+//
+// Experimental.
 type ArtifactPath interface {
+	// Experimental.
 	Artifact() Artifact
+	// Experimental.
 	FileName() *string
+	// Experimental.
 	Location() *string
 }
 
@@ -444,13 +649,14 @@ func (j *jsiiProxy_ArtifactPath) Location() *string {
 }
 
 
+// Experimental.
 func NewArtifactPath(artifact Artifact, fileName *string) ArtifactPath {
 	_init_.Initialize()
 
 	j := jsiiProxy_ArtifactPath{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline.ArtifactPath",
+		"monocdk.aws_codepipeline.ArtifactPath",
 		[]interface{}{artifact, fileName},
 		&j,
 	)
@@ -458,23 +664,25 @@ func NewArtifactPath(artifact Artifact, fileName *string) ArtifactPath {
 	return &j
 }
 
+// Experimental.
 func NewArtifactPath_Override(a ArtifactPath, artifact Artifact, fileName *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline.ArtifactPath",
+		"monocdk.aws_codepipeline.ArtifactPath",
 		[]interface{}{artifact, fileName},
 		a,
 	)
 }
 
+// Experimental.
 func ArtifactPath_ArtifactPath(artifactName *string, fileName *string) ArtifactPath {
 	_init_.Initialize()
 
 	var returns ArtifactPath
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline.ArtifactPath",
+		"monocdk.aws_codepipeline.ArtifactPath",
 		"artifactPath",
 		[]interface{}{artifactName, fileName},
 		&returns,
@@ -487,49 +695,283 @@ func ArtifactPath_ArtifactPath(artifactName *string, fileName *string) ArtifactP
 //
 // The `AWS::CodePipeline::CustomActionType` resource creates a custom action for activities that aren't included in the CodePipeline default actions, such as running an internally developed build process or a test suite. You can use these custom actions in the stage of a pipeline. For more information, see [Create and Add a Custom Action in AWS CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html) in the *AWS CodePipeline User Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
+//   cfnCustomActionType := codepipeline.NewCfnCustomActionType(this, jsii.String("MyCfnCustomActionType"), &cfnCustomActionTypeProps{
+//   	category: jsii.String("category"),
+//   	inputArtifactDetails: &artifactDetailsProperty{
+//   		maximumCount: jsii.Number(123),
+//   		minimumCount: jsii.Number(123),
+//   	},
+//   	outputArtifactDetails: &artifactDetailsProperty{
+//   		maximumCount: jsii.Number(123),
+//   		minimumCount: jsii.Number(123),
+//   	},
+//   	provider: jsii.String("provider"),
+//   	version: jsii.String("version"),
+//
+//   	// the properties below are optional
+//   	configurationProperties: []interface{}{
+//   		&configurationPropertiesProperty{
+//   			key: jsii.Boolean(false),
+//   			name: jsii.String("name"),
+//   			required: jsii.Boolean(false),
+//   			secret: jsii.Boolean(false),
+//
+//   			// the properties below are optional
+//   			description: jsii.String("description"),
+//   			queryable: jsii.Boolean(false),
+//   			type: jsii.String("type"),
+//   		},
+//   	},
+//   	settings: &settingsProperty{
+//   		entityUrlTemplate: jsii.String("entityUrlTemplate"),
+//   		executionUrlTemplate: jsii.String("executionUrlTemplate"),
+//   		revisionUrlTemplate: jsii.String("revisionUrlTemplate"),
+//   		thirdPartyConfigurationUrl: jsii.String("thirdPartyConfigurationUrl"),
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   })
 //
 type CfnCustomActionType interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The category of the custom action, such as a build action or a test action.
 	Category() *string
 	SetCategory(val *string)
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// The configuration properties for the custom action.
+	//
+	// > You can refer to a name in the configuration properties of the custom action within the URL templates by following the format of {Config:name}, as long as the configuration property is both required and not secret. For more information, see [Create a Custom Action for a Pipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html) .
 	ConfigurationProperties() interface{}
 	SetConfigurationProperties(val interface{})
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The details of the input artifact for the action, such as its commit ID.
 	InputArtifactDetails() interface{}
 	SetInputArtifactDetails(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// The details of the output artifact of the action, such as its commit ID.
 	OutputArtifactDetails() interface{}
 	SetOutputArtifactDetails(val interface{})
+	// The provider of the service used in the custom action, such as CodeDeploy.
 	Provider() *string
 	SetProvider(val *string)
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// URLs that provide users information about this custom action.
 	Settings() interface{}
 	SetSettings(val interface{})
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// The tags for the custom action.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// The version identifier of the custom action.
 	Version() *string
 	SetVersion(val *string)
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -619,8 +1061,8 @@ func (j *jsiiProxy_CfnCustomActionType) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomActionType) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnCustomActionType) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -711,13 +1153,13 @@ func (j *jsiiProxy_CfnCustomActionType) Version() *string {
 
 
 // Create a new `AWS::CodePipeline::CustomActionType`.
-func NewCfnCustomActionType(scope constructs.Construct, id *string, props *CfnCustomActionTypeProps) CfnCustomActionType {
+func NewCfnCustomActionType(scope awscdk.Construct, id *string, props *CfnCustomActionTypeProps) CfnCustomActionType {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnCustomActionType{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline.CfnCustomActionType",
+		"monocdk.aws_codepipeline.CfnCustomActionType",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -726,11 +1168,11 @@ func NewCfnCustomActionType(scope constructs.Construct, id *string, props *CfnCu
 }
 
 // Create a new `AWS::CodePipeline::CustomActionType`.
-func NewCfnCustomActionType_Override(c CfnCustomActionType, scope constructs.Construct, id *string, props *CfnCustomActionTypeProps) {
+func NewCfnCustomActionType_Override(c CfnCustomActionType, scope awscdk.Construct, id *string, props *CfnCustomActionTypeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline.CfnCustomActionType",
+		"monocdk.aws_codepipeline.CfnCustomActionType",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -798,13 +1240,14 @@ func (j *jsiiProxy_CfnCustomActionType) SetVersion(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnCustomActionType_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline.CfnCustomActionType",
+		"monocdk.aws_codepipeline.CfnCustomActionType",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -814,13 +1257,14 @@ func CfnCustomActionType_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnCustomActionType_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline.CfnCustomActionType",
+		"monocdk.aws_codepipeline.CfnCustomActionType",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -829,17 +1273,15 @@ func CfnCustomActionType_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnCustomActionType_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline.CfnCustomActionType",
+		"monocdk.aws_codepipeline.CfnCustomActionType",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -852,14 +1294,13 @@ func CfnCustomActionType_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codepipeline.CfnCustomActionType",
+		"monocdk.aws_codepipeline.CfnCustomActionType",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnCustomActionType) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -868,10 +1309,6 @@ func (c *jsiiProxy_CfnCustomActionType) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnCustomActionType) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -880,13 +1317,6 @@ func (c *jsiiProxy_CfnCustomActionType) AddDependsOn(target awscdk.CfnResource) 
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnCustomActionType) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -895,49 +1325,6 @@ func (c *jsiiProxy_CfnCustomActionType) AddMetadata(key *string, value interface
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnCustomActionType) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -946,7 +1333,6 @@ func (c *jsiiProxy_CfnCustomActionType) AddOverride(path *string, value interfac
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnCustomActionType) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -955,9 +1341,6 @@ func (c *jsiiProxy_CfnCustomActionType) AddPropertyDeletionOverride(propertyPath
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnCustomActionType) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -966,15 +1349,6 @@ func (c *jsiiProxy_CfnCustomActionType) AddPropertyOverride(propertyPath *string
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnCustomActionType) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -983,10 +1357,6 @@ func (c *jsiiProxy_CfnCustomActionType) ApplyRemovalPolicy(policy awscdk.Removal
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnCustomActionType) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1000,13 +1370,6 @@ func (c *jsiiProxy_CfnCustomActionType) GetAtt(attributeName *string) awscdk.Ref
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnCustomActionType) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1020,7 +1383,6 @@ func (c *jsiiProxy_CfnCustomActionType) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnCustomActionType) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1029,12 +1391,48 @@ func (c *jsiiProxy_CfnCustomActionType) Inspect(inspector awscdk.TreeInspector) 
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnCustomActionType) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnCustomActionType) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnCustomActionType) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnCustomActionType) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnCustomActionType) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1051,10 +1449,6 @@ func (c *jsiiProxy_CfnCustomActionType) RenderProperties(props *map[string]inter
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnCustomActionType) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1068,15 +1462,33 @@ func (c *jsiiProxy_CfnCustomActionType) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnCustomActionType) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnCustomActionType) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnCustomActionType) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1094,7 +1506,12 @@ func (c *jsiiProxy_CfnCustomActionType) ValidateProperties(_properties interface
 
 // Returns information about the details of an artifact.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
+//   artifactDetailsProperty := &artifactDetailsProperty{
+//   	maximumCount: jsii.Number(123),
+//   	minimumCount: jsii.Number(123),
+//   }
 //
 type CfnCustomActionType_ArtifactDetailsProperty struct {
 	// The maximum number of artifacts allowed for the action type.
@@ -1107,7 +1524,19 @@ type CfnCustomActionType_ArtifactDetailsProperty struct {
 //
 // > You can refer to a name in the configuration properties of the custom action within the URL templates by following the format of {Config:name}, as long as the configuration property is both required and not secret. For more information, see [Create a Custom Action for a Pipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html) .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
+//   configurationPropertiesProperty := &configurationPropertiesProperty{
+//   	key: jsii.Boolean(false),
+//   	name: jsii.String("name"),
+//   	required: jsii.Boolean(false),
+//   	secret: jsii.Boolean(false),
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   	queryable: jsii.Boolean(false),
+//   	type: jsii.String("type"),
+//   }
 //
 type CfnCustomActionType_ConfigurationPropertiesProperty struct {
 	// Whether the configuration property is a key.
@@ -1136,7 +1565,14 @@ type CfnCustomActionType_ConfigurationPropertiesProperty struct {
 
 // `Settings` is a property of the `AWS::CodePipeline::CustomActionType` resource that provides URLs that users can access to view information about the CodePipeline custom action.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
+//   settingsProperty := &settingsProperty{
+//   	entityUrlTemplate: jsii.String("entityUrlTemplate"),
+//   	executionUrlTemplate: jsii.String("executionUrlTemplate"),
+//   	revisionUrlTemplate: jsii.String("revisionUrlTemplate"),
+//   	thirdPartyConfigurationUrl: jsii.String("thirdPartyConfigurationUrl"),
+//   }
 //
 type CfnCustomActionType_SettingsProperty struct {
 	// The URL returned to the CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for a CodeDeploy deployment group.
@@ -1155,7 +1591,48 @@ type CfnCustomActionType_SettingsProperty struct {
 
 // Properties for defining a `CfnCustomActionType`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
+//   cfnCustomActionTypeProps := &cfnCustomActionTypeProps{
+//   	category: jsii.String("category"),
+//   	inputArtifactDetails: &artifactDetailsProperty{
+//   		maximumCount: jsii.Number(123),
+//   		minimumCount: jsii.Number(123),
+//   	},
+//   	outputArtifactDetails: &artifactDetailsProperty{
+//   		maximumCount: jsii.Number(123),
+//   		minimumCount: jsii.Number(123),
+//   	},
+//   	provider: jsii.String("provider"),
+//   	version: jsii.String("version"),
+//
+//   	// the properties below are optional
+//   	configurationProperties: []interface{}{
+//   		&configurationPropertiesProperty{
+//   			key: jsii.Boolean(false),
+//   			name: jsii.String("name"),
+//   			required: jsii.Boolean(false),
+//   			secret: jsii.Boolean(false),
+//
+//   			// the properties below are optional
+//   			description: jsii.String("description"),
+//   			queryable: jsii.Boolean(false),
+//   			type: jsii.String("type"),
+//   		},
+//   	},
+//   	settings: &settingsProperty{
+//   		entityUrlTemplate: jsii.String("entityUrlTemplate"),
+//   		executionUrlTemplate: jsii.String("executionUrlTemplate"),
+//   		revisionUrlTemplate: jsii.String("revisionUrlTemplate"),
+//   		thirdPartyConfigurationUrl: jsii.String("thirdPartyConfigurationUrl"),
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnCustomActionTypeProps struct {
 	// The category of the custom action, such as a build action or a test action.
@@ -1182,50 +1659,338 @@ type CfnCustomActionTypeProps struct {
 //
 // The `AWS::CodePipeline::Pipeline` resource creates a CodePipeline pipeline that describes how software changes go through a release process. For more information, see [What Is CodePipeline?](https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html) in the *AWS CodePipeline User Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
+//
+//   var configuration interface{}
+//   cfnPipeline := codepipeline.NewCfnPipeline(this, jsii.String("MyCfnPipeline"), &cfnPipelineProps{
+//   	roleArn: jsii.String("roleArn"),
+//   	stages: []interface{}{
+//   		&stageDeclarationProperty{
+//   			actions: []interface{}{
+//   				&actionDeclarationProperty{
+//   					actionTypeId: &actionTypeIdProperty{
+//   						category: jsii.String("category"),
+//   						owner: jsii.String("owner"),
+//   						provider: jsii.String("provider"),
+//   						version: jsii.String("version"),
+//   					},
+//   					name: jsii.String("name"),
+//
+//   					// the properties below are optional
+//   					configuration: configuration,
+//   					inputArtifacts: []interface{}{
+//   						&inputArtifactProperty{
+//   							name: jsii.String("name"),
+//   						},
+//   					},
+//   					namespace: jsii.String("namespace"),
+//   					outputArtifacts: []interface{}{
+//   						&outputArtifactProperty{
+//   							name: jsii.String("name"),
+//   						},
+//   					},
+//   					region: jsii.String("region"),
+//   					roleArn: jsii.String("roleArn"),
+//   					runOrder: jsii.Number(123),
+//   				},
+//   			},
+//   			name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			blockers: []interface{}{
+//   				&blockerDeclarationProperty{
+//   					name: jsii.String("name"),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	artifactStore: &artifactStoreProperty{
+//   		location: jsii.String("location"),
+//   		type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		encryptionKey: &encryptionKeyProperty{
+//   			id: jsii.String("id"),
+//   			type: jsii.String("type"),
+//   		},
+//   	},
+//   	artifactStores: []interface{}{
+//   		&artifactStoreMapProperty{
+//   			artifactStore: &artifactStoreProperty{
+//   				location: jsii.String("location"),
+//   				type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				encryptionKey: &encryptionKeyProperty{
+//   					id: jsii.String("id"),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   			region: jsii.String("region"),
+//   		},
+//   	},
+//   	disableInboundStageTransitions: []interface{}{
+//   		&stageTransitionProperty{
+//   			reason: jsii.String("reason"),
+//   			stageName: jsii.String("stageName"),
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//   	restartExecutionOnUpdate: jsii.Boolean(false),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   })
 //
 type CfnPipeline interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The S3 bucket where artifacts for the pipeline are stored.
+	//
+	// > You must include either `artifactStore` or `artifactStores` in your pipeline, but you cannot use both. If you create a cross-region action in your pipeline, you must use `artifactStores` .
 	ArtifactStore() interface{}
 	SetArtifactStore(val interface{})
+	// A mapping of `artifactStore` objects and their corresponding AWS Regions.
+	//
+	// There must be an artifact store for the pipeline Region and for each cross-region action in the pipeline.
+	//
+	// > You must include either `artifactStore` or `artifactStores` in your pipeline, but you cannot use both. If you create a cross-region action in your pipeline, you must use `artifactStores` .
 	ArtifactStores() interface{}
 	SetArtifactStores(val interface{})
+	// The version of the pipeline.
+	//
+	// > A new pipeline is always assigned a version number of 1. This number increments when a pipeline is updated.
 	AttrVersion() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// Represents the input of a `DisableStageTransition` action.
 	DisableInboundStageTransitions() interface{}
 	SetDisableInboundStageTransitions(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The name of the pipeline.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// Indicates whether to rerun the CodePipeline pipeline after you update it.
 	RestartExecutionOnUpdate() interface{}
 	SetRestartExecutionOnUpdate(val interface{})
+	// The Amazon Resource Name (ARN) for CodePipeline to use to either perform actions with no `actionRoleArn` , or to use to assume roles for actions with an `actionRoleArn` .
 	RoleArn() *string
 	SetRoleArn(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Represents information about a stage and its definition.
 	Stages() interface{}
 	SetStages(val interface{})
+	// Specifies the tags applied to the pipeline.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1335,8 +2100,8 @@ func (j *jsiiProxy_CfnPipeline) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPipeline) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnPipeline) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1417,13 +2182,13 @@ func (j *jsiiProxy_CfnPipeline) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::CodePipeline::Pipeline`.
-func NewCfnPipeline(scope constructs.Construct, id *string, props *CfnPipelineProps) CfnPipeline {
+func NewCfnPipeline(scope awscdk.Construct, id *string, props *CfnPipelineProps) CfnPipeline {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnPipeline{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline.CfnPipeline",
+		"monocdk.aws_codepipeline.CfnPipeline",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1432,11 +2197,11 @@ func NewCfnPipeline(scope constructs.Construct, id *string, props *CfnPipelinePr
 }
 
 // Create a new `AWS::CodePipeline::Pipeline`.
-func NewCfnPipeline_Override(c CfnPipeline, scope constructs.Construct, id *string, props *CfnPipelineProps) {
+func NewCfnPipeline_Override(c CfnPipeline, scope awscdk.Construct, id *string, props *CfnPipelineProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline.CfnPipeline",
+		"monocdk.aws_codepipeline.CfnPipeline",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1504,13 +2269,14 @@ func (j *jsiiProxy_CfnPipeline) SetStages(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnPipeline_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline.CfnPipeline",
+		"monocdk.aws_codepipeline.CfnPipeline",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1520,13 +2286,14 @@ func CfnPipeline_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnPipeline_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline.CfnPipeline",
+		"monocdk.aws_codepipeline.CfnPipeline",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1535,17 +2302,15 @@ func CfnPipeline_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnPipeline_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline.CfnPipeline",
+		"monocdk.aws_codepipeline.CfnPipeline",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1558,14 +2323,13 @@ func CfnPipeline_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codepipeline.CfnPipeline",
+		"monocdk.aws_codepipeline.CfnPipeline",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnPipeline) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1574,10 +2338,6 @@ func (c *jsiiProxy_CfnPipeline) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnPipeline) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1586,13 +2346,6 @@ func (c *jsiiProxy_CfnPipeline) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnPipeline) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1601,49 +2354,6 @@ func (c *jsiiProxy_CfnPipeline) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnPipeline) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1652,7 +2362,6 @@ func (c *jsiiProxy_CfnPipeline) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnPipeline) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1661,9 +2370,6 @@ func (c *jsiiProxy_CfnPipeline) AddPropertyDeletionOverride(propertyPath *string
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnPipeline) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1672,15 +2378,6 @@ func (c *jsiiProxy_CfnPipeline) AddPropertyOverride(propertyPath *string, value 
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnPipeline) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1689,10 +2386,6 @@ func (c *jsiiProxy_CfnPipeline) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnPipeline) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1706,13 +2399,6 @@ func (c *jsiiProxy_CfnPipeline) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnPipeline) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1726,7 +2412,6 @@ func (c *jsiiProxy_CfnPipeline) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnPipeline) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1735,12 +2420,48 @@ func (c *jsiiProxy_CfnPipeline) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnPipeline) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnPipeline) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnPipeline) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnPipeline) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnPipeline) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1757,10 +2478,6 @@ func (c *jsiiProxy_CfnPipeline) RenderProperties(props *map[string]interface{}) 
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnPipeline) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1774,15 +2491,33 @@ func (c *jsiiProxy_CfnPipeline) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnPipeline) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnPipeline) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnPipeline) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1800,7 +2535,36 @@ func (c *jsiiProxy_CfnPipeline) ValidateProperties(_properties interface{}) {
 
 // Represents information about an action declaration.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
+//
+//   var configuration interface{}
+//   actionDeclarationProperty := &actionDeclarationProperty{
+//   	actionTypeId: &actionTypeIdProperty{
+//   		category: jsii.String("category"),
+//   		owner: jsii.String("owner"),
+//   		provider: jsii.String("provider"),
+//   		version: jsii.String("version"),
+//   	},
+//   	name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	configuration: configuration,
+//   	inputArtifacts: []interface{}{
+//   		&inputArtifactProperty{
+//   			name: jsii.String("name"),
+//   		},
+//   	},
+//   	namespace: jsii.String("namespace"),
+//   	outputArtifacts: []interface{}{
+//   		&outputArtifactProperty{
+//   			name: jsii.String("name"),
+//   		},
+//   	},
+//   	region: jsii.String("region"),
+//   	roleArn: jsii.String("roleArn"),
+//   	runOrder: jsii.Number(123),
+//   }
 //
 type CfnPipeline_ActionDeclarationProperty struct {
 	// Specifies the action type and the provider of the action.
@@ -1815,7 +2579,7 @@ type CfnPipeline_ActionDeclarationProperty struct {
 	//
 	// *JSON:*
 	//
-	// `"Configuration" : { Key : Value },`
+	// `"Configuration" : { Key : Value },`.
 	Configuration interface{} `json:"configuration" yaml:"configuration"`
 	// The name or ID of the artifact consumed by the action, such as a test or build artifact.
 	//
@@ -1839,7 +2603,14 @@ type CfnPipeline_ActionDeclarationProperty struct {
 
 // Represents information about an action type.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
+//   actionTypeIdProperty := &actionTypeIdProperty{
+//   	category: jsii.String("category"),
+//   	owner: jsii.String("owner"),
+//   	provider: jsii.String("provider"),
+//   	version: jsii.String("version"),
+//   }
 //
 type CfnPipeline_ActionTypeIdProperty struct {
 	// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action.
@@ -1851,7 +2622,7 @@ type CfnPipeline_ActionTypeIdProperty struct {
 	// - `Test`
 	// - `Deploy`
 	// - `Invoke`
-	// - `Approval`
+	// - `Approval`.
 	Category *string `json:"category" yaml:"category"`
 	// The creator of the action being called.
 	//
@@ -1871,7 +2642,21 @@ type CfnPipeline_ActionTypeIdProperty struct {
 //
 // > You must include either `artifactStore` or `artifactStores` in your pipeline, but you cannot use both. If you create a cross-region action in your pipeline, you must use `artifactStores` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
+//   artifactStoreMapProperty := &artifactStoreMapProperty{
+//   	artifactStore: &artifactStoreProperty{
+//   		location: jsii.String("location"),
+//   		type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		encryptionKey: &encryptionKeyProperty{
+//   			id: jsii.String("id"),
+//   			type: jsii.String("type"),
+//   		},
+//   	},
+//   	region: jsii.String("region"),
+//   }
 //
 type CfnPipeline_ArtifactStoreMapProperty struct {
 	// Represents information about the S3 bucket where artifacts are stored for the pipeline.
@@ -1886,7 +2671,18 @@ type CfnPipeline_ArtifactStoreMapProperty struct {
 //
 // > You must include either `artifactStore` or `artifactStores` in your pipeline, but you cannot use both. If you create a cross-region action in your pipeline, you must use `artifactStores` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
+//   artifactStoreProperty := &artifactStoreProperty{
+//   	location: jsii.String("location"),
+//   	type: jsii.String("type"),
+//
+//   	// the properties below are optional
+//   	encryptionKey: &encryptionKeyProperty{
+//   		id: jsii.String("id"),
+//   		type: jsii.String("type"),
+//   	},
+//   }
 //
 type CfnPipeline_ArtifactStoreProperty struct {
 	// The S3 bucket used for storing the artifacts for a pipeline.
@@ -1903,7 +2699,12 @@ type CfnPipeline_ArtifactStoreProperty struct {
 
 // Reserved for future use.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
+//   blockerDeclarationProperty := &blockerDeclarationProperty{
+//   	name: jsii.String("name"),
+//   	type: jsii.String("type"),
+//   }
 //
 type CfnPipeline_BlockerDeclarationProperty struct {
 	// Reserved for future use.
@@ -1916,7 +2717,12 @@ type CfnPipeline_BlockerDeclarationProperty struct {
 //
 // `EncryptionKey` is a property of the [ArtifactStore](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore.html) property type.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
+//   encryptionKeyProperty := &encryptionKeyProperty{
+//   	id: jsii.String("id"),
+//   	type: jsii.String("type"),
+//   }
 //
 type CfnPipeline_EncryptionKeyProperty struct {
 	// The ID used to identify the key.
@@ -1933,7 +2739,11 @@ type CfnPipeline_EncryptionKeyProperty struct {
 
 // Represents information about an artifact to be worked on, such as a test or build artifact.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
+//   inputArtifactProperty := &inputArtifactProperty{
+//   	name: jsii.String("name"),
+//   }
 //
 type CfnPipeline_InputArtifactProperty struct {
 	// The name of the artifact to be worked on (for example, "My App").
@@ -1944,7 +2754,11 @@ type CfnPipeline_InputArtifactProperty struct {
 
 // Represents information about the output of an action.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
+//   outputArtifactProperty := &outputArtifactProperty{
+//   	name: jsii.String("name"),
+//   }
 //
 type CfnPipeline_OutputArtifactProperty struct {
 	// The name of the output of an artifact, such as "My App".
@@ -1957,7 +2771,49 @@ type CfnPipeline_OutputArtifactProperty struct {
 
 // Represents information about a stage and its definition.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
+//
+//   var configuration interface{}
+//   stageDeclarationProperty := &stageDeclarationProperty{
+//   	actions: []interface{}{
+//   		&actionDeclarationProperty{
+//   			actionTypeId: &actionTypeIdProperty{
+//   				category: jsii.String("category"),
+//   				owner: jsii.String("owner"),
+//   				provider: jsii.String("provider"),
+//   				version: jsii.String("version"),
+//   			},
+//   			name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			configuration: configuration,
+//   			inputArtifacts: []interface{}{
+//   				&inputArtifactProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   			},
+//   			namespace: jsii.String("namespace"),
+//   			outputArtifacts: []interface{}{
+//   				&outputArtifactProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   			},
+//   			region: jsii.String("region"),
+//   			roleArn: jsii.String("roleArn"),
+//   			runOrder: jsii.Number(123),
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	blockers: []interface{}{
+//   		&blockerDeclarationProperty{
+//   			name: jsii.String("name"),
+//   			type: jsii.String("type"),
+//   		},
+//   	},
+//   }
 //
 type CfnPipeline_StageDeclarationProperty struct {
 	// The actions included in a stage.
@@ -1970,7 +2826,12 @@ type CfnPipeline_StageDeclarationProperty struct {
 
 // The name of the pipeline in which you want to disable the flow of artifacts from one stage to another.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
+//   stageTransitionProperty := &stageTransitionProperty{
+//   	reason: jsii.String("reason"),
+//   	stageName: jsii.String("stageName"),
+//   }
 //
 type CfnPipeline_StageTransitionProperty struct {
 	// The reason given to the user that a stage is disabled, such as waiting for manual approval or manual tests.
@@ -1983,7 +2844,95 @@ type CfnPipeline_StageTransitionProperty struct {
 
 // Properties for defining a `CfnPipeline`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
+//
+//   var configuration interface{}
+//   cfnPipelineProps := &cfnPipelineProps{
+//   	roleArn: jsii.String("roleArn"),
+//   	stages: []interface{}{
+//   		&stageDeclarationProperty{
+//   			actions: []interface{}{
+//   				&actionDeclarationProperty{
+//   					actionTypeId: &actionTypeIdProperty{
+//   						category: jsii.String("category"),
+//   						owner: jsii.String("owner"),
+//   						provider: jsii.String("provider"),
+//   						version: jsii.String("version"),
+//   					},
+//   					name: jsii.String("name"),
+//
+//   					// the properties below are optional
+//   					configuration: configuration,
+//   					inputArtifacts: []interface{}{
+//   						&inputArtifactProperty{
+//   							name: jsii.String("name"),
+//   						},
+//   					},
+//   					namespace: jsii.String("namespace"),
+//   					outputArtifacts: []interface{}{
+//   						&outputArtifactProperty{
+//   							name: jsii.String("name"),
+//   						},
+//   					},
+//   					region: jsii.String("region"),
+//   					roleArn: jsii.String("roleArn"),
+//   					runOrder: jsii.Number(123),
+//   				},
+//   			},
+//   			name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			blockers: []interface{}{
+//   				&blockerDeclarationProperty{
+//   					name: jsii.String("name"),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	artifactStore: &artifactStoreProperty{
+//   		location: jsii.String("location"),
+//   		type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		encryptionKey: &encryptionKeyProperty{
+//   			id: jsii.String("id"),
+//   			type: jsii.String("type"),
+//   		},
+//   	},
+//   	artifactStores: []interface{}{
+//   		&artifactStoreMapProperty{
+//   			artifactStore: &artifactStoreProperty{
+//   				location: jsii.String("location"),
+//   				type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				encryptionKey: &encryptionKeyProperty{
+//   					id: jsii.String("id"),
+//   					type: jsii.String("type"),
+//   				},
+//   			},
+//   			region: jsii.String("region"),
+//   		},
+//   	},
+//   	disableInboundStageTransitions: []interface{}{
+//   		&stageTransitionProperty{
+//   			reason: jsii.String("reason"),
+//   			stageName: jsii.String("stageName"),
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//   	restartExecutionOnUpdate: jsii.Boolean(false),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnPipelineProps struct {
 	// The Amazon Resource Name (ARN) for CodePipeline to use to either perform actions with no `actionRoleArn` , or to use to assume roles for actions with an `actionRoleArn` .
@@ -2018,51 +2967,282 @@ type CfnPipelineProps struct {
 //
 // > When passing secret parameters, do not enter the value directly into the template. The value is rendered as plaintext and is therefore readable. For security reasons, do not use plaintext in your AWS CloudFormation template to store your credentials.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
+//   cfnWebhook := codepipeline.NewCfnWebhook(this, jsii.String("MyCfnWebhook"), &cfnWebhookProps{
+//   	authentication: jsii.String("authentication"),
+//   	authenticationConfiguration: &webhookAuthConfigurationProperty{
+//   		allowedIpRange: jsii.String("allowedIpRange"),
+//   		secretToken: jsii.String("secretToken"),
+//   	},
+//   	filters: []interface{}{
+//   		&webhookFilterRuleProperty{
+//   			jsonPath: jsii.String("jsonPath"),
+//
+//   			// the properties below are optional
+//   			matchEquals: jsii.String("matchEquals"),
+//   		},
+//   	},
+//   	targetAction: jsii.String("targetAction"),
+//   	targetPipeline: jsii.String("targetPipeline"),
+//   	targetPipelineVersion: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	name: jsii.String("name"),
+//   	registerWithThirdParty: jsii.Boolean(false),
+//   })
 //
 type CfnWebhook interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The webhook URL generated by AWS CodePipeline , such as `https://eu-central-1.webhooks.aws/trigger123456` .
 	AttrUrl() *string
+	// Supported options are GITHUB_HMAC, IP, and UNAUTHENTICATED.
+	//
+	// - For information about the authentication scheme implemented by GITHUB_HMAC, see [Securing your webhooks](https://docs.aws.amazon.com/https://developer.github.com/webhooks/securing/) on the GitHub Developer website.
+	// - IP rejects webhooks trigger requests unless they originate from an IP address in the IP range whitelisted in the authentication configuration.
+	// - UNAUTHENTICATED accepts all webhook trigger requests regardless of origin.
 	Authentication() *string
 	SetAuthentication(val *string)
+	// Properties that configure the authentication applied to incoming webhook trigger requests.
+	//
+	// The required properties depend on the authentication type. For GITHUB_HMAC, only the `SecretToken` property must be set. For IP, only the `AllowedIPRange` property must be set to a valid CIDR range. For UNAUTHENTICATED, no properties can be set.
 	AuthenticationConfiguration() interface{}
 	SetAuthenticationConfiguration(val interface{})
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// A list of rules applied to the body/payload sent in the POST request to a webhook URL.
+	//
+	// All defined rules must pass for the request to be accepted and the pipeline started.
 	Filters() interface{}
 	SetFilters(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The name of the webhook.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// Configures a connection between the webhook that was created and the external tool with events to be detected.
 	RegisterWithThirdParty() interface{}
 	SetRegisterWithThirdParty(val interface{})
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// The name of the action in a pipeline you want to connect to the webhook.
+	//
+	// The action must be from the source (first) stage of the pipeline.
 	TargetAction() *string
 	SetTargetAction(val *string)
+	// The name of the pipeline you want to connect to the webhook.
 	TargetPipeline() *string
 	SetTargetPipeline(val *string)
+	// The version number of the pipeline to be connected to the trigger request.
+	//
+	// Required: Yes
+	//
+	// Type: Integer
+	//
+	// Update requires: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 	TargetPipelineVersion() *float64
 	SetTargetPipelineVersion(val *float64)
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2172,8 +3352,8 @@ func (j *jsiiProxy_CfnWebhook) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWebhook) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnWebhook) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2254,13 +3434,13 @@ func (j *jsiiProxy_CfnWebhook) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::CodePipeline::Webhook`.
-func NewCfnWebhook(scope constructs.Construct, id *string, props *CfnWebhookProps) CfnWebhook {
+func NewCfnWebhook(scope awscdk.Construct, id *string, props *CfnWebhookProps) CfnWebhook {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnWebhook{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline.CfnWebhook",
+		"monocdk.aws_codepipeline.CfnWebhook",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2269,11 +3449,11 @@ func NewCfnWebhook(scope constructs.Construct, id *string, props *CfnWebhookProp
 }
 
 // Create a new `AWS::CodePipeline::Webhook`.
-func NewCfnWebhook_Override(c CfnWebhook, scope constructs.Construct, id *string, props *CfnWebhookProps) {
+func NewCfnWebhook_Override(c CfnWebhook, scope awscdk.Construct, id *string, props *CfnWebhookProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline.CfnWebhook",
+		"monocdk.aws_codepipeline.CfnWebhook",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2349,13 +3529,14 @@ func (j *jsiiProxy_CfnWebhook) SetTargetPipelineVersion(val *float64) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnWebhook_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline.CfnWebhook",
+		"monocdk.aws_codepipeline.CfnWebhook",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2365,13 +3546,14 @@ func CfnWebhook_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnWebhook_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline.CfnWebhook",
+		"monocdk.aws_codepipeline.CfnWebhook",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2380,17 +3562,15 @@ func CfnWebhook_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnWebhook_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline.CfnWebhook",
+		"monocdk.aws_codepipeline.CfnWebhook",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2403,14 +3583,13 @@ func CfnWebhook_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codepipeline.CfnWebhook",
+		"monocdk.aws_codepipeline.CfnWebhook",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnWebhook) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2419,10 +3598,6 @@ func (c *jsiiProxy_CfnWebhook) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnWebhook) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2431,13 +3606,6 @@ func (c *jsiiProxy_CfnWebhook) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnWebhook) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2446,49 +3614,6 @@ func (c *jsiiProxy_CfnWebhook) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnWebhook) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2497,7 +3622,6 @@ func (c *jsiiProxy_CfnWebhook) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnWebhook) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2506,9 +3630,6 @@ func (c *jsiiProxy_CfnWebhook) AddPropertyDeletionOverride(propertyPath *string)
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnWebhook) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2517,15 +3638,6 @@ func (c *jsiiProxy_CfnWebhook) AddPropertyOverride(propertyPath *string, value i
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnWebhook) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2534,10 +3646,6 @@ func (c *jsiiProxy_CfnWebhook) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnWebhook) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2551,13 +3659,6 @@ func (c *jsiiProxy_CfnWebhook) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnWebhook) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2571,7 +3672,6 @@ func (c *jsiiProxy_CfnWebhook) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnWebhook) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2580,12 +3680,48 @@ func (c *jsiiProxy_CfnWebhook) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnWebhook) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnWebhook) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnWebhook) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnWebhook) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnWebhook) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2602,10 +3738,6 @@ func (c *jsiiProxy_CfnWebhook) RenderProperties(props *map[string]interface{}) *
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnWebhook) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2619,15 +3751,33 @@ func (c *jsiiProxy_CfnWebhook) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnWebhook) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnWebhook) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnWebhook) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2645,7 +3795,12 @@ func (c *jsiiProxy_CfnWebhook) ValidateProperties(_properties interface{}) {
 
 // The authentication applied to incoming webhook trigger requests.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
+//   webhookAuthConfigurationProperty := &webhookAuthConfigurationProperty{
+//   	allowedIpRange: jsii.String("allowedIpRange"),
+//   	secretToken: jsii.String("secretToken"),
+//   }
 //
 type CfnWebhook_WebhookAuthConfigurationProperty struct {
 	// The property used to configure acceptance of webhooks in an IP address range.
@@ -2660,7 +3815,14 @@ type CfnWebhook_WebhookAuthConfigurationProperty struct {
 
 // The event criteria that specify when a webhook notification is sent to your URL.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
+//   webhookFilterRuleProperty := &webhookFilterRuleProperty{
+//   	jsonPath: jsii.String("jsonPath"),
+//
+//   	// the properties below are optional
+//   	matchEquals: jsii.String("matchEquals"),
+//   }
 //
 type CfnWebhook_WebhookFilterRuleProperty struct {
 	// A JsonPath expression that is applied to the body/payload of the webhook.
@@ -2675,7 +3837,30 @@ type CfnWebhook_WebhookFilterRuleProperty struct {
 
 // Properties for defining a `CfnWebhook`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
+//   cfnWebhookProps := &cfnWebhookProps{
+//   	authentication: jsii.String("authentication"),
+//   	authenticationConfiguration: &webhookAuthConfigurationProperty{
+//   		allowedIpRange: jsii.String("allowedIpRange"),
+//   		secretToken: jsii.String("secretToken"),
+//   	},
+//   	filters: []interface{}{
+//   		&webhookFilterRuleProperty{
+//   			jsonPath: jsii.String("jsonPath"),
+//
+//   			// the properties below are optional
+//   			matchEquals: jsii.String("matchEquals"),
+//   		},
+//   	},
+//   	targetAction: jsii.String("targetAction"),
+//   	targetPipeline: jsii.String("targetPipeline"),
+//   	targetPipelineVersion: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	name: jsii.String("name"),
+//   	registerWithThirdParty: jsii.Boolean(false),
+//   }
 //
 type CfnWebhookProps struct {
 	// Supported options are GITHUB_HMAC, IP, and UNAUTHENTICATED.
@@ -2714,39 +3899,66 @@ type CfnWebhookProps struct {
 
 // Common properties shared by all Actions.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
+//   commonActionProps := &commonActionProps{
+//   	actionName: jsii.String("actionName"),
 //
+//   	// the properties below are optional
+//   	runOrder: jsii.Number(123),
+//   	variablesNamespace: jsii.String("variablesNamespace"),
+//   }
+//
+// Experimental.
 type CommonActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 }
 
 // Common properties shared by all Actions whose {@link ActionProperties.owner} field is 'AWS' (or unset, as 'AWS' is the default).
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
 //
+//   var role role
+//   commonAwsActionProps := &commonAwsActionProps{
+//   	actionName: jsii.String("actionName"),
+//
+//   	// the properties below are optional
+//   	role: role,
+//   	runOrder: jsii.Number(123),
+//   	variablesNamespace: jsii.String("variablesNamespace"),
+//   }
+//
+// Experimental.
 type CommonAwsActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -2755,6 +3967,7 @@ type CommonAwsActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 }
 
@@ -2762,43 +3975,74 @@ type CommonAwsActionProps struct {
 //
 // You get instances of this interface from the {@link Pipeline#crossRegionSupport} property.
 //
-// TODO: EXAMPLE
+// Example:
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
 //
+//   var bucket bucket
+//   var stack stack
+//   crossRegionSupport := &crossRegionSupport{
+//   	replicationBucket: bucket,
+//   	stack: stack,
+//   }
+//
+// Experimental.
 type CrossRegionSupport struct {
 	// The replication Bucket used by CodePipeline to operate in this region.
 	//
 	// Belongs to {@link stack}.
+	// Experimental.
 	ReplicationBucket awss3.IBucket `json:"replicationBucket" yaml:"replicationBucket"`
 	// The Stack that has been created to house the replication Bucket required for this  region.
+	// Experimental.
 	Stack awscdk.Stack `json:"stack" yaml:"stack"`
 }
 
 // The creation attributes used for defining a configuration property of a custom Action.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
+//   customActionProperty := &customActionProperty{
+//   	name: jsii.String("name"),
+//   	required: jsii.Boolean(false),
 //
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   	key: jsii.Boolean(false),
+//   	queryable: jsii.Boolean(false),
+//   	secret: jsii.Boolean(false),
+//   	type: jsii.String("type"),
+//   }
+//
+// Experimental.
 type CustomActionProperty struct {
 	// The name of the property.
 	//
 	// You use this name in the `configuration` attribute when defining your custom Action class.
+	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 	// Whether this property is required.
+	// Experimental.
 	Required *bool `json:"required" yaml:"required"`
 	// The description of the property.
+	// Experimental.
 	Description *string `json:"description" yaml:"description"`
 	// Whether this property is a key.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype-configurationproperties.html#cfn-codepipeline-customactiontype-configurationproperties-key
 	//
+	// Experimental.
 	Key *bool `json:"key" yaml:"key"`
 	// Whether this property is queryable.
 	//
 	// Note that only a single property of a custom Action can be queryable.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype-configurationproperties.html#cfn-codepipeline-customactiontype-configurationproperties-queryable
 	//
+	// Experimental.
 	Queryable *bool `json:"queryable" yaml:"queryable"`
 	// Whether this property is secret, like a password, or access key.
+	// Experimental.
 	Secret *bool `json:"secret" yaml:"secret"`
 	// The type of the property, like 'String', 'Number', or 'Boolean'.
+	// Experimental.
 	Type *string `json:"type" yaml:"type"`
 }
 
@@ -2809,21 +4053,109 @@ type CustomActionProperty struct {
 // representing your custom Action, extending the Action class,
 // and taking the `actionProperties` as properly typed, construction properties.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Make a custom CodePipeline Action
+//   // Make a custom CodePipeline Action
+//   codepipeline.NewCustomActionRegistration(this, jsii.String("GenericGitSourceProviderResource"), &customActionRegistrationProps{
+//   	category: codepipeline.actionCategory_SOURCE,
+//   	artifactBounds: &actionArtifactBounds{
+//   		minInputs: jsii.Number(0),
+//   		maxInputs: jsii.Number(0),
+//   		minOutputs: jsii.Number(1),
+//   		maxOutputs: jsii.Number(1),
+//   	},
+//   	provider: jsii.String("GenericGitSource"),
+//   	version: jsii.String("1"),
+//   	entityUrl: jsii.String("https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-create-custom-action.html"),
+//   	executionUrl: jsii.String("https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-create-custom-action.html"),
+//   	actionProperties: []customActionProperty{
+//   		&customActionProperty{
+//   			name: jsii.String("Branch"),
+//   			required: jsii.Boolean(true),
+//   			key: jsii.Boolean(false),
+//   			secret: jsii.Boolean(false),
+//   			queryable: jsii.Boolean(false),
+//   			description: jsii.String("Git branch to pull"),
+//   			type: jsii.String("String"),
+//   		},
+//   		&customActionProperty{
+//   			name: jsii.String("GitUrl"),
+//   			required: jsii.Boolean(true),
+//   			key: jsii.Boolean(false),
+//   			secret: jsii.Boolean(false),
+//   			queryable: jsii.Boolean(false),
+//   			description: jsii.String("SSH git clone URL"),
+//   			type: jsii.String("String"),
+//   		},
+//   	},
+//   })
 //
+// Experimental.
 type CustomActionRegistration interface {
-	constructs.Construct
-	Node() constructs.Node
+	awscdk.Construct
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for CustomActionRegistration
 type jsiiProxy_CustomActionRegistration struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
-func (j *jsiiProxy_CustomActionRegistration) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CustomActionRegistration) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2833,13 +4165,14 @@ func (j *jsiiProxy_CustomActionRegistration) Node() constructs.Node {
 }
 
 
+// Experimental.
 func NewCustomActionRegistration(scope constructs.Construct, id *string, props *CustomActionRegistrationProps) CustomActionRegistration {
 	_init_.Initialize()
 
 	j := jsiiProxy_CustomActionRegistration{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline.CustomActionRegistration",
+		"monocdk.aws_codepipeline.CustomActionRegistration",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2847,27 +4180,26 @@ func NewCustomActionRegistration(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Experimental.
 func NewCustomActionRegistration_Override(c CustomActionRegistration, scope constructs.Construct, id *string, props *CustomActionRegistrationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline.CustomActionRegistration",
+		"monocdk.aws_codepipeline.CustomActionRegistration",
 		[]interface{}{scope, id, props},
 		c,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CustomActionRegistration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline.CustomActionRegistration",
+		"monocdk.aws_codepipeline.CustomActionRegistration",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2876,7 +4208,51 @@ func CustomActionRegistration_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
+func (c *jsiiProxy_CustomActionRegistration) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CustomActionRegistration) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CustomActionRegistration) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CustomActionRegistration) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CustomActionRegistration) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CustomActionRegistration) ToString() *string {
 	var returns *string
 
@@ -2890,26 +4266,82 @@ func (c *jsiiProxy_CustomActionRegistration) ToString() *string {
 	return returns
 }
 
+func (c *jsiiProxy_CustomActionRegistration) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties of registering a custom Action.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Make a custom CodePipeline Action
+//   // Make a custom CodePipeline Action
+//   codepipeline.NewCustomActionRegistration(this, jsii.String("GenericGitSourceProviderResource"), &customActionRegistrationProps{
+//   	category: codepipeline.actionCategory_SOURCE,
+//   	artifactBounds: &actionArtifactBounds{
+//   		minInputs: jsii.Number(0),
+//   		maxInputs: jsii.Number(0),
+//   		minOutputs: jsii.Number(1),
+//   		maxOutputs: jsii.Number(1),
+//   	},
+//   	provider: jsii.String("GenericGitSource"),
+//   	version: jsii.String("1"),
+//   	entityUrl: jsii.String("https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-create-custom-action.html"),
+//   	executionUrl: jsii.String("https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-create-custom-action.html"),
+//   	actionProperties: []customActionProperty{
+//   		&customActionProperty{
+//   			name: jsii.String("Branch"),
+//   			required: jsii.Boolean(true),
+//   			key: jsii.Boolean(false),
+//   			secret: jsii.Boolean(false),
+//   			queryable: jsii.Boolean(false),
+//   			description: jsii.String("Git branch to pull"),
+//   			type: jsii.String("String"),
+//   		},
+//   		&customActionProperty{
+//   			name: jsii.String("GitUrl"),
+//   			required: jsii.Boolean(true),
+//   			key: jsii.Boolean(false),
+//   			secret: jsii.Boolean(false),
+//   			queryable: jsii.Boolean(false),
+//   			description: jsii.String("SSH git clone URL"),
+//   			type: jsii.String("String"),
+//   		},
+//   	},
+//   })
 //
+// Experimental.
 type CustomActionRegistrationProps struct {
 	// The artifact bounds of the Action.
+	// Experimental.
 	ArtifactBounds *ActionArtifactBounds `json:"artifactBounds" yaml:"artifactBounds"`
 	// The category of the Action.
+	// Experimental.
 	Category ActionCategory `json:"category" yaml:"category"`
 	// The provider of the Action.
 	//
-	// For example, `'MyCustomActionProvider'`
+	// For example, `'MyCustomActionProvider'`.
+	// Experimental.
 	Provider *string `json:"provider" yaml:"provider"`
 	// The properties used for customizing the instance of your Action.
+	// Experimental.
 	ActionProperties *[]*CustomActionProperty `json:"actionProperties" yaml:"actionProperties"`
 	// The URL shown for the entire Action in the Pipeline UI.
+	// Experimental.
 	EntityUrl *string `json:"entityUrl" yaml:"entityUrl"`
 	// The URL shown for a particular execution of an Action in the Pipeline UI.
+	// Experimental.
 	ExecutionUrl *string `json:"executionUrl" yaml:"executionUrl"`
 	// The version of your Action.
+	// Experimental.
 	Version *string `json:"version" yaml:"version"`
 }
 
@@ -2918,8 +4350,16 @@ type CustomActionRegistrationProps struct {
 // This class defines a bunch of static fields that represent the different variables.
 // These can be used can be used in any action configuration.
 //
-// TODO: EXAMPLE
+// Example:
+//   // OtherAction is some action type that produces variables, like EcrSourceAction
+//   // OtherAction is some action type that produces variables, like EcrSourceAction
+//   NewOtherAction(&otherActionProps{
+//   	// ...
+//   	config: codepipeline.globalVariables_ExecutionId(),
+//   	actionName: jsii.String("otherAction"),
+//   })
 //
+// Experimental.
 type GlobalVariables interface {
 }
 
@@ -2928,13 +4368,14 @@ type jsiiProxy_GlobalVariables struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewGlobalVariables() GlobalVariables {
 	_init_.Initialize()
 
 	j := jsiiProxy_GlobalVariables{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline.GlobalVariables",
+		"monocdk.aws_codepipeline.GlobalVariables",
 		nil, // no parameters
 		&j,
 	)
@@ -2942,11 +4383,12 @@ func NewGlobalVariables() GlobalVariables {
 	return &j
 }
 
+// Experimental.
 func NewGlobalVariables_Override(g GlobalVariables) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline.GlobalVariables",
+		"monocdk.aws_codepipeline.GlobalVariables",
 		nil, // no parameters
 		g,
 	)
@@ -2956,7 +4398,7 @@ func GlobalVariables_ExecutionId() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codepipeline.GlobalVariables",
+		"monocdk.aws_codepipeline.GlobalVariables",
 		"executionId",
 		&returns,
 	)
@@ -2968,14 +4410,18 @@ func GlobalVariables_ExecutionId() *string {
 // If you want to implement this interface,
 // consider extending the {@link Action} class,
 // which contains some common logic.
+// Experimental.
 type IAction interface {
 	// The callback invoked when this Action is added to a Pipeline.
-	Bind(scope constructs.Construct, stage IStage, options *ActionBindOptions) *ActionConfig
+	// Experimental.
+	Bind(scope awscdk.Construct, stage IStage, options *ActionBindOptions) *ActionConfig
 	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
 	// The simple properties of the Action, like its Owner, name, etc.
 	//
 	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *ActionProperties
 }
 
@@ -2984,7 +4430,7 @@ type jsiiProxy_IAction struct {
 	_ byte // padding
 }
 
-func (i *jsiiProxy_IAction) Bind(scope constructs.Construct, stage IStage, options *ActionBindOptions) *ActionConfig {
+func (i *jsiiProxy_IAction) Bind(scope awscdk.Construct, stage IStage, options *ActionBindOptions) *ActionConfig {
 	var returns *ActionConfig
 
 	_jsii_.Invoke(
@@ -3024,6 +4470,7 @@ func (j *jsiiProxy_IAction) ActionProperties() *ActionProperties {
 //
 // It extends {@link events.IRuleTarget},
 // so this interface can be used as a Target for CloudWatch Events.
+// Experimental.
 type IPipeline interface {
 	awscodestarnotifications.INotificationRuleSource
 	awscdk.IResource
@@ -3034,30 +4481,39 @@ type IPipeline interface {
 	// to define rules for these specific event emitted.
 	//
 	// Returns: CodeStar notification rule associated with this build project.
+	// Experimental.
 	NotifyOn(id *string, target awscodestarnotifications.INotificationRuleTarget, options *PipelineNotifyOnOptions) awscodestarnotifications.INotificationRule
 	// Define an notification rule triggered by the set of the "Action execution" events emitted from this pipeline.
 	// See: https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#events-ref-pipeline
 	//
+	// Experimental.
 	NotifyOnAnyActionStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Define an notification rule triggered by the set of the "Manual approval" events emitted from this pipeline.
 	// See: https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#events-ref-pipeline
 	//
+	// Experimental.
 	NotifyOnAnyManualApprovalStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Define an notification rule triggered by the set of the "Stage execution" events emitted from this pipeline.
 	// See: https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#events-ref-pipeline
 	//
+	// Experimental.
 	NotifyOnAnyStageStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Define an notification rule triggered by the set of the "Pipeline execution" events emitted from this pipeline.
 	// See: https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#events-ref-pipeline
 	//
+	// Experimental.
 	NotifyOnExecutionStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Define an event rule triggered by this CodePipeline.
+	// Experimental.
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// Define an event rule triggered by the "CodePipeline Pipeline Execution State Change" event emitted from this pipeline.
+	// Experimental.
 	OnStateChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// The ARN of the Pipeline.
+	// Experimental.
 	PipelineArn() *string
 	// The name of the Pipeline.
+	// Experimental.
 	PipelineName() *string
 }
 
@@ -3209,8 +4665,8 @@ func (j *jsiiProxy_IPipeline) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IPipeline) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IPipeline) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3230,13 +4686,19 @@ func (j *jsiiProxy_IPipeline) Stack() awscdk.Stack {
 }
 
 // The abstract interface of a Pipeline Stage that is used by Actions.
+// Experimental.
 type IStage interface {
+	// Experimental.
 	AddAction(action IAction)
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
 	// The actions belonging to this stage.
+	// Experimental.
 	Actions() *[]IAction
+	// Experimental.
 	Pipeline() IPipeline
 	// The physical, human-readable name of this Pipeline Stage.
+	// Experimental.
 	StageName() *string
 }
 
@@ -3298,39 +4760,201 @@ func (j *jsiiProxy_IStage) StageName() *string {
 
 // An AWS CodePipeline pipeline with its associated IAM role and S3 bucket.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   import codecommit "github.com/aws-samples/dummy/awscdkawscodecommit"
 //
+//   // add a source action to the stage
+//   var repo repository
+//   var sourceArtifact artifact
+//
+//   pipeline := codepipeline.NewPipeline(this, jsii.String("Pipeline"))
+//
+//   // add a stage
+//   sourceStage := pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("Source"),
+//   })
+//   sourceStage.addAction(codepipeline_actions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
+//   	actionName: jsii.String("Source"),
+//   	output: sourceArtifact,
+//   	repository: repo,
+//   }))
+//
+// Experimental.
 type Pipeline interface {
 	awscdk.Resource
 	IPipeline
+	// Bucket used to store output artifacts.
+	// Experimental.
 	ArtifactBucket() awss3.IBucket
+	// Returns all of the {@link CrossRegionSupportStack}s that were generated automatically when dealing with Actions that reside in a different region than the Pipeline itself.
+	// Experimental.
 	CrossRegionSupport() *map[string]*CrossRegionSupport
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
+	// ARN of this pipeline.
+	// Experimental.
 	PipelineArn() *string
+	// The name of the pipeline.
+	// Experimental.
 	PipelineName() *string
+	// The version of the pipeline.
+	// Experimental.
 	PipelineVersion() *string
+	// The IAM role AWS CodePipeline will use to perform actions or assume roles for actions with a more specific IAM role.
+	// Experimental.
 	Role() awsiam.IRole
+	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
+	// Get the number of Stages in this Pipeline.
+	// Experimental.
 	StageCount() *float64
+	// Returns the stages that comprise the pipeline.
+	//
+	// **Note**: the returned array is a defensive copy,
+	// so adding elements to it has no effect.
+	// Instead, use the {@link addStage} method if you want to add more stages
+	// to the pipeline.
+	// Experimental.
 	Stages() *[]IStage
+	// Creates a new Stage, and adds it to this Pipeline.
+	//
+	// Returns: the newly created Stage.
+	// Experimental.
 	AddStage(props *StageOptions) IStage
+	// Adds a statement to the pipeline role.
+	// Experimental.
 	AddToRolePolicy(statement awsiam.PolicyStatement)
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Returns a source configuration for notification rule.
+	// Experimental.
 	BindAsNotificationRuleSource(_scope constructs.Construct) *awscodestarnotifications.NotificationRuleSourceConfig
+	// Experimental.
 	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Defines a CodeStar notification rule triggered when the pipeline events emitted by you specified, it very similar to `onEvent` API.
+	//
+	// You can also use the methods `notifyOnExecutionStateChange`, `notifyOnAnyStageStateChange`,
+	// `notifyOnAnyActionStateChange` and `notifyOnAnyManualApprovalStateChange`
+	// to define rules for these specific event emitted.
+	// Experimental.
 	NotifyOn(id *string, target awscodestarnotifications.INotificationRuleTarget, options *PipelineNotifyOnOptions) awscodestarnotifications.INotificationRule
+	// Define an notification rule triggered by the set of the "Action execution" events emitted from this pipeline.
+	// Experimental.
 	NotifyOnAnyActionStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
+	// Define an notification rule triggered by the set of the "Manual approval" events emitted from this pipeline.
+	// Experimental.
 	NotifyOnAnyManualApprovalStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
+	// Define an notification rule triggered by the set of the "Stage execution" events emitted from this pipeline.
+	// Experimental.
 	NotifyOnAnyStageStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
+	// Define an notification rule triggered by the set of the "Pipeline execution" events emitted from this pipeline.
+	// Experimental.
 	NotifyOnExecutionStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
+	// Defines an event rule triggered by this CodePipeline.
+	// Experimental.
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Defines an event rule triggered by the "CodePipeline Pipeline Execution State Change" event emitted from this pipeline.
+	// Experimental.
 	OnStateChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Access one of the pipeline's stages by stage name.
+	// Experimental.
 	Stage(stageName *string) IStage
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the pipeline structure.
+	//
+	// Validation happens according to the rules documented at
+	//
+	// https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#pipeline-requirements
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for Pipeline
@@ -3369,8 +4993,8 @@ func (j *jsiiProxy_Pipeline) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_Pipeline) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Pipeline) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3460,13 +5084,14 @@ func (j *jsiiProxy_Pipeline) Stages() *[]IStage {
 }
 
 
+// Experimental.
 func NewPipeline(scope constructs.Construct, id *string, props *PipelineProps) Pipeline {
 	_init_.Initialize()
 
 	j := jsiiProxy_Pipeline{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline.Pipeline",
+		"monocdk.aws_codepipeline.Pipeline",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3474,24 +5099,26 @@ func NewPipeline(scope constructs.Construct, id *string, props *PipelineProps) P
 	return &j
 }
 
+// Experimental.
 func NewPipeline_Override(p Pipeline, scope constructs.Construct, id *string, props *PipelineProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline.Pipeline",
+		"monocdk.aws_codepipeline.Pipeline",
 		[]interface{}{scope, id, props},
 		p,
 	)
 }
 
 // Import a pipeline into this app.
+// Experimental.
 func Pipeline_FromPipelineArn(scope constructs.Construct, id *string, pipelineArn *string) IPipeline {
 	_init_.Initialize()
 
 	var returns IPipeline
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline.Pipeline",
+		"monocdk.aws_codepipeline.Pipeline",
 		"fromPipelineArn",
 		[]interface{}{scope, id, pipelineArn},
 		&returns,
@@ -3500,17 +5127,15 @@ func Pipeline_FromPipelineArn(scope constructs.Construct, id *string, pipelineAr
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Pipeline_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline.Pipeline",
+		"monocdk.aws_codepipeline.Pipeline",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3520,13 +5145,14 @@ func Pipeline_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func Pipeline_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func Pipeline_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline.Pipeline",
+		"monocdk.aws_codepipeline.Pipeline",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -3535,9 +5161,6 @@ func Pipeline_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Creates a new Stage, and adds it to this Pipeline.
-//
-// Returns: the newly created Stage
 func (p *jsiiProxy_Pipeline) AddStage(props *StageOptions) IStage {
 	var returns IStage
 
@@ -3551,7 +5174,6 @@ func (p *jsiiProxy_Pipeline) AddStage(props *StageOptions) IStage {
 	return returns
 }
 
-// Adds a statement to the pipeline role.
 func (p *jsiiProxy_Pipeline) AddToRolePolicy(statement awsiam.PolicyStatement) {
 	_jsii_.InvokeVoid(
 		p,
@@ -3560,15 +5182,6 @@ func (p *jsiiProxy_Pipeline) AddToRolePolicy(statement awsiam.PolicyStatement) {
 	)
 }
 
-// Apply the given removal policy to this resource.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (p *jsiiProxy_Pipeline) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		p,
@@ -3577,7 +5190,6 @@ func (p *jsiiProxy_Pipeline) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Returns a source configuration for notification rule.
 func (p *jsiiProxy_Pipeline) BindAsNotificationRuleSource(_scope constructs.Construct) *awscodestarnotifications.NotificationRuleSourceConfig {
 	var returns *awscodestarnotifications.NotificationRuleSourceConfig
 
@@ -3604,12 +5216,6 @@ func (p *jsiiProxy_Pipeline) GeneratePhysicalName() *string {
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
-//
-// Normally, this token will resolve to `arnAttr`, but if the resource is
-// referenced across environments, `arnComponents` will be used to synthesize
-// a concrete ARN with the resource's physical name. Make sure to reference
-// `this.physicalName` in `arnComponents`.
 func (p *jsiiProxy_Pipeline) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -3623,11 +5229,6 @@ func (p *jsiiProxy_Pipeline) GetResourceArnAttribute(arnAttr *string, arnCompone
 	return returns
 }
 
-// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
-//
-// Normally, this token will resolve to `nameAttr`, but if the resource is
-// referenced across environments, it will be resolved to `this.physicalName`,
-// which will be a concrete name.
 func (p *jsiiProxy_Pipeline) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -3641,11 +5242,6 @@ func (p *jsiiProxy_Pipeline) GetResourceNameAttribute(nameAttr *string) *string 
 	return returns
 }
 
-// Defines a CodeStar notification rule triggered when the pipeline events emitted by you specified, it very similar to `onEvent` API.
-//
-// You can also use the methods `notifyOnExecutionStateChange`, `notifyOnAnyStageStateChange`,
-// `notifyOnAnyActionStateChange` and `notifyOnAnyManualApprovalStateChange`
-// to define rules for these specific event emitted.
 func (p *jsiiProxy_Pipeline) NotifyOn(id *string, target awscodestarnotifications.INotificationRuleTarget, options *PipelineNotifyOnOptions) awscodestarnotifications.INotificationRule {
 	var returns awscodestarnotifications.INotificationRule
 
@@ -3659,7 +5255,6 @@ func (p *jsiiProxy_Pipeline) NotifyOn(id *string, target awscodestarnotification
 	return returns
 }
 
-// Define an notification rule triggered by the set of the "Action execution" events emitted from this pipeline.
 func (p *jsiiProxy_Pipeline) NotifyOnAnyActionStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
 	var returns awscodestarnotifications.INotificationRule
 
@@ -3673,7 +5268,6 @@ func (p *jsiiProxy_Pipeline) NotifyOnAnyActionStateChange(id *string, target aws
 	return returns
 }
 
-// Define an notification rule triggered by the set of the "Manual approval" events emitted from this pipeline.
 func (p *jsiiProxy_Pipeline) NotifyOnAnyManualApprovalStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
 	var returns awscodestarnotifications.INotificationRule
 
@@ -3687,7 +5281,6 @@ func (p *jsiiProxy_Pipeline) NotifyOnAnyManualApprovalStateChange(id *string, ta
 	return returns
 }
 
-// Define an notification rule triggered by the set of the "Stage execution" events emitted from this pipeline.
 func (p *jsiiProxy_Pipeline) NotifyOnAnyStageStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
 	var returns awscodestarnotifications.INotificationRule
 
@@ -3701,7 +5294,6 @@ func (p *jsiiProxy_Pipeline) NotifyOnAnyStageStateChange(id *string, target awsc
 	return returns
 }
 
-// Define an notification rule triggered by the set of the "Pipeline execution" events emitted from this pipeline.
 func (p *jsiiProxy_Pipeline) NotifyOnExecutionStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
 	var returns awscodestarnotifications.INotificationRule
 
@@ -3715,7 +5307,6 @@ func (p *jsiiProxy_Pipeline) NotifyOnExecutionStateChange(id *string, target aws
 	return returns
 }
 
-// Defines an event rule triggered by this CodePipeline.
 func (p *jsiiProxy_Pipeline) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -3729,7 +5320,14 @@ func (p *jsiiProxy_Pipeline) OnEvent(id *string, options *awsevents.OnEventOptio
 	return returns
 }
 
-// Defines an event rule triggered by the "CodePipeline Pipeline Execution State Change" event emitted from this pipeline.
+func (p *jsiiProxy_Pipeline) OnPrepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
 func (p *jsiiProxy_Pipeline) OnStateChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -3743,7 +5341,35 @@ func (p *jsiiProxy_Pipeline) OnStateChange(id *string, options *awsevents.OnEven
 	return returns
 }
 
-// Access one of the pipeline's stages by stage name.
+func (p *jsiiProxy_Pipeline) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (p *jsiiProxy_Pipeline) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (p *jsiiProxy_Pipeline) Prepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 func (p *jsiiProxy_Pipeline) Stage(stageName *string) IStage {
 	var returns IStage
 
@@ -3757,7 +5383,14 @@ func (p *jsiiProxy_Pipeline) Stage(stageName *string) IStage {
 	return returns
 }
 
-// Returns a string representation of this construct.
+func (p *jsiiProxy_Pipeline) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (p *jsiiProxy_Pipeline) ToString() *string {
 	var returns *string
 
@@ -3771,62 +5404,171 @@ func (p *jsiiProxy_Pipeline) ToString() *string {
 	return returns
 }
 
+func (p *jsiiProxy_Pipeline) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // The list of event types for AWS Codepipeline Pipeline.
 // See: https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#events-ref-pipeline
 //
+// Experimental.
 type PipelineNotificationEvents string
 
 const (
+	// Trigger notification when pipeline execution failed.
+	// Experimental.
 	PipelineNotificationEvents_PIPELINE_EXECUTION_FAILED PipelineNotificationEvents = "PIPELINE_EXECUTION_FAILED"
+	// Trigger notification when pipeline execution canceled.
+	// Experimental.
 	PipelineNotificationEvents_PIPELINE_EXECUTION_CANCELED PipelineNotificationEvents = "PIPELINE_EXECUTION_CANCELED"
+	// Trigger notification when pipeline execution started.
+	// Experimental.
 	PipelineNotificationEvents_PIPELINE_EXECUTION_STARTED PipelineNotificationEvents = "PIPELINE_EXECUTION_STARTED"
+	// Trigger notification when pipeline execution resumed.
+	// Experimental.
 	PipelineNotificationEvents_PIPELINE_EXECUTION_RESUMED PipelineNotificationEvents = "PIPELINE_EXECUTION_RESUMED"
+	// Trigger notification when pipeline execution succeeded.
+	// Experimental.
 	PipelineNotificationEvents_PIPELINE_EXECUTION_SUCCEEDED PipelineNotificationEvents = "PIPELINE_EXECUTION_SUCCEEDED"
+	// Trigger notification when pipeline execution superseded.
+	// Experimental.
 	PipelineNotificationEvents_PIPELINE_EXECUTION_SUPERSEDED PipelineNotificationEvents = "PIPELINE_EXECUTION_SUPERSEDED"
+	// Trigger notification when pipeline stage execution started.
+	// Experimental.
 	PipelineNotificationEvents_STAGE_EXECUTION_STARTED PipelineNotificationEvents = "STAGE_EXECUTION_STARTED"
+	// Trigger notification when pipeline stage execution succeeded.
+	// Experimental.
 	PipelineNotificationEvents_STAGE_EXECUTION_SUCCEEDED PipelineNotificationEvents = "STAGE_EXECUTION_SUCCEEDED"
+	// Trigger notification when pipeline stage execution resumed.
+	// Experimental.
 	PipelineNotificationEvents_STAGE_EXECUTION_RESUMED PipelineNotificationEvents = "STAGE_EXECUTION_RESUMED"
+	// Trigger notification when pipeline stage execution canceled.
+	// Experimental.
 	PipelineNotificationEvents_STAGE_EXECUTION_CANCELED PipelineNotificationEvents = "STAGE_EXECUTION_CANCELED"
+	// Trigger notification when pipeline stage execution failed.
+	// Experimental.
 	PipelineNotificationEvents_STAGE_EXECUTION_FAILED PipelineNotificationEvents = "STAGE_EXECUTION_FAILED"
+	// Trigger notification when pipeline action execution succeeded.
+	// Experimental.
 	PipelineNotificationEvents_ACTION_EXECUTION_SUCCEEDED PipelineNotificationEvents = "ACTION_EXECUTION_SUCCEEDED"
+	// Trigger notification when pipeline action execution failed.
+	// Experimental.
 	PipelineNotificationEvents_ACTION_EXECUTION_FAILED PipelineNotificationEvents = "ACTION_EXECUTION_FAILED"
+	// Trigger notification when pipeline action execution canceled.
+	// Experimental.
 	PipelineNotificationEvents_ACTION_EXECUTION_CANCELED PipelineNotificationEvents = "ACTION_EXECUTION_CANCELED"
+	// Trigger notification when pipeline action execution started.
+	// Experimental.
 	PipelineNotificationEvents_ACTION_EXECUTION_STARTED PipelineNotificationEvents = "ACTION_EXECUTION_STARTED"
+	// Trigger notification when pipeline manual approval failed.
+	// Experimental.
 	PipelineNotificationEvents_MANUAL_APPROVAL_FAILED PipelineNotificationEvents = "MANUAL_APPROVAL_FAILED"
+	// Trigger notification when pipeline manual approval needed.
+	// Experimental.
 	PipelineNotificationEvents_MANUAL_APPROVAL_NEEDED PipelineNotificationEvents = "MANUAL_APPROVAL_NEEDED"
+	// Trigger notification when pipeline manual approval succeeded.
+	// Experimental.
 	PipelineNotificationEvents_MANUAL_APPROVAL_SUCCEEDED PipelineNotificationEvents = "MANUAL_APPROVAL_SUCCEEDED"
 )
 
 // Additional options to pass to the notification rule.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codestarnotifications "github.com/aws/aws-cdk-go/awscdk/aws_codestarnotifications"
+//   pipelineNotifyOnOptions := &pipelineNotifyOnOptions{
+//   	events: []pipelineNotificationEvents{
+//   		codepipeline.*pipelineNotificationEvents_PIPELINE_EXECUTION_FAILED,
+//   	},
 //
+//   	// the properties below are optional
+//   	detailType: codestarnotifications.detailType_BASIC,
+//   	enabled: jsii.Boolean(false),
+//   	notificationRuleName: jsii.String("notificationRuleName"),
+//   }
+//
+// Experimental.
 type PipelineNotifyOnOptions struct {
 	// The level of detail to include in the notifications for this resource.
 	//
 	// BASIC will include only the contents of the event as it would appear in AWS CloudWatch.
 	// FULL will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
+	// Experimental.
 	DetailType awscodestarnotifications.DetailType `json:"detailType" yaml:"detailType"`
 	// The status of the notification rule.
 	//
 	// If the enabled is set to DISABLED, notifications aren't sent for the notification rule.
+	// Experimental.
 	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The name for the notification rule.
 	//
 	// Notification rule names must be unique in your AWS account.
+	// Experimental.
 	NotificationRuleName *string `json:"notificationRuleName" yaml:"notificationRuleName"`
 	// A list of event types associated with this notification rule for CodePipeline Pipeline.
 	//
 	// For a complete list of event types and IDs, see Notification concepts in the Developer Tools Console User Guide.
 	// See: https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api
 	//
+	// Experimental.
 	Events *[]PipelineNotificationEvents `json:"events" yaml:"events"`
 }
 
-// TODO: EXAMPLE
+// Example:
+//   var project pipelineProject
+//   repository := codecommit.NewRepository(this, jsii.String("MyRepository"), &repositoryProps{
+//   	repositoryName: jsii.String("MyRepository"),
+//   })
+//   project := codebuild.NewPipelineProject(this, jsii.String("MyProject"))
 //
+//   sourceOutput := codepipeline.NewArtifact()
+//   sourceAction := codepipeline_actions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
+//   	actionName: jsii.String("CodeCommit"),
+//   	repository: repository,
+//   	output: sourceOutput,
+//   })
+//   buildAction := codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
+//   	actionName: jsii.String("CodeBuild"),
+//   	project: project,
+//   	input: sourceOutput,
+//   	outputs: []artifact{
+//   		codepipeline.NewArtifact(),
+//   	},
+//   	 // optional
+//   	executeBatchBuild: jsii.Boolean(true),
+//   	 // optional, defaults to false
+//   	combineBatchBuildArtifacts: jsii.Boolean(true),
+//   })
+//
+//   codepipeline.NewPipeline(this, jsii.String("MyPipeline"), &pipelineProps{
+//   	stages: []stageProps{
+//   		&stageProps{
+//   			stageName: jsii.String("Source"),
+//   			actions: []iAction{
+//   				sourceAction,
+//   			},
+//   		},
+//   		&stageProps{
+//   			stageName: jsii.String("Build"),
+//   			actions: []*iAction{
+//   				buildAction,
+//   			},
+//   		},
+//   	},
+//   })
+//
+// Experimental.
 type PipelineProps struct {
 	// The S3 bucket used by this Pipeline to store artifacts.
+	// Experimental.
 	ArtifactBucket awss3.IBucket `json:"artifactBucket" yaml:"artifactBucket"`
 	// Create KMS keys for cross-account deployments.
 	//
@@ -3839,41 +5581,72 @@ type PipelineProps struct {
 	// not create those keys and save on that cost (the artifact bucket will be
 	// encrypted with an AWS-managed key). However, cross-account deployments will
 	// no longer be possible.
+	// Experimental.
 	CrossAccountKeys *bool `json:"crossAccountKeys" yaml:"crossAccountKeys"`
 	// A map of region to S3 bucket name used for cross-region CodePipeline.
 	//
 	// For every Action that you specify targeting a different region than the Pipeline itself,
 	// if you don't provide an explicit Bucket for that region using this property,
 	// the construct will automatically create a Stack containing an S3 Bucket in that region.
+	// Experimental.
 	CrossRegionReplicationBuckets *map[string]awss3.IBucket `json:"crossRegionReplicationBuckets" yaml:"crossRegionReplicationBuckets"`
 	// Enable KMS key rotation for the generated KMS keys.
 	//
 	// By default KMS key rotation is disabled, but will add an additional $1/month
 	// for each year the key exists when enabled.
+	// Experimental.
 	EnableKeyRotation *bool `json:"enableKeyRotation" yaml:"enableKeyRotation"`
 	// Name of the pipeline.
+	// Experimental.
 	PipelineName *string `json:"pipelineName" yaml:"pipelineName"`
 	// Indicates whether to rerun the AWS CodePipeline pipeline after you update it.
+	// Experimental.
 	RestartExecutionOnUpdate *bool `json:"restartExecutionOnUpdate" yaml:"restartExecutionOnUpdate"`
 	// Reuse the same cross region support stack for all pipelines in the App.
+	// Experimental.
 	ReuseCrossRegionSupportStacks *bool `json:"reuseCrossRegionSupportStacks" yaml:"reuseCrossRegionSupportStacks"`
 	// The IAM role to be assumed by this Pipeline.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The list of Stages, in order, to create this Pipeline with.
 	//
 	// You can always add more Stages later by calling {@link Pipeline#addStage}.
+	// Experimental.
 	Stages *[]*StageProps `json:"stages" yaml:"stages"`
 }
 
-// TODO: EXAMPLE
+// Example:
+//   import stepfunctions "github.com/aws/aws-cdk-go/awscdk"
 //
+//   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
+//   inputArtifact := codepipeline.NewArtifact()
+//   startState := stepfunctions.NewPass(this, jsii.String("StartState"))
+//   simpleStateMachine := stepfunctions.NewStateMachine(this, jsii.String("SimpleStateMachine"), &stateMachineProps{
+//   	definition: startState,
+//   })
+//   stepFunctionAction := codepipeline_actions.NewStepFunctionInvokeAction(&stepFunctionsInvokeActionProps{
+//   	actionName: jsii.String("Invoke"),
+//   	stateMachine: simpleStateMachine,
+//   	stateMachineInput: codepipeline_actions.stateMachineInput.filePath(inputArtifact.atPath(jsii.String("assets/input.json"))),
+//   })
+//   pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("StepFunctions"),
+//   	actions: []iAction{
+//   		stepFunctionAction,
+//   	},
+//   })
+//
+// Experimental.
 type StageOptions struct {
 	// The physical, human-readable name to assign to this Pipeline Stage.
+	// Experimental.
 	StageName *string `json:"stageName" yaml:"stageName"`
 	// The list of Actions to create this Stage with.
 	//
 	// You can always add more Actions later by calling {@link IStage#addAction}.
+	// Experimental.
 	Actions *[]IAction `json:"actions" yaml:"actions"`
+	// Experimental.
 	Placement *StagePlacement `json:"placement" yaml:"placement"`
 }
 
@@ -3882,27 +5655,57 @@ type StageOptions struct {
 // Note that you can provide only one of the below properties -
 // specifying more than one will result in a validation error.
 //
-// TODO: EXAMPLE
+// Example:
+//   // Insert a new Stage at an arbitrary point
+//   var pipeline pipeline
+//   var anotherStage iStage
+//   var yetAnotherStage iStage
 //
-// See: #justAfter
+//   someStage := pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("SomeStage"),
+//   	placement: &stagePlacement{
+//   		// note: you can only specify one of the below properties
+//   		rightBefore: anotherStage,
+//   		justAfter: yetAnotherStage,
+//   	},
+//   })
 //
+// See: #justAfter.
+//
+// Experimental.
 type StagePlacement struct {
 	// Inserts the new Stage as a child of the given Stage (changing its current child Stage, if it had one).
+	// Experimental.
 	JustAfter IStage `json:"justAfter" yaml:"justAfter"`
 	// Inserts the new Stage as a parent of the given Stage (changing its current parent Stage, if it had one).
+	// Experimental.
 	RightBefore IStage `json:"rightBefore" yaml:"rightBefore"`
 }
 
 // Construction properties of a Pipeline Stage.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"
 //
+//   var action action
+//   stageProps := &stageProps{
+//   	stageName: jsii.String("stageName"),
+//
+//   	// the properties below are optional
+//   	actions: []iAction{
+//   		action,
+//   	},
+//   }
+//
+// Experimental.
 type StageProps struct {
 	// The physical, human-readable name to assign to this Pipeline Stage.
+	// Experimental.
 	StageName *string `json:"stageName" yaml:"stageName"`
 	// The list of Actions to create this Stage with.
 	//
 	// You can always add more Actions later by calling {@link IStage#addAction}.
+	// Experimental.
 	Actions *[]IAction `json:"actions" yaml:"actions"`
 }
 

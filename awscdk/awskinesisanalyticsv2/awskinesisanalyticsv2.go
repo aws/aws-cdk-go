@@ -1,59 +1,405 @@
 package awskinesisanalyticsv2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisanalyticsv2/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awskinesisanalyticsv2/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::KinesisAnalyticsV2::Application`.
 //
 // Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html) .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//
+//   var propertyMap interface{}
+//   cfnApplication := kinesisanalyticsv2.NewCfnApplication(this, jsii.String("MyCfnApplication"), &cfnApplicationProps{
+//   	runtimeEnvironment: jsii.String("runtimeEnvironment"),
+//   	serviceExecutionRole: jsii.String("serviceExecutionRole"),
+//
+//   	// the properties below are optional
+//   	applicationConfiguration: &applicationConfigurationProperty{
+//   		applicationCodeConfiguration: &applicationCodeConfigurationProperty{
+//   			codeContent: &codeContentProperty{
+//   				s3ContentLocation: &s3ContentLocationProperty{
+//   					bucketArn: jsii.String("bucketArn"),
+//   					fileKey: jsii.String("fileKey"),
+//   					objectVersion: jsii.String("objectVersion"),
+//   				},
+//   				textContent: jsii.String("textContent"),
+//   				zipFileContent: jsii.String("zipFileContent"),
+//   			},
+//   			codeContentType: jsii.String("codeContentType"),
+//   		},
+//   		applicationSnapshotConfiguration: &applicationSnapshotConfigurationProperty{
+//   			snapshotsEnabled: jsii.Boolean(false),
+//   		},
+//   		environmentProperties: &environmentPropertiesProperty{
+//   			propertyGroups: []interface{}{
+//   				&propertyGroupProperty{
+//   					propertyGroupId: jsii.String("propertyGroupId"),
+//   					propertyMap: propertyMap,
+//   				},
+//   			},
+//   		},
+//   		flinkApplicationConfiguration: &flinkApplicationConfigurationProperty{
+//   			checkpointConfiguration: &checkpointConfigurationProperty{
+//   				configurationType: jsii.String("configurationType"),
+//
+//   				// the properties below are optional
+//   				checkpointingEnabled: jsii.Boolean(false),
+//   				checkpointInterval: jsii.Number(123),
+//   				minPauseBetweenCheckpoints: jsii.Number(123),
+//   			},
+//   			monitoringConfiguration: &monitoringConfigurationProperty{
+//   				configurationType: jsii.String("configurationType"),
+//
+//   				// the properties below are optional
+//   				logLevel: jsii.String("logLevel"),
+//   				metricsLevel: jsii.String("metricsLevel"),
+//   			},
+//   			parallelismConfiguration: &parallelismConfigurationProperty{
+//   				configurationType: jsii.String("configurationType"),
+//
+//   				// the properties below are optional
+//   				autoScalingEnabled: jsii.Boolean(false),
+//   				parallelism: jsii.Number(123),
+//   				parallelismPerKpu: jsii.Number(123),
+//   			},
+//   		},
+//   		sqlApplicationConfiguration: &sqlApplicationConfigurationProperty{
+//   			inputs: []interface{}{
+//   				&inputProperty{
+//   					inputSchema: &inputSchemaProperty{
+//   						recordColumns: []interface{}{
+//   							&recordColumnProperty{
+//   								name: jsii.String("name"),
+//   								sqlType: jsii.String("sqlType"),
+//
+//   								// the properties below are optional
+//   								mapping: jsii.String("mapping"),
+//   							},
+//   						},
+//   						recordFormat: &recordFormatProperty{
+//   							recordFormatType: jsii.String("recordFormatType"),
+//
+//   							// the properties below are optional
+//   							mappingParameters: &mappingParametersProperty{
+//   								csvMappingParameters: &cSVMappingParametersProperty{
+//   									recordColumnDelimiter: jsii.String("recordColumnDelimiter"),
+//   									recordRowDelimiter: jsii.String("recordRowDelimiter"),
+//   								},
+//   								jsonMappingParameters: &jSONMappingParametersProperty{
+//   									recordRowPath: jsii.String("recordRowPath"),
+//   								},
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						recordEncoding: jsii.String("recordEncoding"),
+//   					},
+//   					namePrefix: jsii.String("namePrefix"),
+//
+//   					// the properties below are optional
+//   					inputParallelism: &inputParallelismProperty{
+//   						count: jsii.Number(123),
+//   					},
+//   					inputProcessingConfiguration: &inputProcessingConfigurationProperty{
+//   						inputLambdaProcessor: &inputLambdaProcessorProperty{
+//   							resourceArn: jsii.String("resourceArn"),
+//   						},
+//   					},
+//   					kinesisFirehoseInput: &kinesisFirehoseInputProperty{
+//   						resourceArn: jsii.String("resourceArn"),
+//   					},
+//   					kinesisStreamsInput: &kinesisStreamsInputProperty{
+//   						resourceArn: jsii.String("resourceArn"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		zeppelinApplicationConfiguration: &zeppelinApplicationConfigurationProperty{
+//   			catalogConfiguration: &catalogConfigurationProperty{
+//   				glueDataCatalogConfiguration: &glueDataCatalogConfigurationProperty{
+//   					databaseArn: jsii.String("databaseArn"),
+//   				},
+//   			},
+//   			customArtifactsConfiguration: []interface{}{
+//   				&customArtifactConfigurationProperty{
+//   					artifactType: jsii.String("artifactType"),
+//
+//   					// the properties below are optional
+//   					mavenReference: &mavenReferenceProperty{
+//   						artifactId: jsii.String("artifactId"),
+//   						groupId: jsii.String("groupId"),
+//   						version: jsii.String("version"),
+//   					},
+//   					s3ContentLocation: &s3ContentLocationProperty{
+//   						bucketArn: jsii.String("bucketArn"),
+//   						fileKey: jsii.String("fileKey"),
+//   						objectVersion: jsii.String("objectVersion"),
+//   					},
+//   				},
+//   			},
+//   			deployAsApplicationConfiguration: &deployAsApplicationConfigurationProperty{
+//   				s3ContentLocation: &s3ContentBaseLocationProperty{
+//   					basePath: jsii.String("basePath"),
+//   					bucketArn: jsii.String("bucketArn"),
+//   				},
+//   			},
+//   			monitoringConfiguration: &zeppelinMonitoringConfigurationProperty{
+//   				logLevel: jsii.String("logLevel"),
+//   			},
+//   		},
+//   	},
+//   	applicationDescription: jsii.String("applicationDescription"),
+//   	applicationMode: jsii.String("applicationMode"),
+//   	applicationName: jsii.String("applicationName"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   })
 //
 type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Use this parameter to configure the application.
 	ApplicationConfiguration() interface{}
 	SetApplicationConfiguration(val interface{})
+	// The description of the application.
 	ApplicationDescription() *string
 	SetApplicationDescription(val *string)
+	// To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE` .
+	//
+	// However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
 	ApplicationMode() *string
 	SetApplicationMode(val *string)
+	// The name of the application.
 	ApplicationName() *string
 	SetApplicationName(val *string)
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The runtime environment for the application.
 	RuntimeEnvironment() *string
 	SetRuntimeEnvironment(val *string)
+	// Specifies the IAM role that the application uses to access external resources.
 	ServiceExecutionRole() *string
 	SetServiceExecutionRole(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// A list of one or more tags to assign to the application.
+	//
+	// A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -153,8 +499,8 @@ func (j *jsiiProxy_CfnApplication) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplication) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnApplication) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -225,13 +571,13 @@ func (j *jsiiProxy_CfnApplication) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::KinesisAnalyticsV2::Application`.
-func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplicationProps) CfnApplication {
+func NewCfnApplication(scope awscdk.Construct, id *string, props *CfnApplicationProps) CfnApplication {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnApplication{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication",
+		"monocdk.aws_kinesisanalyticsv2.CfnApplication",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -240,11 +586,11 @@ func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplica
 }
 
 // Create a new `AWS::KinesisAnalyticsV2::Application`.
-func NewCfnApplication_Override(c CfnApplication, scope constructs.Construct, id *string, props *CfnApplicationProps) {
+func NewCfnApplication_Override(c CfnApplication, scope awscdk.Construct, id *string, props *CfnApplicationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication",
+		"monocdk.aws_kinesisanalyticsv2.CfnApplication",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -304,13 +650,14 @@ func (j *jsiiProxy_CfnApplication) SetServiceExecutionRole(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnApplication_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication",
+		"monocdk.aws_kinesisanalyticsv2.CfnApplication",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -320,13 +667,14 @@ func CfnApplication_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnApplication_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication",
+		"monocdk.aws_kinesisanalyticsv2.CfnApplication",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -335,17 +683,15 @@ func CfnApplication_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnApplication_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication",
+		"monocdk.aws_kinesisanalyticsv2.CfnApplication",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -358,14 +704,13 @@ func CfnApplication_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication",
+		"monocdk.aws_kinesisanalyticsv2.CfnApplication",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnApplication) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -374,10 +719,6 @@ func (c *jsiiProxy_CfnApplication) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnApplication) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -386,13 +727,6 @@ func (c *jsiiProxy_CfnApplication) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnApplication) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -401,49 +735,6 @@ func (c *jsiiProxy_CfnApplication) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnApplication) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -452,7 +743,6 @@ func (c *jsiiProxy_CfnApplication) AddOverride(path *string, value interface{}) 
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnApplication) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -461,9 +751,6 @@ func (c *jsiiProxy_CfnApplication) AddPropertyDeletionOverride(propertyPath *str
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnApplication) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -472,15 +759,6 @@ func (c *jsiiProxy_CfnApplication) AddPropertyOverride(propertyPath *string, val
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnApplication) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -489,10 +767,6 @@ func (c *jsiiProxy_CfnApplication) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnApplication) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -506,13 +780,6 @@ func (c *jsiiProxy_CfnApplication) GetAtt(attributeName *string) awscdk.Referenc
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnApplication) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -526,7 +793,6 @@ func (c *jsiiProxy_CfnApplication) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnApplication) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -535,12 +801,48 @@ func (c *jsiiProxy_CfnApplication) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnApplication) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnApplication) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnApplication) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnApplication) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnApplication) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -557,10 +859,6 @@ func (c *jsiiProxy_CfnApplication) RenderProperties(props *map[string]interface{
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnApplication) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -574,15 +872,33 @@ func (c *jsiiProxy_CfnApplication) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnApplication) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnApplication) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnApplication) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -600,7 +916,20 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 
 // Describes code configuration for an application.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   applicationCodeConfigurationProperty := &applicationCodeConfigurationProperty{
+//   	codeContent: &codeContentProperty{
+//   		s3ContentLocation: &s3ContentLocationProperty{
+//   			bucketArn: jsii.String("bucketArn"),
+//   			fileKey: jsii.String("fileKey"),
+//   			objectVersion: jsii.String("objectVersion"),
+//   		},
+//   		textContent: jsii.String("textContent"),
+//   		zipFileContent: jsii.String("zipFileContent"),
+//   	},
+//   	codeContentType: jsii.String("codeContentType"),
+//   }
 //
 type CfnApplication_ApplicationCodeConfigurationProperty struct {
 	// The location and type of the application code.
@@ -611,7 +940,144 @@ type CfnApplication_ApplicationCodeConfigurationProperty struct {
 
 // Specifies the creation parameters for a Kinesis Data Analytics application.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//
+//   var propertyMap interface{}
+//   applicationConfigurationProperty := &applicationConfigurationProperty{
+//   	applicationCodeConfiguration: &applicationCodeConfigurationProperty{
+//   		codeContent: &codeContentProperty{
+//   			s3ContentLocation: &s3ContentLocationProperty{
+//   				bucketArn: jsii.String("bucketArn"),
+//   				fileKey: jsii.String("fileKey"),
+//   				objectVersion: jsii.String("objectVersion"),
+//   			},
+//   			textContent: jsii.String("textContent"),
+//   			zipFileContent: jsii.String("zipFileContent"),
+//   		},
+//   		codeContentType: jsii.String("codeContentType"),
+//   	},
+//   	applicationSnapshotConfiguration: &applicationSnapshotConfigurationProperty{
+//   		snapshotsEnabled: jsii.Boolean(false),
+//   	},
+//   	environmentProperties: &environmentPropertiesProperty{
+//   		propertyGroups: []interface{}{
+//   			&propertyGroupProperty{
+//   				propertyGroupId: jsii.String("propertyGroupId"),
+//   				propertyMap: propertyMap,
+//   			},
+//   		},
+//   	},
+//   	flinkApplicationConfiguration: &flinkApplicationConfigurationProperty{
+//   		checkpointConfiguration: &checkpointConfigurationProperty{
+//   			configurationType: jsii.String("configurationType"),
+//
+//   			// the properties below are optional
+//   			checkpointingEnabled: jsii.Boolean(false),
+//   			checkpointInterval: jsii.Number(123),
+//   			minPauseBetweenCheckpoints: jsii.Number(123),
+//   		},
+//   		monitoringConfiguration: &monitoringConfigurationProperty{
+//   			configurationType: jsii.String("configurationType"),
+//
+//   			// the properties below are optional
+//   			logLevel: jsii.String("logLevel"),
+//   			metricsLevel: jsii.String("metricsLevel"),
+//   		},
+//   		parallelismConfiguration: &parallelismConfigurationProperty{
+//   			configurationType: jsii.String("configurationType"),
+//
+//   			// the properties below are optional
+//   			autoScalingEnabled: jsii.Boolean(false),
+//   			parallelism: jsii.Number(123),
+//   			parallelismPerKpu: jsii.Number(123),
+//   		},
+//   	},
+//   	sqlApplicationConfiguration: &sqlApplicationConfigurationProperty{
+//   		inputs: []interface{}{
+//   			&inputProperty{
+//   				inputSchema: &inputSchemaProperty{
+//   					recordColumns: []interface{}{
+//   						&recordColumnProperty{
+//   							name: jsii.String("name"),
+//   							sqlType: jsii.String("sqlType"),
+//
+//   							// the properties below are optional
+//   							mapping: jsii.String("mapping"),
+//   						},
+//   					},
+//   					recordFormat: &recordFormatProperty{
+//   						recordFormatType: jsii.String("recordFormatType"),
+//
+//   						// the properties below are optional
+//   						mappingParameters: &mappingParametersProperty{
+//   							csvMappingParameters: &cSVMappingParametersProperty{
+//   								recordColumnDelimiter: jsii.String("recordColumnDelimiter"),
+//   								recordRowDelimiter: jsii.String("recordRowDelimiter"),
+//   							},
+//   							jsonMappingParameters: &jSONMappingParametersProperty{
+//   								recordRowPath: jsii.String("recordRowPath"),
+//   							},
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					recordEncoding: jsii.String("recordEncoding"),
+//   				},
+//   				namePrefix: jsii.String("namePrefix"),
+//
+//   				// the properties below are optional
+//   				inputParallelism: &inputParallelismProperty{
+//   					count: jsii.Number(123),
+//   				},
+//   				inputProcessingConfiguration: &inputProcessingConfigurationProperty{
+//   					inputLambdaProcessor: &inputLambdaProcessorProperty{
+//   						resourceArn: jsii.String("resourceArn"),
+//   					},
+//   				},
+//   				kinesisFirehoseInput: &kinesisFirehoseInputProperty{
+//   					resourceArn: jsii.String("resourceArn"),
+//   				},
+//   				kinesisStreamsInput: &kinesisStreamsInputProperty{
+//   					resourceArn: jsii.String("resourceArn"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	zeppelinApplicationConfiguration: &zeppelinApplicationConfigurationProperty{
+//   		catalogConfiguration: &catalogConfigurationProperty{
+//   			glueDataCatalogConfiguration: &glueDataCatalogConfigurationProperty{
+//   				databaseArn: jsii.String("databaseArn"),
+//   			},
+//   		},
+//   		customArtifactsConfiguration: []interface{}{
+//   			&customArtifactConfigurationProperty{
+//   				artifactType: jsii.String("artifactType"),
+//
+//   				// the properties below are optional
+//   				mavenReference: &mavenReferenceProperty{
+//   					artifactId: jsii.String("artifactId"),
+//   					groupId: jsii.String("groupId"),
+//   					version: jsii.String("version"),
+//   				},
+//   				s3ContentLocation: &s3ContentLocationProperty{
+//   					bucketArn: jsii.String("bucketArn"),
+//   					fileKey: jsii.String("fileKey"),
+//   					objectVersion: jsii.String("objectVersion"),
+//   				},
+//   			},
+//   		},
+//   		deployAsApplicationConfiguration: &deployAsApplicationConfigurationProperty{
+//   			s3ContentLocation: &s3ContentBaseLocationProperty{
+//   				basePath: jsii.String("basePath"),
+//   				bucketArn: jsii.String("bucketArn"),
+//   			},
+//   		},
+//   		monitoringConfiguration: &zeppelinMonitoringConfigurationProperty{
+//   			logLevel: jsii.String("logLevel"),
+//   		},
+//   	},
+//   }
 //
 type CfnApplication_ApplicationConfigurationProperty struct {
 	// The code location and type parameters for a Flink-based Kinesis Data Analytics application.
@@ -630,7 +1096,11 @@ type CfnApplication_ApplicationConfigurationProperty struct {
 
 // Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   applicationSnapshotConfigurationProperty := &applicationSnapshotConfigurationProperty{
+//   	snapshotsEnabled: jsii.Boolean(false),
+//   }
 //
 type CfnApplication_ApplicationSnapshotConfigurationProperty struct {
 	// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
@@ -643,9 +1113,14 @@ type CfnApplication_ApplicationSnapshotConfigurationProperty struct {
 //
 // `"name1", "address1"`
 //
-// `"name2", "address2"`
+// `"name2", "address2"`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   cSVMappingParametersProperty := &cSVMappingParametersProperty{
+//   	recordColumnDelimiter: jsii.String("recordColumnDelimiter"),
+//   	recordRowDelimiter: jsii.String("recordRowDelimiter"),
+//   }
 //
 type CfnApplication_CSVMappingParametersProperty struct {
 	// The column delimiter.
@@ -662,7 +1137,13 @@ type CfnApplication_CSVMappingParametersProperty struct {
 //
 // You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   catalogConfigurationProperty := &catalogConfigurationProperty{
+//   	glueDataCatalogConfiguration: &glueDataCatalogConfigurationProperty{
+//   		databaseArn: jsii.String("databaseArn"),
+//   	},
+//   }
 //
 type CfnApplication_CatalogConfigurationProperty struct {
 	// The configuration parameters for the default Amazon Glue database.
@@ -675,7 +1156,16 @@ type CfnApplication_CatalogConfigurationProperty struct {
 //
 // Checkpointing is the process of persisting application state for fault tolerance. For more information, see [Checkpoints for Fault Tolerance](https://docs.aws.amazon.com/https://ci.apache.org/projects/flink/flink-docs-release-1.8/concepts/programming-model.html#checkpoints-for-fault-tolerance) in the [Apache Flink Documentation](https://docs.aws.amazon.com/https://ci.apache.org/projects/flink/flink-docs-release-1.8/) .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   checkpointConfigurationProperty := &checkpointConfigurationProperty{
+//   	configurationType: jsii.String("configurationType"),
+//
+//   	// the properties below are optional
+//   	checkpointingEnabled: jsii.Boolean(false),
+//   	checkpointInterval: jsii.Number(123),
+//   	minPauseBetweenCheckpoints: jsii.Number(123),
+//   }
 //
 type CfnApplication_CheckpointConfigurationProperty struct {
 	// Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior.
@@ -686,7 +1176,7 @@ type CfnApplication_CheckpointConfigurationProperty struct {
 	// >
 	// > - *CheckpointingEnabled:* true
 	// > - *CheckpointInterval:* 60000
-	// > - *MinPauseBetweenCheckpoints:* 5000
+	// > - *MinPauseBetweenCheckpoints:* 5000.
 	ConfigurationType *string `json:"configurationType" yaml:"configurationType"`
 	// Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
 	//
@@ -706,7 +1196,17 @@ type CfnApplication_CheckpointConfigurationProperty struct {
 
 // Specifies either the application code, or the location of the application code, for a Flink-based Kinesis Data Analytics application.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   codeContentProperty := &codeContentProperty{
+//   	s3ContentLocation: &s3ContentLocationProperty{
+//   		bucketArn: jsii.String("bucketArn"),
+//   		fileKey: jsii.String("fileKey"),
+//   		objectVersion: jsii.String("objectVersion"),
+//   	},
+//   	textContent: jsii.String("textContent"),
+//   	zipFileContent: jsii.String("zipFileContent"),
+//   }
 //
 type CfnApplication_CodeContentProperty struct {
 	// Information about the Amazon S3 bucket that contains the application code.
@@ -719,7 +1219,23 @@ type CfnApplication_CodeContentProperty struct {
 
 // The configuration of connectors and user-defined functions.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   customArtifactConfigurationProperty := &customArtifactConfigurationProperty{
+//   	artifactType: jsii.String("artifactType"),
+//
+//   	// the properties below are optional
+//   	mavenReference: &mavenReferenceProperty{
+//   		artifactId: jsii.String("artifactId"),
+//   		groupId: jsii.String("groupId"),
+//   		version: jsii.String("version"),
+//   	},
+//   	s3ContentLocation: &s3ContentLocationProperty{
+//   		bucketArn: jsii.String("bucketArn"),
+//   		fileKey: jsii.String("fileKey"),
+//   		objectVersion: jsii.String("objectVersion"),
+//   	},
+//   }
 //
 type CfnApplication_CustomArtifactConfigurationProperty struct {
 	// Set this to either `UDF` or `DEPENDENCY_JAR` .
@@ -734,7 +1250,14 @@ type CfnApplication_CustomArtifactConfigurationProperty struct {
 
 // The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   deployAsApplicationConfigurationProperty := &deployAsApplicationConfigurationProperty{
+//   	s3ContentLocation: &s3ContentBaseLocationProperty{
+//   		basePath: jsii.String("basePath"),
+//   		bucketArn: jsii.String("bucketArn"),
+//   	},
+//   }
 //
 type CfnApplication_DeployAsApplicationConfigurationProperty struct {
 	// The description of an Amazon S3 object that contains the Amazon Data Analytics application, including the Amazon Resource Name (ARN) of the S3 bucket, the name of the Amazon S3 object that contains the data, and the version number of the Amazon S3 object that contains the data.
@@ -743,7 +1266,18 @@ type CfnApplication_DeployAsApplicationConfigurationProperty struct {
 
 // Describes execution properties for a Flink-based Kinesis Data Analytics application.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//
+//   var propertyMap interface{}
+//   environmentPropertiesProperty := &environmentPropertiesProperty{
+//   	propertyGroups: []interface{}{
+//   		&propertyGroupProperty{
+//   			propertyGroupId: jsii.String("propertyGroupId"),
+//   			propertyMap: propertyMap,
+//   		},
+//   	},
+//   }
 //
 type CfnApplication_EnvironmentPropertiesProperty struct {
 	// Describes the execution property groups.
@@ -752,7 +1286,33 @@ type CfnApplication_EnvironmentPropertiesProperty struct {
 
 // Describes configuration parameters for a Flink-based Kinesis Data Analytics application or a Studio notebook.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   flinkApplicationConfigurationProperty := &flinkApplicationConfigurationProperty{
+//   	checkpointConfiguration: &checkpointConfigurationProperty{
+//   		configurationType: jsii.String("configurationType"),
+//
+//   		// the properties below are optional
+//   		checkpointingEnabled: jsii.Boolean(false),
+//   		checkpointInterval: jsii.Number(123),
+//   		minPauseBetweenCheckpoints: jsii.Number(123),
+//   	},
+//   	monitoringConfiguration: &monitoringConfigurationProperty{
+//   		configurationType: jsii.String("configurationType"),
+//
+//   		// the properties below are optional
+//   		logLevel: jsii.String("logLevel"),
+//   		metricsLevel: jsii.String("metricsLevel"),
+//   	},
+//   	parallelismConfiguration: &parallelismConfigurationProperty{
+//   		configurationType: jsii.String("configurationType"),
+//
+//   		// the properties below are optional
+//   		autoScalingEnabled: jsii.Boolean(false),
+//   		parallelism: jsii.Number(123),
+//   		parallelismPerKpu: jsii.Number(123),
+//   	},
+//   }
 //
 type CfnApplication_FlinkApplicationConfigurationProperty struct {
 	// Describes an application's checkpointing configuration.
@@ -767,7 +1327,11 @@ type CfnApplication_FlinkApplicationConfigurationProperty struct {
 
 // The configuration of the Glue Data Catalog that you use for Apache Flink SQL queries and table API transforms that you write in an application.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   glueDataCatalogConfigurationProperty := &glueDataCatalogConfigurationProperty{
+//   	databaseArn: jsii.String("databaseArn"),
+//   }
 //
 type CfnApplication_GlueDataCatalogConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the database.
@@ -776,7 +1340,11 @@ type CfnApplication_GlueDataCatalogConfigurationProperty struct {
 
 // An object that contains the Amazon Resource Name (ARN) of the Amazon Lambda function that is used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   inputLambdaProcessorProperty := &inputLambdaProcessorProperty{
+//   	resourceArn: jsii.String("resourceArn"),
+//   }
 //
 type CfnApplication_InputLambdaProcessorProperty struct {
 	// The ARN of the Amazon Lambda function that operates on records in the stream.
@@ -787,7 +1355,11 @@ type CfnApplication_InputLambdaProcessorProperty struct {
 
 // For a SQL-based Kinesis Data Analytics application, describes the number of in-application streams to create for a given streaming source.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   inputParallelismProperty := &inputParallelismProperty{
+//   	count: jsii.Number(123),
+//   }
 //
 type CfnApplication_InputParallelismProperty struct {
 	// The number of in-application streams to create.
@@ -798,7 +1370,13 @@ type CfnApplication_InputParallelismProperty struct {
 //
 // Currently, the only input processor available is [Amazon Lambda](https://docs.aws.amazon.com/lambda/) .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   inputProcessingConfigurationProperty := &inputProcessingConfigurationProperty{
+//   	inputLambdaProcessor: &inputLambdaProcessorProperty{
+//   		resourceArn: jsii.String("resourceArn"),
+//   	},
+//   }
 //
 type CfnApplication_InputProcessingConfigurationProperty struct {
 	// The [InputLambdaProcessor](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_InputLambdaProcessor.html) that is used to preprocess the records in the stream before being processed by your application code.
@@ -807,7 +1385,55 @@ type CfnApplication_InputProcessingConfigurationProperty struct {
 
 // When you configure the application input for a SQL-based Kinesis Data Analytics application, you specify the streaming source, the in-application stream name that is created, and the mapping between the two.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   inputProperty := &inputProperty{
+//   	inputSchema: &inputSchemaProperty{
+//   		recordColumns: []interface{}{
+//   			&recordColumnProperty{
+//   				name: jsii.String("name"),
+//   				sqlType: jsii.String("sqlType"),
+//
+//   				// the properties below are optional
+//   				mapping: jsii.String("mapping"),
+//   			},
+//   		},
+//   		recordFormat: &recordFormatProperty{
+//   			recordFormatType: jsii.String("recordFormatType"),
+//
+//   			// the properties below are optional
+//   			mappingParameters: &mappingParametersProperty{
+//   				csvMappingParameters: &cSVMappingParametersProperty{
+//   					recordColumnDelimiter: jsii.String("recordColumnDelimiter"),
+//   					recordRowDelimiter: jsii.String("recordRowDelimiter"),
+//   				},
+//   				jsonMappingParameters: &jSONMappingParametersProperty{
+//   					recordRowPath: jsii.String("recordRowPath"),
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		recordEncoding: jsii.String("recordEncoding"),
+//   	},
+//   	namePrefix: jsii.String("namePrefix"),
+//
+//   	// the properties below are optional
+//   	inputParallelism: &inputParallelismProperty{
+//   		count: jsii.Number(123),
+//   	},
+//   	inputProcessingConfiguration: &inputProcessingConfigurationProperty{
+//   		inputLambdaProcessor: &inputLambdaProcessorProperty{
+//   			resourceArn: jsii.String("resourceArn"),
+//   		},
+//   	},
+//   	kinesisFirehoseInput: &kinesisFirehoseInputProperty{
+//   		resourceArn: jsii.String("resourceArn"),
+//   	},
+//   	kinesisStreamsInput: &kinesisStreamsInputProperty{
+//   		resourceArn: jsii.String("resourceArn"),
+//   	},
+//   }
 //
 type CfnApplication_InputProperty struct {
 	// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
@@ -830,7 +1456,36 @@ type CfnApplication_InputProperty struct {
 
 // For a SQL-based Kinesis Data Analytics application, describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   inputSchemaProperty := &inputSchemaProperty{
+//   	recordColumns: []interface{}{
+//   		&recordColumnProperty{
+//   			name: jsii.String("name"),
+//   			sqlType: jsii.String("sqlType"),
+//
+//   			// the properties below are optional
+//   			mapping: jsii.String("mapping"),
+//   		},
+//   	},
+//   	recordFormat: &recordFormatProperty{
+//   		recordFormatType: jsii.String("recordFormatType"),
+//
+//   		// the properties below are optional
+//   		mappingParameters: &mappingParametersProperty{
+//   			csvMappingParameters: &cSVMappingParametersProperty{
+//   				recordColumnDelimiter: jsii.String("recordColumnDelimiter"),
+//   				recordRowDelimiter: jsii.String("recordRowDelimiter"),
+//   			},
+//   			jsonMappingParameters: &jSONMappingParametersProperty{
+//   				recordRowPath: jsii.String("recordRowPath"),
+//   			},
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	recordEncoding: jsii.String("recordEncoding"),
+//   }
 //
 type CfnApplication_InputSchemaProperty struct {
 	// A list of `RecordColumn` objects.
@@ -845,7 +1500,11 @@ type CfnApplication_InputSchemaProperty struct {
 
 // For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   jSONMappingParametersProperty := &jSONMappingParametersProperty{
+//   	recordRowPath: jsii.String("recordRowPath"),
+//   }
 //
 type CfnApplication_JSONMappingParametersProperty struct {
 	// The path to the top-level parent that contains the records.
@@ -856,7 +1515,11 @@ type CfnApplication_JSONMappingParametersProperty struct {
 //
 // You provide the delivery stream's Amazon Resource Name (ARN).
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   kinesisFirehoseInputProperty := &kinesisFirehoseInputProperty{
+//   	resourceArn: jsii.String("resourceArn"),
+//   }
 //
 type CfnApplication_KinesisFirehoseInputProperty struct {
 	// The Amazon Resource Name (ARN) of the delivery stream.
@@ -867,7 +1530,11 @@ type CfnApplication_KinesisFirehoseInputProperty struct {
 //
 // You provide the stream's Amazon Resource Name (ARN).
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   kinesisStreamsInputProperty := &kinesisStreamsInputProperty{
+//   	resourceArn: jsii.String("resourceArn"),
+//   }
 //
 type CfnApplication_KinesisStreamsInputProperty struct {
 	// The ARN of the input Kinesis data stream to read.
@@ -876,7 +1543,17 @@ type CfnApplication_KinesisStreamsInputProperty struct {
 
 // When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   mappingParametersProperty := &mappingParametersProperty{
+//   	csvMappingParameters: &cSVMappingParametersProperty{
+//   		recordColumnDelimiter: jsii.String("recordColumnDelimiter"),
+//   		recordRowDelimiter: jsii.String("recordRowDelimiter"),
+//   	},
+//   	jsonMappingParameters: &jSONMappingParametersProperty{
+//   		recordRowPath: jsii.String("recordRowPath"),
+//   	},
+//   }
 //
 type CfnApplication_MappingParametersProperty struct {
 	// Provides additional mapping information when the record format uses delimiters (for example, CSV).
@@ -889,7 +1566,13 @@ type CfnApplication_MappingParametersProperty struct {
 //
 // You can use Maven references to specify dependency JAR files.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   mavenReferenceProperty := &mavenReferenceProperty{
+//   	artifactId: jsii.String("artifactId"),
+//   	groupId: jsii.String("groupId"),
+//   	version: jsii.String("version"),
+//   }
 //
 type CfnApplication_MavenReferenceProperty struct {
 	// The artifact ID of the Maven reference.
@@ -904,7 +1587,15 @@ type CfnApplication_MavenReferenceProperty struct {
 //
 // For more information about CloudWatch logging, see [Monitoring](https://docs.aws.amazon.com/kinesisanalytics/latest/java/monitoring-overview) .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   monitoringConfigurationProperty := &monitoringConfigurationProperty{
+//   	configurationType: jsii.String("configurationType"),
+//
+//   	// the properties below are optional
+//   	logLevel: jsii.String("logLevel"),
+//   	metricsLevel: jsii.String("metricsLevel"),
+//   }
 //
 type CfnApplication_MonitoringConfigurationProperty struct {
 	// Describes whether to use the default CloudWatch logging configuration for an application.
@@ -923,7 +1614,16 @@ type CfnApplication_MonitoringConfigurationProperty struct {
 //
 // For more information about parallelism, see [Parallel Execution](https://docs.aws.amazon.com/https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/parallel.html) in the [Apache Flink Documentation](https://docs.aws.amazon.com/https://ci.apache.org/projects/flink/flink-docs-release-1.8/) .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   parallelismConfigurationProperty := &parallelismConfigurationProperty{
+//   	configurationType: jsii.String("configurationType"),
+//
+//   	// the properties below are optional
+//   	autoScalingEnabled: jsii.Boolean(false),
+//   	parallelism: jsii.Number(123),
+//   	parallelismPerKpu: jsii.Number(123),
+//   }
 //
 type CfnApplication_ParallelismConfigurationProperty struct {
 	// Describes whether the application uses the default parallelism for the Kinesis Data Analytics service.
@@ -944,7 +1644,14 @@ type CfnApplication_ParallelismConfigurationProperty struct {
 
 // Property key-value pairs passed into an application.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//
+//   var propertyMap interface{}
+//   propertyGroupProperty := &propertyGroupProperty{
+//   	propertyGroupId: jsii.String("propertyGroupId"),
+//   	propertyMap: propertyMap,
+//   }
 //
 type CfnApplication_PropertyGroupProperty struct {
 	// Describes the key of an application execution property key-value pair.
@@ -957,7 +1664,15 @@ type CfnApplication_PropertyGroupProperty struct {
 //
 // Also used to describe the format of the reference data source.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   recordColumnProperty := &recordColumnProperty{
+//   	name: jsii.String("name"),
+//   	sqlType: jsii.String("sqlType"),
+//
+//   	// the properties below are optional
+//   	mapping: jsii.String("mapping"),
+//   }
 //
 type CfnApplication_RecordColumnProperty struct {
 	// The name of the column that is created in the in-application input stream or reference table.
@@ -970,7 +1685,22 @@ type CfnApplication_RecordColumnProperty struct {
 
 // For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   recordFormatProperty := &recordFormatProperty{
+//   	recordFormatType: jsii.String("recordFormatType"),
+//
+//   	// the properties below are optional
+//   	mappingParameters: &mappingParametersProperty{
+//   		csvMappingParameters: &cSVMappingParametersProperty{
+//   			recordColumnDelimiter: jsii.String("recordColumnDelimiter"),
+//   			recordRowDelimiter: jsii.String("recordRowDelimiter"),
+//   		},
+//   		jsonMappingParameters: &jSONMappingParametersProperty{
+//   			recordRowPath: jsii.String("recordRowPath"),
+//   		},
+//   	},
+//   }
 //
 type CfnApplication_RecordFormatProperty struct {
 	// The type of record format.
@@ -981,7 +1711,12 @@ type CfnApplication_RecordFormatProperty struct {
 
 // The base location of the Amazon Data Analytics application.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   s3ContentBaseLocationProperty := &s3ContentBaseLocationProperty{
+//   	basePath: jsii.String("basePath"),
+//   	bucketArn: jsii.String("bucketArn"),
+//   }
 //
 type CfnApplication_S3ContentBaseLocationProperty struct {
 	// The base path for the S3 bucket.
@@ -992,7 +1727,13 @@ type CfnApplication_S3ContentBaseLocationProperty struct {
 
 // The location of an application or a custom artifact.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   s3ContentLocationProperty := &s3ContentLocationProperty{
+//   	bucketArn: jsii.String("bucketArn"),
+//   	fileKey: jsii.String("fileKey"),
+//   	objectVersion: jsii.String("objectVersion"),
+//   }
 //
 type CfnApplication_S3ContentLocationProperty struct {
 	// The Amazon Resource Name (ARN) for the S3 bucket containing the application code.
@@ -1005,7 +1746,59 @@ type CfnApplication_S3ContentLocationProperty struct {
 
 // Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   sqlApplicationConfigurationProperty := &sqlApplicationConfigurationProperty{
+//   	inputs: []interface{}{
+//   		&inputProperty{
+//   			inputSchema: &inputSchemaProperty{
+//   				recordColumns: []interface{}{
+//   					&recordColumnProperty{
+//   						name: jsii.String("name"),
+//   						sqlType: jsii.String("sqlType"),
+//
+//   						// the properties below are optional
+//   						mapping: jsii.String("mapping"),
+//   					},
+//   				},
+//   				recordFormat: &recordFormatProperty{
+//   					recordFormatType: jsii.String("recordFormatType"),
+//
+//   					// the properties below are optional
+//   					mappingParameters: &mappingParametersProperty{
+//   						csvMappingParameters: &cSVMappingParametersProperty{
+//   							recordColumnDelimiter: jsii.String("recordColumnDelimiter"),
+//   							recordRowDelimiter: jsii.String("recordRowDelimiter"),
+//   						},
+//   						jsonMappingParameters: &jSONMappingParametersProperty{
+//   							recordRowPath: jsii.String("recordRowPath"),
+//   						},
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				recordEncoding: jsii.String("recordEncoding"),
+//   			},
+//   			namePrefix: jsii.String("namePrefix"),
+//
+//   			// the properties below are optional
+//   			inputParallelism: &inputParallelismProperty{
+//   				count: jsii.Number(123),
+//   			},
+//   			inputProcessingConfiguration: &inputProcessingConfigurationProperty{
+//   				inputLambdaProcessor: &inputLambdaProcessorProperty{
+//   					resourceArn: jsii.String("resourceArn"),
+//   				},
+//   			},
+//   			kinesisFirehoseInput: &kinesisFirehoseInputProperty{
+//   				resourceArn: jsii.String("resourceArn"),
+//   			},
+//   			kinesisStreamsInput: &kinesisStreamsInputProperty{
+//   				resourceArn: jsii.String("resourceArn"),
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnApplication_SqlApplicationConfigurationProperty struct {
 	// The array of [Input](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_Input.html) objects describing the input streams used by the application.
@@ -1014,7 +1807,41 @@ type CfnApplication_SqlApplicationConfigurationProperty struct {
 
 // The configuration of a Kinesis Data Analytics Studio notebook.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   zeppelinApplicationConfigurationProperty := &zeppelinApplicationConfigurationProperty{
+//   	catalogConfiguration: &catalogConfigurationProperty{
+//   		glueDataCatalogConfiguration: &glueDataCatalogConfigurationProperty{
+//   			databaseArn: jsii.String("databaseArn"),
+//   		},
+//   	},
+//   	customArtifactsConfiguration: []interface{}{
+//   		&customArtifactConfigurationProperty{
+//   			artifactType: jsii.String("artifactType"),
+//
+//   			// the properties below are optional
+//   			mavenReference: &mavenReferenceProperty{
+//   				artifactId: jsii.String("artifactId"),
+//   				groupId: jsii.String("groupId"),
+//   				version: jsii.String("version"),
+//   			},
+//   			s3ContentLocation: &s3ContentLocationProperty{
+//   				bucketArn: jsii.String("bucketArn"),
+//   				fileKey: jsii.String("fileKey"),
+//   				objectVersion: jsii.String("objectVersion"),
+//   			},
+//   		},
+//   	},
+//   	deployAsApplicationConfiguration: &deployAsApplicationConfigurationProperty{
+//   		s3ContentLocation: &s3ContentBaseLocationProperty{
+//   			basePath: jsii.String("basePath"),
+//   			bucketArn: jsii.String("bucketArn"),
+//   		},
+//   	},
+//   	monitoringConfiguration: &zeppelinMonitoringConfigurationProperty{
+//   		logLevel: jsii.String("logLevel"),
+//   	},
+//   }
 //
 type CfnApplication_ZeppelinApplicationConfigurationProperty struct {
 	// The Amazon Glue Data Catalog that you use in queries in a Kinesis Data Analytics Studio notebook.
@@ -1031,7 +1858,11 @@ type CfnApplication_ZeppelinApplicationConfigurationProperty struct {
 //
 // For more information about CloudWatch logging, see [Monitoring](https://docs.aws.amazon.com/kinesisanalytics/latest/java/monitoring-overview.html) .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   zeppelinMonitoringConfigurationProperty := &zeppelinMonitoringConfigurationProperty{
+//   	logLevel: jsii.String("logLevel"),
+//   }
 //
 type CfnApplication_ZeppelinMonitoringConfigurationProperty struct {
 	// The verbosity of the CloudWatch Logs for an application.
@@ -1044,38 +1875,230 @@ type CfnApplication_ZeppelinMonitoringConfigurationProperty struct {
 //
 // Adds an Amazon CloudWatch log stream to monitor application configuration errors.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   cfnApplicationCloudWatchLoggingOption := kinesisanalyticsv2.NewCfnApplicationCloudWatchLoggingOption(this, jsii.String("MyCfnApplicationCloudWatchLoggingOption"), &cfnApplicationCloudWatchLoggingOptionProps{
+//   	applicationName: jsii.String("applicationName"),
+//   	cloudWatchLoggingOption: &cloudWatchLoggingOptionProperty{
+//   		logStreamArn: jsii.String("logStreamArn"),
+//   	},
+//   })
 //
 type CfnApplicationCloudWatchLoggingOption interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The name of the application.
 	ApplicationName() *string
 	SetApplicationName(val *string)
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Provides a description of Amazon CloudWatch logging options, including the log stream Amazon Resource Name (ARN).
 	CloudWatchLoggingOption() interface{}
 	SetCloudWatchLoggingOption(val interface{})
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1155,8 +2178,8 @@ func (j *jsiiProxy_CfnApplicationCloudWatchLoggingOption) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationCloudWatchLoggingOption) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnApplicationCloudWatchLoggingOption) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1197,13 +2220,13 @@ func (j *jsiiProxy_CfnApplicationCloudWatchLoggingOption) UpdatedProperites() *m
 
 
 // Create a new `AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption`.
-func NewCfnApplicationCloudWatchLoggingOption(scope constructs.Construct, id *string, props *CfnApplicationCloudWatchLoggingOptionProps) CfnApplicationCloudWatchLoggingOption {
+func NewCfnApplicationCloudWatchLoggingOption(scope awscdk.Construct, id *string, props *CfnApplicationCloudWatchLoggingOptionProps) CfnApplicationCloudWatchLoggingOption {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnApplicationCloudWatchLoggingOption{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationCloudWatchLoggingOption",
+		"monocdk.aws_kinesisanalyticsv2.CfnApplicationCloudWatchLoggingOption",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1212,11 +2235,11 @@ func NewCfnApplicationCloudWatchLoggingOption(scope constructs.Construct, id *st
 }
 
 // Create a new `AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption`.
-func NewCfnApplicationCloudWatchLoggingOption_Override(c CfnApplicationCloudWatchLoggingOption, scope constructs.Construct, id *string, props *CfnApplicationCloudWatchLoggingOptionProps) {
+func NewCfnApplicationCloudWatchLoggingOption_Override(c CfnApplicationCloudWatchLoggingOption, scope awscdk.Construct, id *string, props *CfnApplicationCloudWatchLoggingOptionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationCloudWatchLoggingOption",
+		"monocdk.aws_kinesisanalyticsv2.CfnApplicationCloudWatchLoggingOption",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1244,13 +2267,14 @@ func (j *jsiiProxy_CfnApplicationCloudWatchLoggingOption) SetCloudWatchLoggingOp
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnApplicationCloudWatchLoggingOption_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationCloudWatchLoggingOption",
+		"monocdk.aws_kinesisanalyticsv2.CfnApplicationCloudWatchLoggingOption",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1260,13 +2284,14 @@ func CfnApplicationCloudWatchLoggingOption_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnApplicationCloudWatchLoggingOption_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationCloudWatchLoggingOption",
+		"monocdk.aws_kinesisanalyticsv2.CfnApplicationCloudWatchLoggingOption",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1275,17 +2300,15 @@ func CfnApplicationCloudWatchLoggingOption_IsCfnResource(construct constructs.IC
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnApplicationCloudWatchLoggingOption_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationCloudWatchLoggingOption",
+		"monocdk.aws_kinesisanalyticsv2.CfnApplicationCloudWatchLoggingOption",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1298,14 +2321,13 @@ func CfnApplicationCloudWatchLoggingOption_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationCloudWatchLoggingOption",
+		"monocdk.aws_kinesisanalyticsv2.CfnApplicationCloudWatchLoggingOption",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1314,10 +2336,6 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) AddDeletionOverride(pa
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1326,13 +2344,6 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) AddDependsOn(target aw
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1341,49 +2352,6 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) AddMetadata(key *strin
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1392,7 +2360,6 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) AddOverride(path *stri
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1401,9 +2368,6 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) AddPropertyDeletionOve
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1412,15 +2376,6 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) AddPropertyOverride(pr
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1429,10 +2384,6 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) ApplyRemovalPolicy(pol
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1446,13 +2397,6 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) GetAtt(attributeName *
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1466,7 +2410,6 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) GetMetadata(key *strin
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1475,12 +2418,48 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) Inspect(inspector awsc
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1497,10 +2476,6 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) RenderProperties(props
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1514,15 +2489,33 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) ShouldSynthesize() *bo
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1540,7 +2533,11 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) ValidateProperties(_pr
 
 // Provides a description of Amazon CloudWatch logging options, including the log stream Amazon Resource Name (ARN).
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   cloudWatchLoggingOptionProperty := &cloudWatchLoggingOptionProperty{
+//   	logStreamArn: jsii.String("logStreamArn"),
+//   }
 //
 type CfnApplicationCloudWatchLoggingOption_CloudWatchLoggingOptionProperty struct {
 	// The ARN of the CloudWatch log to receive application messages.
@@ -1549,7 +2546,14 @@ type CfnApplicationCloudWatchLoggingOption_CloudWatchLoggingOptionProperty struc
 
 // Properties for defining a `CfnApplicationCloudWatchLoggingOption`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   cfnApplicationCloudWatchLoggingOptionProps := &cfnApplicationCloudWatchLoggingOptionProps{
+//   	applicationName: jsii.String("applicationName"),
+//   	cloudWatchLoggingOption: &cloudWatchLoggingOptionProperty{
+//   		logStreamArn: jsii.String("logStreamArn"),
+//   	},
+//   }
 //
 type CfnApplicationCloudWatchLoggingOptionProps struct {
 	// The name of the application.
@@ -1568,38 +2572,246 @@ type CfnApplicationCloudWatchLoggingOptionProps struct {
 //
 // Any configuration update, including adding a streaming source using this operation, results in a new version of the application. You can use the [DescribeApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_DescribeApplication.html) operation to find the current application version.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   cfnApplicationOutput := kinesisanalyticsv2.NewCfnApplicationOutput(this, jsii.String("MyCfnApplicationOutput"), &cfnApplicationOutputProps{
+//   	applicationName: jsii.String("applicationName"),
+//   	output: &outputProperty{
+//   		destinationSchema: &destinationSchemaProperty{
+//   			recordFormatType: jsii.String("recordFormatType"),
+//   		},
+//
+//   		// the properties below are optional
+//   		kinesisFirehoseOutput: &kinesisFirehoseOutputProperty{
+//   			resourceArn: jsii.String("resourceArn"),
+//   		},
+//   		kinesisStreamsOutput: &kinesisStreamsOutputProperty{
+//   			resourceArn: jsii.String("resourceArn"),
+//   		},
+//   		lambdaOutput: &lambdaOutputProperty{
+//   			resourceArn: jsii.String("resourceArn"),
+//   		},
+//   		name: jsii.String("name"),
+//   	},
+//   })
 //
 type CfnApplicationOutput interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The name of the application.
 	ApplicationName() *string
 	SetApplicationName(val *string)
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Describes a SQL-based Kinesis Data Analytics application's output configuration, in which you identify an in-application stream and a destination where you want the in-application stream data to be written.
+	//
+	// The destination can be a Kinesis data stream or a Kinesis Data Firehose delivery stream.
 	Output() interface{}
 	SetOutput(val interface{})
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1669,8 +2881,8 @@ func (j *jsiiProxy_CfnApplicationOutput) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationOutput) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnApplicationOutput) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1721,13 +2933,13 @@ func (j *jsiiProxy_CfnApplicationOutput) UpdatedProperites() *map[string]interfa
 
 
 // Create a new `AWS::KinesisAnalyticsV2::ApplicationOutput`.
-func NewCfnApplicationOutput(scope constructs.Construct, id *string, props *CfnApplicationOutputProps) CfnApplicationOutput {
+func NewCfnApplicationOutput(scope awscdk.Construct, id *string, props *CfnApplicationOutputProps) CfnApplicationOutput {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnApplicationOutput{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationOutput",
+		"monocdk.aws_kinesisanalyticsv2.CfnApplicationOutput",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1736,11 +2948,11 @@ func NewCfnApplicationOutput(scope constructs.Construct, id *string, props *CfnA
 }
 
 // Create a new `AWS::KinesisAnalyticsV2::ApplicationOutput`.
-func NewCfnApplicationOutput_Override(c CfnApplicationOutput, scope constructs.Construct, id *string, props *CfnApplicationOutputProps) {
+func NewCfnApplicationOutput_Override(c CfnApplicationOutput, scope awscdk.Construct, id *string, props *CfnApplicationOutputProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationOutput",
+		"monocdk.aws_kinesisanalyticsv2.CfnApplicationOutput",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1768,13 +2980,14 @@ func (j *jsiiProxy_CfnApplicationOutput) SetOutput(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnApplicationOutput_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationOutput",
+		"monocdk.aws_kinesisanalyticsv2.CfnApplicationOutput",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1784,13 +2997,14 @@ func CfnApplicationOutput_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnApplicationOutput_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationOutput",
+		"monocdk.aws_kinesisanalyticsv2.CfnApplicationOutput",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1799,17 +3013,15 @@ func CfnApplicationOutput_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnApplicationOutput_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationOutput",
+		"monocdk.aws_kinesisanalyticsv2.CfnApplicationOutput",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1822,14 +3034,13 @@ func CfnApplicationOutput_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationOutput",
+		"monocdk.aws_kinesisanalyticsv2.CfnApplicationOutput",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnApplicationOutput) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1838,10 +3049,6 @@ func (c *jsiiProxy_CfnApplicationOutput) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnApplicationOutput) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1850,13 +3057,6 @@ func (c *jsiiProxy_CfnApplicationOutput) AddDependsOn(target awscdk.CfnResource)
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnApplicationOutput) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1865,49 +3065,6 @@ func (c *jsiiProxy_CfnApplicationOutput) AddMetadata(key *string, value interfac
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnApplicationOutput) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1916,7 +3073,6 @@ func (c *jsiiProxy_CfnApplicationOutput) AddOverride(path *string, value interfa
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnApplicationOutput) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1925,9 +3081,6 @@ func (c *jsiiProxy_CfnApplicationOutput) AddPropertyDeletionOverride(propertyPat
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnApplicationOutput) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1936,15 +3089,6 @@ func (c *jsiiProxy_CfnApplicationOutput) AddPropertyOverride(propertyPath *strin
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnApplicationOutput) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1953,10 +3097,6 @@ func (c *jsiiProxy_CfnApplicationOutput) ApplyRemovalPolicy(policy awscdk.Remova
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnApplicationOutput) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1970,13 +3110,6 @@ func (c *jsiiProxy_CfnApplicationOutput) GetAtt(attributeName *string) awscdk.Re
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnApplicationOutput) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1990,7 +3123,6 @@ func (c *jsiiProxy_CfnApplicationOutput) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnApplicationOutput) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1999,12 +3131,48 @@ func (c *jsiiProxy_CfnApplicationOutput) Inspect(inspector awscdk.TreeInspector)
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnApplicationOutput) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnApplicationOutput) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnApplicationOutput) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnApplicationOutput) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnApplicationOutput) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2021,10 +3189,6 @@ func (c *jsiiProxy_CfnApplicationOutput) RenderProperties(props *map[string]inte
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnApplicationOutput) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2038,15 +3202,33 @@ func (c *jsiiProxy_CfnApplicationOutput) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnApplicationOutput) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnApplicationOutput) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnApplicationOutput) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2064,7 +3246,11 @@ func (c *jsiiProxy_CfnApplicationOutput) ValidateProperties(_properties interfac
 
 // Describes the data format when records are written to the destination in a SQL-based Kinesis Data Analytics application.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   destinationSchemaProperty := &destinationSchemaProperty{
+//   	recordFormatType: jsii.String("recordFormatType"),
+//   }
 //
 type CfnApplicationOutput_DestinationSchemaProperty struct {
 	// Specifies the format of the records on the output stream.
@@ -2075,7 +3261,11 @@ type CfnApplicationOutput_DestinationSchemaProperty struct {
 //
 // You provide the stream Amazon Resource Name (ARN) of the delivery stream.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   kinesisFirehoseOutputProperty := &kinesisFirehoseOutputProperty{
+//   	resourceArn: jsii.String("resourceArn"),
+//   }
 //
 type CfnApplicationOutput_KinesisFirehoseOutputProperty struct {
 	// The ARN of the destination delivery stream to write to.
@@ -2086,7 +3276,11 @@ type CfnApplicationOutput_KinesisFirehoseOutputProperty struct {
 //
 // You provide the stream Amazon Resource Name (ARN).
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   kinesisStreamsOutputProperty := &kinesisStreamsOutputProperty{
+//   	resourceArn: jsii.String("resourceArn"),
+//   }
 //
 type CfnApplicationOutput_KinesisStreamsOutputProperty struct {
 	// The ARN of the destination Kinesis data stream to write to.
@@ -2097,7 +3291,11 @@ type CfnApplicationOutput_KinesisStreamsOutputProperty struct {
 //
 // You provide the function Amazon Resource Name (ARN) of the Lambda function.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   lambdaOutputProperty := &lambdaOutputProperty{
+//   	resourceArn: jsii.String("resourceArn"),
+//   }
 //
 type CfnApplicationOutput_LambdaOutputProperty struct {
 	// The Amazon Resource Name (ARN) of the destination Lambda function to write to.
@@ -2110,7 +3308,25 @@ type CfnApplicationOutput_LambdaOutputProperty struct {
 //
 // The destination can be a Kinesis data stream or a Kinesis Data Firehose delivery stream.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   outputProperty := &outputProperty{
+//   	destinationSchema: &destinationSchemaProperty{
+//   		recordFormatType: jsii.String("recordFormatType"),
+//   	},
+//
+//   	// the properties below are optional
+//   	kinesisFirehoseOutput: &kinesisFirehoseOutputProperty{
+//   		resourceArn: jsii.String("resourceArn"),
+//   	},
+//   	kinesisStreamsOutput: &kinesisStreamsOutputProperty{
+//   		resourceArn: jsii.String("resourceArn"),
+//   	},
+//   	lambdaOutput: &lambdaOutputProperty{
+//   		resourceArn: jsii.String("resourceArn"),
+//   	},
+//   	name: jsii.String("name"),
+//   }
 //
 type CfnApplicationOutput_OutputProperty struct {
 	// Describes the data format when records are written to the destination.
@@ -2127,7 +3343,28 @@ type CfnApplicationOutput_OutputProperty struct {
 
 // Properties for defining a `CfnApplicationOutput`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   cfnApplicationOutputProps := &cfnApplicationOutputProps{
+//   	applicationName: jsii.String("applicationName"),
+//   	output: &outputProperty{
+//   		destinationSchema: &destinationSchemaProperty{
+//   			recordFormatType: jsii.String("recordFormatType"),
+//   		},
+//
+//   		// the properties below are optional
+//   		kinesisFirehoseOutput: &kinesisFirehoseOutputProperty{
+//   			resourceArn: jsii.String("resourceArn"),
+//   		},
+//   		kinesisStreamsOutput: &kinesisStreamsOutputProperty{
+//   			resourceArn: jsii.String("resourceArn"),
+//   		},
+//   		lambdaOutput: &lambdaOutputProperty{
+//   			resourceArn: jsii.String("resourceArn"),
+//   		},
+//   		name: jsii.String("name"),
+//   	},
+//   }
 //
 type CfnApplicationOutputProps struct {
 	// The name of the application.
@@ -2140,7 +3377,159 @@ type CfnApplicationOutputProps struct {
 
 // Properties for defining a `CfnApplication`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//
+//   var propertyMap interface{}
+//   cfnApplicationProps := &cfnApplicationProps{
+//   	runtimeEnvironment: jsii.String("runtimeEnvironment"),
+//   	serviceExecutionRole: jsii.String("serviceExecutionRole"),
+//
+//   	// the properties below are optional
+//   	applicationConfiguration: &applicationConfigurationProperty{
+//   		applicationCodeConfiguration: &applicationCodeConfigurationProperty{
+//   			codeContent: &codeContentProperty{
+//   				s3ContentLocation: &s3ContentLocationProperty{
+//   					bucketArn: jsii.String("bucketArn"),
+//   					fileKey: jsii.String("fileKey"),
+//   					objectVersion: jsii.String("objectVersion"),
+//   				},
+//   				textContent: jsii.String("textContent"),
+//   				zipFileContent: jsii.String("zipFileContent"),
+//   			},
+//   			codeContentType: jsii.String("codeContentType"),
+//   		},
+//   		applicationSnapshotConfiguration: &applicationSnapshotConfigurationProperty{
+//   			snapshotsEnabled: jsii.Boolean(false),
+//   		},
+//   		environmentProperties: &environmentPropertiesProperty{
+//   			propertyGroups: []interface{}{
+//   				&propertyGroupProperty{
+//   					propertyGroupId: jsii.String("propertyGroupId"),
+//   					propertyMap: propertyMap,
+//   				},
+//   			},
+//   		},
+//   		flinkApplicationConfiguration: &flinkApplicationConfigurationProperty{
+//   			checkpointConfiguration: &checkpointConfigurationProperty{
+//   				configurationType: jsii.String("configurationType"),
+//
+//   				// the properties below are optional
+//   				checkpointingEnabled: jsii.Boolean(false),
+//   				checkpointInterval: jsii.Number(123),
+//   				minPauseBetweenCheckpoints: jsii.Number(123),
+//   			},
+//   			monitoringConfiguration: &monitoringConfigurationProperty{
+//   				configurationType: jsii.String("configurationType"),
+//
+//   				// the properties below are optional
+//   				logLevel: jsii.String("logLevel"),
+//   				metricsLevel: jsii.String("metricsLevel"),
+//   			},
+//   			parallelismConfiguration: &parallelismConfigurationProperty{
+//   				configurationType: jsii.String("configurationType"),
+//
+//   				// the properties below are optional
+//   				autoScalingEnabled: jsii.Boolean(false),
+//   				parallelism: jsii.Number(123),
+//   				parallelismPerKpu: jsii.Number(123),
+//   			},
+//   		},
+//   		sqlApplicationConfiguration: &sqlApplicationConfigurationProperty{
+//   			inputs: []interface{}{
+//   				&inputProperty{
+//   					inputSchema: &inputSchemaProperty{
+//   						recordColumns: []interface{}{
+//   							&recordColumnProperty{
+//   								name: jsii.String("name"),
+//   								sqlType: jsii.String("sqlType"),
+//
+//   								// the properties below are optional
+//   								mapping: jsii.String("mapping"),
+//   							},
+//   						},
+//   						recordFormat: &recordFormatProperty{
+//   							recordFormatType: jsii.String("recordFormatType"),
+//
+//   							// the properties below are optional
+//   							mappingParameters: &mappingParametersProperty{
+//   								csvMappingParameters: &cSVMappingParametersProperty{
+//   									recordColumnDelimiter: jsii.String("recordColumnDelimiter"),
+//   									recordRowDelimiter: jsii.String("recordRowDelimiter"),
+//   								},
+//   								jsonMappingParameters: &jSONMappingParametersProperty{
+//   									recordRowPath: jsii.String("recordRowPath"),
+//   								},
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						recordEncoding: jsii.String("recordEncoding"),
+//   					},
+//   					namePrefix: jsii.String("namePrefix"),
+//
+//   					// the properties below are optional
+//   					inputParallelism: &inputParallelismProperty{
+//   						count: jsii.Number(123),
+//   					},
+//   					inputProcessingConfiguration: &inputProcessingConfigurationProperty{
+//   						inputLambdaProcessor: &inputLambdaProcessorProperty{
+//   							resourceArn: jsii.String("resourceArn"),
+//   						},
+//   					},
+//   					kinesisFirehoseInput: &kinesisFirehoseInputProperty{
+//   						resourceArn: jsii.String("resourceArn"),
+//   					},
+//   					kinesisStreamsInput: &kinesisStreamsInputProperty{
+//   						resourceArn: jsii.String("resourceArn"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		zeppelinApplicationConfiguration: &zeppelinApplicationConfigurationProperty{
+//   			catalogConfiguration: &catalogConfigurationProperty{
+//   				glueDataCatalogConfiguration: &glueDataCatalogConfigurationProperty{
+//   					databaseArn: jsii.String("databaseArn"),
+//   				},
+//   			},
+//   			customArtifactsConfiguration: []interface{}{
+//   				&customArtifactConfigurationProperty{
+//   					artifactType: jsii.String("artifactType"),
+//
+//   					// the properties below are optional
+//   					mavenReference: &mavenReferenceProperty{
+//   						artifactId: jsii.String("artifactId"),
+//   						groupId: jsii.String("groupId"),
+//   						version: jsii.String("version"),
+//   					},
+//   					s3ContentLocation: &s3ContentLocationProperty{
+//   						bucketArn: jsii.String("bucketArn"),
+//   						fileKey: jsii.String("fileKey"),
+//   						objectVersion: jsii.String("objectVersion"),
+//   					},
+//   				},
+//   			},
+//   			deployAsApplicationConfiguration: &deployAsApplicationConfigurationProperty{
+//   				s3ContentLocation: &s3ContentBaseLocationProperty{
+//   					basePath: jsii.String("basePath"),
+//   					bucketArn: jsii.String("bucketArn"),
+//   				},
+//   			},
+//   			monitoringConfiguration: &zeppelinMonitoringConfigurationProperty{
+//   				logLevel: jsii.String("logLevel"),
+//   			},
+//   		},
+//   	},
+//   	applicationDescription: jsii.String("applicationDescription"),
+//   	applicationMode: jsii.String("applicationMode"),
+//   	applicationName: jsii.String("applicationName"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnApplicationProps struct {
 	// The runtime environment for the application.
@@ -2169,38 +3558,264 @@ type CfnApplicationProps struct {
 //
 // Kinesis Data Analytics reads reference data (that is, an Amazon S3 object) and creates an in-application table within your application. In the request, you provide the source (S3 bucket name and object key name), name of the in-application table to create, and the necessary mapping information that describes how data in an Amazon S3 object maps to columns in the resulting in-application table.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   cfnApplicationReferenceDataSource := kinesisanalyticsv2.NewCfnApplicationReferenceDataSource(this, jsii.String("MyCfnApplicationReferenceDataSource"), &cfnApplicationReferenceDataSourceProps{
+//   	applicationName: jsii.String("applicationName"),
+//   	referenceDataSource: &referenceDataSourceProperty{
+//   		referenceSchema: &referenceSchemaProperty{
+//   			recordColumns: []interface{}{
+//   				&recordColumnProperty{
+//   					name: jsii.String("name"),
+//   					sqlType: jsii.String("sqlType"),
+//
+//   					// the properties below are optional
+//   					mapping: jsii.String("mapping"),
+//   				},
+//   			},
+//   			recordFormat: &recordFormatProperty{
+//   				recordFormatType: jsii.String("recordFormatType"),
+//
+//   				// the properties below are optional
+//   				mappingParameters: &mappingParametersProperty{
+//   					csvMappingParameters: &cSVMappingParametersProperty{
+//   						recordColumnDelimiter: jsii.String("recordColumnDelimiter"),
+//   						recordRowDelimiter: jsii.String("recordRowDelimiter"),
+//   					},
+//   					jsonMappingParameters: &jSONMappingParametersProperty{
+//   						recordRowPath: jsii.String("recordRowPath"),
+//   					},
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			recordEncoding: jsii.String("recordEncoding"),
+//   		},
+//
+//   		// the properties below are optional
+//   		s3ReferenceDataSource: &s3ReferenceDataSourceProperty{
+//   			bucketArn: jsii.String("bucketArn"),
+//   			fileKey: jsii.String("fileKey"),
+//   		},
+//   		tableName: jsii.String("tableName"),
+//   	},
+//   })
 //
 type CfnApplicationReferenceDataSource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The name of the application.
 	ApplicationName() *string
 	SetApplicationName(val *string)
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// For a SQL-based Kinesis Data Analytics application, describes the reference data source by providing the source information (Amazon S3 bucket name and object key name), the resulting in-application table name that is created, and the necessary schema to map the data elements in the Amazon S3 object to the in-application table.
 	ReferenceDataSource() interface{}
 	SetReferenceDataSource(val interface{})
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2270,8 +3885,8 @@ func (j *jsiiProxy_CfnApplicationReferenceDataSource) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationReferenceDataSource) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnApplicationReferenceDataSource) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2322,13 +3937,13 @@ func (j *jsiiProxy_CfnApplicationReferenceDataSource) UpdatedProperites() *map[s
 
 
 // Create a new `AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource`.
-func NewCfnApplicationReferenceDataSource(scope constructs.Construct, id *string, props *CfnApplicationReferenceDataSourceProps) CfnApplicationReferenceDataSource {
+func NewCfnApplicationReferenceDataSource(scope awscdk.Construct, id *string, props *CfnApplicationReferenceDataSourceProps) CfnApplicationReferenceDataSource {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnApplicationReferenceDataSource{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource",
+		"monocdk.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2337,11 +3952,11 @@ func NewCfnApplicationReferenceDataSource(scope constructs.Construct, id *string
 }
 
 // Create a new `AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource`.
-func NewCfnApplicationReferenceDataSource_Override(c CfnApplicationReferenceDataSource, scope constructs.Construct, id *string, props *CfnApplicationReferenceDataSourceProps) {
+func NewCfnApplicationReferenceDataSource_Override(c CfnApplicationReferenceDataSource, scope awscdk.Construct, id *string, props *CfnApplicationReferenceDataSourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource",
+		"monocdk.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2369,13 +3984,14 @@ func (j *jsiiProxy_CfnApplicationReferenceDataSource) SetReferenceDataSource(val
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnApplicationReferenceDataSource_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource",
+		"monocdk.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2385,13 +4001,14 @@ func CfnApplicationReferenceDataSource_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnApplicationReferenceDataSource_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource",
+		"monocdk.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2400,17 +4017,15 @@ func CfnApplicationReferenceDataSource_IsCfnResource(construct constructs.IConst
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnApplicationReferenceDataSource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource",
+		"monocdk.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2423,14 +4038,13 @@ func CfnApplicationReferenceDataSource_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource",
+		"monocdk.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnApplicationReferenceDataSource) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2439,10 +4053,6 @@ func (c *jsiiProxy_CfnApplicationReferenceDataSource) AddDeletionOverride(path *
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnApplicationReferenceDataSource) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2451,13 +4061,6 @@ func (c *jsiiProxy_CfnApplicationReferenceDataSource) AddDependsOn(target awscdk
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnApplicationReferenceDataSource) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2466,49 +4069,6 @@ func (c *jsiiProxy_CfnApplicationReferenceDataSource) AddMetadata(key *string, v
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnApplicationReferenceDataSource) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2517,7 +4077,6 @@ func (c *jsiiProxy_CfnApplicationReferenceDataSource) AddOverride(path *string, 
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnApplicationReferenceDataSource) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2526,9 +4085,6 @@ func (c *jsiiProxy_CfnApplicationReferenceDataSource) AddPropertyDeletionOverrid
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnApplicationReferenceDataSource) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2537,15 +4093,6 @@ func (c *jsiiProxy_CfnApplicationReferenceDataSource) AddPropertyOverride(proper
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnApplicationReferenceDataSource) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2554,10 +4101,6 @@ func (c *jsiiProxy_CfnApplicationReferenceDataSource) ApplyRemovalPolicy(policy 
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnApplicationReferenceDataSource) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2571,13 +4114,6 @@ func (c *jsiiProxy_CfnApplicationReferenceDataSource) GetAtt(attributeName *stri
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnApplicationReferenceDataSource) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2591,7 +4127,6 @@ func (c *jsiiProxy_CfnApplicationReferenceDataSource) GetMetadata(key *string) i
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnApplicationReferenceDataSource) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2600,12 +4135,48 @@ func (c *jsiiProxy_CfnApplicationReferenceDataSource) Inspect(inspector awscdk.T
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnApplicationReferenceDataSource) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnApplicationReferenceDataSource) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnApplicationReferenceDataSource) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnApplicationReferenceDataSource) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnApplicationReferenceDataSource) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2622,10 +4193,6 @@ func (c *jsiiProxy_CfnApplicationReferenceDataSource) RenderProperties(props *ma
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnApplicationReferenceDataSource) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2639,15 +4206,33 @@ func (c *jsiiProxy_CfnApplicationReferenceDataSource) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnApplicationReferenceDataSource) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnApplicationReferenceDataSource) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnApplicationReferenceDataSource) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2669,9 +4254,14 @@ func (c *jsiiProxy_CfnApplicationReferenceDataSource) ValidateProperties(_proper
 //
 // `"name1", "address1"`
 //
-// `"name2", "address2"`
+// `"name2", "address2"`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   cSVMappingParametersProperty := &cSVMappingParametersProperty{
+//   	recordColumnDelimiter: jsii.String("recordColumnDelimiter"),
+//   	recordRowDelimiter: jsii.String("recordRowDelimiter"),
+//   }
 //
 type CfnApplicationReferenceDataSource_CSVMappingParametersProperty struct {
 	// The column delimiter.
@@ -2686,7 +4276,11 @@ type CfnApplicationReferenceDataSource_CSVMappingParametersProperty struct {
 
 // For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   jSONMappingParametersProperty := &jSONMappingParametersProperty{
+//   	recordRowPath: jsii.String("recordRowPath"),
+//   }
 //
 type CfnApplicationReferenceDataSource_JSONMappingParametersProperty struct {
 	// The path to the top-level parent that contains the records.
@@ -2695,7 +4289,17 @@ type CfnApplicationReferenceDataSource_JSONMappingParametersProperty struct {
 
 // When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   mappingParametersProperty := &mappingParametersProperty{
+//   	csvMappingParameters: &cSVMappingParametersProperty{
+//   		recordColumnDelimiter: jsii.String("recordColumnDelimiter"),
+//   		recordRowDelimiter: jsii.String("recordRowDelimiter"),
+//   	},
+//   	jsonMappingParameters: &jSONMappingParametersProperty{
+//   		recordRowPath: jsii.String("recordRowPath"),
+//   	},
+//   }
 //
 type CfnApplicationReferenceDataSource_MappingParametersProperty struct {
 	// Provides additional mapping information when the record format uses delimiters (for example, CSV).
@@ -2708,7 +4312,15 @@ type CfnApplicationReferenceDataSource_MappingParametersProperty struct {
 //
 // Also used to describe the format of the reference data source.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   recordColumnProperty := &recordColumnProperty{
+//   	name: jsii.String("name"),
+//   	sqlType: jsii.String("sqlType"),
+//
+//   	// the properties below are optional
+//   	mapping: jsii.String("mapping"),
+//   }
 //
 type CfnApplicationReferenceDataSource_RecordColumnProperty struct {
 	// The name of the column that is created in the in-application input stream or reference table.
@@ -2721,7 +4333,22 @@ type CfnApplicationReferenceDataSource_RecordColumnProperty struct {
 
 // For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   recordFormatProperty := &recordFormatProperty{
+//   	recordFormatType: jsii.String("recordFormatType"),
+//
+//   	// the properties below are optional
+//   	mappingParameters: &mappingParametersProperty{
+//   		csvMappingParameters: &cSVMappingParametersProperty{
+//   			recordColumnDelimiter: jsii.String("recordColumnDelimiter"),
+//   			recordRowDelimiter: jsii.String("recordRowDelimiter"),
+//   		},
+//   		jsonMappingParameters: &jSONMappingParametersProperty{
+//   			recordRowPath: jsii.String("recordRowPath"),
+//   		},
+//   	},
+//   }
 //
 type CfnApplicationReferenceDataSource_RecordFormatProperty struct {
 	// The type of record format.
@@ -2732,7 +4359,45 @@ type CfnApplicationReferenceDataSource_RecordFormatProperty struct {
 
 // For a SQL-based Kinesis Data Analytics application, describes the reference data source by providing the source information (Amazon S3 bucket name and object key name), the resulting in-application table name that is created, and the necessary schema to map the data elements in the Amazon S3 object to the in-application table.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   referenceDataSourceProperty := &referenceDataSourceProperty{
+//   	referenceSchema: &referenceSchemaProperty{
+//   		recordColumns: []interface{}{
+//   			&recordColumnProperty{
+//   				name: jsii.String("name"),
+//   				sqlType: jsii.String("sqlType"),
+//
+//   				// the properties below are optional
+//   				mapping: jsii.String("mapping"),
+//   			},
+//   		},
+//   		recordFormat: &recordFormatProperty{
+//   			recordFormatType: jsii.String("recordFormatType"),
+//
+//   			// the properties below are optional
+//   			mappingParameters: &mappingParametersProperty{
+//   				csvMappingParameters: &cSVMappingParametersProperty{
+//   					recordColumnDelimiter: jsii.String("recordColumnDelimiter"),
+//   					recordRowDelimiter: jsii.String("recordRowDelimiter"),
+//   				},
+//   				jsonMappingParameters: &jSONMappingParametersProperty{
+//   					recordRowPath: jsii.String("recordRowPath"),
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		recordEncoding: jsii.String("recordEncoding"),
+//   	},
+//
+//   	// the properties below are optional
+//   	s3ReferenceDataSource: &s3ReferenceDataSourceProperty{
+//   		bucketArn: jsii.String("bucketArn"),
+//   		fileKey: jsii.String("fileKey"),
+//   	},
+//   	tableName: jsii.String("tableName"),
+//   }
 //
 type CfnApplicationReferenceDataSource_ReferenceDataSourceProperty struct {
 	// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
@@ -2747,7 +4412,36 @@ type CfnApplicationReferenceDataSource_ReferenceDataSourceProperty struct {
 
 // For a SQL-based Kinesis Data Analytics application, describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   referenceSchemaProperty := &referenceSchemaProperty{
+//   	recordColumns: []interface{}{
+//   		&recordColumnProperty{
+//   			name: jsii.String("name"),
+//   			sqlType: jsii.String("sqlType"),
+//
+//   			// the properties below are optional
+//   			mapping: jsii.String("mapping"),
+//   		},
+//   	},
+//   	recordFormat: &recordFormatProperty{
+//   		recordFormatType: jsii.String("recordFormatType"),
+//
+//   		// the properties below are optional
+//   		mappingParameters: &mappingParametersProperty{
+//   			csvMappingParameters: &cSVMappingParametersProperty{
+//   				recordColumnDelimiter: jsii.String("recordColumnDelimiter"),
+//   				recordRowDelimiter: jsii.String("recordRowDelimiter"),
+//   			},
+//   			jsonMappingParameters: &jSONMappingParametersProperty{
+//   				recordRowPath: jsii.String("recordRowPath"),
+//   			},
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	recordEncoding: jsii.String("recordEncoding"),
+//   }
 //
 type CfnApplicationReferenceDataSource_ReferenceSchemaProperty struct {
 	// A list of `RecordColumn` objects.
@@ -2764,7 +4458,12 @@ type CfnApplicationReferenceDataSource_ReferenceSchemaProperty struct {
 //
 // A Kinesis Data Analytics application loads reference data only once. If the data changes, you call the [UpdateApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_UpdateApplication.html) operation to trigger reloading of data into your application.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   s3ReferenceDataSourceProperty := &s3ReferenceDataSourceProperty{
+//   	bucketArn: jsii.String("bucketArn"),
+//   	fileKey: jsii.String("fileKey"),
+//   }
 //
 type CfnApplicationReferenceDataSource_S3ReferenceDataSourceProperty struct {
 	// The Amazon Resource Name (ARN) of the S3 bucket.
@@ -2775,7 +4474,48 @@ type CfnApplicationReferenceDataSource_S3ReferenceDataSourceProperty struct {
 
 // Properties for defining a `CfnApplicationReferenceDataSource`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   cfnApplicationReferenceDataSourceProps := &cfnApplicationReferenceDataSourceProps{
+//   	applicationName: jsii.String("applicationName"),
+//   	referenceDataSource: &referenceDataSourceProperty{
+//   		referenceSchema: &referenceSchemaProperty{
+//   			recordColumns: []interface{}{
+//   				&recordColumnProperty{
+//   					name: jsii.String("name"),
+//   					sqlType: jsii.String("sqlType"),
+//
+//   					// the properties below are optional
+//   					mapping: jsii.String("mapping"),
+//   				},
+//   			},
+//   			recordFormat: &recordFormatProperty{
+//   				recordFormatType: jsii.String("recordFormatType"),
+//
+//   				// the properties below are optional
+//   				mappingParameters: &mappingParametersProperty{
+//   					csvMappingParameters: &cSVMappingParametersProperty{
+//   						recordColumnDelimiter: jsii.String("recordColumnDelimiter"),
+//   						recordRowDelimiter: jsii.String("recordRowDelimiter"),
+//   					},
+//   					jsonMappingParameters: &jSONMappingParametersProperty{
+//   						recordRowPath: jsii.String("recordRowPath"),
+//   					},
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			recordEncoding: jsii.String("recordEncoding"),
+//   		},
+//
+//   		// the properties below are optional
+//   		s3ReferenceDataSource: &s3ReferenceDataSourceProperty{
+//   			bucketArn: jsii.String("bucketArn"),
+//   			fileKey: jsii.String("fileKey"),
+//   		},
+//   		tableName: jsii.String("tableName"),
+//   	},
+//   }
 //
 type CfnApplicationReferenceDataSourceProps struct {
 	// The name of the application.

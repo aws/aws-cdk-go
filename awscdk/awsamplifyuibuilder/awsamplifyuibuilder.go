@@ -1,72 +1,693 @@
 package awsamplifyuibuilder
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsamplifyuibuilder/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsamplifyuibuilder/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::AmplifyUIBuilder::Component`.
 //
 // The AWS::AmplifyUIBuilder::Component resource specifies a component within an Amplify app. A component is a user interface (UI) element that you can customize. Use `ComponentChild` to configure an instance of a `Component` . A `ComponentChild` instance inherits the configuration of the main `Component` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//
+//   var bindings interface{}
+//   var componentChildProperty_ componentChildProperty
+//   var componentPropertyProperty_ componentPropertyProperty
+//   var events interface{}
+//   var fields interface{}
+//   var overrides interface{}
+//   var predicateProperty_ predicateProperty
+//   var properties interface{}
+//   var variantValues interface{}
+//   cfnComponent := amplifyuibuilder.NewCfnComponent(this, jsii.String("MyCfnComponent"), &cfnComponentProps{
+//   	bindingProperties: map[string]interface{}{
+//   		"bindingPropertiesKey": &ComponentBindingPropertiesValueProperty{
+//   			"bindingProperties": &ComponentBindingPropertiesValuePropertiesProperty{
+//   				"bucket": jsii.String("bucket"),
+//   				"defaultValue": jsii.String("defaultValue"),
+//   				"field": jsii.String("field"),
+//   				"key": jsii.String("key"),
+//   				"model": jsii.String("model"),
+//   				"predicates": []interface{}{
+//   					&predicateProperty{
+//   						"and": []interface{}{
+//   							predicateProperty_,
+//   						},
+//   						"field": jsii.String("field"),
+//   						"operand": jsii.String("operand"),
+//   						"operator": jsii.String("operator"),
+//   						"or": []interface{}{
+//   							predicateProperty_,
+//   						},
+//   					},
+//   				},
+//   				"userAttribute": jsii.String("userAttribute"),
+//   			},
+//   			"defaultValue": jsii.String("defaultValue"),
+//   			"type": jsii.String("type"),
+//   		},
+//   	},
+//   	componentType: jsii.String("componentType"),
+//   	name: jsii.String("name"),
+//   	overrides: map[string]interface{}{
+//   		"overridesKey": overrides,
+//   	},
+//   	properties: map[string]interface{}{
+//   		"propertiesKey": &componentPropertyProperty{
+//   			"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   				"property": jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				"field": jsii.String("field"),
+//   			},
+//   			"bindings": bindings,
+//   			"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   				"property": jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				"field": jsii.String("field"),
+//   			},
+//   			"componentName": jsii.String("componentName"),
+//   			"concat": []interface{}{
+//   				componentPropertyProperty_,
+//   			},
+//   			"condition": &ComponentConditionPropertyProperty{
+//   				"else": componentPropertyProperty_,
+//   				"field": jsii.String("field"),
+//   				"operand": jsii.String("operand"),
+//   				"operandType": jsii.String("operandType"),
+//   				"operator": jsii.String("operator"),
+//   				"property": jsii.String("property"),
+//   				"then": componentPropertyProperty_,
+//   			},
+//   			"configured": jsii.Boolean(false),
+//   			"defaultValue": jsii.String("defaultValue"),
+//   			"event": jsii.String("event"),
+//   			"importedValue": jsii.String("importedValue"),
+//   			"model": jsii.String("model"),
+//   			"property": jsii.String("property"),
+//   			"type": jsii.String("type"),
+//   			"userAttribute": jsii.String("userAttribute"),
+//   			"value": jsii.String("value"),
+//   		},
+//   	},
+//   	variants: []interface{}{
+//   		&componentVariantProperty{
+//   			overrides: overrides,
+//   			variantValues: variantValues,
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	children: []interface{}{
+//   		&componentChildProperty{
+//   			componentType: jsii.String("componentType"),
+//   			name: jsii.String("name"),
+//   			properties: properties,
+//
+//   			// the properties below are optional
+//   			children: []interface{}{
+//   				componentChildProperty_,
+//   			},
+//   			events: events,
+//   		},
+//   	},
+//   	collectionProperties: map[string]interface{}{
+//   		"collectionPropertiesKey": &ComponentDataConfigurationProperty{
+//   			"model": jsii.String("model"),
+//
+//   			// the properties below are optional
+//   			"identifiers": []*string{
+//   				jsii.String("identifiers"),
+//   			},
+//   			"predicate": &predicateProperty{
+//   				"and": []interface{}{
+//   					predicateProperty_,
+//   				},
+//   				"field": jsii.String("field"),
+//   				"operand": jsii.String("operand"),
+//   				"operator": jsii.String("operator"),
+//   				"or": []interface{}{
+//   					predicateProperty_,
+//   				},
+//   			},
+//   			"sort": []interface{}{
+//   				&SortPropertyProperty{
+//   					"direction": jsii.String("direction"),
+//   					"field": jsii.String("field"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	events: map[string]interface{}{
+//   		"eventsKey": &ComponentEventProperty{
+//   			"action": jsii.String("action"),
+//   			"parameters": &ActionParametersProperty{
+//   				"anchor": &componentPropertyProperty{
+//   					"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"bindings": bindings,
+//   					"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"componentName": jsii.String("componentName"),
+//   					"concat": []interface{}{
+//   						componentPropertyProperty_,
+//   					},
+//   					"condition": &ComponentConditionPropertyProperty{
+//   						"else": componentPropertyProperty_,
+//   						"field": jsii.String("field"),
+//   						"operand": jsii.String("operand"),
+//   						"operandType": jsii.String("operandType"),
+//   						"operator": jsii.String("operator"),
+//   						"property": jsii.String("property"),
+//   						"then": componentPropertyProperty_,
+//   					},
+//   					"configured": jsii.Boolean(false),
+//   					"defaultValue": jsii.String("defaultValue"),
+//   					"event": jsii.String("event"),
+//   					"importedValue": jsii.String("importedValue"),
+//   					"model": jsii.String("model"),
+//   					"property": jsii.String("property"),
+//   					"type": jsii.String("type"),
+//   					"userAttribute": jsii.String("userAttribute"),
+//   					"value": jsii.String("value"),
+//   				},
+//   				"fields": fields,
+//   				"global": &componentPropertyProperty{
+//   					"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"bindings": bindings,
+//   					"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"componentName": jsii.String("componentName"),
+//   					"concat": []interface{}{
+//   						componentPropertyProperty_,
+//   					},
+//   					"condition": &ComponentConditionPropertyProperty{
+//   						"else": componentPropertyProperty_,
+//   						"field": jsii.String("field"),
+//   						"operand": jsii.String("operand"),
+//   						"operandType": jsii.String("operandType"),
+//   						"operator": jsii.String("operator"),
+//   						"property": jsii.String("property"),
+//   						"then": componentPropertyProperty_,
+//   					},
+//   					"configured": jsii.Boolean(false),
+//   					"defaultValue": jsii.String("defaultValue"),
+//   					"event": jsii.String("event"),
+//   					"importedValue": jsii.String("importedValue"),
+//   					"model": jsii.String("model"),
+//   					"property": jsii.String("property"),
+//   					"type": jsii.String("type"),
+//   					"userAttribute": jsii.String("userAttribute"),
+//   					"value": jsii.String("value"),
+//   				},
+//   				"id": &componentPropertyProperty{
+//   					"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"bindings": bindings,
+//   					"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"componentName": jsii.String("componentName"),
+//   					"concat": []interface{}{
+//   						componentPropertyProperty_,
+//   					},
+//   					"condition": &ComponentConditionPropertyProperty{
+//   						"else": componentPropertyProperty_,
+//   						"field": jsii.String("field"),
+//   						"operand": jsii.String("operand"),
+//   						"operandType": jsii.String("operandType"),
+//   						"operator": jsii.String("operator"),
+//   						"property": jsii.String("property"),
+//   						"then": componentPropertyProperty_,
+//   					},
+//   					"configured": jsii.Boolean(false),
+//   					"defaultValue": jsii.String("defaultValue"),
+//   					"event": jsii.String("event"),
+//   					"importedValue": jsii.String("importedValue"),
+//   					"model": jsii.String("model"),
+//   					"property": jsii.String("property"),
+//   					"type": jsii.String("type"),
+//   					"userAttribute": jsii.String("userAttribute"),
+//   					"value": jsii.String("value"),
+//   				},
+//   				"model": jsii.String("model"),
+//   				"state": &MutationActionSetStateParameterProperty{
+//   					"componentName": jsii.String("componentName"),
+//   					"property": jsii.String("property"),
+//   					"set": &componentPropertyProperty{
+//   						"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   							"property": jsii.String("property"),
+//
+//   							// the properties below are optional
+//   							"field": jsii.String("field"),
+//   						},
+//   						"bindings": bindings,
+//   						"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   							"property": jsii.String("property"),
+//
+//   							// the properties below are optional
+//   							"field": jsii.String("field"),
+//   						},
+//   						"componentName": jsii.String("componentName"),
+//   						"concat": []interface{}{
+//   							componentPropertyProperty_,
+//   						},
+//   						"condition": &ComponentConditionPropertyProperty{
+//   							"else": componentPropertyProperty_,
+//   							"field": jsii.String("field"),
+//   							"operand": jsii.String("operand"),
+//   							"operandType": jsii.String("operandType"),
+//   							"operator": jsii.String("operator"),
+//   							"property": jsii.String("property"),
+//   							"then": componentPropertyProperty_,
+//   						},
+//   						"configured": jsii.Boolean(false),
+//   						"defaultValue": jsii.String("defaultValue"),
+//   						"event": jsii.String("event"),
+//   						"importedValue": jsii.String("importedValue"),
+//   						"model": jsii.String("model"),
+//   						"property": jsii.String("property"),
+//   						"type": jsii.String("type"),
+//   						"userAttribute": jsii.String("userAttribute"),
+//   						"value": jsii.String("value"),
+//   					},
+//   				},
+//   				"target": &componentPropertyProperty{
+//   					"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"bindings": bindings,
+//   					"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"componentName": jsii.String("componentName"),
+//   					"concat": []interface{}{
+//   						componentPropertyProperty_,
+//   					},
+//   					"condition": &ComponentConditionPropertyProperty{
+//   						"else": componentPropertyProperty_,
+//   						"field": jsii.String("field"),
+//   						"operand": jsii.String("operand"),
+//   						"operandType": jsii.String("operandType"),
+//   						"operator": jsii.String("operator"),
+//   						"property": jsii.String("property"),
+//   						"then": componentPropertyProperty_,
+//   					},
+//   					"configured": jsii.Boolean(false),
+//   					"defaultValue": jsii.String("defaultValue"),
+//   					"event": jsii.String("event"),
+//   					"importedValue": jsii.String("importedValue"),
+//   					"model": jsii.String("model"),
+//   					"property": jsii.String("property"),
+//   					"type": jsii.String("type"),
+//   					"userAttribute": jsii.String("userAttribute"),
+//   					"value": jsii.String("value"),
+//   				},
+//   				"type": &componentPropertyProperty{
+//   					"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"bindings": bindings,
+//   					"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"componentName": jsii.String("componentName"),
+//   					"concat": []interface{}{
+//   						componentPropertyProperty_,
+//   					},
+//   					"condition": &ComponentConditionPropertyProperty{
+//   						"else": componentPropertyProperty_,
+//   						"field": jsii.String("field"),
+//   						"operand": jsii.String("operand"),
+//   						"operandType": jsii.String("operandType"),
+//   						"operator": jsii.String("operator"),
+//   						"property": jsii.String("property"),
+//   						"then": componentPropertyProperty_,
+//   					},
+//   					"configured": jsii.Boolean(false),
+//   					"defaultValue": jsii.String("defaultValue"),
+//   					"event": jsii.String("event"),
+//   					"importedValue": jsii.String("importedValue"),
+//   					"model": jsii.String("model"),
+//   					"property": jsii.String("property"),
+//   					"type": jsii.String("type"),
+//   					"userAttribute": jsii.String("userAttribute"),
+//   					"value": jsii.String("value"),
+//   				},
+//   				"url": &componentPropertyProperty{
+//   					"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"bindings": bindings,
+//   					"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"componentName": jsii.String("componentName"),
+//   					"concat": []interface{}{
+//   						componentPropertyProperty_,
+//   					},
+//   					"condition": &ComponentConditionPropertyProperty{
+//   						"else": componentPropertyProperty_,
+//   						"field": jsii.String("field"),
+//   						"operand": jsii.String("operand"),
+//   						"operandType": jsii.String("operandType"),
+//   						"operator": jsii.String("operator"),
+//   						"property": jsii.String("property"),
+//   						"then": componentPropertyProperty_,
+//   					},
+//   					"configured": jsii.Boolean(false),
+//   					"defaultValue": jsii.String("defaultValue"),
+//   					"event": jsii.String("event"),
+//   					"importedValue": jsii.String("importedValue"),
+//   					"model": jsii.String("model"),
+//   					"property": jsii.String("property"),
+//   					"type": jsii.String("type"),
+//   					"userAttribute": jsii.String("userAttribute"),
+//   					"value": jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	schemaVersion: jsii.String("schemaVersion"),
+//   	sourceId: jsii.String("sourceId"),
+//   	tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   })
 //
 type CfnComponent interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The unique ID for the Amplify app.
 	AttrAppId() *string
+	// The name of the backend environment that is a part of the Amplify app.
 	AttrEnvironmentName() *string
+	// The unique ID of the component.
 	AttrId() *string
+	// The information to connect a component's properties to data at runtime.
+	//
+	// You can't specify `tags` as a valid property for `bindingProperties` .
 	BindingProperties() interface{}
 	SetBindingProperties(val interface{})
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// A list of the component's `ComponentChild` instances.
 	Children() interface{}
 	SetChildren(val interface{})
+	// The data binding configuration for the component's properties.
+	//
+	// Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
 	CollectionProperties() interface{}
 	SetCollectionProperties(val interface{})
+	// The type of the component.
+	//
+	// This can be an Amplify custom UI component or another custom component.
 	ComponentType() *string
 	SetComponentType(val *string)
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// Describes the events that can be raised on the component.
+	//
+	// Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
 	Events() interface{}
 	SetEvents(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The name of the component.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Describes the component's properties that can be overriden in a customized instance of the component.
+	//
+	// You can't specify `tags` as a valid property for `overrides` .
 	Overrides() interface{}
 	SetOverrides(val interface{})
+	// Describes the component's properties.
+	//
+	// You can't specify `tags` as a valid property for `properties` .
 	Properties() interface{}
 	SetProperties(val interface{})
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The schema version of the component when it was imported.
 	SchemaVersion() *string
 	SetSchemaVersion(val *string)
+	// The unique ID of the component in its original source system, such as Figma.
 	SourceId() *string
 	SetSourceId(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// One or more key-value pairs to use when tagging the component.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// A list of the component's variants.
+	//
+	// A variant is a unique style configuration of a main component.
 	Variants() interface{}
 	SetVariants(val interface{})
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -216,8 +837,8 @@ func (j *jsiiProxy_CfnComponent) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnComponent) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnComponent) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -318,13 +939,13 @@ func (j *jsiiProxy_CfnComponent) Variants() interface{} {
 
 
 // Create a new `AWS::AmplifyUIBuilder::Component`.
-func NewCfnComponent(scope constructs.Construct, id *string, props *CfnComponentProps) CfnComponent {
+func NewCfnComponent(scope awscdk.Construct, id *string, props *CfnComponentProps) CfnComponent {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnComponent{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent",
+		"monocdk.aws_amplifyuibuilder.CfnComponent",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -333,11 +954,11 @@ func NewCfnComponent(scope constructs.Construct, id *string, props *CfnComponent
 }
 
 // Create a new `AWS::AmplifyUIBuilder::Component`.
-func NewCfnComponent_Override(c CfnComponent, scope constructs.Construct, id *string, props *CfnComponentProps) {
+func NewCfnComponent_Override(c CfnComponent, scope awscdk.Construct, id *string, props *CfnComponentProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent",
+		"monocdk.aws_amplifyuibuilder.CfnComponent",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -437,13 +1058,14 @@ func (j *jsiiProxy_CfnComponent) SetVariants(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnComponent_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent",
+		"monocdk.aws_amplifyuibuilder.CfnComponent",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -453,13 +1075,14 @@ func CfnComponent_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnComponent_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent",
+		"monocdk.aws_amplifyuibuilder.CfnComponent",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -468,17 +1091,15 @@ func CfnComponent_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnComponent_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent",
+		"monocdk.aws_amplifyuibuilder.CfnComponent",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -491,14 +1112,13 @@ func CfnComponent_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent",
+		"monocdk.aws_amplifyuibuilder.CfnComponent",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnComponent) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -507,10 +1127,6 @@ func (c *jsiiProxy_CfnComponent) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnComponent) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -519,13 +1135,6 @@ func (c *jsiiProxy_CfnComponent) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnComponent) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -534,49 +1143,6 @@ func (c *jsiiProxy_CfnComponent) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnComponent) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -585,7 +1151,6 @@ func (c *jsiiProxy_CfnComponent) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnComponent) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -594,9 +1159,6 @@ func (c *jsiiProxy_CfnComponent) AddPropertyDeletionOverride(propertyPath *strin
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnComponent) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -605,15 +1167,6 @@ func (c *jsiiProxy_CfnComponent) AddPropertyOverride(propertyPath *string, value
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnComponent) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -622,10 +1175,6 @@ func (c *jsiiProxy_CfnComponent) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnComponent) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -639,13 +1188,6 @@ func (c *jsiiProxy_CfnComponent) GetAtt(attributeName *string) awscdk.Reference 
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnComponent) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -659,7 +1201,6 @@ func (c *jsiiProxy_CfnComponent) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnComponent) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -668,12 +1209,48 @@ func (c *jsiiProxy_CfnComponent) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnComponent) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnComponent) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnComponent) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnComponent) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnComponent) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -690,10 +1267,6 @@ func (c *jsiiProxy_CfnComponent) RenderProperties(props *map[string]interface{})
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnComponent) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -707,15 +1280,33 @@ func (c *jsiiProxy_CfnComponent) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnComponent) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnComponent) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnComponent) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -735,7 +1326,279 @@ func (c *jsiiProxy_CfnComponent) ValidateProperties(_properties interface{}) {
 //
 // Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components. `ActionParameters` defines the action that is performed when an event occurs on the component.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//
+//   var bindings interface{}
+//   var componentPropertyProperty_ componentPropertyProperty
+//   var fields interface{}
+//   actionParametersProperty := &actionParametersProperty{
+//   	anchor: &componentPropertyProperty{
+//   		bindingProperties: &componentPropertyBindingPropertiesProperty{
+//   			property: jsii.String("property"),
+//
+//   			// the properties below are optional
+//   			field: jsii.String("field"),
+//   		},
+//   		bindings: bindings,
+//   		collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
+//   			property: jsii.String("property"),
+//
+//   			// the properties below are optional
+//   			field: jsii.String("field"),
+//   		},
+//   		componentName: jsii.String("componentName"),
+//   		concat: []interface{}{
+//   			componentPropertyProperty_,
+//   		},
+//   		condition: &componentConditionPropertyProperty{
+//   			else: componentPropertyProperty_,
+//   			field: jsii.String("field"),
+//   			operand: jsii.String("operand"),
+//   			operandType: jsii.String("operandType"),
+//   			operator: jsii.String("operator"),
+//   			property: jsii.String("property"),
+//   			then: componentPropertyProperty_,
+//   		},
+//   		configured: jsii.Boolean(false),
+//   		defaultValue: jsii.String("defaultValue"),
+//   		event: jsii.String("event"),
+//   		importedValue: jsii.String("importedValue"),
+//   		model: jsii.String("model"),
+//   		property: jsii.String("property"),
+//   		type: jsii.String("type"),
+//   		userAttribute: jsii.String("userAttribute"),
+//   		value: jsii.String("value"),
+//   	},
+//   	fields: fields,
+//   	global: &componentPropertyProperty{
+//   		bindingProperties: &componentPropertyBindingPropertiesProperty{
+//   			property: jsii.String("property"),
+//
+//   			// the properties below are optional
+//   			field: jsii.String("field"),
+//   		},
+//   		bindings: bindings,
+//   		collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
+//   			property: jsii.String("property"),
+//
+//   			// the properties below are optional
+//   			field: jsii.String("field"),
+//   		},
+//   		componentName: jsii.String("componentName"),
+//   		concat: []interface{}{
+//   			componentPropertyProperty_,
+//   		},
+//   		condition: &componentConditionPropertyProperty{
+//   			else: componentPropertyProperty_,
+//   			field: jsii.String("field"),
+//   			operand: jsii.String("operand"),
+//   			operandType: jsii.String("operandType"),
+//   			operator: jsii.String("operator"),
+//   			property: jsii.String("property"),
+//   			then: componentPropertyProperty_,
+//   		},
+//   		configured: jsii.Boolean(false),
+//   		defaultValue: jsii.String("defaultValue"),
+//   		event: jsii.String("event"),
+//   		importedValue: jsii.String("importedValue"),
+//   		model: jsii.String("model"),
+//   		property: jsii.String("property"),
+//   		type: jsii.String("type"),
+//   		userAttribute: jsii.String("userAttribute"),
+//   		value: jsii.String("value"),
+//   	},
+//   	id: &componentPropertyProperty{
+//   		bindingProperties: &componentPropertyBindingPropertiesProperty{
+//   			property: jsii.String("property"),
+//
+//   			// the properties below are optional
+//   			field: jsii.String("field"),
+//   		},
+//   		bindings: bindings,
+//   		collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
+//   			property: jsii.String("property"),
+//
+//   			// the properties below are optional
+//   			field: jsii.String("field"),
+//   		},
+//   		componentName: jsii.String("componentName"),
+//   		concat: []interface{}{
+//   			componentPropertyProperty_,
+//   		},
+//   		condition: &componentConditionPropertyProperty{
+//   			else: componentPropertyProperty_,
+//   			field: jsii.String("field"),
+//   			operand: jsii.String("operand"),
+//   			operandType: jsii.String("operandType"),
+//   			operator: jsii.String("operator"),
+//   			property: jsii.String("property"),
+//   			then: componentPropertyProperty_,
+//   		},
+//   		configured: jsii.Boolean(false),
+//   		defaultValue: jsii.String("defaultValue"),
+//   		event: jsii.String("event"),
+//   		importedValue: jsii.String("importedValue"),
+//   		model: jsii.String("model"),
+//   		property: jsii.String("property"),
+//   		type: jsii.String("type"),
+//   		userAttribute: jsii.String("userAttribute"),
+//   		value: jsii.String("value"),
+//   	},
+//   	model: jsii.String("model"),
+//   	state: &mutationActionSetStateParameterProperty{
+//   		componentName: jsii.String("componentName"),
+//   		property: jsii.String("property"),
+//   		set: &componentPropertyProperty{
+//   			bindingProperties: &componentPropertyBindingPropertiesProperty{
+//   				property: jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				field: jsii.String("field"),
+//   			},
+//   			bindings: bindings,
+//   			collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
+//   				property: jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				field: jsii.String("field"),
+//   			},
+//   			componentName: jsii.String("componentName"),
+//   			concat: []interface{}{
+//   				componentPropertyProperty_,
+//   			},
+//   			condition: &componentConditionPropertyProperty{
+//   				else: componentPropertyProperty_,
+//   				field: jsii.String("field"),
+//   				operand: jsii.String("operand"),
+//   				operandType: jsii.String("operandType"),
+//   				operator: jsii.String("operator"),
+//   				property: jsii.String("property"),
+//   				then: componentPropertyProperty_,
+//   			},
+//   			configured: jsii.Boolean(false),
+//   			defaultValue: jsii.String("defaultValue"),
+//   			event: jsii.String("event"),
+//   			importedValue: jsii.String("importedValue"),
+//   			model: jsii.String("model"),
+//   			property: jsii.String("property"),
+//   			type: jsii.String("type"),
+//   			userAttribute: jsii.String("userAttribute"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	target: &componentPropertyProperty{
+//   		bindingProperties: &componentPropertyBindingPropertiesProperty{
+//   			property: jsii.String("property"),
+//
+//   			// the properties below are optional
+//   			field: jsii.String("field"),
+//   		},
+//   		bindings: bindings,
+//   		collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
+//   			property: jsii.String("property"),
+//
+//   			// the properties below are optional
+//   			field: jsii.String("field"),
+//   		},
+//   		componentName: jsii.String("componentName"),
+//   		concat: []interface{}{
+//   			componentPropertyProperty_,
+//   		},
+//   		condition: &componentConditionPropertyProperty{
+//   			else: componentPropertyProperty_,
+//   			field: jsii.String("field"),
+//   			operand: jsii.String("operand"),
+//   			operandType: jsii.String("operandType"),
+//   			operator: jsii.String("operator"),
+//   			property: jsii.String("property"),
+//   			then: componentPropertyProperty_,
+//   		},
+//   		configured: jsii.Boolean(false),
+//   		defaultValue: jsii.String("defaultValue"),
+//   		event: jsii.String("event"),
+//   		importedValue: jsii.String("importedValue"),
+//   		model: jsii.String("model"),
+//   		property: jsii.String("property"),
+//   		type: jsii.String("type"),
+//   		userAttribute: jsii.String("userAttribute"),
+//   		value: jsii.String("value"),
+//   	},
+//   	type: &componentPropertyProperty{
+//   		bindingProperties: &componentPropertyBindingPropertiesProperty{
+//   			property: jsii.String("property"),
+//
+//   			// the properties below are optional
+//   			field: jsii.String("field"),
+//   		},
+//   		bindings: bindings,
+//   		collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
+//   			property: jsii.String("property"),
+//
+//   			// the properties below are optional
+//   			field: jsii.String("field"),
+//   		},
+//   		componentName: jsii.String("componentName"),
+//   		concat: []interface{}{
+//   			componentPropertyProperty_,
+//   		},
+//   		condition: &componentConditionPropertyProperty{
+//   			else: componentPropertyProperty_,
+//   			field: jsii.String("field"),
+//   			operand: jsii.String("operand"),
+//   			operandType: jsii.String("operandType"),
+//   			operator: jsii.String("operator"),
+//   			property: jsii.String("property"),
+//   			then: componentPropertyProperty_,
+//   		},
+//   		configured: jsii.Boolean(false),
+//   		defaultValue: jsii.String("defaultValue"),
+//   		event: jsii.String("event"),
+//   		importedValue: jsii.String("importedValue"),
+//   		model: jsii.String("model"),
+//   		property: jsii.String("property"),
+//   		type: jsii.String("type"),
+//   		userAttribute: jsii.String("userAttribute"),
+//   		value: jsii.String("value"),
+//   	},
+//   	url: &componentPropertyProperty{
+//   		bindingProperties: &componentPropertyBindingPropertiesProperty{
+//   			property: jsii.String("property"),
+//
+//   			// the properties below are optional
+//   			field: jsii.String("field"),
+//   		},
+//   		bindings: bindings,
+//   		collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
+//   			property: jsii.String("property"),
+//
+//   			// the properties below are optional
+//   			field: jsii.String("field"),
+//   		},
+//   		componentName: jsii.String("componentName"),
+//   		concat: []interface{}{
+//   			componentPropertyProperty_,
+//   		},
+//   		condition: &componentConditionPropertyProperty{
+//   			else: componentPropertyProperty_,
+//   			field: jsii.String("field"),
+//   			operand: jsii.String("operand"),
+//   			operandType: jsii.String("operandType"),
+//   			operator: jsii.String("operator"),
+//   			property: jsii.String("property"),
+//   			then: componentPropertyProperty_,
+//   		},
+//   		configured: jsii.Boolean(false),
+//   		defaultValue: jsii.String("defaultValue"),
+//   		event: jsii.String("event"),
+//   		importedValue: jsii.String("importedValue"),
+//   		model: jsii.String("model"),
+//   		property: jsii.String("property"),
+//   		type: jsii.String("type"),
+//   		userAttribute: jsii.String("userAttribute"),
+//   		value: jsii.String("value"),
+//   	},
+//   }
 //
 type CfnComponent_ActionParametersProperty struct {
 	// The HTML anchor link to the location to open.
@@ -774,7 +1637,31 @@ type CfnComponent_ActionParametersProperty struct {
 //
 // For AWS connected properties, you can bind a property to data stored in an Amazon S3 bucket, an Amplify DataStore model or an authenticated user attribute.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//
+//   var predicateProperty_ predicateProperty
+//   componentBindingPropertiesValuePropertiesProperty := &componentBindingPropertiesValuePropertiesProperty{
+//   	bucket: jsii.String("bucket"),
+//   	defaultValue: jsii.String("defaultValue"),
+//   	field: jsii.String("field"),
+//   	key: jsii.String("key"),
+//   	model: jsii.String("model"),
+//   	predicates: []interface{}{
+//   		&predicateProperty{
+//   			and: []interface{}{
+//   				predicateProperty_,
+//   			},
+//   			field: jsii.String("field"),
+//   			operand: jsii.String("operand"),
+//   			operator: jsii.String("operator"),
+//   			or: []interface{}{
+//   				predicateProperty_,
+//   			},
+//   		},
+//   	},
+//   	userAttribute: jsii.String("userAttribute"),
+//   }
 //
 type CfnComponent_ComponentBindingPropertiesValuePropertiesProperty struct {
 	// An Amazon S3 bucket.
@@ -797,7 +1684,35 @@ type CfnComponent_ComponentBindingPropertiesValuePropertiesProperty struct {
 //
 // You can use `ComponentBindingPropertiesValue` to add exposed properties to a component to allow different values to be entered when a component is reused in different places in an app.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//
+//   var predicateProperty_ predicateProperty
+//   componentBindingPropertiesValueProperty := &componentBindingPropertiesValueProperty{
+//   	bindingProperties: &componentBindingPropertiesValuePropertiesProperty{
+//   		bucket: jsii.String("bucket"),
+//   		defaultValue: jsii.String("defaultValue"),
+//   		field: jsii.String("field"),
+//   		key: jsii.String("key"),
+//   		model: jsii.String("model"),
+//   		predicates: []interface{}{
+//   			&predicateProperty{
+//   				and: []interface{}{
+//   					predicateProperty_,
+//   				},
+//   				field: jsii.String("field"),
+//   				operand: jsii.String("operand"),
+//   				operator: jsii.String("operator"),
+//   				or: []interface{}{
+//   					predicateProperty_,
+//   				},
+//   			},
+//   		},
+//   		userAttribute: jsii.String("userAttribute"),
+//   	},
+//   	defaultValue: jsii.String("defaultValue"),
+//   	type: jsii.String("type"),
+//   }
 //
 type CfnComponent_ComponentBindingPropertiesValueProperty struct {
 	// Describes the properties to customize with data at runtime.
@@ -810,7 +1725,33 @@ type CfnComponent_ComponentBindingPropertiesValueProperty struct {
 
 // The `ComponentChild` property specifies a nested UI configuration within a parent `Component` .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//
+//   var componentChildProperty_ componentChildProperty
+//   var events interface{}
+//   var properties interface{}
+//   componentChildProperty := &componentChildProperty{
+//   	componentType: jsii.String("componentType"),
+//   	name: jsii.String("name"),
+//   	properties: properties,
+//
+//   	// the properties below are optional
+//   	children: []interface{}{
+//   		&componentChildProperty{
+//   			componentType: jsii.String("componentType"),
+//   			name: jsii.String("name"),
+//   			properties: properties,
+//
+//   			// the properties below are optional
+//   			children: []interface{}{
+//   				componentChildProperty_,
+//   			},
+//   			events: events,
+//   		},
+//   	},
+//   	events: events,
+//   }
 //
 type CfnComponent_ComponentChildProperty struct {
 	// The type of the child component.
@@ -833,7 +1774,92 @@ type CfnComponent_ComponentChildProperty struct {
 //
 // Use `ComponentConditionProperty` to set a property to different values conditionally, based on the value of another property.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//
+//   var bindings interface{}
+//   var componentPropertyProperty_ componentPropertyProperty
+//   componentConditionPropertyProperty := &componentConditionPropertyProperty{
+//   	else: &componentPropertyProperty{
+//   		bindingProperties: &componentPropertyBindingPropertiesProperty{
+//   			property: jsii.String("property"),
+//
+//   			// the properties below are optional
+//   			field: jsii.String("field"),
+//   		},
+//   		bindings: bindings,
+//   		collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
+//   			property: jsii.String("property"),
+//
+//   			// the properties below are optional
+//   			field: jsii.String("field"),
+//   		},
+//   		componentName: jsii.String("componentName"),
+//   		concat: []interface{}{
+//   			componentPropertyProperty_,
+//   		},
+//   		condition: &componentConditionPropertyProperty{
+//   			else: componentPropertyProperty_,
+//   			field: jsii.String("field"),
+//   			operand: jsii.String("operand"),
+//   			operandType: jsii.String("operandType"),
+//   			operator: jsii.String("operator"),
+//   			property: jsii.String("property"),
+//   			then: componentPropertyProperty_,
+//   		},
+//   		configured: jsii.Boolean(false),
+//   		defaultValue: jsii.String("defaultValue"),
+//   		event: jsii.String("event"),
+//   		importedValue: jsii.String("importedValue"),
+//   		model: jsii.String("model"),
+//   		property: jsii.String("property"),
+//   		type: jsii.String("type"),
+//   		userAttribute: jsii.String("userAttribute"),
+//   		value: jsii.String("value"),
+//   	},
+//   	field: jsii.String("field"),
+//   	operand: jsii.String("operand"),
+//   	operandType: jsii.String("operandType"),
+//   	operator: jsii.String("operator"),
+//   	property: jsii.String("property"),
+//   	then: &componentPropertyProperty{
+//   		bindingProperties: &componentPropertyBindingPropertiesProperty{
+//   			property: jsii.String("property"),
+//
+//   			// the properties below are optional
+//   			field: jsii.String("field"),
+//   		},
+//   		bindings: bindings,
+//   		collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
+//   			property: jsii.String("property"),
+//
+//   			// the properties below are optional
+//   			field: jsii.String("field"),
+//   		},
+//   		componentName: jsii.String("componentName"),
+//   		concat: []interface{}{
+//   			componentPropertyProperty_,
+//   		},
+//   		condition: &componentConditionPropertyProperty{
+//   			else: componentPropertyProperty_,
+//   			field: jsii.String("field"),
+//   			operand: jsii.String("operand"),
+//   			operandType: jsii.String("operandType"),
+//   			operator: jsii.String("operator"),
+//   			property: jsii.String("property"),
+//   			then: componentPropertyProperty_,
+//   		},
+//   		configured: jsii.Boolean(false),
+//   		defaultValue: jsii.String("defaultValue"),
+//   		event: jsii.String("event"),
+//   		importedValue: jsii.String("importedValue"),
+//   		model: jsii.String("model"),
+//   		property: jsii.String("property"),
+//   		type: jsii.String("type"),
+//   		userAttribute: jsii.String("userAttribute"),
+//   		value: jsii.String("value"),
+//   	},
+//   }
 //
 type CfnComponent_ComponentConditionPropertyProperty struct {
 	// The value to assign to the property if the condition is not met.
@@ -856,7 +1882,35 @@ type CfnComponent_ComponentConditionPropertyProperty struct {
 
 // The `ComponentDataConfiguration` property specifies the configuration for binding a component's properties to data.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//
+//   var predicateProperty_ predicateProperty
+//   componentDataConfigurationProperty := &componentDataConfigurationProperty{
+//   	model: jsii.String("model"),
+//
+//   	// the properties below are optional
+//   	identifiers: []*string{
+//   		jsii.String("identifiers"),
+//   	},
+//   	predicate: &predicateProperty{
+//   		and: []interface{}{
+//   			predicateProperty_,
+//   		},
+//   		field: jsii.String("field"),
+//   		operand: jsii.String("operand"),
+//   		operator: jsii.String("operator"),
+//   		or: []interface{}{
+//   			predicateProperty_,
+//   		},
+//   	},
+//   	sort: []interface{}{
+//   		&sortPropertyProperty{
+//   			direction: jsii.String("direction"),
+//   			field: jsii.String("field"),
+//   		},
+//   	},
+//   }
 //
 type CfnComponent_ComponentDataConfigurationProperty struct {
 	// The name of the data model to use to bind data to a component.
@@ -877,7 +1931,282 @@ type CfnComponent_ComponentDataConfigurationProperty struct {
 //
 // You can bind an event and a corresponding action to a `Component` or a `ComponentChild` . A button click is an example of an event.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//
+//   var bindings interface{}
+//   var componentPropertyProperty_ componentPropertyProperty
+//   var fields interface{}
+//   componentEventProperty := &componentEventProperty{
+//   	action: jsii.String("action"),
+//   	parameters: &actionParametersProperty{
+//   		anchor: &componentPropertyProperty{
+//   			bindingProperties: &componentPropertyBindingPropertiesProperty{
+//   				property: jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				field: jsii.String("field"),
+//   			},
+//   			bindings: bindings,
+//   			collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
+//   				property: jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				field: jsii.String("field"),
+//   			},
+//   			componentName: jsii.String("componentName"),
+//   			concat: []interface{}{
+//   				componentPropertyProperty_,
+//   			},
+//   			condition: &componentConditionPropertyProperty{
+//   				else: componentPropertyProperty_,
+//   				field: jsii.String("field"),
+//   				operand: jsii.String("operand"),
+//   				operandType: jsii.String("operandType"),
+//   				operator: jsii.String("operator"),
+//   				property: jsii.String("property"),
+//   				then: componentPropertyProperty_,
+//   			},
+//   			configured: jsii.Boolean(false),
+//   			defaultValue: jsii.String("defaultValue"),
+//   			event: jsii.String("event"),
+//   			importedValue: jsii.String("importedValue"),
+//   			model: jsii.String("model"),
+//   			property: jsii.String("property"),
+//   			type: jsii.String("type"),
+//   			userAttribute: jsii.String("userAttribute"),
+//   			value: jsii.String("value"),
+//   		},
+//   		fields: fields,
+//   		global: &componentPropertyProperty{
+//   			bindingProperties: &componentPropertyBindingPropertiesProperty{
+//   				property: jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				field: jsii.String("field"),
+//   			},
+//   			bindings: bindings,
+//   			collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
+//   				property: jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				field: jsii.String("field"),
+//   			},
+//   			componentName: jsii.String("componentName"),
+//   			concat: []interface{}{
+//   				componentPropertyProperty_,
+//   			},
+//   			condition: &componentConditionPropertyProperty{
+//   				else: componentPropertyProperty_,
+//   				field: jsii.String("field"),
+//   				operand: jsii.String("operand"),
+//   				operandType: jsii.String("operandType"),
+//   				operator: jsii.String("operator"),
+//   				property: jsii.String("property"),
+//   				then: componentPropertyProperty_,
+//   			},
+//   			configured: jsii.Boolean(false),
+//   			defaultValue: jsii.String("defaultValue"),
+//   			event: jsii.String("event"),
+//   			importedValue: jsii.String("importedValue"),
+//   			model: jsii.String("model"),
+//   			property: jsii.String("property"),
+//   			type: jsii.String("type"),
+//   			userAttribute: jsii.String("userAttribute"),
+//   			value: jsii.String("value"),
+//   		},
+//   		id: &componentPropertyProperty{
+//   			bindingProperties: &componentPropertyBindingPropertiesProperty{
+//   				property: jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				field: jsii.String("field"),
+//   			},
+//   			bindings: bindings,
+//   			collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
+//   				property: jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				field: jsii.String("field"),
+//   			},
+//   			componentName: jsii.String("componentName"),
+//   			concat: []interface{}{
+//   				componentPropertyProperty_,
+//   			},
+//   			condition: &componentConditionPropertyProperty{
+//   				else: componentPropertyProperty_,
+//   				field: jsii.String("field"),
+//   				operand: jsii.String("operand"),
+//   				operandType: jsii.String("operandType"),
+//   				operator: jsii.String("operator"),
+//   				property: jsii.String("property"),
+//   				then: componentPropertyProperty_,
+//   			},
+//   			configured: jsii.Boolean(false),
+//   			defaultValue: jsii.String("defaultValue"),
+//   			event: jsii.String("event"),
+//   			importedValue: jsii.String("importedValue"),
+//   			model: jsii.String("model"),
+//   			property: jsii.String("property"),
+//   			type: jsii.String("type"),
+//   			userAttribute: jsii.String("userAttribute"),
+//   			value: jsii.String("value"),
+//   		},
+//   		model: jsii.String("model"),
+//   		state: &mutationActionSetStateParameterProperty{
+//   			componentName: jsii.String("componentName"),
+//   			property: jsii.String("property"),
+//   			set: &componentPropertyProperty{
+//   				bindingProperties: &componentPropertyBindingPropertiesProperty{
+//   					property: jsii.String("property"),
+//
+//   					// the properties below are optional
+//   					field: jsii.String("field"),
+//   				},
+//   				bindings: bindings,
+//   				collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
+//   					property: jsii.String("property"),
+//
+//   					// the properties below are optional
+//   					field: jsii.String("field"),
+//   				},
+//   				componentName: jsii.String("componentName"),
+//   				concat: []interface{}{
+//   					componentPropertyProperty_,
+//   				},
+//   				condition: &componentConditionPropertyProperty{
+//   					else: componentPropertyProperty_,
+//   					field: jsii.String("field"),
+//   					operand: jsii.String("operand"),
+//   					operandType: jsii.String("operandType"),
+//   					operator: jsii.String("operator"),
+//   					property: jsii.String("property"),
+//   					then: componentPropertyProperty_,
+//   				},
+//   				configured: jsii.Boolean(false),
+//   				defaultValue: jsii.String("defaultValue"),
+//   				event: jsii.String("event"),
+//   				importedValue: jsii.String("importedValue"),
+//   				model: jsii.String("model"),
+//   				property: jsii.String("property"),
+//   				type: jsii.String("type"),
+//   				userAttribute: jsii.String("userAttribute"),
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   		target: &componentPropertyProperty{
+//   			bindingProperties: &componentPropertyBindingPropertiesProperty{
+//   				property: jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				field: jsii.String("field"),
+//   			},
+//   			bindings: bindings,
+//   			collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
+//   				property: jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				field: jsii.String("field"),
+//   			},
+//   			componentName: jsii.String("componentName"),
+//   			concat: []interface{}{
+//   				componentPropertyProperty_,
+//   			},
+//   			condition: &componentConditionPropertyProperty{
+//   				else: componentPropertyProperty_,
+//   				field: jsii.String("field"),
+//   				operand: jsii.String("operand"),
+//   				operandType: jsii.String("operandType"),
+//   				operator: jsii.String("operator"),
+//   				property: jsii.String("property"),
+//   				then: componentPropertyProperty_,
+//   			},
+//   			configured: jsii.Boolean(false),
+//   			defaultValue: jsii.String("defaultValue"),
+//   			event: jsii.String("event"),
+//   			importedValue: jsii.String("importedValue"),
+//   			model: jsii.String("model"),
+//   			property: jsii.String("property"),
+//   			type: jsii.String("type"),
+//   			userAttribute: jsii.String("userAttribute"),
+//   			value: jsii.String("value"),
+//   		},
+//   		type: &componentPropertyProperty{
+//   			bindingProperties: &componentPropertyBindingPropertiesProperty{
+//   				property: jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				field: jsii.String("field"),
+//   			},
+//   			bindings: bindings,
+//   			collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
+//   				property: jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				field: jsii.String("field"),
+//   			},
+//   			componentName: jsii.String("componentName"),
+//   			concat: []interface{}{
+//   				componentPropertyProperty_,
+//   			},
+//   			condition: &componentConditionPropertyProperty{
+//   				else: componentPropertyProperty_,
+//   				field: jsii.String("field"),
+//   				operand: jsii.String("operand"),
+//   				operandType: jsii.String("operandType"),
+//   				operator: jsii.String("operator"),
+//   				property: jsii.String("property"),
+//   				then: componentPropertyProperty_,
+//   			},
+//   			configured: jsii.Boolean(false),
+//   			defaultValue: jsii.String("defaultValue"),
+//   			event: jsii.String("event"),
+//   			importedValue: jsii.String("importedValue"),
+//   			model: jsii.String("model"),
+//   			property: jsii.String("property"),
+//   			type: jsii.String("type"),
+//   			userAttribute: jsii.String("userAttribute"),
+//   			value: jsii.String("value"),
+//   		},
+//   		url: &componentPropertyProperty{
+//   			bindingProperties: &componentPropertyBindingPropertiesProperty{
+//   				property: jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				field: jsii.String("field"),
+//   			},
+//   			bindings: bindings,
+//   			collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
+//   				property: jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				field: jsii.String("field"),
+//   			},
+//   			componentName: jsii.String("componentName"),
+//   			concat: []interface{}{
+//   				componentPropertyProperty_,
+//   			},
+//   			condition: &componentConditionPropertyProperty{
+//   				else: componentPropertyProperty_,
+//   				field: jsii.String("field"),
+//   				operand: jsii.String("operand"),
+//   				operandType: jsii.String("operandType"),
+//   				operator: jsii.String("operator"),
+//   				property: jsii.String("property"),
+//   				then: componentPropertyProperty_,
+//   			},
+//   			configured: jsii.Boolean(false),
+//   			defaultValue: jsii.String("defaultValue"),
+//   			event: jsii.String("event"),
+//   			importedValue: jsii.String("importedValue"),
+//   			model: jsii.String("model"),
+//   			property: jsii.String("property"),
+//   			type: jsii.String("type"),
+//   			userAttribute: jsii.String("userAttribute"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnComponent_ComponentEventProperty struct {
 	// The action to perform when a specific event is raised.
@@ -890,7 +2219,14 @@ type CfnComponent_ComponentEventProperty struct {
 //
 // This enables exposed properties on the top level component to propagate data to the component's property values.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//   componentPropertyBindingPropertiesProperty := &componentPropertyBindingPropertiesProperty{
+//   	property: jsii.String("property"),
+//
+//   	// the properties below are optional
+//   	field: jsii.String("field"),
+//   }
 //
 type CfnComponent_ComponentPropertyBindingPropertiesProperty struct {
 	// The component property to bind to the data field.
@@ -903,7 +2239,141 @@ type CfnComponent_ComponentPropertyBindingPropertiesProperty struct {
 //
 // Use `ComponentProperty` to specify the values to render or bind by default.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//
+//   var bindings interface{}
+//   var componentConditionPropertyProperty_ componentConditionPropertyProperty
+//   var componentPropertyProperty_ componentPropertyProperty
+//   componentPropertyProperty := &componentPropertyProperty{
+//   	bindingProperties: &componentPropertyBindingPropertiesProperty{
+//   		property: jsii.String("property"),
+//
+//   		// the properties below are optional
+//   		field: jsii.String("field"),
+//   	},
+//   	bindings: bindings,
+//   	collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
+//   		property: jsii.String("property"),
+//
+//   		// the properties below are optional
+//   		field: jsii.String("field"),
+//   	},
+//   	componentName: jsii.String("componentName"),
+//   	concat: []interface{}{
+//   		&componentPropertyProperty{
+//   			bindingProperties: &componentPropertyBindingPropertiesProperty{
+//   				property: jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				field: jsii.String("field"),
+//   			},
+//   			bindings: bindings,
+//   			collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
+//   				property: jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				field: jsii.String("field"),
+//   			},
+//   			componentName: jsii.String("componentName"),
+//   			concat: []interface{}{
+//   				componentPropertyProperty_,
+//   			},
+//   			condition: &componentConditionPropertyProperty{
+//   				else: componentPropertyProperty_,
+//   				field: jsii.String("field"),
+//   				operand: jsii.String("operand"),
+//   				operandType: jsii.String("operandType"),
+//   				operator: jsii.String("operator"),
+//   				property: jsii.String("property"),
+//   				then: componentPropertyProperty_,
+//   			},
+//   			configured: jsii.Boolean(false),
+//   			defaultValue: jsii.String("defaultValue"),
+//   			event: jsii.String("event"),
+//   			importedValue: jsii.String("importedValue"),
+//   			model: jsii.String("model"),
+//   			property: jsii.String("property"),
+//   			type: jsii.String("type"),
+//   			userAttribute: jsii.String("userAttribute"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	condition: &componentConditionPropertyProperty{
+//   		else: &componentPropertyProperty{
+//   			bindingProperties: &componentPropertyBindingPropertiesProperty{
+//   				property: jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				field: jsii.String("field"),
+//   			},
+//   			bindings: bindings,
+//   			collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
+//   				property: jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				field: jsii.String("field"),
+//   			},
+//   			componentName: jsii.String("componentName"),
+//   			concat: []interface{}{
+//   				componentPropertyProperty_,
+//   			},
+//   			condition: componentConditionPropertyProperty_,
+//   			configured: jsii.Boolean(false),
+//   			defaultValue: jsii.String("defaultValue"),
+//   			event: jsii.String("event"),
+//   			importedValue: jsii.String("importedValue"),
+//   			model: jsii.String("model"),
+//   			property: jsii.String("property"),
+//   			type: jsii.String("type"),
+//   			userAttribute: jsii.String("userAttribute"),
+//   			value: jsii.String("value"),
+//   		},
+//   		field: jsii.String("field"),
+//   		operand: jsii.String("operand"),
+//   		operandType: jsii.String("operandType"),
+//   		operator: jsii.String("operator"),
+//   		property: jsii.String("property"),
+//   		then: &componentPropertyProperty{
+//   			bindingProperties: &componentPropertyBindingPropertiesProperty{
+//   				property: jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				field: jsii.String("field"),
+//   			},
+//   			bindings: bindings,
+//   			collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
+//   				property: jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				field: jsii.String("field"),
+//   			},
+//   			componentName: jsii.String("componentName"),
+//   			concat: []interface{}{
+//   				componentPropertyProperty_,
+//   			},
+//   			condition: componentConditionPropertyProperty_,
+//   			configured: jsii.Boolean(false),
+//   			defaultValue: jsii.String("defaultValue"),
+//   			event: jsii.String("event"),
+//   			importedValue: jsii.String("importedValue"),
+//   			model: jsii.String("model"),
+//   			property: jsii.String("property"),
+//   			type: jsii.String("type"),
+//   			userAttribute: jsii.String("userAttribute"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	configured: jsii.Boolean(false),
+//   	defaultValue: jsii.String("defaultValue"),
+//   	event: jsii.String("event"),
+//   	importedValue: jsii.String("importedValue"),
+//   	model: jsii.String("model"),
+//   	property: jsii.String("property"),
+//   	type: jsii.String("type"),
+//   	userAttribute: jsii.String("userAttribute"),
+//   	value: jsii.String("value"),
+//   }
 //
 type CfnComponent_ComponentPropertyProperty struct {
 	// The information to bind the component property to data at runtime.
@@ -944,7 +2414,15 @@ type CfnComponent_ComponentPropertyProperty struct {
 
 // The `ComponentVariant` property specifies the style configuration of a unique variation of a main component.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//
+//   var overrides interface{}
+//   var variantValues interface{}
+//   componentVariantProperty := &componentVariantProperty{
+//   	overrides: overrides,
+//   	variantValues: variantValues,
+//   }
 //
 type CfnComponent_ComponentVariantProperty struct {
 	// The properties of the component variant that can be overriden when customizing an instance of the component.
@@ -957,7 +2435,52 @@ type CfnComponent_ComponentVariantProperty struct {
 
 // The `MutationActionSetStateParameter` property specifies the state configuration when an action modifies a property of another element within the same component.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//
+//   var bindings interface{}
+//   var componentPropertyProperty_ componentPropertyProperty
+//   mutationActionSetStateParameterProperty := &mutationActionSetStateParameterProperty{
+//   	componentName: jsii.String("componentName"),
+//   	property: jsii.String("property"),
+//   	set: &componentPropertyProperty{
+//   		bindingProperties: &componentPropertyBindingPropertiesProperty{
+//   			property: jsii.String("property"),
+//
+//   			// the properties below are optional
+//   			field: jsii.String("field"),
+//   		},
+//   		bindings: bindings,
+//   		collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
+//   			property: jsii.String("property"),
+//
+//   			// the properties below are optional
+//   			field: jsii.String("field"),
+//   		},
+//   		componentName: jsii.String("componentName"),
+//   		concat: []interface{}{
+//   			componentPropertyProperty_,
+//   		},
+//   		condition: &componentConditionPropertyProperty{
+//   			else: componentPropertyProperty_,
+//   			field: jsii.String("field"),
+//   			operand: jsii.String("operand"),
+//   			operandType: jsii.String("operandType"),
+//   			operator: jsii.String("operator"),
+//   			property: jsii.String("property"),
+//   			then: componentPropertyProperty_,
+//   		},
+//   		configured: jsii.Boolean(false),
+//   		defaultValue: jsii.String("defaultValue"),
+//   		event: jsii.String("event"),
+//   		importedValue: jsii.String("importedValue"),
+//   		model: jsii.String("model"),
+//   		property: jsii.String("property"),
+//   		type: jsii.String("type"),
+//   		userAttribute: jsii.String("userAttribute"),
+//   		value: jsii.String("value"),
+//   	},
+//   }
 //
 type CfnComponent_MutationActionSetStateParameterProperty struct {
 	// The name of the component that is being modified.
@@ -972,7 +2495,41 @@ type CfnComponent_MutationActionSetStateParameterProperty struct {
 //
 // Use `Predicate` to retrieve a subset of the data in a collection.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//
+//   var predicateProperty_ predicateProperty
+//   predicateProperty := &predicateProperty{
+//   	and: []interface{}{
+//   		&predicateProperty{
+//   			and: []interface{}{
+//   				predicateProperty_,
+//   			},
+//   			field: jsii.String("field"),
+//   			operand: jsii.String("operand"),
+//   			operator: jsii.String("operator"),
+//   			or: []interface{}{
+//   				predicateProperty_,
+//   			},
+//   		},
+//   	},
+//   	field: jsii.String("field"),
+//   	operand: jsii.String("operand"),
+//   	operator: jsii.String("operator"),
+//   	or: []interface{}{
+//   		&predicateProperty{
+//   			and: []interface{}{
+//   				predicateProperty_,
+//   			},
+//   			field: jsii.String("field"),
+//   			operand: jsii.String("operand"),
+//   			operator: jsii.String("operator"),
+//   			or: []interface{}{
+//   				predicateProperty_,
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnComponent_PredicateProperty struct {
 	// A list of predicates to combine logically.
@@ -989,7 +2546,12 @@ type CfnComponent_PredicateProperty struct {
 
 // The `SortProperty` property specifies how to sort the data that you bind to a component.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//   sortPropertyProperty := &sortPropertyProperty{
+//   	direction: jsii.String("direction"),
+//   	field: jsii.String("field"),
+//   }
 //
 type CfnComponent_SortPropertyProperty struct {
 	// The direction of the sort, either ascending or descending.
@@ -1000,7 +2562,416 @@ type CfnComponent_SortPropertyProperty struct {
 
 // Properties for defining a `CfnComponent`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//
+//   var bindings interface{}
+//   var componentChildProperty_ componentChildProperty
+//   var componentPropertyProperty_ componentPropertyProperty
+//   var events interface{}
+//   var fields interface{}
+//   var overrides interface{}
+//   var predicateProperty_ predicateProperty
+//   var properties interface{}
+//   var variantValues interface{}
+//   cfnComponentProps := &cfnComponentProps{
+//   	bindingProperties: map[string]interface{}{
+//   		"bindingPropertiesKey": &ComponentBindingPropertiesValueProperty{
+//   			"bindingProperties": &ComponentBindingPropertiesValuePropertiesProperty{
+//   				"bucket": jsii.String("bucket"),
+//   				"defaultValue": jsii.String("defaultValue"),
+//   				"field": jsii.String("field"),
+//   				"key": jsii.String("key"),
+//   				"model": jsii.String("model"),
+//   				"predicates": []interface{}{
+//   					&predicateProperty{
+//   						"and": []interface{}{
+//   							predicateProperty_,
+//   						},
+//   						"field": jsii.String("field"),
+//   						"operand": jsii.String("operand"),
+//   						"operator": jsii.String("operator"),
+//   						"or": []interface{}{
+//   							predicateProperty_,
+//   						},
+//   					},
+//   				},
+//   				"userAttribute": jsii.String("userAttribute"),
+//   			},
+//   			"defaultValue": jsii.String("defaultValue"),
+//   			"type": jsii.String("type"),
+//   		},
+//   	},
+//   	componentType: jsii.String("componentType"),
+//   	name: jsii.String("name"),
+//   	overrides: map[string]interface{}{
+//   		"overridesKey": overrides,
+//   	},
+//   	properties: map[string]interface{}{
+//   		"propertiesKey": &componentPropertyProperty{
+//   			"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   				"property": jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				"field": jsii.String("field"),
+//   			},
+//   			"bindings": bindings,
+//   			"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   				"property": jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				"field": jsii.String("field"),
+//   			},
+//   			"componentName": jsii.String("componentName"),
+//   			"concat": []interface{}{
+//   				componentPropertyProperty_,
+//   			},
+//   			"condition": &ComponentConditionPropertyProperty{
+//   				"else": componentPropertyProperty_,
+//   				"field": jsii.String("field"),
+//   				"operand": jsii.String("operand"),
+//   				"operandType": jsii.String("operandType"),
+//   				"operator": jsii.String("operator"),
+//   				"property": jsii.String("property"),
+//   				"then": componentPropertyProperty_,
+//   			},
+//   			"configured": jsii.Boolean(false),
+//   			"defaultValue": jsii.String("defaultValue"),
+//   			"event": jsii.String("event"),
+//   			"importedValue": jsii.String("importedValue"),
+//   			"model": jsii.String("model"),
+//   			"property": jsii.String("property"),
+//   			"type": jsii.String("type"),
+//   			"userAttribute": jsii.String("userAttribute"),
+//   			"value": jsii.String("value"),
+//   		},
+//   	},
+//   	variants: []interface{}{
+//   		&componentVariantProperty{
+//   			overrides: overrides,
+//   			variantValues: variantValues,
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	children: []interface{}{
+//   		&componentChildProperty{
+//   			componentType: jsii.String("componentType"),
+//   			name: jsii.String("name"),
+//   			properties: properties,
+//
+//   			// the properties below are optional
+//   			children: []interface{}{
+//   				componentChildProperty_,
+//   			},
+//   			events: events,
+//   		},
+//   	},
+//   	collectionProperties: map[string]interface{}{
+//   		"collectionPropertiesKey": &ComponentDataConfigurationProperty{
+//   			"model": jsii.String("model"),
+//
+//   			// the properties below are optional
+//   			"identifiers": []*string{
+//   				jsii.String("identifiers"),
+//   			},
+//   			"predicate": &predicateProperty{
+//   				"and": []interface{}{
+//   					predicateProperty_,
+//   				},
+//   				"field": jsii.String("field"),
+//   				"operand": jsii.String("operand"),
+//   				"operator": jsii.String("operator"),
+//   				"or": []interface{}{
+//   					predicateProperty_,
+//   				},
+//   			},
+//   			"sort": []interface{}{
+//   				&SortPropertyProperty{
+//   					"direction": jsii.String("direction"),
+//   					"field": jsii.String("field"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	events: map[string]interface{}{
+//   		"eventsKey": &ComponentEventProperty{
+//   			"action": jsii.String("action"),
+//   			"parameters": &ActionParametersProperty{
+//   				"anchor": &componentPropertyProperty{
+//   					"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"bindings": bindings,
+//   					"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"componentName": jsii.String("componentName"),
+//   					"concat": []interface{}{
+//   						componentPropertyProperty_,
+//   					},
+//   					"condition": &ComponentConditionPropertyProperty{
+//   						"else": componentPropertyProperty_,
+//   						"field": jsii.String("field"),
+//   						"operand": jsii.String("operand"),
+//   						"operandType": jsii.String("operandType"),
+//   						"operator": jsii.String("operator"),
+//   						"property": jsii.String("property"),
+//   						"then": componentPropertyProperty_,
+//   					},
+//   					"configured": jsii.Boolean(false),
+//   					"defaultValue": jsii.String("defaultValue"),
+//   					"event": jsii.String("event"),
+//   					"importedValue": jsii.String("importedValue"),
+//   					"model": jsii.String("model"),
+//   					"property": jsii.String("property"),
+//   					"type": jsii.String("type"),
+//   					"userAttribute": jsii.String("userAttribute"),
+//   					"value": jsii.String("value"),
+//   				},
+//   				"fields": fields,
+//   				"global": &componentPropertyProperty{
+//   					"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"bindings": bindings,
+//   					"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"componentName": jsii.String("componentName"),
+//   					"concat": []interface{}{
+//   						componentPropertyProperty_,
+//   					},
+//   					"condition": &ComponentConditionPropertyProperty{
+//   						"else": componentPropertyProperty_,
+//   						"field": jsii.String("field"),
+//   						"operand": jsii.String("operand"),
+//   						"operandType": jsii.String("operandType"),
+//   						"operator": jsii.String("operator"),
+//   						"property": jsii.String("property"),
+//   						"then": componentPropertyProperty_,
+//   					},
+//   					"configured": jsii.Boolean(false),
+//   					"defaultValue": jsii.String("defaultValue"),
+//   					"event": jsii.String("event"),
+//   					"importedValue": jsii.String("importedValue"),
+//   					"model": jsii.String("model"),
+//   					"property": jsii.String("property"),
+//   					"type": jsii.String("type"),
+//   					"userAttribute": jsii.String("userAttribute"),
+//   					"value": jsii.String("value"),
+//   				},
+//   				"id": &componentPropertyProperty{
+//   					"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"bindings": bindings,
+//   					"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"componentName": jsii.String("componentName"),
+//   					"concat": []interface{}{
+//   						componentPropertyProperty_,
+//   					},
+//   					"condition": &ComponentConditionPropertyProperty{
+//   						"else": componentPropertyProperty_,
+//   						"field": jsii.String("field"),
+//   						"operand": jsii.String("operand"),
+//   						"operandType": jsii.String("operandType"),
+//   						"operator": jsii.String("operator"),
+//   						"property": jsii.String("property"),
+//   						"then": componentPropertyProperty_,
+//   					},
+//   					"configured": jsii.Boolean(false),
+//   					"defaultValue": jsii.String("defaultValue"),
+//   					"event": jsii.String("event"),
+//   					"importedValue": jsii.String("importedValue"),
+//   					"model": jsii.String("model"),
+//   					"property": jsii.String("property"),
+//   					"type": jsii.String("type"),
+//   					"userAttribute": jsii.String("userAttribute"),
+//   					"value": jsii.String("value"),
+//   				},
+//   				"model": jsii.String("model"),
+//   				"state": &MutationActionSetStateParameterProperty{
+//   					"componentName": jsii.String("componentName"),
+//   					"property": jsii.String("property"),
+//   					"set": &componentPropertyProperty{
+//   						"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   							"property": jsii.String("property"),
+//
+//   							// the properties below are optional
+//   							"field": jsii.String("field"),
+//   						},
+//   						"bindings": bindings,
+//   						"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   							"property": jsii.String("property"),
+//
+//   							// the properties below are optional
+//   							"field": jsii.String("field"),
+//   						},
+//   						"componentName": jsii.String("componentName"),
+//   						"concat": []interface{}{
+//   							componentPropertyProperty_,
+//   						},
+//   						"condition": &ComponentConditionPropertyProperty{
+//   							"else": componentPropertyProperty_,
+//   							"field": jsii.String("field"),
+//   							"operand": jsii.String("operand"),
+//   							"operandType": jsii.String("operandType"),
+//   							"operator": jsii.String("operator"),
+//   							"property": jsii.String("property"),
+//   							"then": componentPropertyProperty_,
+//   						},
+//   						"configured": jsii.Boolean(false),
+//   						"defaultValue": jsii.String("defaultValue"),
+//   						"event": jsii.String("event"),
+//   						"importedValue": jsii.String("importedValue"),
+//   						"model": jsii.String("model"),
+//   						"property": jsii.String("property"),
+//   						"type": jsii.String("type"),
+//   						"userAttribute": jsii.String("userAttribute"),
+//   						"value": jsii.String("value"),
+//   					},
+//   				},
+//   				"target": &componentPropertyProperty{
+//   					"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"bindings": bindings,
+//   					"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"componentName": jsii.String("componentName"),
+//   					"concat": []interface{}{
+//   						componentPropertyProperty_,
+//   					},
+//   					"condition": &ComponentConditionPropertyProperty{
+//   						"else": componentPropertyProperty_,
+//   						"field": jsii.String("field"),
+//   						"operand": jsii.String("operand"),
+//   						"operandType": jsii.String("operandType"),
+//   						"operator": jsii.String("operator"),
+//   						"property": jsii.String("property"),
+//   						"then": componentPropertyProperty_,
+//   					},
+//   					"configured": jsii.Boolean(false),
+//   					"defaultValue": jsii.String("defaultValue"),
+//   					"event": jsii.String("event"),
+//   					"importedValue": jsii.String("importedValue"),
+//   					"model": jsii.String("model"),
+//   					"property": jsii.String("property"),
+//   					"type": jsii.String("type"),
+//   					"userAttribute": jsii.String("userAttribute"),
+//   					"value": jsii.String("value"),
+//   				},
+//   				"type": &componentPropertyProperty{
+//   					"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"bindings": bindings,
+//   					"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"componentName": jsii.String("componentName"),
+//   					"concat": []interface{}{
+//   						componentPropertyProperty_,
+//   					},
+//   					"condition": &ComponentConditionPropertyProperty{
+//   						"else": componentPropertyProperty_,
+//   						"field": jsii.String("field"),
+//   						"operand": jsii.String("operand"),
+//   						"operandType": jsii.String("operandType"),
+//   						"operator": jsii.String("operator"),
+//   						"property": jsii.String("property"),
+//   						"then": componentPropertyProperty_,
+//   					},
+//   					"configured": jsii.Boolean(false),
+//   					"defaultValue": jsii.String("defaultValue"),
+//   					"event": jsii.String("event"),
+//   					"importedValue": jsii.String("importedValue"),
+//   					"model": jsii.String("model"),
+//   					"property": jsii.String("property"),
+//   					"type": jsii.String("type"),
+//   					"userAttribute": jsii.String("userAttribute"),
+//   					"value": jsii.String("value"),
+//   				},
+//   				"url": &componentPropertyProperty{
+//   					"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"bindings": bindings,
+//   					"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"componentName": jsii.String("componentName"),
+//   					"concat": []interface{}{
+//   						componentPropertyProperty_,
+//   					},
+//   					"condition": &ComponentConditionPropertyProperty{
+//   						"else": componentPropertyProperty_,
+//   						"field": jsii.String("field"),
+//   						"operand": jsii.String("operand"),
+//   						"operandType": jsii.String("operandType"),
+//   						"operator": jsii.String("operator"),
+//   						"property": jsii.String("property"),
+//   						"then": componentPropertyProperty_,
+//   					},
+//   					"configured": jsii.Boolean(false),
+//   					"defaultValue": jsii.String("defaultValue"),
+//   					"event": jsii.String("event"),
+//   					"importedValue": jsii.String("importedValue"),
+//   					"model": jsii.String("model"),
+//   					"property": jsii.String("property"),
+//   					"type": jsii.String("type"),
+//   					"userAttribute": jsii.String("userAttribute"),
+//   					"value": jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	schemaVersion: jsii.String("schemaVersion"),
+//   	sourceId: jsii.String("sourceId"),
+//   	tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   }
 //
 type CfnComponentProps struct {
 	// The information to connect a component's properties to data at runtime.
@@ -1047,46 +3018,271 @@ type CfnComponentProps struct {
 //
 // The AWS::AmplifyUIBuilder::Theme resource specifies a theme within an Amplify app. A theme is a collection of style settings that apply globally to the components associated with the app.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//
+//   var themeValuesProperty_ themeValuesProperty
+//   cfnTheme := amplifyuibuilder.NewCfnTheme(this, jsii.String("MyCfnTheme"), &cfnThemeProps{
+//   	name: jsii.String("name"),
+//   	values: []interface{}{
+//   		&themeValuesProperty{
+//   			key: jsii.String("key"),
+//   			value: &themeValueProperty{
+//   				children: []interface{}{
+//   					themeValuesProperty_,
+//   				},
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	overrides: []interface{}{
+//   		&themeValuesProperty{
+//   			key: jsii.String("key"),
+//   			value: &themeValueProperty{
+//   				children: []interface{}{
+//   					themeValuesProperty_,
+//   				},
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   	tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   })
 //
 type CfnTheme interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The unique ID for the Amplify app associated with the theme.
 	AttrAppId() *string
+	// The time that the theme was created.
 	AttrCreatedAt() *string
+	// The name of the backend environment that is a part of the Amplify app.
 	AttrEnvironmentName() *string
+	// The ID for the theme.
 	AttrId() *string
+	// The time that the theme was modified.
 	AttrModifiedAt() *string
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The name of the theme.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Describes the properties that can be overriden to customize a theme.
 	Overrides() interface{}
 	SetOverrides(val interface{})
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// One or more key-value pairs to use when tagging the theme.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// A list of key-value pairs that defines the properties of the theme.
 	Values() interface{}
 	SetValues(val interface{})
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1206,8 +3402,8 @@ func (j *jsiiProxy_CfnTheme) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTheme) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnTheme) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1278,13 +3474,13 @@ func (j *jsiiProxy_CfnTheme) Values() interface{} {
 
 
 // Create a new `AWS::AmplifyUIBuilder::Theme`.
-func NewCfnTheme(scope constructs.Construct, id *string, props *CfnThemeProps) CfnTheme {
+func NewCfnTheme(scope awscdk.Construct, id *string, props *CfnThemeProps) CfnTheme {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnTheme{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_amplifyuibuilder.CfnTheme",
+		"monocdk.aws_amplifyuibuilder.CfnTheme",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1293,11 +3489,11 @@ func NewCfnTheme(scope constructs.Construct, id *string, props *CfnThemeProps) C
 }
 
 // Create a new `AWS::AmplifyUIBuilder::Theme`.
-func NewCfnTheme_Override(c CfnTheme, scope constructs.Construct, id *string, props *CfnThemeProps) {
+func NewCfnTheme_Override(c CfnTheme, scope awscdk.Construct, id *string, props *CfnThemeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_amplifyuibuilder.CfnTheme",
+		"monocdk.aws_amplifyuibuilder.CfnTheme",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1333,13 +3529,14 @@ func (j *jsiiProxy_CfnTheme) SetValues(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnTheme_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_amplifyuibuilder.CfnTheme",
+		"monocdk.aws_amplifyuibuilder.CfnTheme",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1349,13 +3546,14 @@ func CfnTheme_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnTheme_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_amplifyuibuilder.CfnTheme",
+		"monocdk.aws_amplifyuibuilder.CfnTheme",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1364,17 +3562,15 @@ func CfnTheme_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnTheme_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_amplifyuibuilder.CfnTheme",
+		"monocdk.aws_amplifyuibuilder.CfnTheme",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1387,14 +3583,13 @@ func CfnTheme_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_amplifyuibuilder.CfnTheme",
+		"monocdk.aws_amplifyuibuilder.CfnTheme",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnTheme) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1403,10 +3598,6 @@ func (c *jsiiProxy_CfnTheme) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnTheme) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1415,13 +3606,6 @@ func (c *jsiiProxy_CfnTheme) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnTheme) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1430,49 +3614,6 @@ func (c *jsiiProxy_CfnTheme) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnTheme) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1481,7 +3622,6 @@ func (c *jsiiProxy_CfnTheme) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnTheme) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1490,9 +3630,6 @@ func (c *jsiiProxy_CfnTheme) AddPropertyDeletionOverride(propertyPath *string) {
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnTheme) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1501,15 +3638,6 @@ func (c *jsiiProxy_CfnTheme) AddPropertyOverride(propertyPath *string, value int
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnTheme) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1518,10 +3646,6 @@ func (c *jsiiProxy_CfnTheme) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnTheme) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1535,13 +3659,6 @@ func (c *jsiiProxy_CfnTheme) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnTheme) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1555,7 +3672,6 @@ func (c *jsiiProxy_CfnTheme) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnTheme) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1564,12 +3680,48 @@ func (c *jsiiProxy_CfnTheme) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnTheme) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnTheme) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnTheme) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnTheme) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnTheme) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1586,10 +3738,6 @@ func (c *jsiiProxy_CfnTheme) RenderProperties(props *map[string]interface{}) *ma
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnTheme) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1603,15 +3751,33 @@ func (c *jsiiProxy_CfnTheme) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnTheme) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnTheme) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnTheme) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1629,7 +3795,24 @@ func (c *jsiiProxy_CfnTheme) ValidateProperties(_properties interface{}) {
 
 // The `ThemeValue` property specifies the configuration of a theme's properties.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//
+//   var themeValuesProperty_ themeValuesProperty
+//   themeValueProperty := &themeValueProperty{
+//   	children: []interface{}{
+//   		&themeValuesProperty{
+//   			key: jsii.String("key"),
+//   			value: &themeValueProperty{
+//   				children: []interface{}{
+//   					themeValuesProperty_,
+//   				},
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   	value: jsii.String("value"),
+//   }
 //
 type CfnTheme_ThemeValueProperty struct {
 	// A list of key-value pairs that define the theme's properties.
@@ -1640,7 +3823,22 @@ type CfnTheme_ThemeValueProperty struct {
 
 // The `ThemeValues` property specifies key-value pair that defines a property of a theme.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//
+//   var themeValueProperty_ themeValueProperty
+//   themeValuesProperty := &themeValuesProperty{
+//   	key: jsii.String("key"),
+//   	value: &themeValueProperty{
+//   		children: []interface{}{
+//   			&themeValuesProperty{
+//   				key: jsii.String("key"),
+//   				value: themeValueProperty_,
+//   			},
+//   		},
+//   		value: jsii.String("value"),
+//   	},
+//   }
 //
 type CfnTheme_ThemeValuesProperty struct {
 	// The name of the property.
@@ -1651,7 +3849,40 @@ type CfnTheme_ThemeValuesProperty struct {
 
 // Properties for defining a `CfnTheme`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//
+//   var themeValuesProperty_ themeValuesProperty
+//   cfnThemeProps := &cfnThemeProps{
+//   	name: jsii.String("name"),
+//   	values: []interface{}{
+//   		&themeValuesProperty{
+//   			key: jsii.String("key"),
+//   			value: &themeValueProperty{
+//   				children: []interface{}{
+//   					themeValuesProperty_,
+//   				},
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	overrides: []interface{}{
+//   		&themeValuesProperty{
+//   			key: jsii.String("key"),
+//   			value: &themeValueProperty{
+//   				children: []interface{}{
+//   					themeValuesProperty_,
+//   				},
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   	tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   }
 //
 type CfnThemeProps struct {
 	// The name of the theme.

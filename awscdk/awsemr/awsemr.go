@@ -1,12 +1,12 @@
 package awsemr
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsemr/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsemr/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::EMR::Cluster`.
@@ -15,78 +15,717 @@ import (
 //
 // Amazon EMR now supports launching task instance groups and task instance fleets as part of the `AWS::EMR::Cluster` resource. This can be done by using the `JobFlowInstancesConfig` property type's `TaskInstanceGroups` and `TaskInstanceFleets` subproperties. Using these subproperties reduces delays in provisioning task nodes compared to specifying task nodes with the `AWS::EMR::InstanceGroupConfig` and `AWS::EMR::InstanceFleetConfig` resources. Please refer to the examples at the bottom of this page to learn how to use these subproperties.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//
+//   var additionalInfo interface{}
+//   var configurationProperty_ configurationProperty
+//   cfnCluster := emr.NewCfnCluster(this, jsii.String("MyCfnCluster"), &cfnClusterProps{
+//   	instances: &jobFlowInstancesConfigProperty{
+//   		additionalMasterSecurityGroups: []*string{
+//   			jsii.String("additionalMasterSecurityGroups"),
+//   		},
+//   		additionalSlaveSecurityGroups: []*string{
+//   			jsii.String("additionalSlaveSecurityGroups"),
+//   		},
+//   		coreInstanceFleet: &instanceFleetConfigProperty{
+//   			instanceTypeConfigs: []interface{}{
+//   				&instanceTypeConfigProperty{
+//   					instanceType: jsii.String("instanceType"),
+//
+//   					// the properties below are optional
+//   					bidPrice: jsii.String("bidPrice"),
+//   					bidPriceAsPercentageOfOnDemandPrice: jsii.Number(123),
+//   					configurations: []interface{}{
+//   						&configurationProperty{
+//   							classification: jsii.String("classification"),
+//   							configurationProperties: map[string]*string{
+//   								"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   							},
+//   							configurations: []interface{}{
+//   								configurationProperty_,
+//   							},
+//   						},
+//   					},
+//   					customAmiId: jsii.String("customAmiId"),
+//   					ebsConfiguration: &ebsConfigurationProperty{
+//   						ebsBlockDeviceConfigs: []interface{}{
+//   							&ebsBlockDeviceConfigProperty{
+//   								volumeSpecification: &volumeSpecificationProperty{
+//   									sizeInGb: jsii.Number(123),
+//   									volumeType: jsii.String("volumeType"),
+//
+//   									// the properties below are optional
+//   									iops: jsii.Number(123),
+//   								},
+//
+//   								// the properties below are optional
+//   								volumesPerInstance: jsii.Number(123),
+//   							},
+//   						},
+//   						ebsOptimized: jsii.Boolean(false),
+//   					},
+//   					weightedCapacity: jsii.Number(123),
+//   				},
+//   			},
+//   			launchSpecifications: &instanceFleetProvisioningSpecificationsProperty{
+//   				onDemandSpecification: &onDemandProvisioningSpecificationProperty{
+//   					allocationStrategy: jsii.String("allocationStrategy"),
+//   				},
+//   				spotSpecification: &spotProvisioningSpecificationProperty{
+//   					timeoutAction: jsii.String("timeoutAction"),
+//   					timeoutDurationMinutes: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					allocationStrategy: jsii.String("allocationStrategy"),
+//   					blockDurationMinutes: jsii.Number(123),
+//   				},
+//   			},
+//   			name: jsii.String("name"),
+//   			targetOnDemandCapacity: jsii.Number(123),
+//   			targetSpotCapacity: jsii.Number(123),
+//   		},
+//   		coreInstanceGroup: &instanceGroupConfigProperty{
+//   			instanceCount: jsii.Number(123),
+//   			instanceType: jsii.String("instanceType"),
+//
+//   			// the properties below are optional
+//   			autoScalingPolicy: &autoScalingPolicyProperty{
+//   				constraints: &scalingConstraintsProperty{
+//   					maxCapacity: jsii.Number(123),
+//   					minCapacity: jsii.Number(123),
+//   				},
+//   				rules: []interface{}{
+//   					&scalingRuleProperty{
+//   						action: &scalingActionProperty{
+//   							simpleScalingPolicyConfiguration: &simpleScalingPolicyConfigurationProperty{
+//   								scalingAdjustment: jsii.Number(123),
+//
+//   								// the properties below are optional
+//   								adjustmentType: jsii.String("adjustmentType"),
+//   								coolDown: jsii.Number(123),
+//   							},
+//
+//   							// the properties below are optional
+//   							market: jsii.String("market"),
+//   						},
+//   						name: jsii.String("name"),
+//   						trigger: &scalingTriggerProperty{
+//   							cloudWatchAlarmDefinition: &cloudWatchAlarmDefinitionProperty{
+//   								comparisonOperator: jsii.String("comparisonOperator"),
+//   								metricName: jsii.String("metricName"),
+//   								period: jsii.Number(123),
+//   								threshold: jsii.Number(123),
+//
+//   								// the properties below are optional
+//   								dimensions: []interface{}{
+//   									&metricDimensionProperty{
+//   										key: jsii.String("key"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								evaluationPeriods: jsii.Number(123),
+//   								namespace: jsii.String("namespace"),
+//   								statistic: jsii.String("statistic"),
+//   								unit: jsii.String("unit"),
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						description: jsii.String("description"),
+//   					},
+//   				},
+//   			},
+//   			bidPrice: jsii.String("bidPrice"),
+//   			configurations: []interface{}{
+//   				&configurationProperty{
+//   					classification: jsii.String("classification"),
+//   					configurationProperties: map[string]*string{
+//   						"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   					},
+//   					configurations: []interface{}{
+//   						configurationProperty_,
+//   					},
+//   				},
+//   			},
+//   			customAmiId: jsii.String("customAmiId"),
+//   			ebsConfiguration: &ebsConfigurationProperty{
+//   				ebsBlockDeviceConfigs: []interface{}{
+//   					&ebsBlockDeviceConfigProperty{
+//   						volumeSpecification: &volumeSpecificationProperty{
+//   							sizeInGb: jsii.Number(123),
+//   							volumeType: jsii.String("volumeType"),
+//
+//   							// the properties below are optional
+//   							iops: jsii.Number(123),
+//   						},
+//
+//   						// the properties below are optional
+//   						volumesPerInstance: jsii.Number(123),
+//   					},
+//   				},
+//   				ebsOptimized: jsii.Boolean(false),
+//   			},
+//   			market: jsii.String("market"),
+//   			name: jsii.String("name"),
+//   		},
+//   		ec2KeyName: jsii.String("ec2KeyName"),
+//   		ec2SubnetId: jsii.String("ec2SubnetId"),
+//   		ec2SubnetIds: []*string{
+//   			jsii.String("ec2SubnetIds"),
+//   		},
+//   		emrManagedMasterSecurityGroup: jsii.String("emrManagedMasterSecurityGroup"),
+//   		emrManagedSlaveSecurityGroup: jsii.String("emrManagedSlaveSecurityGroup"),
+//   		hadoopVersion: jsii.String("hadoopVersion"),
+//   		keepJobFlowAliveWhenNoSteps: jsii.Boolean(false),
+//   		masterInstanceFleet: &instanceFleetConfigProperty{
+//   			instanceTypeConfigs: []interface{}{
+//   				&instanceTypeConfigProperty{
+//   					instanceType: jsii.String("instanceType"),
+//
+//   					// the properties below are optional
+//   					bidPrice: jsii.String("bidPrice"),
+//   					bidPriceAsPercentageOfOnDemandPrice: jsii.Number(123),
+//   					configurations: []interface{}{
+//   						&configurationProperty{
+//   							classification: jsii.String("classification"),
+//   							configurationProperties: map[string]*string{
+//   								"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   							},
+//   							configurations: []interface{}{
+//   								configurationProperty_,
+//   							},
+//   						},
+//   					},
+//   					customAmiId: jsii.String("customAmiId"),
+//   					ebsConfiguration: &ebsConfigurationProperty{
+//   						ebsBlockDeviceConfigs: []interface{}{
+//   							&ebsBlockDeviceConfigProperty{
+//   								volumeSpecification: &volumeSpecificationProperty{
+//   									sizeInGb: jsii.Number(123),
+//   									volumeType: jsii.String("volumeType"),
+//
+//   									// the properties below are optional
+//   									iops: jsii.Number(123),
+//   								},
+//
+//   								// the properties below are optional
+//   								volumesPerInstance: jsii.Number(123),
+//   							},
+//   						},
+//   						ebsOptimized: jsii.Boolean(false),
+//   					},
+//   					weightedCapacity: jsii.Number(123),
+//   				},
+//   			},
+//   			launchSpecifications: &instanceFleetProvisioningSpecificationsProperty{
+//   				onDemandSpecification: &onDemandProvisioningSpecificationProperty{
+//   					allocationStrategy: jsii.String("allocationStrategy"),
+//   				},
+//   				spotSpecification: &spotProvisioningSpecificationProperty{
+//   					timeoutAction: jsii.String("timeoutAction"),
+//   					timeoutDurationMinutes: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					allocationStrategy: jsii.String("allocationStrategy"),
+//   					blockDurationMinutes: jsii.Number(123),
+//   				},
+//   			},
+//   			name: jsii.String("name"),
+//   			targetOnDemandCapacity: jsii.Number(123),
+//   			targetSpotCapacity: jsii.Number(123),
+//   		},
+//   		masterInstanceGroup: &instanceGroupConfigProperty{
+//   			instanceCount: jsii.Number(123),
+//   			instanceType: jsii.String("instanceType"),
+//
+//   			// the properties below are optional
+//   			autoScalingPolicy: &autoScalingPolicyProperty{
+//   				constraints: &scalingConstraintsProperty{
+//   					maxCapacity: jsii.Number(123),
+//   					minCapacity: jsii.Number(123),
+//   				},
+//   				rules: []interface{}{
+//   					&scalingRuleProperty{
+//   						action: &scalingActionProperty{
+//   							simpleScalingPolicyConfiguration: &simpleScalingPolicyConfigurationProperty{
+//   								scalingAdjustment: jsii.Number(123),
+//
+//   								// the properties below are optional
+//   								adjustmentType: jsii.String("adjustmentType"),
+//   								coolDown: jsii.Number(123),
+//   							},
+//
+//   							// the properties below are optional
+//   							market: jsii.String("market"),
+//   						},
+//   						name: jsii.String("name"),
+//   						trigger: &scalingTriggerProperty{
+//   							cloudWatchAlarmDefinition: &cloudWatchAlarmDefinitionProperty{
+//   								comparisonOperator: jsii.String("comparisonOperator"),
+//   								metricName: jsii.String("metricName"),
+//   								period: jsii.Number(123),
+//   								threshold: jsii.Number(123),
+//
+//   								// the properties below are optional
+//   								dimensions: []interface{}{
+//   									&metricDimensionProperty{
+//   										key: jsii.String("key"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								evaluationPeriods: jsii.Number(123),
+//   								namespace: jsii.String("namespace"),
+//   								statistic: jsii.String("statistic"),
+//   								unit: jsii.String("unit"),
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						description: jsii.String("description"),
+//   					},
+//   				},
+//   			},
+//   			bidPrice: jsii.String("bidPrice"),
+//   			configurations: []interface{}{
+//   				&configurationProperty{
+//   					classification: jsii.String("classification"),
+//   					configurationProperties: map[string]*string{
+//   						"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   					},
+//   					configurations: []interface{}{
+//   						configurationProperty_,
+//   					},
+//   				},
+//   			},
+//   			customAmiId: jsii.String("customAmiId"),
+//   			ebsConfiguration: &ebsConfigurationProperty{
+//   				ebsBlockDeviceConfigs: []interface{}{
+//   					&ebsBlockDeviceConfigProperty{
+//   						volumeSpecification: &volumeSpecificationProperty{
+//   							sizeInGb: jsii.Number(123),
+//   							volumeType: jsii.String("volumeType"),
+//
+//   							// the properties below are optional
+//   							iops: jsii.Number(123),
+//   						},
+//
+//   						// the properties below are optional
+//   						volumesPerInstance: jsii.Number(123),
+//   					},
+//   				},
+//   				ebsOptimized: jsii.Boolean(false),
+//   			},
+//   			market: jsii.String("market"),
+//   			name: jsii.String("name"),
+//   		},
+//   		placement: &placementTypeProperty{
+//   			availabilityZone: jsii.String("availabilityZone"),
+//   		},
+//   		serviceAccessSecurityGroup: jsii.String("serviceAccessSecurityGroup"),
+//   		terminationProtected: jsii.Boolean(false),
+//   	},
+//   	jobFlowRole: jsii.String("jobFlowRole"),
+//   	name: jsii.String("name"),
+//   	serviceRole: jsii.String("serviceRole"),
+//
+//   	// the properties below are optional
+//   	additionalInfo: additionalInfo,
+//   	applications: []interface{}{
+//   		&applicationProperty{
+//   			additionalInfo: map[string]*string{
+//   				"additionalInfoKey": jsii.String("additionalInfo"),
+//   			},
+//   			args: []*string{
+//   				jsii.String("args"),
+//   			},
+//   			name: jsii.String("name"),
+//   			version: jsii.String("version"),
+//   		},
+//   	},
+//   	autoScalingRole: jsii.String("autoScalingRole"),
+//   	bootstrapActions: []interface{}{
+//   		&bootstrapActionConfigProperty{
+//   			name: jsii.String("name"),
+//   			scriptBootstrapAction: &scriptBootstrapActionConfigProperty{
+//   				path: jsii.String("path"),
+//
+//   				// the properties below are optional
+//   				args: []*string{
+//   					jsii.String("args"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	configurations: []interface{}{
+//   		&configurationProperty{
+//   			classification: jsii.String("classification"),
+//   			configurationProperties: map[string]*string{
+//   				"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   			},
+//   			configurations: []interface{}{
+//   				configurationProperty_,
+//   			},
+//   		},
+//   	},
+//   	customAmiId: jsii.String("customAmiId"),
+//   	ebsRootVolumeSize: jsii.Number(123),
+//   	kerberosAttributes: &kerberosAttributesProperty{
+//   		kdcAdminPassword: jsii.String("kdcAdminPassword"),
+//   		realm: jsii.String("realm"),
+//
+//   		// the properties below are optional
+//   		adDomainJoinPassword: jsii.String("adDomainJoinPassword"),
+//   		adDomainJoinUser: jsii.String("adDomainJoinUser"),
+//   		crossRealmTrustPrincipalPassword: jsii.String("crossRealmTrustPrincipalPassword"),
+//   	},
+//   	logEncryptionKmsKeyId: jsii.String("logEncryptionKmsKeyId"),
+//   	logUri: jsii.String("logUri"),
+//   	managedScalingPolicy: &managedScalingPolicyProperty{
+//   		computeLimits: &computeLimitsProperty{
+//   			maximumCapacityUnits: jsii.Number(123),
+//   			minimumCapacityUnits: jsii.Number(123),
+//   			unitType: jsii.String("unitType"),
+//
+//   			// the properties below are optional
+//   			maximumCoreCapacityUnits: jsii.Number(123),
+//   			maximumOnDemandCapacityUnits: jsii.Number(123),
+//   		},
+//   	},
+//   	releaseLabel: jsii.String("releaseLabel"),
+//   	scaleDownBehavior: jsii.String("scaleDownBehavior"),
+//   	securityConfiguration: jsii.String("securityConfiguration"),
+//   	stepConcurrencyLevel: jsii.Number(123),
+//   	steps: []interface{}{
+//   		&stepConfigProperty{
+//   			hadoopJarStep: &hadoopJarStepConfigProperty{
+//   				jar: jsii.String("jar"),
+//
+//   				// the properties below are optional
+//   				args: []*string{
+//   					jsii.String("args"),
+//   				},
+//   				mainClass: jsii.String("mainClass"),
+//   				stepProperties: []interface{}{
+//   					&keyValueProperty{
+//   						key: jsii.String("key"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   			name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			actionOnFailure: jsii.String("actionOnFailure"),
+//   		},
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	visibleToAllUsers: jsii.Boolean(false),
+//   })
 //
 type CfnCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// A JSON string for selecting additional features.
 	AdditionalInfo() interface{}
 	SetAdditionalInfo(val interface{})
+	// The applications to install on this cluster, for example, Spark, Flink, Oozie, Zeppelin, and so on.
 	Applications() interface{}
 	SetApplications(val interface{})
+	// The public DNS name of the master node (instance), such as `ec2-12-123-123-123.us-west-2.compute.amazonaws.com` .
 	AttrMasterPublicDns() *string
+	// An IAM role for automatic scaling policies.
+	//
+	// The default role is `EMR_AutoScaling_DefaultRole` . The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoScalingRole() *string
 	SetAutoScalingRole(val *string)
+	// A list of bootstrap actions to run before Hadoop starts on the cluster nodes.
 	BootstrapActions() interface{}
 	SetBootstrapActions(val interface{})
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Applies only to Amazon EMR releases 4.x and later. The list of Configurations supplied to the EMR cluster.
 	Configurations() interface{}
 	SetConfigurations(val interface{})
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// Available only in Amazon EMR version 5.7.0 and later. The ID of a custom Amazon EBS-backed Linux AMI if the cluster uses a custom AMI.
 	CustomAmiId() *string
 	SetCustomAmiId(val *string)
+	// The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is used for each EC2 instance.
+	//
+	// Available in Amazon EMR version 4.x and later.
 	EbsRootVolumeSize() *float64
 	SetEbsRootVolumeSize(val *float64)
+	// A specification of the number and type of Amazon EC2 instances.
 	Instances() interface{}
 	SetInstances(val interface{})
+	// Also called instance profile and EC2 role.
+	//
+	// An IAM role for an EMR cluster. The EC2 instances of the cluster assume this role. The default role is `EMR_EC2_DefaultRole` . In order to use the default role, you must have already created it using the CLI or console.
 	JobFlowRole() *string
 	SetJobFlowRole(val *string)
+	// Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration.
+	//
+	// For more information see [Use Kerberos Authentication](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html) in the *Amazon EMR Management Guide* .
 	KerberosAttributes() interface{}
 	SetKerberosAttributes(val interface{})
+	// The AWS KMS key used for encrypting log files.
+	//
+	// This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
 	LogEncryptionKmsKeyId() *string
 	SetLogEncryptionKmsKeyId(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The path to the Amazon S3 location where logs for this cluster are stored.
 	LogUri() *string
 	SetLogUri(val *string)
+	// Creates or updates a managed scaling policy for an Amazon EMR cluster.
+	//
+	// The managed scaling policy defines the limits for resources, such as EC2 instances that can be added or terminated from a cluster. The policy only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
 	ManagedScalingPolicy() interface{}
 	SetManagedScalingPolicy(val interface{})
+	// The name of the cluster.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The Amazon EMR release label, which determines the version of open-source application packages installed on the cluster.
+	//
+	// Release labels are in the form `emr-x.x.x` , where x.x.x is an Amazon EMR release version such as `emr-5.14.0` . For more information about Amazon EMR release versions and included application versions and features, see [](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/) . The release label applies only to Amazon EMR releases version 4.0 and later. Earlier versions use `AmiVersion` .
 	ReleaseLabel() *string
 	SetReleaseLabel(val *string)
+	// The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized.
+	//
+	// `TERMINATE_AT_INSTANCE_HOUR` indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of when the request to terminate the instance was submitted. This option is only available with Amazon EMR 5.1.0 and later and is the default for clusters created using that version. `TERMINATE_AT_TASK_COMPLETION` indicates that Amazon EMR adds nodes to a deny list and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to HDFS corruption. `TERMINATE_AT_TASK_COMPLETION` is available only in Amazon EMR version 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.
 	ScaleDownBehavior() *string
 	SetScaleDownBehavior(val *string)
+	// The name of the security configuration applied to the cluster.
 	SecurityConfiguration() *string
 	SetSecurityConfiguration(val *string)
+	// The IAM role that Amazon EMR assumes in order to access AWS resources on your behalf.
 	ServiceRole() *string
 	SetServiceRole(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Specifies the number of steps that can be executed concurrently.
+	//
+	// The default value is `1` . The maximum value is `256` .
 	StepConcurrencyLevel() *float64
 	SetStepConcurrencyLevel(val *float64)
+	// A list of steps to run.
 	Steps() interface{}
 	SetSteps(val interface{})
+	// A list of tags associated with a cluster.
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Indicates whether the cluster is visible to all IAM users of the AWS account associated with the cluster.
+	//
+	// If this value is set to `true` , all IAM users of that AWS account can view and manage the cluster if they have the proper policy permissions set. If this value is `false` , only the IAM user that created the cluster can view and manage it. This value can be changed using the SetVisibleToAllUsers action.
+	//
+	// > When you create clusters directly through the EMR console or API, this value is set to `true` by default. However, for `AWS::EMR::Cluster` resources in CloudFormation, the default is `false` .
 	VisibleToAllUsers() interface{}
 	SetVisibleToAllUsers(val interface{})
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -296,8 +935,8 @@ func (j *jsiiProxy_CfnCluster) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnCluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -418,13 +1057,13 @@ func (j *jsiiProxy_CfnCluster) VisibleToAllUsers() interface{} {
 
 
 // Create a new `AWS::EMR::Cluster`.
-func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProps) CfnCluster {
+func NewCfnCluster(scope awscdk.Construct, id *string, props *CfnClusterProps) CfnCluster {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnCluster{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_emr.CfnCluster",
+		"monocdk.aws_emr.CfnCluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -433,11 +1072,11 @@ func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProp
 }
 
 // Create a new `AWS::EMR::Cluster`.
-func NewCfnCluster_Override(c CfnCluster, scope constructs.Construct, id *string, props *CfnClusterProps) {
+func NewCfnCluster_Override(c CfnCluster, scope awscdk.Construct, id *string, props *CfnClusterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_emr.CfnCluster",
+		"monocdk.aws_emr.CfnCluster",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -617,13 +1256,14 @@ func (j *jsiiProxy_CfnCluster) SetVisibleToAllUsers(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnCluster_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_emr.CfnCluster",
+		"monocdk.aws_emr.CfnCluster",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -633,13 +1273,14 @@ func CfnCluster_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_emr.CfnCluster",
+		"monocdk.aws_emr.CfnCluster",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -648,17 +1289,15 @@ func CfnCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_emr.CfnCluster",
+		"monocdk.aws_emr.CfnCluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -671,14 +1310,13 @@ func CfnCluster_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_emr.CfnCluster",
+		"monocdk.aws_emr.CfnCluster",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnCluster) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -687,10 +1325,6 @@ func (c *jsiiProxy_CfnCluster) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnCluster) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -699,13 +1333,6 @@ func (c *jsiiProxy_CfnCluster) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnCluster) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -714,49 +1341,6 @@ func (c *jsiiProxy_CfnCluster) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnCluster) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -765,7 +1349,6 @@ func (c *jsiiProxy_CfnCluster) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnCluster) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -774,9 +1357,6 @@ func (c *jsiiProxy_CfnCluster) AddPropertyDeletionOverride(propertyPath *string)
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnCluster) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -785,15 +1365,6 @@ func (c *jsiiProxy_CfnCluster) AddPropertyOverride(propertyPath *string, value i
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -802,10 +1373,6 @@ func (c *jsiiProxy_CfnCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnCluster) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -819,13 +1386,6 @@ func (c *jsiiProxy_CfnCluster) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnCluster) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -839,7 +1399,6 @@ func (c *jsiiProxy_CfnCluster) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnCluster) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -848,12 +1407,48 @@ func (c *jsiiProxy_CfnCluster) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnCluster) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnCluster) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnCluster) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnCluster) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnCluster) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -870,10 +1465,6 @@ func (c *jsiiProxy_CfnCluster) RenderProperties(props *map[string]interface{}) *
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnCluster) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -887,15 +1478,33 @@ func (c *jsiiProxy_CfnCluster) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnCluster) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnCluster) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnCluster) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -919,7 +1528,18 @@ func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 //
 // With earlier Amazon EMR releases, the application is any AWS or third-party software that you can add to the cluster. You can specify the version of the application and arguments to pass to it. Amazon EMR accepts and forwards the argument list to the corresponding installation script as a bootstrap action argument.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   applicationProperty := &applicationProperty{
+//   	additionalInfo: map[string]*string{
+//   		"additionalInfoKey": jsii.String("additionalInfo"),
+//   	},
+//   	args: []*string{
+//   		jsii.String("args"),
+//   	},
+//   	name: jsii.String("name"),
+//   	version: jsii.String("version"),
+//   }
 //
 type CfnCluster_ApplicationProperty struct {
 	// This option is for advanced users only.
@@ -938,7 +1558,54 @@ type CfnCluster_ApplicationProperty struct {
 //
 // `AutoScalingPolicy` defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. For more information, see [Using Automatic Scaling in Amazon EMR](https://docs.aws.amazon.com//emr/latest/ManagementGuide/emr-automatic-scaling.html) in the *Amazon EMR Management Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   autoScalingPolicyProperty := &autoScalingPolicyProperty{
+//   	constraints: &scalingConstraintsProperty{
+//   		maxCapacity: jsii.Number(123),
+//   		minCapacity: jsii.Number(123),
+//   	},
+//   	rules: []interface{}{
+//   		&scalingRuleProperty{
+//   			action: &scalingActionProperty{
+//   				simpleScalingPolicyConfiguration: &simpleScalingPolicyConfigurationProperty{
+//   					scalingAdjustment: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					adjustmentType: jsii.String("adjustmentType"),
+//   					coolDown: jsii.Number(123),
+//   				},
+//
+//   				// the properties below are optional
+//   				market: jsii.String("market"),
+//   			},
+//   			name: jsii.String("name"),
+//   			trigger: &scalingTriggerProperty{
+//   				cloudWatchAlarmDefinition: &cloudWatchAlarmDefinitionProperty{
+//   					comparisonOperator: jsii.String("comparisonOperator"),
+//   					metricName: jsii.String("metricName"),
+//   					period: jsii.Number(123),
+//   					threshold: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					dimensions: []interface{}{
+//   						&metricDimensionProperty{
+//   							key: jsii.String("key"),
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   					evaluationPeriods: jsii.Number(123),
+//   					namespace: jsii.String("namespace"),
+//   					statistic: jsii.String("statistic"),
+//   					unit: jsii.String("unit"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			description: jsii.String("description"),
+//   		},
+//   	},
+//   }
 //
 type CfnCluster_AutoScalingPolicyProperty struct {
 	// The upper and lower EC2 instance limits for an automatic scaling policy.
@@ -953,7 +1620,19 @@ type CfnCluster_AutoScalingPolicyProperty struct {
 //
 // You can use a bootstrap action to install software and configure EC2 instances for all cluster nodes before EMR installs and configures open-source big data applications on cluster instances. For more information, see [Create Bootstrap Actions to Install Additional Software](https://docs.aws.amazon.com//emr/latest/ManagementGuide/emr-plan-bootstrap.html) in the *Amazon EMR Management Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   bootstrapActionConfigProperty := &bootstrapActionConfigProperty{
+//   	name: jsii.String("name"),
+//   	scriptBootstrapAction: &scriptBootstrapActionConfigProperty{
+//   		path: jsii.String("path"),
+//
+//   		// the properties below are optional
+//   		args: []*string{
+//   			jsii.String("args"),
+//   		},
+//   	},
+//   }
 //
 type CfnCluster_BootstrapActionConfigProperty struct {
 	// The name of the bootstrap action.
@@ -966,7 +1645,26 @@ type CfnCluster_BootstrapActionConfigProperty struct {
 //
 // Scaling activity begins when you satisfy the defined alarm conditions.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   cloudWatchAlarmDefinitionProperty := &cloudWatchAlarmDefinitionProperty{
+//   	comparisonOperator: jsii.String("comparisonOperator"),
+//   	metricName: jsii.String("metricName"),
+//   	period: jsii.Number(123),
+//   	threshold: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	dimensions: []interface{}{
+//   		&metricDimensionProperty{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	evaluationPeriods: jsii.Number(123),
+//   	namespace: jsii.String("namespace"),
+//   	statistic: jsii.String("statistic"),
+//   	unit: jsii.String("unit"),
+//   }
 //
 type CfnCluster_CloudWatchAlarmDefinitionProperty struct {
 	// Determines how the metric specified by `MetricName` is compared to the value specified by `Threshold` .
@@ -1003,7 +1701,17 @@ type CfnCluster_CloudWatchAlarmDefinitionProperty struct {
 //
 // The managed scaling activity of a cluster can not be above or below these limits. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   computeLimitsProperty := &computeLimitsProperty{
+//   	maximumCapacityUnits: jsii.Number(123),
+//   	minimumCapacityUnits: jsii.Number(123),
+//   	unitType: jsii.String("unitType"),
+//
+//   	// the properties below are optional
+//   	maximumCoreCapacityUnits: jsii.Number(123),
+//   	maximumOnDemandCapacityUnits: jsii.Number(123),
+//   }
 //
 type CfnCluster_ComputeLimitsProperty struct {
 	// The upper boundary of EC2 units.
@@ -1030,7 +1738,27 @@ type CfnCluster_ComputeLimitsProperty struct {
 //
 // `Configuration` is a subproperty of `InstanceFleetConfig` or `InstanceGroupConfig` . `Configuration` specifies optional configurations for customizing open-source big data applications and environment parameters. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see [Configuring Applications](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) in the *Amazon EMR Release Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//
+//   var configurationProperty_ configurationProperty
+//   configurationProperty := &configurationProperty{
+//   	classification: jsii.String("classification"),
+//   	configurationProperties: map[string]*string{
+//   		"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   	},
+//   	configurations: []interface{}{
+//   		&configurationProperty{
+//   			classification: jsii.String("classification"),
+//   			configurationProperties: map[string]*string{
+//   				"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   			},
+//   			configurations: []interface{}{
+//   				configurationProperty_,
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnCluster_ConfigurationProperty struct {
 	// The classification within a configuration.
@@ -1045,7 +1773,20 @@ type CfnCluster_ConfigurationProperty struct {
 //
 // `EbsBlockDeviceConfig` defines the number and type of EBS volumes to associate with all EC2 instances in an EMR cluster.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   ebsBlockDeviceConfigProperty := &ebsBlockDeviceConfigProperty{
+//   	volumeSpecification: &volumeSpecificationProperty{
+//   		sizeInGb: jsii.Number(123),
+//   		volumeType: jsii.String("volumeType"),
+//
+//   		// the properties below are optional
+//   		iops: jsii.Number(123),
+//   	},
+//
+//   	// the properties below are optional
+//   	volumesPerInstance: jsii.Number(123),
+//   }
 //
 type CfnCluster_EbsBlockDeviceConfigProperty struct {
 	// EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
@@ -1058,7 +1799,25 @@ type CfnCluster_EbsBlockDeviceConfigProperty struct {
 //
 // `EbsConfiguration` determines the EBS volumes to attach to EMR cluster instances.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   ebsConfigurationProperty := &ebsConfigurationProperty{
+//   	ebsBlockDeviceConfigs: []interface{}{
+//   		&ebsBlockDeviceConfigProperty{
+//   			volumeSpecification: &volumeSpecificationProperty{
+//   				sizeInGb: jsii.Number(123),
+//   				volumeType: jsii.String("volumeType"),
+//
+//   				// the properties below are optional
+//   				iops: jsii.Number(123),
+//   			},
+//
+//   			// the properties below are optional
+//   			volumesPerInstance: jsii.Number(123),
+//   		},
+//   	},
+//   	ebsOptimized: jsii.Boolean(false),
+//   }
 //
 type CfnCluster_EbsConfigurationProperty struct {
 	// An array of Amazon EBS volume specifications attached to a cluster instance.
@@ -1071,7 +1830,23 @@ type CfnCluster_EbsConfigurationProperty struct {
 //
 // The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   hadoopJarStepConfigProperty := &hadoopJarStepConfigProperty{
+//   	jar: jsii.String("jar"),
+//
+//   	// the properties below are optional
+//   	args: []*string{
+//   		jsii.String("args"),
+//   	},
+//   	mainClass: jsii.String("mainClass"),
+//   	stepProperties: []interface{}{
+//   		&keyValueProperty{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnCluster_HadoopJarStepConfigProperty struct {
 	// A path to a JAR file run during the step.
@@ -1094,7 +1869,67 @@ type CfnCluster_HadoopJarStepConfigProperty struct {
 //
 // > The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//
+//   var configurationProperty_ configurationProperty
+//   instanceFleetConfigProperty := &instanceFleetConfigProperty{
+//   	instanceTypeConfigs: []interface{}{
+//   		&instanceTypeConfigProperty{
+//   			instanceType: jsii.String("instanceType"),
+//
+//   			// the properties below are optional
+//   			bidPrice: jsii.String("bidPrice"),
+//   			bidPriceAsPercentageOfOnDemandPrice: jsii.Number(123),
+//   			configurations: []interface{}{
+//   				&configurationProperty{
+//   					classification: jsii.String("classification"),
+//   					configurationProperties: map[string]*string{
+//   						"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   					},
+//   					configurations: []interface{}{
+//   						configurationProperty_,
+//   					},
+//   				},
+//   			},
+//   			customAmiId: jsii.String("customAmiId"),
+//   			ebsConfiguration: &ebsConfigurationProperty{
+//   				ebsBlockDeviceConfigs: []interface{}{
+//   					&ebsBlockDeviceConfigProperty{
+//   						volumeSpecification: &volumeSpecificationProperty{
+//   							sizeInGb: jsii.Number(123),
+//   							volumeType: jsii.String("volumeType"),
+//
+//   							// the properties below are optional
+//   							iops: jsii.Number(123),
+//   						},
+//
+//   						// the properties below are optional
+//   						volumesPerInstance: jsii.Number(123),
+//   					},
+//   				},
+//   				ebsOptimized: jsii.Boolean(false),
+//   			},
+//   			weightedCapacity: jsii.Number(123),
+//   		},
+//   	},
+//   	launchSpecifications: &instanceFleetProvisioningSpecificationsProperty{
+//   		onDemandSpecification: &onDemandProvisioningSpecificationProperty{
+//   			allocationStrategy: jsii.String("allocationStrategy"),
+//   		},
+//   		spotSpecification: &spotProvisioningSpecificationProperty{
+//   			timeoutAction: jsii.String("timeoutAction"),
+//   			timeoutDurationMinutes: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			allocationStrategy: jsii.String("allocationStrategy"),
+//   			blockDurationMinutes: jsii.Number(123),
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//   	targetOnDemandCapacity: jsii.Number(123),
+//   	targetSpotCapacity: jsii.Number(123),
+//   }
 //
 type CfnCluster_InstanceFleetConfigProperty struct {
 	// The instance type configurations that define the EC2 instances in the instance fleet.
@@ -1123,7 +1958,21 @@ type CfnCluster_InstanceFleetConfigProperty struct {
 //
 // > The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   instanceFleetProvisioningSpecificationsProperty := &instanceFleetProvisioningSpecificationsProperty{
+//   	onDemandSpecification: &onDemandProvisioningSpecificationProperty{
+//   		allocationStrategy: jsii.String("allocationStrategy"),
+//   	},
+//   	spotSpecification: &spotProvisioningSpecificationProperty{
+//   		timeoutAction: jsii.String("timeoutAction"),
+//   		timeoutDurationMinutes: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		allocationStrategy: jsii.String("allocationStrategy"),
+//   		blockDurationMinutes: jsii.Number(123),
+//   	},
+//   }
 //
 type CfnCluster_InstanceFleetProvisioningSpecificationsProperty struct {
 	// The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
@@ -1138,7 +1987,94 @@ type CfnCluster_InstanceFleetProvisioningSpecificationsProperty struct {
 //
 // A cluster can not use both instance groups and instance fleets. For more information, see [Create a Cluster with Instance Fleets or Uniform Instance Groups](https://docs.aws.amazon.com//emr/latest/ManagementGuide/emr-instance-group-configuration.html) in the *Amazon EMR Management Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//
+//   var configurationProperty_ configurationProperty
+//   instanceGroupConfigProperty := &instanceGroupConfigProperty{
+//   	instanceCount: jsii.Number(123),
+//   	instanceType: jsii.String("instanceType"),
+//
+//   	// the properties below are optional
+//   	autoScalingPolicy: &autoScalingPolicyProperty{
+//   		constraints: &scalingConstraintsProperty{
+//   			maxCapacity: jsii.Number(123),
+//   			minCapacity: jsii.Number(123),
+//   		},
+//   		rules: []interface{}{
+//   			&scalingRuleProperty{
+//   				action: &scalingActionProperty{
+//   					simpleScalingPolicyConfiguration: &simpleScalingPolicyConfigurationProperty{
+//   						scalingAdjustment: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						adjustmentType: jsii.String("adjustmentType"),
+//   						coolDown: jsii.Number(123),
+//   					},
+//
+//   					// the properties below are optional
+//   					market: jsii.String("market"),
+//   				},
+//   				name: jsii.String("name"),
+//   				trigger: &scalingTriggerProperty{
+//   					cloudWatchAlarmDefinition: &cloudWatchAlarmDefinitionProperty{
+//   						comparisonOperator: jsii.String("comparisonOperator"),
+//   						metricName: jsii.String("metricName"),
+//   						period: jsii.Number(123),
+//   						threshold: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						dimensions: []interface{}{
+//   							&metricDimensionProperty{
+//   								key: jsii.String("key"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   						evaluationPeriods: jsii.Number(123),
+//   						namespace: jsii.String("namespace"),
+//   						statistic: jsii.String("statistic"),
+//   						unit: jsii.String("unit"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				description: jsii.String("description"),
+//   			},
+//   		},
+//   	},
+//   	bidPrice: jsii.String("bidPrice"),
+//   	configurations: []interface{}{
+//   		&configurationProperty{
+//   			classification: jsii.String("classification"),
+//   			configurationProperties: map[string]*string{
+//   				"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   			},
+//   			configurations: []interface{}{
+//   				configurationProperty_,
+//   			},
+//   		},
+//   	},
+//   	customAmiId: jsii.String("customAmiId"),
+//   	ebsConfiguration: &ebsConfigurationProperty{
+//   		ebsBlockDeviceConfigs: []interface{}{
+//   			&ebsBlockDeviceConfigProperty{
+//   				volumeSpecification: &volumeSpecificationProperty{
+//   					sizeInGb: jsii.Number(123),
+//   					volumeType: jsii.String("volumeType"),
+//
+//   					// the properties below are optional
+//   					iops: jsii.Number(123),
+//   				},
+//
+//   				// the properties below are optional
+//   				volumesPerInstance: jsii.Number(123),
+//   			},
+//   		},
+//   		ebsOptimized: jsii.Boolean(false),
+//   	},
+//   	market: jsii.String("market"),
+//   	name: jsii.String("name"),
+//   }
 //
 type CfnCluster_InstanceGroupConfigProperty struct {
 	// Target number of instances for the instance group.
@@ -1169,7 +2105,47 @@ type CfnCluster_InstanceGroupConfigProperty struct {
 //
 // `InstanceTypeConfig` is a sub-property of `InstanceFleetConfig` . `InstanceTypeConfig` determines the EC2 instances that Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//
+//   var configurationProperty_ configurationProperty
+//   instanceTypeConfigProperty := &instanceTypeConfigProperty{
+//   	instanceType: jsii.String("instanceType"),
+//
+//   	// the properties below are optional
+//   	bidPrice: jsii.String("bidPrice"),
+//   	bidPriceAsPercentageOfOnDemandPrice: jsii.Number(123),
+//   	configurations: []interface{}{
+//   		&configurationProperty{
+//   			classification: jsii.String("classification"),
+//   			configurationProperties: map[string]*string{
+//   				"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   			},
+//   			configurations: []interface{}{
+//   				configurationProperty_,
+//   			},
+//   		},
+//   	},
+//   	customAmiId: jsii.String("customAmiId"),
+//   	ebsConfiguration: &ebsConfigurationProperty{
+//   		ebsBlockDeviceConfigs: []interface{}{
+//   			&ebsBlockDeviceConfigProperty{
+//   				volumeSpecification: &volumeSpecificationProperty{
+//   					sizeInGb: jsii.Number(123),
+//   					volumeType: jsii.String("volumeType"),
+//
+//   					// the properties below are optional
+//   					iops: jsii.Number(123),
+//   				},
+//
+//   				// the properties below are optional
+//   				volumesPerInstance: jsii.Number(123),
+//   			},
+//   		},
+//   		ebsOptimized: jsii.Boolean(false),
+//   	},
+//   	weightedCapacity: jsii.Number(123),
+//   }
 //
 type CfnCluster_InstanceTypeConfigProperty struct {
 	// An EC2 instance type, such as `m3.xlarge` .
@@ -1200,7 +2176,314 @@ type CfnCluster_InstanceTypeConfigProperty struct {
 //
 // You can now define task instance groups or task instance fleets using the `TaskInstanceGroups` and `TaskInstanceFleets` subproperties. Using these subproperties reduces delays in provisioning task nodes compared to specifying task nodes with the `InstanceFleetConfig` and `InstanceGroupConfig` resources.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//
+//   var configurationProperty_ configurationProperty
+//   jobFlowInstancesConfigProperty := &jobFlowInstancesConfigProperty{
+//   	additionalMasterSecurityGroups: []*string{
+//   		jsii.String("additionalMasterSecurityGroups"),
+//   	},
+//   	additionalSlaveSecurityGroups: []*string{
+//   		jsii.String("additionalSlaveSecurityGroups"),
+//   	},
+//   	coreInstanceFleet: &instanceFleetConfigProperty{
+//   		instanceTypeConfigs: []interface{}{
+//   			&instanceTypeConfigProperty{
+//   				instanceType: jsii.String("instanceType"),
+//
+//   				// the properties below are optional
+//   				bidPrice: jsii.String("bidPrice"),
+//   				bidPriceAsPercentageOfOnDemandPrice: jsii.Number(123),
+//   				configurations: []interface{}{
+//   					&configurationProperty{
+//   						classification: jsii.String("classification"),
+//   						configurationProperties: map[string]*string{
+//   							"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   						},
+//   						configurations: []interface{}{
+//   							configurationProperty_,
+//   						},
+//   					},
+//   				},
+//   				customAmiId: jsii.String("customAmiId"),
+//   				ebsConfiguration: &ebsConfigurationProperty{
+//   					ebsBlockDeviceConfigs: []interface{}{
+//   						&ebsBlockDeviceConfigProperty{
+//   							volumeSpecification: &volumeSpecificationProperty{
+//   								sizeInGb: jsii.Number(123),
+//   								volumeType: jsii.String("volumeType"),
+//
+//   								// the properties below are optional
+//   								iops: jsii.Number(123),
+//   							},
+//
+//   							// the properties below are optional
+//   							volumesPerInstance: jsii.Number(123),
+//   						},
+//   					},
+//   					ebsOptimized: jsii.Boolean(false),
+//   				},
+//   				weightedCapacity: jsii.Number(123),
+//   			},
+//   		},
+//   		launchSpecifications: &instanceFleetProvisioningSpecificationsProperty{
+//   			onDemandSpecification: &onDemandProvisioningSpecificationProperty{
+//   				allocationStrategy: jsii.String("allocationStrategy"),
+//   			},
+//   			spotSpecification: &spotProvisioningSpecificationProperty{
+//   				timeoutAction: jsii.String("timeoutAction"),
+//   				timeoutDurationMinutes: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				allocationStrategy: jsii.String("allocationStrategy"),
+//   				blockDurationMinutes: jsii.Number(123),
+//   			},
+//   		},
+//   		name: jsii.String("name"),
+//   		targetOnDemandCapacity: jsii.Number(123),
+//   		targetSpotCapacity: jsii.Number(123),
+//   	},
+//   	coreInstanceGroup: &instanceGroupConfigProperty{
+//   		instanceCount: jsii.Number(123),
+//   		instanceType: jsii.String("instanceType"),
+//
+//   		// the properties below are optional
+//   		autoScalingPolicy: &autoScalingPolicyProperty{
+//   			constraints: &scalingConstraintsProperty{
+//   				maxCapacity: jsii.Number(123),
+//   				minCapacity: jsii.Number(123),
+//   			},
+//   			rules: []interface{}{
+//   				&scalingRuleProperty{
+//   					action: &scalingActionProperty{
+//   						simpleScalingPolicyConfiguration: &simpleScalingPolicyConfigurationProperty{
+//   							scalingAdjustment: jsii.Number(123),
+//
+//   							// the properties below are optional
+//   							adjustmentType: jsii.String("adjustmentType"),
+//   							coolDown: jsii.Number(123),
+//   						},
+//
+//   						// the properties below are optional
+//   						market: jsii.String("market"),
+//   					},
+//   					name: jsii.String("name"),
+//   					trigger: &scalingTriggerProperty{
+//   						cloudWatchAlarmDefinition: &cloudWatchAlarmDefinitionProperty{
+//   							comparisonOperator: jsii.String("comparisonOperator"),
+//   							metricName: jsii.String("metricName"),
+//   							period: jsii.Number(123),
+//   							threshold: jsii.Number(123),
+//
+//   							// the properties below are optional
+//   							dimensions: []interface{}{
+//   								&metricDimensionProperty{
+//   									key: jsii.String("key"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							evaluationPeriods: jsii.Number(123),
+//   							namespace: jsii.String("namespace"),
+//   							statistic: jsii.String("statistic"),
+//   							unit: jsii.String("unit"),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					description: jsii.String("description"),
+//   				},
+//   			},
+//   		},
+//   		bidPrice: jsii.String("bidPrice"),
+//   		configurations: []interface{}{
+//   			&configurationProperty{
+//   				classification: jsii.String("classification"),
+//   				configurationProperties: map[string]*string{
+//   					"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   				},
+//   				configurations: []interface{}{
+//   					configurationProperty_,
+//   				},
+//   			},
+//   		},
+//   		customAmiId: jsii.String("customAmiId"),
+//   		ebsConfiguration: &ebsConfigurationProperty{
+//   			ebsBlockDeviceConfigs: []interface{}{
+//   				&ebsBlockDeviceConfigProperty{
+//   					volumeSpecification: &volumeSpecificationProperty{
+//   						sizeInGb: jsii.Number(123),
+//   						volumeType: jsii.String("volumeType"),
+//
+//   						// the properties below are optional
+//   						iops: jsii.Number(123),
+//   					},
+//
+//   					// the properties below are optional
+//   					volumesPerInstance: jsii.Number(123),
+//   				},
+//   			},
+//   			ebsOptimized: jsii.Boolean(false),
+//   		},
+//   		market: jsii.String("market"),
+//   		name: jsii.String("name"),
+//   	},
+//   	ec2KeyName: jsii.String("ec2KeyName"),
+//   	ec2SubnetId: jsii.String("ec2SubnetId"),
+//   	ec2SubnetIds: []*string{
+//   		jsii.String("ec2SubnetIds"),
+//   	},
+//   	emrManagedMasterSecurityGroup: jsii.String("emrManagedMasterSecurityGroup"),
+//   	emrManagedSlaveSecurityGroup: jsii.String("emrManagedSlaveSecurityGroup"),
+//   	hadoopVersion: jsii.String("hadoopVersion"),
+//   	keepJobFlowAliveWhenNoSteps: jsii.Boolean(false),
+//   	masterInstanceFleet: &instanceFleetConfigProperty{
+//   		instanceTypeConfigs: []interface{}{
+//   			&instanceTypeConfigProperty{
+//   				instanceType: jsii.String("instanceType"),
+//
+//   				// the properties below are optional
+//   				bidPrice: jsii.String("bidPrice"),
+//   				bidPriceAsPercentageOfOnDemandPrice: jsii.Number(123),
+//   				configurations: []interface{}{
+//   					&configurationProperty{
+//   						classification: jsii.String("classification"),
+//   						configurationProperties: map[string]*string{
+//   							"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   						},
+//   						configurations: []interface{}{
+//   							configurationProperty_,
+//   						},
+//   					},
+//   				},
+//   				customAmiId: jsii.String("customAmiId"),
+//   				ebsConfiguration: &ebsConfigurationProperty{
+//   					ebsBlockDeviceConfigs: []interface{}{
+//   						&ebsBlockDeviceConfigProperty{
+//   							volumeSpecification: &volumeSpecificationProperty{
+//   								sizeInGb: jsii.Number(123),
+//   								volumeType: jsii.String("volumeType"),
+//
+//   								// the properties below are optional
+//   								iops: jsii.Number(123),
+//   							},
+//
+//   							// the properties below are optional
+//   							volumesPerInstance: jsii.Number(123),
+//   						},
+//   					},
+//   					ebsOptimized: jsii.Boolean(false),
+//   				},
+//   				weightedCapacity: jsii.Number(123),
+//   			},
+//   		},
+//   		launchSpecifications: &instanceFleetProvisioningSpecificationsProperty{
+//   			onDemandSpecification: &onDemandProvisioningSpecificationProperty{
+//   				allocationStrategy: jsii.String("allocationStrategy"),
+//   			},
+//   			spotSpecification: &spotProvisioningSpecificationProperty{
+//   				timeoutAction: jsii.String("timeoutAction"),
+//   				timeoutDurationMinutes: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				allocationStrategy: jsii.String("allocationStrategy"),
+//   				blockDurationMinutes: jsii.Number(123),
+//   			},
+//   		},
+//   		name: jsii.String("name"),
+//   		targetOnDemandCapacity: jsii.Number(123),
+//   		targetSpotCapacity: jsii.Number(123),
+//   	},
+//   	masterInstanceGroup: &instanceGroupConfigProperty{
+//   		instanceCount: jsii.Number(123),
+//   		instanceType: jsii.String("instanceType"),
+//
+//   		// the properties below are optional
+//   		autoScalingPolicy: &autoScalingPolicyProperty{
+//   			constraints: &scalingConstraintsProperty{
+//   				maxCapacity: jsii.Number(123),
+//   				minCapacity: jsii.Number(123),
+//   			},
+//   			rules: []interface{}{
+//   				&scalingRuleProperty{
+//   					action: &scalingActionProperty{
+//   						simpleScalingPolicyConfiguration: &simpleScalingPolicyConfigurationProperty{
+//   							scalingAdjustment: jsii.Number(123),
+//
+//   							// the properties below are optional
+//   							adjustmentType: jsii.String("adjustmentType"),
+//   							coolDown: jsii.Number(123),
+//   						},
+//
+//   						// the properties below are optional
+//   						market: jsii.String("market"),
+//   					},
+//   					name: jsii.String("name"),
+//   					trigger: &scalingTriggerProperty{
+//   						cloudWatchAlarmDefinition: &cloudWatchAlarmDefinitionProperty{
+//   							comparisonOperator: jsii.String("comparisonOperator"),
+//   							metricName: jsii.String("metricName"),
+//   							period: jsii.Number(123),
+//   							threshold: jsii.Number(123),
+//
+//   							// the properties below are optional
+//   							dimensions: []interface{}{
+//   								&metricDimensionProperty{
+//   									key: jsii.String("key"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							evaluationPeriods: jsii.Number(123),
+//   							namespace: jsii.String("namespace"),
+//   							statistic: jsii.String("statistic"),
+//   							unit: jsii.String("unit"),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					description: jsii.String("description"),
+//   				},
+//   			},
+//   		},
+//   		bidPrice: jsii.String("bidPrice"),
+//   		configurations: []interface{}{
+//   			&configurationProperty{
+//   				classification: jsii.String("classification"),
+//   				configurationProperties: map[string]*string{
+//   					"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   				},
+//   				configurations: []interface{}{
+//   					configurationProperty_,
+//   				},
+//   			},
+//   		},
+//   		customAmiId: jsii.String("customAmiId"),
+//   		ebsConfiguration: &ebsConfigurationProperty{
+//   			ebsBlockDeviceConfigs: []interface{}{
+//   				&ebsBlockDeviceConfigProperty{
+//   					volumeSpecification: &volumeSpecificationProperty{
+//   						sizeInGb: jsii.Number(123),
+//   						volumeType: jsii.String("volumeType"),
+//
+//   						// the properties below are optional
+//   						iops: jsii.Number(123),
+//   					},
+//
+//   					// the properties below are optional
+//   					volumesPerInstance: jsii.Number(123),
+//   				},
+//   			},
+//   			ebsOptimized: jsii.Boolean(false),
+//   		},
+//   		market: jsii.String("market"),
+//   		name: jsii.String("name"),
+//   	},
+//   	placement: &placementTypeProperty{
+//   		availabilityZone: jsii.String("availabilityZone"),
+//   	},
+//   	serviceAccessSecurityGroup: jsii.String("serviceAccessSecurityGroup"),
+//   	terminationProtected: jsii.Boolean(false),
+//   }
 //
 type CfnCluster_JobFlowInstancesConfigProperty struct {
 	// A list of additional Amazon EC2 security group IDs for the master node.
@@ -1253,7 +2536,17 @@ type CfnCluster_JobFlowInstancesConfigProperty struct {
 //
 // `KerberosAttributes` define the cluster-specific Kerberos configuration when Kerberos authentication is enabled using a security configuration. The cluster-specific configuration must be compatible with the security configuration. For more information see [Use Kerberos Authentication](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html) in the *EMR Management Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   kerberosAttributesProperty := &kerberosAttributesProperty{
+//   	kdcAdminPassword: jsii.String("kdcAdminPassword"),
+//   	realm: jsii.String("realm"),
+//
+//   	// the properties below are optional
+//   	adDomainJoinPassword: jsii.String("adDomainJoinPassword"),
+//   	adDomainJoinUser: jsii.String("adDomainJoinUser"),
+//   	crossRealmTrustPrincipalPassword: jsii.String("crossRealmTrustPrincipalPassword"),
+//   }
 //
 type CfnCluster_KerberosAttributesProperty struct {
 	// The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster.
@@ -1278,7 +2571,12 @@ type CfnCluster_KerberosAttributesProperty struct {
 //
 // `KeyValue` is used to pass parameters to a step.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   keyValueProperty := &keyValueProperty{
+//   	key: jsii.String("key"),
+//   	value: jsii.String("value"),
+//   }
 //
 type CfnCluster_KeyValueProperty struct {
 	// The unique identifier of a key-value pair.
@@ -1291,7 +2589,19 @@ type CfnCluster_KeyValueProperty struct {
 //
 // The policy specifies the limits for resources that can be added or terminated from a cluster. The policy only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   managedScalingPolicyProperty := &managedScalingPolicyProperty{
+//   	computeLimits: &computeLimitsProperty{
+//   		maximumCapacityUnits: jsii.Number(123),
+//   		minimumCapacityUnits: jsii.Number(123),
+//   		unitType: jsii.String("unitType"),
+//
+//   		// the properties below are optional
+//   		maximumCoreCapacityUnits: jsii.Number(123),
+//   		maximumOnDemandCapacityUnits: jsii.Number(123),
+//   	},
+//   }
 //
 type CfnCluster_ManagedScalingPolicyProperty struct {
 	// The EC2 unit limits for a managed scaling policy.
@@ -1304,7 +2614,12 @@ type CfnCluster_ManagedScalingPolicyProperty struct {
 //
 // `MetricDimension` specifies a CloudWatch dimension, which is specified with a `Key` `Value` pair. The key is known as a `Name` in CloudWatch. By default, Amazon EMR uses one dimension whose `Key` is `JobFlowID` and `Value` is a variable representing the cluster ID, which is `${emr.clusterId}` . This enables the automatic scaling rule for EMR to bootstrap when the cluster ID becomes available during cluster creation.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   metricDimensionProperty := &metricDimensionProperty{
+//   	key: jsii.String("key"),
+//   	value: jsii.String("value"),
+//   }
 //
 type CfnCluster_MetricDimensionProperty struct {
 	// The dimension name.
@@ -1317,7 +2632,11 @@ type CfnCluster_MetricDimensionProperty struct {
 //
 // > The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances allocation strategy is available in Amazon EMR version 5.12.1 and later.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   onDemandProvisioningSpecificationProperty := &onDemandProvisioningSpecificationProperty{
+//   	allocationStrategy: jsii.String("allocationStrategy"),
+//   }
 //
 type CfnCluster_OnDemandProvisioningSpecificationProperty struct {
 	// Specifies the strategy to use in launching On-Demand instance fleets.
@@ -1330,7 +2649,11 @@ type CfnCluster_OnDemandProvisioningSpecificationProperty struct {
 //
 // `PlacementType` determines the Amazon EC2 Availability Zone configuration of the cluster (job flow).
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   placementTypeProperty := &placementTypeProperty{
+//   	availabilityZone: jsii.String("availabilityZone"),
+//   }
 //
 type CfnCluster_PlacementTypeProperty struct {
 	// The Amazon EC2 Availability Zone for the cluster.
@@ -1343,7 +2666,20 @@ type CfnCluster_PlacementTypeProperty struct {
 //
 // `ScalingAction` determines the type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   scalingActionProperty := &scalingActionProperty{
+//   	simpleScalingPolicyConfiguration: &simpleScalingPolicyConfigurationProperty{
+//   		scalingAdjustment: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		adjustmentType: jsii.String("adjustmentType"),
+//   		coolDown: jsii.Number(123),
+//   	},
+//
+//   	// the properties below are optional
+//   	market: jsii.String("market"),
+//   }
 //
 type CfnCluster_ScalingActionProperty struct {
 	// The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
@@ -1358,7 +2694,12 @@ type CfnCluster_ScalingActionProperty struct {
 //
 // `ScalingConstraints` defines the upper and lower EC2 instance limits for an automatic scaling policy. Automatic scaling activities triggered by automatic scaling rules will not cause an instance group to grow above or shrink below these limits.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   scalingConstraintsProperty := &scalingConstraintsProperty{
+//   	maxCapacity: jsii.Number(123),
+//   	minCapacity: jsii.Number(123),
+//   }
 //
 type CfnCluster_ScalingConstraintsProperty struct {
 	// The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow.
@@ -1375,7 +2716,46 @@ type CfnCluster_ScalingConstraintsProperty struct {
 //
 // `ScalingRule` defines the scale-in or scale-out rules for scaling activity, including the CloudWatch metric alarm that triggers activity, how EC2 instances are added or removed, and the periodicity of adjustments. The automatic scaling policy for an instance group can comprise one or more automatic scaling rules.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   scalingRuleProperty := &scalingRuleProperty{
+//   	action: &scalingActionProperty{
+//   		simpleScalingPolicyConfiguration: &simpleScalingPolicyConfigurationProperty{
+//   			scalingAdjustment: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			adjustmentType: jsii.String("adjustmentType"),
+//   			coolDown: jsii.Number(123),
+//   		},
+//
+//   		// the properties below are optional
+//   		market: jsii.String("market"),
+//   	},
+//   	name: jsii.String("name"),
+//   	trigger: &scalingTriggerProperty{
+//   		cloudWatchAlarmDefinition: &cloudWatchAlarmDefinitionProperty{
+//   			comparisonOperator: jsii.String("comparisonOperator"),
+//   			metricName: jsii.String("metricName"),
+//   			period: jsii.Number(123),
+//   			threshold: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			dimensions: []interface{}{
+//   				&metricDimensionProperty{
+//   					key: jsii.String("key"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   			evaluationPeriods: jsii.Number(123),
+//   			namespace: jsii.String("namespace"),
+//   			statistic: jsii.String("statistic"),
+//   			unit: jsii.String("unit"),
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   }
 //
 type CfnCluster_ScalingRuleProperty struct {
 	// The conditions that trigger an automatic scaling activity.
@@ -1394,7 +2774,28 @@ type CfnCluster_ScalingRuleProperty struct {
 //
 // `ScalingTrigger` determines the conditions that trigger an automatic scaling activity.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   scalingTriggerProperty := &scalingTriggerProperty{
+//   	cloudWatchAlarmDefinition: &cloudWatchAlarmDefinitionProperty{
+//   		comparisonOperator: jsii.String("comparisonOperator"),
+//   		metricName: jsii.String("metricName"),
+//   		period: jsii.Number(123),
+//   		threshold: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		dimensions: []interface{}{
+//   			&metricDimensionProperty{
+//   				key: jsii.String("key"),
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   		evaluationPeriods: jsii.Number(123),
+//   		namespace: jsii.String("namespace"),
+//   		statistic: jsii.String("statistic"),
+//   		unit: jsii.String("unit"),
+//   	},
+//   }
 //
 type CfnCluster_ScalingTriggerProperty struct {
 	// The definition of a CloudWatch metric alarm.
@@ -1407,7 +2808,16 @@ type CfnCluster_ScalingTriggerProperty struct {
 //
 // `ScriptBootstrapActionConfig` specifies the arguments and location of the bootstrap script for EMR to run on all cluster nodes before it installs open-source big data applications on them.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   scriptBootstrapActionConfigProperty := &scriptBootstrapActionConfigProperty{
+//   	path: jsii.String("path"),
+//
+//   	// the properties below are optional
+//   	args: []*string{
+//   		jsii.String("args"),
+//   	},
+//   }
 //
 type CfnCluster_ScriptBootstrapActionConfigProperty struct {
 	// Location in Amazon S3 of the script to run during a bootstrap action.
@@ -1420,7 +2830,15 @@ type CfnCluster_ScriptBootstrapActionConfigProperty struct {
 //
 // `SimpleScalingPolicyConfiguration` determines how an automatic scaling action adds or removes instances, the cooldown period, and the number of EC2 instances that are added each time the CloudWatch metric alarm condition is satisfied.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   simpleScalingPolicyConfigurationProperty := &simpleScalingPolicyConfigurationProperty{
+//   	scalingAdjustment: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	adjustmentType: jsii.String("adjustmentType"),
+//   	coolDown: jsii.Number(123),
+//   }
 //
 type CfnCluster_SimpleScalingPolicyConfigurationProperty struct {
 	// The amount by which to scale in or scale out, based on the specified `AdjustmentType` .
@@ -1443,7 +2861,16 @@ type CfnCluster_SimpleScalingPolicyConfigurationProperty struct {
 //
 // > The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   spotProvisioningSpecificationProperty := &spotProvisioningSpecificationProperty{
+//   	timeoutAction: jsii.String("timeoutAction"),
+//   	timeoutDurationMinutes: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	allocationStrategy: jsii.String("allocationStrategy"),
+//   	blockDurationMinutes: jsii.Number(123),
+//   }
 //
 type CfnCluster_SpotProvisioningSpecificationProperty struct {
 	// The action to take when `TargetSpotCapacity` has not been fulfilled when the `TimeoutDurationMinutes` has expired;
@@ -1470,7 +2897,29 @@ type CfnCluster_SpotProvisioningSpecificationProperty struct {
 //
 // The `StepConfig` property type specifies a cluster (job flow) step, which runs only on the master node. Steps are used to submit data processing jobs to the cluster.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   stepConfigProperty := &stepConfigProperty{
+//   	hadoopJarStep: &hadoopJarStepConfigProperty{
+//   		jar: jsii.String("jar"),
+//
+//   		// the properties below are optional
+//   		args: []*string{
+//   			jsii.String("args"),
+//   		},
+//   		mainClass: jsii.String("mainClass"),
+//   		stepProperties: []interface{}{
+//   			&keyValueProperty{
+//   				key: jsii.String("key"),
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	actionOnFailure: jsii.String("actionOnFailure"),
+//   }
 //
 type CfnCluster_StepConfigProperty struct {
 	// The JAR file used for the step.
@@ -1487,7 +2936,15 @@ type CfnCluster_StepConfigProperty struct {
 //
 // `VolumeSecification` determines the volume type, IOPS, and size (GiB) for EBS volumes attached to EC2 instances.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   volumeSpecificationProperty := &volumeSpecificationProperty{
+//   	sizeInGb: jsii.Number(123),
+//   	volumeType: jsii.String("volumeType"),
+//
+//   	// the properties below are optional
+//   	iops: jsii.Number(123),
+//   }
 //
 type CfnCluster_VolumeSpecificationProperty struct {
 	// The volume size, in gibibytes (GiB).
@@ -1504,7 +2961,418 @@ type CfnCluster_VolumeSpecificationProperty struct {
 
 // Properties for defining a `CfnCluster`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//
+//   var additionalInfo interface{}
+//   var configurationProperty_ configurationProperty
+//   cfnClusterProps := &cfnClusterProps{
+//   	instances: &jobFlowInstancesConfigProperty{
+//   		additionalMasterSecurityGroups: []*string{
+//   			jsii.String("additionalMasterSecurityGroups"),
+//   		},
+//   		additionalSlaveSecurityGroups: []*string{
+//   			jsii.String("additionalSlaveSecurityGroups"),
+//   		},
+//   		coreInstanceFleet: &instanceFleetConfigProperty{
+//   			instanceTypeConfigs: []interface{}{
+//   				&instanceTypeConfigProperty{
+//   					instanceType: jsii.String("instanceType"),
+//
+//   					// the properties below are optional
+//   					bidPrice: jsii.String("bidPrice"),
+//   					bidPriceAsPercentageOfOnDemandPrice: jsii.Number(123),
+//   					configurations: []interface{}{
+//   						&configurationProperty{
+//   							classification: jsii.String("classification"),
+//   							configurationProperties: map[string]*string{
+//   								"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   							},
+//   							configurations: []interface{}{
+//   								configurationProperty_,
+//   							},
+//   						},
+//   					},
+//   					customAmiId: jsii.String("customAmiId"),
+//   					ebsConfiguration: &ebsConfigurationProperty{
+//   						ebsBlockDeviceConfigs: []interface{}{
+//   							&ebsBlockDeviceConfigProperty{
+//   								volumeSpecification: &volumeSpecificationProperty{
+//   									sizeInGb: jsii.Number(123),
+//   									volumeType: jsii.String("volumeType"),
+//
+//   									// the properties below are optional
+//   									iops: jsii.Number(123),
+//   								},
+//
+//   								// the properties below are optional
+//   								volumesPerInstance: jsii.Number(123),
+//   							},
+//   						},
+//   						ebsOptimized: jsii.Boolean(false),
+//   					},
+//   					weightedCapacity: jsii.Number(123),
+//   				},
+//   			},
+//   			launchSpecifications: &instanceFleetProvisioningSpecificationsProperty{
+//   				onDemandSpecification: &onDemandProvisioningSpecificationProperty{
+//   					allocationStrategy: jsii.String("allocationStrategy"),
+//   				},
+//   				spotSpecification: &spotProvisioningSpecificationProperty{
+//   					timeoutAction: jsii.String("timeoutAction"),
+//   					timeoutDurationMinutes: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					allocationStrategy: jsii.String("allocationStrategy"),
+//   					blockDurationMinutes: jsii.Number(123),
+//   				},
+//   			},
+//   			name: jsii.String("name"),
+//   			targetOnDemandCapacity: jsii.Number(123),
+//   			targetSpotCapacity: jsii.Number(123),
+//   		},
+//   		coreInstanceGroup: &instanceGroupConfigProperty{
+//   			instanceCount: jsii.Number(123),
+//   			instanceType: jsii.String("instanceType"),
+//
+//   			// the properties below are optional
+//   			autoScalingPolicy: &autoScalingPolicyProperty{
+//   				constraints: &scalingConstraintsProperty{
+//   					maxCapacity: jsii.Number(123),
+//   					minCapacity: jsii.Number(123),
+//   				},
+//   				rules: []interface{}{
+//   					&scalingRuleProperty{
+//   						action: &scalingActionProperty{
+//   							simpleScalingPolicyConfiguration: &simpleScalingPolicyConfigurationProperty{
+//   								scalingAdjustment: jsii.Number(123),
+//
+//   								// the properties below are optional
+//   								adjustmentType: jsii.String("adjustmentType"),
+//   								coolDown: jsii.Number(123),
+//   							},
+//
+//   							// the properties below are optional
+//   							market: jsii.String("market"),
+//   						},
+//   						name: jsii.String("name"),
+//   						trigger: &scalingTriggerProperty{
+//   							cloudWatchAlarmDefinition: &cloudWatchAlarmDefinitionProperty{
+//   								comparisonOperator: jsii.String("comparisonOperator"),
+//   								metricName: jsii.String("metricName"),
+//   								period: jsii.Number(123),
+//   								threshold: jsii.Number(123),
+//
+//   								// the properties below are optional
+//   								dimensions: []interface{}{
+//   									&metricDimensionProperty{
+//   										key: jsii.String("key"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								evaluationPeriods: jsii.Number(123),
+//   								namespace: jsii.String("namespace"),
+//   								statistic: jsii.String("statistic"),
+//   								unit: jsii.String("unit"),
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						description: jsii.String("description"),
+//   					},
+//   				},
+//   			},
+//   			bidPrice: jsii.String("bidPrice"),
+//   			configurations: []interface{}{
+//   				&configurationProperty{
+//   					classification: jsii.String("classification"),
+//   					configurationProperties: map[string]*string{
+//   						"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   					},
+//   					configurations: []interface{}{
+//   						configurationProperty_,
+//   					},
+//   				},
+//   			},
+//   			customAmiId: jsii.String("customAmiId"),
+//   			ebsConfiguration: &ebsConfigurationProperty{
+//   				ebsBlockDeviceConfigs: []interface{}{
+//   					&ebsBlockDeviceConfigProperty{
+//   						volumeSpecification: &volumeSpecificationProperty{
+//   							sizeInGb: jsii.Number(123),
+//   							volumeType: jsii.String("volumeType"),
+//
+//   							// the properties below are optional
+//   							iops: jsii.Number(123),
+//   						},
+//
+//   						// the properties below are optional
+//   						volumesPerInstance: jsii.Number(123),
+//   					},
+//   				},
+//   				ebsOptimized: jsii.Boolean(false),
+//   			},
+//   			market: jsii.String("market"),
+//   			name: jsii.String("name"),
+//   		},
+//   		ec2KeyName: jsii.String("ec2KeyName"),
+//   		ec2SubnetId: jsii.String("ec2SubnetId"),
+//   		ec2SubnetIds: []*string{
+//   			jsii.String("ec2SubnetIds"),
+//   		},
+//   		emrManagedMasterSecurityGroup: jsii.String("emrManagedMasterSecurityGroup"),
+//   		emrManagedSlaveSecurityGroup: jsii.String("emrManagedSlaveSecurityGroup"),
+//   		hadoopVersion: jsii.String("hadoopVersion"),
+//   		keepJobFlowAliveWhenNoSteps: jsii.Boolean(false),
+//   		masterInstanceFleet: &instanceFleetConfigProperty{
+//   			instanceTypeConfigs: []interface{}{
+//   				&instanceTypeConfigProperty{
+//   					instanceType: jsii.String("instanceType"),
+//
+//   					// the properties below are optional
+//   					bidPrice: jsii.String("bidPrice"),
+//   					bidPriceAsPercentageOfOnDemandPrice: jsii.Number(123),
+//   					configurations: []interface{}{
+//   						&configurationProperty{
+//   							classification: jsii.String("classification"),
+//   							configurationProperties: map[string]*string{
+//   								"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   							},
+//   							configurations: []interface{}{
+//   								configurationProperty_,
+//   							},
+//   						},
+//   					},
+//   					customAmiId: jsii.String("customAmiId"),
+//   					ebsConfiguration: &ebsConfigurationProperty{
+//   						ebsBlockDeviceConfigs: []interface{}{
+//   							&ebsBlockDeviceConfigProperty{
+//   								volumeSpecification: &volumeSpecificationProperty{
+//   									sizeInGb: jsii.Number(123),
+//   									volumeType: jsii.String("volumeType"),
+//
+//   									// the properties below are optional
+//   									iops: jsii.Number(123),
+//   								},
+//
+//   								// the properties below are optional
+//   								volumesPerInstance: jsii.Number(123),
+//   							},
+//   						},
+//   						ebsOptimized: jsii.Boolean(false),
+//   					},
+//   					weightedCapacity: jsii.Number(123),
+//   				},
+//   			},
+//   			launchSpecifications: &instanceFleetProvisioningSpecificationsProperty{
+//   				onDemandSpecification: &onDemandProvisioningSpecificationProperty{
+//   					allocationStrategy: jsii.String("allocationStrategy"),
+//   				},
+//   				spotSpecification: &spotProvisioningSpecificationProperty{
+//   					timeoutAction: jsii.String("timeoutAction"),
+//   					timeoutDurationMinutes: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					allocationStrategy: jsii.String("allocationStrategy"),
+//   					blockDurationMinutes: jsii.Number(123),
+//   				},
+//   			},
+//   			name: jsii.String("name"),
+//   			targetOnDemandCapacity: jsii.Number(123),
+//   			targetSpotCapacity: jsii.Number(123),
+//   		},
+//   		masterInstanceGroup: &instanceGroupConfigProperty{
+//   			instanceCount: jsii.Number(123),
+//   			instanceType: jsii.String("instanceType"),
+//
+//   			// the properties below are optional
+//   			autoScalingPolicy: &autoScalingPolicyProperty{
+//   				constraints: &scalingConstraintsProperty{
+//   					maxCapacity: jsii.Number(123),
+//   					minCapacity: jsii.Number(123),
+//   				},
+//   				rules: []interface{}{
+//   					&scalingRuleProperty{
+//   						action: &scalingActionProperty{
+//   							simpleScalingPolicyConfiguration: &simpleScalingPolicyConfigurationProperty{
+//   								scalingAdjustment: jsii.Number(123),
+//
+//   								// the properties below are optional
+//   								adjustmentType: jsii.String("adjustmentType"),
+//   								coolDown: jsii.Number(123),
+//   							},
+//
+//   							// the properties below are optional
+//   							market: jsii.String("market"),
+//   						},
+//   						name: jsii.String("name"),
+//   						trigger: &scalingTriggerProperty{
+//   							cloudWatchAlarmDefinition: &cloudWatchAlarmDefinitionProperty{
+//   								comparisonOperator: jsii.String("comparisonOperator"),
+//   								metricName: jsii.String("metricName"),
+//   								period: jsii.Number(123),
+//   								threshold: jsii.Number(123),
+//
+//   								// the properties below are optional
+//   								dimensions: []interface{}{
+//   									&metricDimensionProperty{
+//   										key: jsii.String("key"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								evaluationPeriods: jsii.Number(123),
+//   								namespace: jsii.String("namespace"),
+//   								statistic: jsii.String("statistic"),
+//   								unit: jsii.String("unit"),
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						description: jsii.String("description"),
+//   					},
+//   				},
+//   			},
+//   			bidPrice: jsii.String("bidPrice"),
+//   			configurations: []interface{}{
+//   				&configurationProperty{
+//   					classification: jsii.String("classification"),
+//   					configurationProperties: map[string]*string{
+//   						"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   					},
+//   					configurations: []interface{}{
+//   						configurationProperty_,
+//   					},
+//   				},
+//   			},
+//   			customAmiId: jsii.String("customAmiId"),
+//   			ebsConfiguration: &ebsConfigurationProperty{
+//   				ebsBlockDeviceConfigs: []interface{}{
+//   					&ebsBlockDeviceConfigProperty{
+//   						volumeSpecification: &volumeSpecificationProperty{
+//   							sizeInGb: jsii.Number(123),
+//   							volumeType: jsii.String("volumeType"),
+//
+//   							// the properties below are optional
+//   							iops: jsii.Number(123),
+//   						},
+//
+//   						// the properties below are optional
+//   						volumesPerInstance: jsii.Number(123),
+//   					},
+//   				},
+//   				ebsOptimized: jsii.Boolean(false),
+//   			},
+//   			market: jsii.String("market"),
+//   			name: jsii.String("name"),
+//   		},
+//   		placement: &placementTypeProperty{
+//   			availabilityZone: jsii.String("availabilityZone"),
+//   		},
+//   		serviceAccessSecurityGroup: jsii.String("serviceAccessSecurityGroup"),
+//   		terminationProtected: jsii.Boolean(false),
+//   	},
+//   	jobFlowRole: jsii.String("jobFlowRole"),
+//   	name: jsii.String("name"),
+//   	serviceRole: jsii.String("serviceRole"),
+//
+//   	// the properties below are optional
+//   	additionalInfo: additionalInfo,
+//   	applications: []interface{}{
+//   		&applicationProperty{
+//   			additionalInfo: map[string]*string{
+//   				"additionalInfoKey": jsii.String("additionalInfo"),
+//   			},
+//   			args: []*string{
+//   				jsii.String("args"),
+//   			},
+//   			name: jsii.String("name"),
+//   			version: jsii.String("version"),
+//   		},
+//   	},
+//   	autoScalingRole: jsii.String("autoScalingRole"),
+//   	bootstrapActions: []interface{}{
+//   		&bootstrapActionConfigProperty{
+//   			name: jsii.String("name"),
+//   			scriptBootstrapAction: &scriptBootstrapActionConfigProperty{
+//   				path: jsii.String("path"),
+//
+//   				// the properties below are optional
+//   				args: []*string{
+//   					jsii.String("args"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	configurations: []interface{}{
+//   		&configurationProperty{
+//   			classification: jsii.String("classification"),
+//   			configurationProperties: map[string]*string{
+//   				"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   			},
+//   			configurations: []interface{}{
+//   				configurationProperty_,
+//   			},
+//   		},
+//   	},
+//   	customAmiId: jsii.String("customAmiId"),
+//   	ebsRootVolumeSize: jsii.Number(123),
+//   	kerberosAttributes: &kerberosAttributesProperty{
+//   		kdcAdminPassword: jsii.String("kdcAdminPassword"),
+//   		realm: jsii.String("realm"),
+//
+//   		// the properties below are optional
+//   		adDomainJoinPassword: jsii.String("adDomainJoinPassword"),
+//   		adDomainJoinUser: jsii.String("adDomainJoinUser"),
+//   		crossRealmTrustPrincipalPassword: jsii.String("crossRealmTrustPrincipalPassword"),
+//   	},
+//   	logEncryptionKmsKeyId: jsii.String("logEncryptionKmsKeyId"),
+//   	logUri: jsii.String("logUri"),
+//   	managedScalingPolicy: &managedScalingPolicyProperty{
+//   		computeLimits: &computeLimitsProperty{
+//   			maximumCapacityUnits: jsii.Number(123),
+//   			minimumCapacityUnits: jsii.Number(123),
+//   			unitType: jsii.String("unitType"),
+//
+//   			// the properties below are optional
+//   			maximumCoreCapacityUnits: jsii.Number(123),
+//   			maximumOnDemandCapacityUnits: jsii.Number(123),
+//   		},
+//   	},
+//   	releaseLabel: jsii.String("releaseLabel"),
+//   	scaleDownBehavior: jsii.String("scaleDownBehavior"),
+//   	securityConfiguration: jsii.String("securityConfiguration"),
+//   	stepConcurrencyLevel: jsii.Number(123),
+//   	steps: []interface{}{
+//   		&stepConfigProperty{
+//   			hadoopJarStep: &hadoopJarStepConfigProperty{
+//   				jar: jsii.String("jar"),
+//
+//   				// the properties below are optional
+//   				args: []*string{
+//   					jsii.String("args"),
+//   				},
+//   				mainClass: jsii.String("mainClass"),
+//   				stepProperties: []interface{}{
+//   					&keyValueProperty{
+//   						key: jsii.String("key"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   			name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			actionOnFailure: jsii.String("actionOnFailure"),
+//   		},
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	visibleToAllUsers: jsii.Boolean(false),
+//   }
 //
 type CfnClusterProps struct {
 	// A specification of the number and type of Amazon EC2 instances.
@@ -1581,48 +3449,314 @@ type CfnClusterProps struct {
 //
 // > The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions. > You can currently only add a task instance fleet to a cluster with this resource. If you use this resource, CloudFormation waits for the cluster launch to complete before adding the task instance fleet to the cluster. In order to add a task instance fleet to the cluster as part of the cluster launch and minimize delays in provisioning task nodes, use the `TaskInstanceFleets` subproperty for the [AWS::EMR::Cluster JobFlowInstancesConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html) property instead. To use this subproperty, see [AWS::EMR::Cluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html) for examples.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//
+//   var configurationProperty_ configurationProperty
+//   cfnInstanceFleetConfig := emr.NewCfnInstanceFleetConfig(this, jsii.String("MyCfnInstanceFleetConfig"), &cfnInstanceFleetConfigProps{
+//   	clusterId: jsii.String("clusterId"),
+//   	instanceFleetType: jsii.String("instanceFleetType"),
+//
+//   	// the properties below are optional
+//   	instanceTypeConfigs: []interface{}{
+//   		&instanceTypeConfigProperty{
+//   			instanceType: jsii.String("instanceType"),
+//
+//   			// the properties below are optional
+//   			bidPrice: jsii.String("bidPrice"),
+//   			bidPriceAsPercentageOfOnDemandPrice: jsii.Number(123),
+//   			configurations: []interface{}{
+//   				&configurationProperty{
+//   					classification: jsii.String("classification"),
+//   					configurationProperties: map[string]*string{
+//   						"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   					},
+//   					configurations: []interface{}{
+//   						configurationProperty_,
+//   					},
+//   				},
+//   			},
+//   			customAmiId: jsii.String("customAmiId"),
+//   			ebsConfiguration: &ebsConfigurationProperty{
+//   				ebsBlockDeviceConfigs: []interface{}{
+//   					&ebsBlockDeviceConfigProperty{
+//   						volumeSpecification: &volumeSpecificationProperty{
+//   							sizeInGb: jsii.Number(123),
+//   							volumeType: jsii.String("volumeType"),
+//
+//   							// the properties below are optional
+//   							iops: jsii.Number(123),
+//   						},
+//
+//   						// the properties below are optional
+//   						volumesPerInstance: jsii.Number(123),
+//   					},
+//   				},
+//   				ebsOptimized: jsii.Boolean(false),
+//   			},
+//   			weightedCapacity: jsii.Number(123),
+//   		},
+//   	},
+//   	launchSpecifications: &instanceFleetProvisioningSpecificationsProperty{
+//   		onDemandSpecification: &onDemandProvisioningSpecificationProperty{
+//   			allocationStrategy: jsii.String("allocationStrategy"),
+//   		},
+//   		spotSpecification: &spotProvisioningSpecificationProperty{
+//   			timeoutAction: jsii.String("timeoutAction"),
+//   			timeoutDurationMinutes: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			allocationStrategy: jsii.String("allocationStrategy"),
+//   			blockDurationMinutes: jsii.Number(123),
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//   	targetOnDemandCapacity: jsii.Number(123),
+//   	targetSpotCapacity: jsii.Number(123),
+//   })
 //
 type CfnInstanceFleetConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// The unique identifier of the EMR cluster.
 	ClusterId() *string
 	SetClusterId(val *string)
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The node type that the instance fleet hosts.
+	//
+	// *Allowed Values* : TASK.
 	InstanceFleetType() *string
 	SetInstanceFleetType(val *string)
+	// `InstanceTypeConfigs` determine the EC2 instances that Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
+	//
+	// > The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.
 	InstanceTypeConfigs() interface{}
 	SetInstanceTypeConfigs(val interface{})
+	// The launch specification for the instance fleet.
 	LaunchSpecifications() interface{}
 	SetLaunchSpecifications(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The friendly name of the instance fleet.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+	//
+	// When the instance fleet launches, Amazon EMR tries to provision On-Demand instances as specified by `InstanceTypeConfig` . Each instance configuration has a specified `WeightedCapacity` . When an On-Demand instance is provisioned, the `WeightedCapacity` units count toward the target capacity. Amazon EMR provisions instances until the target capacity is totally fulfilled, even if this results in an overage. For example, if there are 2 units remaining to fulfill capacity, and Amazon EMR can only provision an instance with a `WeightedCapacity` of 5 units, the instance is provisioned, and the target capacity is exceeded by 3 units.
+	//
+	// > If not specified or set to 0, only Spot instances are provisioned for the instance fleet using `TargetSpotCapacity` . At least one of `TargetSpotCapacity` and `TargetOnDemandCapacity` should be greater than 0. For a master instance fleet, only one of `TargetSpotCapacity` and `TargetOnDemandCapacity` can be specified, and its value must be 1.
 	TargetOnDemandCapacity() *float64
 	SetTargetOnDemandCapacity(val *float64)
+	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+	//
+	// When the instance fleet launches, Amazon EMR tries to provision Spot instances as specified by `InstanceTypeConfig` . Each instance configuration has a specified `WeightedCapacity` . When a Spot instance is provisioned, the `WeightedCapacity` units count toward the target capacity. Amazon EMR provisions instances until the target capacity is totally fulfilled, even if this results in an overage. For example, if there are 2 units remaining to fulfill capacity, and Amazon EMR can only provision an instance with a `WeightedCapacity` of 5 units, the instance is provisioned, and the target capacity is exceeded by 3 units.
+	//
+	// > If not specified or set to 0, only On-Demand instances are provisioned for the instance fleet. At least one of `TargetSpotCapacity` and `TargetOnDemandCapacity` should be greater than 0. For a master instance fleet, only one of `TargetSpotCapacity` and `TargetOnDemandCapacity` can be specified, and its value must be 1.
 	TargetSpotCapacity() *float64
 	SetTargetSpotCapacity(val *float64)
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1732,8 +3866,8 @@ func (j *jsiiProxy_CfnInstanceFleetConfig) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstanceFleetConfig) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnInstanceFleetConfig) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1794,13 +3928,13 @@ func (j *jsiiProxy_CfnInstanceFleetConfig) UpdatedProperites() *map[string]inter
 
 
 // Create a new `AWS::EMR::InstanceFleetConfig`.
-func NewCfnInstanceFleetConfig(scope constructs.Construct, id *string, props *CfnInstanceFleetConfigProps) CfnInstanceFleetConfig {
+func NewCfnInstanceFleetConfig(scope awscdk.Construct, id *string, props *CfnInstanceFleetConfigProps) CfnInstanceFleetConfig {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnInstanceFleetConfig{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_emr.CfnInstanceFleetConfig",
+		"monocdk.aws_emr.CfnInstanceFleetConfig",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1809,11 +3943,11 @@ func NewCfnInstanceFleetConfig(scope constructs.Construct, id *string, props *Cf
 }
 
 // Create a new `AWS::EMR::InstanceFleetConfig`.
-func NewCfnInstanceFleetConfig_Override(c CfnInstanceFleetConfig, scope constructs.Construct, id *string, props *CfnInstanceFleetConfigProps) {
+func NewCfnInstanceFleetConfig_Override(c CfnInstanceFleetConfig, scope awscdk.Construct, id *string, props *CfnInstanceFleetConfigProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_emr.CfnInstanceFleetConfig",
+		"monocdk.aws_emr.CfnInstanceFleetConfig",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1881,13 +4015,14 @@ func (j *jsiiProxy_CfnInstanceFleetConfig) SetTargetSpotCapacity(val *float64) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnInstanceFleetConfig_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_emr.CfnInstanceFleetConfig",
+		"monocdk.aws_emr.CfnInstanceFleetConfig",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1897,13 +4032,14 @@ func CfnInstanceFleetConfig_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnInstanceFleetConfig_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_emr.CfnInstanceFleetConfig",
+		"monocdk.aws_emr.CfnInstanceFleetConfig",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1912,17 +4048,15 @@ func CfnInstanceFleetConfig_IsCfnResource(construct constructs.IConstruct) *bool
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnInstanceFleetConfig_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_emr.CfnInstanceFleetConfig",
+		"monocdk.aws_emr.CfnInstanceFleetConfig",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1935,14 +4069,13 @@ func CfnInstanceFleetConfig_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_emr.CfnInstanceFleetConfig",
+		"monocdk.aws_emr.CfnInstanceFleetConfig",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnInstanceFleetConfig) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1951,10 +4084,6 @@ func (c *jsiiProxy_CfnInstanceFleetConfig) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnInstanceFleetConfig) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1963,13 +4092,6 @@ func (c *jsiiProxy_CfnInstanceFleetConfig) AddDependsOn(target awscdk.CfnResourc
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnInstanceFleetConfig) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1978,49 +4100,6 @@ func (c *jsiiProxy_CfnInstanceFleetConfig) AddMetadata(key *string, value interf
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnInstanceFleetConfig) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2029,7 +4108,6 @@ func (c *jsiiProxy_CfnInstanceFleetConfig) AddOverride(path *string, value inter
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnInstanceFleetConfig) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2038,9 +4116,6 @@ func (c *jsiiProxy_CfnInstanceFleetConfig) AddPropertyDeletionOverride(propertyP
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnInstanceFleetConfig) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2049,15 +4124,6 @@ func (c *jsiiProxy_CfnInstanceFleetConfig) AddPropertyOverride(propertyPath *str
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnInstanceFleetConfig) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2066,10 +4132,6 @@ func (c *jsiiProxy_CfnInstanceFleetConfig) ApplyRemovalPolicy(policy awscdk.Remo
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnInstanceFleetConfig) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2083,13 +4145,6 @@ func (c *jsiiProxy_CfnInstanceFleetConfig) GetAtt(attributeName *string) awscdk.
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnInstanceFleetConfig) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2103,7 +4158,6 @@ func (c *jsiiProxy_CfnInstanceFleetConfig) GetMetadata(key *string) interface{} 
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnInstanceFleetConfig) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2112,12 +4166,48 @@ func (c *jsiiProxy_CfnInstanceFleetConfig) Inspect(inspector awscdk.TreeInspecto
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnInstanceFleetConfig) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnInstanceFleetConfig) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnInstanceFleetConfig) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnInstanceFleetConfig) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnInstanceFleetConfig) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2134,10 +4224,6 @@ func (c *jsiiProxy_CfnInstanceFleetConfig) RenderProperties(props *map[string]in
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnInstanceFleetConfig) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2151,15 +4237,33 @@ func (c *jsiiProxy_CfnInstanceFleetConfig) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnInstanceFleetConfig) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnInstanceFleetConfig) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnInstanceFleetConfig) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2179,7 +4283,27 @@ func (c *jsiiProxy_CfnInstanceFleetConfig) ValidateProperties(_properties interf
 //
 // `Configuration` specifies optional configurations for customizing open-source big data applications and environment parameters. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see [Configuring Applications](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) in the *Amazon EMR Release Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//
+//   var configurationProperty_ configurationProperty
+//   configurationProperty := &configurationProperty{
+//   	classification: jsii.String("classification"),
+//   	configurationProperties: map[string]*string{
+//   		"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   	},
+//   	configurations: []interface{}{
+//   		&configurationProperty{
+//   			classification: jsii.String("classification"),
+//   			configurationProperties: map[string]*string{
+//   				"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   			},
+//   			configurations: []interface{}{
+//   				configurationProperty_,
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnInstanceFleetConfig_ConfigurationProperty struct {
 	// The classification within a configuration.
@@ -2196,7 +4320,20 @@ type CfnInstanceFleetConfig_ConfigurationProperty struct {
 //
 // `EbsBlockDeviceConfig` defines the number and type of EBS volumes to associate with all EC2 instances in an EMR cluster.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   ebsBlockDeviceConfigProperty := &ebsBlockDeviceConfigProperty{
+//   	volumeSpecification: &volumeSpecificationProperty{
+//   		sizeInGb: jsii.Number(123),
+//   		volumeType: jsii.String("volumeType"),
+//
+//   		// the properties below are optional
+//   		iops: jsii.Number(123),
+//   	},
+//
+//   	// the properties below are optional
+//   	volumesPerInstance: jsii.Number(123),
+//   }
 //
 type CfnInstanceFleetConfig_EbsBlockDeviceConfigProperty struct {
 	// EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
@@ -2207,7 +4344,25 @@ type CfnInstanceFleetConfig_EbsBlockDeviceConfigProperty struct {
 
 // `EbsConfiguration` determines the EBS volumes to attach to EMR cluster instances.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   ebsConfigurationProperty := &ebsConfigurationProperty{
+//   	ebsBlockDeviceConfigs: []interface{}{
+//   		&ebsBlockDeviceConfigProperty{
+//   			volumeSpecification: &volumeSpecificationProperty{
+//   				sizeInGb: jsii.Number(123),
+//   				volumeType: jsii.String("volumeType"),
+//
+//   				// the properties below are optional
+//   				iops: jsii.Number(123),
+//   			},
+//
+//   			// the properties below are optional
+//   			volumesPerInstance: jsii.Number(123),
+//   		},
+//   	},
+//   	ebsOptimized: jsii.Boolean(false),
+//   }
 //
 type CfnInstanceFleetConfig_EbsConfigurationProperty struct {
 	// An array of Amazon EBS volume specifications attached to a cluster instance.
@@ -2220,7 +4375,21 @@ type CfnInstanceFleetConfig_EbsConfigurationProperty struct {
 //
 // `InstanceTypeConfig` is a sub-property of `InstanceFleetConfig` . `InstanceTypeConfig` determines the EC2 instances that Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   instanceFleetProvisioningSpecificationsProperty := &instanceFleetProvisioningSpecificationsProperty{
+//   	onDemandSpecification: &onDemandProvisioningSpecificationProperty{
+//   		allocationStrategy: jsii.String("allocationStrategy"),
+//   	},
+//   	spotSpecification: &spotProvisioningSpecificationProperty{
+//   		timeoutAction: jsii.String("timeoutAction"),
+//   		timeoutDurationMinutes: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		allocationStrategy: jsii.String("allocationStrategy"),
+//   		blockDurationMinutes: jsii.Number(123),
+//   	},
+//   }
 //
 type CfnInstanceFleetConfig_InstanceFleetProvisioningSpecificationsProperty struct {
 	// The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
@@ -2237,7 +4406,47 @@ type CfnInstanceFleetConfig_InstanceFleetProvisioningSpecificationsProperty stru
 //
 // > The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//
+//   var configurationProperty_ configurationProperty
+//   instanceTypeConfigProperty := &instanceTypeConfigProperty{
+//   	instanceType: jsii.String("instanceType"),
+//
+//   	// the properties below are optional
+//   	bidPrice: jsii.String("bidPrice"),
+//   	bidPriceAsPercentageOfOnDemandPrice: jsii.Number(123),
+//   	configurations: []interface{}{
+//   		&configurationProperty{
+//   			classification: jsii.String("classification"),
+//   			configurationProperties: map[string]*string{
+//   				"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   			},
+//   			configurations: []interface{}{
+//   				configurationProperty_,
+//   			},
+//   		},
+//   	},
+//   	customAmiId: jsii.String("customAmiId"),
+//   	ebsConfiguration: &ebsConfigurationProperty{
+//   		ebsBlockDeviceConfigs: []interface{}{
+//   			&ebsBlockDeviceConfigProperty{
+//   				volumeSpecification: &volumeSpecificationProperty{
+//   					sizeInGb: jsii.Number(123),
+//   					volumeType: jsii.String("volumeType"),
+//
+//   					// the properties below are optional
+//   					iops: jsii.Number(123),
+//   				},
+//
+//   				// the properties below are optional
+//   				volumesPerInstance: jsii.Number(123),
+//   			},
+//   		},
+//   		ebsOptimized: jsii.Boolean(false),
+//   	},
+//   	weightedCapacity: jsii.Number(123),
+//   }
 //
 type CfnInstanceFleetConfig_InstanceTypeConfigProperty struct {
 	// An EC2 instance type, such as `m3.xlarge` .
@@ -2268,7 +4477,11 @@ type CfnInstanceFleetConfig_InstanceTypeConfigProperty struct {
 //
 // > The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances allocation strategy is available in Amazon EMR version 5.12.1 and later.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   onDemandProvisioningSpecificationProperty := &onDemandProvisioningSpecificationProperty{
+//   	allocationStrategy: jsii.String("allocationStrategy"),
+//   }
 //
 type CfnInstanceFleetConfig_OnDemandProvisioningSpecificationProperty struct {
 	// Specifies the strategy to use in launching On-Demand instance fleets.
@@ -2283,7 +4496,16 @@ type CfnInstanceFleetConfig_OnDemandProvisioningSpecificationProperty struct {
 //
 // > The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   spotProvisioningSpecificationProperty := &spotProvisioningSpecificationProperty{
+//   	timeoutAction: jsii.String("timeoutAction"),
+//   	timeoutDurationMinutes: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	allocationStrategy: jsii.String("allocationStrategy"),
+//   	blockDurationMinutes: jsii.Number(123),
+//   }
 //
 type CfnInstanceFleetConfig_SpotProvisioningSpecificationProperty struct {
 	// The action to take when `TargetSpotCapacity` has not been fulfilled when the `TimeoutDurationMinutes` has expired;
@@ -2310,7 +4532,15 @@ type CfnInstanceFleetConfig_SpotProvisioningSpecificationProperty struct {
 //
 // `VolumeSecification` determines the volume type, IOPS, and size (GiB) for EBS volumes attached to EC2 instances.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   volumeSpecificationProperty := &volumeSpecificationProperty{
+//   	sizeInGb: jsii.Number(123),
+//   	volumeType: jsii.String("volumeType"),
+//
+//   	// the properties below are optional
+//   	iops: jsii.Number(123),
+//   }
 //
 type CfnInstanceFleetConfig_VolumeSpecificationProperty struct {
 	// The volume size, in gibibytes (GiB).
@@ -2327,14 +4557,78 @@ type CfnInstanceFleetConfig_VolumeSpecificationProperty struct {
 
 // Properties for defining a `CfnInstanceFleetConfig`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//
+//   var configurationProperty_ configurationProperty
+//   cfnInstanceFleetConfigProps := &cfnInstanceFleetConfigProps{
+//   	clusterId: jsii.String("clusterId"),
+//   	instanceFleetType: jsii.String("instanceFleetType"),
+//
+//   	// the properties below are optional
+//   	instanceTypeConfigs: []interface{}{
+//   		&instanceTypeConfigProperty{
+//   			instanceType: jsii.String("instanceType"),
+//
+//   			// the properties below are optional
+//   			bidPrice: jsii.String("bidPrice"),
+//   			bidPriceAsPercentageOfOnDemandPrice: jsii.Number(123),
+//   			configurations: []interface{}{
+//   				&configurationProperty{
+//   					classification: jsii.String("classification"),
+//   					configurationProperties: map[string]*string{
+//   						"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   					},
+//   					configurations: []interface{}{
+//   						configurationProperty_,
+//   					},
+//   				},
+//   			},
+//   			customAmiId: jsii.String("customAmiId"),
+//   			ebsConfiguration: &ebsConfigurationProperty{
+//   				ebsBlockDeviceConfigs: []interface{}{
+//   					&ebsBlockDeviceConfigProperty{
+//   						volumeSpecification: &volumeSpecificationProperty{
+//   							sizeInGb: jsii.Number(123),
+//   							volumeType: jsii.String("volumeType"),
+//
+//   							// the properties below are optional
+//   							iops: jsii.Number(123),
+//   						},
+//
+//   						// the properties below are optional
+//   						volumesPerInstance: jsii.Number(123),
+//   					},
+//   				},
+//   				ebsOptimized: jsii.Boolean(false),
+//   			},
+//   			weightedCapacity: jsii.Number(123),
+//   		},
+//   	},
+//   	launchSpecifications: &instanceFleetProvisioningSpecificationsProperty{
+//   		onDemandSpecification: &onDemandProvisioningSpecificationProperty{
+//   			allocationStrategy: jsii.String("allocationStrategy"),
+//   		},
+//   		spotSpecification: &spotProvisioningSpecificationProperty{
+//   			timeoutAction: jsii.String("timeoutAction"),
+//   			timeoutDurationMinutes: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			allocationStrategy: jsii.String("allocationStrategy"),
+//   			blockDurationMinutes: jsii.Number(123),
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//   	targetOnDemandCapacity: jsii.Number(123),
+//   	targetSpotCapacity: jsii.Number(123),
+//   }
 //
 type CfnInstanceFleetConfigProps struct {
 	// The unique identifier of the EMR cluster.
 	ClusterId *string `json:"clusterId" yaml:"clusterId"`
 	// The node type that the instance fleet hosts.
 	//
-	// *Allowed Values* : TASK
+	// *Allowed Values* : TASK.
 	InstanceFleetType *string `json:"instanceFleetType" yaml:"instanceFleetType"`
 	// `InstanceTypeConfigs` determine the EC2 instances that Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
 	//
@@ -2364,56 +4658,347 @@ type CfnInstanceFleetConfigProps struct {
 //
 // > You can currently only add task instance groups to a cluster with this resource. If you use this resource, CloudFormation waits for the cluster launch to complete before adding the task instance group to the cluster. In order to add task instance groups to the cluster as part of the cluster launch and minimize delays in provisioning task nodes, use the `TaskInstanceGroups` subproperty for the [AWS::EMR::Cluster JobFlowInstancesConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html) property instead. To use this subproperty, see [AWS::EMR::Cluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html) for examples.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//
+//   var configurationProperty_ configurationProperty
+//   cfnInstanceGroupConfig := emr.NewCfnInstanceGroupConfig(this, jsii.String("MyCfnInstanceGroupConfig"), &cfnInstanceGroupConfigProps{
+//   	instanceCount: jsii.Number(123),
+//   	instanceRole: jsii.String("instanceRole"),
+//   	instanceType: jsii.String("instanceType"),
+//   	jobFlowId: jsii.String("jobFlowId"),
+//
+//   	// the properties below are optional
+//   	autoScalingPolicy: &autoScalingPolicyProperty{
+//   		constraints: &scalingConstraintsProperty{
+//   			maxCapacity: jsii.Number(123),
+//   			minCapacity: jsii.Number(123),
+//   		},
+//   		rules: []interface{}{
+//   			&scalingRuleProperty{
+//   				action: &scalingActionProperty{
+//   					simpleScalingPolicyConfiguration: &simpleScalingPolicyConfigurationProperty{
+//   						scalingAdjustment: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						adjustmentType: jsii.String("adjustmentType"),
+//   						coolDown: jsii.Number(123),
+//   					},
+//
+//   					// the properties below are optional
+//   					market: jsii.String("market"),
+//   				},
+//   				name: jsii.String("name"),
+//   				trigger: &scalingTriggerProperty{
+//   					cloudWatchAlarmDefinition: &cloudWatchAlarmDefinitionProperty{
+//   						comparisonOperator: jsii.String("comparisonOperator"),
+//   						metricName: jsii.String("metricName"),
+//   						period: jsii.Number(123),
+//   						threshold: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						dimensions: []interface{}{
+//   							&metricDimensionProperty{
+//   								key: jsii.String("key"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   						evaluationPeriods: jsii.Number(123),
+//   						namespace: jsii.String("namespace"),
+//   						statistic: jsii.String("statistic"),
+//   						unit: jsii.String("unit"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				description: jsii.String("description"),
+//   			},
+//   		},
+//   	},
+//   	bidPrice: jsii.String("bidPrice"),
+//   	configurations: []interface{}{
+//   		&configurationProperty{
+//   			classification: jsii.String("classification"),
+//   			configurationProperties: map[string]*string{
+//   				"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   			},
+//   			configurations: []interface{}{
+//   				configurationProperty_,
+//   			},
+//   		},
+//   	},
+//   	customAmiId: jsii.String("customAmiId"),
+//   	ebsConfiguration: &ebsConfigurationProperty{
+//   		ebsBlockDeviceConfigs: []interface{}{
+//   			&ebsBlockDeviceConfigProperty{
+//   				volumeSpecification: &volumeSpecificationProperty{
+//   					sizeInGb: jsii.Number(123),
+//   					volumeType: jsii.String("volumeType"),
+//
+//   					// the properties below are optional
+//   					iops: jsii.Number(123),
+//   				},
+//
+//   				// the properties below are optional
+//   				volumesPerInstance: jsii.Number(123),
+//   			},
+//   		},
+//   		ebsOptimized: jsii.Boolean(false),
+//   	},
+//   	market: jsii.String("market"),
+//   	name: jsii.String("name"),
+//   })
 //
 type CfnInstanceGroupConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// `AutoScalingPolicy` is a subproperty of `InstanceGroupConfig` .
+	//
+	// `AutoScalingPolicy` defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. For more information, see [Using Automatic Scaling in Amazon EMR](https://docs.aws.amazon.com//emr/latest/ManagementGuide/emr-automatic-scaling.html) in the *Amazon EMR Management Guide* .
 	AutoScalingPolicy() interface{}
 	SetAutoScalingPolicy(val interface{})
+	// If specified, indicates that the instance group uses Spot Instances.
+	//
+	// This is the maximum price you are willing to pay for Spot Instances. Specify `OnDemandPrice` to set the amount equal to the On-Demand price, or specify an amount in USD.
 	BidPrice() *string
 	SetBidPrice(val *string)
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// > Amazon EMR releases 4.x or later.
+	//
+	// The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
 	Configurations() interface{}
 	SetConfigurations(val interface{})
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The custom AMI ID to use for the provisioned instance group.
 	CustomAmiId() *string
 	SetCustomAmiId(val *string)
+	// `EbsConfiguration` determines the EBS volumes to attach to EMR cluster instances.
 	EbsConfiguration() interface{}
 	SetEbsConfiguration(val interface{})
+	// Target number of instances for the instance group.
 	InstanceCount() *float64
 	SetInstanceCount(val *float64)
+	// The role of the instance group in the cluster.
+	//
+	// *Allowed Values* : TASK.
 	InstanceRole() *string
 	SetInstanceRole(val *string)
+	// The EC2 instance type for all instances in the instance group.
 	InstanceType() *string
 	SetInstanceType(val *string)
+	// The ID of an Amazon EMR cluster that you want to associate this instance group with.
 	JobFlowId() *string
 	SetJobFlowId(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// Market type of the EC2 instances used to create a cluster node.
 	Market() *string
 	SetMarket(val *string)
+	// Friendly name given to the instance group.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2583,8 +5168,8 @@ func (j *jsiiProxy_CfnInstanceGroupConfig) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstanceGroupConfig) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnInstanceGroupConfig) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2625,13 +5210,13 @@ func (j *jsiiProxy_CfnInstanceGroupConfig) UpdatedProperites() *map[string]inter
 
 
 // Create a new `AWS::EMR::InstanceGroupConfig`.
-func NewCfnInstanceGroupConfig(scope constructs.Construct, id *string, props *CfnInstanceGroupConfigProps) CfnInstanceGroupConfig {
+func NewCfnInstanceGroupConfig(scope awscdk.Construct, id *string, props *CfnInstanceGroupConfigProps) CfnInstanceGroupConfig {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnInstanceGroupConfig{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_emr.CfnInstanceGroupConfig",
+		"monocdk.aws_emr.CfnInstanceGroupConfig",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2640,11 +5225,11 @@ func NewCfnInstanceGroupConfig(scope constructs.Construct, id *string, props *Cf
 }
 
 // Create a new `AWS::EMR::InstanceGroupConfig`.
-func NewCfnInstanceGroupConfig_Override(c CfnInstanceGroupConfig, scope constructs.Construct, id *string, props *CfnInstanceGroupConfigProps) {
+func NewCfnInstanceGroupConfig_Override(c CfnInstanceGroupConfig, scope awscdk.Construct, id *string, props *CfnInstanceGroupConfigProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_emr.CfnInstanceGroupConfig",
+		"monocdk.aws_emr.CfnInstanceGroupConfig",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2744,13 +5329,14 @@ func (j *jsiiProxy_CfnInstanceGroupConfig) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnInstanceGroupConfig_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_emr.CfnInstanceGroupConfig",
+		"monocdk.aws_emr.CfnInstanceGroupConfig",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2760,13 +5346,14 @@ func CfnInstanceGroupConfig_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnInstanceGroupConfig_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_emr.CfnInstanceGroupConfig",
+		"monocdk.aws_emr.CfnInstanceGroupConfig",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2775,17 +5362,15 @@ func CfnInstanceGroupConfig_IsCfnResource(construct constructs.IConstruct) *bool
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnInstanceGroupConfig_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_emr.CfnInstanceGroupConfig",
+		"monocdk.aws_emr.CfnInstanceGroupConfig",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2798,14 +5383,13 @@ func CfnInstanceGroupConfig_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_emr.CfnInstanceGroupConfig",
+		"monocdk.aws_emr.CfnInstanceGroupConfig",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnInstanceGroupConfig) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2814,10 +5398,6 @@ func (c *jsiiProxy_CfnInstanceGroupConfig) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnInstanceGroupConfig) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2826,13 +5406,6 @@ func (c *jsiiProxy_CfnInstanceGroupConfig) AddDependsOn(target awscdk.CfnResourc
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnInstanceGroupConfig) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2841,49 +5414,6 @@ func (c *jsiiProxy_CfnInstanceGroupConfig) AddMetadata(key *string, value interf
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnInstanceGroupConfig) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2892,7 +5422,6 @@ func (c *jsiiProxy_CfnInstanceGroupConfig) AddOverride(path *string, value inter
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnInstanceGroupConfig) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2901,9 +5430,6 @@ func (c *jsiiProxy_CfnInstanceGroupConfig) AddPropertyDeletionOverride(propertyP
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnInstanceGroupConfig) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2912,15 +5438,6 @@ func (c *jsiiProxy_CfnInstanceGroupConfig) AddPropertyOverride(propertyPath *str
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnInstanceGroupConfig) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2929,10 +5446,6 @@ func (c *jsiiProxy_CfnInstanceGroupConfig) ApplyRemovalPolicy(policy awscdk.Remo
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnInstanceGroupConfig) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2946,13 +5459,6 @@ func (c *jsiiProxy_CfnInstanceGroupConfig) GetAtt(attributeName *string) awscdk.
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnInstanceGroupConfig) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2966,7 +5472,6 @@ func (c *jsiiProxy_CfnInstanceGroupConfig) GetMetadata(key *string) interface{} 
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnInstanceGroupConfig) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2975,12 +5480,48 @@ func (c *jsiiProxy_CfnInstanceGroupConfig) Inspect(inspector awscdk.TreeInspecto
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnInstanceGroupConfig) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnInstanceGroupConfig) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnInstanceGroupConfig) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnInstanceGroupConfig) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnInstanceGroupConfig) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2997,10 +5538,6 @@ func (c *jsiiProxy_CfnInstanceGroupConfig) RenderProperties(props *map[string]in
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnInstanceGroupConfig) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3014,15 +5551,33 @@ func (c *jsiiProxy_CfnInstanceGroupConfig) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnInstanceGroupConfig) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnInstanceGroupConfig) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnInstanceGroupConfig) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3042,7 +5597,54 @@ func (c *jsiiProxy_CfnInstanceGroupConfig) ValidateProperties(_properties interf
 //
 // For more information, see [Using Automatic Scaling in Amazon EMR](https://docs.aws.amazon.com//emr/latest/ManagementGuide/emr-automatic-scaling.html) in the *Amazon EMR Management Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   autoScalingPolicyProperty := &autoScalingPolicyProperty{
+//   	constraints: &scalingConstraintsProperty{
+//   		maxCapacity: jsii.Number(123),
+//   		minCapacity: jsii.Number(123),
+//   	},
+//   	rules: []interface{}{
+//   		&scalingRuleProperty{
+//   			action: &scalingActionProperty{
+//   				simpleScalingPolicyConfiguration: &simpleScalingPolicyConfigurationProperty{
+//   					scalingAdjustment: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					adjustmentType: jsii.String("adjustmentType"),
+//   					coolDown: jsii.Number(123),
+//   				},
+//
+//   				// the properties below are optional
+//   				market: jsii.String("market"),
+//   			},
+//   			name: jsii.String("name"),
+//   			trigger: &scalingTriggerProperty{
+//   				cloudWatchAlarmDefinition: &cloudWatchAlarmDefinitionProperty{
+//   					comparisonOperator: jsii.String("comparisonOperator"),
+//   					metricName: jsii.String("metricName"),
+//   					period: jsii.Number(123),
+//   					threshold: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					dimensions: []interface{}{
+//   						&metricDimensionProperty{
+//   							key: jsii.String("key"),
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   					evaluationPeriods: jsii.Number(123),
+//   					namespace: jsii.String("namespace"),
+//   					statistic: jsii.String("statistic"),
+//   					unit: jsii.String("unit"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			description: jsii.String("description"),
+//   		},
+//   	},
+//   }
 //
 type CfnInstanceGroupConfig_AutoScalingPolicyProperty struct {
 	// The upper and lower EC2 instance limits for an automatic scaling policy.
@@ -3057,7 +5659,26 @@ type CfnInstanceGroupConfig_AutoScalingPolicyProperty struct {
 //
 // Scaling activity begins when you satisfy the defined alarm conditions.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   cloudWatchAlarmDefinitionProperty := &cloudWatchAlarmDefinitionProperty{
+//   	comparisonOperator: jsii.String("comparisonOperator"),
+//   	metricName: jsii.String("metricName"),
+//   	period: jsii.Number(123),
+//   	threshold: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	dimensions: []interface{}{
+//   		&metricDimensionProperty{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	evaluationPeriods: jsii.Number(123),
+//   	namespace: jsii.String("namespace"),
+//   	statistic: jsii.String("statistic"),
+//   	unit: jsii.String("unit"),
+//   }
 //
 type CfnInstanceGroupConfig_CloudWatchAlarmDefinitionProperty struct {
 	// Determines how the metric specified by `MetricName` is compared to the value specified by `Threshold` .
@@ -3096,7 +5717,27 @@ type CfnInstanceGroupConfig_CloudWatchAlarmDefinitionProperty struct {
 //
 // > Applies only to Amazon EMR releases 4.0 and later.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//
+//   var configurationProperty_ configurationProperty
+//   configurationProperty := &configurationProperty{
+//   	classification: jsii.String("classification"),
+//   	configurationProperties: map[string]*string{
+//   		"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   	},
+//   	configurations: []interface{}{
+//   		&configurationProperty{
+//   			classification: jsii.String("classification"),
+//   			configurationProperties: map[string]*string{
+//   				"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   			},
+//   			configurations: []interface{}{
+//   				configurationProperty_,
+//   			},
+//   		},
+//   	},
+//   }
 //
 type CfnInstanceGroupConfig_ConfigurationProperty struct {
 	// The classification within a configuration.
@@ -3111,7 +5752,20 @@ type CfnInstanceGroupConfig_ConfigurationProperty struct {
 
 // Configuration of requested EBS block device associated with the instance group with count of volumes that will be associated to every instance.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   ebsBlockDeviceConfigProperty := &ebsBlockDeviceConfigProperty{
+//   	volumeSpecification: &volumeSpecificationProperty{
+//   		sizeInGb: jsii.Number(123),
+//   		volumeType: jsii.String("volumeType"),
+//
+//   		// the properties below are optional
+//   		iops: jsii.Number(123),
+//   	},
+//
+//   	// the properties below are optional
+//   	volumesPerInstance: jsii.Number(123),
+//   }
 //
 type CfnInstanceGroupConfig_EbsBlockDeviceConfigProperty struct {
 	// EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
@@ -3122,7 +5776,25 @@ type CfnInstanceGroupConfig_EbsBlockDeviceConfigProperty struct {
 
 // The Amazon EBS configuration of a cluster instance.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   ebsConfigurationProperty := &ebsConfigurationProperty{
+//   	ebsBlockDeviceConfigs: []interface{}{
+//   		&ebsBlockDeviceConfigProperty{
+//   			volumeSpecification: &volumeSpecificationProperty{
+//   				sizeInGb: jsii.Number(123),
+//   				volumeType: jsii.String("volumeType"),
+//
+//   				// the properties below are optional
+//   				iops: jsii.Number(123),
+//   			},
+//
+//   			// the properties below are optional
+//   			volumesPerInstance: jsii.Number(123),
+//   		},
+//   	},
+//   	ebsOptimized: jsii.Boolean(false),
+//   }
 //
 type CfnInstanceGroupConfig_EbsConfigurationProperty struct {
 	// An array of Amazon EBS volume specifications attached to a cluster instance.
@@ -3135,7 +5807,12 @@ type CfnInstanceGroupConfig_EbsConfigurationProperty struct {
 //
 // `MetricDimension` specifies a CloudWatch dimension, which is specified with a `Key` `Value` pair. The key is known as a `Name` in CloudWatch. By default, Amazon EMR uses one dimension whose `Key` is `JobFlowID` and `Value` is a variable representing the cluster ID, which is `${emr.clusterId}` . This enables the automatic scaling rule for EMR to bootstrap when the cluster ID becomes available during cluster creation.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   metricDimensionProperty := &metricDimensionProperty{
+//   	key: jsii.String("key"),
+//   	value: jsii.String("value"),
+//   }
 //
 type CfnInstanceGroupConfig_MetricDimensionProperty struct {
 	// The dimension name.
@@ -3148,7 +5825,20 @@ type CfnInstanceGroupConfig_MetricDimensionProperty struct {
 //
 // `ScalingAction` determines the type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   scalingActionProperty := &scalingActionProperty{
+//   	simpleScalingPolicyConfiguration: &simpleScalingPolicyConfigurationProperty{
+//   		scalingAdjustment: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		adjustmentType: jsii.String("adjustmentType"),
+//   		coolDown: jsii.Number(123),
+//   	},
+//
+//   	// the properties below are optional
+//   	market: jsii.String("market"),
+//   }
 //
 type CfnInstanceGroupConfig_ScalingActionProperty struct {
 	// The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
@@ -3163,7 +5853,12 @@ type CfnInstanceGroupConfig_ScalingActionProperty struct {
 //
 // `ScalingConstraints` defines the upper and lower EC2 instance limits for an automatic scaling policy. Automatic scaling activities triggered by automatic scaling rules will not cause an instance group to grow above or shrink below these limits.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   scalingConstraintsProperty := &scalingConstraintsProperty{
+//   	maxCapacity: jsii.Number(123),
+//   	minCapacity: jsii.Number(123),
+//   }
 //
 type CfnInstanceGroupConfig_ScalingConstraintsProperty struct {
 	// The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow.
@@ -3180,7 +5875,46 @@ type CfnInstanceGroupConfig_ScalingConstraintsProperty struct {
 //
 // `ScalingRule` defines the scale-in or scale-out rules for scaling activity, including the CloudWatch metric alarm that triggers activity, how EC2 instances are added or removed, and the periodicity of adjustments. The automatic scaling policy for an instance group can comprise one or more automatic scaling rules.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   scalingRuleProperty := &scalingRuleProperty{
+//   	action: &scalingActionProperty{
+//   		simpleScalingPolicyConfiguration: &simpleScalingPolicyConfigurationProperty{
+//   			scalingAdjustment: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			adjustmentType: jsii.String("adjustmentType"),
+//   			coolDown: jsii.Number(123),
+//   		},
+//
+//   		// the properties below are optional
+//   		market: jsii.String("market"),
+//   	},
+//   	name: jsii.String("name"),
+//   	trigger: &scalingTriggerProperty{
+//   		cloudWatchAlarmDefinition: &cloudWatchAlarmDefinitionProperty{
+//   			comparisonOperator: jsii.String("comparisonOperator"),
+//   			metricName: jsii.String("metricName"),
+//   			period: jsii.Number(123),
+//   			threshold: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			dimensions: []interface{}{
+//   				&metricDimensionProperty{
+//   					key: jsii.String("key"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   			evaluationPeriods: jsii.Number(123),
+//   			namespace: jsii.String("namespace"),
+//   			statistic: jsii.String("statistic"),
+//   			unit: jsii.String("unit"),
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   }
 //
 type CfnInstanceGroupConfig_ScalingRuleProperty struct {
 	// The conditions that trigger an automatic scaling activity.
@@ -3199,7 +5933,28 @@ type CfnInstanceGroupConfig_ScalingRuleProperty struct {
 //
 // `ScalingTrigger` determines the conditions that trigger an automatic scaling activity.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   scalingTriggerProperty := &scalingTriggerProperty{
+//   	cloudWatchAlarmDefinition: &cloudWatchAlarmDefinitionProperty{
+//   		comparisonOperator: jsii.String("comparisonOperator"),
+//   		metricName: jsii.String("metricName"),
+//   		period: jsii.Number(123),
+//   		threshold: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		dimensions: []interface{}{
+//   			&metricDimensionProperty{
+//   				key: jsii.String("key"),
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   		evaluationPeriods: jsii.Number(123),
+//   		namespace: jsii.String("namespace"),
+//   		statistic: jsii.String("statistic"),
+//   		unit: jsii.String("unit"),
+//   	},
+//   }
 //
 type CfnInstanceGroupConfig_ScalingTriggerProperty struct {
 	// The definition of a CloudWatch metric alarm.
@@ -3212,7 +5967,15 @@ type CfnInstanceGroupConfig_ScalingTriggerProperty struct {
 //
 // `SimpleScalingPolicyConfiguration` determines how an automatic scaling action adds or removes instances, the cooldown period, and the number of EC2 instances that are added each time the CloudWatch metric alarm condition is satisfied.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   simpleScalingPolicyConfigurationProperty := &simpleScalingPolicyConfigurationProperty{
+//   	scalingAdjustment: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	adjustmentType: jsii.String("adjustmentType"),
+//   	coolDown: jsii.Number(123),
+//   }
 //
 type CfnInstanceGroupConfig_SimpleScalingPolicyConfigurationProperty struct {
 	// The amount by which to scale in or scale out, based on the specified `AdjustmentType` .
@@ -3233,7 +5996,15 @@ type CfnInstanceGroupConfig_SimpleScalingPolicyConfigurationProperty struct {
 //
 // `VolumeSecification` determines the volume type, IOPS, and size (GiB) for EBS volumes attached to EC2 instances.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   volumeSpecificationProperty := &volumeSpecificationProperty{
+//   	sizeInGb: jsii.Number(123),
+//   	volumeType: jsii.String("volumeType"),
+//
+//   	// the properties below are optional
+//   	iops: jsii.Number(123),
+//   }
 //
 type CfnInstanceGroupConfig_VolumeSpecificationProperty struct {
 	// The volume size, in gibibytes (GiB).
@@ -3250,14 +6021,103 @@ type CfnInstanceGroupConfig_VolumeSpecificationProperty struct {
 
 // Properties for defining a `CfnInstanceGroupConfig`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//
+//   var configurationProperty_ configurationProperty
+//   cfnInstanceGroupConfigProps := &cfnInstanceGroupConfigProps{
+//   	instanceCount: jsii.Number(123),
+//   	instanceRole: jsii.String("instanceRole"),
+//   	instanceType: jsii.String("instanceType"),
+//   	jobFlowId: jsii.String("jobFlowId"),
+//
+//   	// the properties below are optional
+//   	autoScalingPolicy: &autoScalingPolicyProperty{
+//   		constraints: &scalingConstraintsProperty{
+//   			maxCapacity: jsii.Number(123),
+//   			minCapacity: jsii.Number(123),
+//   		},
+//   		rules: []interface{}{
+//   			&scalingRuleProperty{
+//   				action: &scalingActionProperty{
+//   					simpleScalingPolicyConfiguration: &simpleScalingPolicyConfigurationProperty{
+//   						scalingAdjustment: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						adjustmentType: jsii.String("adjustmentType"),
+//   						coolDown: jsii.Number(123),
+//   					},
+//
+//   					// the properties below are optional
+//   					market: jsii.String("market"),
+//   				},
+//   				name: jsii.String("name"),
+//   				trigger: &scalingTriggerProperty{
+//   					cloudWatchAlarmDefinition: &cloudWatchAlarmDefinitionProperty{
+//   						comparisonOperator: jsii.String("comparisonOperator"),
+//   						metricName: jsii.String("metricName"),
+//   						period: jsii.Number(123),
+//   						threshold: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						dimensions: []interface{}{
+//   							&metricDimensionProperty{
+//   								key: jsii.String("key"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   						evaluationPeriods: jsii.Number(123),
+//   						namespace: jsii.String("namespace"),
+//   						statistic: jsii.String("statistic"),
+//   						unit: jsii.String("unit"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				description: jsii.String("description"),
+//   			},
+//   		},
+//   	},
+//   	bidPrice: jsii.String("bidPrice"),
+//   	configurations: []interface{}{
+//   		&configurationProperty{
+//   			classification: jsii.String("classification"),
+//   			configurationProperties: map[string]*string{
+//   				"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   			},
+//   			configurations: []interface{}{
+//   				configurationProperty_,
+//   			},
+//   		},
+//   	},
+//   	customAmiId: jsii.String("customAmiId"),
+//   	ebsConfiguration: &ebsConfigurationProperty{
+//   		ebsBlockDeviceConfigs: []interface{}{
+//   			&ebsBlockDeviceConfigProperty{
+//   				volumeSpecification: &volumeSpecificationProperty{
+//   					sizeInGb: jsii.Number(123),
+//   					volumeType: jsii.String("volumeType"),
+//
+//   					// the properties below are optional
+//   					iops: jsii.Number(123),
+//   				},
+//
+//   				// the properties below are optional
+//   				volumesPerInstance: jsii.Number(123),
+//   			},
+//   		},
+//   		ebsOptimized: jsii.Boolean(false),
+//   	},
+//   	market: jsii.String("market"),
+//   	name: jsii.String("name"),
+//   }
 //
 type CfnInstanceGroupConfigProps struct {
 	// Target number of instances for the instance group.
 	InstanceCount *float64 `json:"instanceCount" yaml:"instanceCount"`
 	// The role of the instance group in the cluster.
 	//
-	// *Allowed Values* : TASK
+	// *Allowed Values* : TASK.
 	InstanceRole *string `json:"instanceRole" yaml:"instanceRole"`
 	// The EC2 instance type for all instances in the instance group.
 	InstanceType *string `json:"instanceType" yaml:"instanceType"`
@@ -3289,38 +6149,232 @@ type CfnInstanceGroupConfigProps struct {
 //
 // Use a `SecurityConfiguration` resource to configure data encryption, Kerberos authentication (available in Amazon EMR release version 5.10.0 and later), and Amazon S3 authorization for EMRFS (available in EMR 5.10.0 and later). You can re-use a security configuration for any number of clusters in your account. For more information and example security configuration JSON objects, see [Create a Security Configuration](https://docs.aws.amazon.com//emr/latest/ManagementGuide/emr-create-security-configuration.html) in the *Amazon EMR Management Guide* .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//
+//   var securityConfiguration interface{}
+//   cfnSecurityConfiguration := emr.NewCfnSecurityConfiguration(this, jsii.String("MyCfnSecurityConfiguration"), &cfnSecurityConfigurationProps{
+//   	securityConfiguration: securityConfiguration,
+//
+//   	// the properties below are optional
+//   	name: jsii.String("name"),
+//   })
 //
 type CfnSecurityConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The name of the security configuration.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The security configuration details in JSON format.
 	SecurityConfiguration() interface{}
 	SetSecurityConfiguration(val interface{})
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -3390,8 +6444,8 @@ func (j *jsiiProxy_CfnSecurityConfiguration) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityConfiguration) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnSecurityConfiguration) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3442,13 +6496,13 @@ func (j *jsiiProxy_CfnSecurityConfiguration) UpdatedProperites() *map[string]int
 
 
 // Create a new `AWS::EMR::SecurityConfiguration`.
-func NewCfnSecurityConfiguration(scope constructs.Construct, id *string, props *CfnSecurityConfigurationProps) CfnSecurityConfiguration {
+func NewCfnSecurityConfiguration(scope awscdk.Construct, id *string, props *CfnSecurityConfigurationProps) CfnSecurityConfiguration {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnSecurityConfiguration{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_emr.CfnSecurityConfiguration",
+		"monocdk.aws_emr.CfnSecurityConfiguration",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3457,11 +6511,11 @@ func NewCfnSecurityConfiguration(scope constructs.Construct, id *string, props *
 }
 
 // Create a new `AWS::EMR::SecurityConfiguration`.
-func NewCfnSecurityConfiguration_Override(c CfnSecurityConfiguration, scope constructs.Construct, id *string, props *CfnSecurityConfigurationProps) {
+func NewCfnSecurityConfiguration_Override(c CfnSecurityConfiguration, scope awscdk.Construct, id *string, props *CfnSecurityConfigurationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_emr.CfnSecurityConfiguration",
+		"monocdk.aws_emr.CfnSecurityConfiguration",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3489,13 +6543,14 @@ func (j *jsiiProxy_CfnSecurityConfiguration) SetSecurityConfiguration(val interf
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnSecurityConfiguration_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_emr.CfnSecurityConfiguration",
+		"monocdk.aws_emr.CfnSecurityConfiguration",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3505,13 +6560,14 @@ func CfnSecurityConfiguration_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnSecurityConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_emr.CfnSecurityConfiguration",
+		"monocdk.aws_emr.CfnSecurityConfiguration",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3520,17 +6576,15 @@ func CfnSecurityConfiguration_IsCfnResource(construct constructs.IConstruct) *bo
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnSecurityConfiguration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_emr.CfnSecurityConfiguration",
+		"monocdk.aws_emr.CfnSecurityConfiguration",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3543,14 +6597,13 @@ func CfnSecurityConfiguration_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_emr.CfnSecurityConfiguration",
+		"monocdk.aws_emr.CfnSecurityConfiguration",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnSecurityConfiguration) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3559,10 +6612,6 @@ func (c *jsiiProxy_CfnSecurityConfiguration) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnSecurityConfiguration) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3571,13 +6620,6 @@ func (c *jsiiProxy_CfnSecurityConfiguration) AddDependsOn(target awscdk.CfnResou
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnSecurityConfiguration) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3586,49 +6628,6 @@ func (c *jsiiProxy_CfnSecurityConfiguration) AddMetadata(key *string, value inte
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnSecurityConfiguration) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3637,7 +6636,6 @@ func (c *jsiiProxy_CfnSecurityConfiguration) AddOverride(path *string, value int
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnSecurityConfiguration) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3646,9 +6644,6 @@ func (c *jsiiProxy_CfnSecurityConfiguration) AddPropertyDeletionOverride(propert
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnSecurityConfiguration) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3657,15 +6652,6 @@ func (c *jsiiProxy_CfnSecurityConfiguration) AddPropertyOverride(propertyPath *s
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnSecurityConfiguration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3674,10 +6660,6 @@ func (c *jsiiProxy_CfnSecurityConfiguration) ApplyRemovalPolicy(policy awscdk.Re
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnSecurityConfiguration) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3691,13 +6673,6 @@ func (c *jsiiProxy_CfnSecurityConfiguration) GetAtt(attributeName *string) awscd
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnSecurityConfiguration) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3711,7 +6686,6 @@ func (c *jsiiProxy_CfnSecurityConfiguration) GetMetadata(key *string) interface{
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnSecurityConfiguration) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3720,12 +6694,48 @@ func (c *jsiiProxy_CfnSecurityConfiguration) Inspect(inspector awscdk.TreeInspec
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnSecurityConfiguration) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnSecurityConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnSecurityConfiguration) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnSecurityConfiguration) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnSecurityConfiguration) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3742,10 +6752,6 @@ func (c *jsiiProxy_CfnSecurityConfiguration) RenderProperties(props *map[string]
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnSecurityConfiguration) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3759,15 +6765,33 @@ func (c *jsiiProxy_CfnSecurityConfiguration) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnSecurityConfiguration) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnSecurityConfiguration) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnSecurityConfiguration) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3785,7 +6809,16 @@ func (c *jsiiProxy_CfnSecurityConfiguration) ValidateProperties(_properties inte
 
 // Properties for defining a `CfnSecurityConfiguration`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//
+//   var securityConfiguration interface{}
+//   cfnSecurityConfigurationProps := &cfnSecurityConfigurationProps{
+//   	securityConfiguration: securityConfiguration,
+//
+//   	// the properties below are optional
+//   	name: jsii.String("name"),
+//   }
 //
 type CfnSecurityConfigurationProps struct {
 	// The security configuration details in JSON format.
@@ -3798,42 +6831,254 @@ type CfnSecurityConfigurationProps struct {
 //
 // Use `Step` to specify a cluster (job flow) step, which runs only on the master node. Steps are used to submit data processing jobs to a cluster.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   cfnStep := emr.NewCfnStep(this, jsii.String("MyCfnStep"), &cfnStepProps{
+//   	actionOnFailure: jsii.String("actionOnFailure"),
+//   	hadoopJarStep: &hadoopJarStepConfigProperty{
+//   		jar: jsii.String("jar"),
+//
+//   		// the properties below are optional
+//   		args: []*string{
+//   			jsii.String("args"),
+//   		},
+//   		mainClass: jsii.String("mainClass"),
+//   		stepProperties: []interface{}{
+//   			&keyValueProperty{
+//   				key: jsii.String("key"),
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   	jobFlowId: jsii.String("jobFlowId"),
+//   	name: jsii.String("name"),
+//   })
 //
 type CfnStep interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// This specifies what action to take when the cluster step fails.
+	//
+	// Possible values are `CANCEL_AND_WAIT` and `CONTINUE` .
 	ActionOnFailure() *string
 	SetActionOnFailure(val *string)
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The `HadoopJarStepConfig` property type specifies a job flow step consisting of a JAR file whose main function will be executed.
+	//
+	// The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
 	HadoopJarStep() interface{}
 	SetHadoopJarStep(val interface{})
+	// A string that uniquely identifies the cluster (job flow).
 	JobFlowId() *string
 	SetJobFlowId(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// The name of the cluster step.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -3933,8 +7178,8 @@ func (j *jsiiProxy_CfnStep) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStep) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnStep) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3975,13 +7220,13 @@ func (j *jsiiProxy_CfnStep) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::EMR::Step`.
-func NewCfnStep(scope constructs.Construct, id *string, props *CfnStepProps) CfnStep {
+func NewCfnStep(scope awscdk.Construct, id *string, props *CfnStepProps) CfnStep {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnStep{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_emr.CfnStep",
+		"monocdk.aws_emr.CfnStep",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3990,11 +7235,11 @@ func NewCfnStep(scope constructs.Construct, id *string, props *CfnStepProps) Cfn
 }
 
 // Create a new `AWS::EMR::Step`.
-func NewCfnStep_Override(c CfnStep, scope constructs.Construct, id *string, props *CfnStepProps) {
+func NewCfnStep_Override(c CfnStep, scope awscdk.Construct, id *string, props *CfnStepProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_emr.CfnStep",
+		"monocdk.aws_emr.CfnStep",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4038,13 +7283,14 @@ func (j *jsiiProxy_CfnStep) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnStep_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_emr.CfnStep",
+		"monocdk.aws_emr.CfnStep",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4054,13 +7300,14 @@ func CfnStep_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnStep_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_emr.CfnStep",
+		"monocdk.aws_emr.CfnStep",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4069,17 +7316,15 @@ func CfnStep_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnStep_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_emr.CfnStep",
+		"monocdk.aws_emr.CfnStep",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4092,14 +7337,13 @@ func CfnStep_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_emr.CfnStep",
+		"monocdk.aws_emr.CfnStep",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnStep) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4108,10 +7352,6 @@ func (c *jsiiProxy_CfnStep) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnStep) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4120,13 +7360,6 @@ func (c *jsiiProxy_CfnStep) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnStep) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4135,49 +7368,6 @@ func (c *jsiiProxy_CfnStep) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnStep) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4186,7 +7376,6 @@ func (c *jsiiProxy_CfnStep) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnStep) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4195,9 +7384,6 @@ func (c *jsiiProxy_CfnStep) AddPropertyDeletionOverride(propertyPath *string) {
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnStep) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4206,15 +7392,6 @@ func (c *jsiiProxy_CfnStep) AddPropertyOverride(propertyPath *string, value inte
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnStep) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4223,10 +7400,6 @@ func (c *jsiiProxy_CfnStep) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opti
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnStep) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4240,13 +7413,6 @@ func (c *jsiiProxy_CfnStep) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnStep) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4260,7 +7426,6 @@ func (c *jsiiProxy_CfnStep) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnStep) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4269,12 +7434,48 @@ func (c *jsiiProxy_CfnStep) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnStep) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnStep) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnStep) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnStep) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnStep) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -4291,10 +7492,6 @@ func (c *jsiiProxy_CfnStep) RenderProperties(props *map[string]interface{}) *map
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnStep) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4308,15 +7505,33 @@ func (c *jsiiProxy_CfnStep) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnStep) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnStep) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnStep) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4336,7 +7551,23 @@ func (c *jsiiProxy_CfnStep) ValidateProperties(_properties interface{}) {
 //
 // The main function submits a job for Hadoop to execute and waits for the job to finish or fail.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   hadoopJarStepConfigProperty := &hadoopJarStepConfigProperty{
+//   	jar: jsii.String("jar"),
+//
+//   	// the properties below are optional
+//   	args: []*string{
+//   		jsii.String("args"),
+//   	},
+//   	mainClass: jsii.String("mainClass"),
+//   	stepProperties: []interface{}{
+//   		&keyValueProperty{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   }
 //
 type CfnStep_HadoopJarStepConfigProperty struct {
 	// A path to a JAR file run during the step.
@@ -4357,7 +7588,12 @@ type CfnStep_HadoopJarStepConfigProperty struct {
 //
 // `KeyValue` is used to pass parameters to a step.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   keyValueProperty := &keyValueProperty{
+//   	key: jsii.String("key"),
+//   	value: jsii.String("value"),
+//   }
 //
 type CfnStep_KeyValueProperty struct {
 	// The unique identifier of a key-value pair.
@@ -4368,7 +7604,28 @@ type CfnStep_KeyValueProperty struct {
 
 // Properties for defining a `CfnStep`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   cfnStepProps := &cfnStepProps{
+//   	actionOnFailure: jsii.String("actionOnFailure"),
+//   	hadoopJarStep: &hadoopJarStepConfigProperty{
+//   		jar: jsii.String("jar"),
+//
+//   		// the properties below are optional
+//   		args: []*string{
+//   			jsii.String("args"),
+//   		},
+//   		mainClass: jsii.String("mainClass"),
+//   		stepProperties: []interface{}{
+//   			&keyValueProperty{
+//   				key: jsii.String("key"),
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   	jobFlowId: jsii.String("jobFlowId"),
+//   	name: jsii.String("name"),
+//   }
 //
 type CfnStepProps struct {
 	// This specifies what action to take when the cluster step fails.
@@ -4389,62 +7646,306 @@ type CfnStepProps struct {
 //
 // The `AWS::EMR::Studio` resource specifies an Amazon EMR Studio. An EMR Studio is a web-based, integrated development environment for fully managed Jupyter notebooks that run on Amazon EMR clusters. For more information, see the [*Amazon EMR Management Guide*](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio.html) .
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   cfnStudio := emr.NewCfnStudio(this, jsii.String("MyCfnStudio"), &cfnStudioProps{
+//   	authMode: jsii.String("authMode"),
+//   	defaultS3Location: jsii.String("defaultS3Location"),
+//   	engineSecurityGroupId: jsii.String("engineSecurityGroupId"),
+//   	name: jsii.String("name"),
+//   	serviceRole: jsii.String("serviceRole"),
+//   	subnetIds: []*string{
+//   		jsii.String("subnetIds"),
+//   	},
+//   	vpcId: jsii.String("vpcId"),
+//   	workspaceSecurityGroupId: jsii.String("workspaceSecurityGroupId"),
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   	idpAuthUrl: jsii.String("idpAuthUrl"),
+//   	idpRelayStateParameterName: jsii.String("idpRelayStateParameterName"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	userRole: jsii.String("userRole"),
+//   })
 //
 type CfnStudio interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the Amazon EMR Studio.
+	//
+	// For example: `arn:aws:elasticmapreduce:us-east-1:653XXXXXXXXX:studio/es-EXAMPLE12345678XXXXXXXXXXX` .
 	AttrArn() *string
+	// The ID of the Amazon EMR Studio.
+	//
+	// For example: `es-EXAMPLE12345678XXXXXXXXXXX` .
 	AttrStudioId() *string
+	// The unique access URL of the Amazon EMR Studio.
+	//
+	// For example: `https://es-EXAMPLE12345678XXXXXXXXXXX.emrstudio-prod.us-east-1.amazonaws.com` .
 	AttrUrl() *string
+	// Specifies whether the Studio authenticates users using AWS SSO or IAM.
 	AuthMode() *string
 	SetAuthMode(val *string)
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The Amazon S3 location to back up EMR Studio Workspaces and notebook files.
 	DefaultS3Location() *string
 	SetDefaultS3Location(val *string)
+	// A detailed description of the Amazon EMR Studio.
 	Description() *string
 	SetDescription(val *string)
+	// The ID of the Amazon EMR Studio Engine security group.
+	//
+	// The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `VpcId` .
 	EngineSecurityGroupId() *string
 	SetEngineSecurityGroupId(val *string)
+	// Your identity provider's authentication endpoint.
+	//
+	// Amazon EMR Studio redirects federated users to this endpoint for authentication when logging in to a Studio with the Studio URL.
 	IdpAuthUrl() *string
 	SetIdpAuthUrl(val *string)
+	// The name of your identity provider's `RelayState` parameter.
 	IdpRelayStateParameterName() *string
 	SetIdpRelayStateParameterName(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
+	// A descriptive name for the Amazon EMR Studio.
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The Amazon Resource Name (ARN) of the IAM role that will be assumed by the Amazon EMR Studio.
+	//
+	// The service role provides a way for Amazon EMR Studio to interoperate with other AWS services.
 	ServiceRole() *string
 	SetServiceRole(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// A list of subnet IDs to associate with the Amazon EMR Studio.
+	//
+	// A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `VpcId` . Studio users can create a Workspace in any of the specified subnets.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// The Amazon Resource Name (ARN) of the IAM user role that will be assumed by users and groups logged in to a Studio.
+	//
+	// The permissions attached to this IAM role can be scoped down for each user or group using session policies. You only need to specify `UserRole` when you set `AuthMode` to `SSO` .
 	UserRole() *string
 	SetUserRole(val *string)
+	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
 	VpcId() *string
 	SetVpcId(val *string)
+	// The ID of the Workspace security group associated with the Amazon EMR Studio.
+	//
+	// The Workspace security group allows outbound network traffic to resources in the Engine security group and to the internet.
 	WorkspaceSecurityGroupId() *string
 	SetWorkspaceSecurityGroupId(val *string)
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -4604,8 +8105,8 @@ func (j *jsiiProxy_CfnStudio) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStudio) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnStudio) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4706,13 +8207,13 @@ func (j *jsiiProxy_CfnStudio) WorkspaceSecurityGroupId() *string {
 
 
 // Create a new `AWS::EMR::Studio`.
-func NewCfnStudio(scope constructs.Construct, id *string, props *CfnStudioProps) CfnStudio {
+func NewCfnStudio(scope awscdk.Construct, id *string, props *CfnStudioProps) CfnStudio {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnStudio{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_emr.CfnStudio",
+		"monocdk.aws_emr.CfnStudio",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4721,11 +8222,11 @@ func NewCfnStudio(scope constructs.Construct, id *string, props *CfnStudioProps)
 }
 
 // Create a new `AWS::EMR::Studio`.
-func NewCfnStudio_Override(c CfnStudio, scope constructs.Construct, id *string, props *CfnStudioProps) {
+func NewCfnStudio_Override(c CfnStudio, scope awscdk.Construct, id *string, props *CfnStudioProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_emr.CfnStudio",
+		"monocdk.aws_emr.CfnStudio",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4833,13 +8334,14 @@ func (j *jsiiProxy_CfnStudio) SetWorkspaceSecurityGroupId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnStudio_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_emr.CfnStudio",
+		"monocdk.aws_emr.CfnStudio",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4849,13 +8351,14 @@ func CfnStudio_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnStudio_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_emr.CfnStudio",
+		"monocdk.aws_emr.CfnStudio",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4864,17 +8367,15 @@ func CfnStudio_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnStudio_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_emr.CfnStudio",
+		"monocdk.aws_emr.CfnStudio",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4887,14 +8388,13 @@ func CfnStudio_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_emr.CfnStudio",
+		"monocdk.aws_emr.CfnStudio",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnStudio) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4903,10 +8403,6 @@ func (c *jsiiProxy_CfnStudio) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnStudio) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4915,13 +8411,6 @@ func (c *jsiiProxy_CfnStudio) AddDependsOn(target awscdk.CfnResource) {
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnStudio) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4930,49 +8419,6 @@ func (c *jsiiProxy_CfnStudio) AddMetadata(key *string, value interface{}) {
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnStudio) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4981,7 +8427,6 @@ func (c *jsiiProxy_CfnStudio) AddOverride(path *string, value interface{}) {
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnStudio) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4990,9 +8435,6 @@ func (c *jsiiProxy_CfnStudio) AddPropertyDeletionOverride(propertyPath *string) 
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnStudio) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5001,15 +8443,6 @@ func (c *jsiiProxy_CfnStudio) AddPropertyOverride(propertyPath *string, value in
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnStudio) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5018,10 +8451,6 @@ func (c *jsiiProxy_CfnStudio) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, op
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnStudio) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -5035,13 +8464,6 @@ func (c *jsiiProxy_CfnStudio) GetAtt(attributeName *string) awscdk.Reference {
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnStudio) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -5055,7 +8477,6 @@ func (c *jsiiProxy_CfnStudio) GetMetadata(key *string) interface{} {
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnStudio) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5064,12 +8485,48 @@ func (c *jsiiProxy_CfnStudio) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnStudio) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnStudio) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnStudio) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnStudio) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnStudio) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -5086,10 +8543,6 @@ func (c *jsiiProxy_CfnStudio) RenderProperties(props *map[string]interface{}) *m
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnStudio) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -5103,15 +8556,33 @@ func (c *jsiiProxy_CfnStudio) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnStudio) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnStudio) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnStudio) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5129,7 +8600,32 @@ func (c *jsiiProxy_CfnStudio) ValidateProperties(_properties interface{}) {
 
 // Properties for defining a `CfnStudio`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   cfnStudioProps := &cfnStudioProps{
+//   	authMode: jsii.String("authMode"),
+//   	defaultS3Location: jsii.String("defaultS3Location"),
+//   	engineSecurityGroupId: jsii.String("engineSecurityGroupId"),
+//   	name: jsii.String("name"),
+//   	serviceRole: jsii.String("serviceRole"),
+//   	subnetIds: []*string{
+//   		jsii.String("subnetIds"),
+//   	},
+//   	vpcId: jsii.String("vpcId"),
+//   	workspaceSecurityGroupId: jsii.String("workspaceSecurityGroupId"),
+//
+//   	// the properties below are optional
+//   	description: jsii.String("description"),
+//   	idpAuthUrl: jsii.String("idpAuthUrl"),
+//   	idpRelayStateParameterName: jsii.String("idpRelayStateParameterName"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	userRole: jsii.String("userRole"),
+//   }
 //
 type CfnStudioProps struct {
 	// Specifies whether the Studio authenticates users using AWS SSO or IAM.
@@ -5178,42 +8674,240 @@ type CfnStudioProps struct {
 //
 // The `AWS::EMR::StudioSessionMapping` resource is an Amazon EMR resource type that maps a user or group to the Amazon EMR Studio specified by `StudioId` , and applies a session policy that defines Studio permissions for that user or group.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   cfnStudioSessionMapping := emr.NewCfnStudioSessionMapping(this, jsii.String("MyCfnStudioSessionMapping"), &cfnStudioSessionMappingProps{
+//   	identityName: jsii.String("identityName"),
+//   	identityType: jsii.String("identityType"),
+//   	sessionPolicyArn: jsii.String("sessionPolicyArn"),
+//   	studioId: jsii.String("studioId"),
+//   })
 //
 type CfnStudioSessionMapping interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
+	// The name of the user or group.
+	//
+	// For more information, see [UserName](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName) and [DisplayName](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName) in the *AWS SSO Identity Store API Reference* .
 	IdentityName() *string
 	SetIdentityName(val *string)
+	// Specifies whether the identity to map to the Amazon EMR Studio is a user or a group.
 	IdentityType() *string
 	SetIdentityType(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
+	// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group.
+	//
+	// Session policies refine Studio user permissions without the need to use multiple IAM user roles. For more information, see [Create an EMR Studio user role with session policies](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-user-role.html) in the *Amazon EMR Management Guide* .
 	SessionPolicyArn() *string
 	SetSessionPolicyArn(val *string)
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
+	// The ID of the Amazon EMR Studio to which the user or group will be mapped.
 	StudioId() *string
 	SetStudioId(val *string)
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -5293,8 +8987,8 @@ func (j *jsiiProxy_CfnStudioSessionMapping) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStudioSessionMapping) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnStudioSessionMapping) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5355,13 +9049,13 @@ func (j *jsiiProxy_CfnStudioSessionMapping) UpdatedProperites() *map[string]inte
 
 
 // Create a new `AWS::EMR::StudioSessionMapping`.
-func NewCfnStudioSessionMapping(scope constructs.Construct, id *string, props *CfnStudioSessionMappingProps) CfnStudioSessionMapping {
+func NewCfnStudioSessionMapping(scope awscdk.Construct, id *string, props *CfnStudioSessionMappingProps) CfnStudioSessionMapping {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnStudioSessionMapping{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_emr.CfnStudioSessionMapping",
+		"monocdk.aws_emr.CfnStudioSessionMapping",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5370,11 +9064,11 @@ func NewCfnStudioSessionMapping(scope constructs.Construct, id *string, props *C
 }
 
 // Create a new `AWS::EMR::StudioSessionMapping`.
-func NewCfnStudioSessionMapping_Override(c CfnStudioSessionMapping, scope constructs.Construct, id *string, props *CfnStudioSessionMappingProps) {
+func NewCfnStudioSessionMapping_Override(c CfnStudioSessionMapping, scope awscdk.Construct, id *string, props *CfnStudioSessionMappingProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_emr.CfnStudioSessionMapping",
+		"monocdk.aws_emr.CfnStudioSessionMapping",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5418,13 +9112,14 @@ func (j *jsiiProxy_CfnStudioSessionMapping) SetStudioId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnStudioSessionMapping_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_emr.CfnStudioSessionMapping",
+		"monocdk.aws_emr.CfnStudioSessionMapping",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -5434,13 +9129,14 @@ func CfnStudioSessionMapping_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnStudioSessionMapping_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_emr.CfnStudioSessionMapping",
+		"monocdk.aws_emr.CfnStudioSessionMapping",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -5449,17 +9145,15 @@ func CfnStudioSessionMapping_IsCfnResource(construct constructs.IConstruct) *boo
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnStudioSessionMapping_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_emr.CfnStudioSessionMapping",
+		"monocdk.aws_emr.CfnStudioSessionMapping",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5472,14 +9166,13 @@ func CfnStudioSessionMapping_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_emr.CfnStudioSessionMapping",
+		"monocdk.aws_emr.CfnStudioSessionMapping",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
 	return returns
 }
 
-// Syntactic sugar for `addOverride(path, undefined)`.
 func (c *jsiiProxy_CfnStudioSessionMapping) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5488,10 +9181,6 @@ func (c *jsiiProxy_CfnStudioSessionMapping) AddDeletionOverride(path *string) {
 	)
 }
 
-// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-//
-// This can be used for resources across stacks (or nested stack) boundaries
-// and the dependency will automatically be transferred to the relevant scope.
 func (c *jsiiProxy_CfnStudioSessionMapping) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5500,13 +9189,6 @@ func (c *jsiiProxy_CfnStudioSessionMapping) AddDependsOn(target awscdk.CfnResour
 	)
 }
 
-// Add a value to the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnStudioSessionMapping) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5515,49 +9197,6 @@ func (c *jsiiProxy_CfnStudioSessionMapping) AddMetadata(key *string, value inter
 	)
 }
 
-// Adds an override to the synthesized CloudFormation resource.
-//
-// To add a
-// property override, either use `addPropertyOverride` or prefix `path` with
-// "Properties." (i.e. `Properties.TopicName`).
-//
-// If the override is nested, separate each nested level using a dot (.) in the path parameter.
-// If there is an array as part of the nesting, specify the index in the path.
-//
-// To include a literal `.` in the property name, prefix with a `\`. In most
-// programming languages you will need to write this as `"\\."` because the
-// `\` itself will need to be escaped.
-//
-// For example,
-// ```typescript
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
-// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
-// ```
-// would add the overrides
-// ```json
-// "Properties": {
-//    "GlobalSecondaryIndexes": [
-//      {
-//        "Projection": {
-//          "NonKeyAttributes": [ "myattribute" ]
-//          ...
-//        }
-//        ...
-//      },
-//      {
-//        "ProjectionType": "INCLUDE"
-//        ...
-//      },
-//    ]
-//    ...
-// }
-// ```
-//
-// The `value` argument to `addOverride` will not be processed or translated
-// in any way. Pass raw JSON values in here with the correct capitalization
-// for CloudFormation. If you pass CDK classes or structs, they will be
-// rendered with lowercased key names, and CloudFormation will reject the
-// template.
 func (c *jsiiProxy_CfnStudioSessionMapping) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5566,7 +9205,6 @@ func (c *jsiiProxy_CfnStudioSessionMapping) AddOverride(path *string, value inte
 	)
 }
 
-// Adds an override that deletes the value of a property from the resource definition.
 func (c *jsiiProxy_CfnStudioSessionMapping) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5575,9 +9213,6 @@ func (c *jsiiProxy_CfnStudioSessionMapping) AddPropertyDeletionOverride(property
 	)
 }
 
-// Adds an override to a resource property.
-//
-// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 func (c *jsiiProxy_CfnStudioSessionMapping) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5586,15 +9221,6 @@ func (c *jsiiProxy_CfnStudioSessionMapping) AddPropertyOverride(propertyPath *st
 	)
 }
 
-// Sets the deletion policy of the resource based on the removal policy specified.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 func (c *jsiiProxy_CfnStudioSessionMapping) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5603,10 +9229,6 @@ func (c *jsiiProxy_CfnStudioSessionMapping) ApplyRemovalPolicy(policy awscdk.Rem
 	)
 }
 
-// Returns a token for an runtime attribute of this resource.
-//
-// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
-// in case there is no generated attribute.
 func (c *jsiiProxy_CfnStudioSessionMapping) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -5620,13 +9242,6 @@ func (c *jsiiProxy_CfnStudioSessionMapping) GetAtt(attributeName *string) awscdk
 	return returns
 }
 
-// Retrieve a value value from the CloudFormation Resource Metadata.
-// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-//
-// Note that this is a different set of metadata from CDK node metadata; this
-// metadata ends up in the stack template under the resource, whereas CDK
-// node metadata ends up in the Cloud Assembly.
-//
 func (c *jsiiProxy_CfnStudioSessionMapping) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -5640,7 +9255,6 @@ func (c *jsiiProxy_CfnStudioSessionMapping) GetMetadata(key *string) interface{}
 	return returns
 }
 
-// Examines the CloudFormation resource and discloses attributes.
 func (c *jsiiProxy_CfnStudioSessionMapping) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5649,12 +9263,48 @@ func (c *jsiiProxy_CfnStudioSessionMapping) Inspect(inspector awscdk.TreeInspect
 	)
 }
 
-// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnStudioSessionMapping) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnStudioSessionMapping) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnStudioSessionMapping) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnStudioSessionMapping) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnStudioSessionMapping) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -5671,10 +9321,6 @@ func (c *jsiiProxy_CfnStudioSessionMapping) RenderProperties(props *map[string]i
 	return returns
 }
 
-// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
-//
-// Returns: `true` if the resource should be included or `false` is the resource
-// should be omitted.
 func (c *jsiiProxy_CfnStudioSessionMapping) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -5688,15 +9334,33 @@ func (c *jsiiProxy_CfnStudioSessionMapping) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Returns a string representation of this construct.
-//
-// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnStudioSessionMapping) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnStudioSessionMapping) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnStudioSessionMapping) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5714,7 +9378,14 @@ func (c *jsiiProxy_CfnStudioSessionMapping) ValidateProperties(_properties inter
 
 // Properties for defining a `CfnStudioSessionMapping`.
 //
-// TODO: EXAMPLE
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emr "github.com/aws/aws-cdk-go/awscdk/aws_emr"
+//   cfnStudioSessionMappingProps := &cfnStudioSessionMappingProps{
+//   	identityName: jsii.String("identityName"),
+//   	identityType: jsii.String("identityType"),
+//   	sessionPolicyArn: jsii.String("sessionPolicyArn"),
+//   	studioId: jsii.String("studioId"),
+//   }
 //
 type CfnStudioSessionMappingProps struct {
 	// The name of the user or group.
