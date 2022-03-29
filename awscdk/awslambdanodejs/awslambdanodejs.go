@@ -1,21 +1,21 @@
 package awslambdanodejs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awscodeguruprofiler"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/awslambdanodejs/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/awssns"
-	"github.com/aws/aws-cdk-go/awscdk/awssqs"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodeguruprofiler"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambdanodejs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Bundling options.
@@ -27,7 +27,6 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type BundlingOptions struct {
 	// Specify a custom hash for this asset.
 	//
@@ -40,17 +39,14 @@ type BundlingOptions struct {
 	// packaging, uploading to Amazon S3, etc. If you chose to customize the hash, you will
 	// need to make sure it is updated every time the asset changes, or otherwise it is
 	// possible that some deployments will not be invalidated.
-	// Experimental.
 	AssetHash *string `json:"assetHash" yaml:"assetHash"`
 	// Use this to insert an arbitrary string at the beginning of generated JavaScript files.
 	//
 	// This is similar to footer which inserts at the end instead of the beginning.
 	//
 	// This is commonly used to insert comments:.
-	// Experimental.
 	Banner *string `json:"banner" yaml:"banner"`
 	// Build arguments to pass when building the bundling image.
-	// Experimental.
 	BuildArgs *map[string]*string `json:"buildArgs" yaml:"buildArgs"`
 	// The charset to use for esbuild's output.
 	//
@@ -60,17 +56,14 @@ type BundlingOptions struct {
 	// the original characters without using escape sequences, use `Charset.UTF8`.
 	// See: https://esbuild.github.io/api/#charset
 	//
-	// Experimental.
 	Charset Charset `json:"charset" yaml:"charset"`
 	// Command hooks.
-	// Experimental.
 	CommandHooks ICommandHooks `json:"commandHooks" yaml:"commandHooks"`
 	// Replace global identifiers with constant expressions.
 	//
 	// For example, `{ 'process.env.DEBUG': 'true' }`.
 	//
 	// Another example, `{ 'process.env.API_KEY': JSON.stringify('xxx-xxxx-xxx') }`.
-	// Experimental.
 	Define *map[string]*string `json:"define" yaml:"define"`
 	// A custom bundling Docker image.
 	//
@@ -79,10 +72,8 @@ type BundlingOptions struct {
 	//
 	// See https://github.com/aws/aws-cdk/blob/master/packages/%40aws-cdk/aws-lambda-nodejs/lib/Dockerfile
 	// for the default image provided by @aws-cdk/aws-lambda-nodejs.
-	// Experimental.
 	DockerImage awscdk.DockerImage `json:"dockerImage" yaml:"dockerImage"`
 	// Environment variables defined when bundling runs.
-	// Experimental.
 	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// Build arguments to pass into esbuild.
 	//
@@ -98,35 +89,28 @@ type BundlingOptions struct {
 	//    }
 	// });
 	// ```.
-	// Experimental.
 	EsbuildArgs *map[string]interface{} `json:"esbuildArgs" yaml:"esbuildArgs"`
 	// The version of esbuild to use when running in a Docker container.
-	// Experimental.
 	EsbuildVersion *string `json:"esbuildVersion" yaml:"esbuildVersion"`
 	// A list of modules that should be considered as externals (already available in the runtime).
-	// Experimental.
 	ExternalModules *[]*string `json:"externalModules" yaml:"externalModules"`
 	// Use this to insert an arbitrary string at the end of generated JavaScript files.
 	//
 	// This is similar to banner which inserts at the beginning instead of the end.
 	//
 	// This is commonly used to insert comments.
-	// Experimental.
 	Footer *string `json:"footer" yaml:"footer"`
 	// Force bundling in a Docker container even if local bundling is possible.
 	//
 	// This is useful if your function relies on node modules
 	// that should be installed (`nodeModules`) in a Lambda compatible
 	// environment.
-	// Experimental.
 	ForceDockerBundling *bool `json:"forceDockerBundling" yaml:"forceDockerBundling"`
 	// Output format for the generated JavaScript files.
-	// Experimental.
 	Format OutputFormat `json:"format" yaml:"format"`
 	// This option allows you to automatically replace a global variable with an import from another file.
 	// See: https://esbuild.github.io/api/#inject
 	//
-	// Experimental.
 	Inject *[]*string `json:"inject" yaml:"inject"`
 	// Whether to preserve the original `name` values even in minified code.
 	//
@@ -140,7 +124,6 @@ type BundlingOptions struct {
 	// frameworks rely on the `name` property for registration and binding purposes.
 	// If this is the case, you can enable this option to preserve the original
 	// `name` values even in minified code.
-	// Experimental.
 	KeepNames *bool `json:"keepNames" yaml:"keepNames"`
 	// Use loaders to change how a given input file is interpreted.
 	//
@@ -150,18 +133,15 @@ type BundlingOptions struct {
 	//
 	// For example, `{ '.png': 'dataurl' }`.
 	//
-	// Experimental.
 	Loader *map[string]*string `json:"loader" yaml:"loader"`
 	// Log level for esbuild.
 	//
 	// This is also propagated to the package manager and
 	// applies to its specific install command.
-	// Experimental.
 	LogLevel LogLevel `json:"logLevel" yaml:"logLevel"`
 	// How to determine the entry point for modules.
 	//
 	// Try ['module', 'main'] to default to ES module versions.
-	// Experimental.
 	MainFields *[]*string `json:"mainFields" yaml:"mainFields"`
 	// This option tells esbuild to write out a JSON file relative to output directory with metadata about the build.
 	//
@@ -186,42 +166,34 @@ type BundlingOptions struct {
 	// of the modules in your bundle and how much space each one takes up.
 	// See: https://esbuild.github.io/api/#metafile
 	//
-	// Experimental.
 	Metafile *bool `json:"metafile" yaml:"metafile"`
 	// Whether to minify files when bundling.
-	// Experimental.
 	Minify *bool `json:"minify" yaml:"minify"`
 	// A list of modules that should be installed instead of bundled.
 	//
 	// Modules are
 	// installed in a Lambda compatible environment only when bundling runs in
 	// Docker.
-	// Experimental.
 	NodeModules *[]*string `json:"nodeModules" yaml:"nodeModules"`
 	// Run compilation using tsc before running file through bundling step.
 	//
 	// This usually is not required unless you are using new experimental features that
 	// are only supported by typescript's `tsc` compiler.
 	// One example of such feature is `emitDecoratorMetadata`.
-	// Experimental.
 	PreCompilation *bool `json:"preCompilation" yaml:"preCompilation"`
 	// Whether to include source maps when bundling.
-	// Experimental.
 	SourceMap *bool `json:"sourceMap" yaml:"sourceMap"`
 	// Source map mode to be used when bundling.
 	// See: https://esbuild.github.io/api/#sourcemap
 	//
-	// Experimental.
 	SourceMapMode SourceMapMode `json:"sourceMapMode" yaml:"sourceMapMode"`
 	// Whether to include original source code in source maps when bundling.
 	// See: https://esbuild.github.io/api/#sources-content
 	//
-	// Experimental.
 	SourcesContent *bool `json:"sourcesContent" yaml:"sourcesContent"`
 	// Target environment for the generated JavaScript code.
 	// See: https://esbuild.github.io/api/#target
 	//
-	// Experimental.
 	Target *string `json:"target" yaml:"target"`
 	// Normally the esbuild automatically discovers `tsconfig.json` files and reads their contents during a build.
 	//
@@ -232,7 +204,6 @@ type BundlingOptions struct {
 	// This can be useful if you need to do multiple builds of the same code with different settings.
 	//
 	// For example, `{ 'tsconfig': 'path/custom.tsconfig.json' }`.
-	// Experimental.
 	Tsconfig *string `json:"tsconfig" yaml:"tsconfig"`
 }
 
@@ -295,19 +266,16 @@ type BundlingOptions struct {
 //   	},
 //   })
 //
-// Experimental.
 type Charset string
 
 const (
 	// ASCII.
 	//
 	// Any non-ASCII characters are escaped using backslash escape sequences.
-	// Experimental.
 	Charset_ASCII Charset = "ASCII"
 	// UTF-8.
 	//
 	// Keep original characters without using escape sequences.
-	// Experimental.
 	Charset_UTF8 Charset = "UTF8"
 )
 
@@ -326,24 +294,20 @@ const (
 //    return [`cp ${inputDir}/my-binary.node ${outputDir}`];
 // }
 // ```.
-// Experimental.
 type ICommandHooks interface {
 	// Returns commands to run after bundling.
 	//
 	// Commands are chained with `&&`.
-	// Experimental.
 	AfterBundling(inputDir *string, outputDir *string) *[]*string
 	// Returns commands to run before bundling.
 	//
 	// Commands are chained with `&&`.
-	// Experimental.
 	BeforeBundling(inputDir *string, outputDir *string) *[]*string
 	// Returns commands to run before installing node modules.
 	//
 	// This hook only runs when node modules are installed.
 	//
 	// Commands are chained with `&&`.
-	// Experimental.
 	BeforeInstall(inputDir *string, outputDir *string) *[]*string
 }
 
@@ -450,21 +414,16 @@ func (i *jsiiProxy_ICommandHooks) BeforeInstall(inputDir *string, outputDir *str
 //   	},
 //   })
 //
-// Experimental.
 type LogLevel string
 
 const (
 	// Show everything.
-	// Experimental.
 	LogLevel_INFO LogLevel = "INFO"
 	// Show warnings and errors.
-	// Experimental.
 	LogLevel_WARNING LogLevel = "WARNING"
 	// Show errors only.
-	// Experimental.
 	LogLevel_ERROR LogLevel = "ERROR"
 	// Show nothing.
-	// Experimental.
 	LogLevel_SILENT LogLevel = "SILENT"
 )
 
@@ -477,34 +436,27 @@ const (
 //   	},
 //   })
 //
-// Experimental.
 type NodejsFunction interface {
 	awslambda.Function
 	// The architecture of this Lambda Function (this is an optional attribute and defaults to X86_64).
-	// Experimental.
 	Architecture() awslambda.Architecture
 	// Whether the addPermission() call adds any permissions.
 	//
 	// True for new Lambdas, false for version $LATEST and imported Lambdas
 	// from different accounts.
-	// Experimental.
 	CanCreatePermissions() *bool
 	// Access the Connections object.
 	//
 	// Will fail if not a VPC-enabled Lambda Function.
-	// Experimental.
 	Connections() awsec2.Connections
 	// Returns a `lambda.Version` which represents the current version of this Lambda function. A new version will be created every time the function's configuration changes.
 	//
 	// You can specify options for this version using the `currentVersionOptions`
 	// prop when initializing the `lambda.Function`.
-	// Experimental.
 	CurrentVersion() awslambda.Version
 	// The DLQ (as queue) associated with this Lambda Function (this is an optional attribute).
-	// Experimental.
 	DeadLetterQueue() awssqs.IQueue
 	// The DLQ (as topic) associated with this Lambda Function (this is an optional attribute).
-	// Experimental.
 	DeadLetterTopic() awssns.ITopic
 	// The environment this resource belongs to.
 	//
@@ -514,21 +466,16 @@ type NodejsFunction interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// ARN of this function.
-	// Experimental.
 	FunctionArn() *string
 	// Name of this function.
-	// Experimental.
 	FunctionName() *string
 	// The principal this Lambda Function is running as.
-	// Experimental.
 	GrantPrincipal() awsiam.IPrincipal
 	// Whether or not this Lambda function was bound to a VPC.
 	//
 	// If this is is `false`, trying to access the `connections` object will fail.
-	// Experimental.
 	IsBoundToVpc() *bool
 	// The `$LATEST` version of this function.
 	//
@@ -538,7 +485,6 @@ type NodejsFunction interface {
 	//
 	// To obtain a reference to an explicit version which references the current
 	// function configuration, use `lambdaFunction.currentVersion` instead.
-	// Experimental.
 	LatestVersion() awslambda.IVersion
 	// The LogGroup where the Lambda function's logs are made available.
 	//
@@ -548,14 +494,11 @@ type NodejsFunction interface {
 	//
 	// Further, if the log group already exists and the `logRetention` is not set, the custom resource will reset the log retention
 	// to never expire even if it was configured with a different value.
-	// Experimental.
 	LogGroup() awslogs.ILogGroup
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The construct node where permissions are attached.
-	// Experimental.
-	PermissionsNode() awscdk.ConstructNode
+	PermissionsNode() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -563,27 +506,20 @@ type NodejsFunction interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The ARN(s) to put into the resource field of the generated IAM policy for grantInvoke().
-	// Experimental.
 	ResourceArnsForGrantInvoke() *[]*string
 	// Execution role associated with this function.
-	// Experimental.
 	Role() awsiam.IRole
 	// The runtime configured for this lambda.
-	// Experimental.
 	Runtime() awslambda.Runtime
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// The timeout configured for this lambda.
-	// Experimental.
 	Timeout() awscdk.Duration
 	// Adds an environment variable to this Lambda function.
 	//
 	// If this is a ref to a Lambda function, this operation results in a no-op.
-	// Experimental.
 	AddEnvironment(key *string, value *string, options *awslambda.EnvironmentOptions) awslambda.Function
 	// Adds an event source to this function.
 	//
@@ -594,38 +530,17 @@ type NodejsFunction interface {
 	// import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 	// myFunction.addEventSource(new SqsEventSource(myQueue));
 	// ```.
-	// Experimental.
 	AddEventSource(source awslambda.IEventSource)
 	// Adds an event source that maps to this AWS Lambda function.
-	// Experimental.
 	AddEventSourceMapping(id *string, options *awslambda.EventSourceMappingOptions) awslambda.EventSourceMapping
 	// Adds one or more Lambda Layers to this Lambda function.
-	// Experimental.
 	AddLayers(layers ...awslambda.ILayerVersion)
 	// Adds a permission to the Lambda resource policy.
 	// See: Permission for details.
 	//
-	// Experimental.
 	AddPermission(id *string, permission *awslambda.Permission)
 	// Adds a statement to the IAM role assumed by the instance.
-	// Experimental.
 	AddToRolePolicy(statement awsiam.PolicyStatement)
-	// Add a new version for this Lambda.
-	//
-	// If you want to deploy through CloudFormation and use aliases, you need to
-	// add a new version (with a new name) to your Lambda every time you want to
-	// deploy an update. An alias can then refer to the newly created Version.
-	//
-	// All versions should have distinct names, and you should not delete versions
-	// as long as your Alias needs to refer to them.
-	//
-	// Returns: A new Version object.
-	// Deprecated: This method will create an AWS::Lambda::Version resource which
-	// snapshots the AWS Lambda function *at the time of its creation* and it
-	// won't get updated when the function changes. Instead, use
-	// `this.currentVersion` to obtain a reference to a version resource that gets
-	// automatically recreated when the function configuration (or code) changes.
-	AddVersion(name *string, codeSha256 *string, description *string, provisionedExecutions *float64, asyncInvokeConfig *awslambda.EventInvokeConfigOptions) awslambda.Version
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -635,12 +550,9 @@ type NodejsFunction interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Configures options for asynchronous invocation.
-	// Experimental.
 	ConfigureAsyncInvoke(options *awslambda.EventInvokeConfigOptions)
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -648,92 +560,35 @@ type NodejsFunction interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity permissions to invoke this Lambda.
-	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Function.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How long execution of this Lambda takes.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How many invocations of this Lambda fail.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How often this Lambda is invoked.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How often this Lambda is throttled.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for NodejsFunction
@@ -871,8 +726,8 @@ func (j *jsiiProxy_NodejsFunction) LogGroup() awslogs.ILogGroup {
 	return returns
 }
 
-func (j *jsiiProxy_NodejsFunction) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_NodejsFunction) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -881,8 +736,8 @@ func (j *jsiiProxy_NodejsFunction) Node() awscdk.ConstructNode {
 	return returns
 }
 
-func (j *jsiiProxy_NodejsFunction) PermissionsNode() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_NodejsFunction) PermissionsNode() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"permissionsNode",
@@ -952,14 +807,13 @@ func (j *jsiiProxy_NodejsFunction) Timeout() awscdk.Duration {
 }
 
 
-// Experimental.
-func NewNodejsFunction(scope awscdk.Construct, id *string, props *NodejsFunctionProps) NodejsFunction {
+func NewNodejsFunction(scope constructs.Construct, id *string, props *NodejsFunctionProps) NodejsFunction {
 	_init_.Initialize()
 
 	j := jsiiProxy_NodejsFunction{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_nodejs.NodejsFunction",
+		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -967,12 +821,11 @@ func NewNodejsFunction(scope awscdk.Construct, id *string, props *NodejsFunction
 	return &j
 }
 
-// Experimental.
-func NewNodejsFunction_Override(n NodejsFunction, scope awscdk.Construct, id *string, props *NodejsFunctionProps) {
+func NewNodejsFunction_Override(n NodejsFunction, scope constructs.Construct, id *string, props *NodejsFunctionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_nodejs.NodejsFunction",
+		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
 		[]interface{}{scope, id, props},
 		n,
 	)
@@ -981,26 +834,24 @@ func NewNodejsFunction_Override(n NodejsFunction, scope awscdk.Construct, id *st
 // Record whether specific properties in the `AWS::Lambda::Function` resource should also be associated to the Version resource.
 //
 // See 'currentVersion' section in the module README for more details.
-// Experimental.
 func NodejsFunction_ClassifyVersionProperty(propertyName *string, locked *bool) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_lambda_nodejs.NodejsFunction",
+		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
 		"classifyVersionProperty",
 		[]interface{}{propertyName, locked},
 	)
 }
 
 // Import a lambda function into the CDK using its ARN.
-// Experimental.
 func NodejsFunction_FromFunctionArn(scope constructs.Construct, id *string, functionArn *string) awslambda.IFunction {
 	_init_.Initialize()
 
 	var returns awslambda.IFunction
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda_nodejs.NodejsFunction",
+		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
 		"fromFunctionArn",
 		[]interface{}{scope, id, functionArn},
 		&returns,
@@ -1010,14 +861,13 @@ func NodejsFunction_FromFunctionArn(scope constructs.Construct, id *string, func
 }
 
 // Creates a Lambda function object which represents a function not defined within this stack.
-// Experimental.
 func NodejsFunction_FromFunctionAttributes(scope constructs.Construct, id *string, attrs *awslambda.FunctionAttributes) awslambda.IFunction {
 	_init_.Initialize()
 
 	var returns awslambda.IFunction
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda_nodejs.NodejsFunction",
+		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
 		"fromFunctionAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -1027,14 +877,13 @@ func NodejsFunction_FromFunctionAttributes(scope constructs.Construct, id *strin
 }
 
 // Import a lambda function into the CDK using its name.
-// Experimental.
 func NodejsFunction_FromFunctionName(scope constructs.Construct, id *string, functionName *string) awslambda.IFunction {
 	_init_.Initialize()
 
 	var returns awslambda.IFunction
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda_nodejs.NodejsFunction",
+		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
 		"fromFunctionName",
 		[]interface{}{scope, id, functionName},
 		&returns,
@@ -1043,15 +892,17 @@ func NodejsFunction_FromFunctionName(scope constructs.Construct, id *string, fun
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func NodejsFunction_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda_nodejs.NodejsFunction",
+		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1061,14 +912,13 @@ func NodejsFunction_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
-func NodejsFunction_IsResource(construct awscdk.IConstruct) *bool {
+func NodejsFunction_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda_nodejs.NodejsFunction",
+		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -1078,14 +928,13 @@ func NodejsFunction_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 // Return the given named metric for this Lambda.
-// Experimental.
 func NodejsFunction_MetricAll(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda_nodejs.NodejsFunction",
+		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
 		"metricAll",
 		[]interface{}{metricName, props},
 		&returns,
@@ -1095,14 +944,13 @@ func NodejsFunction_MetricAll(metricName *string, props *awscloudwatch.MetricOpt
 }
 
 // Metric for the number of concurrent executions across all Lambdas.
-// Experimental.
 func NodejsFunction_MetricAllConcurrentExecutions(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda_nodejs.NodejsFunction",
+		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
 		"metricAllConcurrentExecutions",
 		[]interface{}{props},
 		&returns,
@@ -1112,14 +960,13 @@ func NodejsFunction_MetricAllConcurrentExecutions(props *awscloudwatch.MetricOpt
 }
 
 // Metric for the Duration executing all Lambdas.
-// Experimental.
 func NodejsFunction_MetricAllDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda_nodejs.NodejsFunction",
+		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
 		"metricAllDuration",
 		[]interface{}{props},
 		&returns,
@@ -1129,14 +976,13 @@ func NodejsFunction_MetricAllDuration(props *awscloudwatch.MetricOptions) awsclo
 }
 
 // Metric for the number of Errors executing all Lambdas.
-// Experimental.
 func NodejsFunction_MetricAllErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda_nodejs.NodejsFunction",
+		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
 		"metricAllErrors",
 		[]interface{}{props},
 		&returns,
@@ -1146,14 +992,13 @@ func NodejsFunction_MetricAllErrors(props *awscloudwatch.MetricOptions) awscloud
 }
 
 // Metric for the number of invocations of all Lambdas.
-// Experimental.
 func NodejsFunction_MetricAllInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda_nodejs.NodejsFunction",
+		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
 		"metricAllInvocations",
 		[]interface{}{props},
 		&returns,
@@ -1163,14 +1008,13 @@ func NodejsFunction_MetricAllInvocations(props *awscloudwatch.MetricOptions) aws
 }
 
 // Metric for the number of throttled invocations of all Lambdas.
-// Experimental.
 func NodejsFunction_MetricAllThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda_nodejs.NodejsFunction",
+		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
 		"metricAllThrottles",
 		[]interface{}{props},
 		&returns,
@@ -1180,14 +1024,13 @@ func NodejsFunction_MetricAllThrottles(props *awscloudwatch.MetricOptions) awscl
 }
 
 // Metric for the number of unreserved concurrent executions across all Lambdas.
-// Experimental.
 func NodejsFunction_MetricAllUnreservedConcurrentExecutions(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda_nodejs.NodejsFunction",
+		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
 		"metricAllUnreservedConcurrentExecutions",
 		[]interface{}{props},
 		&returns,
@@ -1257,19 +1100,6 @@ func (n *jsiiProxy_NodejsFunction) AddToRolePolicy(statement awsiam.PolicyStatem
 		"addToRolePolicy",
 		[]interface{}{statement},
 	)
-}
-
-func (n *jsiiProxy_NodejsFunction) AddVersion(name *string, codeSha256 *string, description *string, provisionedExecutions *float64, asyncInvokeConfig *awslambda.EventInvokeConfigOptions) awslambda.Version {
-	var returns awslambda.Version
-
-	_jsii_.Invoke(
-		n,
-		"addVersion",
-		[]interface{}{name, codeSha256, description, provisionedExecutions, asyncInvokeConfig},
-		&returns,
-	)
-
-	return returns
 }
 
 func (n *jsiiProxy_NodejsFunction) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -1405,70 +1235,12 @@ func (n *jsiiProxy_NodejsFunction) MetricThrottles(props *awscloudwatch.MetricOp
 	return returns
 }
 
-func (n *jsiiProxy_NodejsFunction) OnPrepare() {
-	_jsii_.InvokeVoid(
-		n,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (n *jsiiProxy_NodejsFunction) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		n,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (n *jsiiProxy_NodejsFunction) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		n,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (n *jsiiProxy_NodejsFunction) Prepare() {
-	_jsii_.InvokeVoid(
-		n,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (n *jsiiProxy_NodejsFunction) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		n,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (n *jsiiProxy_NodejsFunction) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		n,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (n *jsiiProxy_NodejsFunction) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		n,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1535,145 +1307,113 @@ func (n *jsiiProxy_NodejsFunction) Validate() *[]*string {
 //   	},
 //   })
 //
-// Experimental.
 type NodejsFunctionProps struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours.
-	// Experimental.
 	MaxEventAge awscdk.Duration `json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
-	// Experimental.
 	OnFailure awslambda.IDestination `json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
-	// Experimental.
 	OnSuccess awslambda.IDestination `json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2.
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
 	// Whether to allow the Lambda to send all network traffic.
 	//
 	// If set to false, you must individually add traffic rules to allow the
 	// Lambda to connect to network targets.
-	// Experimental.
 	AllowAllOutbound *bool `json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// Lambda Functions in a public subnet can NOT access the internet.
 	//
 	// Use this property to acknowledge this limitation and still place the function in a public subnet.
 	// See: https://stackoverflow.com/questions/52992085/why-cant-an-aws-lambda-function-inside-a-public-subnet-in-a-vpc-connect-to-the/52994841#52994841
 	//
-	// Experimental.
 	AllowPublicSubnet *bool `json:"allowPublicSubnet" yaml:"allowPublicSubnet"`
 	// The system architectures compatible with this lambda function.
-	// Experimental.
 	Architecture awslambda.Architecture `json:"architecture" yaml:"architecture"`
-	// DEPRECATED.
-	// Deprecated: use `architecture`.
-	Architectures *[]awslambda.Architecture `json:"architectures" yaml:"architectures"`
 	// Code signing config associated with this function.
-	// Experimental.
 	CodeSigningConfig awslambda.ICodeSigningConfig `json:"codeSigningConfig" yaml:"codeSigningConfig"`
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
-	// Experimental.
 	CurrentVersionOptions *awslambda.VersionOptions `json:"currentVersionOptions" yaml:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
 	//
 	// If SNS topic is desired, specify `deadLetterTopic` property instead.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// Enabled DLQ.
 	//
 	// If `deadLetterQueue` is undefined,
 	// an SQS queue with default options will be defined for your Function.
-	// Experimental.
 	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
 	// The SNS topic to use as a DLQ.
 	//
 	// Note that if `deadLetterQueueEnabled` is set to `true`, an SQS queue will be created
 	// rather than an SNS topic. Using an SNS topic as a DLQ requires this property to be set explicitly.
-	// Experimental.
 	DeadLetterTopic awssns.ITopic `json:"deadLetterTopic" yaml:"deadLetterTopic"`
 	// A description of the function.
-	// Experimental.
 	Description *string `json:"description" yaml:"description"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.
 	//
 	// Use environment variables to apply configuration changes, such
 	// as test and production environment configurations, without changing your
 	// Lambda function source code.
-	// Experimental.
 	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The AWS KMS key that's used to encrypt your function's environment variables.
-	// Experimental.
 	EnvironmentEncryption awskms.IKey `json:"environmentEncryption" yaml:"environmentEncryption"`
 	// Event sources for this function.
 	//
 	// You can also add event sources using `addEventSource`.
-	// Experimental.
 	Events *[]awslambda.IEventSource `json:"events" yaml:"events"`
 	// The filesystem configuration for the lambda function.
-	// Experimental.
 	Filesystem awslambda.FileSystem `json:"filesystem" yaml:"filesystem"`
 	// A name for the function.
-	// Experimental.
 	FunctionName *string `json:"functionName" yaml:"functionName"`
 	// Initial policy statements to add to the created Lambda Role.
 	//
 	// You can call `addToRolePolicy` to the created lambda to add statements post creation.
-	// Experimental.
 	InitialPolicy *[]awsiam.PolicyStatement `json:"initialPolicy" yaml:"initialPolicy"`
 	// Specify the version of CloudWatch Lambda insights to use for monitoring.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started-docker.html
 	//
-	// Experimental.
 	InsightsVersion awslambda.LambdaInsightsVersion `json:"insightsVersion" yaml:"insightsVersion"`
 	// A list of layers to add to the function's execution environment.
 	//
 	// You can configure your Lambda function to pull in
 	// additional code during initialization in the form of layers. Layers are packages of libraries or other dependencies
 	// that can be used by multiple functions.
-	// Experimental.
 	Layers *[]awslambda.ILayerVersion `json:"layers" yaml:"layers"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `INFINITE`.
-	// Experimental.
 	LogRetention awslogs.RetentionDays `json:"logRetention" yaml:"logRetention"`
 	// When log retention is specified, a custom resource attempts to create the CloudWatch log group.
 	//
 	// These options control the retry policy when interacting with CloudWatch APIs.
-	// Experimental.
 	LogRetentionRetryOptions *awslambda.LogRetentionRetryOptions `json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	// Experimental.
 	LogRetentionRole awsiam.IRole `json:"logRetentionRole" yaml:"logRetentionRole"`
 	// The amount of memory, in MB, that is allocated to your Lambda function.
 	//
 	// Lambda uses this value to proportionally allocate the amount of CPU
 	// power. For more information, see Resource Model in the AWS Lambda
 	// Developer Guide.
-	// Experimental.
 	MemorySize *float64 `json:"memorySize" yaml:"memorySize"`
 	// Enable profiling.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	// Experimental.
 	Profiling *bool `json:"profiling" yaml:"profiling"`
 	// Profiling Group.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	// Experimental.
 	ProfilingGroup awscodeguruprofiler.IProfilingGroup `json:"profilingGroup" yaml:"profilingGroup"`
 	// The maximum of concurrent executions you want to reserve for the function.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html
 	//
-	// Experimental.
 	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
 	// Lambda execution role.
 	//
@@ -1686,40 +1426,26 @@ type NodejsFunctionProps struct {
 	//
 	// The relevant managed policies are "service-role/AWSLambdaBasicExecutionRole" and
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
-	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
-	// What security group to associate with the Lambda's network interfaces. This property is being deprecated, consider using securityGroups instead.
-	//
-	// Only used if 'vpc' is supplied.
-	//
-	// Use securityGroups property instead.
-	// Function constructor will throw an error if both are specified.
-	// Deprecated: - This property is deprecated, use securityGroups instead.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value
 	// based on the function's expected execution time.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Enable AWS X-Ray Tracing for Lambda Function.
-	// Experimental.
 	Tracing awslambda.Tracing `json:"tracing" yaml:"tracing"`
 	// VPC network to place Lambda network interfaces.
 	//
 	// Specify this if the Lambda function needs to access resources in a VPC.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Where to place the network interfaces within the VPC.
 	//
 	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
 	// requires a NAT gateway, so picking Public subnets is not allowed.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// Whether to automatically reuse TCP connections when working with the AWS SDK for JavaScript.
 	//
@@ -1727,10 +1453,8 @@ type NodejsFunctionProps struct {
 	// to `1`.
 	// See: https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/node-reusing-connections.html
 	//
-	// Experimental.
 	AwsSdkConnectionReuse *bool `json:"awsSdkConnectionReuse" yaml:"awsSdkConnectionReuse"`
 	// Bundling options.
-	// Experimental.
 	Bundling *BundlingOptions `json:"bundling" yaml:"bundling"`
 	// The path to the dependencies lock file (`yarn.lock` or `package-lock.json`).
 	//
@@ -1739,22 +1463,17 @@ type NodejsFunctionProps struct {
 	//
 	// Modules specified in `nodeModules` will be installed using the right
 	// installer (`npm` or `yarn`) along with this lock file.
-	// Experimental.
 	DepsLockFilePath *string `json:"depsLockFilePath" yaml:"depsLockFilePath"`
 	// Path to the entry file (JavaScript or TypeScript).
-	// Experimental.
 	Entry *string `json:"entry" yaml:"entry"`
 	// The name of the exported handler in the entry file.
-	// Experimental.
 	Handler *string `json:"handler" yaml:"handler"`
 	// The path to the directory containing project config files (`package.json` or `tsconfig.json`).
-	// Experimental.
 	ProjectRoot *string `json:"projectRoot" yaml:"projectRoot"`
 	// The runtime environment.
 	//
 	// Only runtimes of the Node.js family are
 	// supported.
-	// Experimental.
 	Runtime awslambda.Runtime `json:"runtime" yaml:"runtime"`
 }
 
@@ -1817,17 +1536,14 @@ type NodejsFunctionProps struct {
 //   	},
 //   })
 //
-// Experimental.
 type OutputFormat string
 
 const (
 	// CommonJS.
-	// Experimental.
 	OutputFormat_CJS OutputFormat = "CJS"
 	// ECMAScript module.
 	//
 	// Requires a running environment that supports `import` and `export` syntax.
-	// Experimental.
 	OutputFormat_ESM OutputFormat = "ESM"
 )
 
@@ -1892,21 +1608,16 @@ const (
 //
 // See: https://esbuild.github.io/api/#sourcemap
 //
-// Experimental.
 type SourceMapMode string
 
 const (
 	// Default sourceMap mode - will generate a .js.map file alongside any generated .js file and add a special //# sourceMappingURL= comment to the bottom of the .js file pointing to the .js.map file.
-	// Experimental.
 	SourceMapMode_DEFAULT SourceMapMode = "DEFAULT"
 	// External sourceMap mode - If you want to omit the special //# sourceMappingURL= comment from the generated .js file but you still want to generate the .js.map files.
-	// Experimental.
 	SourceMapMode_EXTERNAL SourceMapMode = "EXTERNAL"
 	// Inline sourceMap mode - If you want to insert the entire source map into the .js file instead of generating a separate .js.map file.
-	// Experimental.
 	SourceMapMode_INLINE SourceMapMode = "INLINE"
 	// Both sourceMap mode - If you want to have the effect of both inline and external simultaneously.
-	// Experimental.
 	SourceMapMode_BOTH SourceMapMode = "BOTH"
 )
 
