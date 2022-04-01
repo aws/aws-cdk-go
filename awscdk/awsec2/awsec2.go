@@ -18339,7 +18339,7 @@ type CfnInstance interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
-	// The user data to make available to the instance.
+	// The user data script to make available to the instance.
 	//
 	// For more information, see [Run commands on your Linux instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) and [Run commands on your Windows instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html) . If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text. User data is limited to 16 KB.
 	UserData() *string
@@ -20403,7 +20403,7 @@ type CfnInstanceProps struct {
 	//
 	// An instance with a tenancy of `dedicated` runs on single-tenant hardware.
 	Tenancy *string `json:"tenancy" yaml:"tenancy"`
-	// The user data to make available to the instance.
+	// The user data script to make available to the instance.
 	//
 	// For more information, see [Run commands on your Linux instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) and [Run commands on your Windows instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html) . If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text. User data is limited to 16 KB.
 	UserData *string `json:"userData" yaml:"userData"`
@@ -28856,11 +28856,11 @@ type CfnNetworkInsightsAnalysis_AnalysisRouteTableRouteProperty struct {
 	NatGatewayId *string `json:"natGatewayId" yaml:"natGatewayId"`
 	// The ID of a network interface.
 	NetworkInterfaceId *string `json:"networkInterfaceId" yaml:"networkInterfaceId"`
-	// Describes how the route was created. The following are possible values:.
+	// Describes how the route was created. The following are the possible values:.
 	//
-	// - `CreateRouteTable` - The route was automatically created when the route table was created.
-	// - `CreateRoute` - The route was manually added to the route table.
-	// - `EnableVgwRoutePropagation` - The route was propagated by route propagation.
+	// - CreateRouteTable - The route was automatically created when the route table was created.
+	// - CreateRoute - The route was manually added to the route table.
+	// - EnableVgwRoutePropagation - The route was propagated by route propagation.
 	Origin *string `json:"origin" yaml:"origin"`
 	// The ID of a transit gateway.
 	TransitGatewayId *string `json:"transitGatewayId" yaml:"transitGatewayId"`
@@ -28887,7 +28887,7 @@ type CfnNetworkInsightsAnalysis_AnalysisRouteTableRouteProperty struct {
 type CfnNetworkInsightsAnalysis_AnalysisSecurityGroupRuleProperty struct {
 	// The IPv4 address range, in CIDR notation.
 	Cidr *string `json:"cidr" yaml:"cidr"`
-	// The direction. The following are possible values:.
+	// The direction. The following are the possible values:.
 	//
 	// - egress
 	// - ingress.
@@ -29115,7 +29115,7 @@ type CfnNetworkInsightsAnalysis_ExplanationProperty struct {
 	Destination interface{} `json:"destination" yaml:"destination"`
 	// The destination VPC.
 	DestinationVpc interface{} `json:"destinationVpc" yaml:"destinationVpc"`
-	// The direction. The following are possible values:.
+	// The direction. The following are the possible values:.
 	//
 	// - egress
 	// - ingress.
@@ -35505,11 +35505,21 @@ func (c *jsiiProxy_CfnSecurityGroup) ValidateProperties(_properties interface{})
 	)
 }
 
-// Specifies an outbound rule for a security group.
+// [EC2-VPC only] Adds the specified egress rules to a security group for use with a VPC.
 //
-// An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 address range, or to the instances associated with the specified destination security groups.
+// An outbound rule permits instances to send traffic to the specified destination IPv4 or IPv6 CIDR address ranges, or to the specified destination security groups for the same VPC.
+//
+// You specify a protocol for each rule (for example, TCP). For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes.
 //
 // You must specify only one of the following properties: `CidrIp` , `CidrIpv6` , `DestinationPrefixListId` , or `DestinationSecurityGroupId` .
+//
+// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ). If you do not specify one of these parameters, the stack will launch successfully but the rule will not be added to the security group.
+//
+// Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.
+//
+// For more information about VPC security group limits, see [Amazon VPC Limits](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) .
+//
+// Use `SecurityGroup.Ingress` and `SecurityGroup.Egress` only when necessary, typically to allow security groups to reference each other in ingress and egress rules. Otherwise, use the embedded ingress and egress rules of the security group. For more information, see [Amazon EC2 Security Groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html) .
 //
 // The EC2 Security Group Rule is an embedded property of the `AWS::EC2::SecurityGroup` type.
 //
@@ -35534,8 +35544,16 @@ type CfnSecurityGroup_EgressProperty struct {
 	// [VPC only] Use `-1` to specify all protocols. When authorizing security group rules, specifying `-1` or a protocol number other than `tcp` , `udp` , `icmp` , or `icmpv6` allows traffic on all ports, regardless of any port range you specify. For `tcp` , `udp` , and `icmp` , you must specify a port range. For `icmpv6` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
 	IpProtocol *string `json:"ipProtocol" yaml:"ipProtocol"`
 	// The IPv4 address range, in CIDR format.
+	//
+	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
+	//
+	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
 	CidrIp *string `json:"cidrIp" yaml:"cidrIp"`
 	// The IPv6 address range, in CIDR format.
+	//
+	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
+	//
+	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
 	CidrIpv6 *string `json:"cidrIpv6" yaml:"cidrIpv6"`
 	// A description for the security group rule.
 	//
@@ -35544,8 +35562,12 @@ type CfnSecurityGroup_EgressProperty struct {
 	// [EC2-VPC only] The prefix list IDs for the destination AWS service.
 	//
 	// This is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
+	//
+	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
 	DestinationPrefixListId *string `json:"destinationPrefixListId" yaml:"destinationPrefixListId"`
 	// The ID of the destination VPC security group.
+	//
+	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
 	DestinationSecurityGroupId *string `json:"destinationSecurityGroupId" yaml:"destinationSecurityGroupId"`
 	// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number.
 	//
@@ -35557,11 +35579,17 @@ type CfnSecurityGroup_EgressProperty struct {
 	ToPort *float64 `json:"toPort" yaml:"toPort"`
 }
 
-// Specifies an inbound rule for a security group.
+// Adds an inbound rule to a security group.
 //
 // An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6 CIDR address range, or from the instances associated with the specified security group.
 //
 // You must specify only one of the following properties: `CidrIp` , `CidrIpv6` , `SourcePrefixListId` , `SourceSecurityGroupId` , or `SourceSecurityGroupName` .
+//
+// You specify a protocol for each rule (for example, TCP). For TCP and UDP, you must also specify a port or port range. For ICMP/ICMPv6, you must also specify the ICMP/ICMPv6 type and code. You can use -1 to mean all types or all codes.
+//
+// You must specify a source security group ( `SourcePrefixListId` , `SourceSecurityGroupId` , or `SourceSecurityGroupName` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ). If you do not specify one of these parameters, the stack will launch successfully but the rule will not be added to the security group.
+//
+// Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.
 //
 // The EC2 Security Group Rule is an embedded property of the `AWS::EC2::SecurityGroup` type.
 //
@@ -35588,10 +35616,20 @@ type CfnSecurityGroup_IngressProperty struct {
 	// [VPC only] Use `-1` to specify all protocols. When authorizing security group rules, specifying `-1` or a protocol number other than `tcp` , `udp` , `icmp` , or `icmpv6` allows traffic on all ports, regardless of any port range you specify. For `tcp` , `udp` , and `icmp` , you must specify a port range. For `icmpv6` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
 	IpProtocol *string `json:"ipProtocol" yaml:"ipProtocol"`
 	// The IPv4 address range, in CIDR format.
+	//
+	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
+	//
+	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
 	CidrIp *string `json:"cidrIp" yaml:"cidrIp"`
 	// The IPv6 address range, in CIDR format.
+	//
+	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
+	//
+	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
 	CidrIpv6 *string `json:"cidrIpv6" yaml:"cidrIpv6"`
-	// A description for the security group rule.
+	// Updates the description of an ingress (inbound) security group rule.
+	//
+	// You can replace an existing description, or add a description to a rule that did not have one previously.
 	//
 	// Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
 	Description *string `json:"description" yaml:"description"`
@@ -35608,6 +35646,8 @@ type CfnSecurityGroup_IngressProperty struct {
 	// [EC2-Classic, default VPC] The name of the source security group.
 	//
 	// You can't specify this parameter in combination with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
+	//
+	// You must specify the `GroupName` property or the `GroupId` property. For security groups that are in a VPC, you must use the `GroupId` property.
 	SourceSecurityGroupName *string `json:"sourceSecurityGroupName" yaml:"sourceSecurityGroupName"`
 	// [nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account.
 	//
@@ -35628,6 +35668,8 @@ type CfnSecurityGroup_IngressProperty struct {
 // An outbound rule permits instances to send traffic to the specified destination IPv4 or IPv6 CIDR address ranges, or to the specified destination security groups for the same VPC.
 //
 // You specify a protocol for each rule (for example, TCP). For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes.
+//
+// You must specify only one of the following properties: `CidrIp` , `CidrIpv6` , `DestinationPrefixListId` , or `DestinationSecurityGroupId` .
 //
 // You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ). If you do not specify one of these parameters, the stack will launch successfully but the rule will not be added to the security group.
 //
@@ -35680,6 +35722,8 @@ type CfnSecurityGroupEgress interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The description of an egress (outbound) security group rule.
+	//
+	// Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
 	Description() *string
 	SetDescription(val *string)
 	// [EC2-VPC only] The prefix list IDs for an AWS service.
@@ -36382,6 +36426,8 @@ type CfnSecurityGroupEgressProps struct {
 	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
 	CidrIpv6 *string `json:"cidrIpv6" yaml:"cidrIpv6"`
 	// The description of an egress (outbound) security group rule.
+	//
+	// Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
 	Description *string `json:"description" yaml:"description"`
 	// [EC2-VPC only] The prefix list IDs for an AWS service.
 	//
@@ -36408,6 +36454,8 @@ type CfnSecurityGroupEgressProps struct {
 // Adds an inbound rule to a security group.
 //
 // An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6 CIDR address range, or from the instances associated with the specified security group.
+//
+// You must specify only one of the following properties: `CidrIp` , `CidrIpv6` , `SourcePrefixListId` , `SourceSecurityGroupId` , or `SourceSecurityGroupName` .
 //
 // You specify a protocol for each rule (for example, TCP). For TCP and UDP, you must also specify a port or port range. For ICMP/ICMPv6, you must also specify the ICMP/ICMPv6 type and code. You can use -1 to mean all types or all codes.
 //
@@ -36443,9 +36491,17 @@ type CfnSecurityGroupIngress interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The IPv4 address range, in CIDR format.
+	//
+	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
+	//
+	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
 	CidrIp() *string
 	SetCidrIp(val *string)
 	// The IPv6 address range, in CIDR format.
+	//
+	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
+	//
+	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
 	CidrIpv6() *string
 	SetCidrIpv6(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -36455,6 +36511,8 @@ type CfnSecurityGroupIngress interface {
 	// Updates the description of an ingress (inbound) security group rule.
 	//
 	// You can replace an existing description, or add a description to a rule that did not have one previously.
+	//
+	// Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
 	Description() *string
 	SetDescription(val *string)
 	// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number.
@@ -36512,12 +36570,14 @@ type CfnSecurityGroupIngress interface {
 	SetSourceSecurityGroupId(val *string)
 	// [EC2-Classic, default VPC] The name of the source security group.
 	//
+	// You can't specify this parameter in combination with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
+	//
 	// You must specify the `GroupName` property or the `GroupId` property. For security groups that are in a VPC, you must use the `GroupId` property.
 	SourceSecurityGroupName() *string
 	SetSourceSecurityGroupName(val *string)
-	// [nondefault VPC] The AWS account ID that owns the source security group.
+	// [nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account.
 	//
-	// You can't specify this property with an IP address range.
+	// You can't specify this property with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
 	//
 	// If you specify `SourceSecurityGroupName` or `SourceSecurityGroupId` and that security group is owned by a different account than the account creating the stack, you must specify the `SourceSecurityGroupOwnerId` ; otherwise, this property is optional.
 	SourceSecurityGroupOwnerId() *string
@@ -37221,12 +37281,22 @@ type CfnSecurityGroupIngressProps struct {
 	// [VPC only] Use `-1` to specify all protocols. When authorizing security group rules, specifying `-1` or a protocol number other than `tcp` , `udp` , `icmp` , or `icmpv6` allows traffic on all ports, regardless of any port range you specify. For `tcp` , `udp` , and `icmp` , you must specify a port range. For `icmpv6` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
 	IpProtocol *string `json:"ipProtocol" yaml:"ipProtocol"`
 	// The IPv4 address range, in CIDR format.
+	//
+	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
+	//
+	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
 	CidrIp *string `json:"cidrIp" yaml:"cidrIp"`
 	// The IPv6 address range, in CIDR format.
+	//
+	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
+	//
+	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
 	CidrIpv6 *string `json:"cidrIpv6" yaml:"cidrIpv6"`
 	// Updates the description of an ingress (inbound) security group rule.
 	//
 	// You can replace an existing description, or add a description to a rule that did not have one previously.
+	//
+	// Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
 	Description *string `json:"description" yaml:"description"`
 	// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number.
 	//
@@ -37256,11 +37326,13 @@ type CfnSecurityGroupIngressProps struct {
 	SourceSecurityGroupId *string `json:"sourceSecurityGroupId" yaml:"sourceSecurityGroupId"`
 	// [EC2-Classic, default VPC] The name of the source security group.
 	//
+	// You can't specify this parameter in combination with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
+	//
 	// You must specify the `GroupName` property or the `GroupId` property. For security groups that are in a VPC, you must use the `GroupId` property.
 	SourceSecurityGroupName *string `json:"sourceSecurityGroupName" yaml:"sourceSecurityGroupName"`
-	// [nondefault VPC] The AWS account ID that owns the source security group.
+	// [nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account.
 	//
-	// You can't specify this property with an IP address range.
+	// You can't specify this property with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
 	//
 	// If you specify `SourceSecurityGroupName` or `SourceSecurityGroupId` and that security group is owned by a different account than the account creating the stack, you must specify the `SourceSecurityGroupOwnerId` ; otherwise, this property is optional.
 	SourceSecurityGroupOwnerId *string `json:"sourceSecurityGroupOwnerId" yaml:"sourceSecurityGroupOwnerId"`
@@ -38371,9 +38443,7 @@ type CfnSpotFleet_EbsBlockDeviceProperty struct {
 //   }
 //
 type CfnSpotFleet_FleetLaunchTemplateSpecificationProperty struct {
-	// The version number of the launch template.
-	//
-	// You must specify a version number. AWS CloudFormation does not support specifying `$Latest` or `$Default` for the template version number.
+	// The version number of the launch template. You must specify a version number.
 	//
 	// Minimum length of 1. Maximum length of 255. Versions must fit the following pattern: `[\ u0020-\ uD7FF\ uE000-\ uFFFD\ uD800\ uDC00-\ uDBFF\ uDFFF\r\n\t]*`
 	Version *string `json:"version" yaml:"version"`
@@ -70373,13 +70443,9 @@ type InitUserOptions struct {
 //
 // Example:
 //   // Example automatically generated from non-compiling source. May contain errors.
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type Key awscdk.Key
-//
 //   var vpc vpc
 //   var instanceType instanceType
 //   var machineImage iMachineImage
-//
-//   kmsKey := NewKey(this, jsii.String("KmsKey"))
 //
 //   ec2.NewInstance(this, jsii.String("Instance"), &instanceProps{
 //   	vpc: vpc,
@@ -70391,10 +70457,11 @@ type InitUserOptions struct {
 //   	blockDevices: []blockDevice{
 //   		&blockDevice{
 //   			deviceName: jsii.String("/dev/sda1"),
-//   			volume: ec2.blockDeviceVolume.ebs(jsii.Number(50), &ebsDeviceOptions{
-//   				encrypted: jsii.Boolean(true),
-//   				kmsKey: kmsKey,
-//   			}),
+//   			volume: ec2.blockDeviceVolume.ebs(jsii.Number(50)),
+//   		},
+//   		&blockDevice{
+//   			deviceName: jsii.String("/dev/sdm"),
+//   			volume: ec2.*blockDeviceVolume.ebs(jsii.Number(100)),
 //   		},
 //   	},
 //   })
@@ -71016,13 +71083,9 @@ const (
 //
 // Example:
 //   // Example automatically generated from non-compiling source. May contain errors.
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type Key awscdk.Key
-//
 //   var vpc vpc
 //   var instanceType instanceType
 //   var machineImage iMachineImage
-//
-//   kmsKey := NewKey(this, jsii.String("KmsKey"))
 //
 //   ec2.NewInstance(this, jsii.String("Instance"), &instanceProps{
 //   	vpc: vpc,
@@ -71034,10 +71097,11 @@ const (
 //   	blockDevices: []blockDevice{
 //   		&blockDevice{
 //   			deviceName: jsii.String("/dev/sda1"),
-//   			volume: ec2.blockDeviceVolume.ebs(jsii.Number(50), &ebsDeviceOptions{
-//   				encrypted: jsii.Boolean(true),
-//   				kmsKey: kmsKey,
-//   			}),
+//   			volume: ec2.blockDeviceVolume.ebs(jsii.Number(50)),
+//   		},
+//   		&blockDevice{
+//   			deviceName: jsii.String("/dev/sdm"),
+//   			volume: ec2.*blockDeviceVolume.ebs(jsii.Number(100)),
 //   		},
 //   	},
 //   })
@@ -71064,6 +71128,10 @@ type InstanceProps struct {
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html
 	//
 	BlockDevices *[]*BlockDevice `json:"blockDevices" yaml:"blockDevices"`
+	// Whether "Detailed Monitoring" is enabled for this instance Keep in mind that Detailed Monitoring results in extra charges.
+	// See: http://aws.amazon.com/cloudwatch/pricing/
+	//
+	DetailedMonitoring *bool `json:"detailedMonitoring" yaml:"detailedMonitoring"`
 	// Apply the given CloudFormation Init configuration to the instance at startup.
 	Init CloudFormationInit `json:"init" yaml:"init"`
 	// Use the given options for applying CloudFormation Init.
@@ -74525,6 +74593,20 @@ func (n *jsiiProxy_NatProvider) ConfigureSubnet(subnet PrivateSubnet) {
 }
 
 // Direction of traffic to allow all by default.
+//
+// Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   var instanceType instanceType
+//
+//   provider := ec2.natProvider.instance(&natInstanceProps{
+//   	instanceType: instanceType,
+//   	defaultAllowedTraffic: ec2.natTrafficDirection_OUTBOUND_ONLY,
+//   })
+//   ec2.NewVpc(this, jsii.String("TheVPC"), &vpcProps{
+//   	natGatewayProvider: provider,
+//   })
+//   provider.connections.allowFrom(ec2.peer.ipv4(jsii.String("1.2.3.4/8")), ec2.port.tcp(jsii.Number(80)))
+//
 type NatTrafficDirection string
 
 const (
@@ -75261,7 +75343,7 @@ const (
 //
 //   provider := ec2.natProvider.instance(&natInstanceProps{
 //   	instanceType: instanceType,
-//   	allowAllTraffic: jsii.Boolean(false),
+//   	defaultAllowedTraffic: ec2.natTrafficDirection_OUTBOUND_ONLY,
 //   })
 //   ec2.NewVpc(this, jsii.String("TheVPC"), &vpcProps{
 //   	natGatewayProvider: provider,
@@ -75399,17 +75481,16 @@ func Peer_SecurityGroupId(securityGroupId *string, sourceSecurityGroupOwnerId *s
 // Interface for classes that provide the connection-specification parts of a security group rule.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   var instanceType instanceType
+//   var loadBalancer applicationLoadBalancer
 //
-//   provider := ec2.natProvider.instance(&natInstanceProps{
-//   	instanceType: instanceType,
-//   	allowAllTraffic: jsii.Boolean(false),
+//   vpc := ec2.NewVpc(this, jsii.String("MyVPC"))
+//   project := codebuild.NewProject(this, jsii.String("MyProject"), &projectProps{
+//   	vpc: vpc,
+//   	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
+//   	}),
 //   })
-//   ec2.NewVpc(this, jsii.String("TheVPC"), &vpcProps{
-//   	natGatewayProvider: provider,
-//   })
-//   provider.connections.allowFrom(ec2.peer.ipv4(jsii.String("1.2.3.4/8")), ec2.port.tcp(jsii.Number(80)))
+//
+//   project.connections.allowTo(loadBalancer, ec2.port.tcp(jsii.Number(443)))
 //
 type Port interface {
 	// Whether the rule containing this port range can be inlined into a securitygroup or not.

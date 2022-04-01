@@ -442,6 +442,16 @@ type ApplicationLoadBalancedEc2ServiceProps struct {
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required.
 	MemoryReservationMiB *float64 `json:"memoryReservationMiB" yaml:"memoryReservationMiB"`
+	// The placement constraints to use for tasks in the service.
+	//
+	// For more information, see
+	// [Amazon ECS Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html).
+	PlacementConstraints *[]awsecs.PlacementConstraint `json:"placementConstraints" yaml:"placementConstraints"`
+	// The placement strategies to use for tasks in the service.
+	//
+	// For more information, see
+	// [Amazon ECS Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
+	PlacementStrategies *[]awsecs.PlacementStrategy `json:"placementStrategies" yaml:"placementStrategies"`
 	// The task definition to use for tasks in the service. TaskDefinition or TaskImageOptions must be specified, but not both..
 	//
 	// [disable-awslint:ref-via-interface].
@@ -1820,6 +1830,16 @@ type ApplicationMultipleTargetGroupsEc2ServiceProps struct {
 	//
 	// Note that this setting will be ignored if TaskImagesOptions is specified.
 	MemoryReservationMiB *float64 `json:"memoryReservationMiB" yaml:"memoryReservationMiB"`
+	// The placement constraints to use for tasks in the service.
+	//
+	// For more information, see
+	// [Amazon ECS Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html).
+	PlacementConstraints *[]awsecs.PlacementConstraint `json:"placementConstraints" yaml:"placementConstraints"`
+	// The placement strategies to use for tasks in the service.
+	//
+	// For more information, see
+	// [Amazon ECS Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
+	PlacementStrategies *[]awsecs.PlacementStrategy `json:"placementStrategies" yaml:"placementStrategies"`
 	// The task definition to use for tasks in the service. Only one of TaskDefinition or TaskImageOptions must be specified.
 	//
 	// [disable-awslint:ref-via-interface].
@@ -3042,6 +3062,16 @@ type NetworkLoadBalancedEc2ServiceProps struct {
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required.
 	MemoryReservationMiB *float64 `json:"memoryReservationMiB" yaml:"memoryReservationMiB"`
+	// The placement constraints to use for tasks in the service.
+	//
+	// For more information, see
+	// [Amazon ECS Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html).
+	PlacementConstraints *[]awsecs.PlacementConstraint `json:"placementConstraints" yaml:"placementConstraints"`
+	// The placement strategies to use for tasks in the service.
+	//
+	// For more information, see
+	// [Amazon ECS Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
+	PlacementStrategies *[]awsecs.PlacementStrategy `json:"placementStrategies" yaml:"placementStrategies"`
 	// The task definition to use for tasks in the service. TaskDefinition or TaskImageOptions must be specified, but not both..
 	//
 	// [disable-awslint:ref-via-interface].
@@ -4329,6 +4359,16 @@ type NetworkMultipleTargetGroupsEc2ServiceProps struct {
 	//
 	// Note that this setting will be ignored if TaskImagesOptions is specified.
 	MemoryReservationMiB *float64 `json:"memoryReservationMiB" yaml:"memoryReservationMiB"`
+	// The placement constraints to use for tasks in the service.
+	//
+	// For more information, see
+	// [Amazon ECS Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html).
+	PlacementConstraints *[]awsecs.PlacementConstraint `json:"placementConstraints" yaml:"placementConstraints"`
+	// The placement strategies to use for tasks in the service.
+	//
+	// For more information, see
+	// [Amazon ECS Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
+	PlacementStrategies *[]awsecs.PlacementStrategy `json:"placementStrategies" yaml:"placementStrategies"`
 	// The task definition to use for tasks in the service. Only one of TaskDefinition or TaskImageOptions must be specified.
 	//
 	// [disable-awslint:ref-via-interface].
@@ -5607,6 +5647,16 @@ type QueueProcessingEc2ServiceProps struct {
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required for non-Fargate services.
 	MemoryReservationMiB *float64 `json:"memoryReservationMiB" yaml:"memoryReservationMiB"`
+	// The placement constraints to use for tasks in the service.
+	//
+	// For more information, see
+	// [Amazon ECS Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html).
+	PlacementConstraints *[]awsecs.PlacementConstraint `json:"placementConstraints" yaml:"placementConstraints"`
+	// The placement strategies to use for tasks in the service.
+	//
+	// For more information, see
+	// [Amazon ECS Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
+	PlacementStrategies *[]awsecs.PlacementStrategy `json:"placementStrategies" yaml:"placementStrategies"`
 }
 
 // Class to create a queue processing Fargate service.

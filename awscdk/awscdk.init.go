@@ -2252,6 +2252,7 @@ func init() {
 		"aws-cdk-lib.Size",
 		reflect.TypeOf((*Size)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "isUnresolved", GoMethod: "IsUnresolved"},
 			_jsii_.MemberMethod{JsiiMethod: "toGibibytes", GoMethod: "ToGibibytes"},
 			_jsii_.MemberMethod{JsiiMethod: "toKibibytes", GoMethod: "ToKibibytes"},
 			_jsii_.MemberMethod{JsiiMethod: "toMebibytes", GoMethod: "ToMebibytes"},

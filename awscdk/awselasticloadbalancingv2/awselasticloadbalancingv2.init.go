@@ -758,6 +758,7 @@ func init() {
 		"aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationListener",
 		reflect.TypeOf((*IApplicationListener)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addAction", GoMethod: "AddAction"},
 			_jsii_.MemberMethod{JsiiMethod: "addCertificates", GoMethod: "AddCertificates"},
 			_jsii_.MemberMethod{JsiiMethod: "addTargetGroups", GoMethod: "AddTargetGroups"},
 			_jsii_.MemberMethod{JsiiMethod: "addTargets", GoMethod: "AddTargets"},
@@ -1005,6 +1006,7 @@ func init() {
 		reflect.TypeOf((*NetworkListener)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addAction", GoMethod: "AddAction"},
+			_jsii_.MemberMethod{JsiiMethod: "addCertificates", GoMethod: "AddCertificates"},
 			_jsii_.MemberMethod{JsiiMethod: "addTargetGroups", GoMethod: "AddTargetGroups"},
 			_jsii_.MemberMethod{JsiiMethod: "addTargets", GoMethod: "AddTargets"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},

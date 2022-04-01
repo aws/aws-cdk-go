@@ -362,7 +362,7 @@ type BasicStepScalingPolicyProps struct {
 //   	reservedConcurrentExecutions: jsii.Number(2),
 //   })
 //
-//   fnVer := handler.addVersion(jsii.String("CDKLambdaVersion"), undefined, jsii.String("demo alias"), jsii.Number(10))
+//   fnVer := handler.currentVersion
 //
 //   target := appscaling.NewScalableTarget(this, jsii.String("ScalableTarget"), &scalableTargetProps{
 //   	serviceNamespace: appscaling.serviceNamespace_LAMBDA,
@@ -2704,7 +2704,7 @@ const (
 //   	reservedConcurrentExecutions: jsii.Number(2),
 //   })
 //
-//   fnVer := handler.addVersion(jsii.String("CDKLambdaVersion"), undefined, jsii.String("demo alias"), jsii.Number(10))
+//   fnVer := handler.currentVersion
 //
 //   target := appscaling.NewScalableTarget(this, jsii.String("ScalableTarget"), &scalableTargetProps{
 //   	serviceNamespace: appscaling.serviceNamespace_LAMBDA,
@@ -2813,7 +2813,7 @@ const (
 //   	reservedConcurrentExecutions: jsii.Number(2),
 //   })
 //
-//   fnVer := handler.addVersion(jsii.String("CDKLambdaVersion"), undefined, jsii.String("demo alias"), jsii.Number(10))
+//   fnVer := handler.currentVersion
 //
 //   target := appscaling.NewScalableTarget(this, jsii.String("ScalableTarget"), &scalableTargetProps{
 //   	serviceNamespace: appscaling.serviceNamespace_LAMBDA,
@@ -3153,7 +3153,7 @@ func (s *jsiiProxy_ScalableTarget) ToString() *string {
 //   	reservedConcurrentExecutions: jsii.Number(2),
 //   })
 //
-//   fnVer := handler.addVersion(jsii.String("CDKLambdaVersion"), undefined, jsii.String("demo alias"), jsii.Number(10))
+//   fnVer := handler.currentVersion
 //
 //   target := appscaling.NewScalableTarget(this, jsii.String("ScalableTarget"), &scalableTargetProps{
 //   	serviceNamespace: appscaling.serviceNamespace_LAMBDA,
@@ -3433,7 +3433,7 @@ func Schedule_Rate(duration awscdk.Duration) Schedule {
 //   	reservedConcurrentExecutions: jsii.Number(2),
 //   })
 //
-//   fnVer := handler.addVersion(jsii.String("CDKLambdaVersion"), undefined, jsii.String("demo alias"), jsii.Number(10))
+//   fnVer := handler.currentVersion
 //
 //   target := appscaling.NewScalableTarget(this, jsii.String("ScalableTarget"), &scalableTargetProps{
 //   	serviceNamespace: appscaling.serviceNamespace_LAMBDA,

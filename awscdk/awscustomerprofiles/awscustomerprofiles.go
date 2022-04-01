@@ -795,7 +795,7 @@ type CfnIntegration interface {
 	// The unique name of the domain.
 	DomainName() *string
 	SetDomainName(val *string)
-	// `AWS::CustomerProfiles::Integration.FlowDefinition`.
+	// The configuration that controls how Customer Profiles retrieves data from the source.
 	FlowDefinition() interface{}
 	SetFlowDefinition(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -1395,6 +1395,8 @@ func (c *jsiiProxy_CfnIntegration) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// The operation to be performed on the provided source fields.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
 //   connectorOperatorProperty := &connectorOperatorProperty{
@@ -1406,18 +1408,22 @@ func (c *jsiiProxy_CfnIntegration) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnIntegration_ConnectorOperatorProperty struct {
-	// `CfnIntegration.ConnectorOperatorProperty.Marketo`.
+	// The operation to be performed on the provided Marketo source fields.
 	Marketo *string `json:"marketo" yaml:"marketo"`
-	// `CfnIntegration.ConnectorOperatorProperty.S3`.
+	// The operation to be performed on the provided Amazon S3 source fields.
 	S3 *string `json:"s3" yaml:"s3"`
-	// `CfnIntegration.ConnectorOperatorProperty.Salesforce`.
+	// The operation to be performed on the provided Salesforce source fields.
 	Salesforce *string `json:"salesforce" yaml:"salesforce"`
-	// `CfnIntegration.ConnectorOperatorProperty.ServiceNow`.
+	// The operation to be performed on the provided ServiceNow source fields.
 	ServiceNow *string `json:"serviceNow" yaml:"serviceNow"`
-	// `CfnIntegration.ConnectorOperatorProperty.Zendesk`.
+	// The operation to be performed on the provided Zendesk source fields.
 	Zendesk *string `json:"zendesk" yaml:"zendesk"`
 }
 
+// The configurations that control how Customer Profiles retrieves data from the source, Amazon AppFlow.
+//
+// Customer Profiles uses this information to create an AppFlow flow on behalf of customers.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
 //   flowDefinitionProperty := &flowDefinitionProperty{
@@ -1504,20 +1510,24 @@ type CfnIntegration_ConnectorOperatorProperty struct {
 //   }
 //
 type CfnIntegration_FlowDefinitionProperty struct {
-	// `CfnIntegration.FlowDefinitionProperty.FlowName`.
+	// The specified name of the flow.
+	//
+	// Use underscores (_) or hyphens (-) only. Spaces are not allowed.
 	FlowName *string `json:"flowName" yaml:"flowName"`
-	// `CfnIntegration.FlowDefinitionProperty.KmsArn`.
+	// The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key you provide for encryption.
 	KmsArn *string `json:"kmsArn" yaml:"kmsArn"`
-	// `CfnIntegration.FlowDefinitionProperty.SourceFlowConfig`.
+	// The configuration that controls how Customer Profiles retrieves data from the source.
 	SourceFlowConfig interface{} `json:"sourceFlowConfig" yaml:"sourceFlowConfig"`
-	// `CfnIntegration.FlowDefinitionProperty.Tasks`.
+	// A list of tasks that Customer Profiles performs while transferring the data in the flow run.
 	Tasks interface{} `json:"tasks" yaml:"tasks"`
-	// `CfnIntegration.FlowDefinitionProperty.TriggerConfig`.
+	// The trigger settings that determine how and when the flow runs.
 	TriggerConfig interface{} `json:"triggerConfig" yaml:"triggerConfig"`
-	// `CfnIntegration.FlowDefinitionProperty.Description`.
+	// A description of the flow you want to create.
 	Description *string `json:"description" yaml:"description"`
 }
 
+// Specifies the configuration used when importing incremental records from the source.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
 //   incrementalPullConfigProperty := &incrementalPullConfigProperty{
@@ -1525,10 +1535,12 @@ type CfnIntegration_FlowDefinitionProperty struct {
 //   }
 //
 type CfnIntegration_IncrementalPullConfigProperty struct {
-	// `CfnIntegration.IncrementalPullConfigProperty.DatetimeTypeFieldName`.
+	// A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
 	DatetimeTypeFieldName *string `json:"datetimeTypeFieldName" yaml:"datetimeTypeFieldName"`
 }
 
+// The properties that are applied when Marketo is being used as a source.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
 //   marketoSourcePropertiesProperty := &marketoSourcePropertiesProperty{
@@ -1536,7 +1548,7 @@ type CfnIntegration_IncrementalPullConfigProperty struct {
 //   }
 //
 type CfnIntegration_MarketoSourcePropertiesProperty struct {
-	// `CfnIntegration.MarketoSourcePropertiesProperty.Object`.
+	// The object specified in the Marketo flow source.
 	Object *string `json:"object" yaml:"object"`
 }
 
@@ -1554,6 +1566,8 @@ type CfnIntegration_ObjectTypeMappingProperty struct {
 	Value *string `json:"value" yaml:"value"`
 }
 
+// The properties that are applied when Amazon S3 is being used as the flow source.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
 //   s3SourcePropertiesProperty := &s3SourcePropertiesProperty{
@@ -1564,12 +1578,14 @@ type CfnIntegration_ObjectTypeMappingProperty struct {
 //   }
 //
 type CfnIntegration_S3SourcePropertiesProperty struct {
-	// `CfnIntegration.S3SourcePropertiesProperty.BucketName`.
+	// The Amazon S3 bucket name where the source files are stored.
 	BucketName *string `json:"bucketName" yaml:"bucketName"`
-	// `CfnIntegration.S3SourcePropertiesProperty.BucketPrefix`.
+	// The object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
 }
 
+// The properties that are applied when Salesforce is being used as a source.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
 //   salesforceSourcePropertiesProperty := &salesforceSourcePropertiesProperty{
@@ -1581,14 +1597,18 @@ type CfnIntegration_S3SourcePropertiesProperty struct {
 //   }
 //
 type CfnIntegration_SalesforceSourcePropertiesProperty struct {
-	// `CfnIntegration.SalesforceSourcePropertiesProperty.Object`.
+	// The object specified in the Salesforce flow source.
 	Object *string `json:"object" yaml:"object"`
-	// `CfnIntegration.SalesforceSourcePropertiesProperty.EnableDynamicFieldUpdate`.
+	// The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
 	EnableDynamicFieldUpdate interface{} `json:"enableDynamicFieldUpdate" yaml:"enableDynamicFieldUpdate"`
-	// `CfnIntegration.SalesforceSourcePropertiesProperty.IncludeDeletedRecords`.
+	// Indicates whether Amazon AppFlow includes deleted files in the flow run.
 	IncludeDeletedRecords interface{} `json:"includeDeletedRecords" yaml:"includeDeletedRecords"`
 }
 
+// Specifies the configuration details of a scheduled-trigger flow that you define.
+//
+// Currently, these settings only apply to the scheduled-trigger type.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
 //   scheduledTriggerPropertiesProperty := &scheduledTriggerPropertiesProperty{
@@ -1604,22 +1624,24 @@ type CfnIntegration_SalesforceSourcePropertiesProperty struct {
 //   }
 //
 type CfnIntegration_ScheduledTriggerPropertiesProperty struct {
-	// `CfnIntegration.ScheduledTriggerPropertiesProperty.ScheduleExpression`.
+	// The scheduling expression that determines the rate at which the schedule will run, for example rate (5 minutes).
 	ScheduleExpression *string `json:"scheduleExpression" yaml:"scheduleExpression"`
-	// `CfnIntegration.ScheduledTriggerPropertiesProperty.DataPullMode`.
+	// Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
 	DataPullMode *string `json:"dataPullMode" yaml:"dataPullMode"`
-	// `CfnIntegration.ScheduledTriggerPropertiesProperty.FirstExecutionFrom`.
+	// Specifies the date range for the records to import from the connector in the first flow run.
 	FirstExecutionFrom *float64 `json:"firstExecutionFrom" yaml:"firstExecutionFrom"`
-	// `CfnIntegration.ScheduledTriggerPropertiesProperty.ScheduleEndTime`.
+	// Specifies the scheduled end time for a scheduled-trigger flow.
 	ScheduleEndTime *float64 `json:"scheduleEndTime" yaml:"scheduleEndTime"`
-	// `CfnIntegration.ScheduledTriggerPropertiesProperty.ScheduleOffset`.
+	// Specifies the optional offset that is added to the time interval for a schedule-triggered flow.
 	ScheduleOffset *float64 `json:"scheduleOffset" yaml:"scheduleOffset"`
-	// `CfnIntegration.ScheduledTriggerPropertiesProperty.ScheduleStartTime`.
+	// Specifies the scheduled start time for a scheduled-trigger flow.
 	ScheduleStartTime *float64 `json:"scheduleStartTime" yaml:"scheduleStartTime"`
-	// `CfnIntegration.ScheduledTriggerPropertiesProperty.Timezone`.
+	// Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as America/New_York.
 	Timezone *string `json:"timezone" yaml:"timezone"`
 }
 
+// The properties that are applied when ServiceNow is being used as a source.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
 //   serviceNowSourcePropertiesProperty := &serviceNowSourcePropertiesProperty{
@@ -1627,10 +1649,14 @@ type CfnIntegration_ScheduledTriggerPropertiesProperty struct {
 //   }
 //
 type CfnIntegration_ServiceNowSourcePropertiesProperty struct {
-	// `CfnIntegration.ServiceNowSourcePropertiesProperty.Object`.
+	// The object specified in the ServiceNow flow source.
 	Object *string `json:"object" yaml:"object"`
 }
 
+// Specifies the information that is required to query a particular Amazon AppFlow connector.
+//
+// Customer Profiles supports Salesforce, Zendesk, Marketo, ServiceNow and Amazon S3.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
 //   sourceConnectorPropertiesProperty := &sourceConnectorPropertiesProperty{
@@ -1659,18 +1685,20 @@ type CfnIntegration_ServiceNowSourcePropertiesProperty struct {
 //   }
 //
 type CfnIntegration_SourceConnectorPropertiesProperty struct {
-	// `CfnIntegration.SourceConnectorPropertiesProperty.Marketo`.
+	// The properties that are applied when Marketo is being used as a source.
 	Marketo interface{} `json:"marketo" yaml:"marketo"`
-	// `CfnIntegration.SourceConnectorPropertiesProperty.S3`.
+	// The properties that are applied when Amazon S3 is being used as the flow source.
 	S3 interface{} `json:"s3" yaml:"s3"`
-	// `CfnIntegration.SourceConnectorPropertiesProperty.Salesforce`.
+	// The properties that are applied when Salesforce is being used as a source.
 	Salesforce interface{} `json:"salesforce" yaml:"salesforce"`
-	// `CfnIntegration.SourceConnectorPropertiesProperty.ServiceNow`.
+	// The properties that are applied when ServiceNow is being used as a source.
 	ServiceNow interface{} `json:"serviceNow" yaml:"serviceNow"`
-	// `CfnIntegration.SourceConnectorPropertiesProperty.Zendesk`.
+	// The properties that are applied when using Zendesk as a flow source.
 	Zendesk interface{} `json:"zendesk" yaml:"zendesk"`
 }
 
+// The configuration that controls how Customer Profiles retrieves data from the source.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
 //   sourceFlowConfigProperty := &sourceFlowConfigProperty{
@@ -1708,16 +1736,24 @@ type CfnIntegration_SourceConnectorPropertiesProperty struct {
 //   }
 //
 type CfnIntegration_SourceFlowConfigProperty struct {
-	// `CfnIntegration.SourceFlowConfigProperty.ConnectorType`.
+	// The type of connector, such as Salesforce, Marketo, and so on.
 	ConnectorType *string `json:"connectorType" yaml:"connectorType"`
-	// `CfnIntegration.SourceFlowConfigProperty.SourceConnectorProperties`.
+	// Specifies the information that is required to query a particular source connector.
 	SourceConnectorProperties interface{} `json:"sourceConnectorProperties" yaml:"sourceConnectorProperties"`
-	// `CfnIntegration.SourceFlowConfigProperty.ConnectorProfileName`.
+	// The name of the Amazon AppFlow connector profile.
+	//
+	// This name must be unique for each connector profile in the AWS account.
 	ConnectorProfileName *string `json:"connectorProfileName" yaml:"connectorProfileName"`
-	// `CfnIntegration.SourceFlowConfigProperty.IncrementalPullConfig`.
+	// Defines the configuration for a scheduled incremental data pull.
+	//
+	// If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull.
 	IncrementalPullConfig interface{} `json:"incrementalPullConfig" yaml:"incrementalPullConfig"`
 }
 
+// A map used to store task-related information.
+//
+// The execution service looks for particular information based on the `TaskType` .
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
 //   taskPropertiesMapProperty := &taskPropertiesMapProperty{
@@ -1726,12 +1762,16 @@ type CfnIntegration_SourceFlowConfigProperty struct {
 //   }
 //
 type CfnIntegration_TaskPropertiesMapProperty struct {
-	// `CfnIntegration.TaskPropertiesMapProperty.OperatorPropertyKey`.
+	// The task property key.
 	OperatorPropertyKey *string `json:"operatorPropertyKey" yaml:"operatorPropertyKey"`
-	// `CfnIntegration.TaskPropertiesMapProperty.Property`.
+	// The task property value.
 	Property *string `json:"property" yaml:"property"`
 }
 
+// The `Task` property type specifies the class for modeling different type of tasks.
+//
+// Task implementation varies based on the TaskType.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
 //   taskProperty := &taskProperty{
@@ -1758,18 +1798,22 @@ type CfnIntegration_TaskPropertiesMapProperty struct {
 //   }
 //
 type CfnIntegration_TaskProperty struct {
-	// `CfnIntegration.TaskProperty.SourceFields`.
+	// The source fields to which a particular task is applied.
 	SourceFields *[]*string `json:"sourceFields" yaml:"sourceFields"`
-	// `CfnIntegration.TaskProperty.TaskType`.
+	// Specifies the particular task implementation that Amazon AppFlow performs.
 	TaskType *string `json:"taskType" yaml:"taskType"`
-	// `CfnIntegration.TaskProperty.ConnectorOperator`.
+	// The operation to be performed on the provided source fields.
 	ConnectorOperator interface{} `json:"connectorOperator" yaml:"connectorOperator"`
-	// `CfnIntegration.TaskProperty.DestinationField`.
+	// A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
 	DestinationField *string `json:"destinationField" yaml:"destinationField"`
-	// `CfnIntegration.TaskProperty.TaskProperties`.
+	// A map used to store task-related information.
+	//
+	// The service looks for particular information based on the TaskType.
 	TaskProperties interface{} `json:"taskProperties" yaml:"taskProperties"`
 }
 
+// The trigger settings that determine how and when Amazon AppFlow runs the specified flow.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
 //   triggerConfigProperty := &triggerConfigProperty{
@@ -1792,12 +1836,20 @@ type CfnIntegration_TaskProperty struct {
 //   }
 //
 type CfnIntegration_TriggerConfigProperty struct {
-	// `CfnIntegration.TriggerConfigProperty.TriggerType`.
+	// Specifies the type of flow trigger.
+	//
+	// It can be OnDemand, Scheduled, or Event.
 	TriggerType *string `json:"triggerType" yaml:"triggerType"`
-	// `CfnIntegration.TriggerConfigProperty.TriggerProperties`.
+	// Specifies the configuration details of a schedule-triggered flow that you define.
+	//
+	// Currently, these settings only apply to the Scheduled trigger type.
 	TriggerProperties interface{} `json:"triggerProperties" yaml:"triggerProperties"`
 }
 
+// Specifies the configuration details that control the trigger for a flow.
+//
+// Currently, these settings only apply to the Scheduled trigger type.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
 //   triggerPropertiesProperty := &triggerPropertiesProperty{
@@ -1815,10 +1867,12 @@ type CfnIntegration_TriggerConfigProperty struct {
 //   }
 //
 type CfnIntegration_TriggerPropertiesProperty struct {
-	// `CfnIntegration.TriggerPropertiesProperty.Scheduled`.
+	// Specifies the configuration details of a schedule-triggered flow that you define.
 	Scheduled interface{} `json:"scheduled" yaml:"scheduled"`
 }
 
+// The properties that are applied when using Zendesk as a flow source.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
 //   zendeskSourcePropertiesProperty := &zendeskSourcePropertiesProperty{
@@ -1826,7 +1880,7 @@ type CfnIntegration_TriggerPropertiesProperty struct {
 //   }
 //
 type CfnIntegration_ZendeskSourcePropertiesProperty struct {
-	// `CfnIntegration.ZendeskSourcePropertiesProperty.Object`.
+	// The object specified in the Zendesk flow source.
 	Object *string `json:"object" yaml:"object"`
 }
 
@@ -1939,7 +1993,7 @@ type CfnIntegration_ZendeskSourcePropertiesProperty struct {
 type CfnIntegrationProps struct {
 	// The unique name of the domain.
 	DomainName *string `json:"domainName" yaml:"domainName"`
-	// `AWS::CustomerProfiles::Integration.FlowDefinition`.
+	// The configuration that controls how Customer Profiles retrieves data from the source.
 	FlowDefinition interface{} `json:"flowDefinition" yaml:"flowDefinition"`
 	// The name of the profile object type mapping to use.
 	ObjectTypeName *string `json:"objectTypeName" yaml:"objectTypeName"`

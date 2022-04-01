@@ -24547,6 +24547,8 @@ type SecretsManagerSecretOptions struct {
 //   })
 //
 type Size interface {
+	// Checks if size is a token or a resolvable object.
+	IsUnresolved() *bool
 	// Return this storage as a total number of gibibytes.
 	//
 	// Returns: the quantity of bytes expressed in gibibytes.
@@ -24668,6 +24670,19 @@ func Size_Tebibytes(amount *float64) Size {
 		"aws-cdk-lib.Size",
 		"tebibytes",
 		[]interface{}{amount},
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_Size) IsUnresolved() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		s,
+		"isUnresolved",
+		nil, // no parameters
 		&returns,
 	)
 

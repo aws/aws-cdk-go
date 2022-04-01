@@ -9305,6 +9305,18 @@ const (
 type IApplicationListener interface {
 	awsec2.IConnectable
 	awscdk.IResource
+	// Perform the given action on incoming requests.
+	//
+	// This allows full control of the default action of the load balancer,
+	// including Action chaining, fixed responses and redirect responses. See
+	// the `ListenerAction` class for all options.
+	//
+	// It's possible to add routing conditions to the Action added in this way.
+	//
+	// It is not possible to add a default action to an imported IApplicationListener.
+	// In order to add actions to an imported IApplicationListener a `priority`
+	// must be provided.
+	AddAction(id *string, props *AddApplicationActionProps)
 	// Add one or more certificates to this listener.
 	AddCertificates(id *string, certificates *[]IListenerCertificate)
 	// Load balance incoming requests to the given target groups.
@@ -9334,6 +9346,14 @@ type IApplicationListener interface {
 type jsiiProxy_IApplicationListener struct {
 	internal.Type__awsec2IConnectable
 	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_IApplicationListener) AddAction(id *string, props *AddApplicationActionProps) {
+	_jsii_.InvokeVoid(
+		i,
+		"addAction",
+		[]interface{}{id, props},
+	)
 }
 
 func (i *jsiiProxy_IApplicationListener) AddCertificates(id *string, certificates *[]IListenerCertificate) {
@@ -10569,6 +10589,12 @@ type NetworkListener interface {
 	// including weighted forwarding. See the `NetworkListenerAction` class for
 	// all options.
 	AddAction(_id *string, props *AddNetworkActionProps)
+	// Add one or more certificates to this listener.
+	//
+	// After the first certificate, this creates NetworkListenerCertificates
+	// resources since cloudformation requires the certificates array on the
+	// listener resource to have a length of 1.
+	AddCertificates(id *string, certificates *[]IListenerCertificate)
 	// Load balance incoming requests to the given target groups.
 	//
 	// All target groups will be load balanced to with equal weight and without
@@ -10780,6 +10806,14 @@ func (n *jsiiProxy_NetworkListener) AddAction(_id *string, props *AddNetworkActi
 		n,
 		"addAction",
 		[]interface{}{_id, props},
+	)
+}
+
+func (n *jsiiProxy_NetworkListener) AddCertificates(id *string, certificates *[]IListenerCertificate) {
+	_jsii_.InvokeVoid(
+		n,
+		"addCertificates",
+		[]interface{}{id, certificates},
 	)
 }
 

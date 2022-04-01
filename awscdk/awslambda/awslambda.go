@@ -27,24 +27,31 @@ import (
 // A new alias to a particular version of a Lambda function.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   lambdaCode := lambda.code.fromCfnParameters()
-//   func := lambda.NewFunction(this, jsii.String("Lambda"), &functionProps{
-//   	code: lambdaCode,
-//   	handler: jsii.String("index.handler"),
-//   	runtime: lambda.runtime_NODEJS_12_X(),
-//   })
-//   // used to make sure each CDK synthesis produces a different Version
-//   version := func.addVersion(jsii.String("NewVersion"))
-//   alias := lambda.NewAlias(this, jsii.String("LambdaAlias"), &aliasProps{
-//   	aliasName: jsii.String("Prod"),
-//   	version: version,
-//   })
+//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 //
-//   codedeploy.NewLambdaDeploymentGroup(this, jsii.String("DeploymentGroup"), &lambdaDeploymentGroupProps{
+//   var alias alias
+//
+//   // or add alarms to an existing group
+//   var blueGreenAlias alias
+//   alarm := cloudwatch.NewAlarm(this, jsii.String("Errors"), &alarmProps{
+//   	comparisonOperator: cloudwatch.comparisonOperator_GREATER_THAN_THRESHOLD,
+//   	threshold: jsii.Number(1),
+//   	evaluationPeriods: jsii.Number(1),
+//   	metric: alias.metricErrors(),
+//   })
+//   deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &lambdaDeploymentGroupProps{
 //   	alias: alias,
 //   	deploymentConfig: codedeploy.lambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_1MINUTE(),
+//   	alarms: []iAlarm{
+//   		alarm,
+//   	},
 //   })
+//   deploymentGroup.addAlarm(cloudwatch.NewAlarm(this, jsii.String("BlueGreenErrors"), &alarmProps{
+//   	comparisonOperator: cloudwatch.*comparisonOperator_GREATER_THAN_THRESHOLD,
+//   	threshold: jsii.Number(1),
+//   	evaluationPeriods: jsii.Number(1),
+//   	metric: blueGreenAlias.metricErrors(),
+//   }))
 //
 type Alias interface {
 	QualifiedFunctionBase
@@ -158,6 +165,13 @@ type Alias interface {
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Configures options for asynchronous invocation.
 	ConfigureAsyncInvoke(options *EventInvokeConfigOptions)
+	// A warning will be added to functions under the following conditions: - permissions that include `lambda:InvokeFunction` are added to the unqualified function.
+	//
+	// - function.currentVersion is invoked before or after the permission is created.
+	//
+	// This applies only to permissions on Lambda functions, not versions or aliases.
+	// This function is overridden as a noOp for QualifiedFunctionBase.
+	ConsiderWarningOnInvokeFunctionPermissions(_scope constructs.Construct, _action *string)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -194,6 +208,7 @@ type Alias interface {
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	ToString() *string
+	WarnInvokeFunctionPermissions(scope constructs.Construct)
 }
 
 // The jsii proxy struct for Alias
@@ -533,6 +548,14 @@ func (a *jsiiProxy_Alias) ConfigureAsyncInvoke(options *EventInvokeConfigOptions
 	)
 }
 
+func (a *jsiiProxy_Alias) ConsiderWarningOnInvokeFunctionPermissions(_scope constructs.Construct, _action *string) {
+	_jsii_.InvokeVoid(
+		a,
+		"considerWarningOnInvokeFunctionPermissions",
+		[]interface{}{_scope, _action},
+	)
+}
+
 func (a *jsiiProxy_Alias) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -661,6 +684,14 @@ func (a *jsiiProxy_Alias) ToString() *string {
 	)
 
 	return returns
+}
+
+func (a *jsiiProxy_Alias) WarnInvokeFunctionPermissions(scope constructs.Construct) {
+	_jsii_.InvokeVoid(
+		a,
+		"warnInvokeFunctionPermissions",
+		[]interface{}{scope},
+	)
 }
 
 // Example:
@@ -801,7 +832,7 @@ type AliasProps struct {
 	AliasName *string `json:"aliasName" yaml:"aliasName"`
 	// Function version this alias refers to.
 	//
-	// Use lambda.addVersion() to obtain a new lambda version to refer to.
+	// Use lambda.currentVersion to reference a version with your latest changes.
 	Version IVersion `json:"version" yaml:"version"`
 }
 
@@ -10136,6 +10167,13 @@ type DockerImageFunction interface {
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Configures options for asynchronous invocation.
 	ConfigureAsyncInvoke(options *EventInvokeConfigOptions)
+	// A warning will be added to functions under the following conditions: - permissions that include `lambda:InvokeFunction` are added to the unqualified function.
+	//
+	// - function.currentVersion is invoked before or after the permission is created.
+	//
+	// This applies only to permissions on Lambda functions, not versions or aliases.
+	// This function is overridden as a noOp for QualifiedFunctionBase.
+	ConsiderWarningOnInvokeFunctionPermissions(scope constructs.Construct, action *string)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -10172,6 +10210,7 @@ type DockerImageFunction interface {
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	ToString() *string
+	WarnInvokeFunctionPermissions(scope constructs.Construct)
 }
 
 // The jsii proxy struct for DockerImageFunction
@@ -10701,6 +10740,14 @@ func (d *jsiiProxy_DockerImageFunction) ConfigureAsyncInvoke(options *EventInvok
 	)
 }
 
+func (d *jsiiProxy_DockerImageFunction) ConsiderWarningOnInvokeFunctionPermissions(scope constructs.Construct, action *string) {
+	_jsii_.InvokeVoid(
+		d,
+		"considerWarningOnInvokeFunctionPermissions",
+		[]interface{}{scope, action},
+	)
+}
+
 func (d *jsiiProxy_DockerImageFunction) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -10829,6 +10876,14 @@ func (d *jsiiProxy_DockerImageFunction) ToString() *string {
 	)
 
 	return returns
+}
+
+func (d *jsiiProxy_DockerImageFunction) WarnInvokeFunctionPermissions(scope constructs.Construct) {
+	_jsii_.InvokeVoid(
+		d,
+		"warnInvokeFunctionPermissions",
+		[]interface{}{scope},
+	)
 }
 
 // Properties to configure a new DockerImageFunction construct.
@@ -12341,6 +12396,13 @@ type Function interface {
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Configures options for asynchronous invocation.
 	ConfigureAsyncInvoke(options *EventInvokeConfigOptions)
+	// A warning will be added to functions under the following conditions: - permissions that include `lambda:InvokeFunction` are added to the unqualified function.
+	//
+	// - function.currentVersion is invoked before or after the permission is created.
+	//
+	// This applies only to permissions on Lambda functions, not versions or aliases.
+	// This function is overridden as a noOp for QualifiedFunctionBase.
+	ConsiderWarningOnInvokeFunctionPermissions(scope constructs.Construct, action *string)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -12377,6 +12439,7 @@ type Function interface {
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	ToString() *string
+	WarnInvokeFunctionPermissions(scope constructs.Construct)
 }
 
 // The jsii proxy struct for Function
@@ -12906,6 +12969,14 @@ func (f *jsiiProxy_Function) ConfigureAsyncInvoke(options *EventInvokeConfigOpti
 	)
 }
 
+func (f *jsiiProxy_Function) ConsiderWarningOnInvokeFunctionPermissions(scope constructs.Construct, action *string) {
+	_jsii_.InvokeVoid(
+		f,
+		"considerWarningOnInvokeFunctionPermissions",
+		[]interface{}{scope, action},
+	)
+}
+
 func (f *jsiiProxy_Function) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -13034,6 +13105,14 @@ func (f *jsiiProxy_Function) ToString() *string {
 	)
 
 	return returns
+}
+
+func (f *jsiiProxy_Function) WarnInvokeFunctionPermissions(scope constructs.Construct) {
+	_jsii_.InvokeVoid(
+		f,
+		"warnInvokeFunctionPermissions",
+		[]interface{}{scope},
+	)
 }
 
 // Represents a Lambda function defined outside of this stack.
@@ -13182,6 +13261,13 @@ type FunctionBase interface {
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Configures options for asynchronous invocation.
 	ConfigureAsyncInvoke(options *EventInvokeConfigOptions)
+	// A warning will be added to functions under the following conditions: - permissions that include `lambda:InvokeFunction` are added to the unqualified function.
+	//
+	// - function.currentVersion is invoked before or after the permission is created.
+	//
+	// This applies only to permissions on Lambda functions, not versions or aliases.
+	// This function is overridden as a noOp for QualifiedFunctionBase.
+	ConsiderWarningOnInvokeFunctionPermissions(scope constructs.Construct, action *string)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -13218,6 +13304,7 @@ type FunctionBase interface {
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	ToString() *string
+	WarnInvokeFunctionPermissions(scope constructs.Construct)
 }
 
 // The jsii proxy struct for FunctionBase
@@ -13476,6 +13563,14 @@ func (f *jsiiProxy_FunctionBase) ConfigureAsyncInvoke(options *EventInvokeConfig
 	)
 }
 
+func (f *jsiiProxy_FunctionBase) ConsiderWarningOnInvokeFunctionPermissions(scope constructs.Construct, action *string) {
+	_jsii_.InvokeVoid(
+		f,
+		"considerWarningOnInvokeFunctionPermissions",
+		[]interface{}{scope, action},
+	)
+}
+
 func (f *jsiiProxy_FunctionBase) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -13604,6 +13699,14 @@ func (f *jsiiProxy_FunctionBase) ToString() *string {
 	)
 
 	return returns
+}
+
+func (f *jsiiProxy_FunctionBase) WarnInvokeFunctionPermissions(scope constructs.Construct) {
+	_jsii_.InvokeVoid(
+		f,
+		"warnInvokeFunctionPermissions",
+		[]interface{}{scope},
+	)
 }
 
 // Non runtime options.
@@ -15496,7 +15599,7 @@ type LogRetentionRetryOptions struct {
 	MaxRetries *float64 `json:"maxRetries" yaml:"maxRetries"`
 }
 
-// Represents a permission statement that can be added to a Lambda function's resource policy via the `addPermissions()` method.
+// Represents a permission statement that can be added to a Lambda function's resource policy via the `addPermission()` method.
 //
 // Example:
 //   var fn function
@@ -15653,6 +15756,13 @@ type QualifiedFunctionBase interface {
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Configures options for asynchronous invocation.
 	ConfigureAsyncInvoke(options *EventInvokeConfigOptions)
+	// A warning will be added to functions under the following conditions: - permissions that include `lambda:InvokeFunction` are added to the unqualified function.
+	//
+	// - function.currentVersion is invoked before or after the permission is created.
+	//
+	// This applies only to permissions on Lambda functions, not versions or aliases.
+	// This function is overridden as a noOp for QualifiedFunctionBase.
+	ConsiderWarningOnInvokeFunctionPermissions(_scope constructs.Construct, _action *string)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -15689,6 +15799,7 @@ type QualifiedFunctionBase interface {
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	ToString() *string
+	WarnInvokeFunctionPermissions(scope constructs.Construct)
 }
 
 // The jsii proxy struct for QualifiedFunctionBase
@@ -15965,6 +16076,14 @@ func (q *jsiiProxy_QualifiedFunctionBase) ConfigureAsyncInvoke(options *EventInv
 	)
 }
 
+func (q *jsiiProxy_QualifiedFunctionBase) ConsiderWarningOnInvokeFunctionPermissions(_scope constructs.Construct, _action *string) {
+	_jsii_.InvokeVoid(
+		q,
+		"considerWarningOnInvokeFunctionPermissions",
+		[]interface{}{_scope, _action},
+	)
+}
+
 func (q *jsiiProxy_QualifiedFunctionBase) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -16093,6 +16212,14 @@ func (q *jsiiProxy_QualifiedFunctionBase) ToString() *string {
 	)
 
 	return returns
+}
+
+func (q *jsiiProxy_QualifiedFunctionBase) WarnInvokeFunctionPermissions(scope constructs.Construct) {
+	_jsii_.InvokeVoid(
+		q,
+		"warnInvokeFunctionPermissions",
+		[]interface{}{scope},
+	)
 }
 
 // Example:
@@ -16985,6 +17112,13 @@ type SingletonFunction interface {
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Configures options for asynchronous invocation.
 	ConfigureAsyncInvoke(options *EventInvokeConfigOptions)
+	// A warning will be added to functions under the following conditions: - permissions that include `lambda:InvokeFunction` are added to the unqualified function.
+	//
+	// - function.currentVersion is invoked before or after the permission is created.
+	//
+	// This applies only to permissions on Lambda functions, not versions or aliases.
+	// This function is overridden as a noOp for QualifiedFunctionBase.
+	ConsiderWarningOnInvokeFunctionPermissions(scope constructs.Construct, action *string)
 	// The SingletonFunction construct cannot be added as a dependency of another construct using node.addDependency(). Use this method instead to declare this as a dependency of another construct.
 	DependOn(down constructs.IConstruct)
 	GeneratePhysicalName() *string
@@ -17023,6 +17157,7 @@ type SingletonFunction interface {
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	ToString() *string
+	WarnInvokeFunctionPermissions(scope constructs.Construct)
 }
 
 // The jsii proxy struct for SingletonFunction
@@ -17362,6 +17497,14 @@ func (s *jsiiProxy_SingletonFunction) ConfigureAsyncInvoke(options *EventInvokeC
 	)
 }
 
+func (s *jsiiProxy_SingletonFunction) ConsiderWarningOnInvokeFunctionPermissions(scope constructs.Construct, action *string) {
+	_jsii_.InvokeVoid(
+		s,
+		"considerWarningOnInvokeFunctionPermissions",
+		[]interface{}{scope, action},
+	)
+}
+
 func (s *jsiiProxy_SingletonFunction) DependOn(down constructs.IConstruct) {
 	_jsii_.InvokeVoid(
 		s,
@@ -17498,6 +17641,14 @@ func (s *jsiiProxy_SingletonFunction) ToString() *string {
 	)
 
 	return returns
+}
+
+func (s *jsiiProxy_SingletonFunction) WarnInvokeFunctionPermissions(scope constructs.Construct) {
+	_jsii_.InvokeVoid(
+		s,
+		"warnInvokeFunctionPermissions",
+		[]interface{}{scope},
+	)
 }
 
 // Properties for a newly created singleton Lambda.
@@ -18064,7 +18215,7 @@ type UtilizationScalingOptions struct {
 //   	runtime: lambda.runtime_NODEJS_12_X(),
 //   })
 //   // used to make sure each CDK synthesis produces a different Version
-//   version := func.addVersion(jsii.String("NewVersion"))
+//   version := func.currentVersion
 //   alias := lambda.NewAlias(this, jsii.String("LambdaAlias"), &aliasProps{
 //   	aliasName: jsii.String("Prod"),
 //   	version: version,
@@ -18179,6 +18330,13 @@ type Version interface {
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Configures options for asynchronous invocation.
 	ConfigureAsyncInvoke(options *EventInvokeConfigOptions)
+	// A warning will be added to functions under the following conditions: - permissions that include `lambda:InvokeFunction` are added to the unqualified function.
+	//
+	// - function.currentVersion is invoked before or after the permission is created.
+	//
+	// This applies only to permissions on Lambda functions, not versions or aliases.
+	// This function is overridden as a noOp for QualifiedFunctionBase.
+	ConsiderWarningOnInvokeFunctionPermissions(_scope constructs.Construct, _action *string)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -18215,6 +18373,7 @@ type Version interface {
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	ToString() *string
+	WarnInvokeFunctionPermissions(scope constructs.Construct)
 }
 
 // The jsii proxy struct for Version
@@ -18570,6 +18729,14 @@ func (v *jsiiProxy_Version) ConfigureAsyncInvoke(options *EventInvokeConfigOptio
 	)
 }
 
+func (v *jsiiProxy_Version) ConsiderWarningOnInvokeFunctionPermissions(_scope constructs.Construct, _action *string) {
+	_jsii_.InvokeVoid(
+		v,
+		"considerWarningOnInvokeFunctionPermissions",
+		[]interface{}{_scope, _action},
+	)
+}
+
 func (v *jsiiProxy_Version) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -18698,6 +18865,14 @@ func (v *jsiiProxy_Version) ToString() *string {
 	)
 
 	return returns
+}
+
+func (v *jsiiProxy_Version) WarnInvokeFunctionPermissions(scope constructs.Construct) {
+	_jsii_.InvokeVoid(
+		v,
+		"warnInvokeFunctionPermissions",
+		[]interface{}{scope},
+	)
 }
 
 // Example:

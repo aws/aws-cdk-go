@@ -4944,7 +4944,7 @@ type LambdaApplicationProps struct {
 // Example:
 //   var myApplication lambdaApplication
 //   var func function
-//   version := func.addVersion(jsii.String("1"))
+//   version := func.currentVersion
 //   version1Alias := lambda.NewAlias(this, jsii.String("alias"), &aliasProps{
 //   	aliasName: jsii.String("prod"),
 //   	version: version,
@@ -5473,19 +5473,16 @@ type LambdaDeploymentGroupAttributes struct {
 // Construction properties for {@link LambdaDeploymentGroup}.
 //
 // Example:
-//   var myApplication lambdaApplication
-//   var func function
-//   version := func.addVersion(jsii.String("1"))
-//   version1Alias := lambda.NewAlias(this, jsii.String("alias"), &aliasProps{
-//   	aliasName: jsii.String("prod"),
-//   	version: version,
+//   var application lambdaApplication
+//   var alias aliasconfig := codedeploy.NewCustomLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &customLambdaDeploymentConfigProps{
+//   	type: codedeploy.customLambdaDeploymentConfigType_CANARY,
+//   	interval: duration.minutes(jsii.Number(1)),
+//   	percentage: jsii.Number(5),
 //   })
-//
 //   deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &lambdaDeploymentGroupProps{
-//   	application: myApplication,
-//   	 // optional property: one will be created for you if not provided
-//   	alias: version1Alias,
-//   	deploymentConfig: codedeploy.lambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_1MINUTE(),
+//   	application: application,
+//   	alias: alias,
+//   	deploymentConfig: config,
 //   })
 //
 type LambdaDeploymentGroupProps struct {

@@ -337,6 +337,13 @@ type TriggerFunction interface {
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Configures options for asynchronous invocation.
 	ConfigureAsyncInvoke(options *awslambda.EventInvokeConfigOptions)
+	// A warning will be added to functions under the following conditions: - permissions that include `lambda:InvokeFunction` are added to the unqualified function.
+	//
+	// - function.currentVersion is invoked before or after the permission is created.
+	//
+	// This applies only to permissions on Lambda functions, not versions or aliases.
+	// This function is overridden as a noOp for QualifiedFunctionBase.
+	ConsiderWarningOnInvokeFunctionPermissions(scope constructs.Construct, action *string)
 	// Adds trigger dependencies.
 	//
 	// Execute this trigger only after these construct
@@ -383,6 +390,7 @@ type TriggerFunction interface {
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	ToString() *string
+	WarnInvokeFunctionPermissions(scope constructs.Construct)
 }
 
 // The jsii proxy struct for TriggerFunction
@@ -923,6 +931,14 @@ func (t *jsiiProxy_TriggerFunction) ConfigureAsyncInvoke(options *awslambda.Even
 	)
 }
 
+func (t *jsiiProxy_TriggerFunction) ConsiderWarningOnInvokeFunctionPermissions(scope constructs.Construct, action *string) {
+	_jsii_.InvokeVoid(
+		t,
+		"considerWarningOnInvokeFunctionPermissions",
+		[]interface{}{scope, action},
+	)
+}
+
 func (t *jsiiProxy_TriggerFunction) ExecuteAfter(scopes ...constructs.Construct) {
 	args := []interface{}{}
 	for _, a := range scopes {
@@ -1077,6 +1093,14 @@ func (t *jsiiProxy_TriggerFunction) ToString() *string {
 	)
 
 	return returns
+}
+
+func (t *jsiiProxy_TriggerFunction) WarnInvokeFunctionPermissions(scope constructs.Construct) {
+	_jsii_.InvokeVoid(
+		t,
+		"warnInvokeFunctionPermissions",
+		[]interface{}{scope},
+	)
 }
 
 // Props for `InvokeFunction`.

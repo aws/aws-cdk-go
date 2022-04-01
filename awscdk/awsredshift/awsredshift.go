@@ -394,10 +394,22 @@ type CfnCluster interface {
 	// The name of the snapshot copy grant.
 	SnapshotCopyGrantName() *string
 	SetSnapshotCopyGrantName(val *string)
-	// `AWS::Redshift::Cluster.SnapshotCopyManual`.
+	// Indicates whether to apply the snapshot retention period to newly copied manual snapshots instead of automated snapshots.
 	SnapshotCopyManual() interface{}
 	SetSnapshotCopyManual(val interface{})
-	// `AWS::Redshift::Cluster.SnapshotCopyRetentionPeriod`.
+	// The number of days to retain automated snapshots in the destination AWS Region after they are copied from the source AWS Region .
+	//
+	// By default, this only changes the retention period of copied automated snapshots.
+	//
+	// If you decrease the retention period for automated snapshots that are copied to a destination AWS Region , Amazon Redshift deletes any existing automated snapshots that were copied to the destination AWS Region and that fall outside of the new retention period.
+	//
+	// Constraints: Must be at least 1 and no more than 35 for automated snapshots.
+	//
+	// If you specify the `manual` option, only newly copied manual snapshots will have the new retention period.
+	//
+	// If you specify the value of -1 newly copied manual snapshots are retained indefinitely.
+	//
+	// Constraints: The number of days must be either -1 or an integer between 1 and 3,653 for manual snapshots.
 	SnapshotCopyRetentionPeriod() *float64
 	SetSnapshotCopyRetentionPeriod(val *float64)
 	// The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.
@@ -2723,9 +2735,21 @@ type CfnClusterProps struct {
 	SnapshotClusterIdentifier *string `json:"snapshotClusterIdentifier" yaml:"snapshotClusterIdentifier"`
 	// The name of the snapshot copy grant.
 	SnapshotCopyGrantName *string `json:"snapshotCopyGrantName" yaml:"snapshotCopyGrantName"`
-	// `AWS::Redshift::Cluster.SnapshotCopyManual`.
+	// Indicates whether to apply the snapshot retention period to newly copied manual snapshots instead of automated snapshots.
 	SnapshotCopyManual interface{} `json:"snapshotCopyManual" yaml:"snapshotCopyManual"`
-	// `AWS::Redshift::Cluster.SnapshotCopyRetentionPeriod`.
+	// The number of days to retain automated snapshots in the destination AWS Region after they are copied from the source AWS Region .
+	//
+	// By default, this only changes the retention period of copied automated snapshots.
+	//
+	// If you decrease the retention period for automated snapshots that are copied to a destination AWS Region , Amazon Redshift deletes any existing automated snapshots that were copied to the destination AWS Region and that fall outside of the new retention period.
+	//
+	// Constraints: Must be at least 1 and no more than 35 for automated snapshots.
+	//
+	// If you specify the `manual` option, only newly copied manual snapshots will have the new retention period.
+	//
+	// If you specify the value of -1 newly copied manual snapshots are retained indefinitely.
+	//
+	// Constraints: The number of days must be either -1 or an integer between 1 and 3,653 for manual snapshots.
 	SnapshotCopyRetentionPeriod *float64 `json:"snapshotCopyRetentionPeriod" yaml:"snapshotCopyRetentionPeriod"`
 	// The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.
 	//

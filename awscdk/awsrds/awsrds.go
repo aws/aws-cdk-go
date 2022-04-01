@@ -6783,7 +6783,7 @@ type CfnDBParameterGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Provides the customer-specified description for this DB Parameter Group.
+	// Provides the customer-specified description for this DB parameter group.
 	Description() *string
 	SetDescription(val *string)
 	// The DB parameter group family name.
@@ -7365,7 +7365,7 @@ func (c *jsiiProxy_CfnDBParameterGroup) ValidateProperties(_properties interface
 //   }
 //
 type CfnDBParameterGroupProps struct {
-	// Provides the customer-specified description for this DB Parameter Group.
+	// Provides the customer-specified description for this DB parameter group.
 	Description *string `json:"description" yaml:"description"`
 	// The DB parameter group family name.
 	//
@@ -9826,7 +9826,7 @@ type CfnDBSecurityGroup interface {
 	// > The `EC2VpcId` property is for backward compatibility with older regions, and is no longer recommended for providing security information to an RDS DB instance.
 	Ec2VpcId() *string
 	SetEc2VpcId(val *string)
-	// Provides the description of the DB Security Group.
+	// Provides the description of the DB security group.
 	GroupDescription() *string
 	SetGroupDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -11059,7 +11059,7 @@ type CfnDBSecurityGroupIngressProps struct {
 type CfnDBSecurityGroupProps struct {
 	// Ingress rules to be applied to the DB security group.
 	DbSecurityGroupIngress interface{} `json:"dbSecurityGroupIngress" yaml:"dbSecurityGroupIngress"`
-	// Provides the description of the DB Security Group.
+	// Provides the description of the DB security group.
 	GroupDescription *string `json:"groupDescription" yaml:"groupDescription"`
 	// The identifier of an Amazon VPC. This property indicates the VPC that this DB security group belongs to.
 	//
@@ -23707,6 +23707,39 @@ func MysqlEngineVersion_VER_5_7_34() MysqlEngineVersion {
 	return returns
 }
 
+func MysqlEngineVersion_VER_5_7_35() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"VER_5_7_35",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_7_36() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"VER_5_7_36",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_7_37() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"VER_5_7_37",
+		&returns,
+	)
+	return returns
+}
+
 func MysqlEngineVersion_VER_8_0() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
@@ -23834,6 +23867,28 @@ func MysqlEngineVersion_VER_8_0_26() MysqlEngineVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
 		"VER_8_0_26",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_8_0_27() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"VER_8_0_27",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_8_0_28() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"VER_8_0_28",
 		&returns,
 	)
 	return returns
@@ -25725,6 +25780,17 @@ func PostgresEngineVersion_VER_10_19() PostgresEngineVersion {
 	return returns
 }
 
+func PostgresEngineVersion_VER_10_20() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"VER_10_20",
+		&returns,
+	)
+	return returns
+}
+
 func PostgresEngineVersion_VER_10_3() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
@@ -25868,6 +25934,17 @@ func PostgresEngineVersion_VER_11_14() PostgresEngineVersion {
 	return returns
 }
 
+func PostgresEngineVersion_VER_11_15() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"VER_11_15",
+		&returns,
+	)
+	return returns
+}
+
 func PostgresEngineVersion_VER_11_2() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
@@ -25951,6 +26028,17 @@ func PostgresEngineVersion_VER_12() PostgresEngineVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
 		"VER_12",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_12_10() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"VER_12_10",
 		&returns,
 	)
 	return returns
@@ -26110,6 +26198,17 @@ func PostgresEngineVersion_VER_13_5() PostgresEngineVersion {
 	return returns
 }
 
+func PostgresEngineVersion_VER_13_6() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"VER_13_6",
+		&returns,
+	)
+	return returns
+}
+
 func PostgresEngineVersion_VER_14() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
@@ -26127,6 +26226,17 @@ func PostgresEngineVersion_VER_14_1() PostgresEngineVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
 		"VER_14_1",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_14_2() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"VER_14_2",
 		&returns,
 	)
 	return returns
@@ -27463,7 +27573,7 @@ type SnapshotCredentials interface {
 	// A list of regions where to replicate the generated secret.
 	ReplicaRegions() *[]*awssecretsmanager.ReplicaRegion
 	// Secret used to instantiate this Login.
-	Secret() awssecretsmanager.Secret
+	Secret() awssecretsmanager.ISecret
 	// The master user name.
 	//
 	// Must be the **current** master user name of the snapshot.
@@ -27536,8 +27646,8 @@ func (j *jsiiProxy_SnapshotCredentials) ReplicaRegions() *[]*awssecretsmanager.R
 	return returns
 }
 
-func (j *jsiiProxy_SnapshotCredentials) Secret() awssecretsmanager.Secret {
-	var returns awssecretsmanager.Secret
+func (j *jsiiProxy_SnapshotCredentials) Secret() awssecretsmanager.ISecret {
+	var returns awssecretsmanager.ISecret
 	_jsii_.Get(
 		j,
 		"secret",
@@ -27632,7 +27742,7 @@ func SnapshotCredentials_FromPassword(password awscdk.SecretValue) SnapshotCrede
 //    "password": <required: password>,
 // }
 // ```.
-func SnapshotCredentials_FromSecret(secret awssecretsmanager.Secret) SnapshotCredentials {
+func SnapshotCredentials_FromSecret(secret awssecretsmanager.ISecret) SnapshotCredentials {
 	_init_.Initialize()
 
 	var returns SnapshotCredentials

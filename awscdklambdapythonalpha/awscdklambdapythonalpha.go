@@ -254,6 +254,14 @@ type PythonFunction interface {
 	// Configures options for asynchronous invocation.
 	// Experimental.
 	ConfigureAsyncInvoke(options *awslambda.EventInvokeConfigOptions)
+	// A warning will be added to functions under the following conditions: - permissions that include `lambda:InvokeFunction` are added to the unqualified function.
+	//
+	// - function.currentVersion is invoked before or after the permission is created.
+	//
+	// This applies only to permissions on Lambda functions, not versions or aliases.
+	// This function is overridden as a noOp for QualifiedFunctionBase.
+	// Experimental.
+	ConsiderWarningOnInvokeFunctionPermissions(scope constructs.Construct, action *string)
 	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
@@ -300,6 +308,8 @@ type PythonFunction interface {
 	// Returns a string representation of this construct.
 	// Experimental.
 	ToString() *string
+	// Experimental.
+	WarnInvokeFunctionPermissions(scope constructs.Construct)
 }
 
 // The jsii proxy struct for PythonFunction
@@ -843,6 +853,14 @@ func (p *jsiiProxy_PythonFunction) ConfigureAsyncInvoke(options *awslambda.Event
 	)
 }
 
+func (p *jsiiProxy_PythonFunction) ConsiderWarningOnInvokeFunctionPermissions(scope constructs.Construct, action *string) {
+	_jsii_.InvokeVoid(
+		p,
+		"considerWarningOnInvokeFunctionPermissions",
+		[]interface{}{scope, action},
+	)
+}
+
 func (p *jsiiProxy_PythonFunction) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -971,6 +989,14 @@ func (p *jsiiProxy_PythonFunction) ToString() *string {
 	)
 
 	return returns
+}
+
+func (p *jsiiProxy_PythonFunction) WarnInvokeFunctionPermissions(scope constructs.Construct) {
+	_jsii_.InvokeVoid(
+		p,
+		"warnInvokeFunctionPermissions",
+		[]interface{}{scope},
+	)
 }
 
 // Properties for a PythonFunction.

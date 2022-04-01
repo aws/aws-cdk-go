@@ -250,6 +250,14 @@ type GoFunction interface {
 	// Configures options for asynchronous invocation.
 	// Experimental.
 	ConfigureAsyncInvoke(options *awslambda.EventInvokeConfigOptions)
+	// A warning will be added to functions under the following conditions: - permissions that include `lambda:InvokeFunction` are added to the unqualified function.
+	//
+	// - function.currentVersion is invoked before or after the permission is created.
+	//
+	// This applies only to permissions on Lambda functions, not versions or aliases.
+	// This function is overridden as a noOp for QualifiedFunctionBase.
+	// Experimental.
+	ConsiderWarningOnInvokeFunctionPermissions(scope constructs.Construct, action *string)
 	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
@@ -296,6 +304,8 @@ type GoFunction interface {
 	// Returns a string representation of this construct.
 	// Experimental.
 	ToString() *string
+	// Experimental.
+	WarnInvokeFunctionPermissions(scope constructs.Construct)
 }
 
 // The jsii proxy struct for GoFunction
@@ -839,6 +849,14 @@ func (g *jsiiProxy_GoFunction) ConfigureAsyncInvoke(options *awslambda.EventInvo
 	)
 }
 
+func (g *jsiiProxy_GoFunction) ConsiderWarningOnInvokeFunctionPermissions(scope constructs.Construct, action *string) {
+	_jsii_.InvokeVoid(
+		g,
+		"considerWarningOnInvokeFunctionPermissions",
+		[]interface{}{scope, action},
+	)
+}
+
 func (g *jsiiProxy_GoFunction) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -967,6 +985,14 @@ func (g *jsiiProxy_GoFunction) ToString() *string {
 	)
 
 	return returns
+}
+
+func (g *jsiiProxy_GoFunction) WarnInvokeFunctionPermissions(scope constructs.Construct) {
+	_jsii_.InvokeVoid(
+		g,
+		"warnInvokeFunctionPermissions",
+		[]interface{}{scope},
+	)
 }
 
 // Properties for a GolangFunction.

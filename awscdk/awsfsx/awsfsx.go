@@ -1814,6 +1814,8 @@ type CfnFileSystemProps struct {
 
 // A CloudFormation `AWS::FSx::Snapshot`.
 //
+// A snapshot of an Amazon FSx for OpenZFS volume.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fsx "github.com/aws/aws-cdk-go/awscdk/aws_fsx"
 //   cfnSnapshot := fsx.NewCfnSnapshot(this, jsii.String("MyCfnSnapshot"), &cfnSnapshotProps{
@@ -1832,6 +1834,9 @@ type CfnFileSystemProps struct {
 type CfnSnapshot interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns the snapshot's Amazon Resource Name (ARN).
+	//
+	// Example: `arn:aws:fsx:us-east-2:111133334444:snapshot/fsvol-01234567890123456/fsvolsnap-0123456789abcedf5`.
 	AttrResourceArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -1852,7 +1857,7 @@ type CfnSnapshot interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::FSx::Snapshot.Name`.
+	// The name of the snapshot.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -1866,14 +1871,16 @@ type CfnSnapshot interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::FSx::Snapshot.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
-	// `AWS::FSx::Snapshot.VolumeId`.
+	// The ID of the volume that the snapshot is of.
 	VolumeId() *string
 	SetVolumeId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -2390,15 +2397,19 @@ func (c *jsiiProxy_CfnSnapshot) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnSnapshotProps struct {
-	// `AWS::FSx::Snapshot.Name`.
+	// The name of the snapshot.
 	Name *string `json:"name" yaml:"name"`
-	// `AWS::FSx::Snapshot.VolumeId`.
+	// The ID of the volume that the snapshot is of.
 	VolumeId *string `json:"volumeId" yaml:"volumeId"`
-	// `AWS::FSx::Snapshot.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::FSx::StorageVirtualMachine`.
+//
+// Creates a storage virtual machine (SVM) for an Amazon FSx for ONTAP file system.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fsx "github.com/aws/aws-cdk-go/awscdk/aws_fsx"
@@ -2433,11 +2444,20 @@ type CfnSnapshotProps struct {
 type CfnStorageVirtualMachine interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::FSx::StorageVirtualMachine.ActiveDirectoryConfiguration`.
+	// Describes the Microsoft Active Directory configuration to which the SVM is joined, if applicable.
 	ActiveDirectoryConfiguration() interface{}
 	SetActiveDirectoryConfiguration(val interface{})
+	// Returns the storage virtual machine's Amazon Resource Name (ARN).
+	//
+	// Example: `arn:aws:fsx:us-east-2:111111111111:storage-virtual-machine/fs-0123456789abcdef1/svm-01234567890123456`.
 	AttrResourceArn() *string
+	// Returns the storgage virtual machine's system generated ID.
+	//
+	// Example: `svm-0123456789abcedf1`.
 	AttrStorageVirtualMachineId() *string
+	// Returns the storage virtual machine's system generated unique identifier (UUID).
+	//
+	// Example: `abcd0123-cd45-ef67-11aa-1111aaaa23bc`.
 	AttrUuid() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -2448,7 +2468,7 @@ type CfnStorageVirtualMachine interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::FSx::StorageVirtualMachine.FileSystemId`.
+	// Specifies the FSx for ONTAP file system on which to create the SVM.
 	FileSystemId() *string
 	SetFileSystemId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -2461,7 +2481,7 @@ type CfnStorageVirtualMachine interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::FSx::StorageVirtualMachine.Name`.
+	// The name of the SVM.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -2471,17 +2491,25 @@ type CfnStorageVirtualMachine interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::FSx::StorageVirtualMachine.RootVolumeSecurityStyle`.
+	// The security style of the root volume of the SVM. Specify one of the following values:.
+	//
+	// - `UNIX` if the file system is managed by a UNIX administrator, the majority of users are NFS clients, and an application accessing the data uses a UNIX user as the service account.
+	// - `NTFS` if the file system is managed by a Windows administrator, the majority of users are SMB clients, and an application accessing the data uses a Windows user as the service account.
+	// - `MIXED` if the file system is managed by both UNIX and Windows administrators and users consist of both NFS and SMB clients.
 	RootVolumeSecurityStyle() *string
 	SetRootVolumeSecurityStyle(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::FSx::StorageVirtualMachine.SvmAdminPassword`.
+	// Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint.
+	//
+	// Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's `fsxadmin` user to manage the SVM. For more information, see [Managing SVMs using the NetApp ONTAP CLI](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-resources-ontap-apps.html#vsadmin-ontap-cli) in the *FSx for ONTAP User Guide* .
 	SvmAdminPassword() *string
 	SetSvmAdminPassword(val *string)
-	// `AWS::FSx::StorageVirtualMachine.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
 	// Return properties modified after initiation.
 	//
@@ -3058,6 +3086,10 @@ func (c *jsiiProxy_CfnStorageVirtualMachine) ValidateProperties(_properties inte
 	)
 }
 
+// Describes the self-managed Microsoft Active Directory to which you want to join the SVM.
+//
+// Joining an Active Directory provides user authentication and access control for SMB clients, including Microsoft Windows and macOS client accessing the file system.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fsx "github.com/aws/aws-cdk-go/awscdk/aws_fsx"
 //   activeDirectoryConfigurationProperty := &activeDirectoryConfigurationProperty{
@@ -3075,12 +3107,16 @@ func (c *jsiiProxy_CfnStorageVirtualMachine) ValidateProperties(_properties inte
 //   }
 //
 type CfnStorageVirtualMachine_ActiveDirectoryConfigurationProperty struct {
-	// `CfnStorageVirtualMachine.ActiveDirectoryConfigurationProperty.NetBiosName`.
+	// The NetBIOS name of the Active Directory computer object that will be created for your SVM.
 	NetBiosName *string `json:"netBiosName" yaml:"netBiosName"`
-	// `CfnStorageVirtualMachine.ActiveDirectoryConfigurationProperty.SelfManagedActiveDirectoryConfiguration`.
+	// The configuration that Amazon FSx uses to join the ONTAP storage virtual machine (SVM) to your self-managed (including on-premises) Microsoft Active Directory (AD) directory.
 	SelfManagedActiveDirectoryConfiguration interface{} `json:"selfManagedActiveDirectoryConfiguration" yaml:"selfManagedActiveDirectoryConfiguration"`
 }
 
+// The configuration that Amazon FSx uses to join a FSx for Windows File Server file system or an ONTAP storage virtual machine (SVM) to a self-managed (including on-premises) Microsoft Active Directory (AD) directory.
+//
+// For more information, see [Using Amazon FSx with your self-managed Microsoft Active Directory](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html) or [Managing SVMs](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html) .
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fsx "github.com/aws/aws-cdk-go/awscdk/aws_fsx"
 //   selfManagedActiveDirectoryConfigurationProperty := &selfManagedActiveDirectoryConfigurationProperty{
@@ -3095,17 +3131,25 @@ type CfnStorageVirtualMachine_ActiveDirectoryConfigurationProperty struct {
 //   }
 //
 type CfnStorageVirtualMachine_SelfManagedActiveDirectoryConfigurationProperty struct {
-	// `CfnStorageVirtualMachine.SelfManagedActiveDirectoryConfigurationProperty.DnsIps`.
+	// A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
 	DnsIps *[]*string `json:"dnsIps" yaml:"dnsIps"`
-	// `CfnStorageVirtualMachine.SelfManagedActiveDirectoryConfigurationProperty.DomainName`.
+	// The fully qualified domain name of the self-managed AD directory, such as `corp.example.com` .
 	DomainName *string `json:"domainName" yaml:"domainName"`
-	// `CfnStorageVirtualMachine.SelfManagedActiveDirectoryConfigurationProperty.FileSystemAdministratorsGroup`.
+	// (Optional) The name of the domain group whose members are granted administrative privileges for the file system.
+	//
+	// Administrative privileges include taking ownership of files and folders, setting audit controls (audit ACLs) on files and folders, and administering the file system remotely by using the FSx Remote PowerShell. The group that you specify must already exist in your domain. If you don't provide one, your AD domain's Domain Admins group is used.
 	FileSystemAdministratorsGroup *string `json:"fileSystemAdministratorsGroup" yaml:"fileSystemAdministratorsGroup"`
-	// `CfnStorageVirtualMachine.SelfManagedActiveDirectoryConfigurationProperty.OrganizationalUnitDistinguishedName`.
+	// (Optional) The fully qualified distinguished name of the organizational unit within your self-managed AD directory.
+	//
+	// Amazon FSx only accepts OU as the direct parent of the file system. An example is `OU=FSx,DC=yourdomain,DC=corp,DC=com` . To learn more, see [RFC 2253](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc2253) . If none is provided, the FSx file system is created in the default location of your self-managed AD directory.
+	//
+	// > Only Organizational Unit (OU) objects can be the direct parent of the file system that you're creating.
 	OrganizationalUnitDistinguishedName *string `json:"organizationalUnitDistinguishedName" yaml:"organizationalUnitDistinguishedName"`
-	// `CfnStorageVirtualMachine.SelfManagedActiveDirectoryConfigurationProperty.Password`.
+	// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
 	Password *string `json:"password" yaml:"password"`
-	// `CfnStorageVirtualMachine.SelfManagedActiveDirectoryConfigurationProperty.UserName`.
+	// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+	//
+	// This account must have the permission to join computers to the domain in the organizational unit provided in `OrganizationalUnitDistinguishedName` , or in the default location of your AD domain.
 	UserName *string `json:"userName" yaml:"userName"`
 }
 
@@ -3142,21 +3186,31 @@ type CfnStorageVirtualMachine_SelfManagedActiveDirectoryConfigurationProperty st
 //   }
 //
 type CfnStorageVirtualMachineProps struct {
-	// `AWS::FSx::StorageVirtualMachine.FileSystemId`.
+	// Specifies the FSx for ONTAP file system on which to create the SVM.
 	FileSystemId *string `json:"fileSystemId" yaml:"fileSystemId"`
-	// `AWS::FSx::StorageVirtualMachine.Name`.
+	// The name of the SVM.
 	Name *string `json:"name" yaml:"name"`
-	// `AWS::FSx::StorageVirtualMachine.ActiveDirectoryConfiguration`.
+	// Describes the Microsoft Active Directory configuration to which the SVM is joined, if applicable.
 	ActiveDirectoryConfiguration interface{} `json:"activeDirectoryConfiguration" yaml:"activeDirectoryConfiguration"`
-	// `AWS::FSx::StorageVirtualMachine.RootVolumeSecurityStyle`.
+	// The security style of the root volume of the SVM. Specify one of the following values:.
+	//
+	// - `UNIX` if the file system is managed by a UNIX administrator, the majority of users are NFS clients, and an application accessing the data uses a UNIX user as the service account.
+	// - `NTFS` if the file system is managed by a Windows administrator, the majority of users are SMB clients, and an application accessing the data uses a Windows user as the service account.
+	// - `MIXED` if the file system is managed by both UNIX and Windows administrators and users consist of both NFS and SMB clients.
 	RootVolumeSecurityStyle *string `json:"rootVolumeSecurityStyle" yaml:"rootVolumeSecurityStyle"`
-	// `AWS::FSx::StorageVirtualMachine.SvmAdminPassword`.
+	// Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint.
+	//
+	// Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's `fsxadmin` user to manage the SVM. For more information, see [Managing SVMs using the NetApp ONTAP CLI](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-resources-ontap-apps.html#vsadmin-ontap-cli) in the *FSx for ONTAP User Guide* .
 	SvmAdminPassword *string `json:"svmAdminPassword" yaml:"svmAdminPassword"`
-	// `AWS::FSx::StorageVirtualMachine.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::FSx::Volume`.
+//
+// Creates an FSx for ONTAP or Amazon FSx for OpenZFS storage volume.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fsx "github.com/aws/aws-cdk-go/awscdk/aws_fsx"
@@ -3227,10 +3281,19 @@ type CfnStorageVirtualMachineProps struct {
 type CfnVolume interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns the volume's Amazon Resource Name (ARN).
+	//
+	// Example: `arn:aws:fsx:us-east-2:111122223333:volume/fs-0123456789abcdef9/fsvol-01234567891112223`.
 	AttrResourceArn() *string
+	// Returns the volume's universally unique identifier (UUID).
+	//
+	// Example: `abcd0123-cd45-ef67-11aa-1111aaaa23bc`.
 	AttrUuid() *string
+	// Returns the volume's ID.
+	//
+	// Example: `fsvol-0123456789abcdefa`.
 	AttrVolumeId() *string
-	// `AWS::FSx::Volume.BackupId`.
+	// Specifies the ID of the volume backup to use to create a new volume.
 	BackupId() *string
 	SetBackupId(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -3252,15 +3315,15 @@ type CfnVolume interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::FSx::Volume.Name`.
+	// The name of the volume.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::FSx::Volume.OntapConfiguration`.
+	// The configuration of an Amazon FSx for NetApp ONTAP volume.
 	OntapConfiguration() interface{}
 	SetOntapConfiguration(val interface{})
-	// `AWS::FSx::Volume.OpenZFSConfiguration`.
+	// The configuration of an Amazon FSx for OpenZFS volume.
 	OpenZfsConfiguration() interface{}
 	SetOpenZfsConfiguration(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -3272,14 +3335,16 @@ type CfnVolume interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::FSx::Volume.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
-	// `AWS::FSx::Volume.VolumeType`.
+	// The type of the volume.
 	VolumeType() *string
 	SetVolumeType(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -3852,6 +3917,8 @@ func (c *jsiiProxy_CfnVolume) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Specifies who can mount an OpenZFS file system and the options available while mounting the file system.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fsx "github.com/aws/aws-cdk-go/awscdk/aws_fsx"
 //   clientConfigurationsProperty := &clientConfigurationsProperty{
@@ -3862,12 +3929,21 @@ func (c *jsiiProxy_CfnVolume) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnVolume_ClientConfigurationsProperty struct {
-	// `CfnVolume.ClientConfigurationsProperty.Clients`.
+	// A value that specifies who can mount the file system.
+	//
+	// You can provide a wildcard character ( `*` ), an IP address ( `0.0.0.0` ), or a CIDR address ( `192.0.2.0/24` ). By default, Amazon FSx uses the wildcard character when specifying the client.
 	Clients *string `json:"clients" yaml:"clients"`
-	// `CfnVolume.ClientConfigurationsProperty.Options`.
+	// The options to use when mounting the file system.
+	//
+	// For a list of options that you can use with Network File System (NFS), see the [exports(5) - Linux man page](https://docs.aws.amazon.com/https://linux.die.net/man/5/exports) . When choosing your options, consider the following:
+	//
+	// - `crossmnt` is used by default. If you don't specify `crossmnt` when changing the client configuration, you won't be able to see or access snapshots in your file system's snapshot directory.
+	// - `sync` is used by default. If you instead specify `async` , the system acknowledges writes before writing to disk. If the system crashes before the writes are finished, you lose the unwritten data.
 	Options *[]*string `json:"options" yaml:"options"`
 }
 
+// The configuration object for mounting a Network File System (NFS) file system.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fsx "github.com/aws/aws-cdk-go/awscdk/aws_fsx"
 //   nfsExportsProperty := &nfsExportsProperty{
@@ -3882,10 +3958,12 @@ type CfnVolume_ClientConfigurationsProperty struct {
 //   }
 //
 type CfnVolume_NfsExportsProperty struct {
-	// `CfnVolume.NfsExportsProperty.ClientConfigurations`.
+	// A list of configuration objects that contain the client and options for mounting the OpenZFS file system.
 	ClientConfigurations interface{} `json:"clientConfigurations" yaml:"clientConfigurations"`
 }
 
+// Specifies the configuration of the ONTAP volume that you are creating.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fsx "github.com/aws/aws-cdk-go/awscdk/aws_fsx"
 //   ontapConfigurationProperty := &ontapConfigurationProperty{
@@ -3903,20 +3981,40 @@ type CfnVolume_NfsExportsProperty struct {
 //   }
 //
 type CfnVolume_OntapConfigurationProperty struct {
-	// `CfnVolume.OntapConfigurationProperty.JunctionPath`.
+	// Specifies the location in the SVM's namespace where the volume is mounted.
+	//
+	// The `JunctionPath` must have a leading forward slash, such as `/vol3` .
 	JunctionPath *string `json:"junctionPath" yaml:"junctionPath"`
-	// `CfnVolume.OntapConfigurationProperty.SizeInMegabytes`.
+	// Specifies the size of the volume, in megabytes (MB), that you are creating.
 	SizeInMegabytes *string `json:"sizeInMegabytes" yaml:"sizeInMegabytes"`
-	// `CfnVolume.OntapConfigurationProperty.StorageEfficiencyEnabled`.
+	// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
 	StorageEfficiencyEnabled *string `json:"storageEfficiencyEnabled" yaml:"storageEfficiencyEnabled"`
-	// `CfnVolume.OntapConfigurationProperty.StorageVirtualMachineId`.
+	// Specifies the ONTAP SVM in which to create the volume.
 	StorageVirtualMachineId *string `json:"storageVirtualMachineId" yaml:"storageVirtualMachineId"`
-	// `CfnVolume.OntapConfigurationProperty.SecurityStyle`.
+	// The security style for the volume. Specify one of the following values:.
+	//
+	// - `UNIX` if the file system is managed by a UNIX administrator, the majority of users are NFS clients, and an application accessing the data uses a UNIX user as the service account. `UNIX` is the default.
+	// - `NTFS` if the file system is managed by a Windows administrator, the majority of users are SMB clients, and an application accessing the data uses a Windows user as the service account.
+	// - `MIXED` if the file system is managed by both UNIX and Windows administrators and users consist of both NFS and SMB clients.
 	SecurityStyle *string `json:"securityStyle" yaml:"securityStyle"`
-	// `CfnVolume.OntapConfigurationProperty.TieringPolicy`.
+	// Describes the data tiering policy for an ONTAP volume.
+	//
+	// When enabled, Amazon FSx for ONTAP's intelligent tiering automatically transitions a volume's data between the file system's primary storage and capacity pool storage based on your access patterns.
+	//
+	// Valid tiering policies are the following:
+	//
+	// - `SNAPSHOT_ONLY` - (Default value) moves cold snapshots to the capacity pool storage tier.
+	//
+	// - `AUTO` - moves cold user data and snapshots to the capacity pool storage tier based on your access patterns.
+	//
+	// - `ALL` - moves all user data blocks in both the active file system and Snapshot copies to the storage pool tier.
+	//
+	// - `NONE` - keeps a volume's data in the primary storage tier, preventing it from being moved to the capacity pool tier.
 	TieringPolicy interface{} `json:"tieringPolicy" yaml:"tieringPolicy"`
 }
 
+// Specifies the configuration of the Amazon FSx for OpenZFS volume that you are creating.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fsx "github.com/aws/aws-cdk-go/awscdk/aws_fsx"
 //   openZFSConfigurationProperty := &openZFSConfigurationProperty{
@@ -3958,30 +4056,46 @@ type CfnVolume_OntapConfigurationProperty struct {
 //   }
 //
 type CfnVolume_OpenZFSConfigurationProperty struct {
-	// `CfnVolume.OpenZFSConfigurationProperty.ParentVolumeId`.
+	// The ID of the volume to use as the parent volume of the volume that you are creating.
 	ParentVolumeId *string `json:"parentVolumeId" yaml:"parentVolumeId"`
-	// `CfnVolume.OpenZFSConfigurationProperty.CopyTagsToSnapshots`.
+	// A Boolean value indicating whether tags for the volume should be copied to snapshots.
+	//
+	// This value defaults to `false` . If it's set to `true` , all tags for the volume are copied to snapshots where the user doesn't specify tags. If this value is `true` , and you specify one or more tags, only the specified tags are copied to snapshots. If you specify one or more tags when creating the snapshot, no tags are copied from the volume, regardless of this value.
 	CopyTagsToSnapshots interface{} `json:"copyTagsToSnapshots" yaml:"copyTagsToSnapshots"`
-	// `CfnVolume.OpenZFSConfigurationProperty.DataCompressionType`.
+	// Specifies the method used to compress the data on the volume. The compression type is `NONE` by default.
+	//
+	// - `NONE` - Doesn't compress the data on the volume. `NONE` is the default.
+	// - `ZSTD` - Compresses the data in the volume using the Zstandard (ZSTD) compression algorithm. Compared to LZ4, Z-Standard provides a better compression ratio to minimize on-disk storage utilization.
+	// - `LZ4` - Compresses the data in the volume using the LZ4 compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive and delivers higher write throughput speeds.
 	DataCompressionType *string `json:"dataCompressionType" yaml:"dataCompressionType"`
-	// `CfnVolume.OpenZFSConfigurationProperty.NfsExports`.
+	// The configuration object for mounting a Network File System (NFS) file system.
 	NfsExports interface{} `json:"nfsExports" yaml:"nfsExports"`
-	// `CfnVolume.OpenZFSConfigurationProperty.Options`.
+	// To delete the volume's child volumes, snapshots, and clones, use the string `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS` .
 	Options *[]*string `json:"options" yaml:"options"`
-	// `CfnVolume.OpenZFSConfigurationProperty.OriginSnapshot`.
+	// The configuration object that specifies the snapshot to use as the origin of the data for the volume.
 	OriginSnapshot interface{} `json:"originSnapshot" yaml:"originSnapshot"`
-	// `CfnVolume.OpenZFSConfigurationProperty.ReadOnly`.
+	// A Boolean value indicating whether the volume is read-only.
 	ReadOnly interface{} `json:"readOnly" yaml:"readOnly"`
-	// `CfnVolume.OpenZFSConfigurationProperty.RecordSizeKiB`.
+	// Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB).
+	//
+	// Valid values are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB. The default is 128 KiB. We recommend using the default setting for the majority of use cases. Generally, workloads that write in fixed small or large record sizes may benefit from setting a custom record size, like database workloads (small record size) or media streaming workloads (large record size). For additional guidance on when to set a custom record size, see [ZFS Record size](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#record-size-performance) in the *Amazon FSx for OpenZFS User Guide* .
 	RecordSizeKiB *float64 `json:"recordSizeKiB" yaml:"recordSizeKiB"`
-	// `CfnVolume.OpenZFSConfigurationProperty.StorageCapacityQuotaGiB`.
+	// Sets the maximum storage size in gibibytes (GiB) for the volume.
+	//
+	// You can specify a quota that is larger than the storage on the parent volume. A volume quota limits the amount of storage that the volume can consume to the configured amount, but does not guarantee the space will be available on the parent volume. To guarantee quota space, you must also set `StorageCapacityReservationGiB` . To *not* specify a storage capacity quota, set this to `-1` .
+	//
+	// For more information, see [Volume properties](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-volumes.html#volume-properties) in the *Amazon FSx for OpenZFS User Guide* .
 	StorageCapacityQuotaGiB *float64 `json:"storageCapacityQuotaGiB" yaml:"storageCapacityQuotaGiB"`
-	// `CfnVolume.OpenZFSConfigurationProperty.StorageCapacityReservationGiB`.
+	// Specifies the amount of storage in gibibytes (GiB) to reserve from the parent volume.
+	//
+	// Setting `StorageCapacityReservationGiB` guarantees that the specified amount of storage space on the parent volume will always be available for the volume. You can't reserve more storage than the parent volume has. To *not* specify a storage capacity reservation, set this to `0` or `-1` . For more information, see [Volume properties](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-volumes.html#volume-properties) in the *Amazon FSx for OpenZFS User Guide* .
 	StorageCapacityReservationGiB *float64 `json:"storageCapacityReservationGiB" yaml:"storageCapacityReservationGiB"`
-	// `CfnVolume.OpenZFSConfigurationProperty.UserAndGroupQuotas`.
+	// An object specifying how much storage users or groups can use on the volume.
 	UserAndGroupQuotas interface{} `json:"userAndGroupQuotas" yaml:"userAndGroupQuotas"`
 }
 
+// The configuration object that specifies the snapshot to use as the origin of the data for the volume.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fsx "github.com/aws/aws-cdk-go/awscdk/aws_fsx"
 //   originSnapshotProperty := &originSnapshotProperty{
@@ -3990,12 +4104,29 @@ type CfnVolume_OpenZFSConfigurationProperty struct {
 //   }
 //
 type CfnVolume_OriginSnapshotProperty struct {
-	// `CfnVolume.OriginSnapshotProperty.CopyStrategy`.
+	// The strategy used when copying data from the snapshot to the new volume.
+	//
+	// - `CLONE` - The new volume references the data in the origin snapshot. Cloning a snapshot is faster than copying data from the snapshot to a new volume and doesn't consume disk throughput. However, the origin snapshot can't be deleted if there is a volume using its copied data.
+	// - `FULL_COPY` - Copies all data from the snapshot to the new volume.
 	CopyStrategy *string `json:"copyStrategy" yaml:"copyStrategy"`
-	// `CfnVolume.OriginSnapshotProperty.SnapshotARN`.
+	// Specifies the snapshot to use when creating an OpenZFS volume from a snapshot.
 	SnapshotArn *string `json:"snapshotArn" yaml:"snapshotArn"`
 }
 
+// Describes the data tiering policy for an ONTAP volume.
+//
+// When enabled, Amazon FSx for ONTAP's intelligent tiering automatically transitions a volume's data between the file system's primary storage and capacity pool storage based on your access patterns.
+//
+// Valid tiering policies are the following:
+//
+// - `SNAPSHOT_ONLY` - (Default value) moves cold snapshots to the capacity pool storage tier.
+//
+// - `AUTO` - moves cold user data and snapshots to the capacity pool storage tier based on your access patterns.
+//
+// - `ALL` - moves all user data blocks in both the active file system and Snapshot copies to the storage pool tier.
+//
+// - `NONE` - keeps a volume's data in the primary storage tier, preventing it from being moved to the capacity pool tier.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fsx "github.com/aws/aws-cdk-go/awscdk/aws_fsx"
 //   tieringPolicyProperty := &tieringPolicyProperty{
@@ -4004,12 +4135,21 @@ type CfnVolume_OriginSnapshotProperty struct {
 //   }
 //
 type CfnVolume_TieringPolicyProperty struct {
-	// `CfnVolume.TieringPolicyProperty.CoolingPeriod`.
+	// Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool.
+	//
+	// Used with the `AUTO` and `SNAPSHOT_ONLY` tiering policies. Enter a whole number between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY` .
 	CoolingPeriod *float64 `json:"coolingPeriod" yaml:"coolingPeriod"`
-	// `CfnVolume.TieringPolicyProperty.Name`.
+	// Specifies the tiering policy used to transition data. Default value is `SNAPSHOT_ONLY` .
+	//
+	// - `SNAPSHOT_ONLY` - moves cold snapshots to the capacity pool storage tier.
+	// - `AUTO` - moves cold user data and snapshots to the capacity pool storage tier based on your access patterns.
+	// - `ALL` - moves all user data blocks in both the active file system and Snapshot copies to the storage pool tier.
+	// - `NONE` - keeps a volume's data in the primary storage tier, preventing it from being moved to the capacity pool tier.
 	Name *string `json:"name" yaml:"name"`
 }
 
+// An object specifying how much storage users or groups can use on the volume.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fsx "github.com/aws/aws-cdk-go/awscdk/aws_fsx"
 //   userAndGroupQuotasProperty := &userAndGroupQuotasProperty{
@@ -4019,11 +4159,11 @@ type CfnVolume_TieringPolicyProperty struct {
 //   }
 //
 type CfnVolume_UserAndGroupQuotasProperty struct {
-	// `CfnVolume.UserAndGroupQuotasProperty.Id`.
+	// The ID of the user or group.
 	Id *float64 `json:"id" yaml:"id"`
-	// `CfnVolume.UserAndGroupQuotasProperty.StorageCapacityQuotaGiB`.
+	// The amount of storage that the user or group can use in gibibytes (GiB).
 	StorageCapacityQuotaGiB *float64 `json:"storageCapacityQuotaGiB" yaml:"storageCapacityQuotaGiB"`
-	// `CfnVolume.UserAndGroupQuotasProperty.Type`.
+	// A value that specifies whether the quota applies to a user or group.
 	Type *string `json:"type" yaml:"type"`
 }
 
@@ -4096,17 +4236,19 @@ type CfnVolume_UserAndGroupQuotasProperty struct {
 //   }
 //
 type CfnVolumeProps struct {
-	// `AWS::FSx::Volume.Name`.
+	// The name of the volume.
 	Name *string `json:"name" yaml:"name"`
-	// `AWS::FSx::Volume.BackupId`.
+	// Specifies the ID of the volume backup to use to create a new volume.
 	BackupId *string `json:"backupId" yaml:"backupId"`
-	// `AWS::FSx::Volume.OntapConfiguration`.
+	// The configuration of an Amazon FSx for NetApp ONTAP volume.
 	OntapConfiguration interface{} `json:"ontapConfiguration" yaml:"ontapConfiguration"`
-	// `AWS::FSx::Volume.OpenZFSConfiguration`.
+	// The configuration of an Amazon FSx for OpenZFS volume.
 	OpenZfsConfiguration interface{} `json:"openZfsConfiguration" yaml:"openZfsConfiguration"`
-	// `AWS::FSx::Volume.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
-	// `AWS::FSx::Volume.VolumeType`.
+	// The type of the volume.
 	VolumeType *string `json:"volumeType" yaml:"volumeType"`
 }
 

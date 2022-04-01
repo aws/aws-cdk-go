@@ -6,6 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisanalytics"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
@@ -18,14 +19,20 @@ import (
 // The L2 construct for Flink Kinesis Data Applications.
 //
 // Example:
-//   import path "github.com/aws-samples/dummy/path"import core "github.com/aws/aws-cdk-go/awscdk"import flink "github.com/aws/aws-cdk-go/awscdkkinesisanalyticsflinkalpha"
+//   import path "github.com/aws-samples/dummy/path"import core "github.com/aws/aws-cdk-go/awscdk"import flink "github.com/aws/aws-cdk-go/awscdkkinesisanalyticsflinkalpha"import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := core.NewApp()
 //   stack := core.NewStack(app, jsii.String("FlinkAppTest"))
 //
-//   flink.NewApplication(stack, jsii.String("App"), &applicationProps{
+//   flinkApp := flink.NewApplication(stack, jsii.String("App"), &applicationProps{
 //   	code: flink.applicationCode.fromAsset(path.join(__dirname, jsii.String("code-asset"))),
 //   	runtime: flink.runtime_FLINK_1_11(),
+//   })
+//
+//   cloudwatch.NewAlarm(stack, jsii.String("Alarm"), &alarmProps{
+//   	metric: flinkApp.metricFullRestarts(),
+//   	evaluationPeriods: jsii.Number(1),
+//   	threshold: jsii.Number(3),
 //   })
 //
 //   app.synth()
@@ -102,6 +109,203 @@ type Application interface {
 	// which will be a concrete name.
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Return a CloudWatch metric associated with this Flink application.
+	// Experimental.
+	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The time (in milliseconds) this task or operator is back pressured per second.
+	//
+	// Units: Milliseconds
+	//
+	// Reporting Level: Operator, Task, Parallelism.
+	// Experimental.
+	MetricBackPressuredTimeMsPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The time (in milliseconds) this task or operator is busy (neither idle nor back pressured) per second.
+	//
+	// Can be NaN, if the value could not be
+	// calculated.
+	//
+	// Units: Milliseconds
+	//
+	// Reporting Level: Operator, Task, Parallelism.
+	// Experimental.
+	MetricBusyTimePerMsPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The overall percentage of CPU utilization across task managers.
+	//
+	// For
+	// example, if there are five task managers, Kinesis Data Analytics publishes
+	// five samples of this metric per reporting interval.
+	//
+	// Units: Percentage
+	//
+	// Reporting Level: Application.
+	// Experimental.
+	MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The last watermark this application/operator/task/thread has received.
+	//
+	// Units: Milliseconds
+	//
+	// Reporting Level: Application, Operator, Task, Parallelism.
+	// Experimental.
+	MetricCurrentInputWatermark(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The last watermark this application/operator/task/thread has received.
+	//
+	// Units: Milliseconds
+	//
+	// Reporting Level: Application, Operator, Task, Parallelism.
+	// Experimental.
+	MetricCurrentOutputWatermark(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The time elapsed during an outage for failing/recovering jobs.
+	//
+	// Units: Milliseconds
+	//
+	// Reporting Level: Application.
+	// Experimental.
+	MetricDowntime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of times this job has fully restarted since it was submitted.
+	//
+	// This metric does not measure fine-grained restarts.
+	//
+	// Units: Count
+	//
+	// Reporting Level: Application.
+	// Experimental.
+	MetricFullRestarts(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Overall heap memory utilization across task managers.
+	//
+	// For example, if there
+	// are five task managers, Kinesis Data Analytics publishes five samples of
+	// this metric per reporting interval.
+	//
+	// Units: Percentage
+	//
+	// Reporting Level: Application.
+	// Experimental.
+	MetricHeapMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The time (in milliseconds) this task or operator is idle (has no data to process) per second.
+	//
+	// Idle time excludes back pressured time, so if the task
+	// is back pressured it is not idle.
+	//
+	// Units: Milliseconds
+	//
+	// Reporting Level: Operator, Task, Parallelism.
+	// Experimental.
+	MetricIdleTimeMsPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of Kinesis Processing Units that are used to run your stream processing application.
+	//
+	// The average number of KPUs used each hour
+	// determines the billing for your application.
+	//
+	// Units: Count
+	//
+	// Reporting Level: Application.
+	// Experimental.
+	MetricKpus(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The time it took to complete the last checkpoint.
+	//
+	// Units: Milliseconds
+	//
+	// Reporting Level: Application.
+	// Experimental.
+	MetricLastCheckpointDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total size of the last checkpoint.
+	//
+	// Units: Bytes
+	//
+	// Reporting Level: Application.
+	// Experimental.
+	MetricLastCheckpointSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total amount of managed memory.
+	//
+	// Units: Bytes
+	//
+	// Reporting Level: Application, Operator, Task, Parallelism.
+	// Experimental.
+	MetricManagedMemoryTotal(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The amount of managed memory currently used.
+	//
+	// Units: Bytes
+	//
+	// Reporting Level: Application, Operator, Task, Parallelism.
+	// Experimental.
+	MetricManagedMemoryUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Derived from managedMemoryUsed/managedMemoryTotal.
+	//
+	// Units: Percentage
+	//
+	// Reporting Level: Application, Operator, Task, Parallelism.
+	// Experimental.
+	MetricManagedMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of times checkpointing has failed.
+	//
+	// Units: Count
+	//
+	// Reporting Level: Application.
+	// Experimental.
+	MetricNumberOfFailedCheckpoints(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of records this operator or task has dropped due to arriving late.
+	//
+	// Units: Count
+	//
+	// Reporting Level: Application, Operator, Task, Parallelism.
+	// Experimental.
+	MetricNumLateRecordsDropped(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of records this application, operator, or task has received.
+	//
+	// Units: Count
+	//
+	// Reporting Level: Application, Operator, Task, Parallelism.
+	// Experimental.
+	MetricNumRecordsIn(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of records this application, operator or task has received per second.
+	//
+	// Units: Count/Second
+	//
+	// Reporting Level: Application, Operator, Task, Parallelism.
+	// Experimental.
+	MetricNumRecordsInPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of records this application, operator or task has emitted.
+	//
+	// Units: Count
+	//
+	// Reporting Level: Application, Operator, Task, Parallelism.
+	// Experimental.
+	MetricNumRecordsOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of records this application, operator or task has emitted per second.
+	//
+	// Units: Count/Second
+	//
+	// Reporting Level: Application, Operator, Task, Parallelism.
+	// Experimental.
+	MetricNumRecordsOutPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of old garbage collection operations that have occurred across all task managers.
+	//
+	// Units: Count
+	//
+	// Reporting Level: Application.
+	// Experimental.
+	MetricOldGenerationGCCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total time spent performing old garbage collection operations.
+	//
+	// Units: Milliseconds
+	//
+	// Reporting Level: Application.
+	// Experimental.
+	MetricOldGenerationGCTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of live threads used by the application.
+	//
+	// Units: Count
+	//
+	// Reporting Level: Application.
+	// Experimental.
+	MetricThreadsCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The time that the job has been running without interruption.
+	//
+	// Units: Milliseconds
+	//
+	// Reporting Level: Application.
+	// Experimental.
+	MetricUptime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	// Experimental.
 	ToString() *string
@@ -350,6 +554,344 @@ func (a *jsiiProxy_Application) GetResourceNameAttribute(nameAttr *string) *stri
 	return returns
 }
 
+func (a *jsiiProxy_Application) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metric",
+		[]interface{}{metricName, props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricBackPressuredTimeMsPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricBackPressuredTimeMsPerSecond",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricBusyTimePerMsPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricBusyTimePerMsPerSecond",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricCpuUtilization",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricCurrentInputWatermark(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricCurrentInputWatermark",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricCurrentOutputWatermark(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricCurrentOutputWatermark",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricDowntime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricDowntime",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricFullRestarts(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricFullRestarts",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricHeapMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricHeapMemoryUtilization",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricIdleTimeMsPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricIdleTimeMsPerSecond",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricKpus(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricKpus",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricLastCheckpointDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricLastCheckpointDuration",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricLastCheckpointSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricLastCheckpointSize",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricManagedMemoryTotal(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricManagedMemoryTotal",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricManagedMemoryUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricManagedMemoryUsed",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricManagedMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricManagedMemoryUtilization",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricNumberOfFailedCheckpoints(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricNumberOfFailedCheckpoints",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricNumLateRecordsDropped(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricNumLateRecordsDropped",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricNumRecordsIn(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricNumRecordsIn",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricNumRecordsInPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricNumRecordsInPerSecond",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricNumRecordsOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricNumRecordsOut",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricNumRecordsOutPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricNumRecordsOutPerSecond",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricOldGenerationGCCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricOldGenerationGCCount",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricOldGenerationGCTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricOldGenerationGCTime",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricThreadsCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricThreadsCount",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Application) MetricUptime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		a,
+		"metricUptime",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
 func (a *jsiiProxy_Application) ToString() *string {
 	var returns *string
 
@@ -366,14 +908,20 @@ func (a *jsiiProxy_Application) ToString() *string {
 // Code configuration providing the location to a Flink application JAR file.
 //
 // Example:
-//   import path "github.com/aws-samples/dummy/path"import core "github.com/aws/aws-cdk-go/awscdk"import flink "github.com/aws/aws-cdk-go/awscdkkinesisanalyticsflinkalpha"
+//   import path "github.com/aws-samples/dummy/path"import core "github.com/aws/aws-cdk-go/awscdk"import flink "github.com/aws/aws-cdk-go/awscdkkinesisanalyticsflinkalpha"import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := core.NewApp()
 //   stack := core.NewStack(app, jsii.String("FlinkAppTest"))
 //
-//   flink.NewApplication(stack, jsii.String("App"), &applicationProps{
+//   flinkApp := flink.NewApplication(stack, jsii.String("App"), &applicationProps{
 //   	code: flink.applicationCode.fromAsset(path.join(__dirname, jsii.String("code-asset"))),
 //   	runtime: flink.runtime_FLINK_1_11(),
+//   })
+//
+//   cloudwatch.NewAlarm(stack, jsii.String("Alarm"), &alarmProps{
+//   	metric: flinkApp.metricFullRestarts(),
+//   	evaluationPeriods: jsii.Number(1),
+//   	threshold: jsii.Number(3),
 //   })
 //
 //   app.synth()
@@ -606,14 +1154,20 @@ type ApplicationCodeConfig struct {
 // Props for creating an Application construct.
 //
 // Example:
-//   import path "github.com/aws-samples/dummy/path"import core "github.com/aws/aws-cdk-go/awscdk"import flink "github.com/aws/aws-cdk-go/awscdkkinesisanalyticsflinkalpha"
+//   import path "github.com/aws-samples/dummy/path"import core "github.com/aws/aws-cdk-go/awscdk"import flink "github.com/aws/aws-cdk-go/awscdkkinesisanalyticsflinkalpha"import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := core.NewApp()
 //   stack := core.NewStack(app, jsii.String("FlinkAppTest"))
 //
-//   flink.NewApplication(stack, jsii.String("App"), &applicationProps{
+//   flinkApp := flink.NewApplication(stack, jsii.String("App"), &applicationProps{
 //   	code: flink.applicationCode.fromAsset(path.join(__dirname, jsii.String("code-asset"))),
 //   	runtime: flink.runtime_FLINK_1_11(),
+//   })
+//
+//   cloudwatch.NewAlarm(stack, jsii.String("Alarm"), &alarmProps{
+//   	metric: flinkApp.metricFullRestarts(),
+//   	evaluationPeriods: jsii.Number(1),
+//   	threshold: jsii.Number(3),
 //   })
 //
 //   app.synth()
@@ -692,6 +1246,203 @@ type IApplication interface {
 	// Convenience method for adding a policy statement to the application role.
 	// Experimental.
 	AddToRolePolicy(policyStatement awsiam.PolicyStatement) *bool
+	// Return a CloudWatch metric associated with this Flink application.
+	// Experimental.
+	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The time (in milliseconds) this task or operator is back pressured per second.
+	//
+	// Units: Milliseconds
+	//
+	// Reporting Level: Operator, Task, Parallelism.
+	// Experimental.
+	MetricBackPressuredTimeMsPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The time (in milliseconds) this task or operator is busy (neither idle nor back pressured) per second.
+	//
+	// Can be NaN, if the value could not be
+	// calculated.
+	//
+	// Units: Milliseconds
+	//
+	// Reporting Level: Operator, Task, Parallelism.
+	// Experimental.
+	MetricBusyTimePerMsPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The overall percentage of CPU utilization across task managers.
+	//
+	// For
+	// example, if there are five task managers, Kinesis Data Analytics publishes
+	// five samples of this metric per reporting interval.
+	//
+	// Units: Percentage
+	//
+	// Reporting Level: Application.
+	// Experimental.
+	MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The last watermark this application/operator/task/thread has received.
+	//
+	// Units: Milliseconds
+	//
+	// Reporting Level: Application, Operator, Task, Parallelism.
+	// Experimental.
+	MetricCurrentInputWatermark(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The last watermark this application/operator/task/thread has received.
+	//
+	// Units: Milliseconds
+	//
+	// Reporting Level: Application, Operator, Task, Parallelism.
+	// Experimental.
+	MetricCurrentOutputWatermark(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The time elapsed during an outage for failing/recovering jobs.
+	//
+	// Units: Milliseconds
+	//
+	// Reporting Level: Application.
+	// Experimental.
+	MetricDowntime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of times this job has fully restarted since it was submitted.
+	//
+	// This metric does not measure fine-grained restarts.
+	//
+	// Units: Count
+	//
+	// Reporting Level: Application.
+	// Experimental.
+	MetricFullRestarts(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Overall heap memory utilization across task managers.
+	//
+	// For example, if there
+	// are five task managers, Kinesis Data Analytics publishes five samples of
+	// this metric per reporting interval.
+	//
+	// Units: Percentage
+	//
+	// Reporting Level: Application.
+	// Experimental.
+	MetricHeapMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The time (in milliseconds) this task or operator is idle (has no data to process) per second.
+	//
+	// Idle time excludes back pressured time, so if the task
+	// is back pressured it is not idle.
+	//
+	// Units: Milliseconds
+	//
+	// Reporting Level: Operator, Task, Parallelism.
+	// Experimental.
+	MetricIdleTimeMsPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of Kinesis Processing Units that are used to run your stream processing application.
+	//
+	// The average number of KPUs used each hour
+	// determines the billing for your application.
+	//
+	// Units: Count
+	//
+	// Reporting Level: Application.
+	// Experimental.
+	MetricKpus(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The time it took to complete the last checkpoint.
+	//
+	// Units: Milliseconds
+	//
+	// Reporting Level: Application.
+	// Experimental.
+	MetricLastCheckpointDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total size of the last checkpoint.
+	//
+	// Units: Bytes
+	//
+	// Reporting Level: Application.
+	// Experimental.
+	MetricLastCheckpointSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total amount of managed memory.
+	//
+	// Units: Bytes
+	//
+	// Reporting Level: Application, Operator, Task, Parallelism.
+	// Experimental.
+	MetricManagedMemoryTotal(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The amount of managed memory currently used.
+	//
+	// Units: Bytes
+	//
+	// Reporting Level: Application, Operator, Task, Parallelism.
+	// Experimental.
+	MetricManagedMemoryUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Derived from managedMemoryUsed/managedMemoryTotal.
+	//
+	// Units: Percentage
+	//
+	// Reporting Level: Application, Operator, Task, Parallelism.
+	// Experimental.
+	MetricManagedMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of times checkpointing has failed.
+	//
+	// Units: Count
+	//
+	// Reporting Level: Application.
+	// Experimental.
+	MetricNumberOfFailedCheckpoints(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of records this operator or task has dropped due to arriving late.
+	//
+	// Units: Count
+	//
+	// Reporting Level: Application, Operator, Task, Parallelism.
+	// Experimental.
+	MetricNumLateRecordsDropped(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of records this application, operator, or task has received.
+	//
+	// Units: Count
+	//
+	// Reporting Level: Application, Operator, Task, Parallelism.
+	// Experimental.
+	MetricNumRecordsIn(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of records this application, operator or task has received per second.
+	//
+	// Units: Count/Second
+	//
+	// Reporting Level: Application, Operator, Task, Parallelism.
+	// Experimental.
+	MetricNumRecordsInPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of records this application, operator or task has emitted.
+	//
+	// Units: Count
+	//
+	// Reporting Level: Application, Operator, Task, Parallelism.
+	// Experimental.
+	MetricNumRecordsOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of records this application, operator or task has emitted per second.
+	//
+	// Units: Count/Second
+	//
+	// Reporting Level: Application, Operator, Task, Parallelism.
+	// Experimental.
+	MetricNumRecordsOutPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of old garbage collection operations that have occurred across all task managers.
+	//
+	// Units: Count
+	//
+	// Reporting Level: Application.
+	// Experimental.
+	MetricOldGenerationGCCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total time spent performing old garbage collection operations.
+	//
+	// Units: Milliseconds
+	//
+	// Reporting Level: Application.
+	// Experimental.
+	MetricOldGenerationGCTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of live threads used by the application.
+	//
+	// Units: Count
+	//
+	// Reporting Level: Application.
+	// Experimental.
+	MetricThreadsCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The time that the job has been running without interruption.
+	//
+	// Units: Milliseconds
+	//
+	// Reporting Level: Application.
+	// Experimental.
+	MetricUptime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The application ARN.
 	// Experimental.
 	ApplicationArn() *string
@@ -716,6 +1467,344 @@ func (i *jsiiProxy_IApplication) AddToRolePolicy(policyStatement awsiam.PolicySt
 		i,
 		"addToRolePolicy",
 		[]interface{}{policyStatement},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metric",
+		[]interface{}{metricName, props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricBackPressuredTimeMsPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricBackPressuredTimeMsPerSecond",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricBusyTimePerMsPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricBusyTimePerMsPerSecond",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricCpuUtilization",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricCurrentInputWatermark(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricCurrentInputWatermark",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricCurrentOutputWatermark(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricCurrentOutputWatermark",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricDowntime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricDowntime",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricFullRestarts(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricFullRestarts",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricHeapMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricHeapMemoryUtilization",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricIdleTimeMsPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricIdleTimeMsPerSecond",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricKpus(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricKpus",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricLastCheckpointDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricLastCheckpointDuration",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricLastCheckpointSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricLastCheckpointSize",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricManagedMemoryTotal(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricManagedMemoryTotal",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricManagedMemoryUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricManagedMemoryUsed",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricManagedMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricManagedMemoryUtilization",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricNumberOfFailedCheckpoints(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricNumberOfFailedCheckpoints",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricNumLateRecordsDropped(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricNumLateRecordsDropped",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricNumRecordsIn(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricNumRecordsIn",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricNumRecordsInPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricNumRecordsInPerSecond",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricNumRecordsOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricNumRecordsOut",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricNumRecordsOutPerSecond(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricNumRecordsOutPerSecond",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricOldGenerationGCCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricOldGenerationGCCount",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricOldGenerationGCTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricOldGenerationGCTime",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricThreadsCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricThreadsCount",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IApplication) MetricUptime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricUptime",
+		[]interface{}{props},
 		&returns,
 	)
 
@@ -915,14 +2004,20 @@ type PropertyGroups struct {
 // Available Flink runtimes for Kinesis Analytics.
 //
 // Example:
-//   import path "github.com/aws-samples/dummy/path"import core "github.com/aws/aws-cdk-go/awscdk"import flink "github.com/aws/aws-cdk-go/awscdkkinesisanalyticsflinkalpha"
+//   import path "github.com/aws-samples/dummy/path"import core "github.com/aws/aws-cdk-go/awscdk"import flink "github.com/aws/aws-cdk-go/awscdkkinesisanalyticsflinkalpha"import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := core.NewApp()
 //   stack := core.NewStack(app, jsii.String("FlinkAppTest"))
 //
-//   flink.NewApplication(stack, jsii.String("App"), &applicationProps{
+//   flinkApp := flink.NewApplication(stack, jsii.String("App"), &applicationProps{
 //   	code: flink.applicationCode.fromAsset(path.join(__dirname, jsii.String("code-asset"))),
 //   	runtime: flink.runtime_FLINK_1_11(),
+//   })
+//
+//   cloudwatch.NewAlarm(stack, jsii.String("Alarm"), &alarmProps{
+//   	metric: flinkApp.metricFullRestarts(),
+//   	evaluationPeriods: jsii.Number(1),
+//   	threshold: jsii.Number(3),
 //   })
 //
 //   app.synth()
