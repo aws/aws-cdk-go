@@ -1,12 +1,12 @@
 package awsses
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsses/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // AddHeaderAction configuration.
@@ -18,10 +18,13 @@ import (
 //   	headerValue: jsii.String("headerValue"),
 //   }
 //
+// Experimental.
 type AddHeaderActionConfig struct {
 	// The name of the header that you want to add to the incoming message.
+	// Experimental.
 	HeaderName *string `json:"headerName" yaml:"headerName"`
 	// The content that you want to include in the header.
+	// Experimental.
 	HeaderValue *string `json:"headerValue" yaml:"headerValue"`
 }
 
@@ -35,21 +38,72 @@ type AddHeaderActionConfig struct {
 //   	},
 //   })
 //
+// Experimental.
 type AllowListReceiptFilter interface {
-	constructs.Construct
-	// The tree node.
-	Node() constructs.Node
+	awscdk.Construct
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for AllowListReceiptFilter
 type jsiiProxy_AllowListReceiptFilter struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
-func (j *jsiiProxy_AllowListReceiptFilter) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_AllowListReceiptFilter) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -59,13 +113,14 @@ func (j *jsiiProxy_AllowListReceiptFilter) Node() constructs.Node {
 }
 
 
+// Experimental.
 func NewAllowListReceiptFilter(scope constructs.Construct, id *string, props *AllowListReceiptFilterProps) AllowListReceiptFilter {
 	_init_.Initialize()
 
 	j := jsiiProxy_AllowListReceiptFilter{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses.AllowListReceiptFilter",
+		"monocdk.aws_ses.AllowListReceiptFilter",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -73,27 +128,26 @@ func NewAllowListReceiptFilter(scope constructs.Construct, id *string, props *Al
 	return &j
 }
 
+// Experimental.
 func NewAllowListReceiptFilter_Override(a AllowListReceiptFilter, scope constructs.Construct, id *string, props *AllowListReceiptFilterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses.AllowListReceiptFilter",
+		"monocdk.aws_ses.AllowListReceiptFilter",
 		[]interface{}{scope, id, props},
 		a,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func AllowListReceiptFilter_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.AllowListReceiptFilter",
+		"monocdk.aws_ses.AllowListReceiptFilter",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -102,12 +156,70 @@ func AllowListReceiptFilter_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func (a *jsiiProxy_AllowListReceiptFilter) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (a *jsiiProxy_AllowListReceiptFilter) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (a *jsiiProxy_AllowListReceiptFilter) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_AllowListReceiptFilter) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (a *jsiiProxy_AllowListReceiptFilter) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (a *jsiiProxy_AllowListReceiptFilter) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		a,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_AllowListReceiptFilter) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -125,8 +237,10 @@ func (a *jsiiProxy_AllowListReceiptFilter) ToString() *string {
 //   	},
 //   })
 //
+// Experimental.
 type AllowListReceiptFilterProps struct {
 	// A list of ip addresses or ranges to allow list.
+	// Experimental.
 	Ips *[]*string `json:"ips" yaml:"ips"`
 }
 
@@ -144,18 +258,24 @@ type AllowListReceiptFilterProps struct {
 //   	topicArn: jsii.String("topicArn"),
 //   }
 //
+// Experimental.
 type BounceActionConfig struct {
 	// Human-readable text to include in the bounce message.
+	// Experimental.
 	Message *string `json:"message" yaml:"message"`
 	// The email address of the sender of the bounced email.
 	//
 	// This is the address that the bounce message is sent from.
+	// Experimental.
 	Sender *string `json:"sender" yaml:"sender"`
 	// The SMTP reply code, as defined by RFC 5321.
+	// Experimental.
 	SmtpReplyCode *string `json:"smtpReplyCode" yaml:"smtpReplyCode"`
 	// The SMTP enhanced status code, as defined by RFC 3463.
+	// Experimental.
 	StatusCode *string `json:"statusCode" yaml:"statusCode"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce action is taken.
+	// Experimental.
 	TopicArn *string `json:"topicArn" yaml:"topicArn"`
 }
 
@@ -175,13 +295,16 @@ type CfnConfigurationSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -192,6 +315,7 @@ type CfnConfigurationSet interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
 	// The name of the configuration set. The name must meet the following requirements:.
 	//
@@ -199,28 +323,34 @@ type CfnConfigurationSet interface {
 	// - Contain 64 characters or fewer.
 	Name() *string
 	SetName(val *string)
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -229,6 +359,7 @@ type CfnConfigurationSet interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -273,12 +404,15 @@ type CfnConfigurationSet interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -289,11 +423,13 @@ type CfnConfigurationSet interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -302,21 +438,74 @@ type CfnConfigurationSet interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -386,8 +575,8 @@ func (j *jsiiProxy_CfnConfigurationSet) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationSet) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnConfigurationSet) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -428,13 +617,13 @@ func (j *jsiiProxy_CfnConfigurationSet) UpdatedProperites() *map[string]interfac
 
 
 // Create a new `AWS::SES::ConfigurationSet`.
-func NewCfnConfigurationSet(scope constructs.Construct, id *string, props *CfnConfigurationSetProps) CfnConfigurationSet {
+func NewCfnConfigurationSet(scope awscdk.Construct, id *string, props *CfnConfigurationSetProps) CfnConfigurationSet {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnConfigurationSet{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses.CfnConfigurationSet",
+		"monocdk.aws_ses.CfnConfigurationSet",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -443,11 +632,11 @@ func NewCfnConfigurationSet(scope constructs.Construct, id *string, props *CfnCo
 }
 
 // Create a new `AWS::SES::ConfigurationSet`.
-func NewCfnConfigurationSet_Override(c CfnConfigurationSet, scope constructs.Construct, id *string, props *CfnConfigurationSetProps) {
+func NewCfnConfigurationSet_Override(c CfnConfigurationSet, scope awscdk.Construct, id *string, props *CfnConfigurationSetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses.CfnConfigurationSet",
+		"monocdk.aws_ses.CfnConfigurationSet",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -467,13 +656,14 @@ func (j *jsiiProxy_CfnConfigurationSet) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnConfigurationSet_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnConfigurationSet",
+		"monocdk.aws_ses.CfnConfigurationSet",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -483,13 +673,14 @@ func CfnConfigurationSet_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnConfigurationSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnConfigurationSet",
+		"monocdk.aws_ses.CfnConfigurationSet",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -498,17 +689,15 @@ func CfnConfigurationSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnConfigurationSet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnConfigurationSet",
+		"monocdk.aws_ses.CfnConfigurationSet",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -521,7 +710,7 @@ func CfnConfigurationSet_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ses.CfnConfigurationSet",
+		"monocdk.aws_ses.CfnConfigurationSet",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -618,11 +807,48 @@ func (c *jsiiProxy_CfnConfigurationSet) Inspect(inspector awscdk.TreeInspector) 
 	)
 }
 
+func (c *jsiiProxy_CfnConfigurationSet) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnConfigurationSet) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnConfigurationSet) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnConfigurationSet) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnConfigurationSet) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -652,12 +878,33 @@ func (c *jsiiProxy_CfnConfigurationSet) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnConfigurationSet) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnConfigurationSet) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnConfigurationSet) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -712,9 +959,11 @@ type CfnConfigurationSetEventDestination interface {
 	awscdk.IInspectable
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// The name of the configuration set that contains the event destination.
 	ConfigurationSetName() *string
@@ -722,6 +971,7 @@ type CfnConfigurationSetEventDestination interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// The event destination object.
 	EventDestination() interface{}
@@ -735,29 +985,36 @@ type CfnConfigurationSetEventDestination interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -766,6 +1023,7 @@ type CfnConfigurationSetEventDestination interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -810,12 +1068,15 @@ type CfnConfigurationSetEventDestination interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -826,11 +1087,13 @@ type CfnConfigurationSetEventDestination interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -839,21 +1102,74 @@ type CfnConfigurationSetEventDestination interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -943,8 +1259,8 @@ func (j *jsiiProxy_CfnConfigurationSetEventDestination) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationSetEventDestination) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnConfigurationSetEventDestination) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -985,13 +1301,13 @@ func (j *jsiiProxy_CfnConfigurationSetEventDestination) UpdatedProperites() *map
 
 
 // Create a new `AWS::SES::ConfigurationSetEventDestination`.
-func NewCfnConfigurationSetEventDestination(scope constructs.Construct, id *string, props *CfnConfigurationSetEventDestinationProps) CfnConfigurationSetEventDestination {
+func NewCfnConfigurationSetEventDestination(scope awscdk.Construct, id *string, props *CfnConfigurationSetEventDestinationProps) CfnConfigurationSetEventDestination {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnConfigurationSetEventDestination{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses.CfnConfigurationSetEventDestination",
+		"monocdk.aws_ses.CfnConfigurationSetEventDestination",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1000,11 +1316,11 @@ func NewCfnConfigurationSetEventDestination(scope constructs.Construct, id *stri
 }
 
 // Create a new `AWS::SES::ConfigurationSetEventDestination`.
-func NewCfnConfigurationSetEventDestination_Override(c CfnConfigurationSetEventDestination, scope constructs.Construct, id *string, props *CfnConfigurationSetEventDestinationProps) {
+func NewCfnConfigurationSetEventDestination_Override(c CfnConfigurationSetEventDestination, scope awscdk.Construct, id *string, props *CfnConfigurationSetEventDestinationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses.CfnConfigurationSetEventDestination",
+		"monocdk.aws_ses.CfnConfigurationSetEventDestination",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1032,13 +1348,14 @@ func (j *jsiiProxy_CfnConfigurationSetEventDestination) SetEventDestination(val 
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnConfigurationSetEventDestination_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnConfigurationSetEventDestination",
+		"monocdk.aws_ses.CfnConfigurationSetEventDestination",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1048,13 +1365,14 @@ func CfnConfigurationSetEventDestination_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnConfigurationSetEventDestination_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnConfigurationSetEventDestination",
+		"monocdk.aws_ses.CfnConfigurationSetEventDestination",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1063,17 +1381,15 @@ func CfnConfigurationSetEventDestination_IsCfnResource(construct constructs.ICon
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnConfigurationSetEventDestination_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnConfigurationSetEventDestination",
+		"monocdk.aws_ses.CfnConfigurationSetEventDestination",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1086,7 +1402,7 @@ func CfnConfigurationSetEventDestination_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ses.CfnConfigurationSetEventDestination",
+		"monocdk.aws_ses.CfnConfigurationSetEventDestination",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1183,11 +1499,48 @@ func (c *jsiiProxy_CfnConfigurationSetEventDestination) Inspect(inspector awscdk
 	)
 }
 
+func (c *jsiiProxy_CfnConfigurationSetEventDestination) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnConfigurationSetEventDestination) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnConfigurationSetEventDestination) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnConfigurationSetEventDestination) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnConfigurationSetEventDestination) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1217,12 +1570,33 @@ func (c *jsiiProxy_CfnConfigurationSetEventDestination) ShouldSynthesize() *bool
 	return returns
 }
 
+func (c *jsiiProxy_CfnConfigurationSetEventDestination) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnConfigurationSetEventDestination) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnConfigurationSetEventDestination) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1452,9 +1826,11 @@ type CfnContactList interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// The name of the contact list.
 	ContactListName() *string
@@ -1462,6 +1838,7 @@ type CfnContactList interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// A description of what the contact list is about.
 	Description() *string
@@ -1475,17 +1852,21 @@ type CfnContactList interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// The tags associated with a contact list.
 	Tags() awscdk.TagManager
@@ -1498,13 +1879,16 @@ type CfnContactList interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1513,6 +1897,7 @@ type CfnContactList interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1557,12 +1942,15 @@ type CfnContactList interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1573,11 +1961,13 @@ type CfnContactList interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1586,21 +1976,74 @@ type CfnContactList interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1680,8 +2123,8 @@ func (j *jsiiProxy_CfnContactList) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContactList) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnContactList) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1742,13 +2185,13 @@ func (j *jsiiProxy_CfnContactList) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::SES::ContactList`.
-func NewCfnContactList(scope constructs.Construct, id *string, props *CfnContactListProps) CfnContactList {
+func NewCfnContactList(scope awscdk.Construct, id *string, props *CfnContactListProps) CfnContactList {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnContactList{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses.CfnContactList",
+		"monocdk.aws_ses.CfnContactList",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1757,11 +2200,11 @@ func NewCfnContactList(scope constructs.Construct, id *string, props *CfnContact
 }
 
 // Create a new `AWS::SES::ContactList`.
-func NewCfnContactList_Override(c CfnContactList, scope constructs.Construct, id *string, props *CfnContactListProps) {
+func NewCfnContactList_Override(c CfnContactList, scope awscdk.Construct, id *string, props *CfnContactListProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses.CfnContactList",
+		"monocdk.aws_ses.CfnContactList",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1797,13 +2240,14 @@ func (j *jsiiProxy_CfnContactList) SetTopics(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnContactList_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnContactList",
+		"monocdk.aws_ses.CfnContactList",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1813,13 +2257,14 @@ func CfnContactList_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnContactList_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnContactList",
+		"monocdk.aws_ses.CfnContactList",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1828,17 +2273,15 @@ func CfnContactList_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnContactList_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnContactList",
+		"monocdk.aws_ses.CfnContactList",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1851,7 +2294,7 @@ func CfnContactList_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ses.CfnContactList",
+		"monocdk.aws_ses.CfnContactList",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1948,11 +2391,48 @@ func (c *jsiiProxy_CfnContactList) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+func (c *jsiiProxy_CfnContactList) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnContactList) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnContactList) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnContactList) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnContactList) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1982,12 +2462,33 @@ func (c *jsiiProxy_CfnContactList) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnContactList) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnContactList) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnContactList) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2089,13 +2590,16 @@ type CfnReceiptFilter interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// A data structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.
 	Filter() interface{}
@@ -2109,29 +2613,36 @@ type CfnReceiptFilter interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2140,6 +2651,7 @@ type CfnReceiptFilter interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -2184,12 +2696,15 @@ type CfnReceiptFilter interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -2200,11 +2715,13 @@ type CfnReceiptFilter interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2213,21 +2730,74 @@ type CfnReceiptFilter interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2297,8 +2867,8 @@ func (j *jsiiProxy_CfnReceiptFilter) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReceiptFilter) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnReceiptFilter) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2339,13 +2909,13 @@ func (j *jsiiProxy_CfnReceiptFilter) UpdatedProperites() *map[string]interface{}
 
 
 // Create a new `AWS::SES::ReceiptFilter`.
-func NewCfnReceiptFilter(scope constructs.Construct, id *string, props *CfnReceiptFilterProps) CfnReceiptFilter {
+func NewCfnReceiptFilter(scope awscdk.Construct, id *string, props *CfnReceiptFilterProps) CfnReceiptFilter {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnReceiptFilter{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses.CfnReceiptFilter",
+		"monocdk.aws_ses.CfnReceiptFilter",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2354,11 +2924,11 @@ func NewCfnReceiptFilter(scope constructs.Construct, id *string, props *CfnRecei
 }
 
 // Create a new `AWS::SES::ReceiptFilter`.
-func NewCfnReceiptFilter_Override(c CfnReceiptFilter, scope constructs.Construct, id *string, props *CfnReceiptFilterProps) {
+func NewCfnReceiptFilter_Override(c CfnReceiptFilter, scope awscdk.Construct, id *string, props *CfnReceiptFilterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses.CfnReceiptFilter",
+		"monocdk.aws_ses.CfnReceiptFilter",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2378,13 +2948,14 @@ func (j *jsiiProxy_CfnReceiptFilter) SetFilter(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnReceiptFilter_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnReceiptFilter",
+		"monocdk.aws_ses.CfnReceiptFilter",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2394,13 +2965,14 @@ func CfnReceiptFilter_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnReceiptFilter_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnReceiptFilter",
+		"monocdk.aws_ses.CfnReceiptFilter",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2409,17 +2981,15 @@ func CfnReceiptFilter_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnReceiptFilter_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnReceiptFilter",
+		"monocdk.aws_ses.CfnReceiptFilter",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2432,7 +3002,7 @@ func CfnReceiptFilter_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ses.CfnReceiptFilter",
+		"monocdk.aws_ses.CfnReceiptFilter",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2529,11 +3099,48 @@ func (c *jsiiProxy_CfnReceiptFilter) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+func (c *jsiiProxy_CfnReceiptFilter) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnReceiptFilter) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnReceiptFilter) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnReceiptFilter) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnReceiptFilter) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2563,12 +3170,33 @@ func (c *jsiiProxy_CfnReceiptFilter) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnReceiptFilter) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnReceiptFilter) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnReceiptFilter) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2729,13 +3357,16 @@ type CfnReceiptRule interface {
 	After() *string
 	SetAfter(val *string)
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -2746,13 +3377,16 @@ type CfnReceiptRule interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy.
 	Rule() interface{}
@@ -2763,18 +3397,22 @@ type CfnReceiptRule interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2783,6 +3421,7 @@ type CfnReceiptRule interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -2827,12 +3466,15 @@ type CfnReceiptRule interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -2843,11 +3485,13 @@ type CfnReceiptRule interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2856,21 +3500,74 @@ type CfnReceiptRule interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2940,8 +3637,8 @@ func (j *jsiiProxy_CfnReceiptRule) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReceiptRule) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnReceiptRule) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3002,13 +3699,13 @@ func (j *jsiiProxy_CfnReceiptRule) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::SES::ReceiptRule`.
-func NewCfnReceiptRule(scope constructs.Construct, id *string, props *CfnReceiptRuleProps) CfnReceiptRule {
+func NewCfnReceiptRule(scope awscdk.Construct, id *string, props *CfnReceiptRuleProps) CfnReceiptRule {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnReceiptRule{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses.CfnReceiptRule",
+		"monocdk.aws_ses.CfnReceiptRule",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3017,11 +3714,11 @@ func NewCfnReceiptRule(scope constructs.Construct, id *string, props *CfnReceipt
 }
 
 // Create a new `AWS::SES::ReceiptRule`.
-func NewCfnReceiptRule_Override(c CfnReceiptRule, scope constructs.Construct, id *string, props *CfnReceiptRuleProps) {
+func NewCfnReceiptRule_Override(c CfnReceiptRule, scope awscdk.Construct, id *string, props *CfnReceiptRuleProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses.CfnReceiptRule",
+		"monocdk.aws_ses.CfnReceiptRule",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3057,13 +3754,14 @@ func (j *jsiiProxy_CfnReceiptRule) SetRuleSetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnReceiptRule_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnReceiptRule",
+		"monocdk.aws_ses.CfnReceiptRule",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3073,13 +3771,14 @@ func CfnReceiptRule_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnReceiptRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnReceiptRule",
+		"monocdk.aws_ses.CfnReceiptRule",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3088,17 +3787,15 @@ func CfnReceiptRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnReceiptRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnReceiptRule",
+		"monocdk.aws_ses.CfnReceiptRule",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3111,7 +3808,7 @@ func CfnReceiptRule_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ses.CfnReceiptRule",
+		"monocdk.aws_ses.CfnReceiptRule",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3208,11 +3905,48 @@ func (c *jsiiProxy_CfnReceiptRule) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+func (c *jsiiProxy_CfnReceiptRule) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnReceiptRule) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnReceiptRule) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnReceiptRule) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnReceiptRule) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3242,12 +3976,33 @@ func (c *jsiiProxy_CfnReceiptRule) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnReceiptRule) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnReceiptRule) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnReceiptRule) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3750,13 +4505,16 @@ type CfnReceiptRuleSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -3767,13 +4525,16 @@ type CfnReceiptRuleSet interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// The name of the receipt rule set to reorder.
 	RuleSetName() *string
@@ -3781,18 +4542,22 @@ type CfnReceiptRuleSet interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -3801,6 +4566,7 @@ type CfnReceiptRuleSet interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -3845,12 +4611,15 @@ type CfnReceiptRuleSet interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -3861,11 +4630,13 @@ type CfnReceiptRuleSet interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -3874,21 +4645,74 @@ type CfnReceiptRuleSet interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -3948,8 +4772,8 @@ func (j *jsiiProxy_CfnReceiptRuleSet) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReceiptRuleSet) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnReceiptRuleSet) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4000,13 +4824,13 @@ func (j *jsiiProxy_CfnReceiptRuleSet) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::SES::ReceiptRuleSet`.
-func NewCfnReceiptRuleSet(scope constructs.Construct, id *string, props *CfnReceiptRuleSetProps) CfnReceiptRuleSet {
+func NewCfnReceiptRuleSet(scope awscdk.Construct, id *string, props *CfnReceiptRuleSetProps) CfnReceiptRuleSet {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnReceiptRuleSet{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses.CfnReceiptRuleSet",
+		"monocdk.aws_ses.CfnReceiptRuleSet",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4015,11 +4839,11 @@ func NewCfnReceiptRuleSet(scope constructs.Construct, id *string, props *CfnRece
 }
 
 // Create a new `AWS::SES::ReceiptRuleSet`.
-func NewCfnReceiptRuleSet_Override(c CfnReceiptRuleSet, scope constructs.Construct, id *string, props *CfnReceiptRuleSetProps) {
+func NewCfnReceiptRuleSet_Override(c CfnReceiptRuleSet, scope awscdk.Construct, id *string, props *CfnReceiptRuleSetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses.CfnReceiptRuleSet",
+		"monocdk.aws_ses.CfnReceiptRuleSet",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4039,13 +4863,14 @@ func (j *jsiiProxy_CfnReceiptRuleSet) SetRuleSetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnReceiptRuleSet_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnReceiptRuleSet",
+		"monocdk.aws_ses.CfnReceiptRuleSet",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4055,13 +4880,14 @@ func CfnReceiptRuleSet_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnReceiptRuleSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnReceiptRuleSet",
+		"monocdk.aws_ses.CfnReceiptRuleSet",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4070,17 +4896,15 @@ func CfnReceiptRuleSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnReceiptRuleSet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnReceiptRuleSet",
+		"monocdk.aws_ses.CfnReceiptRuleSet",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4093,7 +4917,7 @@ func CfnReceiptRuleSet_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ses.CfnReceiptRuleSet",
+		"monocdk.aws_ses.CfnReceiptRuleSet",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4190,11 +5014,48 @@ func (c *jsiiProxy_CfnReceiptRuleSet) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+func (c *jsiiProxy_CfnReceiptRuleSet) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnReceiptRuleSet) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnReceiptRuleSet) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnReceiptRuleSet) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnReceiptRuleSet) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -4224,12 +5085,33 @@ func (c *jsiiProxy_CfnReceiptRuleSet) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnReceiptRuleSet) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnReceiptRuleSet) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnReceiptRuleSet) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4280,13 +5162,16 @@ type CfnTemplate interface {
 	awscdk.IInspectable
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -4297,17 +5182,21 @@ type CfnTemplate interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// The content of the email, composed of a subject line and either an HTML part or a text-only part.
 	Template() interface{}
@@ -4316,13 +5205,16 @@ type CfnTemplate interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -4331,6 +5223,7 @@ type CfnTemplate interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -4375,12 +5268,15 @@ type CfnTemplate interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -4391,11 +5287,13 @@ type CfnTemplate interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -4404,21 +5302,74 @@ type CfnTemplate interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -4488,8 +5439,8 @@ func (j *jsiiProxy_CfnTemplate) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTemplate) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnTemplate) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4540,13 +5491,13 @@ func (j *jsiiProxy_CfnTemplate) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::SES::Template`.
-func NewCfnTemplate(scope constructs.Construct, id *string, props *CfnTemplateProps) CfnTemplate {
+func NewCfnTemplate(scope awscdk.Construct, id *string, props *CfnTemplateProps) CfnTemplate {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnTemplate{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses.CfnTemplate",
+		"monocdk.aws_ses.CfnTemplate",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4555,11 +5506,11 @@ func NewCfnTemplate(scope constructs.Construct, id *string, props *CfnTemplatePr
 }
 
 // Create a new `AWS::SES::Template`.
-func NewCfnTemplate_Override(c CfnTemplate, scope constructs.Construct, id *string, props *CfnTemplateProps) {
+func NewCfnTemplate_Override(c CfnTemplate, scope awscdk.Construct, id *string, props *CfnTemplateProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses.CfnTemplate",
+		"monocdk.aws_ses.CfnTemplate",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4579,13 +5530,14 @@ func (j *jsiiProxy_CfnTemplate) SetTemplate(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnTemplate_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnTemplate",
+		"monocdk.aws_ses.CfnTemplate",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4595,13 +5547,14 @@ func CfnTemplate_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnTemplate_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnTemplate",
+		"monocdk.aws_ses.CfnTemplate",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4610,17 +5563,15 @@ func CfnTemplate_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnTemplate_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnTemplate",
+		"monocdk.aws_ses.CfnTemplate",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4633,7 +5584,7 @@ func CfnTemplate_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ses.CfnTemplate",
+		"monocdk.aws_ses.CfnTemplate",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4730,11 +5681,48 @@ func (c *jsiiProxy_CfnTemplate) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+func (c *jsiiProxy_CfnTemplate) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnTemplate) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnTemplate) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnTemplate) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnTemplate) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -4764,12 +5752,33 @@ func (c *jsiiProxy_CfnTemplate) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnTemplate) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnTemplate) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnTemplate) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4856,22 +5865,74 @@ type CfnTemplateProps struct {
 //
 // See: https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-lambda-example-functions.html
 //
+// Experimental.
 type DropSpamReceiptRule interface {
-	constructs.Construct
-	// The tree node.
-	Node() constructs.Node
+	awscdk.Construct
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Experimental.
 	Rule() ReceiptRule
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for DropSpamReceiptRule
 type jsiiProxy_DropSpamReceiptRule struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
-func (j *jsiiProxy_DropSpamReceiptRule) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DropSpamReceiptRule) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4891,13 +5952,14 @@ func (j *jsiiProxy_DropSpamReceiptRule) Rule() ReceiptRule {
 }
 
 
+// Experimental.
 func NewDropSpamReceiptRule(scope constructs.Construct, id *string, props *DropSpamReceiptRuleProps) DropSpamReceiptRule {
 	_init_.Initialize()
 
 	j := jsiiProxy_DropSpamReceiptRule{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses.DropSpamReceiptRule",
+		"monocdk.aws_ses.DropSpamReceiptRule",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4905,27 +5967,26 @@ func NewDropSpamReceiptRule(scope constructs.Construct, id *string, props *DropS
 	return &j
 }
 
+// Experimental.
 func NewDropSpamReceiptRule_Override(d DropSpamReceiptRule, scope constructs.Construct, id *string, props *DropSpamReceiptRuleProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses.DropSpamReceiptRule",
+		"monocdk.aws_ses.DropSpamReceiptRule",
 		[]interface{}{scope, id, props},
 		d,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func DropSpamReceiptRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.DropSpamReceiptRule",
+		"monocdk.aws_ses.DropSpamReceiptRule",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4934,12 +5995,70 @@ func DropSpamReceiptRule_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func (d *jsiiProxy_DropSpamReceiptRule) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (d *jsiiProxy_DropSpamReceiptRule) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (d *jsiiProxy_DropSpamReceiptRule) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DropSpamReceiptRule) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (d *jsiiProxy_DropSpamReceiptRule) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (d *jsiiProxy_DropSpamReceiptRule) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		d,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DropSpamReceiptRule) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4970,29 +6089,40 @@ func (d *jsiiProxy_DropSpamReceiptRule) ToString() *string {
 //   	tlsPolicy: ses.tlsPolicy_OPTIONAL,
 //   }
 //
+// Experimental.
 type DropSpamReceiptRuleProps struct {
 	// An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
+	// Experimental.
 	Actions *[]IReceiptRuleAction `json:"actions" yaml:"actions"`
 	// An existing rule after which the new rule will be placed.
+	// Experimental.
 	After IReceiptRule `json:"after" yaml:"after"`
 	// Whether the rule is active.
+	// Experimental.
 	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The name for the rule.
+	// Experimental.
 	ReceiptRuleName *string `json:"receiptRuleName" yaml:"receiptRuleName"`
 	// The recipient domains and email addresses that the receipt rule applies to.
+	// Experimental.
 	Recipients *[]*string `json:"recipients" yaml:"recipients"`
 	// Whether to scan for spam and viruses.
+	// Experimental.
 	ScanEnabled *bool `json:"scanEnabled" yaml:"scanEnabled"`
 	// Whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS).
+	// Experimental.
 	TlsPolicy TlsPolicy `json:"tlsPolicy" yaml:"tlsPolicy"`
 	// The name of the rule set that the receipt rule will be added to.
+	// Experimental.
 	RuleSet IReceiptRuleSet `json:"ruleSet" yaml:"ruleSet"`
 }
 
 // A receipt rule.
+// Experimental.
 type IReceiptRule interface {
 	awscdk.IResource
 	// The name of the receipt rule.
+	// Experimental.
 	ReceiptRuleName() *string
 }
 
@@ -5012,8 +6142,10 @@ func (j *jsiiProxy_IReceiptRule) ReceiptRuleName() *string {
 }
 
 // An abstract action for a receipt rule.
+// Experimental.
 type IReceiptRuleAction interface {
 	// Returns the receipt rule action specification.
+	// Experimental.
 	Bind(receiptRule IReceiptRule) *ReceiptRuleActionConfig
 }
 
@@ -5036,14 +6168,17 @@ func (i *jsiiProxy_IReceiptRuleAction) Bind(receiptRule IReceiptRule) *ReceiptRu
 }
 
 // A receipt rule set.
+// Experimental.
 type IReceiptRuleSet interface {
 	awscdk.IResource
 	// Adds a new receipt rule in this rule set.
 	//
 	// The new rule is added after
 	// the last added rule unless `after` is specified.
+	// Experimental.
 	AddRule(id *string, options *ReceiptRuleOptions) ReceiptRule
 	// The receipt rule set name.
+	// Experimental.
 	ReceiptRuleSetName() *string
 }
 
@@ -5087,12 +6222,16 @@ func (j *jsiiProxy_IReceiptRuleSet) ReceiptRuleSetName() *string {
 //   	topicArn: jsii.String("topicArn"),
 //   }
 //
+// Experimental.
 type LambdaActionConfig struct {
 	// The Amazon Resource Name (ARN) of the AWS Lambda function.
+	// Experimental.
 	FunctionArn *string `json:"functionArn" yaml:"functionArn"`
 	// The invocation type of the AWS Lambda function.
+	// Experimental.
 	InvocationType *string `json:"invocationType" yaml:"invocationType"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is executed.
+	// Experimental.
 	TopicArn *string `json:"topicArn" yaml:"topicArn"`
 }
 
@@ -5106,6 +6245,7 @@ type LambdaActionConfig struct {
 //   	ip: jsii.String("1.2.3.4/16"),
 //   })
 //
+// Experimental.
 type ReceiptFilter interface {
 	awscdk.Resource
 	// The environment this resource belongs to.
@@ -5116,9 +6256,11 @@ type ReceiptFilter interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -5126,8 +6268,10 @@ type ReceiptFilter interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
 	//
@@ -5138,7 +6282,9 @@ type ReceiptFilter interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -5146,15 +6292,66 @@ type ReceiptFilter interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ReceiptFilter
@@ -5172,8 +6369,8 @@ func (j *jsiiProxy_ReceiptFilter) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_ReceiptFilter) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ReceiptFilter) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5203,13 +6400,14 @@ func (j *jsiiProxy_ReceiptFilter) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewReceiptFilter(scope constructs.Construct, id *string, props *ReceiptFilterProps) ReceiptFilter {
 	_init_.Initialize()
 
 	j := jsiiProxy_ReceiptFilter{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses.ReceiptFilter",
+		"monocdk.aws_ses.ReceiptFilter",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5217,27 +6415,26 @@ func NewReceiptFilter(scope constructs.Construct, id *string, props *ReceiptFilt
 	return &j
 }
 
+// Experimental.
 func NewReceiptFilter_Override(r ReceiptFilter, scope constructs.Construct, id *string, props *ReceiptFilterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses.ReceiptFilter",
+		"monocdk.aws_ses.ReceiptFilter",
 		[]interface{}{scope, id, props},
 		r,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func ReceiptFilter_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.ReceiptFilter",
+		"monocdk.aws_ses.ReceiptFilter",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5247,13 +6444,14 @@ func ReceiptFilter_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func ReceiptFilter_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func ReceiptFilter_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.ReceiptFilter",
+		"monocdk.aws_ses.ReceiptFilter",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -5309,6 +6507,51 @@ func (r *jsiiProxy_ReceiptFilter) GetResourceNameAttribute(nameAttr *string) *st
 	return returns
 }
 
+func (r *jsiiProxy_ReceiptFilter) OnPrepare() {
+	_jsii_.InvokeVoid(
+		r,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (r *jsiiProxy_ReceiptFilter) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		r,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (r *jsiiProxy_ReceiptFilter) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		r,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (r *jsiiProxy_ReceiptFilter) Prepare() {
+	_jsii_.InvokeVoid(
+		r,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (r *jsiiProxy_ReceiptFilter) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		r,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (r *jsiiProxy_ReceiptFilter) ToString() *string {
 	var returns *string
 
@@ -5322,13 +6565,29 @@ func (r *jsiiProxy_ReceiptFilter) ToString() *string {
 	return returns
 }
 
+func (r *jsiiProxy_ReceiptFilter) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		r,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // The policy for the receipt filter.
+// Experimental.
 type ReceiptFilterPolicy string
 
 const (
 	// Allow the ip address or range.
+	// Experimental.
 	ReceiptFilterPolicy_ALLOW ReceiptFilterPolicy = "ALLOW"
 	// Block the ip address or range.
+	// Experimental.
 	ReceiptFilterPolicy_BLOCK ReceiptFilterPolicy = "BLOCK"
 )
 
@@ -5339,12 +6598,16 @@ const (
 //   	ip: jsii.String("1.2.3.4/16"),
 //   })
 //
+// Experimental.
 type ReceiptFilterProps struct {
 	// The ip address or range to filter.
+	// Experimental.
 	Ip *string `json:"ip" yaml:"ip"`
 	// The policy for the filter.
+	// Experimental.
 	Policy ReceiptFilterPolicy `json:"policy" yaml:"policy"`
 	// The name for the receipt filter.
+	// Experimental.
 	ReceiptFilterName *string `json:"receiptFilterName" yaml:"receiptFilterName"`
 }
 
@@ -5359,6 +6622,7 @@ type ReceiptFilterProps struct {
 //   	},
 //   })
 //
+// Experimental.
 type ReceiptRule interface {
 	awscdk.Resource
 	IReceiptRule
@@ -5370,9 +6634,11 @@ type ReceiptRule interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -5380,12 +6646,16 @@ type ReceiptRule interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The name of the receipt rule.
+	// Experimental.
 	ReceiptRuleName() *string
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// Adds an action to this receipt rule.
+	// Experimental.
 	AddAction(action IReceiptRuleAction)
 	// Apply the given removal policy to this resource.
 	//
@@ -5396,7 +6666,9 @@ type ReceiptRule interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -5404,15 +6676,66 @@ type ReceiptRule interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ReceiptRule
@@ -5431,8 +6754,8 @@ func (j *jsiiProxy_ReceiptRule) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_ReceiptRule) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ReceiptRule) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5472,13 +6795,14 @@ func (j *jsiiProxy_ReceiptRule) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewReceiptRule(scope constructs.Construct, id *string, props *ReceiptRuleProps) ReceiptRule {
 	_init_.Initialize()
 
 	j := jsiiProxy_ReceiptRule{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses.ReceiptRule",
+		"monocdk.aws_ses.ReceiptRule",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5486,23 +6810,25 @@ func NewReceiptRule(scope constructs.Construct, id *string, props *ReceiptRulePr
 	return &j
 }
 
+// Experimental.
 func NewReceiptRule_Override(r ReceiptRule, scope constructs.Construct, id *string, props *ReceiptRuleProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses.ReceiptRule",
+		"monocdk.aws_ses.ReceiptRule",
 		[]interface{}{scope, id, props},
 		r,
 	)
 }
 
+// Experimental.
 func ReceiptRule_FromReceiptRuleName(scope constructs.Construct, id *string, receiptRuleName *string) IReceiptRule {
 	_init_.Initialize()
 
 	var returns IReceiptRule
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.ReceiptRule",
+		"monocdk.aws_ses.ReceiptRule",
 		"fromReceiptRuleName",
 		[]interface{}{scope, id, receiptRuleName},
 		&returns,
@@ -5511,17 +6837,15 @@ func ReceiptRule_FromReceiptRuleName(scope constructs.Construct, id *string, rec
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func ReceiptRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.ReceiptRule",
+		"monocdk.aws_ses.ReceiptRule",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5531,13 +6855,14 @@ func ReceiptRule_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func ReceiptRule_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func ReceiptRule_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.ReceiptRule",
+		"monocdk.aws_ses.ReceiptRule",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -5601,12 +6926,70 @@ func (r *jsiiProxy_ReceiptRule) GetResourceNameAttribute(nameAttr *string) *stri
 	return returns
 }
 
+func (r *jsiiProxy_ReceiptRule) OnPrepare() {
+	_jsii_.InvokeVoid(
+		r,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (r *jsiiProxy_ReceiptRule) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		r,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (r *jsiiProxy_ReceiptRule) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		r,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (r *jsiiProxy_ReceiptRule) Prepare() {
+	_jsii_.InvokeVoid(
+		r,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (r *jsiiProxy_ReceiptRule) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		r,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (r *jsiiProxy_ReceiptRule) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		r,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (r *jsiiProxy_ReceiptRule) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		r,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5665,20 +7048,28 @@ func (r *jsiiProxy_ReceiptRule) ToString() *string {
 //   	},
 //   }
 //
+// Experimental.
 type ReceiptRuleActionConfig struct {
 	// Adds a header to the received email.
+	// Experimental.
 	AddHeaderAction *AddHeaderActionConfig `json:"addHeaderAction" yaml:"addHeaderAction"`
 	// Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon SNS.
+	// Experimental.
 	BounceAction *BounceActionConfig `json:"bounceAction" yaml:"bounceAction"`
 	// Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.
+	// Experimental.
 	LambdaAction *LambdaActionConfig `json:"lambdaAction" yaml:"lambdaAction"`
 	// Saves the received message to an Amazon S3 bucket and, optionally, publishes a notification to Amazon SNS.
+	// Experimental.
 	S3Action *S3ActionConfig `json:"s3Action" yaml:"s3Action"`
 	// Publishes the email content within a notification to Amazon SNS.
+	// Experimental.
 	SnsAction *SNSActionConfig `json:"snsAction" yaml:"snsAction"`
 	// Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.
+	// Experimental.
 	StopAction *StopActionConfig `json:"stopAction" yaml:"stopAction"`
 	// Calls Amazon WorkMail and, optionally, publishes a notification to Amazon SNS.
+	// Experimental.
 	WorkmailAction *WorkmailActionConfig `json:"workmailAction" yaml:"workmailAction"`
 }
 
@@ -5693,20 +7084,28 @@ type ReceiptRuleActionConfig struct {
 //   	},
 //   })
 //
+// Experimental.
 type ReceiptRuleOptions struct {
 	// An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
+	// Experimental.
 	Actions *[]IReceiptRuleAction `json:"actions" yaml:"actions"`
 	// An existing rule after which the new rule will be placed.
+	// Experimental.
 	After IReceiptRule `json:"after" yaml:"after"`
 	// Whether the rule is active.
+	// Experimental.
 	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The name for the rule.
+	// Experimental.
 	ReceiptRuleName *string `json:"receiptRuleName" yaml:"receiptRuleName"`
 	// The recipient domains and email addresses that the receipt rule applies to.
+	// Experimental.
 	Recipients *[]*string `json:"recipients" yaml:"recipients"`
 	// Whether to scan for spam and viruses.
+	// Experimental.
 	ScanEnabled *bool `json:"scanEnabled" yaml:"scanEnabled"`
 	// Whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS).
+	// Experimental.
 	TlsPolicy TlsPolicy `json:"tlsPolicy" yaml:"tlsPolicy"`
 }
 
@@ -5735,22 +7134,31 @@ type ReceiptRuleOptions struct {
 //   	tlsPolicy: ses.tlsPolicy_OPTIONAL,
 //   }
 //
+// Experimental.
 type ReceiptRuleProps struct {
 	// An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
+	// Experimental.
 	Actions *[]IReceiptRuleAction `json:"actions" yaml:"actions"`
 	// An existing rule after which the new rule will be placed.
+	// Experimental.
 	After IReceiptRule `json:"after" yaml:"after"`
 	// Whether the rule is active.
+	// Experimental.
 	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The name for the rule.
+	// Experimental.
 	ReceiptRuleName *string `json:"receiptRuleName" yaml:"receiptRuleName"`
 	// The recipient domains and email addresses that the receipt rule applies to.
+	// Experimental.
 	Recipients *[]*string `json:"recipients" yaml:"recipients"`
 	// Whether to scan for spam and viruses.
+	// Experimental.
 	ScanEnabled *bool `json:"scanEnabled" yaml:"scanEnabled"`
 	// Whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS).
+	// Experimental.
 	TlsPolicy TlsPolicy `json:"tlsPolicy" yaml:"tlsPolicy"`
 	// The name of the rule set that the receipt rule will be added to.
+	// Experimental.
 	RuleSet IReceiptRuleSet `json:"ruleSet" yaml:"ruleSet"`
 }
 
@@ -5765,6 +7173,7 @@ type ReceiptRuleProps struct {
 //   	},
 //   })
 //
+// Experimental.
 type ReceiptRuleSet interface {
 	awscdk.Resource
 	IReceiptRuleSet
@@ -5776,9 +7185,11 @@ type ReceiptRuleSet interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -5786,17 +7197,22 @@ type ReceiptRuleSet interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The receipt rule set name.
+	// Experimental.
 	ReceiptRuleSetName() *string
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// Adds a drop spam rule.
+	// Experimental.
 	AddDropSpamRule()
 	// Adds a new receipt rule in this rule set.
 	//
 	// The new rule is added after
 	// the last added rule unless `after` is specified.
+	// Experimental.
 	AddRule(id *string, options *ReceiptRuleOptions) ReceiptRule
 	// Apply the given removal policy to this resource.
 	//
@@ -5807,7 +7223,9 @@ type ReceiptRuleSet interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -5815,15 +7233,66 @@ type ReceiptRuleSet interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ReceiptRuleSet
@@ -5842,8 +7311,8 @@ func (j *jsiiProxy_ReceiptRuleSet) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_ReceiptRuleSet) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ReceiptRuleSet) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5883,13 +7352,14 @@ func (j *jsiiProxy_ReceiptRuleSet) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewReceiptRuleSet(scope constructs.Construct, id *string, props *ReceiptRuleSetProps) ReceiptRuleSet {
 	_init_.Initialize()
 
 	j := jsiiProxy_ReceiptRuleSet{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses.ReceiptRuleSet",
+		"monocdk.aws_ses.ReceiptRuleSet",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5897,24 +7367,26 @@ func NewReceiptRuleSet(scope constructs.Construct, id *string, props *ReceiptRul
 	return &j
 }
 
+// Experimental.
 func NewReceiptRuleSet_Override(r ReceiptRuleSet, scope constructs.Construct, id *string, props *ReceiptRuleSetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses.ReceiptRuleSet",
+		"monocdk.aws_ses.ReceiptRuleSet",
 		[]interface{}{scope, id, props},
 		r,
 	)
 }
 
 // Import an exported receipt rule set.
+// Experimental.
 func ReceiptRuleSet_FromReceiptRuleSetName(scope constructs.Construct, id *string, receiptRuleSetName *string) IReceiptRuleSet {
 	_init_.Initialize()
 
 	var returns IReceiptRuleSet
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.ReceiptRuleSet",
+		"monocdk.aws_ses.ReceiptRuleSet",
 		"fromReceiptRuleSetName",
 		[]interface{}{scope, id, receiptRuleSetName},
 		&returns,
@@ -5923,17 +7395,15 @@ func ReceiptRuleSet_FromReceiptRuleSetName(scope constructs.Construct, id *strin
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func ReceiptRuleSet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.ReceiptRuleSet",
+		"monocdk.aws_ses.ReceiptRuleSet",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5943,13 +7413,14 @@ func ReceiptRuleSet_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func ReceiptRuleSet_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func ReceiptRuleSet_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.ReceiptRuleSet",
+		"monocdk.aws_ses.ReceiptRuleSet",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -6026,12 +7497,70 @@ func (r *jsiiProxy_ReceiptRuleSet) GetResourceNameAttribute(nameAttr *string) *s
 	return returns
 }
 
+func (r *jsiiProxy_ReceiptRuleSet) OnPrepare() {
+	_jsii_.InvokeVoid(
+		r,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (r *jsiiProxy_ReceiptRuleSet) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		r,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (r *jsiiProxy_ReceiptRuleSet) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		r,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (r *jsiiProxy_ReceiptRuleSet) Prepare() {
+	_jsii_.InvokeVoid(
+		r,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (r *jsiiProxy_ReceiptRuleSet) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		r,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (r *jsiiProxy_ReceiptRuleSet) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		r,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (r *jsiiProxy_ReceiptRuleSet) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		r,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6078,15 +7607,19 @@ func (r *jsiiProxy_ReceiptRuleSet) ToString() *string {
 //   	},
 //   })
 //
+// Experimental.
 type ReceiptRuleSetProps struct {
 	// Whether to add a first rule to stop processing messages that have at least one spam indicator.
+	// Experimental.
 	DropSpam *bool `json:"dropSpam" yaml:"dropSpam"`
 	// The name for the receipt rule set.
+	// Experimental.
 	ReceiptRuleSetName *string `json:"receiptRuleSetName" yaml:"receiptRuleSetName"`
 	// The list of rules to add to this rule set.
 	//
 	// Rules are added in the same
 	// order as they appear in the list.
+	// Experimental.
 	Rules *[]*ReceiptRuleOptions `json:"rules" yaml:"rules"`
 }
 
@@ -6103,14 +7636,19 @@ type ReceiptRuleSetProps struct {
 //   	topicArn: jsii.String("topicArn"),
 //   }
 //
+// Experimental.
 type S3ActionConfig struct {
 	// The name of the Amazon S3 bucket that you want to send incoming mail to.
+	// Experimental.
 	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket.
+	// Experimental.
 	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// The key prefix of the Amazon S3 bucket.
+	// Experimental.
 	ObjectKeyPrefix *string `json:"objectKeyPrefix" yaml:"objectKeyPrefix"`
 	// The ARN of the Amazon SNS topic to notify when the message is saved to the Amazon S3 bucket.
+	// Experimental.
 	TopicArn *string `json:"topicArn" yaml:"topicArn"`
 }
 
@@ -6123,10 +7661,13 @@ type S3ActionConfig struct {
 //   	topicArn: jsii.String("topicArn"),
 //   }
 //
+// Experimental.
 type SNSActionConfig struct {
 	// The encoding to use for the email within the Amazon SNS notification.
+	// Experimental.
 	Encoding *string `json:"encoding" yaml:"encoding"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify.
+	// Experimental.
 	TopicArn *string `json:"topicArn" yaml:"topicArn"`
 }
 
@@ -6141,24 +7682,246 @@ type SNSActionConfig struct {
 //   	topicArn: jsii.String("topicArn"),
 //   }
 //
+// Experimental.
 type StopActionConfig struct {
 	// The scope of the StopAction.
 	//
 	// The only acceptable value is RuleSet.
+	// Experimental.
 	Scope *string `json:"scope" yaml:"scope"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken.
+	// Experimental.
 	TopicArn *string `json:"topicArn" yaml:"topicArn"`
 }
 
 // The type of TLS policy for a receipt rule.
+// Experimental.
 type TlsPolicy string
 
 const (
 	// Do not check for TLS.
+	// Experimental.
 	TlsPolicy_OPTIONAL TlsPolicy = "OPTIONAL"
 	// Bounce emails that are not received over TLS.
+	// Experimental.
 	TlsPolicy_REQUIRE TlsPolicy = "REQUIRE"
 )
+
+// An allow list receipt filter.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ses "github.com/aws/aws-cdk-go/awscdk/aws_ses"
+//   whiteListReceiptFilter := ses.NewWhiteListReceiptFilter(this, jsii.String("MyWhiteListReceiptFilter"), &whiteListReceiptFilterProps{
+//   	ips: []*string{
+//   		jsii.String("ips"),
+//   	},
+//   })
+//
+// Deprecated: use `AllowListReceiptFilter`.
+type WhiteListReceiptFilter interface {
+	AllowListReceiptFilter
+	// The construct tree node associated with this construct.
+	// Deprecated: use `AllowListReceiptFilter`.
+	Node() awscdk.ConstructNode
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Deprecated: use `AllowListReceiptFilter`.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Deprecated: use `AllowListReceiptFilter`.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Deprecated: use `AllowListReceiptFilter`.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Deprecated: use `AllowListReceiptFilter`.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Deprecated: use `AllowListReceiptFilter`.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Deprecated: use `AllowListReceiptFilter`.
+	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Deprecated: use `AllowListReceiptFilter`.
+	Validate() *[]*string
+}
+
+// The jsii proxy struct for WhiteListReceiptFilter
+type jsiiProxy_WhiteListReceiptFilter struct {
+	jsiiProxy_AllowListReceiptFilter
+}
+
+func (j *jsiiProxy_WhiteListReceiptFilter) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+
+// Deprecated: use `AllowListReceiptFilter`.
+func NewWhiteListReceiptFilter(scope constructs.Construct, id *string, props *WhiteListReceiptFilterProps) WhiteListReceiptFilter {
+	_init_.Initialize()
+
+	j := jsiiProxy_WhiteListReceiptFilter{}
+
+	_jsii_.Create(
+		"monocdk.aws_ses.WhiteListReceiptFilter",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Deprecated: use `AllowListReceiptFilter`.
+func NewWhiteListReceiptFilter_Override(w WhiteListReceiptFilter, scope constructs.Construct, id *string, props *WhiteListReceiptFilterProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_ses.WhiteListReceiptFilter",
+		[]interface{}{scope, id, props},
+		w,
+	)
+}
+
+// Return whether the given object is a Construct.
+// Deprecated: use `AllowListReceiptFilter`.
+func WhiteListReceiptFilter_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ses.WhiteListReceiptFilter",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func (w *jsiiProxy_WhiteListReceiptFilter) OnPrepare() {
+	_jsii_.InvokeVoid(
+		w,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (w *jsiiProxy_WhiteListReceiptFilter) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		w,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (w *jsiiProxy_WhiteListReceiptFilter) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		w,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (w *jsiiProxy_WhiteListReceiptFilter) Prepare() {
+	_jsii_.InvokeVoid(
+		w,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (w *jsiiProxy_WhiteListReceiptFilter) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		w,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+func (w *jsiiProxy_WhiteListReceiptFilter) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		w,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (w *jsiiProxy_WhiteListReceiptFilter) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		w,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Construction properties for a WhiteListReceiptFilter.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ses "github.com/aws/aws-cdk-go/awscdk/aws_ses"
+//   whiteListReceiptFilterProps := &whiteListReceiptFilterProps{
+//   	ips: []*string{
+//   		jsii.String("ips"),
+//   	},
+//   }
+//
+// Deprecated: use `AllowListReceiptFilterProps`.
+type WhiteListReceiptFilterProps struct {
+	// A list of ip addresses or ranges to allow list.
+	// Deprecated: use `AllowListReceiptFilterProps`.
+	Ips *[]*string `json:"ips" yaml:"ips"`
+}
 
 // WorkmailAction configuration.
 //
@@ -6171,10 +7934,13 @@ const (
 //   	topicArn: jsii.String("topicArn"),
 //   }
 //
+// Experimental.
 type WorkmailActionConfig struct {
 	// The Amazon Resource Name (ARN) of the Amazon WorkMail organization.
+	// Experimental.
 	OrganizationArn *string `json:"organizationArn" yaml:"organizationArn"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called.
+	// Experimental.
 	TopicArn *string `json:"topicArn" yaml:"topicArn"`
 }
 
