@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_logs_destinations.KinesisDestination",
+		"aws-cdk-lib.aws_logs_destinations.KinesisDestination",
 		reflect.TypeOf((*KinesisDestination)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -20,11 +20,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_logs_destinations.KinesisDestinationProps",
+		"aws-cdk-lib.aws_logs_destinations.KinesisDestinationProps",
 		reflect.TypeOf((*KinesisDestinationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_logs_destinations.LambdaDestination",
+		"aws-cdk-lib.aws_logs_destinations.LambdaDestination",
 		reflect.TypeOf((*LambdaDestination)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -36,7 +36,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_logs_destinations.LambdaDestinationOptions",
+		"aws-cdk-lib.aws_logs_destinations.LambdaDestinationOptions",
 		reflect.TypeOf((*LambdaDestinationOptions)(nil)).Elem(),
 	)
 }

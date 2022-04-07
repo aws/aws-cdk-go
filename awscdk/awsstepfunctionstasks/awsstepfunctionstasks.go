@@ -1,30 +1,30 @@
 package awsstepfunctionstasks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsapigateway"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awscodebuild"
-	"github.com/aws/aws-cdk-go/awscdk/awsdynamodb"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsecr"
-	"github.com/aws/aws-cdk-go/awscdk/awsecrassets"
-	"github.com/aws/aws-cdk-go/awscdk/awsecs"
-	"github.com/aws/aws-cdk-go/awscdk/awseks"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/awssns"
-	"github.com/aws/aws-cdk-go/awscdk/awssqs"
-	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions"
-	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctionstasks/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecrassets"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awseks"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctionstasks/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // The generation of Elastic Inference (EI) instance.
@@ -35,10 +35,8 @@ import (
 //
 // See: https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html
 //
-// Experimental.
 type AcceleratorClass interface {
 	// - Elastic Inference accelerator generation.
-	// Experimental.
 	Version() *string
 }
 
@@ -59,14 +57,13 @@ func (j *jsiiProxy_AcceleratorClass) Version() *string {
 
 
 // Custom AcceleratorType.
-// Experimental.
 func AcceleratorClass_Of(version *string) AcceleratorClass {
 	_init_.Initialize()
 
 	var returns AcceleratorClass
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.AcceleratorClass",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AcceleratorClass",
 		"of",
 		[]interface{}{version},
 		&returns,
@@ -79,7 +76,7 @@ func AcceleratorClass_EIA1() AcceleratorClass {
 	_init_.Initialize()
 	var returns AcceleratorClass
 	_jsii_.StaticGet(
-		"monocdk.aws_stepfunctions_tasks.AcceleratorClass",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AcceleratorClass",
 		"EIA1",
 		&returns,
 	)
@@ -90,7 +87,7 @@ func AcceleratorClass_EIA2() AcceleratorClass {
 	_init_.Initialize()
 	var returns AcceleratorClass
 	_jsii_.StaticGet(
-		"monocdk.aws_stepfunctions_tasks.AcceleratorClass",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AcceleratorClass",
 		"EIA2",
 		&returns,
 	)
@@ -107,10 +104,8 @@ func AcceleratorClass_EIA2() AcceleratorClass {
 //
 // See: https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html
 //
-// Experimental.
 type AcceleratorType interface {
 	// Return the accelerator type as a dotted string.
-	// Experimental.
 	ToString() *string
 }
 
@@ -119,14 +114,13 @@ type jsiiProxy_AcceleratorType struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewAcceleratorType(instanceTypeIdentifier *string) AcceleratorType {
 	_init_.Initialize()
 
 	j := jsiiProxy_AcceleratorType{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.AcceleratorType",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AcceleratorType",
 		[]interface{}{instanceTypeIdentifier},
 		&j,
 	)
@@ -134,12 +128,11 @@ func NewAcceleratorType(instanceTypeIdentifier *string) AcceleratorType {
 	return &j
 }
 
-// Experimental.
 func NewAcceleratorType_Override(a AcceleratorType, instanceTypeIdentifier *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.AcceleratorType",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AcceleratorType",
 		[]interface{}{instanceTypeIdentifier},
 		a,
 	)
@@ -148,14 +141,13 @@ func NewAcceleratorType_Override(a AcceleratorType, instanceTypeIdentifier *stri
 // AcceleratorType.
 //
 // This class takes a combination of a class and size.
-// Experimental.
 func AcceleratorType_Of(acceleratorClass AcceleratorClass, instanceSize awsec2.InstanceSize) AcceleratorType {
 	_init_.Initialize()
 
 	var returns AcceleratorType
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.AcceleratorType",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AcceleratorType",
 		"of",
 		[]interface{}{acceleratorClass, instanceSize},
 		&returns,
@@ -191,18 +183,14 @@ func (a *jsiiProxy_AcceleratorType) ToString() *string {
 //
 // Here, they are named as TERMINATE_JOB_FLOW, TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE respectively.
 //
-// Experimental.
 type ActionOnFailure string
 
 const (
 	// Terminate the Cluster on Step Failure.
-	// Experimental.
 	ActionOnFailure_TERMINATE_CLUSTER ActionOnFailure = "TERMINATE_CLUSTER"
 	// Cancel Step execution and enter WAITING state.
-	// Experimental.
 	ActionOnFailure_CANCEL_AND_WAIT ActionOnFailure = "CANCEL_AND_WAIT"
 	// Continue to the next Step.
-	// Experimental.
 	ActionOnFailure_CONTINUE ActionOnFailure = "CONTINUE"
 )
 
@@ -240,24 +228,19 @@ const (
 //   	},
 //   })
 //
-// Experimental.
 type AlgorithmSpecification struct {
 	// Name of the algorithm resource to use for the training job.
 	//
 	// This must be an algorithm resource that you created or subscribe to on AWS Marketplace.
 	// If you specify a value for this parameter, you can't specify a value for TrainingImage.
-	// Experimental.
 	AlgorithmName *string `json:"algorithmName" yaml:"algorithmName"`
 	// List of metric definition objects.
 	//
 	// Each object specifies the metric name and regular expressions used to parse algorithm logs.
-	// Experimental.
 	MetricDefinitions *[]*MetricDefinition `json:"metricDefinitions" yaml:"metricDefinitions"`
 	// Registry path of the Docker image that contains the training algorithm.
-	// Experimental.
 	TrainingImage DockerImage `json:"trainingImage" yaml:"trainingImage"`
 	// Input mode that the algorithm supports.
-	// Experimental.
 	TrainingInputMode InputMode `json:"trainingInputMode" yaml:"trainingInputMode"`
 }
 
@@ -296,35 +279,28 @@ type AlgorithmSpecification struct {
 //
 // See: https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html
 //
-// Experimental.
 type ApplicationConfiguration struct {
 	// The classification within a configuration.
 	//
 	// Length Constraints: Minimum length of 1. Maximum length of 1024.
-	// Experimental.
 	Classification Classification `json:"classification" yaml:"classification"`
 	// A list of additional configurations to apply within a configuration object.
 	//
 	// Array Members: Maximum number of 100 items.
-	// Experimental.
 	NestedConfig *[]*ApplicationConfiguration `json:"nestedConfig" yaml:"nestedConfig"`
 	// A set of properties specified within a configuration classification.
 	//
 	// Map Entries: Maximum number of 100 items.
-	// Experimental.
 	Properties *map[string]*string `json:"properties" yaml:"properties"`
 }
 
 // How to assemble the results of the transform job as a single S3 object.
-// Experimental.
 type AssembleWith string
 
 const (
 	// Concatenate the results in binary format.
-	// Experimental.
 	AssembleWith_NONE AssembleWith = "NONE"
 	// Add a newline character at the end of every transformed record.
-	// Experimental.
 	AssembleWith_LINE AssembleWith = "LINE"
 )
 
@@ -337,198 +313,103 @@ const (
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-athena.html
 //
-// Experimental.
 type AthenaGetQueryExecution interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -607,8 +488,8 @@ func (j *jsiiProxy_AthenaGetQueryExecution) Iteration() awsstepfunctions.StateGr
 	return returns
 }
 
-func (j *jsiiProxy_AthenaGetQueryExecution) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_AthenaGetQueryExecution) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -698,14 +579,13 @@ func (j *jsiiProxy_AthenaGetQueryExecution) TaskPolicies() *[]awsiam.PolicyState
 }
 
 
-// Experimental.
 func NewAthenaGetQueryExecution(scope constructs.Construct, id *string, props *AthenaGetQueryExecutionProps) AthenaGetQueryExecution {
 	_init_.Initialize()
 
 	j := jsiiProxy_AthenaGetQueryExecution{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryExecution",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -713,12 +593,11 @@ func NewAthenaGetQueryExecution(scope constructs.Construct, id *string, props *A
 	return &j
 }
 
-// Experimental.
 func NewAthenaGetQueryExecution_Override(a AthenaGetQueryExecution, scope constructs.Construct, id *string, props *AthenaGetQueryExecutionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryExecution",
 		[]interface{}{scope, id, props},
 		a,
 	)
@@ -741,14 +620,13 @@ func (j *jsiiProxy_AthenaGetQueryExecution) SetIteration(val awsstepfunctions.St
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func AthenaGetQueryExecution_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryExecution",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -758,14 +636,13 @@ func AthenaGetQueryExecution_FilterNextables(states *[]awsstepfunctions.State) *
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func AthenaGetQueryExecution_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryExecution",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -777,14 +654,13 @@ func AthenaGetQueryExecution_FindReachableEndStates(start awsstepfunctions.State
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func AthenaGetQueryExecution_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryExecution",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -793,15 +669,17 @@ func AthenaGetQueryExecution_FindReachableStates(start awsstepfunctions.State, o
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func AthenaGetQueryExecution_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryExecution",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -811,12 +689,11 @@ func AthenaGetQueryExecution_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func AthenaGetQueryExecution_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryExecution",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -1047,43 +924,6 @@ func (a *jsiiProxy_AthenaGetQueryExecution) Next(next awsstepfunctions.IChainabl
 	return returns
 }
 
-func (a *jsiiProxy_AthenaGetQueryExecution) OnPrepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (a *jsiiProxy_AthenaGetQueryExecution) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (a *jsiiProxy_AthenaGetQueryExecution) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (a *jsiiProxy_AthenaGetQueryExecution) Prepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (a *jsiiProxy_AthenaGetQueryExecution) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -1175,14 +1015,6 @@ func (a *jsiiProxy_AthenaGetQueryExecution) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (a *jsiiProxy_AthenaGetQueryExecution) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (a *jsiiProxy_AthenaGetQueryExecution) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -1209,12 +1041,12 @@ func (a *jsiiProxy_AthenaGetQueryExecution) ToString() *string {
 	return returns
 }
 
-func (a *jsiiProxy_AthenaGetQueryExecution) Validate() *[]*string {
+func (a *jsiiProxy_AthenaGetQueryExecution) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		a,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -1237,38 +1069,31 @@ func (a *jsiiProxy_AthenaGetQueryExecution) WhenBoundToGraph(graph awsstepfuncti
 //   	queryExecutionId: sfn.jsonPath.stringAt(jsii.String("$.QueryExecutionId")),
 //   })
 //
-// Experimental.
 type AthenaGetQueryExecutionProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -1276,15 +1101,12 @@ type AthenaGetQueryExecutionProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Query that will be retrieved.
 	//
 	// Example value: `adfsaf-23trf23-f23rt23`.
-	// Experimental.
 	QueryExecutionId *string `json:"queryExecutionId" yaml:"queryExecutionId"`
 }
 
@@ -1297,198 +1119,103 @@ type AthenaGetQueryExecutionProps struct {
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-athena.html
 //
-// Experimental.
 type AthenaGetQueryResults interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -1567,8 +1294,8 @@ func (j *jsiiProxy_AthenaGetQueryResults) Iteration() awsstepfunctions.StateGrap
 	return returns
 }
 
-func (j *jsiiProxy_AthenaGetQueryResults) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_AthenaGetQueryResults) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1658,14 +1385,13 @@ func (j *jsiiProxy_AthenaGetQueryResults) TaskPolicies() *[]awsiam.PolicyStateme
 }
 
 
-// Experimental.
 func NewAthenaGetQueryResults(scope constructs.Construct, id *string, props *AthenaGetQueryResultsProps) AthenaGetQueryResults {
 	_init_.Initialize()
 
 	j := jsiiProxy_AthenaGetQueryResults{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryResults",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryResults",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1673,12 +1399,11 @@ func NewAthenaGetQueryResults(scope constructs.Construct, id *string, props *Ath
 	return &j
 }
 
-// Experimental.
 func NewAthenaGetQueryResults_Override(a AthenaGetQueryResults, scope constructs.Construct, id *string, props *AthenaGetQueryResultsProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryResults",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryResults",
 		[]interface{}{scope, id, props},
 		a,
 	)
@@ -1701,14 +1426,13 @@ func (j *jsiiProxy_AthenaGetQueryResults) SetIteration(val awsstepfunctions.Stat
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func AthenaGetQueryResults_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryResults",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryResults",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -1718,14 +1442,13 @@ func AthenaGetQueryResults_FilterNextables(states *[]awsstepfunctions.State) *[]
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func AthenaGetQueryResults_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryResults",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryResults",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -1737,14 +1460,13 @@ func AthenaGetQueryResults_FindReachableEndStates(start awsstepfunctions.State, 
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func AthenaGetQueryResults_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryResults",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryResults",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -1753,15 +1475,17 @@ func AthenaGetQueryResults_FindReachableStates(start awsstepfunctions.State, opt
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func AthenaGetQueryResults_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryResults",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryResults",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1771,12 +1495,11 @@ func AthenaGetQueryResults_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func AthenaGetQueryResults_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryResults",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryResults",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -2007,43 +1730,6 @@ func (a *jsiiProxy_AthenaGetQueryResults) Next(next awsstepfunctions.IChainable)
 	return returns
 }
 
-func (a *jsiiProxy_AthenaGetQueryResults) OnPrepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (a *jsiiProxy_AthenaGetQueryResults) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (a *jsiiProxy_AthenaGetQueryResults) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (a *jsiiProxy_AthenaGetQueryResults) Prepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (a *jsiiProxy_AthenaGetQueryResults) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -2135,14 +1821,6 @@ func (a *jsiiProxy_AthenaGetQueryResults) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (a *jsiiProxy_AthenaGetQueryResults) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (a *jsiiProxy_AthenaGetQueryResults) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -2169,12 +1847,12 @@ func (a *jsiiProxy_AthenaGetQueryResults) ToString() *string {
 	return returns
 }
 
-func (a *jsiiProxy_AthenaGetQueryResults) Validate() *[]*string {
+func (a *jsiiProxy_AthenaGetQueryResults) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		a,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -2197,38 +1875,31 @@ func (a *jsiiProxy_AthenaGetQueryResults) WhenBoundToGraph(graph awsstepfunction
 //   	queryExecutionId: sfn.jsonPath.stringAt(jsii.String("$.QueryExecutionId")),
 //   })
 //
-// Experimental.
 type AthenaGetQueryResultsProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -2236,21 +1907,16 @@ type AthenaGetQueryResultsProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Query that will be retrieved.
 	//
 	// Example value: `adfsaf-23trf23-f23rt23`.
-	// Experimental.
 	QueryExecutionId *string `json:"queryExecutionId" yaml:"queryExecutionId"`
 	// Max number of results.
-	// Experimental.
 	MaxResults *float64 `json:"maxResults" yaml:"maxResults"`
 	// Pagination token.
-	// Experimental.
 	NextToken *string `json:"nextToken" yaml:"nextToken"`
 }
 
@@ -2276,198 +1942,103 @@ type AthenaGetQueryResultsProps struct {
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-athena.html
 //
-// Experimental.
 type AthenaStartQueryExecution interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -2546,8 +2117,8 @@ func (j *jsiiProxy_AthenaStartQueryExecution) Iteration() awsstepfunctions.State
 	return returns
 }
 
-func (j *jsiiProxy_AthenaStartQueryExecution) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_AthenaStartQueryExecution) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2637,14 +2208,13 @@ func (j *jsiiProxy_AthenaStartQueryExecution) TaskPolicies() *[]awsiam.PolicySta
 }
 
 
-// Experimental.
 func NewAthenaStartQueryExecution(scope constructs.Construct, id *string, props *AthenaStartQueryExecutionProps) AthenaStartQueryExecution {
 	_init_.Initialize()
 
 	j := jsiiProxy_AthenaStartQueryExecution{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.AthenaStartQueryExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStartQueryExecution",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2652,12 +2222,11 @@ func NewAthenaStartQueryExecution(scope constructs.Construct, id *string, props 
 	return &j
 }
 
-// Experimental.
 func NewAthenaStartQueryExecution_Override(a AthenaStartQueryExecution, scope constructs.Construct, id *string, props *AthenaStartQueryExecutionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.AthenaStartQueryExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStartQueryExecution",
 		[]interface{}{scope, id, props},
 		a,
 	)
@@ -2680,14 +2249,13 @@ func (j *jsiiProxy_AthenaStartQueryExecution) SetIteration(val awsstepfunctions.
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func AthenaStartQueryExecution_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.AthenaStartQueryExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStartQueryExecution",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -2697,14 +2265,13 @@ func AthenaStartQueryExecution_FilterNextables(states *[]awsstepfunctions.State)
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func AthenaStartQueryExecution_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.AthenaStartQueryExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStartQueryExecution",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -2716,14 +2283,13 @@ func AthenaStartQueryExecution_FindReachableEndStates(start awsstepfunctions.Sta
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func AthenaStartQueryExecution_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.AthenaStartQueryExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStartQueryExecution",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -2732,15 +2298,17 @@ func AthenaStartQueryExecution_FindReachableStates(start awsstepfunctions.State,
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func AthenaStartQueryExecution_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.AthenaStartQueryExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStartQueryExecution",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2750,12 +2318,11 @@ func AthenaStartQueryExecution_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func AthenaStartQueryExecution_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.AthenaStartQueryExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStartQueryExecution",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -2986,43 +2553,6 @@ func (a *jsiiProxy_AthenaStartQueryExecution) Next(next awsstepfunctions.IChaina
 	return returns
 }
 
-func (a *jsiiProxy_AthenaStartQueryExecution) OnPrepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (a *jsiiProxy_AthenaStartQueryExecution) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (a *jsiiProxy_AthenaStartQueryExecution) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (a *jsiiProxy_AthenaStartQueryExecution) Prepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (a *jsiiProxy_AthenaStartQueryExecution) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -3114,14 +2644,6 @@ func (a *jsiiProxy_AthenaStartQueryExecution) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (a *jsiiProxy_AthenaStartQueryExecution) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (a *jsiiProxy_AthenaStartQueryExecution) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -3148,12 +2670,12 @@ func (a *jsiiProxy_AthenaStartQueryExecution) ToString() *string {
 	return returns
 }
 
-func (a *jsiiProxy_AthenaStartQueryExecution) Validate() *[]*string {
+func (a *jsiiProxy_AthenaStartQueryExecution) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		a,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -3189,38 +2711,31 @@ func (a *jsiiProxy_AthenaStartQueryExecution) WhenBoundToGraph(graph awsstepfunc
 //   	integrationPattern: sfn.integrationPattern_RUN_JOB,
 //   })
 //
-// Experimental.
 type AthenaStartQueryExecutionProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -3228,25 +2743,18 @@ type AthenaStartQueryExecutionProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Query that will be started.
-	// Experimental.
 	QueryString *string `json:"queryString" yaml:"queryString"`
 	// Unique string string to ensure idempotence.
-	// Experimental.
 	ClientRequestToken *string `json:"clientRequestToken" yaml:"clientRequestToken"`
 	// Database within which query executes.
-	// Experimental.
 	QueryExecutionContext *QueryExecutionContext `json:"queryExecutionContext" yaml:"queryExecutionContext"`
 	// Configuration on how and where to save query.
-	// Experimental.
 	ResultConfiguration *ResultConfiguration `json:"resultConfiguration" yaml:"resultConfiguration"`
 	// Configuration on how and where to save query.
-	// Experimental.
 	WorkGroup *string `json:"workGroup" yaml:"workGroup"`
 }
 
@@ -3259,198 +2767,103 @@ type AthenaStartQueryExecutionProps struct {
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-athena.html
 //
-// Experimental.
 type AthenaStopQueryExecution interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -3529,8 +2942,8 @@ func (j *jsiiProxy_AthenaStopQueryExecution) Iteration() awsstepfunctions.StateG
 	return returns
 }
 
-func (j *jsiiProxy_AthenaStopQueryExecution) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_AthenaStopQueryExecution) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -3620,14 +3033,13 @@ func (j *jsiiProxy_AthenaStopQueryExecution) TaskPolicies() *[]awsiam.PolicyStat
 }
 
 
-// Experimental.
 func NewAthenaStopQueryExecution(scope constructs.Construct, id *string, props *AthenaStopQueryExecutionProps) AthenaStopQueryExecution {
 	_init_.Initialize()
 
 	j := jsiiProxy_AthenaStopQueryExecution{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.AthenaStopQueryExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStopQueryExecution",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3635,12 +3047,11 @@ func NewAthenaStopQueryExecution(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Experimental.
 func NewAthenaStopQueryExecution_Override(a AthenaStopQueryExecution, scope constructs.Construct, id *string, props *AthenaStopQueryExecutionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.AthenaStopQueryExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStopQueryExecution",
 		[]interface{}{scope, id, props},
 		a,
 	)
@@ -3663,14 +3074,13 @@ func (j *jsiiProxy_AthenaStopQueryExecution) SetIteration(val awsstepfunctions.S
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func AthenaStopQueryExecution_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.AthenaStopQueryExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStopQueryExecution",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -3680,14 +3090,13 @@ func AthenaStopQueryExecution_FilterNextables(states *[]awsstepfunctions.State) 
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func AthenaStopQueryExecution_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.AthenaStopQueryExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStopQueryExecution",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -3699,14 +3108,13 @@ func AthenaStopQueryExecution_FindReachableEndStates(start awsstepfunctions.Stat
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func AthenaStopQueryExecution_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.AthenaStopQueryExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStopQueryExecution",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -3715,15 +3123,17 @@ func AthenaStopQueryExecution_FindReachableStates(start awsstepfunctions.State, 
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func AthenaStopQueryExecution_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.AthenaStopQueryExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStopQueryExecution",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3733,12 +3143,11 @@ func AthenaStopQueryExecution_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func AthenaStopQueryExecution_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.AthenaStopQueryExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStopQueryExecution",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -3969,43 +3378,6 @@ func (a *jsiiProxy_AthenaStopQueryExecution) Next(next awsstepfunctions.IChainab
 	return returns
 }
 
-func (a *jsiiProxy_AthenaStopQueryExecution) OnPrepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (a *jsiiProxy_AthenaStopQueryExecution) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (a *jsiiProxy_AthenaStopQueryExecution) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (a *jsiiProxy_AthenaStopQueryExecution) Prepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (a *jsiiProxy_AthenaStopQueryExecution) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -4097,14 +3469,6 @@ func (a *jsiiProxy_AthenaStopQueryExecution) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (a *jsiiProxy_AthenaStopQueryExecution) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (a *jsiiProxy_AthenaStopQueryExecution) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -4131,12 +3495,12 @@ func (a *jsiiProxy_AthenaStopQueryExecution) ToString() *string {
 	return returns
 }
 
-func (a *jsiiProxy_AthenaStopQueryExecution) Validate() *[]*string {
+func (a *jsiiProxy_AthenaStopQueryExecution) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		a,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -4159,38 +3523,31 @@ func (a *jsiiProxy_AthenaStopQueryExecution) WhenBoundToGraph(graph awsstepfunct
 //   	queryExecutionId: sfn.jsonPath.stringAt(jsii.String("$.QueryExecutionId")),
 //   })
 //
-// Experimental.
 type AthenaStopQueryExecutionProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -4198,36 +3555,29 @@ type AthenaStopQueryExecutionProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Query that will be stopped.
-	// Experimental.
 	QueryExecutionId *string `json:"queryExecutionId" yaml:"queryExecutionId"`
 }
 
 // The authentication method used to call the endpoint.
-// Experimental.
 type AuthType string
 
 const (
 	// Call the API direclty with no authorization method.
-	// Experimental.
 	AuthType_NO_AUTH AuthType = "NO_AUTH"
 	// Use the IAM role associated with the current state machine for authorization.
-	// Experimental.
 	AuthType_IAM_ROLE AuthType = "IAM_ROLE"
 	// Use the resource policy of the API for authorization.
-	// Experimental.
 	AuthType_RESOURCE_POLICY AuthType = "RESOURCE_POLICY"
 )
 
 // The overrides that should be sent to a container.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
 //
 //   var instanceType instanceType
 //   var size size
@@ -4244,37 +3594,30 @@ const (
 //   	vcpus: jsii.Number(123),
 //   }
 //
-// Experimental.
 type BatchContainerOverrides struct {
 	// The command to send to the container that overrides the default command from the Docker image or the job definition.
-	// Experimental.
 	Command *[]*string `json:"command" yaml:"command"`
 	// The environment variables to send to the container.
 	//
 	// You can add new environment variables, which are added to the container
 	// at launch, or you can override the existing environment variables from
 	// the Docker image or the job definition.
-	// Experimental.
 	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The number of physical GPUs to reserve for the container.
 	//
 	// The number of GPUs reserved for all containers in a job
 	// should not exceed the number of available GPUs on the compute
 	// resource that the job is launched on.
-	// Experimental.
 	GpuCount *float64 `json:"gpuCount" yaml:"gpuCount"`
 	// The instance type to use for a multi-node parallel job.
 	//
 	// This parameter is not valid for single-node container jobs.
-	// Experimental.
 	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// Memory reserved for the job.
-	// Experimental.
 	Memory awscdk.Size `json:"memory" yaml:"memory"`
 	// The number of vCPUs to reserve for the container.
 	//
 	// This value overrides the value set in the job definition.
-	// Experimental.
 	Vcpus *float64 `json:"vcpus" yaml:"vcpus"`
 }
 
@@ -4287,35 +3630,30 @@ type BatchContainerOverrides struct {
 //   	type: jsii.String("type"),
 //   }
 //
-// Experimental.
 type BatchJobDependency struct {
 	// The job ID of the AWS Batch job associated with this dependency.
-	// Experimental.
 	JobId *string `json:"jobId" yaml:"jobId"`
 	// The type of the job dependency.
-	// Experimental.
 	Type *string `json:"type" yaml:"type"`
 }
 
 // Specifies the number of records to include in a mini-batch for an HTTP inference request.
-// Experimental.
 type BatchStrategy string
 
 const (
 	// Fits multiple records in a mini-batch.
-	// Experimental.
 	BatchStrategy_MULTI_RECORD BatchStrategy = "MULTI_RECORD"
 	// Use a single record when making an invocation request.
-	// Experimental.
 	BatchStrategy_SINGLE_RECORD BatchStrategy = "SINGLE_RECORD"
 )
 
 // Task to submits an AWS Batch job from a job definition.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   import batch "github.com/aws/aws-cdk-go/awscdk"
-//   var batchJobDefinition jobDefinition
-//   var batchQueue jobQueue
+//   var batchJobDefinition batch.JobDefinition
+//   var batchQueue batch.JobQueue
 //
 //   task := tasks.NewBatchSubmitJob(this, jsii.String("Submit Job"), &batchSubmitJobProps{
 //   	jobDefinitionArn: batchJobDefinition.jobDefinitionArn,
@@ -4325,198 +3663,103 @@ const (
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-batch.html
 //
-// Experimental.
 type BatchSubmitJob interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -4595,8 +3838,8 @@ func (j *jsiiProxy_BatchSubmitJob) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_BatchSubmitJob) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_BatchSubmitJob) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -4686,14 +3929,13 @@ func (j *jsiiProxy_BatchSubmitJob) TaskPolicies() *[]awsiam.PolicyStatement {
 }
 
 
-// Experimental.
 func NewBatchSubmitJob(scope constructs.Construct, id *string, props *BatchSubmitJobProps) BatchSubmitJob {
 	_init_.Initialize()
 
 	j := jsiiProxy_BatchSubmitJob{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.BatchSubmitJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.BatchSubmitJob",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4701,12 +3943,11 @@ func NewBatchSubmitJob(scope constructs.Construct, id *string, props *BatchSubmi
 	return &j
 }
 
-// Experimental.
 func NewBatchSubmitJob_Override(b BatchSubmitJob, scope constructs.Construct, id *string, props *BatchSubmitJobProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.BatchSubmitJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.BatchSubmitJob",
 		[]interface{}{scope, id, props},
 		b,
 	)
@@ -4729,14 +3970,13 @@ func (j *jsiiProxy_BatchSubmitJob) SetIteration(val awsstepfunctions.StateGraph)
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func BatchSubmitJob_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.BatchSubmitJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.BatchSubmitJob",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -4746,14 +3986,13 @@ func BatchSubmitJob_FilterNextables(states *[]awsstepfunctions.State) *[]awsstep
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func BatchSubmitJob_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.BatchSubmitJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.BatchSubmitJob",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -4765,14 +4004,13 @@ func BatchSubmitJob_FindReachableEndStates(start awsstepfunctions.State, options
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func BatchSubmitJob_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.BatchSubmitJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.BatchSubmitJob",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -4781,15 +4019,17 @@ func BatchSubmitJob_FindReachableStates(start awsstepfunctions.State, options *a
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func BatchSubmitJob_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.BatchSubmitJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.BatchSubmitJob",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4799,12 +4039,11 @@ func BatchSubmitJob_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func BatchSubmitJob_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.BatchSubmitJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.BatchSubmitJob",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -5035,43 +4274,6 @@ func (b *jsiiProxy_BatchSubmitJob) Next(next awsstepfunctions.IChainable) awsste
 	return returns
 }
 
-func (b *jsiiProxy_BatchSubmitJob) OnPrepare() {
-	_jsii_.InvokeVoid(
-		b,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (b *jsiiProxy_BatchSubmitJob) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		b,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (b *jsiiProxy_BatchSubmitJob) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		b,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (b *jsiiProxy_BatchSubmitJob) Prepare() {
-	_jsii_.InvokeVoid(
-		b,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (b *jsiiProxy_BatchSubmitJob) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -5163,14 +4365,6 @@ func (b *jsiiProxy_BatchSubmitJob) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (b *jsiiProxy_BatchSubmitJob) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		b,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (b *jsiiProxy_BatchSubmitJob) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -5197,12 +4391,12 @@ func (b *jsiiProxy_BatchSubmitJob) ToString() *string {
 	return returns
 }
 
-func (b *jsiiProxy_BatchSubmitJob) Validate() *[]*string {
+func (b *jsiiProxy_BatchSubmitJob) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		b,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -5221,9 +4415,10 @@ func (b *jsiiProxy_BatchSubmitJob) WhenBoundToGraph(graph awsstepfunctions.State
 // Properties for RunBatchJob.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   import batch "github.com/aws/aws-cdk-go/awscdk"
-//   var batchJobDefinition jobDefinition
-//   var batchQueue jobQueue
+//   var batchJobDefinition batch.JobDefinition
+//   var batchQueue batch.JobQueue
 //
 //   task := tasks.NewBatchSubmitJob(this, jsii.String("Submit Job"), &batchSubmitJobProps{
 //   	jobDefinitionArn: batchJobDefinition.jobDefinitionArn,
@@ -5231,38 +4426,31 @@ func (b *jsiiProxy_BatchSubmitJob) WhenBoundToGraph(graph awsstepfunctions.State
 //   	jobQueueArn: batchQueue.jobQueueArn,
 //   })
 //
-// Experimental.
 type BatchSubmitJobProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -5270,59 +4458,48 @@ type BatchSubmitJobProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The arn of the job definition used by this job.
-	// Experimental.
 	JobDefinitionArn *string `json:"jobDefinitionArn" yaml:"jobDefinitionArn"`
 	// The name of the job.
 	//
 	// The first character must be alphanumeric, and up to 128 letters (uppercase and lowercase),
 	// numbers, hyphens, and underscores are allowed.
-	// Experimental.
 	JobName *string `json:"jobName" yaml:"jobName"`
 	// The arn of the job queue into which the job is submitted.
-	// Experimental.
 	JobQueueArn *string `json:"jobQueueArn" yaml:"jobQueueArn"`
 	// The array size can be between 2 and 10,000.
 	//
 	// If you specify array properties for a job, it becomes an array job.
 	// For more information, see Array Jobs in the AWS Batch User Guide.
-	// Experimental.
 	ArraySize *float64 `json:"arraySize" yaml:"arraySize"`
 	// The number of times to move a job to the RUNNABLE status.
 	//
 	// You may specify between 1 and 10 attempts.
 	// If the value of attempts is greater than one,
 	// the job is retried on failure the same number of attempts as the value.
-	// Experimental.
 	Attempts *float64 `json:"attempts" yaml:"attempts"`
 	// A list of container overrides in JSON format that specify the name of a container in the specified job definition and the overrides it should receive.
 	// See: https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html#Batch-SubmitJob-request-containerOverrides
 	//
-	// Experimental.
 	ContainerOverrides *BatchContainerOverrides `json:"containerOverrides" yaml:"containerOverrides"`
 	// A list of dependencies for the job.
 	//
 	// A job can depend upon a maximum of 20 jobs.
 	// See: https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html#Batch-SubmitJob-request-dependsOn
 	//
-	// Experimental.
 	DependsOn *[]*BatchJobDependency `json:"dependsOn" yaml:"dependsOn"`
 	// The payload to be passed as parameters to the batch job.
-	// Experimental.
 	Payload awsstepfunctions.TaskInput `json:"payload" yaml:"payload"`
 }
 
 // Base CallApiGatewayEdnpoint Task Props.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
 //
-//   var duration duration
 //   var resultSelector interface{}
 //   var taskInput taskInput
 //   callApiGatewayEndpointBaseProps := &callApiGatewayEndpointBaseProps{
@@ -5333,7 +4510,7 @@ type BatchSubmitJobProps struct {
 //   	authType: stepfunctions_tasks.authType_NO_AUTH,
 //   	comment: jsii.String("comment"),
 //   	headers: taskInput,
-//   	heartbeat: duration,
+//   	heartbeat: cdk.duration.minutes(jsii.Number(30)),
 //   	inputPath: jsii.String("inputPath"),
 //   	integrationPattern: stepfunctions.integrationPattern_REQUEST_RESPONSE,
 //   	outputPath: jsii.String("outputPath"),
@@ -5343,41 +4520,34 @@ type BatchSubmitJobProps struct {
 //   	resultSelector: map[string]interface{}{
 //   		"resultSelectorKey": resultSelector,
 //   	},
-//   	timeout: duration,
+//   	timeout: cdk.*duration.minutes(jsii.Number(30)),
 //   }
 //
-// Experimental.
 type CallApiGatewayEndpointBaseProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -5385,34 +4555,27 @@ type CallApiGatewayEndpointBaseProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Http method for the API.
-	// Experimental.
 	Method HttpMethod `json:"method" yaml:"method"`
 	// Path parameters appended after API endpoint.
-	// Experimental.
 	ApiPath *string `json:"apiPath" yaml:"apiPath"`
 	// Authentication methods.
-	// Experimental.
 	AuthType AuthType `json:"authType" yaml:"authType"`
 	// HTTP request information that does not relate to contents of the request.
-	// Experimental.
 	Headers awsstepfunctions.TaskInput `json:"headers" yaml:"headers"`
 	// Query strings attatched to end of request.
-	// Experimental.
 	QueryParameters awsstepfunctions.TaskInput `json:"queryParameters" yaml:"queryParameters"`
 	// HTTP Request body.
-	// Experimental.
 	RequestBody awsstepfunctions.TaskInput `json:"requestBody" yaml:"requestBody"`
 }
 
 // Call HTTP API endpoint as a Task.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk"
 //   httpApi := apigatewayv2.NewHttpApi(this, jsii.String("MyHttpApi"))
 //
@@ -5424,206 +4587,107 @@ type CallApiGatewayEndpointBaseProps struct {
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-api-gateway.html
 //
-// Experimental.
 type CallApiGatewayHttpApiEndpoint interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	ApiEndpoint() *string
-	// Experimental.
 	ArnForExecuteApi() *string
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
-	// Experimental.
 	StageName() *string
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
-	// Experimental.
 	CreatePolicyStatements() *[]awsiam.PolicyStatement
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -5722,8 +4786,8 @@ func (j *jsiiProxy_CallApiGatewayHttpApiEndpoint) Iteration() awsstepfunctions.S
 	return returns
 }
 
-func (j *jsiiProxy_CallApiGatewayHttpApiEndpoint) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CallApiGatewayHttpApiEndpoint) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -5823,14 +4887,13 @@ func (j *jsiiProxy_CallApiGatewayHttpApiEndpoint) TaskPolicies() *[]awsiam.Polic
 }
 
 
-// Experimental.
 func NewCallApiGatewayHttpApiEndpoint(scope constructs.Construct, id *string, props *CallApiGatewayHttpApiEndpointProps) CallApiGatewayHttpApiEndpoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_CallApiGatewayHttpApiEndpoint{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5838,12 +4901,11 @@ func NewCallApiGatewayHttpApiEndpoint(scope constructs.Construct, id *string, pr
 	return &j
 }
 
-// Experimental.
 func NewCallApiGatewayHttpApiEndpoint_Override(c CallApiGatewayHttpApiEndpoint, scope constructs.Construct, id *string, props *CallApiGatewayHttpApiEndpointProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5866,14 +4928,13 @@ func (j *jsiiProxy_CallApiGatewayHttpApiEndpoint) SetIteration(val awsstepfuncti
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func CallApiGatewayHttpApiEndpoint_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -5883,14 +4944,13 @@ func CallApiGatewayHttpApiEndpoint_FilterNextables(states *[]awsstepfunctions.St
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func CallApiGatewayHttpApiEndpoint_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -5902,14 +4962,13 @@ func CallApiGatewayHttpApiEndpoint_FindReachableEndStates(start awsstepfunctions
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func CallApiGatewayHttpApiEndpoint_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -5918,15 +4977,17 @@ func CallApiGatewayHttpApiEndpoint_FindReachableStates(start awsstepfunctions.St
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CallApiGatewayHttpApiEndpoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5936,12 +4997,11 @@ func CallApiGatewayHttpApiEndpoint_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func CallApiGatewayHttpApiEndpoint_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -6185,43 +5245,6 @@ func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) Next(next awsstepfunctions.ICh
 	return returns
 }
 
-func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -6313,14 +5336,6 @@ func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) RenderRetryCatch() interface{}
 	return returns
 }
 
-func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -6347,12 +5362,12 @@ func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) ToString() *string {
 	return returns
 }
 
-func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) Validate() *[]*string {
+func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		c,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -6371,6 +5386,7 @@ func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) WhenBoundToGraph(graph awsstep
 // Properties for calling an HTTP API Endpoint.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk"
 //   httpApi := apigatewayv2.NewHttpApi(this, jsii.String("MyHttpApi"))
 //
@@ -6380,38 +5396,31 @@ func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) WhenBoundToGraph(graph awsstep
 //   	method: tasks.httpMethod_GET,
 //   })
 //
-// Experimental.
 type CallApiGatewayHttpApiEndpointProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -6419,37 +5428,26 @@ type CallApiGatewayHttpApiEndpointProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Http method for the API.
-	// Experimental.
 	Method HttpMethod `json:"method" yaml:"method"`
 	// Path parameters appended after API endpoint.
-	// Experimental.
 	ApiPath *string `json:"apiPath" yaml:"apiPath"`
 	// Authentication methods.
-	// Experimental.
 	AuthType AuthType `json:"authType" yaml:"authType"`
 	// HTTP request information that does not relate to contents of the request.
-	// Experimental.
 	Headers awsstepfunctions.TaskInput `json:"headers" yaml:"headers"`
 	// Query strings attatched to end of request.
-	// Experimental.
 	QueryParameters awsstepfunctions.TaskInput `json:"queryParameters" yaml:"queryParameters"`
 	// HTTP Request body.
-	// Experimental.
 	RequestBody awsstepfunctions.TaskInput `json:"requestBody" yaml:"requestBody"`
 	// The Id of the API to call.
-	// Experimental.
 	ApiId *string `json:"apiId" yaml:"apiId"`
 	// The Stack in which the API is defined.
-	// Experimental.
 	ApiStack awscdk.Stack `json:"apiStack" yaml:"apiStack"`
 	// Name of the stage where the API is deployed to in API Gateway.
-	// Experimental.
 	StageName *string `json:"stageName" yaml:"stageName"`
 }
 
@@ -6490,206 +5488,107 @@ type CallApiGatewayHttpApiEndpointProps struct {
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-api-gateway.html
 //
-// Experimental.
 type CallApiGatewayRestApiEndpoint interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	ApiEndpoint() *string
-	// Experimental.
 	ArnForExecuteApi() *string
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
-	// Experimental.
 	StageName() *string
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
-	// Experimental.
 	CreatePolicyStatements() *[]awsiam.PolicyStatement
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -6788,8 +5687,8 @@ func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) Iteration() awsstepfunctions.S
 	return returns
 }
 
-func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -6889,14 +5788,13 @@ func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) TaskPolicies() *[]awsiam.Polic
 }
 
 
-// Experimental.
 func NewCallApiGatewayRestApiEndpoint(scope constructs.Construct, id *string, props *CallApiGatewayRestApiEndpointProps) CallApiGatewayRestApiEndpoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_CallApiGatewayRestApiEndpoint{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6904,12 +5802,11 @@ func NewCallApiGatewayRestApiEndpoint(scope constructs.Construct, id *string, pr
 	return &j
 }
 
-// Experimental.
 func NewCallApiGatewayRestApiEndpoint_Override(c CallApiGatewayRestApiEndpoint, scope constructs.Construct, id *string, props *CallApiGatewayRestApiEndpointProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -6932,14 +5829,13 @@ func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) SetIteration(val awsstepfuncti
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func CallApiGatewayRestApiEndpoint_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -6949,14 +5845,13 @@ func CallApiGatewayRestApiEndpoint_FilterNextables(states *[]awsstepfunctions.St
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func CallApiGatewayRestApiEndpoint_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -6968,14 +5863,13 @@ func CallApiGatewayRestApiEndpoint_FindReachableEndStates(start awsstepfunctions
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func CallApiGatewayRestApiEndpoint_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -6984,15 +5878,17 @@ func CallApiGatewayRestApiEndpoint_FindReachableStates(start awsstepfunctions.St
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CallApiGatewayRestApiEndpoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7002,12 +5898,11 @@ func CallApiGatewayRestApiEndpoint_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func CallApiGatewayRestApiEndpoint_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -7251,43 +6146,6 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) Next(next awsstepfunctions.ICh
 	return returns
 }
 
-func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -7379,14 +6237,6 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) RenderRetryCatch() interface{}
 	return returns
 }
 
-func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -7413,12 +6263,12 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) ToString() *string {
 	return returns
 }
 
-func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) Validate() *[]*string {
+func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		c,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -7450,38 +6300,31 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) WhenBoundToGraph(graph awsstep
 //   	}),
 //   })
 //
-// Experimental.
 type CallApiGatewayRestApiEndpointProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -7489,34 +6332,24 @@ type CallApiGatewayRestApiEndpointProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Http method for the API.
-	// Experimental.
 	Method HttpMethod `json:"method" yaml:"method"`
 	// Path parameters appended after API endpoint.
-	// Experimental.
 	ApiPath *string `json:"apiPath" yaml:"apiPath"`
 	// Authentication methods.
-	// Experimental.
 	AuthType AuthType `json:"authType" yaml:"authType"`
 	// HTTP request information that does not relate to contents of the request.
-	// Experimental.
 	Headers awsstepfunctions.TaskInput `json:"headers" yaml:"headers"`
 	// Query strings attatched to end of request.
-	// Experimental.
 	QueryParameters awsstepfunctions.TaskInput `json:"queryParameters" yaml:"queryParameters"`
 	// HTTP Request body.
-	// Experimental.
 	RequestBody awsstepfunctions.TaskInput `json:"requestBody" yaml:"requestBody"`
 	// API to call.
-	// Experimental.
 	Api awsapigateway.IRestApi `json:"api" yaml:"api"`
 	// Name of the stage where the API is deployed to in API Gateway.
-	// Experimental.
 	StageName *string `json:"stageName" yaml:"stageName"`
 }
 
@@ -7536,198 +6369,103 @@ type CallApiGatewayRestApiEndpointProps struct {
 //   	},
 //   })
 //
-// Experimental.
 type CallAwsService interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -7806,8 +6544,8 @@ func (j *jsiiProxy_CallAwsService) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_CallAwsService) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CallAwsService) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -7897,14 +6635,13 @@ func (j *jsiiProxy_CallAwsService) TaskPolicies() *[]awsiam.PolicyStatement {
 }
 
 
-// Experimental.
 func NewCallAwsService(scope constructs.Construct, id *string, props *CallAwsServiceProps) CallAwsService {
 	_init_.Initialize()
 
 	j := jsiiProxy_CallAwsService{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.CallAwsService",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallAwsService",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7912,12 +6649,11 @@ func NewCallAwsService(scope constructs.Construct, id *string, props *CallAwsSer
 	return &j
 }
 
-// Experimental.
 func NewCallAwsService_Override(c CallAwsService, scope constructs.Construct, id *string, props *CallAwsServiceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.CallAwsService",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallAwsService",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -7940,14 +6676,13 @@ func (j *jsiiProxy_CallAwsService) SetIteration(val awsstepfunctions.StateGraph)
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func CallAwsService_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.CallAwsService",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallAwsService",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -7957,14 +6692,13 @@ func CallAwsService_FilterNextables(states *[]awsstepfunctions.State) *[]awsstep
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func CallAwsService_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.CallAwsService",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallAwsService",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -7976,14 +6710,13 @@ func CallAwsService_FindReachableEndStates(start awsstepfunctions.State, options
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func CallAwsService_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.CallAwsService",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallAwsService",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -7992,15 +6725,17 @@ func CallAwsService_FindReachableStates(start awsstepfunctions.State, options *a
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CallAwsService_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.CallAwsService",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallAwsService",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8010,12 +6745,11 @@ func CallAwsService_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func CallAwsService_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.CallAwsService",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallAwsService",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -8246,43 +6980,6 @@ func (c *jsiiProxy_CallAwsService) Next(next awsstepfunctions.IChainable) awsste
 	return returns
 }
 
-func (c *jsiiProxy_CallAwsService) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CallAwsService) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CallAwsService) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CallAwsService) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (c *jsiiProxy_CallAwsService) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -8374,14 +7071,6 @@ func (c *jsiiProxy_CallAwsService) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (c *jsiiProxy_CallAwsService) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CallAwsService) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -8408,12 +7097,12 @@ func (c *jsiiProxy_CallAwsService) ToString() *string {
 	return returns
 }
 
-func (c *jsiiProxy_CallAwsService) Validate() *[]*string {
+func (c *jsiiProxy_CallAwsService) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		c,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -8447,38 +7136,31 @@ func (c *jsiiProxy_CallAwsService) WhenBoundToGraph(graph awsstepfunctions.State
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/supported-services-awssdk.html
 //
-// Experimental.
 type CallAwsServiceProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -8486,36 +7168,29 @@ type CallAwsServiceProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The API action to call.
 	//
 	// Use camelCase.
-	// Experimental.
 	Action *string `json:"action" yaml:"action"`
 	// The resources for the IAM statement that will be added to the state machine role's policy to allow the state machine to make the API call.
 	//
 	// By default the action for this IAM statement will be `service:action`.
-	// Experimental.
 	IamResources *[]*string `json:"iamResources" yaml:"iamResources"`
 	// The AWS service to call.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/supported-services-awssdk.html
 	//
-	// Experimental.
 	Service *string `json:"service" yaml:"service"`
 	// The action for the IAM statement that will be added to the state machine role's policy to allow the state machine to make the API call.
 	//
 	// Use in the case where the IAM action name does not match with the
 	// API service/action name, e.g. `s3:ListBuckets` requires `s3:ListAllMyBuckets`.
-	// Experimental.
 	IamAction *string `json:"iamAction" yaml:"iamAction"`
 	// Parameters for the API action call.
 	//
 	// Use PascalCase for the parameter names.
-	// Experimental.
 	Parameters *map[string]interface{} `json:"parameters" yaml:"parameters"`
 }
 
@@ -8550,31 +7225,23 @@ type CallAwsServiceProps struct {
 //   	},
 //   }
 //
-// Experimental.
 type Channel struct {
 	// Name of the channel.
-	// Experimental.
 	ChannelName *string `json:"channelName" yaml:"channelName"`
 	// Location of the channel data.
-	// Experimental.
 	DataSource *DataSource `json:"dataSource" yaml:"dataSource"`
 	// Compression type if training data is compressed.
-	// Experimental.
 	CompressionType CompressionType `json:"compressionType" yaml:"compressionType"`
 	// The MIME type of the data.
-	// Experimental.
 	ContentType *string `json:"contentType" yaml:"contentType"`
 	// Input mode to use for the data channel in a training job.
-	// Experimental.
 	InputMode InputMode `json:"inputMode" yaml:"inputMode"`
 	// Specify RecordIO as the value when input data is in raw format but the training algorithm requires the RecordIO format.
 	//
 	// In this case, Amazon SageMaker wraps each individual S3 object in a RecordIO record.
 	// If the input data is already in RecordIO format, you don't need to set this attribute.
-	// Experimental.
 	RecordWrapperType RecordWrapperType `json:"recordWrapperType" yaml:"recordWrapperType"`
 	// Shuffle config option for input data in a channel.
-	// Experimental.
 	ShuffleConfig *ShuffleConfig `json:"shuffleConfig" yaml:"shuffleConfig"`
 }
 
@@ -8604,10 +7271,8 @@ type Channel struct {
 //   	},
 //   })
 //
-// Experimental.
 type Classification interface {
 	// A literal string in case a new EMR classification is released, if not already defined.
-	// Experimental.
 	ClassificationStatement() *string
 }
 
@@ -8628,14 +7293,13 @@ func (j *jsiiProxy_Classification) ClassificationStatement() *string {
 
 
 // Creates a new Classification.
-// Experimental.
 func NewClassification(classificationStatement *string) Classification {
 	_init_.Initialize()
 
 	j := jsiiProxy_Classification{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.Classification",
+		"aws-cdk-lib.aws_stepfunctions_tasks.Classification",
 		[]interface{}{classificationStatement},
 		&j,
 	)
@@ -8644,12 +7308,11 @@ func NewClassification(classificationStatement *string) Classification {
 }
 
 // Creates a new Classification.
-// Experimental.
 func NewClassification_Override(c Classification, classificationStatement *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.Classification",
+		"aws-cdk-lib.aws_stepfunctions_tasks.Classification",
 		[]interface{}{classificationStatement},
 		c,
 	)
@@ -8659,7 +7322,7 @@ func Classification_SPARK() Classification {
 	_init_.Initialize()
 	var returns Classification
 	_jsii_.StaticGet(
-		"monocdk.aws_stepfunctions_tasks.Classification",
+		"aws-cdk-lib.aws_stepfunctions_tasks.Classification",
 		"SPARK",
 		&returns,
 	)
@@ -8670,7 +7333,7 @@ func Classification_SPARK_DEFAULTS() Classification {
 	_init_.Initialize()
 	var returns Classification
 	_jsii_.StaticGet(
-		"monocdk.aws_stepfunctions_tasks.Classification",
+		"aws-cdk-lib.aws_stepfunctions_tasks.Classification",
 		"SPARK_DEFAULTS",
 		&returns,
 	)
@@ -8681,7 +7344,7 @@ func Classification_SPARK_ENV() Classification {
 	_init_.Initialize()
 	var returns Classification
 	_jsii_.StaticGet(
-		"monocdk.aws_stepfunctions_tasks.Classification",
+		"aws-cdk-lib.aws_stepfunctions_tasks.Classification",
 		"SPARK_ENV",
 		&returns,
 	)
@@ -8692,7 +7355,7 @@ func Classification_SPARK_HIVE_SITE() Classification {
 	_init_.Initialize()
 	var returns Classification
 	_jsii_.StaticGet(
-		"monocdk.aws_stepfunctions_tasks.Classification",
+		"aws-cdk-lib.aws_stepfunctions_tasks.Classification",
 		"SPARK_HIVE_SITE",
 		&returns,
 	)
@@ -8703,7 +7366,7 @@ func Classification_SPARK_LOG4J() Classification {
 	_init_.Initialize()
 	var returns Classification
 	_jsii_.StaticGet(
-		"monocdk.aws_stepfunctions_tasks.Classification",
+		"aws-cdk-lib.aws_stepfunctions_tasks.Classification",
 		"SPARK_LOG4J",
 		&returns,
 	)
@@ -8714,7 +7377,7 @@ func Classification_SPARK_METRICS() Classification {
 	_init_.Initialize()
 	var returns Classification
 	_jsii_.StaticGet(
-		"monocdk.aws_stepfunctions_tasks.Classification",
+		"aws-cdk-lib.aws_stepfunctions_tasks.Classification",
 		"SPARK_METRICS",
 		&returns,
 	)
@@ -8753,198 +7416,103 @@ func Classification_SPARK_METRICS() Classification {
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-codebuild.html
 //
-// Experimental.
 type CodeBuildStartBuild interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -9023,8 +7591,8 @@ func (j *jsiiProxy_CodeBuildStartBuild) Iteration() awsstepfunctions.StateGraph 
 	return returns
 }
 
-func (j *jsiiProxy_CodeBuildStartBuild) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CodeBuildStartBuild) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -9114,14 +7682,13 @@ func (j *jsiiProxy_CodeBuildStartBuild) TaskPolicies() *[]awsiam.PolicyStatement
 }
 
 
-// Experimental.
 func NewCodeBuildStartBuild(scope constructs.Construct, id *string, props *CodeBuildStartBuildProps) CodeBuildStartBuild {
 	_init_.Initialize()
 
 	j := jsiiProxy_CodeBuildStartBuild{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.CodeBuildStartBuild",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CodeBuildStartBuild",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -9129,12 +7696,11 @@ func NewCodeBuildStartBuild(scope constructs.Construct, id *string, props *CodeB
 	return &j
 }
 
-// Experimental.
 func NewCodeBuildStartBuild_Override(c CodeBuildStartBuild, scope constructs.Construct, id *string, props *CodeBuildStartBuildProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.CodeBuildStartBuild",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CodeBuildStartBuild",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -9157,14 +7723,13 @@ func (j *jsiiProxy_CodeBuildStartBuild) SetIteration(val awsstepfunctions.StateG
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func CodeBuildStartBuild_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.CodeBuildStartBuild",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CodeBuildStartBuild",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -9174,14 +7739,13 @@ func CodeBuildStartBuild_FilterNextables(states *[]awsstepfunctions.State) *[]aw
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func CodeBuildStartBuild_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.CodeBuildStartBuild",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CodeBuildStartBuild",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -9193,14 +7757,13 @@ func CodeBuildStartBuild_FindReachableEndStates(start awsstepfunctions.State, op
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func CodeBuildStartBuild_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.CodeBuildStartBuild",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CodeBuildStartBuild",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -9209,15 +7772,17 @@ func CodeBuildStartBuild_FindReachableStates(start awsstepfunctions.State, optio
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CodeBuildStartBuild_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.CodeBuildStartBuild",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CodeBuildStartBuild",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -9227,12 +7792,11 @@ func CodeBuildStartBuild_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func CodeBuildStartBuild_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.CodeBuildStartBuild",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CodeBuildStartBuild",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -9463,43 +8027,6 @@ func (c *jsiiProxy_CodeBuildStartBuild) Next(next awsstepfunctions.IChainable) a
 	return returns
 }
 
-func (c *jsiiProxy_CodeBuildStartBuild) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CodeBuildStartBuild) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CodeBuildStartBuild) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CodeBuildStartBuild) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (c *jsiiProxy_CodeBuildStartBuild) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -9591,14 +8118,6 @@ func (c *jsiiProxy_CodeBuildStartBuild) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (c *jsiiProxy_CodeBuildStartBuild) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CodeBuildStartBuild) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -9625,12 +8144,12 @@ func (c *jsiiProxy_CodeBuildStartBuild) ToString() *string {
 	return returns
 }
 
-func (c *jsiiProxy_CodeBuildStartBuild) Validate() *[]*string {
+func (c *jsiiProxy_CodeBuildStartBuild) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		c,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -9676,38 +8195,31 @@ func (c *jsiiProxy_CodeBuildStartBuild) WhenBoundToGraph(graph awsstepfunctions.
 //   	},
 //   })
 //
-// Experimental.
 type CodeBuildStartBuildProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -9715,16 +8227,12 @@ type CodeBuildStartBuildProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// CodeBuild project to start.
-	// Experimental.
 	Project awscodebuild.IProject `json:"project" yaml:"project"`
 	// A set of environment variables to be used for this build only.
-	// Experimental.
 	EnvironmentVariablesOverride *map[string]*awscodebuild.BuildEnvironmentVariable `json:"environmentVariablesOverride" yaml:"environmentVariablesOverride"`
 }
 
@@ -9763,40 +8271,32 @@ type CodeBuildStartBuildProps struct {
 //   	integrationPattern: stepfunctions.serviceIntegrationPattern_FIRE_AND_FORGET,
 //   }
 //
-// Experimental.
 type CommonEcsRunTaskProps struct {
 	// The topic to run the task on.
-	// Experimental.
 	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
 	// Task Definition used for running tasks in the service.
 	//
 	// Note: this must be TaskDefinition, and not ITaskDefinition,
 	// as it requires properties that are not known for imported task definitions.
-	// Experimental.
 	TaskDefinition awsecs.TaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 	// Container setting overrides.
 	//
 	// Key is the name of the container to override, value is the
 	// values you want to override.
-	// Experimental.
 	ContainerOverrides *[]*ContainerOverride `json:"containerOverrides" yaml:"containerOverrides"`
 	// The service integration pattern indicates different ways to call RunTask in ECS.
 	//
 	// The valid value for Lambda is FIRE_AND_FORGET, SYNC and WAIT_FOR_TASK_TOKEN.
-	// Experimental.
 	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 }
 
 // Compression type of the data.
-// Experimental.
 type CompressionType string
 
 const (
 	// None compression type.
-	// Experimental.
 	CompressionType_NONE CompressionType = "NONE"
 	// Gzip compression type.
-	// Experimental.
 	CompressionType_GZIP CompressionType = "GZIP"
 )
 
@@ -9814,11 +8314,9 @@ const (
 //
 // See: https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html
 //
-// Experimental.
 type ContainerDefinition interface {
 	IContainerDefinition
 	// Called when the ContainerDefinition type configured on Sagemaker Task.
-	// Experimental.
 	Bind(task ISageMakerTask) *ContainerDefinitionConfig
 }
 
@@ -9827,14 +8325,13 @@ type jsiiProxy_ContainerDefinition struct {
 	jsiiProxy_IContainerDefinition
 }
 
-// Experimental.
 func NewContainerDefinition(options *ContainerDefinitionOptions) ContainerDefinition {
 	_init_.Initialize()
 
 	j := jsiiProxy_ContainerDefinition{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.ContainerDefinition",
+		"aws-cdk-lib.aws_stepfunctions_tasks.ContainerDefinition",
 		[]interface{}{options},
 		&j,
 	)
@@ -9842,12 +8339,11 @@ func NewContainerDefinition(options *ContainerDefinitionOptions) ContainerDefini
 	return &j
 }
 
-// Experimental.
 func NewContainerDefinition_Override(c ContainerDefinition, options *ContainerDefinitionOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.ContainerDefinition",
+		"aws-cdk-lib.aws_stepfunctions_tasks.ContainerDefinition",
 		[]interface{}{options},
 		c,
 	)
@@ -9878,10 +8374,8 @@ func (c *jsiiProxy_ContainerDefinition) Bind(task ISageMakerTask) *ContainerDefi
 //   	},
 //   }
 //
-// Experimental.
 type ContainerDefinitionConfig struct {
 	// Additional parameters to pass to the base task.
-	// Experimental.
 	Parameters *map[string]interface{} `json:"parameters" yaml:"parameters"`
 }
 
@@ -9899,31 +8393,24 @@ type ContainerDefinitionConfig struct {
 //
 // See: https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html
 //
-// Experimental.
 type ContainerDefinitionOptions struct {
 	// This parameter is ignored for models that contain only a PrimaryContainer.
 	//
 	// When a ContainerDefinition is part of an inference pipeline,
 	// the value of the parameter uniquely identifies the container for the purposes of logging and metrics.
-	// Experimental.
 	ContainerHostName *string `json:"containerHostName" yaml:"containerHostName"`
 	// The environment variables to set in the Docker container.
-	// Experimental.
 	EnvironmentVariables awsstepfunctions.TaskInput `json:"environmentVariables" yaml:"environmentVariables"`
 	// The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
-	// Experimental.
 	Image DockerImage `json:"image" yaml:"image"`
 	// Defines how many models the container hosts.
-	// Experimental.
 	Mode Mode `json:"mode" yaml:"mode"`
 	// The name or Amazon Resource Name (ARN) of the model package to use to create the model.
-	// Experimental.
 	ModelPackageName *string `json:"modelPackageName" yaml:"modelPackageName"`
 	// The S3 path where the model artifacts, which result from model training, are stored.
 	//
 	// This path must point to a single gzip compressed tar archive (.tar.gz suffix).
 	// The S3 path is required for Amazon SageMaker built-in algorithms, but not if you use your own algorithms.
-	// Experimental.
 	ModelS3Location S3Location `json:"modelS3Location" yaml:"modelS3Location"`
 }
 
@@ -9951,28 +8438,21 @@ type ContainerDefinitionOptions struct {
 //   	memoryReservation: jsii.Number(123),
 //   }
 //
-// Experimental.
 type ContainerOverride struct {
 	// Name of the container inside the task definition.
-	// Experimental.
 	ContainerDefinition awsecs.ContainerDefinition `json:"containerDefinition" yaml:"containerDefinition"`
 	// Command to run inside the container.
-	// Experimental.
 	Command *[]*string `json:"command" yaml:"command"`
 	// The number of cpu units reserved for the container.
-	// Experimental.
 	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// The environment variables to send to the container.
 	//
 	// You can add new environment variables, which are added to the container at launch,
 	// or you can override the existing environment variables from the Docker image or the task definition.
-	// Experimental.
 	Environment *[]*TaskEnvironmentVariable `json:"environment" yaml:"environment"`
 	// The hard limit (in MiB) of memory to present to the container.
-	// Experimental.
 	MemoryLimit *float64 `json:"memoryLimit" yaml:"memoryLimit"`
 	// The soft limit (in MiB) of memory to reserve for the container.
-	// Experimental.
 	MemoryReservation *float64 `json:"memoryReservation" yaml:"memoryReservation"`
 }
 
@@ -9995,39 +8475,32 @@ type ContainerOverride struct {
 //   	vcpus: jsii.Number(123),
 //   }
 //
-// Experimental.
 type ContainerOverrides struct {
 	// The command to send to the container that overrides the default command from the Docker image or the job definition.
-	// Experimental.
 	Command *[]*string `json:"command" yaml:"command"`
 	// The environment variables to send to the container.
 	//
 	// You can add new environment variables, which are added to the container
 	// at launch, or you can override the existing environment variables from
 	// the Docker image or the job definition.
-	// Experimental.
 	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The number of physical GPUs to reserve for the container.
 	//
 	// The number of GPUs reserved for all containers in a job
 	// should not exceed the number of available GPUs on the compute
 	// resource that the job is launched on.
-	// Experimental.
 	GpuCount *float64 `json:"gpuCount" yaml:"gpuCount"`
 	// The instance type to use for a multi-node parallel job.
 	//
 	// This parameter is not valid for single-node container jobs.
-	// Experimental.
 	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// The number of MiB of memory reserved for the job.
 	//
 	// This value overrides the value set in the job definition.
-	// Experimental.
 	Memory *float64 `json:"memory" yaml:"memory"`
 	// The number of vCPUs to reserve for the container.
 	//
 	// This value overrides the value set in the job definition.
-	// Experimental.
 	Vcpus *float64 `json:"vcpus" yaml:"vcpus"`
 }
 
@@ -10065,10 +8538,8 @@ type ContainerOverrides struct {
 //   	},
 //   })
 //
-// Experimental.
 type DataSource struct {
 	// S3 location of the data source that is associated with a channel.
-	// Experimental.
 	S3DataSource *S3DataSource `json:"s3DataSource" yaml:"s3DataSource"`
 }
 
@@ -10084,10 +8555,8 @@ type DataSource struct {
 //   	}),
 //   })
 //
-// Experimental.
 type DockerImage interface {
 	// Called when the image is used by a SageMaker task.
-	// Experimental.
 	Bind(task ISageMakerTask) *DockerImageConfig
 }
 
@@ -10096,26 +8565,24 @@ type jsiiProxy_DockerImage struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewDockerImage_Override(d DockerImage) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.DockerImage",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DockerImage",
 		nil, // no parameters
 		d,
 	)
 }
 
 // Reference a Docker image that is provided as an Asset in the current app.
-// Experimental.
 func DockerImage_FromAsset(scope constructs.Construct, id *string, props *awsecrassets.DockerImageAssetProps) DockerImage {
 	_init_.Initialize()
 
 	var returns DockerImage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DockerImage",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DockerImage",
 		"fromAsset",
 		[]interface{}{scope, id, props},
 		&returns,
@@ -10125,14 +8592,13 @@ func DockerImage_FromAsset(scope constructs.Construct, id *string, props *awsecr
 }
 
 // Reference a Docker image stored in an ECR repository.
-// Experimental.
 func DockerImage_FromEcrRepository(repository awsecr.IRepository, tag *string) DockerImage {
 	_init_.Initialize()
 
 	var returns DockerImage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DockerImage",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DockerImage",
 		"fromEcrRepository",
 		[]interface{}{repository, tag},
 		&returns,
@@ -10142,14 +8608,13 @@ func DockerImage_FromEcrRepository(repository awsecr.IRepository, tag *string) D
 }
 
 // Reference a Docker image which URI is obtained from the task's input.
-// Experimental.
 func DockerImage_FromJsonExpression(expression *string, allowAnyEcrImagePull *bool) DockerImage {
 	_init_.Initialize()
 
 	var returns DockerImage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DockerImage",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DockerImage",
 		"fromJsonExpression",
 		[]interface{}{expression, allowAnyEcrImagePull},
 		&returns,
@@ -10161,14 +8626,13 @@ func DockerImage_FromJsonExpression(expression *string, allowAnyEcrImagePull *bo
 // Reference a Docker image by it's URI.
 //
 // When referencing ECR images, prefer using `inEcr`.
-// Experimental.
 func DockerImage_FromRegistry(imageUri *string) DockerImage {
 	_init_.Initialize()
 
 	var returns DockerImage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DockerImage",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DockerImage",
 		"fromRegistry",
 		[]interface{}{imageUri},
 		&returns,
@@ -10198,10 +8662,8 @@ func (d *jsiiProxy_DockerImage) Bind(task ISageMakerTask) *DockerImageConfig {
 //   	imageUri: jsii.String("imageUri"),
 //   }
 //
-// Experimental.
 type DockerImageConfig struct {
 	// The fully qualified URI of the Docker image.
-	// Experimental.
 	ImageUri *string `json:"imageUri" yaml:"imageUri"`
 }
 
@@ -10222,16 +8684,13 @@ type DockerImageConfig struct {
 //
 // See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html
 //
-// Experimental.
 type DynamoAttributeValue interface {
 	// Represents the data for the attribute.
 	//
 	// Data can be
 	// i.e. "S": "Hello"
-	// Experimental.
 	AttributeValue() interface{}
 	// Returns the DynamoDB attribute value.
-	// Experimental.
 	ToObject() interface{}
 }
 
@@ -10254,14 +8713,13 @@ func (j *jsiiProxy_DynamoAttributeValue) AttributeValue() interface{} {
 // Sets an attribute of type Boolean from state input through Json path.
 //
 // For example:  "BOOL": true.
-// Experimental.
 func DynamoAttributeValue_BooleanFromJsonPath(value *string) DynamoAttributeValue {
 	_init_.Initialize()
 
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"booleanFromJsonPath",
 		[]interface{}{value},
 		&returns,
@@ -10273,14 +8731,13 @@ func DynamoAttributeValue_BooleanFromJsonPath(value *string) DynamoAttributeValu
 // Sets an attribute of type Binary.
 //
 // For example:  "B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk".
-// Experimental.
 func DynamoAttributeValue_FromBinary(value *string) DynamoAttributeValue {
 	_init_.Initialize()
 
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromBinary",
 		[]interface{}{value},
 		&returns,
@@ -10292,14 +8749,13 @@ func DynamoAttributeValue_FromBinary(value *string) DynamoAttributeValue {
 // Sets an attribute of type Binary Set.
 //
 // For example:  "BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="].
-// Experimental.
 func DynamoAttributeValue_FromBinarySet(value *[]*string) DynamoAttributeValue {
 	_init_.Initialize()
 
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromBinarySet",
 		[]interface{}{value},
 		&returns,
@@ -10311,14 +8767,13 @@ func DynamoAttributeValue_FromBinarySet(value *[]*string) DynamoAttributeValue {
 // Sets an attribute of type Boolean.
 //
 // For example:  "BOOL": true.
-// Experimental.
 func DynamoAttributeValue_FromBoolean(value *bool) DynamoAttributeValue {
 	_init_.Initialize()
 
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromBoolean",
 		[]interface{}{value},
 		&returns,
@@ -10330,14 +8785,13 @@ func DynamoAttributeValue_FromBoolean(value *bool) DynamoAttributeValue {
 // Sets an attribute of type List.
 //
 // For example:  "L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]
-// Experimental.
 func DynamoAttributeValue_FromList(value *[]DynamoAttributeValue) DynamoAttributeValue {
 	_init_.Initialize()
 
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromList",
 		[]interface{}{value},
 		&returns,
@@ -10349,14 +8803,13 @@ func DynamoAttributeValue_FromList(value *[]DynamoAttributeValue) DynamoAttribut
 // Sets an attribute of type Map.
 //
 // For example:  "M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}.
-// Experimental.
 func DynamoAttributeValue_FromMap(value *map[string]DynamoAttributeValue) DynamoAttributeValue {
 	_init_.Initialize()
 
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromMap",
 		[]interface{}{value},
 		&returns,
@@ -10368,14 +8821,13 @@ func DynamoAttributeValue_FromMap(value *map[string]DynamoAttributeValue) Dynamo
 // Sets an attribute of type Null.
 //
 // For example:  "NULL": true.
-// Experimental.
 func DynamoAttributeValue_FromNull(value *bool) DynamoAttributeValue {
 	_init_.Initialize()
 
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromNull",
 		[]interface{}{value},
 		&returns,
@@ -10390,14 +8842,13 @@ func DynamoAttributeValue_FromNull(value *bool) DynamoAttributeValue {
 // Numbers are sent across the network to DynamoDB as strings,
 // to maximize compatibility across languages and libraries.
 // However, DynamoDB treats them as number type attributes for mathematical operations.
-// Experimental.
 func DynamoAttributeValue_FromNumber(value *float64) DynamoAttributeValue {
 	_init_.Initialize()
 
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromNumber",
 		[]interface{}{value},
 		&returns,
@@ -10412,14 +8863,13 @@ func DynamoAttributeValue_FromNumber(value *float64) DynamoAttributeValue {
 // Numbers are sent across the network to DynamoDB as strings,
 // to maximize compatibility across languages and libraries.
 // However, DynamoDB treats them as number type attributes for mathematical operations.
-// Experimental.
 func DynamoAttributeValue_FromNumberSet(value *[]*float64) DynamoAttributeValue {
 	_init_.Initialize()
 
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromNumberSet",
 		[]interface{}{value},
 		&returns,
@@ -10435,14 +8885,13 @@ func DynamoAttributeValue_FromNumberSet(value *[]*float64) DynamoAttributeValue 
 //
 // - `DynamoAttributeValue.fromString('someValue')`
 // - `DynamoAttributeValue.fromString(JsonPath.stringAt('$.bar'))`
-// Experimental.
 func DynamoAttributeValue_FromString(value *string) DynamoAttributeValue {
 	_init_.Initialize()
 
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromString",
 		[]interface{}{value},
 		&returns,
@@ -10454,14 +8903,13 @@ func DynamoAttributeValue_FromString(value *string) DynamoAttributeValue {
 // Sets an attribute of type String Set.
 //
 // For example:  "SS": ["Giraffe", "Hippo" ,"Zebra"].
-// Experimental.
 func DynamoAttributeValue_FromStringSet(value *[]*string) DynamoAttributeValue {
 	_init_.Initialize()
 
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromStringSet",
 		[]interface{}{value},
 		&returns,
@@ -10473,14 +8921,13 @@ func DynamoAttributeValue_FromStringSet(value *[]*string) DynamoAttributeValue {
 // Sets an attribute of type List.
 //
 // For example:  "L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"S", "Veggies"}].
-// Experimental.
 func DynamoAttributeValue_ListFromJsonPath(value *string) DynamoAttributeValue {
 	_init_.Initialize()
 
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"listFromJsonPath",
 		[]interface{}{value},
 		&returns,
@@ -10492,14 +8939,13 @@ func DynamoAttributeValue_ListFromJsonPath(value *string) DynamoAttributeValue {
 // Sets an attribute of type Map.
 //
 // For example:  "M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}.
-// Experimental.
 func DynamoAttributeValue_MapFromJsonPath(value *string) DynamoAttributeValue {
 	_init_.Initialize()
 
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"mapFromJsonPath",
 		[]interface{}{value},
 		&returns,
@@ -10516,14 +8962,13 @@ func DynamoAttributeValue_MapFromJsonPath(value *string) DynamoAttributeValue {
 // However, DynamoDB treats them as number type attributes for mathematical operations.
 //
 // Numbers may be expressed as literal strings or as JsonPath.
-// Experimental.
 func DynamoAttributeValue_NumberFromString(value *string) DynamoAttributeValue {
 	_init_.Initialize()
 
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"numberFromString",
 		[]interface{}{value},
 		&returns,
@@ -10540,14 +8985,13 @@ func DynamoAttributeValue_NumberFromString(value *string) DynamoAttributeValue {
 // However, DynamoDB treats them as number type attributes for mathematical operations.
 //
 // Numbers may be expressed as literal strings or as JsonPath.
-// Experimental.
 func DynamoAttributeValue_NumberSetFromStrings(value *[]*string) DynamoAttributeValue {
 	_init_.Initialize()
 
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"numberSetFromStrings",
 		[]interface{}{value},
 		&returns,
@@ -10570,18 +9014,14 @@ func (d *jsiiProxy_DynamoAttributeValue) ToObject() interface{} {
 }
 
 // Determines the level of detail about provisioned throughput consumption that is returned.
-// Experimental.
 type DynamoConsumedCapacity string
 
 const (
 	// The response includes the aggregate ConsumedCapacity for the operation, together with ConsumedCapacity for each table and secondary index that was accessed.
-	// Experimental.
 	DynamoConsumedCapacity_INDEXES DynamoConsumedCapacity = "INDEXES"
 	// The response includes only the aggregate ConsumedCapacity for the operation.
-	// Experimental.
 	DynamoConsumedCapacity_TOTAL DynamoConsumedCapacity = "TOTAL"
 	// No ConsumedCapacity details are included in the response.
-	// Experimental.
 	DynamoConsumedCapacity_NONE DynamoConsumedCapacity = "NONE"
 )
 
@@ -10597,198 +9037,103 @@ const (
 //   	resultPath: sfn.jsonPath_DISCARD(),
 //   })
 //
-// Experimental.
 type DynamoDeleteItem interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -10867,8 +9212,8 @@ func (j *jsiiProxy_DynamoDeleteItem) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_DynamoDeleteItem) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_DynamoDeleteItem) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -10958,14 +9303,13 @@ func (j *jsiiProxy_DynamoDeleteItem) TaskPolicies() *[]awsiam.PolicyStatement {
 }
 
 
-// Experimental.
 func NewDynamoDeleteItem(scope constructs.Construct, id *string, props *DynamoDeleteItemProps) DynamoDeleteItem {
 	_init_.Initialize()
 
 	j := jsiiProxy_DynamoDeleteItem{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.DynamoDeleteItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoDeleteItem",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -10973,12 +9317,11 @@ func NewDynamoDeleteItem(scope constructs.Construct, id *string, props *DynamoDe
 	return &j
 }
 
-// Experimental.
 func NewDynamoDeleteItem_Override(d DynamoDeleteItem, scope constructs.Construct, id *string, props *DynamoDeleteItemProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.DynamoDeleteItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoDeleteItem",
 		[]interface{}{scope, id, props},
 		d,
 	)
@@ -11001,14 +9344,13 @@ func (j *jsiiProxy_DynamoDeleteItem) SetIteration(val awsstepfunctions.StateGrap
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func DynamoDeleteItem_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoDeleteItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoDeleteItem",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -11018,14 +9360,13 @@ func DynamoDeleteItem_FilterNextables(states *[]awsstepfunctions.State) *[]awsst
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func DynamoDeleteItem_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoDeleteItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoDeleteItem",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -11037,14 +9378,13 @@ func DynamoDeleteItem_FindReachableEndStates(start awsstepfunctions.State, optio
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func DynamoDeleteItem_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoDeleteItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoDeleteItem",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -11053,15 +9393,17 @@ func DynamoDeleteItem_FindReachableStates(start awsstepfunctions.State, options 
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func DynamoDeleteItem_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoDeleteItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoDeleteItem",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -11071,12 +9413,11 @@ func DynamoDeleteItem_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func DynamoDeleteItem_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.DynamoDeleteItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoDeleteItem",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -11307,43 +9648,6 @@ func (d *jsiiProxy_DynamoDeleteItem) Next(next awsstepfunctions.IChainable) awss
 	return returns
 }
 
-func (d *jsiiProxy_DynamoDeleteItem) OnPrepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (d *jsiiProxy_DynamoDeleteItem) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (d *jsiiProxy_DynamoDeleteItem) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (d *jsiiProxy_DynamoDeleteItem) Prepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (d *jsiiProxy_DynamoDeleteItem) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -11435,14 +9739,6 @@ func (d *jsiiProxy_DynamoDeleteItem) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (d *jsiiProxy_DynamoDeleteItem) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (d *jsiiProxy_DynamoDeleteItem) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -11469,12 +9765,12 @@ func (d *jsiiProxy_DynamoDeleteItem) ToString() *string {
 	return returns
 }
 
-func (d *jsiiProxy_DynamoDeleteItem) Validate() *[]*string {
+func (d *jsiiProxy_DynamoDeleteItem) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		d,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -11502,38 +9798,31 @@ func (d *jsiiProxy_DynamoDeleteItem) WhenBoundToGraph(graph awsstepfunctions.Sta
 //   	resultPath: sfn.jsonPath_DISCARD(),
 //   })
 //
-// Experimental.
 type DynamoDeleteItemProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -11541,10 +9830,8 @@ type DynamoDeleteItemProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Primary key of the item to retrieve.
 	//
@@ -11553,42 +9840,34 @@ type DynamoDeleteItemProps struct {
 	// For a composite primary key, you must provide values for both the partition key and the sort key.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html#DDB-GetItem-request-Key
 	//
-	// Experimental.
 	Key *map[string]DynamoAttributeValue `json:"key" yaml:"key"`
 	// The name of the table containing the requested item.
-	// Experimental.
 	Table awsdynamodb.ITable `json:"table" yaml:"table"`
 	// A condition that must be satisfied in order for a conditional DeleteItem to succeed.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteItem.html#DDB-DeleteItem-request-ConditionExpression
 	//
-	// Experimental.
 	ConditionExpression *string `json:"conditionExpression" yaml:"conditionExpression"`
 	// One or more substitution tokens for attribute names in an expression.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteItem.html#DDB-DeleteItem-request-ExpressionAttributeNames
 	//
-	// Experimental.
 	ExpressionAttributeNames *map[string]*string `json:"expressionAttributeNames" yaml:"expressionAttributeNames"`
 	// One or more values that can be substituted in an expression.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteItem.html#DDB-DeleteItem-request-ExpressionAttributeValues
 	//
-	// Experimental.
 	ExpressionAttributeValues *map[string]DynamoAttributeValue `json:"expressionAttributeValues" yaml:"expressionAttributeValues"`
 	// Determines the level of detail about provisioned throughput consumption that is returned in the response.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteItem.html#DDB-DeleteItem-request-ReturnConsumedCapacity
 	//
-	// Experimental.
 	ReturnConsumedCapacity DynamoConsumedCapacity `json:"returnConsumedCapacity" yaml:"returnConsumedCapacity"`
 	// Determines whether item collection metrics are returned.
 	//
 	// If set to SIZE, the response includes statistics about item collections, if any,
 	// that were modified during the operation are returned in the response.
 	// If set to NONE (the default), no statistics are returned.
-	// Experimental.
 	ReturnItemCollectionMetrics DynamoItemCollectionMetrics `json:"returnItemCollectionMetrics" yaml:"returnItemCollectionMetrics"`
 	// Use ReturnValues if you want to get the item attributes as they appeared before they were deleted.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteItem.html#DDB-DeleteItem-request-ReturnValues
 	//
-	// Experimental.
 	ReturnValues DynamoReturnValues `json:"returnValues" yaml:"returnValues"`
 }
 
@@ -11603,198 +9882,103 @@ type DynamoDeleteItemProps struct {
 //   	table: myTable,
 //   })
 //
-// Experimental.
 type DynamoGetItem interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -11873,8 +10057,8 @@ func (j *jsiiProxy_DynamoGetItem) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_DynamoGetItem) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_DynamoGetItem) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -11964,14 +10148,13 @@ func (j *jsiiProxy_DynamoGetItem) TaskPolicies() *[]awsiam.PolicyStatement {
 }
 
 
-// Experimental.
 func NewDynamoGetItem(scope constructs.Construct, id *string, props *DynamoGetItemProps) DynamoGetItem {
 	_init_.Initialize()
 
 	j := jsiiProxy_DynamoGetItem{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.DynamoGetItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoGetItem",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -11979,12 +10162,11 @@ func NewDynamoGetItem(scope constructs.Construct, id *string, props *DynamoGetIt
 	return &j
 }
 
-// Experimental.
 func NewDynamoGetItem_Override(d DynamoGetItem, scope constructs.Construct, id *string, props *DynamoGetItemProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.DynamoGetItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoGetItem",
 		[]interface{}{scope, id, props},
 		d,
 	)
@@ -12007,14 +10189,13 @@ func (j *jsiiProxy_DynamoGetItem) SetIteration(val awsstepfunctions.StateGraph) 
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func DynamoGetItem_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoGetItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoGetItem",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -12024,14 +10205,13 @@ func DynamoGetItem_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepf
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func DynamoGetItem_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoGetItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoGetItem",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -12043,14 +10223,13 @@ func DynamoGetItem_FindReachableEndStates(start awsstepfunctions.State, options 
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func DynamoGetItem_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoGetItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoGetItem",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -12059,15 +10238,17 @@ func DynamoGetItem_FindReachableStates(start awsstepfunctions.State, options *aw
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func DynamoGetItem_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoGetItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoGetItem",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -12077,12 +10258,11 @@ func DynamoGetItem_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func DynamoGetItem_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.DynamoGetItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoGetItem",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -12313,43 +10493,6 @@ func (d *jsiiProxy_DynamoGetItem) Next(next awsstepfunctions.IChainable) awsstep
 	return returns
 }
 
-func (d *jsiiProxy_DynamoGetItem) OnPrepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (d *jsiiProxy_DynamoGetItem) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (d *jsiiProxy_DynamoGetItem) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (d *jsiiProxy_DynamoGetItem) Prepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (d *jsiiProxy_DynamoGetItem) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -12441,14 +10584,6 @@ func (d *jsiiProxy_DynamoGetItem) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (d *jsiiProxy_DynamoGetItem) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (d *jsiiProxy_DynamoGetItem) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -12475,12 +10610,12 @@ func (d *jsiiProxy_DynamoGetItem) ToString() *string {
 	return returns
 }
 
-func (d *jsiiProxy_DynamoGetItem) Validate() *[]*string {
+func (d *jsiiProxy_DynamoGetItem) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		d,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -12507,38 +10642,31 @@ func (d *jsiiProxy_DynamoGetItem) WhenBoundToGraph(graph awsstepfunctions.StateG
 //   	table: myTable,
 //   })
 //
-// Experimental.
 type DynamoGetItemProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -12546,10 +10674,8 @@ type DynamoGetItemProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Primary key of the item to retrieve.
 	//
@@ -12558,45 +10684,36 @@ type DynamoGetItemProps struct {
 	// For a composite primary key, you must provide values for both the partition key and the sort key.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html#DDB-GetItem-request-Key
 	//
-	// Experimental.
 	Key *map[string]DynamoAttributeValue `json:"key" yaml:"key"`
 	// The name of the table containing the requested item.
-	// Experimental.
 	Table awsdynamodb.ITable `json:"table" yaml:"table"`
 	// Determines the read consistency model: If set to true, then the operation uses strongly consistent reads;
 	//
 	// otherwise, the operation uses eventually consistent reads.
-	// Experimental.
 	ConsistentRead *bool `json:"consistentRead" yaml:"consistentRead"`
 	// One or more substitution tokens for attribute names in an expression.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html#DDB-GetItem-request-ExpressionAttributeNames
 	//
-	// Experimental.
 	ExpressionAttributeNames *map[string]*string `json:"expressionAttributeNames" yaml:"expressionAttributeNames"`
 	// An array of DynamoProjectionExpression that identifies one or more attributes to retrieve from the table.
 	//
 	// These attributes can include scalars, sets, or elements of a JSON document.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html#DDB-GetItem-request-ProjectionExpression
 	//
-	// Experimental.
 	ProjectionExpression *[]DynamoProjectionExpression `json:"projectionExpression" yaml:"projectionExpression"`
 	// Determines the level of detail about provisioned throughput consumption that is returned in the response.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html#DDB-GetItem-request-ReturnConsumedCapacity
 	//
-	// Experimental.
 	ReturnConsumedCapacity DynamoConsumedCapacity `json:"returnConsumedCapacity" yaml:"returnConsumedCapacity"`
 }
 
 // Determines whether item collection metrics are returned.
-// Experimental.
 type DynamoItemCollectionMetrics string
 
 const (
 	// If set to SIZE, the response includes statistics about item collections, if any, that were modified during the operation.
-	// Experimental.
 	DynamoItemCollectionMetrics_SIZE DynamoItemCollectionMetrics = "SIZE"
 	// If set to NONE, no statistics are returned.
-	// Experimental.
 	DynamoItemCollectionMetrics_NONE DynamoItemCollectionMetrics = "NONE"
 )
 
@@ -12606,16 +10723,12 @@ const (
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
 //   dynamoProjectionExpression := stepfunctions_tasks.NewDynamoProjectionExpression()
 //
-// Experimental.
 type DynamoProjectionExpression interface {
 	// Adds the array literal access for passed index.
-	// Experimental.
 	AtIndex(index *float64) DynamoProjectionExpression
 	// converts and return the string expression.
-	// Experimental.
 	ToString() *string
 	// Adds the passed attribute to the chain.
-	// Experimental.
 	WithAttribute(attr *string) DynamoProjectionExpression
 }
 
@@ -12624,14 +10737,13 @@ type jsiiProxy_DynamoProjectionExpression struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewDynamoProjectionExpression() DynamoProjectionExpression {
 	_init_.Initialize()
 
 	j := jsiiProxy_DynamoProjectionExpression{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.DynamoProjectionExpression",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoProjectionExpression",
 		nil, // no parameters
 		&j,
 	)
@@ -12639,12 +10751,11 @@ func NewDynamoProjectionExpression() DynamoProjectionExpression {
 	return &j
 }
 
-// Experimental.
 func NewDynamoProjectionExpression_Override(d DynamoProjectionExpression) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.DynamoProjectionExpression",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoProjectionExpression",
 		nil, // no parameters
 		d,
 	)
@@ -12701,198 +10812,103 @@ func (d *jsiiProxy_DynamoProjectionExpression) WithAttribute(attr *string) Dynam
 //   	resultPath: jsii.String("$.Item"),
 //   })
 //
-// Experimental.
 type DynamoPutItem interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -12971,8 +10987,8 @@ func (j *jsiiProxy_DynamoPutItem) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_DynamoPutItem) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_DynamoPutItem) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -13062,14 +11078,13 @@ func (j *jsiiProxy_DynamoPutItem) TaskPolicies() *[]awsiam.PolicyStatement {
 }
 
 
-// Experimental.
 func NewDynamoPutItem(scope constructs.Construct, id *string, props *DynamoPutItemProps) DynamoPutItem {
 	_init_.Initialize()
 
 	j := jsiiProxy_DynamoPutItem{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.DynamoPutItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoPutItem",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -13077,12 +11092,11 @@ func NewDynamoPutItem(scope constructs.Construct, id *string, props *DynamoPutIt
 	return &j
 }
 
-// Experimental.
 func NewDynamoPutItem_Override(d DynamoPutItem, scope constructs.Construct, id *string, props *DynamoPutItemProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.DynamoPutItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoPutItem",
 		[]interface{}{scope, id, props},
 		d,
 	)
@@ -13105,14 +11119,13 @@ func (j *jsiiProxy_DynamoPutItem) SetIteration(val awsstepfunctions.StateGraph) 
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func DynamoPutItem_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoPutItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoPutItem",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -13122,14 +11135,13 @@ func DynamoPutItem_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepf
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func DynamoPutItem_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoPutItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoPutItem",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -13141,14 +11153,13 @@ func DynamoPutItem_FindReachableEndStates(start awsstepfunctions.State, options 
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func DynamoPutItem_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoPutItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoPutItem",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -13157,15 +11168,17 @@ func DynamoPutItem_FindReachableStates(start awsstepfunctions.State, options *aw
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func DynamoPutItem_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoPutItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoPutItem",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -13175,12 +11188,11 @@ func DynamoPutItem_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func DynamoPutItem_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.DynamoPutItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoPutItem",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -13411,43 +11423,6 @@ func (d *jsiiProxy_DynamoPutItem) Next(next awsstepfunctions.IChainable) awsstep
 	return returns
 }
 
-func (d *jsiiProxy_DynamoPutItem) OnPrepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (d *jsiiProxy_DynamoPutItem) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (d *jsiiProxy_DynamoPutItem) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (d *jsiiProxy_DynamoPutItem) Prepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (d *jsiiProxy_DynamoPutItem) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -13539,14 +11514,6 @@ func (d *jsiiProxy_DynamoPutItem) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (d *jsiiProxy_DynamoPutItem) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (d *jsiiProxy_DynamoPutItem) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -13573,12 +11540,12 @@ func (d *jsiiProxy_DynamoPutItem) ToString() *string {
 	return returns
 }
 
-func (d *jsiiProxy_DynamoPutItem) Validate() *[]*string {
+func (d *jsiiProxy_DynamoPutItem) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		d,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -13606,38 +11573,31 @@ func (d *jsiiProxy_DynamoPutItem) WhenBoundToGraph(graph awsstepfunctions.StateG
 //   	resultPath: jsii.String("$.Item"),
 //   })
 //
-// Experimental.
 type DynamoPutItemProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -13645,10 +11605,8 @@ type DynamoPutItemProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// A map of attribute name/value pairs, one for each attribute.
 	//
@@ -13656,62 +11614,48 @@ type DynamoPutItemProps struct {
 	// you can optionally provide other attribute name-value pairs for the item.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html#DDB-PutItem-request-Item
 	//
-	// Experimental.
 	Item *map[string]DynamoAttributeValue `json:"item" yaml:"item"`
 	// The name of the table where the item should be written .
-	// Experimental.
 	Table awsdynamodb.ITable `json:"table" yaml:"table"`
 	// A condition that must be satisfied in order for a conditional PutItem operation to succeed.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html#DDB-PutItem-request-ConditionExpression
 	//
-	// Experimental.
 	ConditionExpression *string `json:"conditionExpression" yaml:"conditionExpression"`
 	// One or more substitution tokens for attribute names in an expression.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html#DDB-PutItem-request-ExpressionAttributeNames
 	//
-	// Experimental.
 	ExpressionAttributeNames *map[string]*string `json:"expressionAttributeNames" yaml:"expressionAttributeNames"`
 	// One or more values that can be substituted in an expression.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html#DDB-PutItem-request-ExpressionAttributeValues
 	//
-	// Experimental.
 	ExpressionAttributeValues *map[string]DynamoAttributeValue `json:"expressionAttributeValues" yaml:"expressionAttributeValues"`
 	// Determines the level of detail about provisioned throughput consumption that is returned in the response.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html#DDB-PutItem-request-ReturnConsumedCapacity
 	//
-	// Experimental.
 	ReturnConsumedCapacity DynamoConsumedCapacity `json:"returnConsumedCapacity" yaml:"returnConsumedCapacity"`
 	// The item collection metrics to returned in the response.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LSI.html#LSI.ItemCollections
 	//
-	// Experimental.
 	ReturnItemCollectionMetrics DynamoItemCollectionMetrics `json:"returnItemCollectionMetrics" yaml:"returnItemCollectionMetrics"`
 	// Use ReturnValues if you want to get the item attributes as they appeared before they were updated with the PutItem request.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html#DDB-PutItem-request-ReturnValues
 	//
-	// Experimental.
 	ReturnValues DynamoReturnValues `json:"returnValues" yaml:"returnValues"`
 }
 
 // Use ReturnValues if you want to get the item attributes as they appear before or after they are changed.
-// Experimental.
 type DynamoReturnValues string
 
 const (
 	// Nothing is returned.
-	// Experimental.
 	DynamoReturnValues_NONE DynamoReturnValues = "NONE"
 	// Returns all of the attributes of the item.
-	// Experimental.
 	DynamoReturnValues_ALL_OLD DynamoReturnValues = "ALL_OLD"
 	// Returns only the updated attributes.
-	// Experimental.
 	DynamoReturnValues_UPDATED_OLD DynamoReturnValues = "UPDATED_OLD"
 	// Returns all of the attributes of the item.
-	// Experimental.
 	DynamoReturnValues_ALL_NEW DynamoReturnValues = "ALL_NEW"
 	// Returns only the updated attributes.
-	// Experimental.
 	DynamoReturnValues_UPDATED_NEW DynamoReturnValues = "UPDATED_NEW"
 )
 
@@ -13731,198 +11675,103 @@ const (
 //   	updateExpression: jsii.String("SET TotalCount = :val + :rand"),
 //   })
 //
-// Experimental.
 type DynamoUpdateItem interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -14001,8 +11850,8 @@ func (j *jsiiProxy_DynamoUpdateItem) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_DynamoUpdateItem) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_DynamoUpdateItem) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -14092,14 +11941,13 @@ func (j *jsiiProxy_DynamoUpdateItem) TaskPolicies() *[]awsiam.PolicyStatement {
 }
 
 
-// Experimental.
 func NewDynamoUpdateItem(scope constructs.Construct, id *string, props *DynamoUpdateItemProps) DynamoUpdateItem {
 	_init_.Initialize()
 
 	j := jsiiProxy_DynamoUpdateItem{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.DynamoUpdateItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoUpdateItem",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -14107,12 +11955,11 @@ func NewDynamoUpdateItem(scope constructs.Construct, id *string, props *DynamoUp
 	return &j
 }
 
-// Experimental.
 func NewDynamoUpdateItem_Override(d DynamoUpdateItem, scope constructs.Construct, id *string, props *DynamoUpdateItemProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.DynamoUpdateItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoUpdateItem",
 		[]interface{}{scope, id, props},
 		d,
 	)
@@ -14135,14 +11982,13 @@ func (j *jsiiProxy_DynamoUpdateItem) SetIteration(val awsstepfunctions.StateGrap
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func DynamoUpdateItem_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoUpdateItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoUpdateItem",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -14152,14 +11998,13 @@ func DynamoUpdateItem_FilterNextables(states *[]awsstepfunctions.State) *[]awsst
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func DynamoUpdateItem_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoUpdateItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoUpdateItem",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -14171,14 +12016,13 @@ func DynamoUpdateItem_FindReachableEndStates(start awsstepfunctions.State, optio
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func DynamoUpdateItem_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoUpdateItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoUpdateItem",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -14187,15 +12031,17 @@ func DynamoUpdateItem_FindReachableStates(start awsstepfunctions.State, options 
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func DynamoUpdateItem_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoUpdateItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoUpdateItem",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -14205,12 +12051,11 @@ func DynamoUpdateItem_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func DynamoUpdateItem_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.DynamoUpdateItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoUpdateItem",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -14441,43 +12286,6 @@ func (d *jsiiProxy_DynamoUpdateItem) Next(next awsstepfunctions.IChainable) awss
 	return returns
 }
 
-func (d *jsiiProxy_DynamoUpdateItem) OnPrepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (d *jsiiProxy_DynamoUpdateItem) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (d *jsiiProxy_DynamoUpdateItem) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (d *jsiiProxy_DynamoUpdateItem) Prepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (d *jsiiProxy_DynamoUpdateItem) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -14569,14 +12377,6 @@ func (d *jsiiProxy_DynamoUpdateItem) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (d *jsiiProxy_DynamoUpdateItem) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (d *jsiiProxy_DynamoUpdateItem) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -14603,12 +12403,12 @@ func (d *jsiiProxy_DynamoUpdateItem) ToString() *string {
 	return returns
 }
 
-func (d *jsiiProxy_DynamoUpdateItem) Validate() *[]*string {
+func (d *jsiiProxy_DynamoUpdateItem) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		d,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -14640,38 +12440,31 @@ func (d *jsiiProxy_DynamoUpdateItem) WhenBoundToGraph(graph awsstepfunctions.Sta
 //   	updateExpression: jsii.String("SET TotalCount = :val + :rand"),
 //   })
 //
-// Experimental.
 type DynamoUpdateItemProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -14679,10 +12472,8 @@ type DynamoUpdateItemProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Primary key of the item to retrieve.
 	//
@@ -14691,47 +12482,38 @@ type DynamoUpdateItemProps struct {
 	// For a composite primary key, you must provide values for both the partition key and the sort key.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html#DDB-GetItem-request-Key
 	//
-	// Experimental.
 	Key *map[string]DynamoAttributeValue `json:"key" yaml:"key"`
 	// The name of the table containing the requested item.
-	// Experimental.
 	Table awsdynamodb.ITable `json:"table" yaml:"table"`
 	// A condition that must be satisfied in order for a conditional DeleteItem to succeed.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html#DDB-UpdateItem-request-ConditionExpression
 	//
-	// Experimental.
 	ConditionExpression *string `json:"conditionExpression" yaml:"conditionExpression"`
 	// One or more substitution tokens for attribute names in an expression.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html#DDB-UpdateItem-request-ExpressionAttributeNames
 	//
-	// Experimental.
 	ExpressionAttributeNames *map[string]*string `json:"expressionAttributeNames" yaml:"expressionAttributeNames"`
 	// One or more values that can be substituted in an expression.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html#DDB-UpdateItem-request-ExpressionAttributeValues
 	//
-	// Experimental.
 	ExpressionAttributeValues *map[string]DynamoAttributeValue `json:"expressionAttributeValues" yaml:"expressionAttributeValues"`
 	// Determines the level of detail about provisioned throughput consumption that is returned in the response.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html#DDB-UpdateItem-request-ReturnConsumedCapacity
 	//
-	// Experimental.
 	ReturnConsumedCapacity DynamoConsumedCapacity `json:"returnConsumedCapacity" yaml:"returnConsumedCapacity"`
 	// Determines whether item collection metrics are returned.
 	//
 	// If set to SIZE, the response includes statistics about item collections, if any,
 	// that were modified during the operation are returned in the response.
 	// If set to NONE (the default), no statistics are returned.
-	// Experimental.
 	ReturnItemCollectionMetrics DynamoItemCollectionMetrics `json:"returnItemCollectionMetrics" yaml:"returnItemCollectionMetrics"`
 	// Use ReturnValues if you want to get the item attributes as they appeared before they were deleted.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html#DDB-UpdateItem-request-ReturnValues
 	//
-	// Experimental.
 	ReturnValues DynamoReturnValues `json:"returnValues" yaml:"returnValues"`
 	// An expression that defines one or more attributes to be updated, the action to be performed on them, and new values for them.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html#DDB-UpdateItem-request-UpdateExpression
 	//
-	// Experimental.
 	UpdateExpression *string `json:"updateExpression" yaml:"updateExpression"`
 }
 
@@ -14779,11 +12561,9 @@ type DynamoUpdateItemProps struct {
 //
 // See: https://docs.aws.amazon.com/AmazonECS/latest/userguide/launch_types.html#launch-type-ec2
 //
-// Experimental.
 type EcsEc2LaunchTarget interface {
 	IEcsLaunchTarget
 	// Called when the EC2 launch type is configured on RunTask.
-	// Experimental.
 	Bind(_task EcsRunTask, launchTargetOptions *LaunchTargetBindOptions) *EcsLaunchTargetConfig
 }
 
@@ -14792,14 +12572,13 @@ type jsiiProxy_EcsEc2LaunchTarget struct {
 	jsiiProxy_IEcsLaunchTarget
 }
 
-// Experimental.
 func NewEcsEc2LaunchTarget(options *EcsEc2LaunchTargetOptions) EcsEc2LaunchTarget {
 	_init_.Initialize()
 
 	j := jsiiProxy_EcsEc2LaunchTarget{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EcsEc2LaunchTarget",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EcsEc2LaunchTarget",
 		[]interface{}{options},
 		&j,
 	)
@@ -14807,12 +12586,11 @@ func NewEcsEc2LaunchTarget(options *EcsEc2LaunchTargetOptions) EcsEc2LaunchTarge
 	return &j
 }
 
-// Experimental.
 func NewEcsEc2LaunchTarget_Override(e EcsEc2LaunchTarget, options *EcsEc2LaunchTargetOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EcsEc2LaunchTarget",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EcsEc2LaunchTarget",
 		[]interface{}{options},
 		e,
 	)
@@ -14873,13 +12651,10 @@ func (e *jsiiProxy_EcsEc2LaunchTarget) Bind(_task EcsRunTask, launchTargetOption
 //   	}),
 //   })
 //
-// Experimental.
 type EcsEc2LaunchTargetOptions struct {
 	// Placement constraints.
-	// Experimental.
 	PlacementConstraints *[]awsecs.PlacementConstraint `json:"placementConstraints" yaml:"placementConstraints"`
 	// Placement strategies.
-	// Experimental.
 	PlacementStrategies *[]awsecs.PlacementStrategy `json:"placementStrategies" yaml:"placementStrategies"`
 }
 
@@ -14926,11 +12701,9 @@ type EcsEc2LaunchTargetOptions struct {
 //
 // See: https://docs.aws.amazon.com/AmazonECS/latest/userguide/launch_types.html#launch-type-fargate
 //
-// Experimental.
 type EcsFargateLaunchTarget interface {
 	IEcsLaunchTarget
 	// Called when the Fargate launch type configured on RunTask.
-	// Experimental.
 	Bind(_task EcsRunTask, launchTargetOptions *LaunchTargetBindOptions) *EcsLaunchTargetConfig
 }
 
@@ -14939,14 +12712,13 @@ type jsiiProxy_EcsFargateLaunchTarget struct {
 	jsiiProxy_IEcsLaunchTarget
 }
 
-// Experimental.
 func NewEcsFargateLaunchTarget(options *EcsFargateLaunchTargetOptions) EcsFargateLaunchTarget {
 	_init_.Initialize()
 
 	j := jsiiProxy_EcsFargateLaunchTarget{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EcsFargateLaunchTarget",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EcsFargateLaunchTarget",
 		[]interface{}{options},
 		&j,
 	)
@@ -14954,12 +12726,11 @@ func NewEcsFargateLaunchTarget(options *EcsFargateLaunchTargetOptions) EcsFargat
 	return &j
 }
 
-// Experimental.
 func NewEcsFargateLaunchTarget_Override(e EcsFargateLaunchTarget, options *EcsFargateLaunchTargetOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EcsFargateLaunchTarget",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EcsFargateLaunchTarget",
 		[]interface{}{options},
 		e,
 	)
@@ -14986,14 +12757,12 @@ func (e *jsiiProxy_EcsFargateLaunchTarget) Bind(_task EcsRunTask, launchTargetOp
 //   	platformVersion: ecs.fargatePlatformVersion_LATEST,
 //   }
 //
-// Experimental.
 type EcsFargateLaunchTargetOptions struct {
 	// Refers to a specific runtime environment for Fargate task infrastructure.
 	//
 	// Fargate platform version is a combination of the kernel and container runtime versions.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html
 	//
-	// Experimental.
 	PlatformVersion awsecs.FargatePlatformVersion `json:"platformVersion" yaml:"platformVersion"`
 }
 
@@ -15009,10 +12778,8 @@ type EcsFargateLaunchTargetOptions struct {
 //   	},
 //   }
 //
-// Experimental.
 type EcsLaunchTargetConfig struct {
 	// Additional parameters to pass to the base task.
-	// Experimental.
 	Parameters *map[string]interface{} `json:"parameters" yaml:"parameters"`
 }
 
@@ -15058,202 +12825,106 @@ type EcsLaunchTargetConfig struct {
 //   	}),
 //   })
 //
-// Experimental.
 type EcsRunTask interface {
 	awsstepfunctions.TaskStateBase
 	awsec2.IConnectable
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
 	// Manage allowed network traffic for this service.
-	// Experimental.
 	Connections() awsec2.Connections
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -15343,8 +13014,8 @@ func (j *jsiiProxy_EcsRunTask) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_EcsRunTask) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_EcsRunTask) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -15434,14 +13105,13 @@ func (j *jsiiProxy_EcsRunTask) TaskPolicies() *[]awsiam.PolicyStatement {
 }
 
 
-// Experimental.
 func NewEcsRunTask(scope constructs.Construct, id *string, props *EcsRunTaskProps) EcsRunTask {
 	_init_.Initialize()
 
 	j := jsiiProxy_EcsRunTask{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EcsRunTask",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EcsRunTask",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -15449,12 +13119,11 @@ func NewEcsRunTask(scope constructs.Construct, id *string, props *EcsRunTaskProp
 	return &j
 }
 
-// Experimental.
 func NewEcsRunTask_Override(e EcsRunTask, scope constructs.Construct, id *string, props *EcsRunTaskProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EcsRunTask",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EcsRunTask",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -15477,14 +13146,13 @@ func (j *jsiiProxy_EcsRunTask) SetIteration(val awsstepfunctions.StateGraph) {
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func EcsRunTask_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EcsRunTask",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EcsRunTask",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -15494,14 +13162,13 @@ func EcsRunTask_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunc
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func EcsRunTask_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EcsRunTask",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EcsRunTask",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -15513,14 +13180,13 @@ func EcsRunTask_FindReachableEndStates(start awsstepfunctions.State, options *aw
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func EcsRunTask_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EcsRunTask",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EcsRunTask",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -15529,15 +13195,17 @@ func EcsRunTask_FindReachableStates(start awsstepfunctions.State, options *awsst
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func EcsRunTask_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EcsRunTask",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EcsRunTask",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -15547,12 +13215,11 @@ func EcsRunTask_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func EcsRunTask_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.EcsRunTask",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EcsRunTask",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -15783,43 +13450,6 @@ func (e *jsiiProxy_EcsRunTask) Next(next awsstepfunctions.IChainable) awsstepfun
 	return returns
 }
 
-func (e *jsiiProxy_EcsRunTask) OnPrepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (e *jsiiProxy_EcsRunTask) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (e *jsiiProxy_EcsRunTask) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (e *jsiiProxy_EcsRunTask) Prepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (e *jsiiProxy_EcsRunTask) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -15911,14 +13541,6 @@ func (e *jsiiProxy_EcsRunTask) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (e *jsiiProxy_EcsRunTask) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (e *jsiiProxy_EcsRunTask) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -15945,12 +13567,12 @@ func (e *jsiiProxy_EcsRunTask) ToString() *string {
 	return returns
 }
 
-func (e *jsiiProxy_EcsRunTask) Validate() *[]*string {
+func (e *jsiiProxy_EcsRunTask) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		e,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -15964,189 +13586,6 @@ func (e *jsiiProxy_EcsRunTask) WhenBoundToGraph(graph awsstepfunctions.StateGrap
 		"whenBoundToGraph",
 		[]interface{}{graph},
 	)
-}
-
-// A StepFunctions Task to run a Task on ECS or Fargate.
-//
-// Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var cluster cluster
-//   var containerDefinition containerDefinition
-//   var parameters interface{}
-//   var taskDefinition taskDefinition
-//   ecsRunTaskBase := stepfunctions_tasks.NewEcsRunTaskBase(&ecsRunTaskBaseProps{
-//   	cluster: cluster,
-//   	taskDefinition: taskDefinition,
-//
-//   	// the properties below are optional
-//   	containerOverrides: []containerOverride{
-//   		&containerOverride{
-//   			containerDefinition: containerDefinition,
-//
-//   			// the properties below are optional
-//   			command: []*string{
-//   				jsii.String("command"),
-//   			},
-//   			cpu: jsii.Number(123),
-//   			environment: []taskEnvironmentVariable{
-//   				&taskEnvironmentVariable{
-//   					name: jsii.String("name"),
-//   					value: jsii.String("value"),
-//   				},
-//   			},
-//   			memoryLimit: jsii.Number(123),
-//   			memoryReservation: jsii.Number(123),
-//   		},
-//   	},
-//   	integrationPattern: stepfunctions.serviceIntegrationPattern_FIRE_AND_FORGET,
-//   	parameters: map[string]interface{}{
-//   		"parametersKey": parameters,
-//   	},
-//   })
-//
-// Deprecated: No replacement.
-type EcsRunTaskBase interface {
-	awsec2.IConnectable
-	awsstepfunctions.IStepFunctionsTask
-	// Manage allowed network traffic for this service.
-	// Deprecated: No replacement.
-	Connections() awsec2.Connections
-	// Called when the task object is used in a workflow.
-	// Deprecated: No replacement.
-	Bind(task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig
-	// Deprecated: No replacement.
-	ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, subnetSelection *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup)
-}
-
-// The jsii proxy struct for EcsRunTaskBase
-type jsiiProxy_EcsRunTaskBase struct {
-	internal.Type__awsec2IConnectable
-	internal.Type__awsstepfunctionsIStepFunctionsTask
-}
-
-func (j *jsiiProxy_EcsRunTaskBase) Connections() awsec2.Connections {
-	var returns awsec2.Connections
-	_jsii_.Get(
-		j,
-		"connections",
-		&returns,
-	)
-	return returns
-}
-
-
-// Deprecated: No replacement.
-func NewEcsRunTaskBase(props *EcsRunTaskBaseProps) EcsRunTaskBase {
-	_init_.Initialize()
-
-	j := jsiiProxy_EcsRunTaskBase{}
-
-	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EcsRunTaskBase",
-		[]interface{}{props},
-		&j,
-	)
-
-	return &j
-}
-
-// Deprecated: No replacement.
-func NewEcsRunTaskBase_Override(e EcsRunTaskBase, props *EcsRunTaskBaseProps) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EcsRunTaskBase",
-		[]interface{}{props},
-		e,
-	)
-}
-
-func (e *jsiiProxy_EcsRunTaskBase) Bind(task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
-	var returns *awsstepfunctions.StepFunctionsTaskConfig
-
-	_jsii_.Invoke(
-		e,
-		"bind",
-		[]interface{}{task},
-		&returns,
-	)
-
-	return returns
-}
-
-func (e *jsiiProxy_EcsRunTaskBase) ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, subnetSelection *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup) {
-	_jsii_.InvokeVoid(
-		e,
-		"configureAwsVpcNetworking",
-		[]interface{}{vpc, assignPublicIp, subnetSelection, securityGroup},
-	)
-}
-
-// Construction properties for the BaseRunTaskProps.
-//
-// Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var cluster cluster
-//   var containerDefinition containerDefinition
-//   var parameters interface{}
-//   var taskDefinition taskDefinition
-//   ecsRunTaskBaseProps := &ecsRunTaskBaseProps{
-//   	cluster: cluster,
-//   	taskDefinition: taskDefinition,
-//
-//   	// the properties below are optional
-//   	containerOverrides: []containerOverride{
-//   		&containerOverride{
-//   			containerDefinition: containerDefinition,
-//
-//   			// the properties below are optional
-//   			command: []*string{
-//   				jsii.String("command"),
-//   			},
-//   			cpu: jsii.Number(123),
-//   			environment: []taskEnvironmentVariable{
-//   				&taskEnvironmentVariable{
-//   					name: jsii.String("name"),
-//   					value: jsii.String("value"),
-//   				},
-//   			},
-//   			memoryLimit: jsii.Number(123),
-//   			memoryReservation: jsii.Number(123),
-//   		},
-//   	},
-//   	integrationPattern: stepfunctions.serviceIntegrationPattern_FIRE_AND_FORGET,
-//   	parameters: map[string]interface{}{
-//   		"parametersKey": parameters,
-//   	},
-//   }
-//
-// Deprecated: No replacement.
-type EcsRunTaskBaseProps struct {
-	// The topic to run the task on.
-	// Deprecated: No replacement.
-	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
-	// Task Definition used for running tasks in the service.
-	//
-	// Note: this must be TaskDefinition, and not ITaskDefinition,
-	// as it requires properties that are not known for imported task definitions.
-	// Deprecated: No replacement.
-	TaskDefinition awsecs.TaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
-	// Container setting overrides.
-	//
-	// Key is the name of the container to override, value is the
-	// values you want to override.
-	// Deprecated: No replacement.
-	ContainerOverrides *[]*ContainerOverride `json:"containerOverrides" yaml:"containerOverrides"`
-	// The service integration pattern indicates different ways to call RunTask in ECS.
-	//
-	// The valid value for Lambda is FIRE_AND_FORGET, SYNC and WAIT_FOR_TASK_TOKEN.
-	// Deprecated: No replacement.
-	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
-	// Additional parameters to pass to the base task.
-	// Deprecated: No replacement.
-	Parameters *map[string]interface{} `json:"parameters" yaml:"parameters"`
 }
 
 // Properties for ECS Tasks.
@@ -16191,38 +13630,31 @@ type EcsRunTaskBaseProps struct {
 //   	}),
 //   })
 //
-// Experimental.
 type EcsRunTaskProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -16230,38 +13662,29 @@ type EcsRunTaskProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The ECS cluster to run the task on.
-	// Experimental.
 	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
 	// An Amazon ECS launch type determines the type of infrastructure on which your tasks and services are hosted.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html
 	//
-	// Experimental.
 	LaunchTarget IEcsLaunchTarget `json:"launchTarget" yaml:"launchTarget"`
 	// [disable-awslint:ref-via-interface] Task Definition used for running tasks in the service.
 	//
 	// Note: this must be TaskDefinition, and not ITaskDefinition,
 	// as it requires properties that are not known for imported task definitions.
-	// Experimental.
 	TaskDefinition awsecs.TaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 	// Assign public IP addresses to each task.
-	// Experimental.
 	AssignPublicIp *bool `json:"assignPublicIp" yaml:"assignPublicIp"`
 	// Container setting overrides.
 	//
 	// Specify the container to use and the overrides to apply.
-	// Experimental.
 	ContainerOverrides *[]*ContainerOverride `json:"containerOverrides" yaml:"containerOverrides"`
 	// Existing security groups to use for the tasks.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// Subnets to place the task's ENIs.
-	// Experimental.
 	Subnets *awsec2.SubnetSelection `json:"subnets" yaml:"subnets"`
 }
 
@@ -16283,201 +13706,106 @@ type EcsRunTaskProps struct {
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-eks.html
 //
-// Experimental.
 type EksCall interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
 	// No policies are required due to eks:call is an Http service integration and does not call and EKS API directly.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-eks.html#connect-eks-permissions
 	//
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -16556,8 +13884,8 @@ func (j *jsiiProxy_EksCall) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_EksCall) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_EksCall) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -16647,14 +13975,13 @@ func (j *jsiiProxy_EksCall) TaskPolicies() *[]awsiam.PolicyStatement {
 }
 
 
-// Experimental.
 func NewEksCall(scope constructs.Construct, id *string, props *EksCallProps) EksCall {
 	_init_.Initialize()
 
 	j := jsiiProxy_EksCall{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EksCall",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EksCall",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -16662,12 +13989,11 @@ func NewEksCall(scope constructs.Construct, id *string, props *EksCallProps) Eks
 	return &j
 }
 
-// Experimental.
 func NewEksCall_Override(e EksCall, scope constructs.Construct, id *string, props *EksCallProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EksCall",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EksCall",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -16690,14 +14016,13 @@ func (j *jsiiProxy_EksCall) SetIteration(val awsstepfunctions.StateGraph) {
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func EksCall_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EksCall",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EksCall",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -16707,14 +14032,13 @@ func EksCall_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctio
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func EksCall_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EksCall",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EksCall",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -16726,14 +14050,13 @@ func EksCall_FindReachableEndStates(start awsstepfunctions.State, options *awsst
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func EksCall_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EksCall",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EksCall",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -16742,15 +14065,17 @@ func EksCall_FindReachableStates(start awsstepfunctions.State, options *awsstepf
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func EksCall_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EksCall",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EksCall",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -16760,12 +14085,11 @@ func EksCall_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func EksCall_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.EksCall",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EksCall",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -16996,43 +14320,6 @@ func (e *jsiiProxy_EksCall) Next(next awsstepfunctions.IChainable) awsstepfuncti
 	return returns
 }
 
-func (e *jsiiProxy_EksCall) OnPrepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (e *jsiiProxy_EksCall) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (e *jsiiProxy_EksCall) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (e *jsiiProxy_EksCall) Prepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (e *jsiiProxy_EksCall) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -17124,14 +14411,6 @@ func (e *jsiiProxy_EksCall) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (e *jsiiProxy_EksCall) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (e *jsiiProxy_EksCall) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -17158,12 +14437,12 @@ func (e *jsiiProxy_EksCall) ToString() *string {
 	return returns
 }
 
-func (e *jsiiProxy_EksCall) Validate() *[]*string {
+func (e *jsiiProxy_EksCall) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		e,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -17195,38 +14474,31 @@ func (e *jsiiProxy_EksCall) WhenBoundToGraph(graph awsstepfunctions.StateGraph) 
 //   	httpPath: jsii.String("/api/v1/namespaces/default/pods"),
 //   })
 //
-// Experimental.
 type EksCallProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -17234,25 +14506,18 @@ type EksCallProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The EKS cluster.
-	// Experimental.
 	Cluster awseks.ICluster `json:"cluster" yaml:"cluster"`
 	// HTTP method ("GET", "POST", "PUT", ...) part of HTTP request.
-	// Experimental.
 	HttpMethod HttpMethods `json:"httpMethod" yaml:"httpMethod"`
 	// HTTP path of the Kubernetes REST API operation For example: /api/v1/namespaces/default/pods.
-	// Experimental.
 	HttpPath *string `json:"httpPath" yaml:"httpPath"`
 	// Query Parameters part of HTTP request.
-	// Experimental.
 	QueryParameters *map[string]*[]*string `json:"queryParameters" yaml:"queryParameters"`
 	// Request body part of HTTP request.
-	// Experimental.
 	RequestBody awsstepfunctions.TaskInput `json:"requestBody" yaml:"requestBody"`
 }
 
@@ -17264,10 +14529,8 @@ type EksCallProps struct {
 //   	eksNamespace: jsii.String("specified-namespace"),
 //   })
 //
-// Experimental.
 type EksClusterInput interface {
 	// The name of the EKS Cluster.
-	// Experimental.
 	ClusterName() *string
 }
 
@@ -17288,14 +14551,13 @@ func (j *jsiiProxy_EksClusterInput) ClusterName() *string {
 
 
 // Specify an existing EKS Cluster as the name for this Cluster.
-// Experimental.
 func EksClusterInput_FromCluster(cluster awseks.ICluster) EksClusterInput {
 	_init_.Initialize()
 
 	var returns EksClusterInput
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EksClusterInput",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EksClusterInput",
 		"fromCluster",
 		[]interface{}{cluster},
 		&returns,
@@ -17305,14 +14567,13 @@ func EksClusterInput_FromCluster(cluster awseks.ICluster) EksClusterInput {
 }
 
 // Specify a Task Input as the name for this Cluster.
-// Experimental.
 func EksClusterInput_FromTaskInput(taskInput awsstepfunctions.TaskInput) EksClusterInput {
 	_init_.Initialize()
 
 	var returns EksClusterInput
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EksClusterInput",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EksClusterInput",
 		"fromTaskInput",
 		[]interface{}{taskInput},
 		&returns,
@@ -17335,198 +14596,103 @@ func EksClusterInput_FromTaskInput(taskInput awsstepfunctions.TaskInput) EksClus
 //   	actionOnFailure: tasks.actionOnFailure_CONTINUE,
 //   })
 //
-// Experimental.
 type EmrAddStep interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -17605,8 +14771,8 @@ func (j *jsiiProxy_EmrAddStep) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_EmrAddStep) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_EmrAddStep) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -17696,14 +14862,13 @@ func (j *jsiiProxy_EmrAddStep) TaskPolicies() *[]awsiam.PolicyStatement {
 }
 
 
-// Experimental.
 func NewEmrAddStep(scope constructs.Construct, id *string, props *EmrAddStepProps) EmrAddStep {
 	_init_.Initialize()
 
 	j := jsiiProxy_EmrAddStep{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EmrAddStep",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrAddStep",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -17711,12 +14876,11 @@ func NewEmrAddStep(scope constructs.Construct, id *string, props *EmrAddStepProp
 	return &j
 }
 
-// Experimental.
 func NewEmrAddStep_Override(e EmrAddStep, scope constructs.Construct, id *string, props *EmrAddStepProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EmrAddStep",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrAddStep",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -17739,14 +14903,13 @@ func (j *jsiiProxy_EmrAddStep) SetIteration(val awsstepfunctions.StateGraph) {
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func EmrAddStep_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrAddStep",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrAddStep",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -17756,14 +14919,13 @@ func EmrAddStep_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunc
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func EmrAddStep_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrAddStep",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrAddStep",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -17775,14 +14937,13 @@ func EmrAddStep_FindReachableEndStates(start awsstepfunctions.State, options *aw
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func EmrAddStep_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrAddStep",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrAddStep",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -17791,15 +14952,17 @@ func EmrAddStep_FindReachableStates(start awsstepfunctions.State, options *awsst
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func EmrAddStep_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrAddStep",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrAddStep",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -17809,12 +14972,11 @@ func EmrAddStep_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func EmrAddStep_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.EmrAddStep",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrAddStep",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -18045,43 +15207,6 @@ func (e *jsiiProxy_EmrAddStep) Next(next awsstepfunctions.IChainable) awsstepfun
 	return returns
 }
 
-func (e *jsiiProxy_EmrAddStep) OnPrepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (e *jsiiProxy_EmrAddStep) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (e *jsiiProxy_EmrAddStep) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (e *jsiiProxy_EmrAddStep) Prepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (e *jsiiProxy_EmrAddStep) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -18173,14 +15298,6 @@ func (e *jsiiProxy_EmrAddStep) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (e *jsiiProxy_EmrAddStep) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (e *jsiiProxy_EmrAddStep) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -18207,12 +15324,12 @@ func (e *jsiiProxy_EmrAddStep) ToString() *string {
 	return returns
 }
 
-func (e *jsiiProxy_EmrAddStep) Validate() *[]*string {
+func (e *jsiiProxy_EmrAddStep) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		e,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -18238,38 +15355,31 @@ func (e *jsiiProxy_EmrAddStep) WhenBoundToGraph(graph awsstepfunctions.StateGrap
 //   	actionOnFailure: tasks.actionOnFailure_CONTINUE,
 //   })
 //
-// Experimental.
 type EmrAddStepProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -18277,47 +15387,38 @@ type EmrAddStepProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The ClusterId to add the Step to.
-	// Experimental.
 	ClusterId *string `json:"clusterId" yaml:"clusterId"`
 	// A path to a JAR file run during the step.
 	// See: https://docs.aws.amazon.com/emr/latest/APIReference/API_HadoopJarStepConfig.html
 	//
-	// Experimental.
 	Jar *string `json:"jar" yaml:"jar"`
 	// The name of the Step.
 	// See: https://docs.aws.amazon.com/emr/latest/APIReference/API_StepConfig.html
 	//
-	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 	// The action to take when the cluster step fails.
 	// See: https://docs.aws.amazon.com/emr/latest/APIReference/API_StepConfig.html
 	//
-	// Experimental.
 	ActionOnFailure ActionOnFailure `json:"actionOnFailure" yaml:"actionOnFailure"`
 	// A list of command line arguments passed to the JAR file's main function when executed.
 	// See: https://docs.aws.amazon.com/emr/latest/APIReference/API_HadoopJarStepConfig.html
 	//
-	// Experimental.
 	Args *[]*string `json:"args" yaml:"args"`
 	// The name of the main class in the specified Java file.
 	//
 	// If not specified, the JAR file should specify a Main-Class in its manifest file.
 	// See: https://docs.aws.amazon.com/emr/latest/APIReference/API_HadoopJarStepConfig.html
 	//
-	// Experimental.
 	MainClass *string `json:"mainClass" yaml:"mainClass"`
 	// A list of Java properties that are set when the step runs.
 	//
 	// You can use these properties to pass key value pairs to your main function.
 	// See: https://docs.aws.amazon.com/emr/latest/APIReference/API_HadoopJarStepConfig.html
 	//
-	// Experimental.
 	Properties *map[string]*string `json:"properties" yaml:"properties"`
 }
 
@@ -18329,198 +15430,103 @@ type EmrAddStepProps struct {
 //   	stepId: jsii.String("StepId"),
 //   })
 //
-// Experimental.
 type EmrCancelStep interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -18599,8 +15605,8 @@ func (j *jsiiProxy_EmrCancelStep) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_EmrCancelStep) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_EmrCancelStep) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -18690,14 +15696,13 @@ func (j *jsiiProxy_EmrCancelStep) TaskPolicies() *[]awsiam.PolicyStatement {
 }
 
 
-// Experimental.
 func NewEmrCancelStep(scope constructs.Construct, id *string, props *EmrCancelStepProps) EmrCancelStep {
 	_init_.Initialize()
 
 	j := jsiiProxy_EmrCancelStep{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EmrCancelStep",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCancelStep",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -18705,12 +15710,11 @@ func NewEmrCancelStep(scope constructs.Construct, id *string, props *EmrCancelSt
 	return &j
 }
 
-// Experimental.
 func NewEmrCancelStep_Override(e EmrCancelStep, scope constructs.Construct, id *string, props *EmrCancelStepProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EmrCancelStep",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCancelStep",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -18733,14 +15737,13 @@ func (j *jsiiProxy_EmrCancelStep) SetIteration(val awsstepfunctions.StateGraph) 
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func EmrCancelStep_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrCancelStep",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCancelStep",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -18750,14 +15753,13 @@ func EmrCancelStep_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepf
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func EmrCancelStep_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrCancelStep",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCancelStep",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -18769,14 +15771,13 @@ func EmrCancelStep_FindReachableEndStates(start awsstepfunctions.State, options 
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func EmrCancelStep_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrCancelStep",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCancelStep",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -18785,15 +15786,17 @@ func EmrCancelStep_FindReachableStates(start awsstepfunctions.State, options *aw
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func EmrCancelStep_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrCancelStep",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCancelStep",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -18803,12 +15806,11 @@ func EmrCancelStep_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func EmrCancelStep_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.EmrCancelStep",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCancelStep",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -19039,43 +16041,6 @@ func (e *jsiiProxy_EmrCancelStep) Next(next awsstepfunctions.IChainable) awsstep
 	return returns
 }
 
-func (e *jsiiProxy_EmrCancelStep) OnPrepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (e *jsiiProxy_EmrCancelStep) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (e *jsiiProxy_EmrCancelStep) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (e *jsiiProxy_EmrCancelStep) Prepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (e *jsiiProxy_EmrCancelStep) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -19167,14 +16132,6 @@ func (e *jsiiProxy_EmrCancelStep) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (e *jsiiProxy_EmrCancelStep) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (e *jsiiProxy_EmrCancelStep) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -19201,12 +16158,12 @@ func (e *jsiiProxy_EmrCancelStep) ToString() *string {
 	return returns
 }
 
-func (e *jsiiProxy_EmrCancelStep) Validate() *[]*string {
+func (e *jsiiProxy_EmrCancelStep) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		e,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -19230,38 +16187,31 @@ func (e *jsiiProxy_EmrCancelStep) WhenBoundToGraph(graph awsstepfunctions.StateG
 //   	stepId: jsii.String("StepId"),
 //   })
 //
-// Experimental.
 type EmrCancelStepProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -19269,16 +16219,12 @@ type EmrCancelStepProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The ClusterId to update.
-	// Experimental.
 	ClusterId *string `json:"clusterId" yaml:"clusterId"`
 	// The StepId to cancel.
-	// Experimental.
 	StepId *string `json:"stepId" yaml:"stepId"`
 }
 
@@ -19292,198 +16238,103 @@ type EmrCancelStepProps struct {
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-emr-eks.html
 //
-// Experimental.
 type EmrContainersCreateVirtualCluster interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -19562,8 +16413,8 @@ func (j *jsiiProxy_EmrContainersCreateVirtualCluster) Iteration() awsstepfunctio
 	return returns
 }
 
-func (j *jsiiProxy_EmrContainersCreateVirtualCluster) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_EmrContainersCreateVirtualCluster) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -19653,14 +16504,13 @@ func (j *jsiiProxy_EmrContainersCreateVirtualCluster) TaskPolicies() *[]awsiam.P
 }
 
 
-// Experimental.
 func NewEmrContainersCreateVirtualCluster(scope constructs.Construct, id *string, props *EmrContainersCreateVirtualClusterProps) EmrContainersCreateVirtualCluster {
 	_init_.Initialize()
 
 	j := jsiiProxy_EmrContainersCreateVirtualCluster{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EmrContainersCreateVirtualCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersCreateVirtualCluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -19668,12 +16518,11 @@ func NewEmrContainersCreateVirtualCluster(scope constructs.Construct, id *string
 	return &j
 }
 
-// Experimental.
 func NewEmrContainersCreateVirtualCluster_Override(e EmrContainersCreateVirtualCluster, scope constructs.Construct, id *string, props *EmrContainersCreateVirtualClusterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EmrContainersCreateVirtualCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersCreateVirtualCluster",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -19696,14 +16545,13 @@ func (j *jsiiProxy_EmrContainersCreateVirtualCluster) SetIteration(val awsstepfu
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func EmrContainersCreateVirtualCluster_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrContainersCreateVirtualCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersCreateVirtualCluster",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -19713,14 +16561,13 @@ func EmrContainersCreateVirtualCluster_FilterNextables(states *[]awsstepfunction
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func EmrContainersCreateVirtualCluster_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrContainersCreateVirtualCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersCreateVirtualCluster",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -19732,14 +16579,13 @@ func EmrContainersCreateVirtualCluster_FindReachableEndStates(start awsstepfunct
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func EmrContainersCreateVirtualCluster_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrContainersCreateVirtualCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersCreateVirtualCluster",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -19748,15 +16594,17 @@ func EmrContainersCreateVirtualCluster_FindReachableStates(start awsstepfunction
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func EmrContainersCreateVirtualCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrContainersCreateVirtualCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersCreateVirtualCluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -19766,12 +16614,11 @@ func EmrContainersCreateVirtualCluster_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func EmrContainersCreateVirtualCluster_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.EmrContainersCreateVirtualCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersCreateVirtualCluster",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -20002,43 +16849,6 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) Next(next awsstepfunctions
 	return returns
 }
 
-func (e *jsiiProxy_EmrContainersCreateVirtualCluster) OnPrepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (e *jsiiProxy_EmrContainersCreateVirtualCluster) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (e *jsiiProxy_EmrContainersCreateVirtualCluster) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (e *jsiiProxy_EmrContainersCreateVirtualCluster) Prepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -20130,14 +16940,6 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) RenderRetryCatch() interfa
 	return returns
 }
 
-func (e *jsiiProxy_EmrContainersCreateVirtualCluster) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -20164,12 +16966,12 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) ToString() *string {
 	return returns
 }
 
-func (e *jsiiProxy_EmrContainersCreateVirtualCluster) Validate() *[]*string {
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		e,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -20193,38 +16995,31 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) WhenBoundToGraph(graph aws
 //   	eksNamespace: jsii.String("specified-namespace"),
 //   })
 //
-// Experimental.
 type EmrContainersCreateVirtualClusterProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -20232,22 +17027,16 @@ type EmrContainersCreateVirtualClusterProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// EKS Cluster or task input that contains the name of the cluster.
-	// Experimental.
 	EksCluster EksClusterInput `json:"eksCluster" yaml:"eksCluster"`
 	// The namespace of an EKS cluster.
-	// Experimental.
 	EksNamespace *string `json:"eksNamespace" yaml:"eksNamespace"`
 	// The tags assigned to the virtual cluster.
-	// Experimental.
 	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// Name of the virtual cluster that will be created.
-	// Experimental.
 	VirtualClusterName *string `json:"virtualClusterName" yaml:"virtualClusterName"`
 }
 
@@ -20260,198 +17049,103 @@ type EmrContainersCreateVirtualClusterProps struct {
 //
 // See: https://docs.amazonaws.cn/en_us/step-functions/latest/dg/connect-emr-eks.html
 //
-// Experimental.
 type EmrContainersDeleteVirtualCluster interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -20530,8 +17224,8 @@ func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) Iteration() awsstepfunctio
 	return returns
 }
 
-func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -20621,14 +17315,13 @@ func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) TaskPolicies() *[]awsiam.P
 }
 
 
-// Experimental.
 func NewEmrContainersDeleteVirtualCluster(scope constructs.Construct, id *string, props *EmrContainersDeleteVirtualClusterProps) EmrContainersDeleteVirtualCluster {
 	_init_.Initialize()
 
 	j := jsiiProxy_EmrContainersDeleteVirtualCluster{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -20636,12 +17329,11 @@ func NewEmrContainersDeleteVirtualCluster(scope constructs.Construct, id *string
 	return &j
 }
 
-// Experimental.
 func NewEmrContainersDeleteVirtualCluster_Override(e EmrContainersDeleteVirtualCluster, scope constructs.Construct, id *string, props *EmrContainersDeleteVirtualClusterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -20664,14 +17356,13 @@ func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) SetIteration(val awsstepfu
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func EmrContainersDeleteVirtualCluster_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -20681,14 +17372,13 @@ func EmrContainersDeleteVirtualCluster_FilterNextables(states *[]awsstepfunction
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func EmrContainersDeleteVirtualCluster_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -20700,14 +17390,13 @@ func EmrContainersDeleteVirtualCluster_FindReachableEndStates(start awsstepfunct
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func EmrContainersDeleteVirtualCluster_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -20716,15 +17405,17 @@ func EmrContainersDeleteVirtualCluster_FindReachableStates(start awsstepfunction
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func EmrContainersDeleteVirtualCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -20734,12 +17425,11 @@ func EmrContainersDeleteVirtualCluster_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func EmrContainersDeleteVirtualCluster_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -20970,43 +17660,6 @@ func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) Next(next awsstepfunctions
 	return returns
 }
 
-func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) OnPrepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) Prepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -21098,14 +17751,6 @@ func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) RenderRetryCatch() interfa
 	return returns
 }
 
-func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -21132,12 +17777,12 @@ func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) ToString() *string {
 	return returns
 }
 
-func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) Validate() *[]*string {
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		e,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -21160,38 +17805,31 @@ func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) WhenBoundToGraph(graph aws
 //   	virtualClusterId: sfn.taskInput.fromJsonPathAt(jsii.String("$.virtualCluster")),
 //   })
 //
-// Experimental.
 type EmrContainersDeleteVirtualClusterProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -21199,13 +17837,10 @@ type EmrContainersDeleteVirtualClusterProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The ID of the virtual cluster that will be deleted.
-	// Experimental.
 	VirtualClusterId awsstepfunctions.TaskInput `json:"virtualClusterId" yaml:"virtualClusterId"`
 }
 
@@ -21238,202 +17873,106 @@ type EmrContainersDeleteVirtualClusterProps struct {
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-emr-eks.html
 //
-// Experimental.
 type EmrContainersStartJobRun interface {
 	awsstepfunctions.TaskStateBase
 	awsiam.IGrantable
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// The principal to grant permissions to.
-	// Experimental.
 	GrantPrincipal() awsiam.IPrincipal
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -21523,8 +18062,8 @@ func (j *jsiiProxy_EmrContainersStartJobRun) Iteration() awsstepfunctions.StateG
 	return returns
 }
 
-func (j *jsiiProxy_EmrContainersStartJobRun) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_EmrContainersStartJobRun) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -21614,14 +18153,13 @@ func (j *jsiiProxy_EmrContainersStartJobRun) TaskPolicies() *[]awsiam.PolicyStat
 }
 
 
-// Experimental.
 func NewEmrContainersStartJobRun(scope constructs.Construct, id *string, props *EmrContainersStartJobRunProps) EmrContainersStartJobRun {
 	_init_.Initialize()
 
 	j := jsiiProxy_EmrContainersStartJobRun{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EmrContainersStartJobRun",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersStartJobRun",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -21629,12 +18167,11 @@ func NewEmrContainersStartJobRun(scope constructs.Construct, id *string, props *
 	return &j
 }
 
-// Experimental.
 func NewEmrContainersStartJobRun_Override(e EmrContainersStartJobRun, scope constructs.Construct, id *string, props *EmrContainersStartJobRunProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EmrContainersStartJobRun",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersStartJobRun",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -21657,14 +18194,13 @@ func (j *jsiiProxy_EmrContainersStartJobRun) SetIteration(val awsstepfunctions.S
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func EmrContainersStartJobRun_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrContainersStartJobRun",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersStartJobRun",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -21674,14 +18210,13 @@ func EmrContainersStartJobRun_FilterNextables(states *[]awsstepfunctions.State) 
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func EmrContainersStartJobRun_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrContainersStartJobRun",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersStartJobRun",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -21693,14 +18228,13 @@ func EmrContainersStartJobRun_FindReachableEndStates(start awsstepfunctions.Stat
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func EmrContainersStartJobRun_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrContainersStartJobRun",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersStartJobRun",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -21709,15 +18243,17 @@ func EmrContainersStartJobRun_FindReachableStates(start awsstepfunctions.State, 
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func EmrContainersStartJobRun_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrContainersStartJobRun",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersStartJobRun",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -21727,12 +18263,11 @@ func EmrContainersStartJobRun_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func EmrContainersStartJobRun_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.EmrContainersStartJobRun",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersStartJobRun",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -21963,43 +18498,6 @@ func (e *jsiiProxy_EmrContainersStartJobRun) Next(next awsstepfunctions.IChainab
 	return returns
 }
 
-func (e *jsiiProxy_EmrContainersStartJobRun) OnPrepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (e *jsiiProxy_EmrContainersStartJobRun) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (e *jsiiProxy_EmrContainersStartJobRun) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (e *jsiiProxy_EmrContainersStartJobRun) Prepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (e *jsiiProxy_EmrContainersStartJobRun) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -22091,14 +18589,6 @@ func (e *jsiiProxy_EmrContainersStartJobRun) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (e *jsiiProxy_EmrContainersStartJobRun) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (e *jsiiProxy_EmrContainersStartJobRun) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -22125,12 +18615,12 @@ func (e *jsiiProxy_EmrContainersStartJobRun) ToString() *string {
 	return returns
 }
 
-func (e *jsiiProxy_EmrContainersStartJobRun) Validate() *[]*string {
+func (e *jsiiProxy_EmrContainersStartJobRun) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		e,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -22169,38 +18659,31 @@ func (e *jsiiProxy_EmrContainersStartJobRun) WhenBoundToGraph(graph awsstepfunct
 //   	},
 //   })
 //
-// Experimental.
 type EmrContainersStartJobRunProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -22208,28 +18691,22 @@ type EmrContainersStartJobRunProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The job driver for the job run.
 	// See: https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_JobDriver.html
 	//
-	// Experimental.
 	JobDriver *JobDriver `json:"jobDriver" yaml:"jobDriver"`
 	// The Amazon EMR release version to use for the job run.
-	// Experimental.
 	ReleaseLabel ReleaseLabel `json:"releaseLabel" yaml:"releaseLabel"`
 	// The ID of the virtual cluster where the job will be run.
-	// Experimental.
 	VirtualCluster VirtualClusterInput `json:"virtualCluster" yaml:"virtualCluster"`
 	// The configurations for the application running in the job run.
 	//
 	// Maximum of 100 items.
 	// See: https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_Configuration.html
 	//
-	// Experimental.
 	ApplicationConfig *[]*ApplicationConfiguration `json:"applicationConfig" yaml:"applicationConfig"`
 	// The execution role for the job run.
 	//
@@ -22237,18 +18714,14 @@ type EmrContainersStartJobRunProps struct {
 	// If an execution role is provided, follow the documentation to update the role trust policy.
 	// See: https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/setting-up-trust-policy.html
 	//
-	// Experimental.
 	ExecutionRole awsiam.IRole `json:"executionRole" yaml:"executionRole"`
 	// The name of the job run.
-	// Experimental.
 	JobName *string `json:"jobName" yaml:"jobName"`
 	// Configuration for monitoring the job run.
 	// See: https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_MonitoringConfiguration.html
 	//
-	// Experimental.
 	Monitoring *Monitoring `json:"monitoring" yaml:"monitoring"`
 	// The tags assigned to job runs.
-	// Experimental.
 	Tags *map[string]*string `json:"tags" yaml:"tags"`
 }
 
@@ -22291,213 +18764,115 @@ type EmrContainersStartJobRunProps struct {
 //   	autoScalingRole: autoScalingRole,
 //   })
 //
-// Experimental.
 type EmrCreateCluster interface {
 	awsstepfunctions.TaskStateBase
 	// The autoscaling role for the EMR Cluster.
 	//
 	// Only available after task has been added to a state machine.
-	// Experimental.
 	AutoScalingRole() awsiam.IRole
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
 	// The instance role for the EMR Cluster.
 	//
 	// Only available after task has been added to a state machine.
-	// Experimental.
 	ClusterRole() awsiam.IRole
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// The service role for the EMR Cluster.
 	//
 	// Only available after task has been added to a state machine.
-	// Experimental.
 	ServiceRole() awsiam.IRole
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -22596,8 +18971,8 @@ func (j *jsiiProxy_EmrCreateCluster) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_EmrCreateCluster) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_EmrCreateCluster) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -22697,14 +19072,13 @@ func (j *jsiiProxy_EmrCreateCluster) TaskPolicies() *[]awsiam.PolicyStatement {
 }
 
 
-// Experimental.
 func NewEmrCreateCluster(scope constructs.Construct, id *string, props *EmrCreateClusterProps) EmrCreateCluster {
 	_init_.Initialize()
 
 	j := jsiiProxy_EmrCreateCluster{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -22712,12 +19086,11 @@ func NewEmrCreateCluster(scope constructs.Construct, id *string, props *EmrCreat
 	return &j
 }
 
-// Experimental.
 func NewEmrCreateCluster_Override(e EmrCreateCluster, scope constructs.Construct, id *string, props *EmrCreateClusterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -22740,14 +19113,13 @@ func (j *jsiiProxy_EmrCreateCluster) SetIteration(val awsstepfunctions.StateGrap
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func EmrCreateCluster_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -22757,14 +19129,13 @@ func EmrCreateCluster_FilterNextables(states *[]awsstepfunctions.State) *[]awsst
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func EmrCreateCluster_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -22776,14 +19147,13 @@ func EmrCreateCluster_FindReachableEndStates(start awsstepfunctions.State, optio
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func EmrCreateCluster_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -22792,15 +19162,17 @@ func EmrCreateCluster_FindReachableStates(start awsstepfunctions.State, options 
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func EmrCreateCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -22810,12 +19182,11 @@ func EmrCreateCluster_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func EmrCreateCluster_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -23046,43 +19417,6 @@ func (e *jsiiProxy_EmrCreateCluster) Next(next awsstepfunctions.IChainable) awss
 	return returns
 }
 
-func (e *jsiiProxy_EmrCreateCluster) OnPrepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (e *jsiiProxy_EmrCreateCluster) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (e *jsiiProxy_EmrCreateCluster) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (e *jsiiProxy_EmrCreateCluster) Prepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (e *jsiiProxy_EmrCreateCluster) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -23174,14 +19508,6 @@ func (e *jsiiProxy_EmrCreateCluster) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (e *jsiiProxy_EmrCreateCluster) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (e *jsiiProxy_EmrCreateCluster) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -23208,12 +19534,12 @@ func (e *jsiiProxy_EmrCreateCluster) ToString() *string {
 	return returns
 }
 
-func (e *jsiiProxy_EmrCreateCluster) Validate() *[]*string {
+func (e *jsiiProxy_EmrCreateCluster) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		e,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -23253,31 +19579,24 @@ func (e *jsiiProxy_EmrCreateCluster) WhenBoundToGraph(graph awsstepfunctions.Sta
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_Application.html
 //
-// Experimental.
 type EmrCreateCluster_ApplicationConfigProperty struct {
 	// The name of the application.
-	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 	// This option is for advanced users only.
 	//
 	// This is meta information about third-party applications that third-party vendors use
 	// for testing purposes.
-	// Experimental.
 	AdditionalInfo *map[string]*string `json:"additionalInfo" yaml:"additionalInfo"`
 	// Arguments for Amazon EMR to pass to the application.
-	// Experimental.
 	Args *[]*string `json:"args" yaml:"args"`
 	// The version of the application.
-	// Experimental.
 	Version *string `json:"version" yaml:"version"`
 }
 
 // An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var duration duration
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
 //   autoScalingPolicyProperty := &autoScalingPolicyProperty{
 //   	constraints: &scalingConstraintsProperty{
 //   		maxCapacity: jsii.Number(123),
@@ -23302,7 +19621,7 @@ type EmrCreateCluster_ApplicationConfigProperty struct {
 //   				cloudWatchAlarmDefinition: &cloudWatchAlarmDefinitionProperty{
 //   					comparisonOperator: stepfunctions_tasks.*emrCreateCluster.cloudWatchAlarmComparisonOperator_GREATER_THAN_OR_EQUAL,
 //   					metricName: jsii.String("metricName"),
-//   					period: duration,
+//   					period: cdk.duration.minutes(jsii.Number(30)),
 //
 //   					// the properties below are optional
 //   					dimensions: []metricDimensionProperty{
@@ -23327,16 +19646,13 @@ type EmrCreateCluster_ApplicationConfigProperty struct {
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_AutoScalingPolicy.html
 //
-// Experimental.
 type EmrCreateCluster_AutoScalingPolicyProperty struct {
 	// The upper and lower EC2 instance limits for an automatic scaling policy.
 	//
 	// Automatic scaling activity will not cause an instance
 	// group to grow above or below these limits.
-	// Experimental.
 	Constraints *EmrCreateCluster_ScalingConstraintsProperty `json:"constraints" yaml:"constraints"`
 	// The scale-in and scale-out rules that comprise the automatic scaling policy.
-	// Experimental.
 	Rules *[]*EmrCreateCluster_ScalingRuleProperty `json:"rules" yaml:"rules"`
 }
 
@@ -23360,32 +19676,24 @@ type EmrCreateCluster_AutoScalingPolicyProperty struct {
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_BootstrapActionConfig.html
 //
-// Experimental.
 type EmrCreateCluster_BootstrapActionConfigProperty struct {
 	// The name of the bootstrap action.
-	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 	// The script run by the bootstrap action.
-	// Experimental.
 	ScriptBootstrapAction *EmrCreateCluster_ScriptBootstrapActionConfigProperty `json:"scriptBootstrapAction" yaml:"scriptBootstrapAction"`
 }
 
 // CloudWatch Alarm Comparison Operators.
-// Experimental.
 type EmrCreateCluster_CloudWatchAlarmComparisonOperator string
 
 const (
 	// GREATER_THAN_OR_EQUAL.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmComparisonOperator_GREATER_THAN_OR_EQUAL EmrCreateCluster_CloudWatchAlarmComparisonOperator = "GREATER_THAN_OR_EQUAL"
 	// GREATER_THAN.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmComparisonOperator_GREATER_THAN EmrCreateCluster_CloudWatchAlarmComparisonOperator = "GREATER_THAN"
 	// LESS_THAN.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmComparisonOperator_LESS_THAN EmrCreateCluster_CloudWatchAlarmComparisonOperator = "LESS_THAN"
 	// LESS_THAN_OR_EQUAL.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmComparisonOperator_LESS_THAN_OR_EQUAL EmrCreateCluster_CloudWatchAlarmComparisonOperator = "LESS_THAN_OR_EQUAL"
 )
 
@@ -23395,13 +19703,11 @@ const (
 // are satisfied, scaling activity begins.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var duration duration
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
 //   cloudWatchAlarmDefinitionProperty := &cloudWatchAlarmDefinitionProperty{
 //   	comparisonOperator: stepfunctions_tasks.emrCreateCluster.cloudWatchAlarmComparisonOperator_GREATER_THAN_OR_EQUAL,
 //   	metricName: jsii.String("metricName"),
-//   	period: duration,
+//   	period: cdk.duration.minutes(jsii.Number(30)),
 //
 //   	// the properties below are optional
 //   	dimensions: []metricDimensionProperty{
@@ -23419,150 +19725,106 @@ const (
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_CloudWatchAlarmDefinition.html
 //
-// Experimental.
 type EmrCreateCluster_CloudWatchAlarmDefinitionProperty struct {
 	// Determines how the metric specified by MetricName is compared to the value specified by Threshold.
-	// Experimental.
 	ComparisonOperator EmrCreateCluster_CloudWatchAlarmComparisonOperator `json:"comparisonOperator" yaml:"comparisonOperator"`
 	// The name of the CloudWatch metric that is watched to determine an alarm condition.
-	// Experimental.
 	MetricName *string `json:"metricName" yaml:"metricName"`
 	// The period, in seconds, over which the statistic is applied.
 	//
 	// EMR CloudWatch metrics are emitted every five minutes (300 seconds), so if
 	// an EMR CloudWatch metric is specified, specify 300.
-	// Experimental.
 	Period awscdk.Duration `json:"period" yaml:"period"`
 	// A CloudWatch metric dimension.
-	// Experimental.
 	Dimensions *[]*EmrCreateCluster_MetricDimensionProperty `json:"dimensions" yaml:"dimensions"`
 	// The number of periods, in five-minute increments, during which the alarm condition must exist before the alarm triggers automatic scaling activity.
-	// Experimental.
 	EvaluationPeriods *float64 `json:"evaluationPeriods" yaml:"evaluationPeriods"`
 	// The namespace for the CloudWatch metric.
-	// Experimental.
 	Namespace *string `json:"namespace" yaml:"namespace"`
 	// The statistic to apply to the metric associated with the alarm.
-	// Experimental.
 	Statistic EmrCreateCluster_CloudWatchAlarmStatistic `json:"statistic" yaml:"statistic"`
 	// The value against which the specified statistic is compared.
-	// Experimental.
 	Threshold *float64 `json:"threshold" yaml:"threshold"`
 	// The unit of measure associated with the CloudWatch metric being watched.
 	//
 	// The value specified for Unit must correspond to the units
 	// specified in the CloudWatch metric.
-	// Experimental.
 	Unit EmrCreateCluster_CloudWatchAlarmUnit `json:"unit" yaml:"unit"`
 }
 
 // CloudWatch Alarm Statistics.
-// Experimental.
 type EmrCreateCluster_CloudWatchAlarmStatistic string
 
 const (
 	// SAMPLE_COUNT.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmStatistic_SAMPLE_COUNT EmrCreateCluster_CloudWatchAlarmStatistic = "SAMPLE_COUNT"
 	// AVERAGE.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmStatistic_AVERAGE EmrCreateCluster_CloudWatchAlarmStatistic = "AVERAGE"
 	// SUM.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmStatistic_SUM EmrCreateCluster_CloudWatchAlarmStatistic = "SUM"
 	// MINIMUM.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmStatistic_MINIMUM EmrCreateCluster_CloudWatchAlarmStatistic = "MINIMUM"
 	// MAXIMUM.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmStatistic_MAXIMUM EmrCreateCluster_CloudWatchAlarmStatistic = "MAXIMUM"
 )
 
 // CloudWatch Alarm Units.
-// Experimental.
 type EmrCreateCluster_CloudWatchAlarmUnit string
 
 const (
 	// NONE.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_NONE EmrCreateCluster_CloudWatchAlarmUnit = "NONE"
 	// SECONDS.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_SECONDS EmrCreateCluster_CloudWatchAlarmUnit = "SECONDS"
 	// MICRO_SECONDS.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_MICRO_SECONDS EmrCreateCluster_CloudWatchAlarmUnit = "MICRO_SECONDS"
 	// MILLI_SECONDS.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_MILLI_SECONDS EmrCreateCluster_CloudWatchAlarmUnit = "MILLI_SECONDS"
 	// BYTES.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_BYTES EmrCreateCluster_CloudWatchAlarmUnit = "BYTES"
 	// KILO_BYTES.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_KILO_BYTES EmrCreateCluster_CloudWatchAlarmUnit = "KILO_BYTES"
 	// MEGA_BYTES.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_MEGA_BYTES EmrCreateCluster_CloudWatchAlarmUnit = "MEGA_BYTES"
 	// GIGA_BYTES.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_GIGA_BYTES EmrCreateCluster_CloudWatchAlarmUnit = "GIGA_BYTES"
 	// TERA_BYTES.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_TERA_BYTES EmrCreateCluster_CloudWatchAlarmUnit = "TERA_BYTES"
 	// BITS.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_BITS EmrCreateCluster_CloudWatchAlarmUnit = "BITS"
 	// KILO_BITS.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_KILO_BITS EmrCreateCluster_CloudWatchAlarmUnit = "KILO_BITS"
 	// MEGA_BITS.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_MEGA_BITS EmrCreateCluster_CloudWatchAlarmUnit = "MEGA_BITS"
 	// GIGA_BITS.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_GIGA_BITS EmrCreateCluster_CloudWatchAlarmUnit = "GIGA_BITS"
 	// TERA_BITS.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_TERA_BITS EmrCreateCluster_CloudWatchAlarmUnit = "TERA_BITS"
 	// PERCENT.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_PERCENT EmrCreateCluster_CloudWatchAlarmUnit = "PERCENT"
 	// COUNT.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_COUNT EmrCreateCluster_CloudWatchAlarmUnit = "COUNT"
 	// BYTES_PER_SECOND.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_BYTES_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "BYTES_PER_SECOND"
 	// KILO_BYTES_PER_SECOND.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_KILO_BYTES_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "KILO_BYTES_PER_SECOND"
 	// MEGA_BYTES_PER_SECOND.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_MEGA_BYTES_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "MEGA_BYTES_PER_SECOND"
 	// GIGA_BYTES_PER_SECOND.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_GIGA_BYTES_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "GIGA_BYTES_PER_SECOND"
 	// TERA_BYTES_PER_SECOND.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_TERA_BYTES_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "TERA_BYTES_PER_SECOND"
 	// BITS_PER_SECOND.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_BITS_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "BITS_PER_SECOND"
 	// KILO_BITS_PER_SECOND.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_KILO_BITS_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "KILO_BITS_PER_SECOND"
 	// MEGA_BITS_PER_SECOND.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_MEGA_BITS_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "MEGA_BITS_PER_SECOND"
 	// GIGA_BITS_PER_SECOND.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_GIGA_BITS_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "GIGA_BITS_PER_SECOND"
 	// TERA_BITS_PER_SECOND.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_TERA_BITS_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "TERA_BITS_PER_SECOND"
 	// COUNT_PER_SECOND.
-	// Experimental.
 	EmrCreateCluster_CloudWatchAlarmUnit_COUNT_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "COUNT_PER_SECOND"
 )
 
@@ -23594,23 +19856,19 @@ const (
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_Configuration.html
 //
-// Experimental.
 type EmrCreateCluster_ConfigurationProperty struct {
 	// The classification within a configuration.
-	// Experimental.
 	Classification *string `json:"classification" yaml:"classification"`
 	// A list of additional configurations to apply within a configuration object.
-	// Experimental.
 	Configurations *[]*EmrCreateCluster_ConfigurationProperty `json:"configurations" yaml:"configurations"`
 	// A set of properties specified within a configuration classification.
-	// Experimental.
 	Properties *map[string]*string `json:"properties" yaml:"properties"`
 }
 
 // Configuration of requested EBS block device associated with the instance group with count of volumes that will be associated to every instance.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
 //
 //   var size size
 //   ebsBlockDeviceConfigProperty := &ebsBlockDeviceConfigProperty{
@@ -23628,36 +19886,29 @@ type EmrCreateCluster_ConfigurationProperty struct {
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_EbsBlockDeviceConfig.html
 //
-// Experimental.
 type EmrCreateCluster_EbsBlockDeviceConfigProperty struct {
 	// EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
-	// Experimental.
 	VolumeSpecification *EmrCreateCluster_VolumeSpecificationProperty `json:"volumeSpecification" yaml:"volumeSpecification"`
 	// Number of EBS volumes with a specific volume configuration that will be associated with every instance in the instance group.
-	// Experimental.
 	VolumesPerInstance *float64 `json:"volumesPerInstance" yaml:"volumesPerInstance"`
 }
 
 // EBS Volume Types.
-// Experimental.
 type EmrCreateCluster_EbsBlockDeviceVolumeType string
 
 const (
 	// gp2 Volume Type.
-	// Experimental.
 	EmrCreateCluster_EbsBlockDeviceVolumeType_GP2 EmrCreateCluster_EbsBlockDeviceVolumeType = "GP2"
 	// io1 Volume Type.
-	// Experimental.
 	EmrCreateCluster_EbsBlockDeviceVolumeType_IO1 EmrCreateCluster_EbsBlockDeviceVolumeType = "IO1"
 	// Standard Volume Type.
-	// Experimental.
 	EmrCreateCluster_EbsBlockDeviceVolumeType_STANDARD EmrCreateCluster_EbsBlockDeviceVolumeType = "STANDARD"
 )
 
 // The Amazon EBS configuration of a cluster instance.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
 //
 //   var size size
 //   ebsConfigurationProperty := &ebsConfigurationProperty{
@@ -23680,37 +19931,31 @@ const (
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_EbsConfiguration.html
 //
-// Experimental.
 type EmrCreateCluster_EbsConfigurationProperty struct {
 	// An array of Amazon EBS volume specifications attached to a cluster instance.
-	// Experimental.
 	EbsBlockDeviceConfigs *[]*EmrCreateCluster_EbsBlockDeviceConfigProperty `json:"ebsBlockDeviceConfigs" yaml:"ebsBlockDeviceConfigs"`
 	// Indicates whether an Amazon EBS volume is EBS-optimized.
-	// Experimental.
 	EbsOptimized *bool `json:"ebsOptimized" yaml:"ebsOptimized"`
 }
 
 // The Cluster ScaleDownBehavior specifies the way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized.
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html#EMR-RunJobFlow-request-ScaleDownBehavior
 //
-// Experimental.
 type EmrCreateCluster_EmrClusterScaleDownBehavior string
 
 const (
 	// Indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of when the request to terminate the instance was submitted.
 	//
 	// This option is only available with Amazon EMR 5.1.0 and later and is the default for clusters created using that version
-	// Experimental.
 	EmrCreateCluster_EmrClusterScaleDownBehavior_TERMINATE_AT_INSTANCE_HOUR EmrCreateCluster_EmrClusterScaleDownBehavior = "TERMINATE_AT_INSTANCE_HOUR"
 	// Indicates that Amazon EMR adds nodes to a deny list and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of the instance-hour boundary.
-	// Experimental.
 	EmrCreateCluster_EmrClusterScaleDownBehavior_TERMINATE_AT_TASK_COMPLETION EmrCreateCluster_EmrClusterScaleDownBehavior = "TERMINATE_AT_TASK_COMPLETION"
 )
 
 // The configuration that defines an instance fleet.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
 //
 //   var configurationProperty_ configurationProperty
 //   var size size
@@ -23773,27 +20018,20 @@ const (
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_InstanceFleetConfig.html
 //
-// Experimental.
 type EmrCreateCluster_InstanceFleetConfigProperty struct {
 	// The node type that the instance fleet hosts.
 	//
 	// Valid values are MASTER,CORE,and TASK.
-	// Experimental.
 	InstanceFleetType EmrCreateCluster_InstanceRoleType `json:"instanceFleetType" yaml:"instanceFleetType"`
 	// The instance type configurations that define the EC2 instances in the instance fleet.
-	// Experimental.
 	InstanceTypeConfigs *[]*EmrCreateCluster_InstanceTypeConfigProperty `json:"instanceTypeConfigs" yaml:"instanceTypeConfigs"`
 	// The launch specification for the instance fleet.
-	// Experimental.
 	LaunchSpecifications *EmrCreateCluster_InstanceFleetProvisioningSpecificationsProperty `json:"launchSpecifications" yaml:"launchSpecifications"`
 	// The friendly name of the instance fleet.
-	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-	// Experimental.
 	TargetOnDemandCapacity *float64 `json:"targetOnDemandCapacity" yaml:"targetOnDemandCapacity"`
 	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-	// Experimental.
 	TargetSpotCapacity *float64 `json:"targetSpotCapacity" yaml:"targetSpotCapacity"`
 }
 
@@ -23814,20 +20052,17 @@ type EmrCreateCluster_InstanceFleetConfigProperty struct {
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_InstanceFleetProvisioningSpecifications.html
 //
-// Experimental.
 type EmrCreateCluster_InstanceFleetProvisioningSpecificationsProperty struct {
 	// The launch specification for Spot instances in the fleet, which determines the defined duration and provisioning timeout behavior.
-	// Experimental.
 	SpotSpecification *EmrCreateCluster_SpotProvisioningSpecificationProperty `json:"spotSpecification" yaml:"spotSpecification"`
 }
 
 // Configuration defining a new instance group.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
 //
 //   var configurationProperty_ configurationProperty
-//   var duration duration
 //   var size size
 //   instanceGroupConfigProperty := &instanceGroupConfigProperty{
 //   	instanceCount: jsii.Number(123),
@@ -23859,7 +20094,7 @@ type EmrCreateCluster_InstanceFleetProvisioningSpecificationsProperty struct {
 //   					cloudWatchAlarmDefinition: &cloudWatchAlarmDefinitionProperty{
 //   						comparisonOperator: stepfunctions_tasks.*emrCreateCluster.cloudWatchAlarmComparisonOperator_GREATER_THAN_OR_EQUAL,
 //   						metricName: jsii.String("metricName"),
-//   						period: duration,
+//   						period: cdk.duration.minutes(jsii.Number(30)),
 //
 //   						// the properties below are optional
 //   						dimensions: []metricDimensionProperty{
@@ -23916,72 +20151,55 @@ type EmrCreateCluster_InstanceFleetProvisioningSpecificationsProperty struct {
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_InstanceGroupConfig.html
 //
-// Experimental.
 type EmrCreateCluster_InstanceGroupConfigProperty struct {
 	// Target number of instances for the instance group.
-	// Experimental.
 	InstanceCount *float64 `json:"instanceCount" yaml:"instanceCount"`
 	// The role of the instance group in the cluster.
-	// Experimental.
 	InstanceRole EmrCreateCluster_InstanceRoleType `json:"instanceRole" yaml:"instanceRole"`
 	// The EC2 instance type for all instances in the instance group.
-	// Experimental.
 	InstanceType *string `json:"instanceType" yaml:"instanceType"`
 	// An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster.
-	// Experimental.
 	AutoScalingPolicy *EmrCreateCluster_AutoScalingPolicyProperty `json:"autoScalingPolicy" yaml:"autoScalingPolicy"`
 	// The bid price for each EC2 Spot instance type as defined by InstanceType.
 	//
 	// Expressed in USD.
-	// Experimental.
 	BidPrice *string `json:"bidPrice" yaml:"bidPrice"`
 	// The list of configurations supplied for an EMR cluster instance group.
-	// Experimental.
 	Configurations *[]*EmrCreateCluster_ConfigurationProperty `json:"configurations" yaml:"configurations"`
 	// EBS configurations that will be attached to each EC2 instance in the instance group.
-	// Experimental.
 	EbsConfiguration *EmrCreateCluster_EbsConfigurationProperty `json:"ebsConfiguration" yaml:"ebsConfiguration"`
 	// Market type of the EC2 instances used to create a cluster node.
-	// Experimental.
 	Market EmrCreateCluster_InstanceMarket `json:"market" yaml:"market"`
 	// Friendly name given to the instance group.
-	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 }
 
 // EC2 Instance Market.
-// Experimental.
 type EmrCreateCluster_InstanceMarket string
 
 const (
 	// On Demand Instance.
-	// Experimental.
 	EmrCreateCluster_InstanceMarket_ON_DEMAND EmrCreateCluster_InstanceMarket = "ON_DEMAND"
 	// Spot Instance.
-	// Experimental.
 	EmrCreateCluster_InstanceMarket_SPOT EmrCreateCluster_InstanceMarket = "SPOT"
 )
 
 // Instance Role Types.
-// Experimental.
 type EmrCreateCluster_InstanceRoleType string
 
 const (
 	// Master Node.
-	// Experimental.
 	EmrCreateCluster_InstanceRoleType_MASTER EmrCreateCluster_InstanceRoleType = "MASTER"
 	// Core Node.
-	// Experimental.
 	EmrCreateCluster_InstanceRoleType_CORE EmrCreateCluster_InstanceRoleType = "CORE"
 	// Task Node.
-	// Experimental.
 	EmrCreateCluster_InstanceRoleType_TASK EmrCreateCluster_InstanceRoleType = "TASK"
 )
 
 // An instance type configuration for each instance type in an instance fleet, which determines the EC2 instances Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
 //
 //   var configurationProperty_ configurationProperty
 //   var size size
@@ -24024,27 +20242,20 @@ const (
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_InstanceTypeConfig.html
 //
-// Experimental.
 type EmrCreateCluster_InstanceTypeConfigProperty struct {
 	// An EC2 instance type.
-	// Experimental.
 	InstanceType *string `json:"instanceType" yaml:"instanceType"`
 	// The bid price for each EC2 Spot instance type as defined by InstanceType.
 	//
 	// Expressed in USD.
-	// Experimental.
 	BidPrice *string `json:"bidPrice" yaml:"bidPrice"`
 	// The bid price, as a percentage of On-Demand price.
-	// Experimental.
 	BidPriceAsPercentageOfOnDemandPrice *float64 `json:"bidPriceAsPercentageOfOnDemandPrice" yaml:"bidPriceAsPercentageOfOnDemandPrice"`
 	// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster.
-	// Experimental.
 	Configurations *[]*EmrCreateCluster_ConfigurationProperty `json:"configurations" yaml:"configurations"`
 	// The configuration of Amazon Elastic Block Storage (EBS) attached to each instance as defined by InstanceType.
-	// Experimental.
 	EbsConfiguration *EmrCreateCluster_EbsConfigurationProperty `json:"ebsConfiguration" yaml:"ebsConfiguration"`
 	// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in the InstanceFleetConfig.
-	// Experimental.
 	WeightedCapacity *float64 `json:"weightedCapacity" yaml:"weightedCapacity"`
 }
 
@@ -24087,63 +20298,46 @@ type EmrCreateCluster_InstanceTypeConfigProperty struct {
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_JobFlowInstancesConfig.html
 //
-// Experimental.
 type EmrCreateCluster_InstancesConfigProperty struct {
 	// A list of additional Amazon EC2 security group IDs for the master node.
-	// Experimental.
 	AdditionalMasterSecurityGroups *[]*string `json:"additionalMasterSecurityGroups" yaml:"additionalMasterSecurityGroups"`
 	// A list of additional Amazon EC2 security group IDs for the core and task nodes.
-	// Experimental.
 	AdditionalSlaveSecurityGroups *[]*string `json:"additionalSlaveSecurityGroups" yaml:"additionalSlaveSecurityGroups"`
 	// The name of the EC2 key pair that can be used to ssh to the master node as the user called "hadoop.".
-	// Experimental.
 	Ec2KeyName *string `json:"ec2KeyName" yaml:"ec2KeyName"`
 	// Applies to clusters that use the uniform instance group configuration.
 	//
 	// To launch the cluster in Amazon Virtual Private Cloud (Amazon VPC),
 	// set this parameter to the identifier of the Amazon VPC subnet where you want the cluster to launch.
-	// Experimental.
 	Ec2SubnetId *string `json:"ec2SubnetId" yaml:"ec2SubnetId"`
 	// Applies to clusters that use the instance fleet configuration.
 	//
 	// When multiple EC2 subnet IDs are specified, Amazon EMR evaluates them and
 	// launches instances in the optimal subnet.
-	// Experimental.
 	Ec2SubnetIds *[]*string `json:"ec2SubnetIds" yaml:"ec2SubnetIds"`
 	// The identifier of the Amazon EC2 security group for the master node.
-	// Experimental.
 	EmrManagedMasterSecurityGroup *string `json:"emrManagedMasterSecurityGroup" yaml:"emrManagedMasterSecurityGroup"`
 	// The identifier of the Amazon EC2 security group for the core and task nodes.
-	// Experimental.
 	EmrManagedSlaveSecurityGroup *string `json:"emrManagedSlaveSecurityGroup" yaml:"emrManagedSlaveSecurityGroup"`
 	// Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster.
-	// Experimental.
 	HadoopVersion *string `json:"hadoopVersion" yaml:"hadoopVersion"`
 	// The number of EC2 instances in the cluster.
-	// Experimental.
 	InstanceCount *float64 `json:"instanceCount" yaml:"instanceCount"`
 	// Describes the EC2 instances and instance configurations for clusters that use the instance fleet configuration.
 	//
 	// The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.
-	// Experimental.
 	InstanceFleets *[]*EmrCreateCluster_InstanceFleetConfigProperty `json:"instanceFleets" yaml:"instanceFleets"`
 	// Configuration for the instance groups in a cluster.
-	// Experimental.
 	InstanceGroups *[]*EmrCreateCluster_InstanceGroupConfigProperty `json:"instanceGroups" yaml:"instanceGroups"`
 	// The EC2 instance type of the master node.
-	// Experimental.
 	MasterInstanceType *string `json:"masterInstanceType" yaml:"masterInstanceType"`
 	// The Availability Zone in which the cluster runs.
-	// Experimental.
 	Placement *EmrCreateCluster_PlacementTypeProperty `json:"placement" yaml:"placement"`
 	// The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.
-	// Experimental.
 	ServiceAccessSecurityGroup *string `json:"serviceAccessSecurityGroup" yaml:"serviceAccessSecurityGroup"`
 	// The EC2 instance type of the core and task nodes.
-	// Experimental.
 	SlaveInstanceType *string `json:"slaveInstanceType" yaml:"slaveInstanceType"`
 	// Specifies whether to lock the cluster to prevent the Amazon EC2 instances from being terminated by API call, user intervention, or in the event of a job-flow error.
-	// Experimental.
 	TerminationProtected *bool `json:"terminationProtected" yaml:"terminationProtected"`
 }
 
@@ -24165,30 +20359,24 @@ type EmrCreateCluster_InstancesConfigProperty struct {
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_KerberosAttributes.html
 //
-// Experimental.
 type EmrCreateCluster_KerberosAttributesProperty struct {
 	// The name of the Kerberos realm to which all nodes in a cluster belong.
 	//
 	// For example, EC2.INTERNAL.
-	// Experimental.
 	Realm *string `json:"realm" yaml:"realm"`
 	// The Active Directory password for ADDomainJoinUser.
-	// Experimental.
 	AdDomainJoinPassword *string `json:"adDomainJoinPassword" yaml:"adDomainJoinPassword"`
 	// Required only when establishing a cross-realm trust with an Active Directory domain.
 	//
 	// A user with sufficient privileges to join
 	// resources to the domain.
-	// Experimental.
 	AdDomainJoinUser *string `json:"adDomainJoinUser" yaml:"adDomainJoinUser"`
 	// Required only when establishing a cross-realm trust with a KDC in a different realm.
 	//
 	// The cross-realm principal password, which
 	// must be identical across realms.
-	// Experimental.
 	CrossRealmTrustPrincipalPassword *string `json:"crossRealmTrustPrincipalPassword" yaml:"crossRealmTrustPrincipalPassword"`
 	// The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster.
-	// Experimental.
 	KdcAdminPassword *string `json:"kdcAdminPassword" yaml:"kdcAdminPassword"`
 }
 
@@ -24207,13 +20395,10 @@ type EmrCreateCluster_KerberosAttributesProperty struct {
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_MetricDimension.html
 //
-// Experimental.
 type EmrCreateCluster_MetricDimensionProperty struct {
 	// The dimension name.
-	// Experimental.
 	Key *string `json:"key" yaml:"key"`
 	// The dimension value.
-	// Experimental.
 	Value *string `json:"value" yaml:"value"`
 }
 
@@ -24230,18 +20415,15 @@ type EmrCreateCluster_MetricDimensionProperty struct {
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_PlacementType.html
 //
-// Experimental.
 type EmrCreateCluster_PlacementTypeProperty struct {
 	// The Amazon EC2 Availability Zone for the cluster.
 	//
 	// AvailabilityZone is used for uniform instance groups, while AvailabilityZones
 	// (plural) is used for instance fleets.
-	// Experimental.
 	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// When multiple Availability Zones are specified, Amazon EMR evaluates them and launches instances in the optimal Availability Zone.
 	//
 	// AvailabilityZones is used for instance fleets, while AvailabilityZone (singular) is used for uniform instance groups.
-	// Experimental.
 	AvailabilityZones *[]*string `json:"availabilityZones" yaml:"availabilityZones"`
 }
 
@@ -24267,31 +20449,24 @@ type EmrCreateCluster_PlacementTypeProperty struct {
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_ScalingAction.html
 //
-// Experimental.
 type EmrCreateCluster_ScalingActionProperty struct {
 	// The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
-	// Experimental.
 	SimpleScalingPolicyConfiguration *EmrCreateCluster_SimpleScalingPolicyConfigurationProperty `json:"simpleScalingPolicyConfiguration" yaml:"simpleScalingPolicyConfiguration"`
 	// Not available for instance groups.
 	//
 	// Instance groups use the market type specified for the group.
-	// Experimental.
 	Market EmrCreateCluster_InstanceMarket `json:"market" yaml:"market"`
 }
 
 // AutoScaling Adjustment Type.
-// Experimental.
 type EmrCreateCluster_ScalingAdjustmentType string
 
 const (
 	// CHANGE_IN_CAPACITY.
-	// Experimental.
 	EmrCreateCluster_ScalingAdjustmentType_CHANGE_IN_CAPACITY EmrCreateCluster_ScalingAdjustmentType = "CHANGE_IN_CAPACITY"
 	// PERCENT_CHANGE_IN_CAPACITY.
-	// Experimental.
 	EmrCreateCluster_ScalingAdjustmentType_PERCENT_CHANGE_IN_CAPACITY EmrCreateCluster_ScalingAdjustmentType = "PERCENT_CHANGE_IN_CAPACITY"
 	// EXACT_CAPACITY.
-	// Experimental.
 	EmrCreateCluster_ScalingAdjustmentType_EXACT_CAPACITY EmrCreateCluster_ScalingAdjustmentType = "EXACT_CAPACITY"
 )
 
@@ -24309,28 +20484,23 @@ const (
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_ScalingConstraints.html
 //
-// Experimental.
 type EmrCreateCluster_ScalingConstraintsProperty struct {
 	// The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow.
 	//
 	// Scale-out
 	// activities will not add instances beyond this boundary.
-	// Experimental.
 	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink.
 	//
 	// Scale-in
 	// activities will not terminate instances below this boundary.
-	// Experimental.
 	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
 }
 
 // A scale-in or scale-out rule that defines scaling activity, including the CloudWatch metric alarm that triggers activity, how EC2 instances are added or removed, and the periodicity of adjustments.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var duration duration
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
 //   scalingRuleProperty := &scalingRuleProperty{
 //   	action: &scalingActionProperty{
 //   		simpleScalingPolicyConfiguration: &simpleScalingPolicyConfigurationProperty{
@@ -24349,7 +20519,7 @@ type EmrCreateCluster_ScalingConstraintsProperty struct {
 //   		cloudWatchAlarmDefinition: &cloudWatchAlarmDefinitionProperty{
 //   			comparisonOperator: stepfunctions_tasks.*emrCreateCluster.cloudWatchAlarmComparisonOperator_GREATER_THAN_OR_EQUAL,
 //   			metricName: jsii.String("metricName"),
-//   			period: duration,
+//   			period: cdk.duration.minutes(jsii.Number(30)),
 //
 //   			// the properties below are optional
 //   			dimensions: []metricDimensionProperty{
@@ -24372,21 +20542,16 @@ type EmrCreateCluster_ScalingConstraintsProperty struct {
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_ScalingRule.html
 //
-// Experimental.
 type EmrCreateCluster_ScalingRuleProperty struct {
 	// The conditions that trigger an automatic scaling activity.
-	// Experimental.
 	Action *EmrCreateCluster_ScalingActionProperty `json:"action" yaml:"action"`
 	// The name used to identify an automatic scaling rule.
 	//
 	// Rule names must be unique within a scaling policy.
-	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 	// The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
-	// Experimental.
 	Trigger *EmrCreateCluster_ScalingTriggerProperty `json:"trigger" yaml:"trigger"`
 	// A friendly, more verbose description of the automatic scaling rule.
-	// Experimental.
 	Description *string `json:"description" yaml:"description"`
 }
 
@@ -24395,14 +20560,12 @@ type EmrCreateCluster_ScalingRuleProperty struct {
 // When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var duration duration
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
 //   scalingTriggerProperty := &scalingTriggerProperty{
 //   	cloudWatchAlarmDefinition: &cloudWatchAlarmDefinitionProperty{
 //   		comparisonOperator: stepfunctions_tasks.emrCreateCluster.cloudWatchAlarmComparisonOperator_GREATER_THAN_OR_EQUAL,
 //   		metricName: jsii.String("metricName"),
-//   		period: duration,
+//   		period: cdk.duration.minutes(jsii.Number(30)),
 //
 //   		// the properties below are optional
 //   		dimensions: []metricDimensionProperty{
@@ -24421,13 +20584,11 @@ type EmrCreateCluster_ScalingRuleProperty struct {
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_ScalingTrigger.html
 //
-// Experimental.
 type EmrCreateCluster_ScalingTriggerProperty struct {
 	// The definition of a CloudWatch metric alarm.
 	//
 	// When the defined alarm conditions are met along with other trigger parameters,
 	// scaling activity begins.
-	// Experimental.
 	CloudWatchAlarmDefinition *EmrCreateCluster_CloudWatchAlarmDefinitionProperty `json:"cloudWatchAlarmDefinition" yaml:"cloudWatchAlarmDefinition"`
 }
 
@@ -24446,15 +20607,12 @@ type EmrCreateCluster_ScalingTriggerProperty struct {
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_ScriptBootstrapActionConfig.html
 //
-// Experimental.
 type EmrCreateCluster_ScriptBootstrapActionConfigProperty struct {
 	// Location of the script to run during a bootstrap action.
 	//
 	// Can be either a location in Amazon S3 or on a local file system.
-	// Experimental.
 	Path *string `json:"path" yaml:"path"`
 	// A list of command line arguments to pass to the bootstrap action script.
-	// Experimental.
 	Args *[]*string `json:"args" yaml:"args"`
 }
 
@@ -24472,20 +20630,16 @@ type EmrCreateCluster_ScriptBootstrapActionConfigProperty struct {
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_SimpleScalingPolicyConfiguration.html
 //
-// Experimental.
 type EmrCreateCluster_SimpleScalingPolicyConfigurationProperty struct {
 	// The amount by which to scale in or scale out, based on the specified AdjustmentType.
 	//
 	// A positive value adds to the instance group's
 	// EC2 instance count while a negative number removes instances. If AdjustmentType is set to EXACT_CAPACITY, the number should only be
 	// a positive integer.
-	// Experimental.
 	ScalingAdjustment *float64 `json:"scalingAdjustment" yaml:"scalingAdjustment"`
 	// The way in which EC2 instances are added (if ScalingAdjustment is a positive number) or terminated (if ScalingAdjustment is a negative number) each time the scaling activity is triggered.
-	// Experimental.
 	AdjustmentType EmrCreateCluster_ScalingAdjustmentType `json:"adjustmentType" yaml:"adjustmentType"`
 	// The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start.
-	// Experimental.
 	CoolDown *float64 `json:"coolDown" yaml:"coolDown"`
 }
 
@@ -24494,12 +20648,10 @@ type EmrCreateCluster_SimpleScalingPolicyConfigurationProperty struct {
 // Specifies the strategy to use in launching Spot Instance fleets. For example, "capacity-optimized" launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_SpotProvisioningSpecification.html
 //
-// Experimental.
 type EmrCreateCluster_SpotAllocationStrategy string
 
 const (
 	// Capacity-optimized, which launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.
-	// Experimental.
 	EmrCreateCluster_SpotAllocationStrategy_CAPACITY_OPTIMIZED EmrCreateCluster_SpotAllocationStrategy = "CAPACITY_OPTIMIZED"
 )
 
@@ -24518,39 +20670,31 @@ const (
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_SpotProvisioningSpecification.html
 //
-// Experimental.
 type EmrCreateCluster_SpotProvisioningSpecificationProperty struct {
 	// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired.
-	// Experimental.
 	TimeoutAction EmrCreateCluster_SpotTimeoutAction `json:"timeoutAction" yaml:"timeoutAction"`
 	// The spot provisioning timeout period in minutes.
-	// Experimental.
 	TimeoutDurationMinutes *float64 `json:"timeoutDurationMinutes" yaml:"timeoutDurationMinutes"`
 	// Specifies the strategy to use in launching Spot Instance fleets.
-	// Experimental.
 	AllocationStrategy EmrCreateCluster_SpotAllocationStrategy `json:"allocationStrategy" yaml:"allocationStrategy"`
 	// The defined duration for Spot instances (also known as Spot blocks) in minutes.
-	// Experimental.
 	BlockDurationMinutes *float64 `json:"blockDurationMinutes" yaml:"blockDurationMinutes"`
 }
 
 // Spot Timeout Actions.
-// Experimental.
 type EmrCreateCluster_SpotTimeoutAction string
 
 const (
 	// SWITCH_TO_ON_DEMAND.
-	// Experimental.
 	EmrCreateCluster_SpotTimeoutAction_SWITCH_TO_ON_DEMAND EmrCreateCluster_SpotTimeoutAction = "SWITCH_TO_ON_DEMAND"
 	// TERMINATE_CLUSTER.
-	// Experimental.
 	EmrCreateCluster_SpotTimeoutAction_TERMINATE_CLUSTER EmrCreateCluster_SpotTimeoutAction = "TERMINATE_CLUSTER"
 )
 
 // EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
 //
 //   var size size
 //   volumeSpecificationProperty := &volumeSpecificationProperty{
@@ -24563,21 +20707,17 @@ const (
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_VolumeSpecification.html
 //
-// Experimental.
 type EmrCreateCluster_VolumeSpecificationProperty struct {
 	// The volume size.
 	//
 	// If the volume type is EBS-optimized, the minimum value is 10GiB.
 	// Maximum size is 1TiB.
-	// Experimental.
 	VolumeSize awscdk.Size `json:"volumeSize" yaml:"volumeSize"`
 	// The volume type.
 	//
 	// Volume types supported are gp2, io1, standard.
-	// Experimental.
 	VolumeType EmrCreateCluster_EbsBlockDeviceVolumeType `json:"volumeType" yaml:"volumeType"`
 	// The number of I/O operations per second (IOPS) that the volume supports.
-	// Experimental.
 	Iops *float64 `json:"iops" yaml:"iops"`
 }
 
@@ -24620,38 +20760,31 @@ type EmrCreateCluster_VolumeSpecificationProperty struct {
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html
 //
-// Experimental.
 type EmrCreateClusterProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -24659,74 +20792,53 @@ type EmrCreateClusterProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// A specification of the number and type of Amazon EC2 instances.
-	// Experimental.
 	Instances *EmrCreateCluster_InstancesConfigProperty `json:"instances" yaml:"instances"`
 	// The Name of the Cluster.
-	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 	// A JSON string for selecting additional features.
-	// Experimental.
 	AdditionalInfo *string `json:"additionalInfo" yaml:"additionalInfo"`
 	// A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster.
-	// Experimental.
 	Applications *[]*EmrCreateCluster_ApplicationConfigProperty `json:"applications" yaml:"applications"`
 	// An IAM role for automatic scaling policies.
-	// Experimental.
 	AutoScalingRole awsiam.IRole `json:"autoScalingRole" yaml:"autoScalingRole"`
 	// A list of bootstrap actions to run before Hadoop starts on the cluster nodes.
-	// Experimental.
 	BootstrapActions *[]*EmrCreateCluster_BootstrapActionConfigProperty `json:"bootstrapActions" yaml:"bootstrapActions"`
 	// Also called instance profile and EC2 role.
 	//
 	// An IAM role for an EMR cluster. The EC2 instances of the cluster assume this role.
 	//
 	// This attribute has been renamed from jobFlowRole to clusterRole to align with other ERM/StepFunction integration parameters.
-	// Experimental.
 	ClusterRole awsiam.IRole `json:"clusterRole" yaml:"clusterRole"`
 	// The list of configurations supplied for the EMR cluster you are creating.
-	// Experimental.
 	Configurations *[]*EmrCreateCluster_ConfigurationProperty `json:"configurations" yaml:"configurations"`
 	// The ID of a custom Amazon EBS-backed Linux AMI.
-	// Experimental.
 	CustomAmiId *string `json:"customAmiId" yaml:"customAmiId"`
 	// The size of the EBS root device volume of the Linux AMI that is used for each EC2 instance.
-	// Experimental.
 	EbsRootVolumeSize awscdk.Size `json:"ebsRootVolumeSize" yaml:"ebsRootVolumeSize"`
 	// Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration.
-	// Experimental.
 	KerberosAttributes *EmrCreateCluster_KerberosAttributesProperty `json:"kerberosAttributes" yaml:"kerberosAttributes"`
 	// The location in Amazon S3 to write the log files of the job flow.
-	// Experimental.
 	LogUri *string `json:"logUri" yaml:"logUri"`
 	// The Amazon EMR release label, which determines the version of open-source application packages installed on the cluster.
-	// Experimental.
 	ReleaseLabel *string `json:"releaseLabel" yaml:"releaseLabel"`
 	// Specifies the way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized.
-	// Experimental.
 	ScaleDownBehavior EmrCreateCluster_EmrClusterScaleDownBehavior `json:"scaleDownBehavior" yaml:"scaleDownBehavior"`
 	// The name of a security configuration to apply to the cluster.
-	// Experimental.
 	SecurityConfiguration *string `json:"securityConfiguration" yaml:"securityConfiguration"`
 	// The IAM role that will be assumed by the Amazon EMR service to access AWS resources on your behalf.
-	// Experimental.
 	ServiceRole awsiam.IRole `json:"serviceRole" yaml:"serviceRole"`
 	// Specifies the step concurrency level to allow multiple steps to run in parallel.
 	//
 	// Requires EMR release label 5.28.0 or above.
 	// Must be in range [1, 256].
-	// Experimental.
 	StepConcurrencyLevel *float64 `json:"stepConcurrencyLevel" yaml:"stepConcurrencyLevel"`
 	// A list of tags to associate with a cluster and propagate to Amazon EC2 instances.
-	// Experimental.
 	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// A value of true indicates that all IAM users in the AWS account can perform cluster actions if they have the proper IAM policy permissions.
-	// Experimental.
 	VisibleToAllUsers *bool `json:"visibleToAllUsers" yaml:"visibleToAllUsers"`
 }
 
@@ -24740,198 +20852,103 @@ type EmrCreateClusterProps struct {
 //   	targetSpotCapacity: jsii.Number(0),
 //   })
 //
-// Experimental.
 type EmrModifyInstanceFleetByName interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -25010,8 +21027,8 @@ func (j *jsiiProxy_EmrModifyInstanceFleetByName) Iteration() awsstepfunctions.St
 	return returns
 }
 
-func (j *jsiiProxy_EmrModifyInstanceFleetByName) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_EmrModifyInstanceFleetByName) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -25101,14 +21118,13 @@ func (j *jsiiProxy_EmrModifyInstanceFleetByName) TaskPolicies() *[]awsiam.Policy
 }
 
 
-// Experimental.
 func NewEmrModifyInstanceFleetByName(scope constructs.Construct, id *string, props *EmrModifyInstanceFleetByNameProps) EmrModifyInstanceFleetByName {
 	_init_.Initialize()
 
 	j := jsiiProxy_EmrModifyInstanceFleetByName{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -25116,12 +21132,11 @@ func NewEmrModifyInstanceFleetByName(scope constructs.Construct, id *string, pro
 	return &j
 }
 
-// Experimental.
 func NewEmrModifyInstanceFleetByName_Override(e EmrModifyInstanceFleetByName, scope constructs.Construct, id *string, props *EmrModifyInstanceFleetByNameProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -25144,14 +21159,13 @@ func (j *jsiiProxy_EmrModifyInstanceFleetByName) SetIteration(val awsstepfunctio
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func EmrModifyInstanceFleetByName_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -25161,14 +21175,13 @@ func EmrModifyInstanceFleetByName_FilterNextables(states *[]awsstepfunctions.Sta
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func EmrModifyInstanceFleetByName_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -25180,14 +21193,13 @@ func EmrModifyInstanceFleetByName_FindReachableEndStates(start awsstepfunctions.
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func EmrModifyInstanceFleetByName_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -25196,15 +21208,17 @@ func EmrModifyInstanceFleetByName_FindReachableStates(start awsstepfunctions.Sta
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func EmrModifyInstanceFleetByName_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -25214,12 +21228,11 @@ func EmrModifyInstanceFleetByName_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func EmrModifyInstanceFleetByName_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -25450,43 +21463,6 @@ func (e *jsiiProxy_EmrModifyInstanceFleetByName) Next(next awsstepfunctions.ICha
 	return returns
 }
 
-func (e *jsiiProxy_EmrModifyInstanceFleetByName) OnPrepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (e *jsiiProxy_EmrModifyInstanceFleetByName) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (e *jsiiProxy_EmrModifyInstanceFleetByName) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (e *jsiiProxy_EmrModifyInstanceFleetByName) Prepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (e *jsiiProxy_EmrModifyInstanceFleetByName) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -25578,14 +21554,6 @@ func (e *jsiiProxy_EmrModifyInstanceFleetByName) RenderRetryCatch() interface{} 
 	return returns
 }
 
-func (e *jsiiProxy_EmrModifyInstanceFleetByName) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (e *jsiiProxy_EmrModifyInstanceFleetByName) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -25612,12 +21580,12 @@ func (e *jsiiProxy_EmrModifyInstanceFleetByName) ToString() *string {
 	return returns
 }
 
-func (e *jsiiProxy_EmrModifyInstanceFleetByName) Validate() *[]*string {
+func (e *jsiiProxy_EmrModifyInstanceFleetByName) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		e,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -25643,38 +21611,31 @@ func (e *jsiiProxy_EmrModifyInstanceFleetByName) WhenBoundToGraph(graph awsstepf
 //   	targetSpotCapacity: jsii.Number(0),
 //   })
 //
-// Experimental.
 type EmrModifyInstanceFleetByNameProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -25682,26 +21643,20 @@ type EmrModifyInstanceFleetByNameProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The ClusterId to update.
-	// Experimental.
 	ClusterId *string `json:"clusterId" yaml:"clusterId"`
 	// The InstanceFleetName to update.
-	// Experimental.
 	InstanceFleetName *string `json:"instanceFleetName" yaml:"instanceFleetName"`
 	// The target capacity of On-Demand units for the instance fleet.
 	// See: https://docs.aws.amazon.com/emr/latest/APIReference/API_InstanceFleetModifyConfig.html
 	//
-	// Experimental.
 	TargetOnDemandCapacity *float64 `json:"targetOnDemandCapacity" yaml:"targetOnDemandCapacity"`
 	// The target capacity of Spot units for the instance fleet.
 	// See: https://docs.aws.amazon.com/emr/latest/APIReference/API_InstanceFleetModifyConfig.html
 	//
-	// Experimental.
 	TargetSpotCapacity *float64 `json:"targetSpotCapacity" yaml:"targetSpotCapacity"`
 }
 
@@ -25716,198 +21671,103 @@ type EmrModifyInstanceFleetByNameProps struct {
 //   	},
 //   })
 //
-// Experimental.
 type EmrModifyInstanceGroupByName interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -25986,8 +21846,8 @@ func (j *jsiiProxy_EmrModifyInstanceGroupByName) Iteration() awsstepfunctions.St
 	return returns
 }
 
-func (j *jsiiProxy_EmrModifyInstanceGroupByName) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_EmrModifyInstanceGroupByName) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -26077,14 +21937,13 @@ func (j *jsiiProxy_EmrModifyInstanceGroupByName) TaskPolicies() *[]awsiam.Policy
 }
 
 
-// Experimental.
 func NewEmrModifyInstanceGroupByName(scope constructs.Construct, id *string, props *EmrModifyInstanceGroupByNameProps) EmrModifyInstanceGroupByName {
 	_init_.Initialize()
 
 	j := jsiiProxy_EmrModifyInstanceGroupByName{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -26092,12 +21951,11 @@ func NewEmrModifyInstanceGroupByName(scope constructs.Construct, id *string, pro
 	return &j
 }
 
-// Experimental.
 func NewEmrModifyInstanceGroupByName_Override(e EmrModifyInstanceGroupByName, scope constructs.Construct, id *string, props *EmrModifyInstanceGroupByNameProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -26120,14 +21978,13 @@ func (j *jsiiProxy_EmrModifyInstanceGroupByName) SetIteration(val awsstepfunctio
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func EmrModifyInstanceGroupByName_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -26137,14 +21994,13 @@ func EmrModifyInstanceGroupByName_FilterNextables(states *[]awsstepfunctions.Sta
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func EmrModifyInstanceGroupByName_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -26156,14 +22012,13 @@ func EmrModifyInstanceGroupByName_FindReachableEndStates(start awsstepfunctions.
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func EmrModifyInstanceGroupByName_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -26172,15 +22027,17 @@ func EmrModifyInstanceGroupByName_FindReachableStates(start awsstepfunctions.Sta
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func EmrModifyInstanceGroupByName_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -26190,12 +22047,11 @@ func EmrModifyInstanceGroupByName_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func EmrModifyInstanceGroupByName_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -26426,43 +22282,6 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) Next(next awsstepfunctions.ICha
 	return returns
 }
 
-func (e *jsiiProxy_EmrModifyInstanceGroupByName) OnPrepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (e *jsiiProxy_EmrModifyInstanceGroupByName) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (e *jsiiProxy_EmrModifyInstanceGroupByName) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (e *jsiiProxy_EmrModifyInstanceGroupByName) Prepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -26554,14 +22373,6 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) RenderRetryCatch() interface{} 
 	return returns
 }
 
-func (e *jsiiProxy_EmrModifyInstanceGroupByName) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -26588,12 +22399,12 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) ToString() *string {
 	return returns
 }
 
-func (e *jsiiProxy_EmrModifyInstanceGroupByName) Validate() *[]*string {
+func (e *jsiiProxy_EmrModifyInstanceGroupByName) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		e,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -26622,32 +22433,25 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) WhenBoundToGraph(graph awsstepf
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_InstanceGroupModifyConfig.html
 //
-// Experimental.
 type EmrModifyInstanceGroupByName_InstanceGroupModifyConfigProperty struct {
 	// A list of new or modified configurations to apply for an instance group.
-	// Experimental.
 	Configurations *[]*EmrCreateCluster_ConfigurationProperty `json:"configurations" yaml:"configurations"`
 	// The EC2 InstanceIds to terminate.
 	//
 	// After you terminate the instances, the instance group will not return to its original requested size.
-	// Experimental.
 	EC2InstanceIdsToTerminate *[]*string `json:"eC2InstanceIdsToTerminate" yaml:"eC2InstanceIdsToTerminate"`
 	// Target size for the instance group.
-	// Experimental.
 	InstanceCount *float64 `json:"instanceCount" yaml:"instanceCount"`
 	// Policy for customizing shrink operations.
 	// See: https://docs.aws.amazon.com/emr/latest/APIReference/API_ShrinkPolicy.html
 	//
-	// Experimental.
 	ShrinkPolicy *EmrModifyInstanceGroupByName_ShrinkPolicyProperty `json:"shrinkPolicy" yaml:"shrinkPolicy"`
 }
 
 // Custom policy for requesting termination protection or termination of specific instances when shrinking an instance group.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var duration duration
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
 //   instanceResizePolicyProperty := &instanceResizePolicyProperty{
 //   	instancesToProtect: []*string{
 //   		jsii.String("instancesToProtect"),
@@ -26655,21 +22459,17 @@ type EmrModifyInstanceGroupByName_InstanceGroupModifyConfigProperty struct {
 //   	instancesToTerminate: []*string{
 //   		jsii.String("instancesToTerminate"),
 //   	},
-//   	instanceTerminationTimeout: duration,
+//   	instanceTerminationTimeout: cdk.duration.minutes(jsii.Number(30)),
 //   }
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_InstanceResizePolicy.html
 //
-// Experimental.
 type EmrModifyInstanceGroupByName_InstanceResizePolicyProperty struct {
 	// Specific list of instances to be protected when shrinking an instance group.
-	// Experimental.
 	InstancesToProtect *[]*string `json:"instancesToProtect" yaml:"instancesToProtect"`
 	// Specific list of instances to be terminated when shrinking an instance group.
-	// Experimental.
 	InstancesToTerminate *[]*string `json:"instancesToTerminate" yaml:"instancesToTerminate"`
 	// Decommissioning timeout override for the specific list of instances to be terminated.
-	// Experimental.
 	InstanceTerminationTimeout awscdk.Duration `json:"instanceTerminationTimeout" yaml:"instanceTerminationTimeout"`
 }
 
@@ -26678,11 +22478,9 @@ type EmrModifyInstanceGroupByName_InstanceResizePolicyProperty struct {
 // Allows configuration of decommissioning timeout and targeted instance shrinking.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var duration duration
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
 //   shrinkPolicyProperty := &shrinkPolicyProperty{
-//   	decommissionTimeout: duration,
+//   	decommissionTimeout: cdk.duration.minutes(jsii.Number(30)),
 //   	instanceResizePolicy: &instanceResizePolicyProperty{
 //   		instancesToProtect: []*string{
 //   			jsii.String("instancesToProtect"),
@@ -26690,21 +22488,18 @@ type EmrModifyInstanceGroupByName_InstanceResizePolicyProperty struct {
 //   		instancesToTerminate: []*string{
 //   			jsii.String("instancesToTerminate"),
 //   		},
-//   		instanceTerminationTimeout: duration,
+//   		instanceTerminationTimeout: cdk.*duration.minutes(jsii.Number(30)),
 //   	},
 //   }
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_ShrinkPolicy.html
 //
-// Experimental.
 type EmrModifyInstanceGroupByName_ShrinkPolicyProperty struct {
 	// The desired timeout for decommissioning an instance.
 	//
 	// Overrides the default YARN decommissioning timeout.
-	// Experimental.
 	DecommissionTimeout awscdk.Duration `json:"decommissionTimeout" yaml:"decommissionTimeout"`
 	// Custom policy for requesting termination protection or termination of specific instances when shrinking an instance group.
-	// Experimental.
 	InstanceResizePolicy *EmrModifyInstanceGroupByName_InstanceResizePolicyProperty `json:"instanceResizePolicy" yaml:"instanceResizePolicy"`
 }
 
@@ -26719,38 +22514,31 @@ type EmrModifyInstanceGroupByName_ShrinkPolicyProperty struct {
 //   	},
 //   })
 //
-// Experimental.
 type EmrModifyInstanceGroupByNameProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -26758,23 +22546,18 @@ type EmrModifyInstanceGroupByNameProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The ClusterId to update.
-	// Experimental.
 	ClusterId *string `json:"clusterId" yaml:"clusterId"`
 	// The JSON that you want to provide to your ModifyInstanceGroup call as input.
 	//
 	// This uses the same syntax as the ModifyInstanceGroups API.
 	// See: https://docs.aws.amazon.com/emr/latest/APIReference/API_ModifyInstanceGroups.html
 	//
-	// Experimental.
 	InstanceGroup *EmrModifyInstanceGroupByName_InstanceGroupModifyConfigProperty `json:"instanceGroup" yaml:"instanceGroup"`
 	// The InstanceGroupName to update.
-	// Experimental.
 	InstanceGroupName *string `json:"instanceGroupName" yaml:"instanceGroupName"`
 }
 
@@ -26786,198 +22569,103 @@ type EmrModifyInstanceGroupByNameProps struct {
 //   	terminationProtected: jsii.Boolean(false),
 //   })
 //
-// Experimental.
 type EmrSetClusterTerminationProtection interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -27056,8 +22744,8 @@ func (j *jsiiProxy_EmrSetClusterTerminationProtection) Iteration() awsstepfuncti
 	return returns
 }
 
-func (j *jsiiProxy_EmrSetClusterTerminationProtection) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_EmrSetClusterTerminationProtection) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -27147,14 +22835,13 @@ func (j *jsiiProxy_EmrSetClusterTerminationProtection) TaskPolicies() *[]awsiam.
 }
 
 
-// Experimental.
 func NewEmrSetClusterTerminationProtection(scope constructs.Construct, id *string, props *EmrSetClusterTerminationProtectionProps) EmrSetClusterTerminationProtection {
 	_init_.Initialize()
 
 	j := jsiiProxy_EmrSetClusterTerminationProtection{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -27162,12 +22849,11 @@ func NewEmrSetClusterTerminationProtection(scope constructs.Construct, id *strin
 	return &j
 }
 
-// Experimental.
 func NewEmrSetClusterTerminationProtection_Override(e EmrSetClusterTerminationProtection, scope constructs.Construct, id *string, props *EmrSetClusterTerminationProtectionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -27190,14 +22876,13 @@ func (j *jsiiProxy_EmrSetClusterTerminationProtection) SetIteration(val awsstepf
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func EmrSetClusterTerminationProtection_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -27207,14 +22892,13 @@ func EmrSetClusterTerminationProtection_FilterNextables(states *[]awsstepfunctio
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func EmrSetClusterTerminationProtection_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -27226,14 +22910,13 @@ func EmrSetClusterTerminationProtection_FindReachableEndStates(start awsstepfunc
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func EmrSetClusterTerminationProtection_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -27242,15 +22925,17 @@ func EmrSetClusterTerminationProtection_FindReachableStates(start awsstepfunctio
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func EmrSetClusterTerminationProtection_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -27260,12 +22945,11 @@ func EmrSetClusterTerminationProtection_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func EmrSetClusterTerminationProtection_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -27496,43 +23180,6 @@ func (e *jsiiProxy_EmrSetClusterTerminationProtection) Next(next awsstepfunction
 	return returns
 }
 
-func (e *jsiiProxy_EmrSetClusterTerminationProtection) OnPrepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (e *jsiiProxy_EmrSetClusterTerminationProtection) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (e *jsiiProxy_EmrSetClusterTerminationProtection) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (e *jsiiProxy_EmrSetClusterTerminationProtection) Prepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (e *jsiiProxy_EmrSetClusterTerminationProtection) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -27624,14 +23271,6 @@ func (e *jsiiProxy_EmrSetClusterTerminationProtection) RenderRetryCatch() interf
 	return returns
 }
 
-func (e *jsiiProxy_EmrSetClusterTerminationProtection) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (e *jsiiProxy_EmrSetClusterTerminationProtection) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -27658,12 +23297,12 @@ func (e *jsiiProxy_EmrSetClusterTerminationProtection) ToString() *string {
 	return returns
 }
 
-func (e *jsiiProxy_EmrSetClusterTerminationProtection) Validate() *[]*string {
+func (e *jsiiProxy_EmrSetClusterTerminationProtection) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		e,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -27687,38 +23326,31 @@ func (e *jsiiProxy_EmrSetClusterTerminationProtection) WhenBoundToGraph(graph aw
 //   	terminationProtected: jsii.Boolean(false),
 //   })
 //
-// Experimental.
 type EmrSetClusterTerminationProtectionProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -27726,16 +23358,12 @@ type EmrSetClusterTerminationProtectionProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The ClusterId to update.
-	// Experimental.
 	ClusterId *string `json:"clusterId" yaml:"clusterId"`
 	// Termination protection indicator.
-	// Experimental.
 	TerminationProtected *bool `json:"terminationProtected" yaml:"terminationProtected"`
 }
 
@@ -27746,198 +23374,103 @@ type EmrSetClusterTerminationProtectionProps struct {
 //   	clusterId: jsii.String("ClusterId"),
 //   })
 //
-// Experimental.
 type EmrTerminateCluster interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -28016,8 +23549,8 @@ func (j *jsiiProxy_EmrTerminateCluster) Iteration() awsstepfunctions.StateGraph 
 	return returns
 }
 
-func (j *jsiiProxy_EmrTerminateCluster) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_EmrTerminateCluster) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -28107,14 +23640,13 @@ func (j *jsiiProxy_EmrTerminateCluster) TaskPolicies() *[]awsiam.PolicyStatement
 }
 
 
-// Experimental.
 func NewEmrTerminateCluster(scope constructs.Construct, id *string, props *EmrTerminateClusterProps) EmrTerminateCluster {
 	_init_.Initialize()
 
 	j := jsiiProxy_EmrTerminateCluster{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EmrTerminateCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrTerminateCluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -28122,12 +23654,11 @@ func NewEmrTerminateCluster(scope constructs.Construct, id *string, props *EmrTe
 	return &j
 }
 
-// Experimental.
 func NewEmrTerminateCluster_Override(e EmrTerminateCluster, scope constructs.Construct, id *string, props *EmrTerminateClusterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EmrTerminateCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrTerminateCluster",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -28150,14 +23681,13 @@ func (j *jsiiProxy_EmrTerminateCluster) SetIteration(val awsstepfunctions.StateG
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func EmrTerminateCluster_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrTerminateCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrTerminateCluster",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -28167,14 +23697,13 @@ func EmrTerminateCluster_FilterNextables(states *[]awsstepfunctions.State) *[]aw
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func EmrTerminateCluster_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrTerminateCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrTerminateCluster",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -28186,14 +23715,13 @@ func EmrTerminateCluster_FindReachableEndStates(start awsstepfunctions.State, op
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func EmrTerminateCluster_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrTerminateCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrTerminateCluster",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -28202,15 +23730,17 @@ func EmrTerminateCluster_FindReachableStates(start awsstepfunctions.State, optio
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func EmrTerminateCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EmrTerminateCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrTerminateCluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -28220,12 +23750,11 @@ func EmrTerminateCluster_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func EmrTerminateCluster_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.EmrTerminateCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrTerminateCluster",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -28456,43 +23985,6 @@ func (e *jsiiProxy_EmrTerminateCluster) Next(next awsstepfunctions.IChainable) a
 	return returns
 }
 
-func (e *jsiiProxy_EmrTerminateCluster) OnPrepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (e *jsiiProxy_EmrTerminateCluster) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (e *jsiiProxy_EmrTerminateCluster) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (e *jsiiProxy_EmrTerminateCluster) Prepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (e *jsiiProxy_EmrTerminateCluster) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -28584,14 +24076,6 @@ func (e *jsiiProxy_EmrTerminateCluster) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (e *jsiiProxy_EmrTerminateCluster) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (e *jsiiProxy_EmrTerminateCluster) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -28618,12 +24102,12 @@ func (e *jsiiProxy_EmrTerminateCluster) ToString() *string {
 	return returns
 }
 
-func (e *jsiiProxy_EmrTerminateCluster) Validate() *[]*string {
+func (e *jsiiProxy_EmrTerminateCluster) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		e,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -28646,38 +24130,31 @@ func (e *jsiiProxy_EmrTerminateCluster) WhenBoundToGraph(graph awsstepfunctions.
 //   	clusterId: jsii.String("ClusterId"),
 //   })
 //
-// Experimental.
 type EmrTerminateClusterProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -28685,13 +24162,10 @@ type EmrTerminateClusterProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The ClusterId to terminate.
-	// Experimental.
 	ClusterId *string `json:"clusterId" yaml:"clusterId"`
 }
 
@@ -28717,13 +24191,10 @@ type EmrTerminateClusterProps struct {
 //
 // See: https://docs.aws.amazon.com/athena/latest/APIReference/API_EncryptionConfiguration.html
 //
-// Experimental.
 type EncryptionConfiguration struct {
 	// Type of S3 server-side encryption enabled.
-	// Experimental.
 	EncryptionOption EncryptionOption `json:"encryptionOption" yaml:"encryptionOption"`
 	// KMS key ARN or ID.
-	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 }
 
@@ -28749,24 +24220,20 @@ type EncryptionConfiguration struct {
 //
 // See: https://docs.aws.amazon.com/athena/latest/APIReference/API_EncryptionConfiguration.html#athena-Type-EncryptionConfiguration-EncryptionOption
 //
-// Experimental.
 type EncryptionOption string
 
 const (
 	// Server side encryption (SSE) with an Amazon S3-managed key.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html
 	//
-	// Experimental.
 	EncryptionOption_S3_MANAGED EncryptionOption = "S3_MANAGED"
 	// Server-side encryption (SSE) with an AWS KMS key managed by the account owner.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html
 	//
-	// Experimental.
 	EncryptionOption_KMS EncryptionOption = "KMS"
 	// Client-side encryption (CSE) with an AWS KMS key managed by the account owner.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html
 	//
-	// Experimental.
 	EncryptionOption_CLIENT_SIDE_KMS EncryptionOption = "CLIENT_SIDE_KMS"
 )
 
@@ -28801,198 +24268,103 @@ const (
 //   	definition: convertToSeconds.next(createMessage).next(publishMessage).next(wait),
 //   })
 //
-// Experimental.
 type EvaluateExpression interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -29071,8 +24443,8 @@ func (j *jsiiProxy_EvaluateExpression) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_EvaluateExpression) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_EvaluateExpression) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -29162,14 +24534,13 @@ func (j *jsiiProxy_EvaluateExpression) TaskPolicies() *[]awsiam.PolicyStatement 
 }
 
 
-// Experimental.
 func NewEvaluateExpression(scope constructs.Construct, id *string, props *EvaluateExpressionProps) EvaluateExpression {
 	_init_.Initialize()
 
 	j := jsiiProxy_EvaluateExpression{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EvaluateExpression",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EvaluateExpression",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -29177,12 +24548,11 @@ func NewEvaluateExpression(scope constructs.Construct, id *string, props *Evalua
 	return &j
 }
 
-// Experimental.
 func NewEvaluateExpression_Override(e EvaluateExpression, scope constructs.Construct, id *string, props *EvaluateExpressionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EvaluateExpression",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EvaluateExpression",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -29205,14 +24575,13 @@ func (j *jsiiProxy_EvaluateExpression) SetIteration(val awsstepfunctions.StateGr
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func EvaluateExpression_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EvaluateExpression",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EvaluateExpression",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -29222,14 +24591,13 @@ func EvaluateExpression_FilterNextables(states *[]awsstepfunctions.State) *[]aws
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func EvaluateExpression_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EvaluateExpression",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EvaluateExpression",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -29241,14 +24609,13 @@ func EvaluateExpression_FindReachableEndStates(start awsstepfunctions.State, opt
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func EvaluateExpression_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EvaluateExpression",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EvaluateExpression",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -29257,15 +24624,17 @@ func EvaluateExpression_FindReachableStates(start awsstepfunctions.State, option
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func EvaluateExpression_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EvaluateExpression",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EvaluateExpression",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -29275,12 +24644,11 @@ func EvaluateExpression_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func EvaluateExpression_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.EvaluateExpression",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EvaluateExpression",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -29511,43 +24879,6 @@ func (e *jsiiProxy_EvaluateExpression) Next(next awsstepfunctions.IChainable) aw
 	return returns
 }
 
-func (e *jsiiProxy_EvaluateExpression) OnPrepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (e *jsiiProxy_EvaluateExpression) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (e *jsiiProxy_EvaluateExpression) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (e *jsiiProxy_EvaluateExpression) Prepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (e *jsiiProxy_EvaluateExpression) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -29639,14 +24970,6 @@ func (e *jsiiProxy_EvaluateExpression) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (e *jsiiProxy_EvaluateExpression) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (e *jsiiProxy_EvaluateExpression) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -29673,12 +24996,12 @@ func (e *jsiiProxy_EvaluateExpression) ToString() *string {
 	return returns
 }
 
-func (e *jsiiProxy_EvaluateExpression) Validate() *[]*string {
+func (e *jsiiProxy_EvaluateExpression) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		e,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -29723,38 +25046,31 @@ func (e *jsiiProxy_EvaluateExpression) WhenBoundToGraph(graph awsstepfunctions.S
 //   	definition: convertToSeconds.next(createMessage).next(publishMessage).next(wait),
 //   })
 //
-// Experimental.
 type EvaluateExpressionProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -29762,18 +25078,14 @@ type EvaluateExpressionProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The expression to evaluate. The expression may contain state paths.
 	//
 	// Example value: `'$.a + $.b'`
-	// Experimental.
 	Expression *string `json:"expression" yaml:"expression"`
 	// The runtime language to use to evaluate the expression.
-	// Experimental.
 	Runtime awslambda.Runtime `json:"runtime" yaml:"runtime"`
 }
 
@@ -29799,198 +25111,103 @@ type EvaluateExpressionProps struct {
 //   	},
 //   })
 //
-// Experimental.
 type EventBridgePutEvents interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -30069,8 +25286,8 @@ func (j *jsiiProxy_EventBridgePutEvents) Iteration() awsstepfunctions.StateGraph
 	return returns
 }
 
-func (j *jsiiProxy_EventBridgePutEvents) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_EventBridgePutEvents) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -30160,14 +25377,13 @@ func (j *jsiiProxy_EventBridgePutEvents) TaskPolicies() *[]awsiam.PolicyStatemen
 }
 
 
-// Experimental.
 func NewEventBridgePutEvents(scope constructs.Construct, id *string, props *EventBridgePutEventsProps) EventBridgePutEvents {
 	_init_.Initialize()
 
 	j := jsiiProxy_EventBridgePutEvents{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EventBridgePutEvents",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EventBridgePutEvents",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -30175,12 +25391,11 @@ func NewEventBridgePutEvents(scope constructs.Construct, id *string, props *Even
 	return &j
 }
 
-// Experimental.
 func NewEventBridgePutEvents_Override(e EventBridgePutEvents, scope constructs.Construct, id *string, props *EventBridgePutEventsProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EventBridgePutEvents",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EventBridgePutEvents",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -30203,14 +25418,13 @@ func (j *jsiiProxy_EventBridgePutEvents) SetIteration(val awsstepfunctions.State
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func EventBridgePutEvents_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EventBridgePutEvents",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EventBridgePutEvents",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -30220,14 +25434,13 @@ func EventBridgePutEvents_FilterNextables(states *[]awsstepfunctions.State) *[]a
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func EventBridgePutEvents_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EventBridgePutEvents",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EventBridgePutEvents",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -30239,14 +25452,13 @@ func EventBridgePutEvents_FindReachableEndStates(start awsstepfunctions.State, o
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func EventBridgePutEvents_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EventBridgePutEvents",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EventBridgePutEvents",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -30255,15 +25467,17 @@ func EventBridgePutEvents_FindReachableStates(start awsstepfunctions.State, opti
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func EventBridgePutEvents_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.EventBridgePutEvents",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EventBridgePutEvents",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -30273,12 +25487,11 @@ func EventBridgePutEvents_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func EventBridgePutEvents_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.EventBridgePutEvents",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EventBridgePutEvents",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -30509,43 +25722,6 @@ func (e *jsiiProxy_EventBridgePutEvents) Next(next awsstepfunctions.IChainable) 
 	return returns
 }
 
-func (e *jsiiProxy_EventBridgePutEvents) OnPrepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (e *jsiiProxy_EventBridgePutEvents) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (e *jsiiProxy_EventBridgePutEvents) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (e *jsiiProxy_EventBridgePutEvents) Prepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (e *jsiiProxy_EventBridgePutEvents) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -30637,14 +25813,6 @@ func (e *jsiiProxy_EventBridgePutEvents) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (e *jsiiProxy_EventBridgePutEvents) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (e *jsiiProxy_EventBridgePutEvents) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -30671,12 +25839,12 @@ func (e *jsiiProxy_EventBridgePutEvents) ToString() *string {
 	return returns
 }
 
-func (e *jsiiProxy_EventBridgePutEvents) Validate() *[]*string {
+func (e *jsiiProxy_EventBridgePutEvents) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		e,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -30710,7 +25878,6 @@ func (e *jsiiProxy_EventBridgePutEvents) WhenBoundToGraph(graph awsstepfunctions
 //
 // See: https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEventsRequestEntry.html
 //
-// Experimental.
 type EventBridgePutEventsEntry struct {
 	// The event body.
 	//
@@ -30723,24 +25890,20 @@ type EventBridgePutEventsEntry struct {
 	//   })
 	//   sfn.taskInput.fromJsonPathAt(jsii.String("$.EventDetail"))
 	//
-	// Experimental.
 	Detail awsstepfunctions.TaskInput `json:"detail" yaml:"detail"`
 	// Used along with the source field to help identify the fields and values expected in the detail field.
 	//
 	// For example, events by CloudTrail have detail type "AWS API Call via CloudTrail".
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html
 	//
-	// Experimental.
 	DetailType *string `json:"detailType" yaml:"detailType"`
 	// The service or application that caused this event to be generated.
 	//
 	// Example value: `com.example.service`
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html
 	//
-	// Experimental.
 	Source *string `json:"source" yaml:"source"`
 	// The event bus the entry will be sent to.
-	// Experimental.
 	EventBus awsevents.IEventBus `json:"eventBus" yaml:"eventBus"`
 }
 
@@ -30766,38 +25929,31 @@ type EventBridgePutEventsEntry struct {
 //   	},
 //   })
 //
-// Experimental.
 type EventBridgePutEventsProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -30805,13 +25961,10 @@ type EventBridgePutEventsProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The entries that will be sent (must be at least 1).
-	// Experimental.
 	Entries *[]*EventBridgePutEventsEntry `json:"entries" yaml:"entries"`
 }
 
@@ -30824,198 +25977,103 @@ type EventBridgePutEventsProps struct {
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-databrew.html
 //
-// Experimental.
 type GlueDataBrewStartJobRun interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -31094,8 +26152,8 @@ func (j *jsiiProxy_GlueDataBrewStartJobRun) Iteration() awsstepfunctions.StateGr
 	return returns
 }
 
-func (j *jsiiProxy_GlueDataBrewStartJobRun) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_GlueDataBrewStartJobRun) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -31185,14 +26243,13 @@ func (j *jsiiProxy_GlueDataBrewStartJobRun) TaskPolicies() *[]awsiam.PolicyState
 }
 
 
-// Experimental.
 func NewGlueDataBrewStartJobRun(scope constructs.Construct, id *string, props *GlueDataBrewStartJobRunProps) GlueDataBrewStartJobRun {
 	_init_.Initialize()
 
 	j := jsiiProxy_GlueDataBrewStartJobRun{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
+		"aws-cdk-lib.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -31200,12 +26257,11 @@ func NewGlueDataBrewStartJobRun(scope constructs.Construct, id *string, props *G
 	return &j
 }
 
-// Experimental.
 func NewGlueDataBrewStartJobRun_Override(g GlueDataBrewStartJobRun, scope constructs.Construct, id *string, props *GlueDataBrewStartJobRunProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
+		"aws-cdk-lib.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
 		[]interface{}{scope, id, props},
 		g,
 	)
@@ -31228,14 +26284,13 @@ func (j *jsiiProxy_GlueDataBrewStartJobRun) SetIteration(val awsstepfunctions.St
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func GlueDataBrewStartJobRun_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
+		"aws-cdk-lib.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -31245,14 +26300,13 @@ func GlueDataBrewStartJobRun_FilterNextables(states *[]awsstepfunctions.State) *
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func GlueDataBrewStartJobRun_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
+		"aws-cdk-lib.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -31264,14 +26318,13 @@ func GlueDataBrewStartJobRun_FindReachableEndStates(start awsstepfunctions.State
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func GlueDataBrewStartJobRun_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
+		"aws-cdk-lib.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -31280,15 +26333,17 @@ func GlueDataBrewStartJobRun_FindReachableStates(start awsstepfunctions.State, o
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func GlueDataBrewStartJobRun_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
+		"aws-cdk-lib.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -31298,12 +26353,11 @@ func GlueDataBrewStartJobRun_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func GlueDataBrewStartJobRun_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
+		"aws-cdk-lib.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -31534,43 +26588,6 @@ func (g *jsiiProxy_GlueDataBrewStartJobRun) Next(next awsstepfunctions.IChainabl
 	return returns
 }
 
-func (g *jsiiProxy_GlueDataBrewStartJobRun) OnPrepare() {
-	_jsii_.InvokeVoid(
-		g,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (g *jsiiProxy_GlueDataBrewStartJobRun) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		g,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (g *jsiiProxy_GlueDataBrewStartJobRun) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		g,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (g *jsiiProxy_GlueDataBrewStartJobRun) Prepare() {
-	_jsii_.InvokeVoid(
-		g,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (g *jsiiProxy_GlueDataBrewStartJobRun) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -31662,14 +26679,6 @@ func (g *jsiiProxy_GlueDataBrewStartJobRun) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (g *jsiiProxy_GlueDataBrewStartJobRun) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		g,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (g *jsiiProxy_GlueDataBrewStartJobRun) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -31696,12 +26705,12 @@ func (g *jsiiProxy_GlueDataBrewStartJobRun) ToString() *string {
 	return returns
 }
 
-func (g *jsiiProxy_GlueDataBrewStartJobRun) Validate() *[]*string {
+func (g *jsiiProxy_GlueDataBrewStartJobRun) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		g,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -31724,38 +26733,31 @@ func (g *jsiiProxy_GlueDataBrewStartJobRun) WhenBoundToGraph(graph awsstepfuncti
 //   	name: jsii.String("databrew-job"),
 //   })
 //
-// Experimental.
 type GlueDataBrewStartJobRunProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -31763,13 +26765,10 @@ type GlueDataBrewStartJobRunProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Glue DataBrew Job to run.
-	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 }
 
@@ -31790,198 +26789,103 @@ type GlueDataBrewStartJobRunProps struct {
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-glue.html
 //
-// Experimental.
 type GlueStartJobRun interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -32060,8 +26964,8 @@ func (j *jsiiProxy_GlueStartJobRun) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_GlueStartJobRun) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_GlueStartJobRun) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -32151,14 +27055,13 @@ func (j *jsiiProxy_GlueStartJobRun) TaskPolicies() *[]awsiam.PolicyStatement {
 }
 
 
-// Experimental.
 func NewGlueStartJobRun(scope constructs.Construct, id *string, props *GlueStartJobRunProps) GlueStartJobRun {
 	_init_.Initialize()
 
 	j := jsiiProxy_GlueStartJobRun{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.GlueStartJobRun",
+		"aws-cdk-lib.aws_stepfunctions_tasks.GlueStartJobRun",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -32166,12 +27069,11 @@ func NewGlueStartJobRun(scope constructs.Construct, id *string, props *GlueStart
 	return &j
 }
 
-// Experimental.
 func NewGlueStartJobRun_Override(g GlueStartJobRun, scope constructs.Construct, id *string, props *GlueStartJobRunProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.GlueStartJobRun",
+		"aws-cdk-lib.aws_stepfunctions_tasks.GlueStartJobRun",
 		[]interface{}{scope, id, props},
 		g,
 	)
@@ -32194,14 +27096,13 @@ func (j *jsiiProxy_GlueStartJobRun) SetIteration(val awsstepfunctions.StateGraph
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func GlueStartJobRun_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.GlueStartJobRun",
+		"aws-cdk-lib.aws_stepfunctions_tasks.GlueStartJobRun",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -32211,14 +27112,13 @@ func GlueStartJobRun_FilterNextables(states *[]awsstepfunctions.State) *[]awsste
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func GlueStartJobRun_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.GlueStartJobRun",
+		"aws-cdk-lib.aws_stepfunctions_tasks.GlueStartJobRun",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -32230,14 +27130,13 @@ func GlueStartJobRun_FindReachableEndStates(start awsstepfunctions.State, option
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func GlueStartJobRun_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.GlueStartJobRun",
+		"aws-cdk-lib.aws_stepfunctions_tasks.GlueStartJobRun",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -32246,15 +27145,17 @@ func GlueStartJobRun_FindReachableStates(start awsstepfunctions.State, options *
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func GlueStartJobRun_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.GlueStartJobRun",
+		"aws-cdk-lib.aws_stepfunctions_tasks.GlueStartJobRun",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -32264,12 +27165,11 @@ func GlueStartJobRun_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func GlueStartJobRun_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.GlueStartJobRun",
+		"aws-cdk-lib.aws_stepfunctions_tasks.GlueStartJobRun",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -32500,43 +27400,6 @@ func (g *jsiiProxy_GlueStartJobRun) Next(next awsstepfunctions.IChainable) awsst
 	return returns
 }
 
-func (g *jsiiProxy_GlueStartJobRun) OnPrepare() {
-	_jsii_.InvokeVoid(
-		g,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (g *jsiiProxy_GlueStartJobRun) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		g,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (g *jsiiProxy_GlueStartJobRun) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		g,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (g *jsiiProxy_GlueStartJobRun) Prepare() {
-	_jsii_.InvokeVoid(
-		g,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (g *jsiiProxy_GlueStartJobRun) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -32628,14 +27491,6 @@ func (g *jsiiProxy_GlueStartJobRun) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (g *jsiiProxy_GlueStartJobRun) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		g,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (g *jsiiProxy_GlueStartJobRun) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -32662,12 +27517,12 @@ func (g *jsiiProxy_GlueStartJobRun) ToString() *string {
 	return returns
 }
 
-func (g *jsiiProxy_GlueStartJobRun) Validate() *[]*string {
+func (g *jsiiProxy_GlueStartJobRun) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		g,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -32695,38 +27550,31 @@ func (g *jsiiProxy_GlueStartJobRun) WhenBoundToGraph(graph awsstepfunctions.Stat
 //   	notifyDelayAfter: *duration.minutes(jsii.Number(5)),
 //   })
 //
-// Experimental.
 type GlueStartJobRunProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -32734,37 +27582,32 @@ type GlueStartJobRunProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Glue job name.
-	// Experimental.
 	GlueJobName *string `json:"glueJobName" yaml:"glueJobName"`
 	// The job arguments specifically for this run.
 	//
 	// For this job run, they replace the default arguments set in the job
 	// definition itself.
-	// Experimental.
 	Arguments awsstepfunctions.TaskInput `json:"arguments" yaml:"arguments"`
 	// After a job run starts, the number of minutes to wait before sending a job run delay notification.
 	//
 	// Must be at least 1 minute.
-	// Experimental.
 	NotifyDelayAfter awscdk.Duration `json:"notifyDelayAfter" yaml:"notifyDelayAfter"`
 	// The name of the SecurityConfiguration structure to be used with this job run.
 	//
 	// This must match the Glue API.
 	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-oneLine
 	//
-	// Experimental.
 	SecurityConfiguration *string `json:"securityConfiguration" yaml:"securityConfiguration"`
 }
 
 // Http Methods that API Gateway supports.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk"
 //   httpApi := apigatewayv2.NewHttpApi(this, jsii.String("MyHttpApi"))
 //
@@ -32774,30 +27617,22 @@ type GlueStartJobRunProps struct {
 //   	method: tasks.httpMethod_GET,
 //   })
 //
-// Experimental.
 type HttpMethod string
 
 const (
 	// Retreive data from a server at the specified resource.
-	// Experimental.
 	HttpMethod_GET HttpMethod = "GET"
 	// Send data to the API endpoint to create or udpate a resource.
-	// Experimental.
 	HttpMethod_POST HttpMethod = "POST"
 	// Send data to the API endpoint to update or create a resource.
-	// Experimental.
 	HttpMethod_PUT HttpMethod = "PUT"
 	// Delete the resource at the specified endpoint.
-	// Experimental.
 	HttpMethod_DELETE HttpMethod = "DELETE"
 	// Apply partial modifications to the resource.
-	// Experimental.
 	HttpMethod_PATCH HttpMethod = "PATCH"
 	// Retreive data from a server at the specified resource without the response body.
-	// Experimental.
 	HttpMethod_HEAD HttpMethod = "HEAD"
 	// Return data describing what other methods and operations the server supports.
-	// Experimental.
 	HttpMethod_OPTIONS HttpMethod = "OPTIONS"
 )
 
@@ -32817,37 +27652,28 @@ const (
 //   	httpPath: jsii.String("/api/v1/namespaces/default/pods"),
 //   })
 //
-// Experimental.
 type HttpMethods string
 
 const (
 	// Retrieve data from a server at the specified resource.
-	// Experimental.
 	HttpMethods_GET HttpMethods = "GET"
 	// Send data to the API endpoint to create or update a resource.
-	// Experimental.
 	HttpMethods_POST HttpMethods = "POST"
 	// Send data to the API endpoint to update or create a resource.
-	// Experimental.
 	HttpMethods_PUT HttpMethods = "PUT"
 	// Delete the resource at the specified endpoint.
-	// Experimental.
 	HttpMethods_DELETE HttpMethods = "DELETE"
 	// Apply partial modifications to the resource.
-	// Experimental.
 	HttpMethods_PATCH HttpMethods = "PATCH"
 	// Retrieve data from a server at the specified resource without the response body.
-	// Experimental.
 	HttpMethods_HEAD HttpMethods = "HEAD"
 )
 
 // Configuration of the container used to host the model.
 // See: https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html
 //
-// Experimental.
 type IContainerDefinition interface {
 	// Called when the ContainerDefinition is used by a SageMaker task.
-	// Experimental.
 	Bind(task ISageMakerTask) *ContainerDefinitionConfig
 }
 
@@ -32872,10 +27698,8 @@ func (i *jsiiProxy_IContainerDefinition) Bind(task ISageMakerTask) *ContainerDef
 // An Amazon ECS launch type determines the type of infrastructure on which your tasks and services are hosted.
 // See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html
 //
-// Experimental.
 type IEcsLaunchTarget interface {
 	// called when the ECS launch target is configured on RunTask.
-	// Experimental.
 	Bind(task EcsRunTask, launchTargetOptions *LaunchTargetBindOptions) *EcsLaunchTargetConfig
 }
 
@@ -32898,7 +27722,6 @@ func (i *jsiiProxy_IEcsLaunchTarget) Bind(task EcsRunTask, launchTargetOptions *
 }
 
 // Task to train a machine learning model using Amazon SageMaker.
-// Experimental.
 type ISageMakerTask interface {
 	awsiam.IGrantable
 }
@@ -32942,212 +27765,14 @@ type jsiiProxy_ISageMakerTask struct {
 //   	},
 //   })
 //
-// Experimental.
 type InputMode string
 
 const (
 	// Pipe mode.
-	// Experimental.
 	InputMode_PIPE InputMode = "PIPE"
 	// File mode.
-	// Experimental.
 	InputMode_FILE InputMode = "FILE"
 )
-
-// Invocation type of a Lambda.
-// Deprecated: use `LambdaInvocationType`.
-type InvocationType string
-
-const (
-	// Invoke synchronously.
-	//
-	// The API response includes the function response and additional data.
-	// Deprecated: use `LambdaInvocationType`.
-	InvocationType_REQUEST_RESPONSE InvocationType = "REQUEST_RESPONSE"
-	// Invoke asynchronously.
-	//
-	// Send events that fail multiple times to the function's dead-letter queue (if it's configured).
-	// The API response only includes a status code.
-	// Deprecated: use `LambdaInvocationType`.
-	InvocationType_EVENT InvocationType = "EVENT"
-	// TValidate parameter values and verify that the user or role has permission to invoke the function.
-	// Deprecated: use `LambdaInvocationType`.
-	InvocationType_DRY_RUN InvocationType = "DRY_RUN"
-)
-
-// A Step Functions Task to invoke an Activity worker.
-//
-// An Activity can be used directly as a Resource.
-//
-// Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var activity activity
-//   var duration duration
-//   invokeActivity := stepfunctions_tasks.NewInvokeActivity(activity, &invokeActivityProps{
-//   	heartbeat: duration,
-//   })
-//
-// Deprecated: use `StepFunctionsInvokeActivity`.
-type InvokeActivity interface {
-	awsstepfunctions.IStepFunctionsTask
-	// Called when the task object is used in a workflow.
-	// Deprecated: use `StepFunctionsInvokeActivity`.
-	Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig
-}
-
-// The jsii proxy struct for InvokeActivity
-type jsiiProxy_InvokeActivity struct {
-	internal.Type__awsstepfunctionsIStepFunctionsTask
-}
-
-// Deprecated: use `StepFunctionsInvokeActivity`.
-func NewInvokeActivity(activity awsstepfunctions.IActivity, props *InvokeActivityProps) InvokeActivity {
-	_init_.Initialize()
-
-	j := jsiiProxy_InvokeActivity{}
-
-	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.InvokeActivity",
-		[]interface{}{activity, props},
-		&j,
-	)
-
-	return &j
-}
-
-// Deprecated: use `StepFunctionsInvokeActivity`.
-func NewInvokeActivity_Override(i InvokeActivity, activity awsstepfunctions.IActivity, props *InvokeActivityProps) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.InvokeActivity",
-		[]interface{}{activity, props},
-		i,
-	)
-}
-
-func (i *jsiiProxy_InvokeActivity) Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
-	var returns *awsstepfunctions.StepFunctionsTaskConfig
-
-	_jsii_.Invoke(
-		i,
-		"bind",
-		[]interface{}{_task},
-		&returns,
-	)
-
-	return returns
-}
-
-// Properties for FunctionTask.
-//
-// Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var duration duration
-//   invokeActivityProps := &invokeActivityProps{
-//   	heartbeat: duration,
-//   }
-//
-// Deprecated: use `StepFunctionsInvokeActivity` and `StepFunctionsInvokeActivityProps`.
-type InvokeActivityProps struct {
-	// Maximum time between heart beats.
-	//
-	// If the time between heart beats takes longer than this, a 'Timeout' error is raised.
-	// Deprecated: use `StepFunctionsInvokeActivity` and `StepFunctionsInvokeActivityProps`.
-	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
-}
-
-// A Step Functions Task to invoke a Lambda function.
-//
-// The Lambda function Arn is defined as Resource in the state machine definition.
-//
-// OUTPUT: the output of this task is the return value of the Lambda Function.
-//
-// Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var function_ function
-//   var payload interface{}
-//   invokeFunction := stepfunctions_tasks.NewInvokeFunction(function_, &invokeFunctionProps{
-//   	payload: map[string]interface{}{
-//   		"payloadKey": payload,
-//   	},
-//   })
-//
-// Deprecated: Use `LambdaInvoke`.
-type InvokeFunction interface {
-	awsstepfunctions.IStepFunctionsTask
-	// Called when the task object is used in a workflow.
-	// Deprecated: Use `LambdaInvoke`.
-	Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig
-}
-
-// The jsii proxy struct for InvokeFunction
-type jsiiProxy_InvokeFunction struct {
-	internal.Type__awsstepfunctionsIStepFunctionsTask
-}
-
-// Deprecated: Use `LambdaInvoke`.
-func NewInvokeFunction(lambdaFunction awslambda.IFunction, props *InvokeFunctionProps) InvokeFunction {
-	_init_.Initialize()
-
-	j := jsiiProxy_InvokeFunction{}
-
-	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.InvokeFunction",
-		[]interface{}{lambdaFunction, props},
-		&j,
-	)
-
-	return &j
-}
-
-// Deprecated: Use `LambdaInvoke`.
-func NewInvokeFunction_Override(i InvokeFunction, lambdaFunction awslambda.IFunction, props *InvokeFunctionProps) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.InvokeFunction",
-		[]interface{}{lambdaFunction, props},
-		i,
-	)
-}
-
-func (i *jsiiProxy_InvokeFunction) Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
-	var returns *awsstepfunctions.StepFunctionsTaskConfig
-
-	_jsii_.Invoke(
-		i,
-		"bind",
-		[]interface{}{_task},
-		&returns,
-	)
-
-	return returns
-}
-
-// Properties for InvokeFunction.
-//
-// Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var payload interface{}
-//   invokeFunctionProps := &invokeFunctionProps{
-//   	payload: map[string]interface{}{
-//   		"payloadKey": payload,
-//   	},
-//   }
-//
-// Deprecated: use `LambdaInvoke`.
-type InvokeFunctionProps struct {
-	// The JSON that you want to provide to your Lambda function as input.
-	//
-	// This parameter is named as payload to keep consistent with RunLambdaTask class.
-	// Deprecated: use `LambdaInvoke`.
-	Payload *map[string]interface{} `json:"payload" yaml:"payload"`
-}
 
 // An object representing an AWS Batch job dependency.
 //
@@ -33158,13 +27783,10 @@ type InvokeFunctionProps struct {
 //   	type: jsii.String("type"),
 //   }
 //
-// Experimental.
 type JobDependency struct {
 	// The job ID of the AWS Batch job associated with this dependency.
-	// Experimental.
 	JobId *string `json:"jobId" yaml:"jobId"`
 	// The type of the job dependency.
-	// Experimental.
 	Type *string `json:"type" yaml:"type"`
 }
 
@@ -33193,12 +27815,10 @@ type JobDependency struct {
 //   	},
 //   })
 //
-// Experimental.
 type JobDriver struct {
 	// The job driver parameters specified for spark submit.
 	// See: https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_SparkSubmitJobDriver.html
 	//
-	// Experimental.
 	SparkSubmitJobDriver *SparkSubmitJobDriver `json:"sparkSubmitJobDriver" yaml:"sparkSubmitJobDriver"`
 }
 
@@ -33213,7 +27833,6 @@ type JobDriver struct {
 //   	invocationType: tasks.lambdaInvocationType_EVENT,
 //   })
 //
-// Experimental.
 type LambdaInvocationType string
 
 const (
@@ -33221,16 +27840,13 @@ const (
 	//
 	// Keep the connection open until the function returns a response or times out.
 	// The API response includes the function response and additional data.
-	// Experimental.
 	LambdaInvocationType_REQUEST_RESPONSE LambdaInvocationType = "REQUEST_RESPONSE"
 	// Invoke the function asynchronously.
 	//
 	// Send events that fail multiple times to the function's dead-letter queue (if it's configured).
 	// The API response only includes a status code.
-	// Experimental.
 	LambdaInvocationType_EVENT LambdaInvocationType = "EVENT"
 	// Validate parameter values and verify that the user or role has permission to invoke the function.
-	// Experimental.
 	LambdaInvocationType_DRY_RUN LambdaInvocationType = "DRY_RUN"
 )
 
@@ -33250,198 +27866,103 @@ const (
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-lambda.html
 //
-// Experimental.
 type LambdaInvoke interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -33520,8 +28041,8 @@ func (j *jsiiProxy_LambdaInvoke) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_LambdaInvoke) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_LambdaInvoke) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -33611,14 +28132,13 @@ func (j *jsiiProxy_LambdaInvoke) TaskPolicies() *[]awsiam.PolicyStatement {
 }
 
 
-// Experimental.
 func NewLambdaInvoke(scope constructs.Construct, id *string, props *LambdaInvokeProps) LambdaInvoke {
 	_init_.Initialize()
 
 	j := jsiiProxy_LambdaInvoke{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.LambdaInvoke",
+		"aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvoke",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -33626,12 +28146,11 @@ func NewLambdaInvoke(scope constructs.Construct, id *string, props *LambdaInvoke
 	return &j
 }
 
-// Experimental.
 func NewLambdaInvoke_Override(l LambdaInvoke, scope constructs.Construct, id *string, props *LambdaInvokeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.LambdaInvoke",
+		"aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvoke",
 		[]interface{}{scope, id, props},
 		l,
 	)
@@ -33654,14 +28173,13 @@ func (j *jsiiProxy_LambdaInvoke) SetIteration(val awsstepfunctions.StateGraph) {
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func LambdaInvoke_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.LambdaInvoke",
+		"aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvoke",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -33671,14 +28189,13 @@ func LambdaInvoke_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfu
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func LambdaInvoke_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.LambdaInvoke",
+		"aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvoke",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -33690,14 +28207,13 @@ func LambdaInvoke_FindReachableEndStates(start awsstepfunctions.State, options *
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func LambdaInvoke_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.LambdaInvoke",
+		"aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvoke",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -33706,15 +28222,17 @@ func LambdaInvoke_FindReachableStates(start awsstepfunctions.State, options *aws
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func LambdaInvoke_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.LambdaInvoke",
+		"aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvoke",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -33724,12 +28242,11 @@ func LambdaInvoke_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func LambdaInvoke_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.LambdaInvoke",
+		"aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvoke",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -33960,43 +28477,6 @@ func (l *jsiiProxy_LambdaInvoke) Next(next awsstepfunctions.IChainable) awsstepf
 	return returns
 }
 
-func (l *jsiiProxy_LambdaInvoke) OnPrepare() {
-	_jsii_.InvokeVoid(
-		l,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (l *jsiiProxy_LambdaInvoke) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		l,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (l *jsiiProxy_LambdaInvoke) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		l,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (l *jsiiProxy_LambdaInvoke) Prepare() {
-	_jsii_.InvokeVoid(
-		l,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (l *jsiiProxy_LambdaInvoke) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -34088,14 +28568,6 @@ func (l *jsiiProxy_LambdaInvoke) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (l *jsiiProxy_LambdaInvoke) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		l,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (l *jsiiProxy_LambdaInvoke) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -34122,12 +28594,12 @@ func (l *jsiiProxy_LambdaInvoke) ToString() *string {
 	return returns
 }
 
-func (l *jsiiProxy_LambdaInvoke) Validate() *[]*string {
+func (l *jsiiProxy_LambdaInvoke) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		l,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -34157,38 +28629,31 @@ func (l *jsiiProxy_LambdaInvoke) WhenBoundToGraph(graph awsstepfunctions.StateGr
 //   	}),
 //   })
 //
-// Experimental.
 type LambdaInvokeProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -34196,29 +28661,22 @@ type LambdaInvokeProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Lambda function to invoke.
-	// Experimental.
 	LambdaFunction awslambda.IFunction `json:"lambdaFunction" yaml:"lambdaFunction"`
 	// Up to 3583 bytes of base64-encoded data about the invoking client to pass to the function.
-	// Experimental.
 	ClientContext *string `json:"clientContext" yaml:"clientContext"`
 	// Invocation type of the Lambda function.
-	// Experimental.
 	InvocationType LambdaInvocationType `json:"invocationType" yaml:"invocationType"`
 	// The JSON that will be supplied as input to the Lambda function.
-	// Experimental.
 	Payload awsstepfunctions.TaskInput `json:"payload" yaml:"payload"`
 	// Invoke the Lambda in a way that only returns the payload response without additional metadata.
 	//
 	// The `payloadResponseOnly` property cannot be used if `integrationPattern`, `invocationType`,
 	// `clientContext`, or `qualifier` are specified.
 	// It always uses the REQUEST_RESPONSE behavior.
-	// Experimental.
 	PayloadResponseOnly *bool `json:"payloadResponseOnly" yaml:"payloadResponseOnly"`
 	// Version or alias to invoke a published version of the function.
 	//
@@ -34234,7 +28692,6 @@ type LambdaInvokeProps struct {
 	// of 2 and 6 maximum attempts.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/bp-lambda-serviceexception.html
 	//
-	// Experimental.
 	RetryOnServiceExceptions *bool `json:"retryOnServiceExceptions" yaml:"retryOnServiceExceptions"`
 }
 
@@ -34252,13 +28709,10 @@ type LambdaInvokeProps struct {
 //   	cluster: cluster,
 //   }
 //
-// Experimental.
 type LaunchTargetBindOptions struct {
 	// Task definition to run Docker containers in Amazon ECS.
-	// Experimental.
 	TaskDefinition awsecs.ITaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 	// A regional grouping of one or more container instances on which you can run tasks and services.
-	// Experimental.
 	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
 }
 
@@ -34307,15 +28761,12 @@ type LaunchTargetBindOptions struct {
 //
 // See: https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html
 //
-// Experimental.
 type MessageAttribute struct {
 	// The value of the attribute.
-	// Experimental.
 	Value interface{} `json:"value" yaml:"value"`
 	// The data type for the attribute.
 	// See: https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html#SNSMessageAttributes.DataTypes
 	//
-	// Experimental.
 	DataType MessageAttributeDataType `json:"dataType" yaml:"dataType"`
 }
 
@@ -34364,27 +28815,22 @@ type MessageAttribute struct {
 //
 // See: https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html#SNSMessageAttributes.DataTypes
 //
-// Experimental.
 type MessageAttributeDataType string
 
 const (
 	// Strings are Unicode with UTF-8 binary encoding.
-	// Experimental.
 	MessageAttributeDataType_STRING MessageAttributeDataType = "STRING"
 	// An array, formatted as a string.
 	// See: https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html#SNSMessageAttributes.DataTypes
 	//
-	// Experimental.
 	MessageAttributeDataType_STRING_ARRAY MessageAttributeDataType = "STRING_ARRAY"
 	// Numbers are positive or negative integers or floating-point numbers.
 	// See: https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html#SNSMessageAttributes.DataTypes
 	//
-	// Experimental.
 	MessageAttributeDataType_NUMBER MessageAttributeDataType = "NUMBER"
 	// Binary type attributes can store any binary data.
 	// See: https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html#SNSMessageAttributes.DataTypes
 	//
-	// Experimental.
 	MessageAttributeDataType_BINARY MessageAttributeDataType = "BINARY"
 )
 
@@ -34397,13 +28843,10 @@ const (
 //   	regex: jsii.String("regex"),
 //   }
 //
-// Experimental.
 type MetricDefinition struct {
 	// Name of the metric.
-	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 	// Regular expression that searches the output of a training job and gets the value of the metric.
-	// Experimental.
 	Regex *string `json:"regex" yaml:"regex"`
 }
 
@@ -34419,17 +28862,14 @@ type MetricDefinition struct {
 //   	}),
 //   })
 //
-// Experimental.
 type Mode string
 
 const (
 	// Container hosts a single model.
-	// Experimental.
 	Mode_SINGLE_MODEL Mode = "SINGLE_MODEL"
 	// Container hosts multiple models.
 	// See: https://docs.aws.amazon.com/sagemaker/latest/dg/multi-model-endpoints.html
 	//
-	// Experimental.
 	Mode_MULTI_MODEL Mode = "MULTI_MODEL"
 )
 
@@ -34461,13 +28901,10 @@ const (
 //   	},
 //   })
 //
-// Experimental.
 type ModelClientOptions struct {
 	// The maximum number of retries when invocation requests are failing.
-	// Experimental.
 	InvocationsMaxRetries *float64 `json:"invocationsMaxRetries" yaml:"invocationsMaxRetries"`
 	// The timeout duration for an invocation request.
-	// Experimental.
 	InvocationsTimeout awscdk.Duration `json:"invocationsTimeout" yaml:"invocationsTimeout"`
 }
 
@@ -34488,29 +28925,23 @@ type ModelClientOptions struct {
 //   	},
 //   })
 //
-// Experimental.
 type Monitoring struct {
 	// Amazon S3 Bucket for monitoring log publishing.
 	//
 	// You can configure your jobs to send log information to Amazon S3.
-	// Experimental.
 	LogBucket awss3.IBucket `json:"logBucket" yaml:"logBucket"`
 	// Enable logging for this job.
 	//
 	// If set to true, will automatically create a Cloudwatch Log Group and S3 bucket.
 	// This will be set to `true` implicitly if values are provided for `logGroup` or `logBucket`.
-	// Experimental.
 	Logging *bool `json:"logging" yaml:"logging"`
 	// A log group for CloudWatch monitoring.
 	//
 	// You can configure your jobs to send log information to CloudWatch Logs.
-	// Experimental.
 	LogGroup awslogs.ILogGroup `json:"logGroup" yaml:"logGroup"`
 	// A log stream name prefix for Cloudwatch monitoring.
-	// Experimental.
 	LogStreamNamePrefix *string `json:"logStreamNamePrefix" yaml:"logStreamNamePrefix"`
 	// Monitoring configurations for the persistent application UI.
-	// Experimental.
 	PersistentAppUI *bool `json:"persistentAppUI" yaml:"persistentAppUI"`
 }
 
@@ -34548,13 +28979,10 @@ type Monitoring struct {
 //   	},
 //   })
 //
-// Experimental.
 type OutputDataConfig struct {
 	// Identifies the S3 path where you want Amazon SageMaker to store the model artifacts.
-	// Experimental.
 	S3OutputLocation S3Location `json:"s3OutputLocation" yaml:"s3OutputLocation"`
 	// Optional KMS encryption key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 }
 
@@ -34578,141 +29006,21 @@ type OutputDataConfig struct {
 //
 // See: https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariant.html
 //
-// Experimental.
 type ProductionVariant struct {
 	// The ML compute instance type.
-	// Experimental.
 	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// The name of the model that you want to host.
 	//
 	// This is the name that you specified when creating the model.
-	// Experimental.
 	ModelName *string `json:"modelName" yaml:"modelName"`
 	// The name of the production variant.
-	// Experimental.
 	VariantName *string `json:"variantName" yaml:"variantName"`
 	// The size of the Elastic Inference (EI) instance to use for the production variant.
-	// Experimental.
 	AcceleratorType AcceleratorType `json:"acceleratorType" yaml:"acceleratorType"`
 	// Number of instances to launch initially.
-	// Experimental.
 	InitialInstanceCount *float64 `json:"initialInstanceCount" yaml:"initialInstanceCount"`
 	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration.
-	// Experimental.
 	InitialVariantWeight *float64 `json:"initialVariantWeight" yaml:"initialVariantWeight"`
-}
-
-// A Step Functions Task to publish messages to SNS topic.
-//
-// A Function can be used directly as a Resource, but this class mirrors
-// integration with other AWS services via a specific class instance.
-//
-// Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sns "github.com/aws/aws-cdk-go/awscdk/aws_sns"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var taskInput taskInput
-//   var topic topic
-//   publishToTopic := stepfunctions_tasks.NewPublishToTopic(topic, &publishToTopicProps{
-//   	message: taskInput,
-//
-//   	// the properties below are optional
-//   	integrationPattern: stepfunctions.serviceIntegrationPattern_FIRE_AND_FORGET,
-//   	messagePerSubscriptionType: jsii.Boolean(false),
-//   	subject: jsii.String("subject"),
-//   })
-//
-// Deprecated: Use `SnsPublish`.
-type PublishToTopic interface {
-	awsstepfunctions.IStepFunctionsTask
-	// Called when the task object is used in a workflow.
-	// Deprecated: Use `SnsPublish`.
-	Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig
-}
-
-// The jsii proxy struct for PublishToTopic
-type jsiiProxy_PublishToTopic struct {
-	internal.Type__awsstepfunctionsIStepFunctionsTask
-}
-
-// Deprecated: Use `SnsPublish`.
-func NewPublishToTopic(topic awssns.ITopic, props *PublishToTopicProps) PublishToTopic {
-	_init_.Initialize()
-
-	j := jsiiProxy_PublishToTopic{}
-
-	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.PublishToTopic",
-		[]interface{}{topic, props},
-		&j,
-	)
-
-	return &j
-}
-
-// Deprecated: Use `SnsPublish`.
-func NewPublishToTopic_Override(p PublishToTopic, topic awssns.ITopic, props *PublishToTopicProps) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.PublishToTopic",
-		[]interface{}{topic, props},
-		p,
-	)
-}
-
-func (p *jsiiProxy_PublishToTopic) Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
-	var returns *awsstepfunctions.StepFunctionsTaskConfig
-
-	_jsii_.Invoke(
-		p,
-		"bind",
-		[]interface{}{_task},
-		&returns,
-	)
-
-	return returns
-}
-
-// Properties for PublishTask.
-//
-// Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var taskInput taskInput
-//   publishToTopicProps := &publishToTopicProps{
-//   	message: taskInput,
-//
-//   	// the properties below are optional
-//   	integrationPattern: stepfunctions.serviceIntegrationPattern_FIRE_AND_FORGET,
-//   	messagePerSubscriptionType: jsii.Boolean(false),
-//   	subject: jsii.String("subject"),
-//   }
-//
-// Deprecated: Use `SnsPublish`.
-type PublishToTopicProps struct {
-	// The text message to send to the topic.
-	// Deprecated: Use `SnsPublish`.
-	Message awsstepfunctions.TaskInput `json:"message" yaml:"message"`
-	// The service integration pattern indicates different ways to call Publish to SNS.
-	//
-	// The valid value is either FIRE_AND_FORGET or WAIT_FOR_TASK_TOKEN.
-	// Deprecated: Use `SnsPublish`.
-	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
-	// If true, send a different message to every subscription type.
-	//
-	// If this is set to true, message must be a JSON object with a
-	// "default" key and a key for every subscription type (such as "sqs",
-	// "email", etc.) The values are strings representing the messages
-	// being sent to every subscription type.
-	// See: https://docs.aws.amazon.com/sns/latest/api/API_Publish.html#API_Publish_RequestParameters
-	//
-	// Deprecated: Use `SnsPublish`.
-	MessagePerSubscriptionType *bool `json:"messagePerSubscriptionType" yaml:"messagePerSubscriptionType"`
-	// Used as the "Subject" line when the message is delivered to email endpoints.
-	//
-	// Also included, if present, in the standard JSON messages delivered to other endpoints.
-	// Deprecated: Use `SnsPublish`.
-	Subject *string `json:"subject" yaml:"subject"`
 }
 
 // Database and data catalog context in which the query execution occurs.
@@ -34737,26 +29045,20 @@ type PublishToTopicProps struct {
 //
 // See: https://docs.aws.amazon.com/athena/latest/APIReference/API_QueryExecutionContext.html
 //
-// Experimental.
 type QueryExecutionContext struct {
 	// Name of catalog used in query execution.
-	// Experimental.
 	CatalogName *string `json:"catalogName" yaml:"catalogName"`
 	// Name of database used in query execution.
-	// Experimental.
 	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 }
 
 // Define the format of the input data.
-// Experimental.
 type RecordWrapperType string
 
 const (
 	// None record wrapper type.
-	// Experimental.
 	RecordWrapperType_NONE RecordWrapperType = "NONE"
 	// RecordIO record wrapper type.
-	// Experimental.
 	RecordWrapperType_RECORD_IO RecordWrapperType = "RECORD_IO"
 )
 
@@ -34787,12 +29089,10 @@ const (
 //   	},
 //   })
 //
-// Experimental.
 type ReleaseLabel interface {
 	// A literal string that contains the release-version ex.
 	//
 	// 'emr-x.x.x-latest'
-	// Experimental.
 	Label() *string
 }
 
@@ -34813,14 +29113,13 @@ func (j *jsiiProxy_ReleaseLabel) Label() *string {
 
 
 // Initializes the label string.
-// Experimental.
 func NewReleaseLabel(label *string) ReleaseLabel {
 	_init_.Initialize()
 
 	j := jsiiProxy_ReleaseLabel{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.ReleaseLabel",
+		"aws-cdk-lib.aws_stepfunctions_tasks.ReleaseLabel",
 		[]interface{}{label},
 		&j,
 	)
@@ -34829,12 +29128,11 @@ func NewReleaseLabel(label *string) ReleaseLabel {
 }
 
 // Initializes the label string.
-// Experimental.
 func NewReleaseLabel_Override(r ReleaseLabel, label *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.ReleaseLabel",
+		"aws-cdk-lib.aws_stepfunctions_tasks.ReleaseLabel",
 		[]interface{}{label},
 		r,
 	)
@@ -34844,7 +29142,7 @@ func ReleaseLabel_EMR_5_32_0() ReleaseLabel {
 	_init_.Initialize()
 	var returns ReleaseLabel
 	_jsii_.StaticGet(
-		"monocdk.aws_stepfunctions_tasks.ReleaseLabel",
+		"aws-cdk-lib.aws_stepfunctions_tasks.ReleaseLabel",
 		"EMR_5_32_0",
 		&returns,
 	)
@@ -34855,7 +29153,7 @@ func ReleaseLabel_EMR_5_33_0() ReleaseLabel {
 	_init_.Initialize()
 	var returns ReleaseLabel
 	_jsii_.StaticGet(
-		"monocdk.aws_stepfunctions_tasks.ReleaseLabel",
+		"aws-cdk-lib.aws_stepfunctions_tasks.ReleaseLabel",
 		"EMR_5_33_0",
 		&returns,
 	)
@@ -34866,7 +29164,7 @@ func ReleaseLabel_EMR_6_2_0() ReleaseLabel {
 	_init_.Initialize()
 	var returns ReleaseLabel
 	_jsii_.StaticGet(
-		"monocdk.aws_stepfunctions_tasks.ReleaseLabel",
+		"aws-cdk-lib.aws_stepfunctions_tasks.ReleaseLabel",
 		"EMR_6_2_0",
 		&returns,
 	)
@@ -34877,7 +29175,7 @@ func ReleaseLabel_EMR_6_3_0() ReleaseLabel {
 	_init_.Initialize()
 	var returns ReleaseLabel
 	_jsii_.StaticGet(
-		"monocdk.aws_stepfunctions_tasks.ReleaseLabel",
+		"aws-cdk-lib.aws_stepfunctions_tasks.ReleaseLabel",
 		"EMR_6_3_0",
 		&returns,
 	)
@@ -34918,10 +29216,8 @@ func ReleaseLabel_EMR_6_3_0() ReleaseLabel {
 //   	},
 //   })
 //
-// Experimental.
 type ResourceConfig struct {
 	// The number of ML compute instances to use.
-	// Experimental.
 	InstanceCount *float64 `json:"instanceCount" yaml:"instanceCount"`
 	// ML compute instance type.
 	//
@@ -34933,13 +29229,10 @@ type ResourceConfig struct {
 	// ```.
 	// See: https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceConfig.html#sagemaker-Type-ResourceConfig-InstanceType
 	//
-	// Experimental.
 	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// Size of the ML storage volume that you want to provision.
-	// Experimental.
 	VolumeSize awscdk.Size `json:"volumeSize" yaml:"volumeSize"`
 	// KMS key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the training job.
-	// Experimental.
 	VolumeEncryptionKey awskms.IKey `json:"volumeEncryptionKey" yaml:"volumeEncryptionKey"`
 }
 
@@ -34965,918 +29258,22 @@ type ResourceConfig struct {
 //
 // See: https://docs.aws.amazon.com/athena/latest/APIReference/API_ResultConfiguration.html
 //
-// Experimental.
 type ResultConfiguration struct {
 	// Encryption option used if enabled in S3.
-	// Experimental.
 	EncryptionConfiguration *EncryptionConfiguration `json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// S3 path of query results.
 	//
 	// Example value: `s3://query-results-bucket/folder/`.
-	// Experimental.
 	OutputLocation *awss3.Location `json:"outputLocation" yaml:"outputLocation"`
 }
 
-// A Step Functions Task to run AWS Batch.
-//
-// Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var duration duration
-//   var instanceType instanceType
-//   var payload interface{}
-//   runBatchJob := stepfunctions_tasks.NewRunBatchJob(&runBatchJobProps{
-//   	jobDefinitionArn: jsii.String("jobDefinitionArn"),
-//   	jobName: jsii.String("jobName"),
-//   	jobQueueArn: jsii.String("jobQueueArn"),
-//
-//   	// the properties below are optional
-//   	arraySize: jsii.Number(123),
-//   	attempts: jsii.Number(123),
-//   	containerOverrides: &containerOverrides{
-//   		command: []*string{
-//   			jsii.String("command"),
-//   		},
-//   		environment: map[string]*string{
-//   			"environmentKey": jsii.String("environment"),
-//   		},
-//   		gpuCount: jsii.Number(123),
-//   		instanceType: instanceType,
-//   		memory: jsii.Number(123),
-//   		vcpus: jsii.Number(123),
-//   	},
-//   	dependsOn: []jobDependency{
-//   		&jobDependency{
-//   			jobId: jsii.String("jobId"),
-//   			type: jsii.String("type"),
-//   		},
-//   	},
-//   	integrationPattern: stepfunctions.serviceIntegrationPattern_FIRE_AND_FORGET,
-//   	payload: map[string]interface{}{
-//   		"payloadKey": payload,
-//   	},
-//   	timeout: duration,
-//   })
-//
-// Deprecated: use `BatchSubmitJob`.
-type RunBatchJob interface {
-	awsstepfunctions.IStepFunctionsTask
-	// Called when the task object is used in a workflow.
-	// Deprecated: use `BatchSubmitJob`.
-	Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig
-}
-
-// The jsii proxy struct for RunBatchJob
-type jsiiProxy_RunBatchJob struct {
-	internal.Type__awsstepfunctionsIStepFunctionsTask
-}
-
-// Deprecated: use `BatchSubmitJob`.
-func NewRunBatchJob(props *RunBatchJobProps) RunBatchJob {
-	_init_.Initialize()
-
-	j := jsiiProxy_RunBatchJob{}
-
-	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.RunBatchJob",
-		[]interface{}{props},
-		&j,
-	)
-
-	return &j
-}
-
-// Deprecated: use `BatchSubmitJob`.
-func NewRunBatchJob_Override(r RunBatchJob, props *RunBatchJobProps) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.RunBatchJob",
-		[]interface{}{props},
-		r,
-	)
-}
-
-func (r *jsiiProxy_RunBatchJob) Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
-	var returns *awsstepfunctions.StepFunctionsTaskConfig
-
-	_jsii_.Invoke(
-		r,
-		"bind",
-		[]interface{}{_task},
-		&returns,
-	)
-
-	return returns
-}
-
-// Properties for RunBatchJob.
-//
-// Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var duration duration
-//   var instanceType instanceType
-//   var payload interface{}
-//   runBatchJobProps := &runBatchJobProps{
-//   	jobDefinitionArn: jsii.String("jobDefinitionArn"),
-//   	jobName: jsii.String("jobName"),
-//   	jobQueueArn: jsii.String("jobQueueArn"),
-//
-//   	// the properties below are optional
-//   	arraySize: jsii.Number(123),
-//   	attempts: jsii.Number(123),
-//   	containerOverrides: &containerOverrides{
-//   		command: []*string{
-//   			jsii.String("command"),
-//   		},
-//   		environment: map[string]*string{
-//   			"environmentKey": jsii.String("environment"),
-//   		},
-//   		gpuCount: jsii.Number(123),
-//   		instanceType: instanceType,
-//   		memory: jsii.Number(123),
-//   		vcpus: jsii.Number(123),
-//   	},
-//   	dependsOn: []jobDependency{
-//   		&jobDependency{
-//   			jobId: jsii.String("jobId"),
-//   			type: jsii.String("type"),
-//   		},
-//   	},
-//   	integrationPattern: stepfunctions.serviceIntegrationPattern_FIRE_AND_FORGET,
-//   	payload: map[string]interface{}{
-//   		"payloadKey": payload,
-//   	},
-//   	timeout: duration,
-//   }
-//
-// Deprecated: use `BatchSubmitJob`.
-type RunBatchJobProps struct {
-	// The arn of the job definition used by this job.
-	// Deprecated: use `BatchSubmitJob`.
-	JobDefinitionArn *string `json:"jobDefinitionArn" yaml:"jobDefinitionArn"`
-	// The name of the job.
-	//
-	// The first character must be alphanumeric, and up to 128 letters (uppercase and lowercase),
-	// numbers, hyphens, and underscores are allowed.
-	// Deprecated: use `BatchSubmitJob`.
-	JobName *string `json:"jobName" yaml:"jobName"`
-	// The arn of the job queue into which the job is submitted.
-	// Deprecated: use `BatchSubmitJob`.
-	JobQueueArn *string `json:"jobQueueArn" yaml:"jobQueueArn"`
-	// The array size can be between 2 and 10,000.
-	//
-	// If you specify array properties for a job, it becomes an array job.
-	// For more information, see Array Jobs in the AWS Batch User Guide.
-	// Deprecated: use `BatchSubmitJob`.
-	ArraySize *float64 `json:"arraySize" yaml:"arraySize"`
-	// The number of times to move a job to the RUNNABLE status.
-	//
-	// You may specify between 1 and 10 attempts.
-	// If the value of attempts is greater than one,
-	// the job is retried on failure the same number of attempts as the value.
-	// Deprecated: use `BatchSubmitJob`.
-	Attempts *float64 `json:"attempts" yaml:"attempts"`
-	// A list of container overrides in JSON format that specify the name of a container in the specified job definition and the overrides it should receive.
-	// See: https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html#Batch-SubmitJob-request-containerOverrides
-	//
-	// Deprecated: use `BatchSubmitJob`.
-	ContainerOverrides *ContainerOverrides `json:"containerOverrides" yaml:"containerOverrides"`
-	// A list of dependencies for the job.
-	//
-	// A job can depend upon a maximum of 20 jobs.
-	// See: https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html#Batch-SubmitJob-request-dependsOn
-	//
-	// Deprecated: use `BatchSubmitJob`.
-	DependsOn *[]*JobDependency `json:"dependsOn" yaml:"dependsOn"`
-	// The service integration pattern indicates different ways to call TerminateCluster.
-	//
-	// The valid value is either FIRE_AND_FORGET or SYNC.
-	// Deprecated: use `BatchSubmitJob`.
-	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
-	// The payload to be passed as parametrs to the batch job.
-	// Deprecated: use `BatchSubmitJob`.
-	Payload *map[string]interface{} `json:"payload" yaml:"payload"`
-	// The timeout configuration for this SubmitJob operation.
-	//
-	// The minimum value for the timeout is 60 seconds.
-	// See: https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html#Batch-SubmitJob-request-timeout
-	//
-	// Deprecated: use `BatchSubmitJob`.
-	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
-}
-
-// Run an ECS/EC2 Task in a StepFunctions workflow.
-//
-// Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var cluster cluster
-//   var containerDefinition containerDefinition
-//   var placementConstraint placementConstraint
-//   var placementStrategy placementStrategy
-//   var securityGroup securityGroup
-//   var subnet subnet
-//   var subnetFilter subnetFilter
-//   var taskDefinition taskDefinition
-//   runEcsEc2Task := stepfunctions_tasks.NewRunEcsEc2Task(&runEcsEc2TaskProps{
-//   	cluster: cluster,
-//   	taskDefinition: taskDefinition,
-//
-//   	// the properties below are optional
-//   	containerOverrides: []containerOverride{
-//   		&containerOverride{
-//   			containerDefinition: containerDefinition,
-//
-//   			// the properties below are optional
-//   			command: []*string{
-//   				jsii.String("command"),
-//   			},
-//   			cpu: jsii.Number(123),
-//   			environment: []taskEnvironmentVariable{
-//   				&taskEnvironmentVariable{
-//   					name: jsii.String("name"),
-//   					value: jsii.String("value"),
-//   				},
-//   			},
-//   			memoryLimit: jsii.Number(123),
-//   			memoryReservation: jsii.Number(123),
-//   		},
-//   	},
-//   	integrationPattern: stepfunctions.serviceIntegrationPattern_FIRE_AND_FORGET,
-//   	placementConstraints: []*placementConstraint{
-//   		placementConstraint,
-//   	},
-//   	placementStrategies: []*placementStrategy{
-//   		placementStrategy,
-//   	},
-//   	securityGroup: securityGroup,
-//   	subnets: &subnetSelection{
-//   		availabilityZones: []*string{
-//   			jsii.String("availabilityZones"),
-//   		},
-//   		onePerAz: jsii.Boolean(false),
-//   		subnetFilters: []*subnetFilter{
-//   			subnetFilter,
-//   		},
-//   		subnetGroupName: jsii.String("subnetGroupName"),
-//   		subnetName: jsii.String("subnetName"),
-//   		subnets: []iSubnet{
-//   			subnet,
-//   		},
-//   		subnetType: ec2.subnetType_ISOLATED,
-//   	},
-//   })
-//
-// Deprecated: - replaced by `EcsRunTask`.
-type RunEcsEc2Task interface {
-	EcsRunTaskBase
-	// Manage allowed network traffic for this service.
-	// Deprecated: - replaced by `EcsRunTask`.
-	Connections() awsec2.Connections
-	// Called when the task object is used in a workflow.
-	// Deprecated: - replaced by `EcsRunTask`.
-	Bind(task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig
-	// Deprecated: - replaced by `EcsRunTask`.
-	ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, subnetSelection *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup)
-}
-
-// The jsii proxy struct for RunEcsEc2Task
-type jsiiProxy_RunEcsEc2Task struct {
-	jsiiProxy_EcsRunTaskBase
-}
-
-func (j *jsiiProxy_RunEcsEc2Task) Connections() awsec2.Connections {
-	var returns awsec2.Connections
-	_jsii_.Get(
-		j,
-		"connections",
-		&returns,
-	)
-	return returns
-}
-
-
-// Deprecated: - replaced by `EcsRunTask`.
-func NewRunEcsEc2Task(props *RunEcsEc2TaskProps) RunEcsEc2Task {
-	_init_.Initialize()
-
-	j := jsiiProxy_RunEcsEc2Task{}
-
-	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.RunEcsEc2Task",
-		[]interface{}{props},
-		&j,
-	)
-
-	return &j
-}
-
-// Deprecated: - replaced by `EcsRunTask`.
-func NewRunEcsEc2Task_Override(r RunEcsEc2Task, props *RunEcsEc2TaskProps) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.RunEcsEc2Task",
-		[]interface{}{props},
-		r,
-	)
-}
-
-func (r *jsiiProxy_RunEcsEc2Task) Bind(task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
-	var returns *awsstepfunctions.StepFunctionsTaskConfig
-
-	_jsii_.Invoke(
-		r,
-		"bind",
-		[]interface{}{task},
-		&returns,
-	)
-
-	return returns
-}
-
-func (r *jsiiProxy_RunEcsEc2Task) ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, subnetSelection *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup) {
-	_jsii_.InvokeVoid(
-		r,
-		"configureAwsVpcNetworking",
-		[]interface{}{vpc, assignPublicIp, subnetSelection, securityGroup},
-	)
-}
-
-// Properties to run an ECS task on EC2 in StepFunctionsan ECS.
-//
-// Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var cluster cluster
-//   var containerDefinition containerDefinition
-//   var placementConstraint placementConstraint
-//   var placementStrategy placementStrategy
-//   var securityGroup securityGroup
-//   var subnet subnet
-//   var subnetFilter subnetFilter
-//   var taskDefinition taskDefinition
-//   runEcsEc2TaskProps := &runEcsEc2TaskProps{
-//   	cluster: cluster,
-//   	taskDefinition: taskDefinition,
-//
-//   	// the properties below are optional
-//   	containerOverrides: []containerOverride{
-//   		&containerOverride{
-//   			containerDefinition: containerDefinition,
-//
-//   			// the properties below are optional
-//   			command: []*string{
-//   				jsii.String("command"),
-//   			},
-//   			cpu: jsii.Number(123),
-//   			environment: []taskEnvironmentVariable{
-//   				&taskEnvironmentVariable{
-//   					name: jsii.String("name"),
-//   					value: jsii.String("value"),
-//   				},
-//   			},
-//   			memoryLimit: jsii.Number(123),
-//   			memoryReservation: jsii.Number(123),
-//   		},
-//   	},
-//   	integrationPattern: stepfunctions.serviceIntegrationPattern_FIRE_AND_FORGET,
-//   	placementConstraints: []*placementConstraint{
-//   		placementConstraint,
-//   	},
-//   	placementStrategies: []*placementStrategy{
-//   		placementStrategy,
-//   	},
-//   	securityGroup: securityGroup,
-//   	subnets: &subnetSelection{
-//   		availabilityZones: []*string{
-//   			jsii.String("availabilityZones"),
-//   		},
-//   		onePerAz: jsii.Boolean(false),
-//   		subnetFilters: []*subnetFilter{
-//   			subnetFilter,
-//   		},
-//   		subnetGroupName: jsii.String("subnetGroupName"),
-//   		subnetName: jsii.String("subnetName"),
-//   		subnets: []iSubnet{
-//   			subnet,
-//   		},
-//   		subnetType: ec2.subnetType_ISOLATED,
-//   	},
-//   }
-//
-// Deprecated: use `EcsRunTask` and `EcsRunTaskProps`.
-type RunEcsEc2TaskProps struct {
-	// The topic to run the task on.
-	// Deprecated: use `EcsRunTask` and `EcsRunTaskProps`.
-	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
-	// Task Definition used for running tasks in the service.
-	//
-	// Note: this must be TaskDefinition, and not ITaskDefinition,
-	// as it requires properties that are not known for imported task definitions.
-	// Deprecated: use `EcsRunTask` and `EcsRunTaskProps`.
-	TaskDefinition awsecs.TaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
-	// Container setting overrides.
-	//
-	// Key is the name of the container to override, value is the
-	// values you want to override.
-	// Deprecated: use `EcsRunTask` and `EcsRunTaskProps`.
-	ContainerOverrides *[]*ContainerOverride `json:"containerOverrides" yaml:"containerOverrides"`
-	// The service integration pattern indicates different ways to call RunTask in ECS.
-	//
-	// The valid value for Lambda is FIRE_AND_FORGET, SYNC and WAIT_FOR_TASK_TOKEN.
-	// Deprecated: use `EcsRunTask` and `EcsRunTaskProps`.
-	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
-	// Placement constraints.
-	// Deprecated: use `EcsRunTask` and `EcsRunTaskProps`.
-	PlacementConstraints *[]awsecs.PlacementConstraint `json:"placementConstraints" yaml:"placementConstraints"`
-	// Placement strategies.
-	// Deprecated: use `EcsRunTask` and `EcsRunTaskProps`.
-	PlacementStrategies *[]awsecs.PlacementStrategy `json:"placementStrategies" yaml:"placementStrategies"`
-	// Existing security group to use for the task's ENIs.
-	//
-	// (Only applicable in case the TaskDefinition is configured for AwsVpc networking).
-	// Deprecated: use `EcsRunTask` and `EcsRunTaskProps`.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
-	// In what subnets to place the task's ENIs.
-	//
-	// (Only applicable in case the TaskDefinition is configured for AwsVpc networking).
-	// Deprecated: use `EcsRunTask` and `EcsRunTaskProps`.
-	Subnets *awsec2.SubnetSelection `json:"subnets" yaml:"subnets"`
-}
-
-// Start a service on an ECS cluster.
-//
-// Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var cluster cluster
-//   var containerDefinition containerDefinition
-//   var securityGroup securityGroup
-//   var subnet subnet
-//   var subnetFilter subnetFilter
-//   var taskDefinition taskDefinition
-//   runEcsFargateTask := stepfunctions_tasks.NewRunEcsFargateTask(&runEcsFargateTaskProps{
-//   	cluster: cluster,
-//   	taskDefinition: taskDefinition,
-//
-//   	// the properties below are optional
-//   	assignPublicIp: jsii.Boolean(false),
-//   	containerOverrides: []containerOverride{
-//   		&containerOverride{
-//   			containerDefinition: containerDefinition,
-//
-//   			// the properties below are optional
-//   			command: []*string{
-//   				jsii.String("command"),
-//   			},
-//   			cpu: jsii.Number(123),
-//   			environment: []taskEnvironmentVariable{
-//   				&taskEnvironmentVariable{
-//   					name: jsii.String("name"),
-//   					value: jsii.String("value"),
-//   				},
-//   			},
-//   			memoryLimit: jsii.Number(123),
-//   			memoryReservation: jsii.Number(123),
-//   		},
-//   	},
-//   	integrationPattern: stepfunctions.serviceIntegrationPattern_FIRE_AND_FORGET,
-//   	platformVersion: ecs.fargatePlatformVersion_LATEST,
-//   	securityGroup: securityGroup,
-//   	subnets: &subnetSelection{
-//   		availabilityZones: []*string{
-//   			jsii.String("availabilityZones"),
-//   		},
-//   		onePerAz: jsii.Boolean(false),
-//   		subnetFilters: []*subnetFilter{
-//   			subnetFilter,
-//   		},
-//   		subnetGroupName: jsii.String("subnetGroupName"),
-//   		subnetName: jsii.String("subnetName"),
-//   		subnets: []iSubnet{
-//   			subnet,
-//   		},
-//   		subnetType: ec2.subnetType_ISOLATED,
-//   	},
-//   })
-//
-// Deprecated: replaced by `EcsRunTask`.
-type RunEcsFargateTask interface {
-	EcsRunTaskBase
-	// Manage allowed network traffic for this service.
-	// Deprecated: replaced by `EcsRunTask`.
-	Connections() awsec2.Connections
-	// Called when the task object is used in a workflow.
-	// Deprecated: replaced by `EcsRunTask`.
-	Bind(task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig
-	// Deprecated: replaced by `EcsRunTask`.
-	ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, subnetSelection *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup)
-}
-
-// The jsii proxy struct for RunEcsFargateTask
-type jsiiProxy_RunEcsFargateTask struct {
-	jsiiProxy_EcsRunTaskBase
-}
-
-func (j *jsiiProxy_RunEcsFargateTask) Connections() awsec2.Connections {
-	var returns awsec2.Connections
-	_jsii_.Get(
-		j,
-		"connections",
-		&returns,
-	)
-	return returns
-}
-
-
-// Deprecated: replaced by `EcsRunTask`.
-func NewRunEcsFargateTask(props *RunEcsFargateTaskProps) RunEcsFargateTask {
-	_init_.Initialize()
-
-	j := jsiiProxy_RunEcsFargateTask{}
-
-	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.RunEcsFargateTask",
-		[]interface{}{props},
-		&j,
-	)
-
-	return &j
-}
-
-// Deprecated: replaced by `EcsRunTask`.
-func NewRunEcsFargateTask_Override(r RunEcsFargateTask, props *RunEcsFargateTaskProps) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.RunEcsFargateTask",
-		[]interface{}{props},
-		r,
-	)
-}
-
-func (r *jsiiProxy_RunEcsFargateTask) Bind(task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
-	var returns *awsstepfunctions.StepFunctionsTaskConfig
-
-	_jsii_.Invoke(
-		r,
-		"bind",
-		[]interface{}{task},
-		&returns,
-	)
-
-	return returns
-}
-
-func (r *jsiiProxy_RunEcsFargateTask) ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, subnetSelection *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup) {
-	_jsii_.InvokeVoid(
-		r,
-		"configureAwsVpcNetworking",
-		[]interface{}{vpc, assignPublicIp, subnetSelection, securityGroup},
-	)
-}
-
-// Properties to define an ECS service.
-//
-// Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var cluster cluster
-//   var containerDefinition containerDefinition
-//   var securityGroup securityGroup
-//   var subnet subnet
-//   var subnetFilter subnetFilter
-//   var taskDefinition taskDefinition
-//   runEcsFargateTaskProps := &runEcsFargateTaskProps{
-//   	cluster: cluster,
-//   	taskDefinition: taskDefinition,
-//
-//   	// the properties below are optional
-//   	assignPublicIp: jsii.Boolean(false),
-//   	containerOverrides: []containerOverride{
-//   		&containerOverride{
-//   			containerDefinition: containerDefinition,
-//
-//   			// the properties below are optional
-//   			command: []*string{
-//   				jsii.String("command"),
-//   			},
-//   			cpu: jsii.Number(123),
-//   			environment: []taskEnvironmentVariable{
-//   				&taskEnvironmentVariable{
-//   					name: jsii.String("name"),
-//   					value: jsii.String("value"),
-//   				},
-//   			},
-//   			memoryLimit: jsii.Number(123),
-//   			memoryReservation: jsii.Number(123),
-//   		},
-//   	},
-//   	integrationPattern: stepfunctions.serviceIntegrationPattern_FIRE_AND_FORGET,
-//   	platformVersion: ecs.fargatePlatformVersion_LATEST,
-//   	securityGroup: securityGroup,
-//   	subnets: &subnetSelection{
-//   		availabilityZones: []*string{
-//   			jsii.String("availabilityZones"),
-//   		},
-//   		onePerAz: jsii.Boolean(false),
-//   		subnetFilters: []*subnetFilter{
-//   			subnetFilter,
-//   		},
-//   		subnetGroupName: jsii.String("subnetGroupName"),
-//   		subnetName: jsii.String("subnetName"),
-//   		subnets: []iSubnet{
-//   			subnet,
-//   		},
-//   		subnetType: ec2.subnetType_ISOLATED,
-//   	},
-//   }
-//
-// Deprecated: replaced by `EcsRunTask` and `EcsRunTaskProps`.
-type RunEcsFargateTaskProps struct {
-	// The topic to run the task on.
-	// Deprecated: replaced by `EcsRunTask` and `EcsRunTaskProps`.
-	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
-	// Task Definition used for running tasks in the service.
-	//
-	// Note: this must be TaskDefinition, and not ITaskDefinition,
-	// as it requires properties that are not known for imported task definitions.
-	// Deprecated: replaced by `EcsRunTask` and `EcsRunTaskProps`.
-	TaskDefinition awsecs.TaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
-	// Container setting overrides.
-	//
-	// Key is the name of the container to override, value is the
-	// values you want to override.
-	// Deprecated: replaced by `EcsRunTask` and `EcsRunTaskProps`.
-	ContainerOverrides *[]*ContainerOverride `json:"containerOverrides" yaml:"containerOverrides"`
-	// The service integration pattern indicates different ways to call RunTask in ECS.
-	//
-	// The valid value for Lambda is FIRE_AND_FORGET, SYNC and WAIT_FOR_TASK_TOKEN.
-	// Deprecated: replaced by `EcsRunTask` and `EcsRunTaskProps`.
-	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
-	// Assign public IP addresses to each task.
-	// Deprecated: replaced by `EcsRunTask` and `EcsRunTaskProps`.
-	AssignPublicIp *bool `json:"assignPublicIp" yaml:"assignPublicIp"`
-	// Fargate platform version to run this service on.
-	//
-	// Unless you have specific compatibility requirements, you don't need to
-	// specify this.
-	// Deprecated: replaced by `EcsRunTask` and `EcsRunTaskProps`.
-	PlatformVersion awsecs.FargatePlatformVersion `json:"platformVersion" yaml:"platformVersion"`
-	// Existing security group to use for the tasks.
-	// Deprecated: replaced by `EcsRunTask` and `EcsRunTaskProps`.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
-	// In what subnets to place the task's ENIs.
-	// Deprecated: replaced by `EcsRunTask` and `EcsRunTaskProps`.
-	Subnets *awsec2.SubnetSelection `json:"subnets" yaml:"subnets"`
-}
-
-// Invoke a Glue job as a Task.
-//
-// OUTPUT: the output of this task is a JobRun structure, for details consult
-// https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-runs.html#aws-glue-api-jobs-runs-JobRun
-//
-// Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var duration duration
-//   runGlueJobTask := stepfunctions_tasks.NewRunGlueJobTask(jsii.String("glueJobName"), &runGlueJobTaskProps{
-//   	arguments: map[string]*string{
-//   		"argumentsKey": jsii.String("arguments"),
-//   	},
-//   	integrationPattern: stepfunctions.serviceIntegrationPattern_FIRE_AND_FORGET,
-//   	notifyDelayAfter: duration,
-//   	securityConfiguration: jsii.String("securityConfiguration"),
-//   	timeout: duration,
-//   })
-//
-// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-glue.html
-//
-// Deprecated: use `GlueStartJobRun`.
-type RunGlueJobTask interface {
-	awsstepfunctions.IStepFunctionsTask
-	// Called when the task object is used in a workflow.
-	// Deprecated: use `GlueStartJobRun`.
-	Bind(task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig
-}
-
-// The jsii proxy struct for RunGlueJobTask
-type jsiiProxy_RunGlueJobTask struct {
-	internal.Type__awsstepfunctionsIStepFunctionsTask
-}
-
-// Deprecated: use `GlueStartJobRun`.
-func NewRunGlueJobTask(glueJobName *string, props *RunGlueJobTaskProps) RunGlueJobTask {
-	_init_.Initialize()
-
-	j := jsiiProxy_RunGlueJobTask{}
-
-	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.RunGlueJobTask",
-		[]interface{}{glueJobName, props},
-		&j,
-	)
-
-	return &j
-}
-
-// Deprecated: use `GlueStartJobRun`.
-func NewRunGlueJobTask_Override(r RunGlueJobTask, glueJobName *string, props *RunGlueJobTaskProps) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.RunGlueJobTask",
-		[]interface{}{glueJobName, props},
-		r,
-	)
-}
-
-func (r *jsiiProxy_RunGlueJobTask) Bind(task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
-	var returns *awsstepfunctions.StepFunctionsTaskConfig
-
-	_jsii_.Invoke(
-		r,
-		"bind",
-		[]interface{}{task},
-		&returns,
-	)
-
-	return returns
-}
-
-// Properties for RunGlueJobTask.
-//
-// Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var duration duration
-//   runGlueJobTaskProps := &runGlueJobTaskProps{
-//   	arguments: map[string]*string{
-//   		"argumentsKey": jsii.String("arguments"),
-//   	},
-//   	integrationPattern: stepfunctions.serviceIntegrationPattern_FIRE_AND_FORGET,
-//   	notifyDelayAfter: duration,
-//   	securityConfiguration: jsii.String("securityConfiguration"),
-//   	timeout: duration,
-//   }
-//
-// Deprecated: use `GlueStartJobRun`.
-type RunGlueJobTaskProps struct {
-	// The job arguments specifically for this run.
-	//
-	// For this job run, they replace the default arguments set in the job definition itself.
-	// Deprecated: use `GlueStartJobRun`.
-	Arguments *map[string]*string `json:"arguments" yaml:"arguments"`
-	// The service integration pattern indicates different ways to start the Glue job.
-	//
-	// The valid value for Glue is either FIRE_AND_FORGET or SYNC.
-	// Deprecated: use `GlueStartJobRun`.
-	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
-	// After a job run starts, the number of minutes to wait before sending a job run delay notification.
-	//
-	// Must be at least 1 minute.
-	// Deprecated: use `GlueStartJobRun`.
-	NotifyDelayAfter awscdk.Duration `json:"notifyDelayAfter" yaml:"notifyDelayAfter"`
-	// The name of the SecurityConfiguration structure to be used with this job run.
-	//
-	// This must match the Glue API
-	// [single-line string pattern](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-oneLine).
-	// Deprecated: use `GlueStartJobRun`.
-	SecurityConfiguration *string `json:"securityConfiguration" yaml:"securityConfiguration"`
-	// The job run timeout.
-	//
-	// This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status.
-	// Must be at least 1 minute.
-	// Deprecated: use `GlueStartJobRun`.
-	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
-}
-
-// Invoke a Lambda function as a Task.
-//
-// OUTPUT: the output of this task is either the return value of Lambda's
-// Invoke call, or whatever the Lambda Function posted back using
-// `SendTaskSuccess/SendTaskFailure` in `waitForTaskToken` mode.
-//
-// Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var function_ function
-//   var taskInput taskInput
-//   runLambdaTask := stepfunctions_tasks.NewRunLambdaTask(function_, &runLambdaTaskProps{
-//   	clientContext: jsii.String("clientContext"),
-//   	integrationPattern: stepfunctions.serviceIntegrationPattern_FIRE_AND_FORGET,
-//   	invocationType: stepfunctions_tasks.invocationType_REQUEST_RESPONSE,
-//   	payload: taskInput,
-//   	qualifier: jsii.String("qualifier"),
-//   })
-//
-// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-lambda.html
-//
-// Deprecated: Use `LambdaInvoke`.
-type RunLambdaTask interface {
-	awsstepfunctions.IStepFunctionsTask
-	// Called when the task object is used in a workflow.
-	// Deprecated: Use `LambdaInvoke`.
-	Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig
-}
-
-// The jsii proxy struct for RunLambdaTask
-type jsiiProxy_RunLambdaTask struct {
-	internal.Type__awsstepfunctionsIStepFunctionsTask
-}
-
-// Deprecated: Use `LambdaInvoke`.
-func NewRunLambdaTask(lambdaFunction awslambda.IFunction, props *RunLambdaTaskProps) RunLambdaTask {
-	_init_.Initialize()
-
-	j := jsiiProxy_RunLambdaTask{}
-
-	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.RunLambdaTask",
-		[]interface{}{lambdaFunction, props},
-		&j,
-	)
-
-	return &j
-}
-
-// Deprecated: Use `LambdaInvoke`.
-func NewRunLambdaTask_Override(r RunLambdaTask, lambdaFunction awslambda.IFunction, props *RunLambdaTaskProps) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.RunLambdaTask",
-		[]interface{}{lambdaFunction, props},
-		r,
-	)
-}
-
-func (r *jsiiProxy_RunLambdaTask) Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
-	var returns *awsstepfunctions.StepFunctionsTaskConfig
-
-	_jsii_.Invoke(
-		r,
-		"bind",
-		[]interface{}{_task},
-		&returns,
-	)
-
-	return returns
-}
-
-// Properties for RunLambdaTask.
-//
-// Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var taskInput taskInput
-//   runLambdaTaskProps := &runLambdaTaskProps{
-//   	clientContext: jsii.String("clientContext"),
-//   	integrationPattern: stepfunctions.serviceIntegrationPattern_FIRE_AND_FORGET,
-//   	invocationType: stepfunctions_tasks.invocationType_REQUEST_RESPONSE,
-//   	payload: taskInput,
-//   	qualifier: jsii.String("qualifier"),
-//   }
-//
-// Deprecated: Use `LambdaInvoke`.
-type RunLambdaTaskProps struct {
-	// Client context to pass to the function.
-	// Deprecated: Use `LambdaInvoke`.
-	ClientContext *string `json:"clientContext" yaml:"clientContext"`
-	// The service integration pattern indicates different ways to invoke Lambda function.
-	//
-	// The valid value for Lambda is either FIRE_AND_FORGET or WAIT_FOR_TASK_TOKEN,
-	// it determines whether to pause the workflow until a task token is returned.
-	//
-	// If this is set to WAIT_FOR_TASK_TOKEN, the JsonPath.taskToken value must be included
-	// somewhere in the payload and the Lambda must call
-	// `SendTaskSuccess/SendTaskFailure` using that token.
-	// Deprecated: Use `LambdaInvoke`.
-	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
-	// Invocation type of the Lambda function.
-	// Deprecated: Use `LambdaInvoke`.
-	InvocationType InvocationType `json:"invocationType" yaml:"invocationType"`
-	// The JSON that you want to provide to your Lambda function as input.
-	// Deprecated: Use `LambdaInvoke`.
-	Payload awsstepfunctions.TaskInput `json:"payload" yaml:"payload"`
-	// Version or alias of the function to be invoked.
-	// Deprecated: pass a Version or Alias object as lambdaFunction instead.
-	Qualifier *string `json:"qualifier" yaml:"qualifier"`
-}
-
 // S3 Data Distribution Type.
-// Experimental.
 type S3DataDistributionType string
 
 const (
 	// Fully replicated S3 Data Distribution Type.
-	// Experimental.
 	S3DataDistributionType_FULLY_REPLICATED S3DataDistributionType = "FULLY_REPLICATED"
 	// Sharded By S3 Key Data Distribution Type.
-	// Experimental.
 	S3DataDistributionType_SHARDED_BY_S3_KEY S3DataDistributionType = "SHARDED_BY_S3_KEY"
 )
 
@@ -35916,19 +29313,14 @@ const (
 //
 // See: https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_S3DataSource.html
 //
-// Experimental.
 type S3DataSource struct {
 	// S3 Uri.
-	// Experimental.
 	S3Location S3Location `json:"s3Location" yaml:"s3Location"`
 	// List of one or more attribute names to use that are found in a specified augmented manifest file.
-	// Experimental.
 	AttributeNames *[]*string `json:"attributeNames" yaml:"attributeNames"`
 	// S3 Data Distribution Type.
-	// Experimental.
 	S3DataDistributionType S3DataDistributionType `json:"s3DataDistributionType" yaml:"s3DataDistributionType"`
 	// S3 Data Type.
-	// Experimental.
 	S3DataType S3DataType `json:"s3DataType" yaml:"s3DataType"`
 }
 
@@ -35966,18 +29358,14 @@ type S3DataSource struct {
 //   	},
 //   })
 //
-// Experimental.
 type S3DataType string
 
 const (
 	// Manifest File Data Type.
-	// Experimental.
 	S3DataType_MANIFEST_FILE S3DataType = "MANIFEST_FILE"
 	// S3 Prefix Data Type.
-	// Experimental.
 	S3DataType_S3_PREFIX S3DataType = "S3_PREFIX"
 	// Augmented Manifest File Data Type.
-	// Experimental.
 	S3DataType_AUGMENTED_MANIFEST_FILE S3DataType = "AUGMENTED_MANIFEST_FILE"
 )
 
@@ -36015,10 +29403,8 @@ const (
 //   	},
 //   })
 //
-// Experimental.
 type S3Location interface {
 	// Called when the S3Location is bound to a StepFunctions task.
-	// Experimental.
 	Bind(task ISageMakerTask, opts *S3LocationBindOptions) *S3LocationConfig
 }
 
@@ -36027,26 +29413,24 @@ type jsiiProxy_S3Location struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewS3Location_Override(s S3Location) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.S3Location",
+		"aws-cdk-lib.aws_stepfunctions_tasks.S3Location",
 		nil, // no parameters
 		s,
 	)
 }
 
 // An `IS3Location` built with a determined bucket and key prefix.
-// Experimental.
 func S3Location_FromBucket(bucket awss3.IBucket, keyPrefix *string) S3Location {
 	_init_.Initialize()
 
 	var returns S3Location
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.S3Location",
+		"aws-cdk-lib.aws_stepfunctions_tasks.S3Location",
 		"fromBucket",
 		[]interface{}{bucket, keyPrefix},
 		&returns,
@@ -36059,14 +29443,13 @@ func S3Location_FromBucket(bucket awss3.IBucket, keyPrefix *string) S3Location {
 //
 // Due to the dynamic nature of those locations, the IAM grants that will be set by `grantRead` and `grantWrite`
 // apply to the `*` resource.
-// Experimental.
 func S3Location_FromJsonExpression(expression *string) S3Location {
 	_init_.Initialize()
 
 	var returns S3Location
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.S3Location",
+		"aws-cdk-lib.aws_stepfunctions_tasks.S3Location",
 		"fromJsonExpression",
 		[]interface{}{expression},
 		&returns,
@@ -36097,13 +29480,10 @@ func (s *jsiiProxy_S3Location) Bind(task ISageMakerTask, opts *S3LocationBindOpt
 //   	forWriting: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type S3LocationBindOptions struct {
 	// Allow reading from the S3 Location.
-	// Experimental.
 	ForReading *bool `json:"forReading" yaml:"forReading"`
 	// Allow writing to the S3 Location.
-	// Experimental.
 	ForWriting *bool `json:"forWriting" yaml:"forWriting"`
 }
 
@@ -36115,10 +29495,8 @@ type S3LocationBindOptions struct {
 //   	uri: jsii.String("uri"),
 //   }
 //
-// Experimental.
 type S3LocationConfig struct {
 	// Uniquely identifies the resource in Amazon S3.
-	// Experimental.
 	Uri *string `json:"uri" yaml:"uri"`
 }
 
@@ -36132,198 +29510,103 @@ type S3LocationConfig struct {
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-sagemaker.html
 //
-// Experimental.
 type SageMakerCreateEndpoint interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -36402,8 +29685,8 @@ func (j *jsiiProxy_SageMakerCreateEndpoint) Iteration() awsstepfunctions.StateGr
 	return returns
 }
 
-func (j *jsiiProxy_SageMakerCreateEndpoint) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_SageMakerCreateEndpoint) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -36493,14 +29776,13 @@ func (j *jsiiProxy_SageMakerCreateEndpoint) TaskPolicies() *[]awsiam.PolicyState
 }
 
 
-// Experimental.
 func NewSageMakerCreateEndpoint(scope constructs.Construct, id *string, props *SageMakerCreateEndpointProps) SageMakerCreateEndpoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_SageMakerCreateEndpoint{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -36508,12 +29790,11 @@ func NewSageMakerCreateEndpoint(scope constructs.Construct, id *string, props *S
 	return &j
 }
 
-// Experimental.
 func NewSageMakerCreateEndpoint_Override(s SageMakerCreateEndpoint, scope constructs.Construct, id *string, props *SageMakerCreateEndpointProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -36536,14 +29817,13 @@ func (j *jsiiProxy_SageMakerCreateEndpoint) SetIteration(val awsstepfunctions.St
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func SageMakerCreateEndpoint_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -36553,14 +29833,13 @@ func SageMakerCreateEndpoint_FilterNextables(states *[]awsstepfunctions.State) *
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func SageMakerCreateEndpoint_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -36572,14 +29851,13 @@ func SageMakerCreateEndpoint_FindReachableEndStates(start awsstepfunctions.State
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func SageMakerCreateEndpoint_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -36588,15 +29866,17 @@ func SageMakerCreateEndpoint_FindReachableStates(start awsstepfunctions.State, o
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func SageMakerCreateEndpoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -36606,12 +29886,11 @@ func SageMakerCreateEndpoint_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func SageMakerCreateEndpoint_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -36842,43 +30121,6 @@ func (s *jsiiProxy_SageMakerCreateEndpoint) Next(next awsstepfunctions.IChainabl
 	return returns
 }
 
-func (s *jsiiProxy_SageMakerCreateEndpoint) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (s *jsiiProxy_SageMakerCreateEndpoint) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (s *jsiiProxy_SageMakerCreateEndpoint) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_SageMakerCreateEndpoint) Prepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (s *jsiiProxy_SageMakerCreateEndpoint) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -36970,14 +30212,6 @@ func (s *jsiiProxy_SageMakerCreateEndpoint) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (s *jsiiProxy_SageMakerCreateEndpoint) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (s *jsiiProxy_SageMakerCreateEndpoint) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -37004,12 +30238,12 @@ func (s *jsiiProxy_SageMakerCreateEndpoint) ToString() *string {
 	return returns
 }
 
-func (s *jsiiProxy_SageMakerCreateEndpoint) Validate() *[]*string {
+func (s *jsiiProxy_SageMakerCreateEndpoint) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		s,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -37042,198 +30276,103 @@ func (s *jsiiProxy_SageMakerCreateEndpoint) WhenBoundToGraph(graph awsstepfuncti
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-sagemaker.html
 //
-// Experimental.
 type SageMakerCreateEndpointConfig interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -37312,8 +30451,8 @@ func (j *jsiiProxy_SageMakerCreateEndpointConfig) Iteration() awsstepfunctions.S
 	return returns
 }
 
-func (j *jsiiProxy_SageMakerCreateEndpointConfig) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_SageMakerCreateEndpointConfig) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -37403,14 +30542,13 @@ func (j *jsiiProxy_SageMakerCreateEndpointConfig) TaskPolicies() *[]awsiam.Polic
 }
 
 
-// Experimental.
 func NewSageMakerCreateEndpointConfig(scope constructs.Construct, id *string, props *SageMakerCreateEndpointConfigProps) SageMakerCreateEndpointConfig {
 	_init_.Initialize()
 
 	j := jsiiProxy_SageMakerCreateEndpointConfig{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -37418,12 +30556,11 @@ func NewSageMakerCreateEndpointConfig(scope constructs.Construct, id *string, pr
 	return &j
 }
 
-// Experimental.
 func NewSageMakerCreateEndpointConfig_Override(s SageMakerCreateEndpointConfig, scope constructs.Construct, id *string, props *SageMakerCreateEndpointConfigProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -37446,14 +30583,13 @@ func (j *jsiiProxy_SageMakerCreateEndpointConfig) SetIteration(val awsstepfuncti
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func SageMakerCreateEndpointConfig_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -37463,14 +30599,13 @@ func SageMakerCreateEndpointConfig_FilterNextables(states *[]awsstepfunctions.St
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func SageMakerCreateEndpointConfig_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -37482,14 +30617,13 @@ func SageMakerCreateEndpointConfig_FindReachableEndStates(start awsstepfunctions
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func SageMakerCreateEndpointConfig_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -37498,15 +30632,17 @@ func SageMakerCreateEndpointConfig_FindReachableStates(start awsstepfunctions.St
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func SageMakerCreateEndpointConfig_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -37516,12 +30652,11 @@ func SageMakerCreateEndpointConfig_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func SageMakerCreateEndpointConfig_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -37752,43 +30887,6 @@ func (s *jsiiProxy_SageMakerCreateEndpointConfig) Next(next awsstepfunctions.ICh
 	return returns
 }
 
-func (s *jsiiProxy_SageMakerCreateEndpointConfig) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (s *jsiiProxy_SageMakerCreateEndpointConfig) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (s *jsiiProxy_SageMakerCreateEndpointConfig) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_SageMakerCreateEndpointConfig) Prepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (s *jsiiProxy_SageMakerCreateEndpointConfig) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -37880,14 +30978,6 @@ func (s *jsiiProxy_SageMakerCreateEndpointConfig) RenderRetryCatch() interface{}
 	return returns
 }
 
-func (s *jsiiProxy_SageMakerCreateEndpointConfig) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (s *jsiiProxy_SageMakerCreateEndpointConfig) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -37914,12 +31004,12 @@ func (s *jsiiProxy_SageMakerCreateEndpointConfig) ToString() *string {
 	return returns
 }
 
-func (s *jsiiProxy_SageMakerCreateEndpointConfig) Validate() *[]*string {
+func (s *jsiiProxy_SageMakerCreateEndpointConfig) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		s,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -37952,38 +31042,31 @@ func (s *jsiiProxy_SageMakerCreateEndpointConfig) WhenBoundToGraph(graph awsstep
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-sagemaker.html
 //
-// Experimental.
 type SageMakerCreateEndpointConfigProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -37991,25 +31074,19 @@ type SageMakerCreateEndpointConfigProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The name of the endpoint configuration.
-	// Experimental.
 	EndpointConfigName *string `json:"endpointConfigName" yaml:"endpointConfigName"`
 	// An list of ProductionVariant objects, one for each model that you want to host at this endpoint.
 	//
 	// Identifies a model that you want to host and the resources to deploy for hosting it.
 	// If you are deploying multiple models, tell Amazon SageMaker how to distribute traffic among the models by specifying variant weights.
-	// Experimental.
 	ProductionVariants *[]*ProductionVariant `json:"productionVariants" yaml:"productionVariants"`
 	// AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-	// Experimental.
 	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
 	// Tags to be applied to the endpoint configuration.
-	// Experimental.
 	Tags awsstepfunctions.TaskInput `json:"tags" yaml:"tags"`
 }
 
@@ -38023,38 +31100,31 @@ type SageMakerCreateEndpointConfigProps struct {
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-sagemaker.html
 //
-// Experimental.
 type SageMakerCreateEndpointProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -38062,21 +31132,16 @@ type SageMakerCreateEndpointProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The name of an endpoint configuration.
-	// Experimental.
 	EndpointConfigName *string `json:"endpointConfigName" yaml:"endpointConfigName"`
 	// The name of the endpoint.
 	//
 	// The name must be unique within an AWS Region in your AWS account.
-	// Experimental.
 	EndpointName *string `json:"endpointName" yaml:"endpointName"`
 	// Tags to be applied to the endpoint.
-	// Experimental.
 	Tags awsstepfunctions.TaskInput `json:"tags" yaml:"tags"`
 }
 
@@ -38094,212 +31159,113 @@ type SageMakerCreateEndpointProps struct {
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-sagemaker.html
 //
-// Experimental.
 type SageMakerCreateModel interface {
 	awsstepfunctions.TaskStateBase
 	awsec2.IConnectable
 	awsiam.IGrantable
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
 	// Allows specify security group connections for instances of this fleet.
-	// Experimental.
 	Connections() awsec2.Connections
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// The principal to grant permissions to.
-	// Experimental.
 	GrantPrincipal() awsiam.IPrincipal
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// The execution role for the Sagemaker Create Model API.
-	// Experimental.
 	Role() awsiam.IRole
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Add the security group to all instances via the launch configuration security groups array.
-	// Experimental.
 	AddSecurityGroup(securityGroup awsec2.ISecurityGroup)
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -38400,8 +31366,8 @@ func (j *jsiiProxy_SageMakerCreateModel) Iteration() awsstepfunctions.StateGraph
 	return returns
 }
 
-func (j *jsiiProxy_SageMakerCreateModel) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_SageMakerCreateModel) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -38501,14 +31467,13 @@ func (j *jsiiProxy_SageMakerCreateModel) TaskPolicies() *[]awsiam.PolicyStatemen
 }
 
 
-// Experimental.
 func NewSageMakerCreateModel(scope constructs.Construct, id *string, props *SageMakerCreateModelProps) SageMakerCreateModel {
 	_init_.Initialize()
 
 	j := jsiiProxy_SageMakerCreateModel{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateModel",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateModel",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -38516,12 +31481,11 @@ func NewSageMakerCreateModel(scope constructs.Construct, id *string, props *Sage
 	return &j
 }
 
-// Experimental.
 func NewSageMakerCreateModel_Override(s SageMakerCreateModel, scope constructs.Construct, id *string, props *SageMakerCreateModelProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateModel",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateModel",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -38544,14 +31508,13 @@ func (j *jsiiProxy_SageMakerCreateModel) SetIteration(val awsstepfunctions.State
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func SageMakerCreateModel_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateModel",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateModel",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -38561,14 +31524,13 @@ func SageMakerCreateModel_FilterNextables(states *[]awsstepfunctions.State) *[]a
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func SageMakerCreateModel_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateModel",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateModel",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -38580,14 +31542,13 @@ func SageMakerCreateModel_FindReachableEndStates(start awsstepfunctions.State, o
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func SageMakerCreateModel_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateModel",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateModel",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -38596,15 +31557,17 @@ func SageMakerCreateModel_FindReachableStates(start awsstepfunctions.State, opti
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func SageMakerCreateModel_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateModel",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateModel",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -38614,12 +31577,11 @@ func SageMakerCreateModel_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func SageMakerCreateModel_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateModel",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateModel",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -38858,43 +31820,6 @@ func (s *jsiiProxy_SageMakerCreateModel) Next(next awsstepfunctions.IChainable) 
 	return returns
 }
 
-func (s *jsiiProxy_SageMakerCreateModel) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (s *jsiiProxy_SageMakerCreateModel) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (s *jsiiProxy_SageMakerCreateModel) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_SageMakerCreateModel) Prepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (s *jsiiProxy_SageMakerCreateModel) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -38986,14 +31911,6 @@ func (s *jsiiProxy_SageMakerCreateModel) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (s *jsiiProxy_SageMakerCreateModel) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (s *jsiiProxy_SageMakerCreateModel) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -39020,12 +31937,12 @@ func (s *jsiiProxy_SageMakerCreateModel) ToString() *string {
 	return returns
 }
 
-func (s *jsiiProxy_SageMakerCreateModel) Validate() *[]*string {
+func (s *jsiiProxy_SageMakerCreateModel) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		s,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -39055,38 +31972,31 @@ func (s *jsiiProxy_SageMakerCreateModel) WhenBoundToGraph(graph awsstepfunctions
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-sagemaker.html
 //
-// Experimental.
 type SageMakerCreateModelProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -39094,36 +32004,26 @@ type SageMakerCreateModelProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The name of the new model.
-	// Experimental.
 	ModelName *string `json:"modelName" yaml:"modelName"`
 	// The definition of the primary docker image containing inference code, associated artifacts, and custom environment map that the inference code uses when the model is deployed for predictions.
-	// Experimental.
 	PrimaryContainer IContainerDefinition `json:"primaryContainer" yaml:"primaryContainer"`
 	// Specifies the containers in the inference pipeline.
-	// Experimental.
 	Containers *[]IContainerDefinition `json:"containers" yaml:"containers"`
 	// Isolates the model container.
 	//
 	// No inbound or outbound network calls can be made to or from the model container.
-	// Experimental.
 	EnableNetworkIsolation *bool `json:"enableNetworkIsolation" yaml:"enableNetworkIsolation"`
 	// An execution role that you can pass in a CreateModel API request.
-	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The subnets of the VPC to which the hosted model is connected (Note this parameter is only used when VPC is provided).
-	// Experimental.
 	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection" yaml:"subnetSelection"`
 	// Tags to be applied to the model.
-	// Experimental.
 	Tags awsstepfunctions.TaskInput `json:"tags" yaml:"tags"`
 	// The VPC that is accessible by the hosted model.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
@@ -39161,214 +32061,115 @@ type SageMakerCreateModelProps struct {
 //   	},
 //   })
 //
-// Experimental.
 type SageMakerCreateTrainingJob interface {
 	awsstepfunctions.TaskStateBase
 	awsec2.IConnectable
 	awsiam.IGrantable
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
 	// Allows specify security group connections for instances of this fleet.
-	// Experimental.
 	Connections() awsec2.Connections
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// The principal to grant permissions to.
-	// Experimental.
 	GrantPrincipal() awsiam.IPrincipal
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// The execution role for the Sagemaker training job.
 	//
 	// Only available after task has been added to a state machine.
-	// Experimental.
 	Role() awsiam.IRole
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Add the security group to all instances via the launch configuration security groups array.
-	// Experimental.
 	AddSecurityGroup(securityGroup awsec2.ISecurityGroup)
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -39469,8 +32270,8 @@ func (j *jsiiProxy_SageMakerCreateTrainingJob) Iteration() awsstepfunctions.Stat
 	return returns
 }
 
-func (j *jsiiProxy_SageMakerCreateTrainingJob) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_SageMakerCreateTrainingJob) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -39570,14 +32371,13 @@ func (j *jsiiProxy_SageMakerCreateTrainingJob) TaskPolicies() *[]awsiam.PolicySt
 }
 
 
-// Experimental.
 func NewSageMakerCreateTrainingJob(scope constructs.Construct, id *string, props *SageMakerCreateTrainingJobProps) SageMakerCreateTrainingJob {
 	_init_.Initialize()
 
 	j := jsiiProxy_SageMakerCreateTrainingJob{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -39585,12 +32385,11 @@ func NewSageMakerCreateTrainingJob(scope constructs.Construct, id *string, props
 	return &j
 }
 
-// Experimental.
 func NewSageMakerCreateTrainingJob_Override(s SageMakerCreateTrainingJob, scope constructs.Construct, id *string, props *SageMakerCreateTrainingJobProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -39613,14 +32412,13 @@ func (j *jsiiProxy_SageMakerCreateTrainingJob) SetIteration(val awsstepfunctions
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func SageMakerCreateTrainingJob_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -39630,14 +32428,13 @@ func SageMakerCreateTrainingJob_FilterNextables(states *[]awsstepfunctions.State
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func SageMakerCreateTrainingJob_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -39649,14 +32446,13 @@ func SageMakerCreateTrainingJob_FindReachableEndStates(start awsstepfunctions.St
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func SageMakerCreateTrainingJob_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -39665,15 +32461,17 @@ func SageMakerCreateTrainingJob_FindReachableStates(start awsstepfunctions.State
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func SageMakerCreateTrainingJob_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -39683,12 +32481,11 @@ func SageMakerCreateTrainingJob_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func SageMakerCreateTrainingJob_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -39927,43 +32724,6 @@ func (s *jsiiProxy_SageMakerCreateTrainingJob) Next(next awsstepfunctions.IChain
 	return returns
 }
 
-func (s *jsiiProxy_SageMakerCreateTrainingJob) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (s *jsiiProxy_SageMakerCreateTrainingJob) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (s *jsiiProxy_SageMakerCreateTrainingJob) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_SageMakerCreateTrainingJob) Prepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (s *jsiiProxy_SageMakerCreateTrainingJob) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -40055,14 +32815,6 @@ func (s *jsiiProxy_SageMakerCreateTrainingJob) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (s *jsiiProxy_SageMakerCreateTrainingJob) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (s *jsiiProxy_SageMakerCreateTrainingJob) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -40089,12 +32841,12 @@ func (s *jsiiProxy_SageMakerCreateTrainingJob) ToString() *string {
 	return returns
 }
 
-func (s *jsiiProxy_SageMakerCreateTrainingJob) Validate() *[]*string {
+func (s *jsiiProxy_SageMakerCreateTrainingJob) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		s,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -40144,38 +32896,31 @@ func (s *jsiiProxy_SageMakerCreateTrainingJob) WhenBoundToGraph(graph awsstepfun
 //   	},
 //   })
 //
-// Experimental.
 type SageMakerCreateTrainingJobProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -40183,30 +32928,22 @@ type SageMakerCreateTrainingJobProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Identifies the training algorithm to use.
-	// Experimental.
 	AlgorithmSpecification *AlgorithmSpecification `json:"algorithmSpecification" yaml:"algorithmSpecification"`
 	// Describes the various datasets (e.g. train, validation, test) and the Amazon S3 location where stored.
-	// Experimental.
 	InputDataConfig *[]*Channel `json:"inputDataConfig" yaml:"inputDataConfig"`
 	// Identifies the Amazon S3 location where you want Amazon SageMaker to save the results of model training.
-	// Experimental.
 	OutputDataConfig *OutputDataConfig `json:"outputDataConfig" yaml:"outputDataConfig"`
 	// Training Job Name.
-	// Experimental.
 	TrainingJobName *string `json:"trainingJobName" yaml:"trainingJobName"`
 	// Isolates the training container.
 	//
 	// No inbound or outbound network calls can be made to or from the training container.
-	// Experimental.
 	EnableNetworkIsolation *bool `json:"enableNetworkIsolation" yaml:"enableNetworkIsolation"`
 	// Environment variables to set in the Docker container.
-	// Experimental.
 	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// Algorithm-specific parameters that influence the quality of the model.
 	//
@@ -40214,10 +32951,8 @@ type SageMakerCreateTrainingJobProps struct {
 	// For a list of hyperparameters provided by Amazon SageMaker.
 	// See: https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html
 	//
-	// Experimental.
 	Hyperparameters *map[string]interface{} `json:"hyperparameters" yaml:"hyperparameters"`
 	// Specifies the resources, ML compute instances, and ML storage volumes to deploy for model training.
-	// Experimental.
 	ResourceConfig *ResourceConfig `json:"resourceConfig" yaml:"resourceConfig"`
 	// Role for the Training Job.
 	//
@@ -40225,16 +32960,12 @@ type SageMakerCreateTrainingJobProps struct {
 	// be able to operate.
 	//
 	// See https://docs.aws.amazon.com/fr_fr/sagemaker/latest/dg/sagemaker-roles.html#sagemaker-roles-createtrainingjob-perms
-	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Sets a time limit for training.
-	// Experimental.
 	StoppingCondition *StoppingCondition `json:"stoppingCondition" yaml:"stoppingCondition"`
 	// Tags to be applied to the train job.
-	// Experimental.
 	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// Specifies the VPC that you want your training job to connect to.
-	// Experimental.
 	VpcConfig *VpcConfig `json:"vpcConfig" yaml:"vpcConfig"`
 }
 
@@ -40266,203 +32997,107 @@ type SageMakerCreateTrainingJobProps struct {
 //   	},
 //   })
 //
-// Experimental.
 type SageMakerCreateTransformJob interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// The execution role for the Sagemaker transform job.
 	//
 	// Only available after task has been added to a state machine.
-	// Experimental.
 	Role() awsiam.IRole
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -40541,8 +33176,8 @@ func (j *jsiiProxy_SageMakerCreateTransformJob) Iteration() awsstepfunctions.Sta
 	return returns
 }
 
-func (j *jsiiProxy_SageMakerCreateTransformJob) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_SageMakerCreateTransformJob) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -40642,14 +33277,13 @@ func (j *jsiiProxy_SageMakerCreateTransformJob) TaskPolicies() *[]awsiam.PolicyS
 }
 
 
-// Experimental.
 func NewSageMakerCreateTransformJob(scope constructs.Construct, id *string, props *SageMakerCreateTransformJobProps) SageMakerCreateTransformJob {
 	_init_.Initialize()
 
 	j := jsiiProxy_SageMakerCreateTransformJob{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -40657,12 +33291,11 @@ func NewSageMakerCreateTransformJob(scope constructs.Construct, id *string, prop
 	return &j
 }
 
-// Experimental.
 func NewSageMakerCreateTransformJob_Override(s SageMakerCreateTransformJob, scope constructs.Construct, id *string, props *SageMakerCreateTransformJobProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -40685,14 +33318,13 @@ func (j *jsiiProxy_SageMakerCreateTransformJob) SetIteration(val awsstepfunction
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func SageMakerCreateTransformJob_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -40702,14 +33334,13 @@ func SageMakerCreateTransformJob_FilterNextables(states *[]awsstepfunctions.Stat
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func SageMakerCreateTransformJob_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -40721,14 +33352,13 @@ func SageMakerCreateTransformJob_FindReachableEndStates(start awsstepfunctions.S
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func SageMakerCreateTransformJob_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -40737,15 +33367,17 @@ func SageMakerCreateTransformJob_FindReachableStates(start awsstepfunctions.Stat
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func SageMakerCreateTransformJob_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -40755,12 +33387,11 @@ func SageMakerCreateTransformJob_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func SageMakerCreateTransformJob_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -40991,43 +33622,6 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) Next(next awsstepfunctions.IChai
 	return returns
 }
 
-func (s *jsiiProxy_SageMakerCreateTransformJob) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (s *jsiiProxy_SageMakerCreateTransformJob) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (s *jsiiProxy_SageMakerCreateTransformJob) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_SageMakerCreateTransformJob) Prepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (s *jsiiProxy_SageMakerCreateTransformJob) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -41119,14 +33713,6 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (s *jsiiProxy_SageMakerCreateTransformJob) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (s *jsiiProxy_SageMakerCreateTransformJob) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -41153,12 +33739,12 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) ToString() *string {
 	return returns
 }
 
-func (s *jsiiProxy_SageMakerCreateTransformJob) Validate() *[]*string {
+func (s *jsiiProxy_SageMakerCreateTransformJob) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		s,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -41202,38 +33788,31 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) WhenBoundToGraph(graph awsstepfu
 //   	},
 //   })
 //
-// Experimental.
 type SageMakerCreateTransformJobProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -41241,46 +33820,32 @@ type SageMakerCreateTransformJobProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Name of the model that you want to use for the transform job.
-	// Experimental.
 	ModelName *string `json:"modelName" yaml:"modelName"`
 	// Dataset to be transformed and the Amazon S3 location where it is stored.
-	// Experimental.
 	TransformInput *TransformInput `json:"transformInput" yaml:"transformInput"`
 	// Transform Job Name.
-	// Experimental.
 	TransformJobName *string `json:"transformJobName" yaml:"transformJobName"`
 	// S3 location where you want Amazon SageMaker to save the results from the transform job.
-	// Experimental.
 	TransformOutput *TransformOutput `json:"transformOutput" yaml:"transformOutput"`
 	// Number of records to include in a mini-batch for an HTTP inference request.
-	// Experimental.
 	BatchStrategy BatchStrategy `json:"batchStrategy" yaml:"batchStrategy"`
 	// Environment variables to set in the Docker container.
-	// Experimental.
 	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// Maximum number of parallel requests that can be sent to each instance in a transform job.
-	// Experimental.
 	MaxConcurrentTransforms *float64 `json:"maxConcurrentTransforms" yaml:"maxConcurrentTransforms"`
 	// Maximum allowed size of the payload, in MB.
-	// Experimental.
 	MaxPayload awscdk.Size `json:"maxPayload" yaml:"maxPayload"`
 	// Configures the timeout and maximum number of retries for processing a transform job invocation.
-	// Experimental.
 	ModelClientOptions *ModelClientOptions `json:"modelClientOptions" yaml:"modelClientOptions"`
 	// Role for the Transform Job.
-	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Tags to be applied to the train job.
-	// Experimental.
 	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// ML compute instances for the transform job.
-	// Experimental.
 	TransformResources *TransformResources `json:"transformResources" yaml:"transformResources"`
 }
 
@@ -41294,198 +33859,103 @@ type SageMakerCreateTransformJobProps struct {
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-sagemaker.html
 //
-// Experimental.
 type SageMakerUpdateEndpoint interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -41564,8 +34034,8 @@ func (j *jsiiProxy_SageMakerUpdateEndpoint) Iteration() awsstepfunctions.StateGr
 	return returns
 }
 
-func (j *jsiiProxy_SageMakerUpdateEndpoint) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_SageMakerUpdateEndpoint) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -41655,14 +34125,13 @@ func (j *jsiiProxy_SageMakerUpdateEndpoint) TaskPolicies() *[]awsiam.PolicyState
 }
 
 
-// Experimental.
 func NewSageMakerUpdateEndpoint(scope constructs.Construct, id *string, props *SageMakerUpdateEndpointProps) SageMakerUpdateEndpoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_SageMakerUpdateEndpoint{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -41670,12 +34139,11 @@ func NewSageMakerUpdateEndpoint(scope constructs.Construct, id *string, props *S
 	return &j
 }
 
-// Experimental.
 func NewSageMakerUpdateEndpoint_Override(s SageMakerUpdateEndpoint, scope constructs.Construct, id *string, props *SageMakerUpdateEndpointProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -41698,14 +34166,13 @@ func (j *jsiiProxy_SageMakerUpdateEndpoint) SetIteration(val awsstepfunctions.St
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func SageMakerUpdateEndpoint_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -41715,14 +34182,13 @@ func SageMakerUpdateEndpoint_FilterNextables(states *[]awsstepfunctions.State) *
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func SageMakerUpdateEndpoint_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -41734,14 +34200,13 @@ func SageMakerUpdateEndpoint_FindReachableEndStates(start awsstepfunctions.State
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func SageMakerUpdateEndpoint_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -41750,15 +34215,17 @@ func SageMakerUpdateEndpoint_FindReachableStates(start awsstepfunctions.State, o
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func SageMakerUpdateEndpoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -41768,12 +34235,11 @@ func SageMakerUpdateEndpoint_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func SageMakerUpdateEndpoint_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -42004,43 +34470,6 @@ func (s *jsiiProxy_SageMakerUpdateEndpoint) Next(next awsstepfunctions.IChainabl
 	return returns
 }
 
-func (s *jsiiProxy_SageMakerUpdateEndpoint) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (s *jsiiProxy_SageMakerUpdateEndpoint) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (s *jsiiProxy_SageMakerUpdateEndpoint) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_SageMakerUpdateEndpoint) Prepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (s *jsiiProxy_SageMakerUpdateEndpoint) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -42132,14 +34561,6 @@ func (s *jsiiProxy_SageMakerUpdateEndpoint) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (s *jsiiProxy_SageMakerUpdateEndpoint) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (s *jsiiProxy_SageMakerUpdateEndpoint) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -42166,12 +34587,12 @@ func (s *jsiiProxy_SageMakerUpdateEndpoint) ToString() *string {
 	return returns
 }
 
-func (s *jsiiProxy_SageMakerUpdateEndpoint) Validate() *[]*string {
+func (s *jsiiProxy_SageMakerUpdateEndpoint) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		s,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -42197,38 +34618,31 @@ func (s *jsiiProxy_SageMakerUpdateEndpoint) WhenBoundToGraph(graph awsstepfuncti
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-sagemaker.html
 //
-// Experimental.
 type SageMakerUpdateEndpointProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -42236,133 +34650,13 @@ type SageMakerUpdateEndpointProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The name of the new endpoint configuration.
-	// Experimental.
 	EndpointConfigName *string `json:"endpointConfigName" yaml:"endpointConfigName"`
 	// The name of the endpoint whose configuration you want to update.
-	// Experimental.
 	EndpointName *string `json:"endpointName" yaml:"endpointName"`
-}
-
-// A StepFunctions Task to send messages to SQS queue.
-//
-// A Function can be used directly as a Resource, but this class mirrors
-// integration with other AWS services via a specific class instance.
-//
-// Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var duration duration
-//   var queue queue
-//   var taskInput taskInput
-//   sendToQueue := stepfunctions_tasks.NewSendToQueue(queue, &sendToQueueProps{
-//   	messageBody: taskInput,
-//
-//   	// the properties below are optional
-//   	delay: duration,
-//   	integrationPattern: stepfunctions.serviceIntegrationPattern_FIRE_AND_FORGET,
-//   	messageDeduplicationId: jsii.String("messageDeduplicationId"),
-//   	messageGroupId: jsii.String("messageGroupId"),
-//   })
-//
-// Deprecated: Use `SqsSendMessage`.
-type SendToQueue interface {
-	awsstepfunctions.IStepFunctionsTask
-	// Called when the task object is used in a workflow.
-	// Deprecated: Use `SqsSendMessage`.
-	Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig
-}
-
-// The jsii proxy struct for SendToQueue
-type jsiiProxy_SendToQueue struct {
-	internal.Type__awsstepfunctionsIStepFunctionsTask
-}
-
-// Deprecated: Use `SqsSendMessage`.
-func NewSendToQueue(queue awssqs.IQueue, props *SendToQueueProps) SendToQueue {
-	_init_.Initialize()
-
-	j := jsiiProxy_SendToQueue{}
-
-	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.SendToQueue",
-		[]interface{}{queue, props},
-		&j,
-	)
-
-	return &j
-}
-
-// Deprecated: Use `SqsSendMessage`.
-func NewSendToQueue_Override(s SendToQueue, queue awssqs.IQueue, props *SendToQueueProps) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.SendToQueue",
-		[]interface{}{queue, props},
-		s,
-	)
-}
-
-func (s *jsiiProxy_SendToQueue) Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
-	var returns *awsstepfunctions.StepFunctionsTaskConfig
-
-	_jsii_.Invoke(
-		s,
-		"bind",
-		[]interface{}{_task},
-		&returns,
-	)
-
-	return returns
-}
-
-// Properties for SendMessageTask.
-//
-// Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var duration duration
-//   var taskInput taskInput
-//   sendToQueueProps := &sendToQueueProps{
-//   	messageBody: taskInput,
-//
-//   	// the properties below are optional
-//   	delay: duration,
-//   	integrationPattern: stepfunctions.serviceIntegrationPattern_FIRE_AND_FORGET,
-//   	messageDeduplicationId: jsii.String("messageDeduplicationId"),
-//   	messageGroupId: jsii.String("messageGroupId"),
-//   }
-//
-// Deprecated: Use `SqsSendMessage`.
-type SendToQueueProps struct {
-	// The text message to send to the queue.
-	// Deprecated: Use `SqsSendMessage`.
-	MessageBody awsstepfunctions.TaskInput `json:"messageBody" yaml:"messageBody"`
-	// The length of time, in seconds, for which to delay a specific message.
-	//
-	// Valid values are 0-900 seconds.
-	// Deprecated: Use `SqsSendMessage`.
-	Delay awscdk.Duration `json:"delay" yaml:"delay"`
-	// The service integration pattern indicates different ways to call SendMessage to SQS.
-	//
-	// The valid value is either FIRE_AND_FORGET or WAIT_FOR_TASK_TOKEN.
-	// Deprecated: Use `SqsSendMessage`.
-	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
-	// The token used for deduplication of sent messages.
-	// Deprecated: Use `SqsSendMessage`.
-	MessageDeduplicationId *string `json:"messageDeduplicationId" yaml:"messageDeduplicationId"`
-	// The tag that specifies that a message belongs to a specific message group.
-	//
-	// Required for FIFO queues. FIFO ordering applies to messages in the same message
-	// group.
-	// Deprecated: Use `SqsSendMessage`.
-	MessageGroupId *string `json:"messageGroupId" yaml:"messageGroupId"`
 }
 
 // Configuration for a shuffle option for input data in a channel.
@@ -42373,10 +34667,8 @@ type SendToQueueProps struct {
 //   	seed: jsii.Number(123),
 //   }
 //
-// Experimental.
 type ShuffleConfig struct {
 	// Determines the shuffling order.
-	// Experimental.
 	Seed *float64 `json:"seed" yaml:"seed"`
 }
 
@@ -42409,198 +34701,103 @@ type ShuffleConfig struct {
 //   	definition: convertToSeconds.next(createMessage).next(publishMessage).next(wait),
 //   })
 //
-// Experimental.
 type SnsPublish interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -42679,8 +34876,8 @@ func (j *jsiiProxy_SnsPublish) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_SnsPublish) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_SnsPublish) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -42770,14 +34967,13 @@ func (j *jsiiProxy_SnsPublish) TaskPolicies() *[]awsiam.PolicyStatement {
 }
 
 
-// Experimental.
 func NewSnsPublish(scope constructs.Construct, id *string, props *SnsPublishProps) SnsPublish {
 	_init_.Initialize()
 
 	j := jsiiProxy_SnsPublish{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.SnsPublish",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SnsPublish",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -42785,12 +34981,11 @@ func NewSnsPublish(scope constructs.Construct, id *string, props *SnsPublishProp
 	return &j
 }
 
-// Experimental.
 func NewSnsPublish_Override(s SnsPublish, scope constructs.Construct, id *string, props *SnsPublishProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.SnsPublish",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SnsPublish",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -42813,14 +35008,13 @@ func (j *jsiiProxy_SnsPublish) SetIteration(val awsstepfunctions.StateGraph) {
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func SnsPublish_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SnsPublish",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SnsPublish",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -42830,14 +35024,13 @@ func SnsPublish_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunc
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func SnsPublish_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SnsPublish",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SnsPublish",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -42849,14 +35042,13 @@ func SnsPublish_FindReachableEndStates(start awsstepfunctions.State, options *aw
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func SnsPublish_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SnsPublish",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SnsPublish",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -42865,15 +35057,17 @@ func SnsPublish_FindReachableStates(start awsstepfunctions.State, options *awsst
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func SnsPublish_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SnsPublish",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SnsPublish",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -42883,12 +35077,11 @@ func SnsPublish_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func SnsPublish_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.SnsPublish",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SnsPublish",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -43119,43 +35312,6 @@ func (s *jsiiProxy_SnsPublish) Next(next awsstepfunctions.IChainable) awsstepfun
 	return returns
 }
 
-func (s *jsiiProxy_SnsPublish) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (s *jsiiProxy_SnsPublish) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (s *jsiiProxy_SnsPublish) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_SnsPublish) Prepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (s *jsiiProxy_SnsPublish) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -43247,14 +35403,6 @@ func (s *jsiiProxy_SnsPublish) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (s *jsiiProxy_SnsPublish) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (s *jsiiProxy_SnsPublish) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -43281,12 +35429,12 @@ func (s *jsiiProxy_SnsPublish) ToString() *string {
 	return returns
 }
 
-func (s *jsiiProxy_SnsPublish) Validate() *[]*string {
+func (s *jsiiProxy_SnsPublish) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		s,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -43331,38 +35479,31 @@ func (s *jsiiProxy_SnsPublish) WhenBoundToGraph(graph awsstepfunctions.StateGrap
 //   	definition: convertToSeconds.next(createMessage).next(publishMessage).next(wait),
 //   })
 //
-// Experimental.
 type SnsPublishProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -43370,20 +35511,16 @@ type SnsPublishProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The message you want to send.
 	//
 	// With the exception of SMS, messages must be UTF-8 encoded strings and
 	// at most 256 KB in size.
 	// For SMS, each message can contain up to 140 characters.
-	// Experimental.
 	Message awsstepfunctions.TaskInput `json:"message" yaml:"message"`
 	// The SNS topic that the task will publish to.
-	// Experimental.
 	Topic awssns.ITopic `json:"topic" yaml:"topic"`
 	// Add message attributes when publishing.
 	//
@@ -43391,7 +35528,6 @@ type SnsPublishProps struct {
 	// for subscription filters.
 	// See: https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html
 	//
-	// Experimental.
 	MessageAttributes *map[string]*MessageAttribute `json:"messageAttributes" yaml:"messageAttributes"`
 	// Send different messages for each transport protocol.
 	//
@@ -43404,13 +35540,11 @@ type SnsPublishProps struct {
 	// send to a specific transport protocol (i.e. "sqs", "email", "http", etc)
 	// See: https://docs.aws.amazon.com/sns/latest/api/API_Publish.html#API_Publish_RequestParameters
 	//
-	// Experimental.
 	MessagePerSubscriptionType *bool `json:"messagePerSubscriptionType" yaml:"messagePerSubscriptionType"`
 	// Used as the "Subject" line when the message is delivered to email endpoints.
 	//
 	// This field will also be included, if present, in the standard JSON messages
 	// delivered to other endpoints.
-	// Experimental.
 	Subject *string `json:"subject" yaml:"subject"`
 }
 
@@ -43437,41 +35571,32 @@ type SnsPublishProps struct {
 //   	},
 //   })
 //
-// Experimental.
 type SparkSubmitJobDriver struct {
 	// The entry point of job application.
 	//
 	// Length Constraints: Minimum length of 1. Maximum length of 256.
-	// Experimental.
 	EntryPoint awsstepfunctions.TaskInput `json:"entryPoint" yaml:"entryPoint"`
 	// The arguments for a job application in a task input object containing an array of strings.
 	//
 	// Length Constraints: Minimum length of 1. Maximum length of 10280.
-	// Experimental.
 	EntryPointArguments awsstepfunctions.TaskInput `json:"entryPointArguments" yaml:"entryPointArguments"`
 	// The Spark submit parameters that are used for job runs.
 	//
 	// Length Constraints: Minimum length of 1. Maximum length of 102400.
-	// Experimental.
 	SparkSubmitParameters *string `json:"sparkSubmitParameters" yaml:"sparkSubmitParameters"`
 }
 
 // Method to use to split the transform job's data files into smaller batches.
-// Experimental.
 type SplitType string
 
 const (
 	// Input data files are not split,.
-	// Experimental.
 	SplitType_NONE SplitType = "NONE"
 	// Split records on a newline character boundary.
-	// Experimental.
 	SplitType_LINE SplitType = "LINE"
 	// Split using MXNet RecordIO format.
-	// Experimental.
 	SplitType_RECORD_IO SplitType = "RECORD_IO"
 	// Split using TensorFlow TFRecord format.
-	// Experimental.
 	SplitType_TF_RECORD SplitType = "TF_RECORD"
 )
 
@@ -43496,198 +35621,103 @@ const (
 //   	}),
 //   })
 //
-// Experimental.
 type SqsSendMessage interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -43766,8 +35796,8 @@ func (j *jsiiProxy_SqsSendMessage) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_SqsSendMessage) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_SqsSendMessage) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -43857,14 +35887,13 @@ func (j *jsiiProxy_SqsSendMessage) TaskPolicies() *[]awsiam.PolicyStatement {
 }
 
 
-// Experimental.
 func NewSqsSendMessage(scope constructs.Construct, id *string, props *SqsSendMessageProps) SqsSendMessage {
 	_init_.Initialize()
 
 	j := jsiiProxy_SqsSendMessage{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.SqsSendMessage",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SqsSendMessage",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -43872,12 +35901,11 @@ func NewSqsSendMessage(scope constructs.Construct, id *string, props *SqsSendMes
 	return &j
 }
 
-// Experimental.
 func NewSqsSendMessage_Override(s SqsSendMessage, scope constructs.Construct, id *string, props *SqsSendMessageProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.SqsSendMessage",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SqsSendMessage",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -43900,14 +35928,13 @@ func (j *jsiiProxy_SqsSendMessage) SetIteration(val awsstepfunctions.StateGraph)
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func SqsSendMessage_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SqsSendMessage",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SqsSendMessage",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -43917,14 +35944,13 @@ func SqsSendMessage_FilterNextables(states *[]awsstepfunctions.State) *[]awsstep
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func SqsSendMessage_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SqsSendMessage",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SqsSendMessage",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -43936,14 +35962,13 @@ func SqsSendMessage_FindReachableEndStates(start awsstepfunctions.State, options
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func SqsSendMessage_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SqsSendMessage",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SqsSendMessage",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -43952,15 +35977,17 @@ func SqsSendMessage_FindReachableStates(start awsstepfunctions.State, options *a
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func SqsSendMessage_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.SqsSendMessage",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SqsSendMessage",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -43970,12 +35997,11 @@ func SqsSendMessage_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func SqsSendMessage_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.SqsSendMessage",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SqsSendMessage",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -44206,43 +36232,6 @@ func (s *jsiiProxy_SqsSendMessage) Next(next awsstepfunctions.IChainable) awsste
 	return returns
 }
 
-func (s *jsiiProxy_SqsSendMessage) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (s *jsiiProxy_SqsSendMessage) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (s *jsiiProxy_SqsSendMessage) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_SqsSendMessage) Prepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (s *jsiiProxy_SqsSendMessage) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -44334,14 +36323,6 @@ func (s *jsiiProxy_SqsSendMessage) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (s *jsiiProxy_SqsSendMessage) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (s *jsiiProxy_SqsSendMessage) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -44368,12 +36349,12 @@ func (s *jsiiProxy_SqsSendMessage) ToString() *string {
 	return returns
 }
 
-func (s *jsiiProxy_SqsSendMessage) Validate() *[]*string {
+func (s *jsiiProxy_SqsSendMessage) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		s,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -44410,38 +36391,31 @@ func (s *jsiiProxy_SqsSendMessage) WhenBoundToGraph(graph awsstepfunctions.State
 //   	}),
 //   })
 //
-// Experimental.
 type SqsSendMessageProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -44449,137 +36423,28 @@ type SqsSendMessageProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The text message to send to the queue.
-	// Experimental.
 	MessageBody awsstepfunctions.TaskInput `json:"messageBody" yaml:"messageBody"`
 	// The SQS queue that messages will be sent to.
-	// Experimental.
 	Queue awssqs.IQueue `json:"queue" yaml:"queue"`
 	// The length of time, for which to delay a message.
 	//
 	// Messages that you send to the queue remain invisible to consumers for the duration
 	// of the delay period. The maximum allowed delay is 15 minutes.
-	// Experimental.
 	Delay awscdk.Duration `json:"delay" yaml:"delay"`
 	// The token used for deduplication of sent messages.
 	//
 	// Any messages sent with the same deduplication ID are accepted successfully,
 	// but aren't delivered during the 5-minute deduplication interval.
-	// Experimental.
 	MessageDeduplicationId *string `json:"messageDeduplicationId" yaml:"messageDeduplicationId"`
 	// The tag that specifies that a message belongs to a specific message group.
 	//
 	// Messages that belong to the same message group are processed in a FIFO manner.
 	// Messages in different message groups might be processed out of order.
-	// Experimental.
 	MessageGroupId *string `json:"messageGroupId" yaml:"messageGroupId"`
-}
-
-// A Step Functions Task to call StartExecution on another state machine.
-//
-// It supports three service integration patterns: FIRE_AND_FORGET, SYNC and WAIT_FOR_TASK_TOKEN.
-//
-// Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var input interface{}
-//   var stateMachine stateMachine
-//   startExecution := stepfunctions_tasks.NewStartExecution(stateMachine, &startExecutionProps{
-//   	input: map[string]interface{}{
-//   		"inputKey": input,
-//   	},
-//   	integrationPattern: stepfunctions.serviceIntegrationPattern_FIRE_AND_FORGET,
-//   	name: jsii.String("name"),
-//   })
-//
-// Deprecated: - use 'StepFunctionsStartExecution'.
-type StartExecution interface {
-	awsstepfunctions.IStepFunctionsTask
-	// Called when the task object is used in a workflow.
-	// Deprecated: - use 'StepFunctionsStartExecution'.
-	Bind(task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig
-}
-
-// The jsii proxy struct for StartExecution
-type jsiiProxy_StartExecution struct {
-	internal.Type__awsstepfunctionsIStepFunctionsTask
-}
-
-// Deprecated: - use 'StepFunctionsStartExecution'.
-func NewStartExecution(stateMachine awsstepfunctions.IStateMachine, props *StartExecutionProps) StartExecution {
-	_init_.Initialize()
-
-	j := jsiiProxy_StartExecution{}
-
-	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.StartExecution",
-		[]interface{}{stateMachine, props},
-		&j,
-	)
-
-	return &j
-}
-
-// Deprecated: - use 'StepFunctionsStartExecution'.
-func NewStartExecution_Override(s StartExecution, stateMachine awsstepfunctions.IStateMachine, props *StartExecutionProps) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.StartExecution",
-		[]interface{}{stateMachine, props},
-		s,
-	)
-}
-
-func (s *jsiiProxy_StartExecution) Bind(task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
-	var returns *awsstepfunctions.StepFunctionsTaskConfig
-
-	_jsii_.Invoke(
-		s,
-		"bind",
-		[]interface{}{task},
-		&returns,
-	)
-
-	return returns
-}
-
-// Properties for StartExecution.
-//
-// Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions_tasks "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions_tasks"
-//
-//   var input interface{}
-//   startExecutionProps := &startExecutionProps{
-//   	input: map[string]interface{}{
-//   		"inputKey": input,
-//   	},
-//   	integrationPattern: stepfunctions.serviceIntegrationPattern_FIRE_AND_FORGET,
-//   	name: jsii.String("name"),
-//   }
-//
-// Deprecated: - use 'StepFunctionsStartExecution'.
-type StartExecutionProps struct {
-	// The JSON input for the execution, same as that of StartExecution.
-	// See: https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html
-	//
-	// Deprecated: - use 'StepFunctionsStartExecution'.
-	Input *map[string]interface{} `json:"input" yaml:"input"`
-	// The service integration pattern indicates different ways to call StartExecution to Step Functions.
-	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html
-	//
-	// Deprecated: - use 'StepFunctionsStartExecution'.
-	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
-	// The name of the execution, same as that of StartExecution.
-	// See: https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html
-	//
-	// Deprecated: - use 'StepFunctionsStartExecution'.
-	Name *string `json:"name" yaml:"name"`
 }
 
 // A Step Functions Task to invoke an Activity worker.
@@ -44593,198 +36458,103 @@ type StartExecutionProps struct {
 //   	activity: submitJobActivity,
 //   })
 //
-// Experimental.
 type StepFunctionsInvokeActivity interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -44863,8 +36633,8 @@ func (j *jsiiProxy_StepFunctionsInvokeActivity) Iteration() awsstepfunctions.Sta
 	return returns
 }
 
-func (j *jsiiProxy_StepFunctionsInvokeActivity) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_StepFunctionsInvokeActivity) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -44954,14 +36724,13 @@ func (j *jsiiProxy_StepFunctionsInvokeActivity) TaskPolicies() *[]awsiam.PolicyS
 }
 
 
-// Experimental.
 func NewStepFunctionsInvokeActivity(scope constructs.Construct, id *string, props *StepFunctionsInvokeActivityProps) StepFunctionsInvokeActivity {
 	_init_.Initialize()
 
 	j := jsiiProxy_StepFunctionsInvokeActivity{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
+		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -44969,12 +36738,11 @@ func NewStepFunctionsInvokeActivity(scope constructs.Construct, id *string, prop
 	return &j
 }
 
-// Experimental.
 func NewStepFunctionsInvokeActivity_Override(s StepFunctionsInvokeActivity, scope constructs.Construct, id *string, props *StepFunctionsInvokeActivityProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
+		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -44997,14 +36765,13 @@ func (j *jsiiProxy_StepFunctionsInvokeActivity) SetIteration(val awsstepfunction
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func StepFunctionsInvokeActivity_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
+		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -45014,14 +36781,13 @@ func StepFunctionsInvokeActivity_FilterNextables(states *[]awsstepfunctions.Stat
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func StepFunctionsInvokeActivity_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
+		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -45033,14 +36799,13 @@ func StepFunctionsInvokeActivity_FindReachableEndStates(start awsstepfunctions.S
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func StepFunctionsInvokeActivity_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
+		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -45049,15 +36814,17 @@ func StepFunctionsInvokeActivity_FindReachableStates(start awsstepfunctions.Stat
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func StepFunctionsInvokeActivity_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
+		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -45067,12 +36834,11 @@ func StepFunctionsInvokeActivity_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func StepFunctionsInvokeActivity_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
+		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -45303,43 +37069,6 @@ func (s *jsiiProxy_StepFunctionsInvokeActivity) Next(next awsstepfunctions.IChai
 	return returns
 }
 
-func (s *jsiiProxy_StepFunctionsInvokeActivity) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (s *jsiiProxy_StepFunctionsInvokeActivity) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (s *jsiiProxy_StepFunctionsInvokeActivity) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_StepFunctionsInvokeActivity) Prepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (s *jsiiProxy_StepFunctionsInvokeActivity) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -45431,14 +37160,6 @@ func (s *jsiiProxy_StepFunctionsInvokeActivity) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (s *jsiiProxy_StepFunctionsInvokeActivity) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (s *jsiiProxy_StepFunctionsInvokeActivity) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -45465,12 +37186,12 @@ func (s *jsiiProxy_StepFunctionsInvokeActivity) ToString() *string {
 	return returns
 }
 
-func (s *jsiiProxy_StepFunctionsInvokeActivity) Validate() *[]*string {
+func (s *jsiiProxy_StepFunctionsInvokeActivity) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		s,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -45495,38 +37216,31 @@ func (s *jsiiProxy_StepFunctionsInvokeActivity) WhenBoundToGraph(graph awsstepfu
 //   	activity: submitJobActivity,
 //   })
 //
-// Experimental.
 type StepFunctionsInvokeActivityProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -45534,13 +37248,10 @@ type StepFunctionsInvokeActivityProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Step Functions Activity to invoke.
-	// Experimental.
 	Activity awsstepfunctions.IActivity `json:"activity" yaml:"activity"`
 }
 
@@ -45571,198 +37282,103 @@ type StepFunctionsInvokeActivityProps struct {
 //   	definition: task,
 //   })
 //
-// Experimental.
 type StepFunctionsStartExecution interface {
 	awsstepfunctions.TaskStateBase
-	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
-	// Experimental.
 	Comment() *string
-	// Experimental.
 	DefaultChoice() awsstepfunctions.State
-	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
-	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
-	// Experimental.
 	InputPath() *string
-	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
-	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	OutputPath() *string
-	// Experimental.
 	Parameters() *map[string]interface{}
-	// Experimental.
 	ResultPath() *string
-	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
-	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
-	// Experimental.
 	StateId() *string
-	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
-	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
-	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
-	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
-	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
-	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
-	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
-	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
-	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
 	// Make the indicated state the default choice transition of this state.
-	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
-	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
-	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
-	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
-	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
-	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render parallel branches in ASL JSON format.
-	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
-	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
-	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
-	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
-	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	// Experimental.
 	RenderRetryCatch() interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
-	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
+	// Allows the state to validate itself.
+	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
-	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -45841,8 +37457,8 @@ func (j *jsiiProxy_StepFunctionsStartExecution) Iteration() awsstepfunctions.Sta
 	return returns
 }
 
-func (j *jsiiProxy_StepFunctionsStartExecution) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_StepFunctionsStartExecution) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -45932,14 +37548,13 @@ func (j *jsiiProxy_StepFunctionsStartExecution) TaskPolicies() *[]awsiam.PolicyS
 }
 
 
-// Experimental.
 func NewStepFunctionsStartExecution(scope constructs.Construct, id *string, props *StepFunctionsStartExecutionProps) StepFunctionsStartExecution {
 	_init_.Initialize()
 
 	j := jsiiProxy_StepFunctionsStartExecution{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.StepFunctionsStartExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsStartExecution",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -45947,12 +37562,11 @@ func NewStepFunctionsStartExecution(scope constructs.Construct, id *string, prop
 	return &j
 }
 
-// Experimental.
 func NewStepFunctionsStartExecution_Override(s StepFunctionsStartExecution, scope constructs.Construct, id *string, props *StepFunctionsStartExecutionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.StepFunctionsStartExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsStartExecution",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -45975,14 +37589,13 @@ func (j *jsiiProxy_StepFunctionsStartExecution) SetIteration(val awsstepfunction
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func StepFunctionsStartExecution_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.StepFunctionsStartExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsStartExecution",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -45992,14 +37605,13 @@ func StepFunctionsStartExecution_FilterNextables(states *[]awsstepfunctions.Stat
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func StepFunctionsStartExecution_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.StepFunctionsStartExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsStartExecution",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -46011,14 +37623,13 @@ func StepFunctionsStartExecution_FindReachableEndStates(start awsstepfunctions.S
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func StepFunctionsStartExecution_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.StepFunctionsStartExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsStartExecution",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -46027,15 +37638,17 @@ func StepFunctionsStartExecution_FindReachableStates(start awsstepfunctions.Stat
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func StepFunctionsStartExecution_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.StepFunctionsStartExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsStartExecution",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -46045,12 +37658,11 @@ func StepFunctionsStartExecution_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func StepFunctionsStartExecution_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_stepfunctions_tasks.StepFunctionsStartExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsStartExecution",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -46281,43 +37893,6 @@ func (s *jsiiProxy_StepFunctionsStartExecution) Next(next awsstepfunctions.IChai
 	return returns
 }
 
-func (s *jsiiProxy_StepFunctionsStartExecution) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (s *jsiiProxy_StepFunctionsStartExecution) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (s *jsiiProxy_StepFunctionsStartExecution) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_StepFunctionsStartExecution) Prepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (s *jsiiProxy_StepFunctionsStartExecution) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -46409,14 +37984,6 @@ func (s *jsiiProxy_StepFunctionsStartExecution) RenderRetryCatch() interface{} {
 	return returns
 }
 
-func (s *jsiiProxy_StepFunctionsStartExecution) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (s *jsiiProxy_StepFunctionsStartExecution) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -46443,12 +38010,12 @@ func (s *jsiiProxy_StepFunctionsStartExecution) ToString() *string {
 	return returns
 }
 
-func (s *jsiiProxy_StepFunctionsStartExecution) Validate() *[]*string {
+func (s *jsiiProxy_StepFunctionsStartExecution) ValidateState() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		s,
-		"validate",
+		"validateState",
 		nil, // no parameters
 		&returns,
 	)
@@ -46489,38 +38056,31 @@ func (s *jsiiProxy_StepFunctionsStartExecution) WhenBoundToGraph(graph awsstepfu
 //   	definition: task,
 //   })
 //
-// Experimental.
 type StepFunctionsStartExecutionProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -46528,13 +38088,10 @@ type StepFunctionsStartExecutionProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The Step Functions state machine to start the execution on.
-	// Experimental.
 	StateMachine awsstepfunctions.IStateMachine `json:"stateMachine" yaml:"stateMachine"`
 	// Pass the execution ID from the context object to the execution input.
 	//
@@ -46543,17 +38100,14 @@ type StepFunctionsStartExecutionProps struct {
 	// If you set this property to `true`, the `input` property must be an object (provided by `sfn.TaskInput.fromObject`) or omitted entirely.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-nested-workflows.html#nested-execution-startid
 	//
-	// Experimental.
 	AssociateWithParent *bool `json:"associateWithParent" yaml:"associateWithParent"`
 	// The JSON input for the execution, same as that of StartExecution.
 	// See: https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html
 	//
-	// Experimental.
 	Input awsstepfunctions.TaskInput `json:"input" yaml:"input"`
 	// The name of the execution, same as that of StartExecution.
 	// See: https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html
 	//
-	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 }
 
@@ -46593,10 +38147,8 @@ type StepFunctionsStartExecutionProps struct {
 //   	},
 //   })
 //
-// Experimental.
 type StoppingCondition struct {
 	// The maximum length of time, in seconds, that the training or compilation job can run.
-	// Experimental.
 	MaxRuntime awscdk.Duration `json:"maxRuntime" yaml:"maxRuntime"`
 }
 
@@ -46609,17 +38161,14 @@ type StoppingCondition struct {
 //   	value: jsii.String("value"),
 //   }
 //
-// Experimental.
 type TaskEnvironmentVariable struct {
 	// Name for the environment variable.
 	//
 	// Use `JsonPath` class's static methods to specify name from a JSON path.
-	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 	// Value of the environment variable.
 	//
 	// Use `JsonPath` class's static methods to specify value from a JSON path.
-	// Experimental.
 	Value *string `json:"value" yaml:"value"`
 }
 
@@ -46651,10 +38200,8 @@ type TaskEnvironmentVariable struct {
 //   	},
 //   })
 //
-// Experimental.
 type TransformDataSource struct {
 	// S3 location of the input data.
-	// Experimental.
 	S3DataSource *TransformS3DataSource `json:"s3DataSource" yaml:"s3DataSource"`
 }
 
@@ -46686,19 +38233,14 @@ type TransformDataSource struct {
 //   	},
 //   })
 //
-// Experimental.
 type TransformInput struct {
 	// S3 location of the channel data.
-	// Experimental.
 	TransformDataSource *TransformDataSource `json:"transformDataSource" yaml:"transformDataSource"`
 	// The compression type of the transform data.
-	// Experimental.
 	CompressionType CompressionType `json:"compressionType" yaml:"compressionType"`
 	// Multipurpose internet mail extension (MIME) type of the data.
-	// Experimental.
 	ContentType *string `json:"contentType" yaml:"contentType"`
 	// Method to use to split the transform job's data files into smaller batches.
-	// Experimental.
 	SplitType SplitType `json:"splitType" yaml:"splitType"`
 }
 
@@ -46730,19 +38272,14 @@ type TransformInput struct {
 //   	},
 //   })
 //
-// Experimental.
 type TransformOutput struct {
 	// S3 path where you want Amazon SageMaker to store the results of the transform job.
-	// Experimental.
 	S3OutputPath *string `json:"s3OutputPath" yaml:"s3OutputPath"`
 	// MIME type used to specify the output data.
-	// Experimental.
 	Accept *string `json:"accept" yaml:"accept"`
 	// Defines how to assemble the results of the transform job as a single S3 object.
-	// Experimental.
 	AssembleWith AssembleWith `json:"assembleWith" yaml:"assembleWith"`
 	// AWS KMS key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 }
 
@@ -46774,16 +38311,12 @@ type TransformOutput struct {
 //   	},
 //   })
 //
-// Experimental.
 type TransformResources struct {
 	// Number of ML compute instances to use in the transform job.
-	// Experimental.
 	InstanceCount *float64 `json:"instanceCount" yaml:"instanceCount"`
 	// ML compute instance type for the transform job.
-	// Experimental.
 	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// AWS KMS key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s).
-	// Experimental.
 	VolumeEncryptionKey awskms.IKey `json:"volumeEncryptionKey" yaml:"volumeEncryptionKey"`
 }
 
@@ -46815,13 +38348,10 @@ type TransformResources struct {
 //   	},
 //   })
 //
-// Experimental.
 type TransformS3DataSource struct {
 	// Identifies either a key name prefix or a manifest.
-	// Experimental.
 	S3Uri *string `json:"s3Uri" yaml:"s3Uri"`
 	// S3 Data Type.
-	// Experimental.
 	S3DataType S3DataType `json:"s3DataType" yaml:"s3DataType"`
 }
 
@@ -46848,10 +38378,8 @@ type TransformS3DataSource struct {
 //   	},
 //   })
 //
-// Experimental.
 type VirtualClusterInput interface {
 	// The VirtualCluster Id.
-	// Experimental.
 	Id() *string
 }
 
@@ -46872,14 +38400,13 @@ func (j *jsiiProxy_VirtualClusterInput) Id() *string {
 
 
 // Input for a virtualClusterId from a Task Input.
-// Experimental.
 func VirtualClusterInput_FromTaskInput(taskInput awsstepfunctions.TaskInput) VirtualClusterInput {
 	_init_.Initialize()
 
 	var returns VirtualClusterInput
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.VirtualClusterInput",
+		"aws-cdk-lib.aws_stepfunctions_tasks.VirtualClusterInput",
 		"fromTaskInput",
 		[]interface{}{taskInput},
 		&returns,
@@ -46889,14 +38416,13 @@ func VirtualClusterInput_FromTaskInput(taskInput awsstepfunctions.TaskInput) Vir
 }
 
 // Input for virtualClusterId from a literal string.
-// Experimental.
 func VirtualClusterInput_FromVirtualClusterId(virtualClusterId *string) VirtualClusterInput {
 	_init_.Initialize()
 
 	var returns VirtualClusterInput
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.VirtualClusterInput",
+		"aws-cdk-lib.aws_stepfunctions_tasks.VirtualClusterInput",
 		"fromVirtualClusterId",
 		[]interface{}{virtualClusterId},
 		&returns,
@@ -46926,21 +38452,17 @@ func VirtualClusterInput_FromVirtualClusterId(virtualClusterId *string) VirtualC
 //   			subnetFilter,
 //   		},
 //   		subnetGroupName: jsii.String("subnetGroupName"),
-//   		subnetName: jsii.String("subnetName"),
 //   		subnets: []iSubnet{
 //   			subnet,
 //   		},
-//   		subnetType: ec2.subnetType_ISOLATED,
+//   		subnetType: ec2.subnetType_PRIVATE_ISOLATED,
 //   	},
 //   }
 //
-// Experimental.
 type VpcConfig struct {
 	// VPC.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// VPC subnets.
-	// Experimental.
 	Subnets *awsec2.SubnetSelection `json:"subnets" yaml:"subnets"`
 }
 
