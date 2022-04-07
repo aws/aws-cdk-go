@@ -4289,6 +4289,17 @@ type SystemErrorsForOperationsMetricOptions struct {
 	// Experimental.
 	DimensionsMap *map[string]*string `json:"dimensionsMap" yaml:"dimensionsMap"`
 	// Label for this metric when added to a Graph in a Dashboard.
+	//
+	// You can use [dynamic labels](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph-dynamic-labels.html)
+	// to show summary information about the entire displayed time series
+	// in the legend. For example, if you use:
+	//
+	// ```
+	// [max: ${MAX}] MyMetric
+	// ```
+	//
+	// As the metric label, the maximum value in the visible range will
+	// be shown next to the time series name in the graph's legend.
 	// Experimental.
 	Label *string `json:"label" yaml:"label"`
 	// The period over which the specified statistic is applied.

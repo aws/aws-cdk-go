@@ -844,9 +844,9 @@ type CfnBuild interface {
 	Stack() awscdk.Stack
 	// Information indicating where your game build files are stored.
 	//
-	// Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon Web Services to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
+	// Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
 	//
-	// If a `StorageLocation` is specified, the size of your file can be found in your Amazon S3 bucket. Amazon Web Services will report a `SizeOnDisk` of 0.
+	// If a `StorageLocation` is specified, the size of your file can be found in your Amazon S3 bucket. Amazon GameLift will report a `SizeOnDisk` of 0.
 	StorageLocation() interface{}
 	SetStorageLocation(val interface{})
 	// Return properties modified after initiation.
@@ -1511,7 +1511,7 @@ type CfnBuild_S3LocationProperty struct {
 	Bucket *string `json:"bucket" yaml:"bucket"`
 	// The name of the zip file that contains the build files or script files.
 	Key *string `json:"key" yaml:"key"`
-	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) for an IAM role that allows Amazon Web Services to access the S3 bucket.
+	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) for an IAM role that allows Amazon GameLift to access the S3 bucket.
 	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The version of the file, if object versioning is turned on for the bucket.
 	//
@@ -1548,9 +1548,9 @@ type CfnBuildProps struct {
 	OperatingSystem *string `json:"operatingSystem" yaml:"operatingSystem"`
 	// Information indicating where your game build files are stored.
 	//
-	// Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon Web Services to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
+	// Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
 	//
-	// If a `StorageLocation` is specified, the size of your file can be found in your Amazon S3 bucket. Amazon Web Services will report a `SizeOnDisk` of 0.
+	// If a `StorageLocation` is specified, the size of your file can be found in your Amazon S3 bucket. Amazon GameLift will report a `SizeOnDisk` of 0.
 	StorageLocation interface{} `json:"storageLocation" yaml:"storageLocation"`
 	// Version information that is associated with this build.
 	//
@@ -3182,7 +3182,7 @@ type CfnGameServerGroup interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
-	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) for an IAM role that allows Amazon Web Services to access your Amazon EC2 Auto Scaling groups.
+	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) for an IAM role that allows Amazon GameLift to access your Amazon EC2 Auto Scaling groups.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The stack in which this element is defined.
@@ -4137,7 +4137,7 @@ type CfnGameServerGroupProps struct {
 	//
 	// > If you specify network interfaces in your launch template, you must explicitly set the property `AssociatePublicIpAddress` to "true". If no network interface is specified in the launch template, GameLift FleetIQ uses your account's default VPC.
 	LaunchTemplate interface{} `json:"launchTemplate" yaml:"launchTemplate"`
-	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) for an IAM role that allows Amazon Web Services to access your Amazon EC2 Auto Scaling groups.
+	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) for an IAM role that allows Amazon GameLift to access your Amazon EC2 Auto Scaling groups.
 	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting.
 	//
@@ -7159,7 +7159,7 @@ type CfnScript interface {
 	Stack() awscdk.Stack
 	// The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored.
 	//
-	// The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon Web Services to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon Web Services uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the `ObjectVersion` parameter to specify an earlier version.
+	// The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the `ObjectVersion` parameter to specify an earlier version.
 	StorageLocation() interface{}
 	SetStorageLocation(val interface{})
 	// A list of labels to assign to the new script resource.
@@ -7840,11 +7840,11 @@ type CfnScript_S3LocationProperty struct {
 	Bucket *string `json:"bucket" yaml:"bucket"`
 	// The name of the zip file that contains the build files or script files.
 	Key *string `json:"key" yaml:"key"`
-	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) for an IAM role that allows Amazon Web Services to access the S3 bucket.
+	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) for an IAM role that allows Amazon GameLift to access the S3 bucket.
 	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The version of the file, if object versioning is turned on for the bucket.
 	//
-	// Amazon Web Services uses this information when retrieving files from an S3 bucket that you own. Use this parameter to specify a specific version of the file. If not set, the latest version of the file is retrieved.
+	// Amazon GameLift uses this information when retrieving files from an S3 bucket that you own. Use this parameter to specify a specific version of the file. If not set, the latest version of the file is retrieved.
 	ObjectVersion *string `json:"objectVersion" yaml:"objectVersion"`
 }
 
@@ -7876,7 +7876,7 @@ type CfnScript_S3LocationProperty struct {
 type CfnScriptProps struct {
 	// The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored.
 	//
-	// The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon Web Services to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon Web Services uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the `ObjectVersion` parameter to specify an earlier version.
+	// The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the `ObjectVersion` parameter to specify an earlier version.
 	StorageLocation interface{} `json:"storageLocation" yaml:"storageLocation"`
 	// A descriptive label that is associated with a script.
 	//

@@ -18438,9 +18438,9 @@ type ExternalTaskDefinition interface {
 	// Adds a policy statement to the task IAM role.
 	// Experimental.
 	AddToTaskRolePolicy(statement awsiam.PolicyStatement)
-	// Overridden method to throw error, as volumes are not supported for external task definitions.
+	// Adds a volume to the task definition.
 	// Experimental.
-	AddVolume(_volume *Volume)
+	AddVolume(volume *Volume)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -18916,11 +18916,11 @@ func (e *jsiiProxy_ExternalTaskDefinition) AddToTaskRolePolicy(statement awsiam.
 	)
 }
 
-func (e *jsiiProxy_ExternalTaskDefinition) AddVolume(_volume *Volume) {
+func (e *jsiiProxy_ExternalTaskDefinition) AddVolume(volume *Volume) {
 	_jsii_.InvokeVoid(
 		e,
 		"addVolume",
-		[]interface{}{_volume},
+		[]interface{}{volume},
 	)
 }
 

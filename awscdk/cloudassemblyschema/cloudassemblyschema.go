@@ -543,6 +543,135 @@ type BootstrapRole struct {
 	RequiresBootstrapStackVersion *float64 `json:"requiresBootstrapStackVersion" yaml:"requiresBootstrapStackVersion"`
 }
 
+// Represents a cdk command i.e. `synth`, `deploy`, & `destroy`.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloud_assembly_schema "github.com/aws/aws-cdk-go/awscdk/cloud_assembly_schema"
+//   cdkCommand := &cdkCommand{
+//   	enabled: jsii.Boolean(false),
+//   	expectedMessage: jsii.String("expectedMessage"),
+//   	expectError: jsii.Boolean(false),
+//   }
+//
+// Experimental.
+type CdkCommand struct {
+	// Whether or not to run this command as part of the workflow This can be used if you only want to test some of the workflow for example enable `synth` and disable `deploy` & `destroy` in order to limit the test to synthesis.
+	// Experimental.
+	Enabled *bool `json:"enabled" yaml:"enabled"`
+	// This can be used in combination with `expectedError` to validate that a specific message is returned.
+	// Experimental.
+	ExpectedMessage *string `json:"expectedMessage" yaml:"expectedMessage"`
+	// If the runner should expect this command to fail.
+	// Experimental.
+	ExpectError *bool `json:"expectError" yaml:"expectError"`
+}
+
+// Options for specific cdk commands that are run as part of the integration test workflow.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloud_assembly_schema "github.com/aws/aws-cdk-go/awscdk/cloud_assembly_schema"
+//   cdkCommands := &cdkCommands{
+//   	deploy: &deployCommand{
+//   		args: &deployOptions{
+//   			all: jsii.Boolean(false),
+//   			app: jsii.String("app"),
+//   			assetMetadata: jsii.Boolean(false),
+//   			caBundlePath: jsii.String("caBundlePath"),
+//   			changeSetName: jsii.String("changeSetName"),
+//   			ci: jsii.Boolean(false),
+//   			color: jsii.Boolean(false),
+//   			context: map[string]*string{
+//   				"contextKey": jsii.String("context"),
+//   			},
+//   			debug: jsii.Boolean(false),
+//   			ec2Creds: jsii.Boolean(false),
+//   			exclusively: jsii.Boolean(false),
+//   			execute: jsii.Boolean(false),
+//   			force: jsii.Boolean(false),
+//   			ignoreErrors: jsii.Boolean(false),
+//   			json: jsii.Boolean(false),
+//   			lookups: jsii.Boolean(false),
+//   			notices: jsii.Boolean(false),
+//   			notificationArns: []*string{
+//   				jsii.String("notificationArns"),
+//   			},
+//   			output: jsii.String("output"),
+//   			outputsFile: jsii.String("outputsFile"),
+//   			parameters: map[string]*string{
+//   				"parametersKey": jsii.String("parameters"),
+//   			},
+//   			pathMetadata: jsii.Boolean(false),
+//   			profile: jsii.String("profile"),
+//   			proxy: jsii.String("proxy"),
+//   			requireApproval: cloud_assembly_schema.requireApproval_NEVER,
+//   			reuseAssets: []*string{
+//   				jsii.String("reuseAssets"),
+//   			},
+//   			roleArn: jsii.String("roleArn"),
+//   			rollback: jsii.Boolean(false),
+//   			stacks: []*string{
+//   				jsii.String("stacks"),
+//   			},
+//   			staging: jsii.Boolean(false),
+//   			strict: jsii.Boolean(false),
+//   			toolkitStackName: jsii.String("toolkitStackName"),
+//   			trace: jsii.Boolean(false),
+//   			usePreviousParameters: jsii.Boolean(false),
+//   			verbose: jsii.Boolean(false),
+//   			versionReporting: jsii.Boolean(false),
+//   		},
+//   		enabled: jsii.Boolean(false),
+//   		expectedMessage: jsii.String("expectedMessage"),
+//   		expectError: jsii.Boolean(false),
+//   	},
+//   	destroy: &destroyCommand{
+//   		args: &destroyOptions{
+//   			all: jsii.Boolean(false),
+//   			app: jsii.String("app"),
+//   			assetMetadata: jsii.Boolean(false),
+//   			caBundlePath: jsii.String("caBundlePath"),
+//   			color: jsii.Boolean(false),
+//   			context: map[string]*string{
+//   				"contextKey": jsii.String("context"),
+//   			},
+//   			debug: jsii.Boolean(false),
+//   			ec2Creds: jsii.Boolean(false),
+//   			exclusively: jsii.Boolean(false),
+//   			force: jsii.Boolean(false),
+//   			ignoreErrors: jsii.Boolean(false),
+//   			json: jsii.Boolean(false),
+//   			lookups: jsii.Boolean(false),
+//   			notices: jsii.Boolean(false),
+//   			output: jsii.String("output"),
+//   			pathMetadata: jsii.Boolean(false),
+//   			profile: jsii.String("profile"),
+//   			proxy: jsii.String("proxy"),
+//   			roleArn: jsii.String("roleArn"),
+//   			stacks: []*string{
+//   				jsii.String("stacks"),
+//   			},
+//   			staging: jsii.Boolean(false),
+//   			strict: jsii.Boolean(false),
+//   			trace: jsii.Boolean(false),
+//   			verbose: jsii.Boolean(false),
+//   			versionReporting: jsii.Boolean(false),
+//   		},
+//   		enabled: jsii.Boolean(false),
+//   		expectedMessage: jsii.String("expectedMessage"),
+//   		expectError: jsii.Boolean(false),
+//   	},
+//   }
+//
+// Experimental.
+type CdkCommands struct {
+	// Options to for the cdk deploy command.
+	// Experimental.
+	Deploy *DeployCommand `json:"deploy" yaml:"deploy"`
+	// Options to for the cdk destroy command.
+	// Experimental.
+	Destroy *DestroyCommand `json:"destroy" yaml:"destroy"`
+}
+
 // Metadata Entry spec for container images.
 //
 // Example:
@@ -651,6 +780,564 @@ const (
 	// Experimental.
 	ContextProvider_PLUGIN ContextProvider = "PLUGIN"
 )
+
+// Default CDK CLI options that apply to all commands.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloud_assembly_schema "github.com/aws/aws-cdk-go/awscdk/cloud_assembly_schema"
+//   defaultCdkOptions := &defaultCdkOptions{
+//   	all: jsii.Boolean(false),
+//   	app: jsii.String("app"),
+//   	assetMetadata: jsii.Boolean(false),
+//   	caBundlePath: jsii.String("caBundlePath"),
+//   	color: jsii.Boolean(false),
+//   	context: map[string]*string{
+//   		"contextKey": jsii.String("context"),
+//   	},
+//   	debug: jsii.Boolean(false),
+//   	ec2Creds: jsii.Boolean(false),
+//   	ignoreErrors: jsii.Boolean(false),
+//   	json: jsii.Boolean(false),
+//   	lookups: jsii.Boolean(false),
+//   	notices: jsii.Boolean(false),
+//   	output: jsii.String("output"),
+//   	pathMetadata: jsii.Boolean(false),
+//   	profile: jsii.String("profile"),
+//   	proxy: jsii.String("proxy"),
+//   	roleArn: jsii.String("roleArn"),
+//   	stacks: []*string{
+//   		jsii.String("stacks"),
+//   	},
+//   	staging: jsii.Boolean(false),
+//   	strict: jsii.Boolean(false),
+//   	trace: jsii.Boolean(false),
+//   	verbose: jsii.Boolean(false),
+//   	versionReporting: jsii.Boolean(false),
+//   }
+//
+// Experimental.
+type DefaultCdkOptions struct {
+	// Deploy all stacks.
+	//
+	// Requried if `stacks` is not set.
+	// Experimental.
+	All *bool `json:"all" yaml:"all"`
+	// command-line for executing your app or a cloud assembly directory e.g. "node bin/my-app.js" or "cdk.out".
+	// Experimental.
+	App *string `json:"app" yaml:"app"`
+	// Include "aws:asset:*" CloudFormation metadata for resources that use assets.
+	// Experimental.
+	AssetMetadata *bool `json:"assetMetadata" yaml:"assetMetadata"`
+	// Path to CA certificate to use when validating HTTPS requests.
+	// Experimental.
+	CaBundlePath *string `json:"caBundlePath" yaml:"caBundlePath"`
+	// Show colors and other style from console output.
+	// Experimental.
+	Color *bool `json:"color" yaml:"color"`
+	// Additional context.
+	// Experimental.
+	Context *map[string]*string `json:"context" yaml:"context"`
+	// enable emission of additional debugging information, such as creation stack traces of tokens.
+	// Experimental.
+	Debug *bool `json:"debug" yaml:"debug"`
+	// Force trying to fetch EC2 instance credentials.
+	// Experimental.
+	Ec2Creds *bool `json:"ec2Creds" yaml:"ec2Creds"`
+	// Ignores synthesis errors, which will likely produce an invalid output.
+	// Experimental.
+	IgnoreErrors *bool `json:"ignoreErrors" yaml:"ignoreErrors"`
+	// Use JSON output instead of YAML when templates are printed to STDOUT.
+	// Experimental.
+	Json *bool `json:"json" yaml:"json"`
+	// Perform context lookups.
+	//
+	// Synthesis fails if this is disabled and context lookups need
+	// to be performed.
+	// Experimental.
+	Lookups *bool `json:"lookups" yaml:"lookups"`
+	// Show relevant notices.
+	// Experimental.
+	Notices *bool `json:"notices" yaml:"notices"`
+	// Emits the synthesized cloud assembly into a directory.
+	// Experimental.
+	Output *string `json:"output" yaml:"output"`
+	// Include "aws:cdk:path" CloudFormation metadata for each resource.
+	// Experimental.
+	PathMetadata *bool `json:"pathMetadata" yaml:"pathMetadata"`
+	// Use the indicated AWS profile as the default environment.
+	// Experimental.
+	Profile *string `json:"profile" yaml:"profile"`
+	// Use the indicated proxy.
+	//
+	// Will read from
+	// HTTPS_PROXY environment if specified.
+	// Experimental.
+	Proxy *string `json:"proxy" yaml:"proxy"`
+	// Role to pass to CloudFormation for deployment.
+	// Experimental.
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	// List of stacks to deploy.
+	//
+	// Requried if `all` is not set.
+	// Experimental.
+	Stacks *[]*string `json:"stacks" yaml:"stacks"`
+	// Copy assets to the output directory.
+	//
+	// Needed for local debugging the source files with SAM CLI.
+	// Experimental.
+	Staging *bool `json:"staging" yaml:"staging"`
+	// Do not construct stacks with warnings.
+	// Experimental.
+	Strict *bool `json:"strict" yaml:"strict"`
+	// Print trace for stack warnings.
+	// Experimental.
+	Trace *bool `json:"trace" yaml:"trace"`
+	// show debug logs.
+	// Experimental.
+	Verbose *bool `json:"verbose" yaml:"verbose"`
+	// Include "AWS::CDK::Metadata" resource in synthesized templates.
+	// Experimental.
+	VersionReporting *bool `json:"versionReporting" yaml:"versionReporting"`
+}
+
+// Represents a cdk deploy command.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloud_assembly_schema "github.com/aws/aws-cdk-go/awscdk/cloud_assembly_schema"
+//   deployCommand := &deployCommand{
+//   	args: &deployOptions{
+//   		all: jsii.Boolean(false),
+//   		app: jsii.String("app"),
+//   		assetMetadata: jsii.Boolean(false),
+//   		caBundlePath: jsii.String("caBundlePath"),
+//   		changeSetName: jsii.String("changeSetName"),
+//   		ci: jsii.Boolean(false),
+//   		color: jsii.Boolean(false),
+//   		context: map[string]*string{
+//   			"contextKey": jsii.String("context"),
+//   		},
+//   		debug: jsii.Boolean(false),
+//   		ec2Creds: jsii.Boolean(false),
+//   		exclusively: jsii.Boolean(false),
+//   		execute: jsii.Boolean(false),
+//   		force: jsii.Boolean(false),
+//   		ignoreErrors: jsii.Boolean(false),
+//   		json: jsii.Boolean(false),
+//   		lookups: jsii.Boolean(false),
+//   		notices: jsii.Boolean(false),
+//   		notificationArns: []*string{
+//   			jsii.String("notificationArns"),
+//   		},
+//   		output: jsii.String("output"),
+//   		outputsFile: jsii.String("outputsFile"),
+//   		parameters: map[string]*string{
+//   			"parametersKey": jsii.String("parameters"),
+//   		},
+//   		pathMetadata: jsii.Boolean(false),
+//   		profile: jsii.String("profile"),
+//   		proxy: jsii.String("proxy"),
+//   		requireApproval: cloud_assembly_schema.requireApproval_NEVER,
+//   		reuseAssets: []*string{
+//   			jsii.String("reuseAssets"),
+//   		},
+//   		roleArn: jsii.String("roleArn"),
+//   		rollback: jsii.Boolean(false),
+//   		stacks: []*string{
+//   			jsii.String("stacks"),
+//   		},
+//   		staging: jsii.Boolean(false),
+//   		strict: jsii.Boolean(false),
+//   		toolkitStackName: jsii.String("toolkitStackName"),
+//   		trace: jsii.Boolean(false),
+//   		usePreviousParameters: jsii.Boolean(false),
+//   		verbose: jsii.Boolean(false),
+//   		versionReporting: jsii.Boolean(false),
+//   	},
+//   	enabled: jsii.Boolean(false),
+//   	expectedMessage: jsii.String("expectedMessage"),
+//   	expectError: jsii.Boolean(false),
+//   }
+//
+// Experimental.
+type DeployCommand struct {
+	// Whether or not to run this command as part of the workflow This can be used if you only want to test some of the workflow for example enable `synth` and disable `deploy` & `destroy` in order to limit the test to synthesis.
+	// Experimental.
+	Enabled *bool `json:"enabled" yaml:"enabled"`
+	// This can be used in combination with `expectedError` to validate that a specific message is returned.
+	// Experimental.
+	ExpectedMessage *string `json:"expectedMessage" yaml:"expectedMessage"`
+	// If the runner should expect this command to fail.
+	// Experimental.
+	ExpectError *bool `json:"expectError" yaml:"expectError"`
+	// Additional arguments to pass to the command This can be used to test specific CLI functionality.
+	// Experimental.
+	Args *DeployOptions `json:"args" yaml:"args"`
+}
+
+// Options to use with cdk deploy.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloud_assembly_schema "github.com/aws/aws-cdk-go/awscdk/cloud_assembly_schema"
+//   deployOptions := &deployOptions{
+//   	all: jsii.Boolean(false),
+//   	app: jsii.String("app"),
+//   	assetMetadata: jsii.Boolean(false),
+//   	caBundlePath: jsii.String("caBundlePath"),
+//   	changeSetName: jsii.String("changeSetName"),
+//   	ci: jsii.Boolean(false),
+//   	color: jsii.Boolean(false),
+//   	context: map[string]*string{
+//   		"contextKey": jsii.String("context"),
+//   	},
+//   	debug: jsii.Boolean(false),
+//   	ec2Creds: jsii.Boolean(false),
+//   	exclusively: jsii.Boolean(false),
+//   	execute: jsii.Boolean(false),
+//   	force: jsii.Boolean(false),
+//   	ignoreErrors: jsii.Boolean(false),
+//   	json: jsii.Boolean(false),
+//   	lookups: jsii.Boolean(false),
+//   	notices: jsii.Boolean(false),
+//   	notificationArns: []*string{
+//   		jsii.String("notificationArns"),
+//   	},
+//   	output: jsii.String("output"),
+//   	outputsFile: jsii.String("outputsFile"),
+//   	parameters: map[string]*string{
+//   		"parametersKey": jsii.String("parameters"),
+//   	},
+//   	pathMetadata: jsii.Boolean(false),
+//   	profile: jsii.String("profile"),
+//   	proxy: jsii.String("proxy"),
+//   	requireApproval: cloud_assembly_schema.requireApproval_NEVER,
+//   	reuseAssets: []*string{
+//   		jsii.String("reuseAssets"),
+//   	},
+//   	roleArn: jsii.String("roleArn"),
+//   	rollback: jsii.Boolean(false),
+//   	stacks: []*string{
+//   		jsii.String("stacks"),
+//   	},
+//   	staging: jsii.Boolean(false),
+//   	strict: jsii.Boolean(false),
+//   	toolkitStackName: jsii.String("toolkitStackName"),
+//   	trace: jsii.Boolean(false),
+//   	usePreviousParameters: jsii.Boolean(false),
+//   	verbose: jsii.Boolean(false),
+//   	versionReporting: jsii.Boolean(false),
+//   }
+//
+// Experimental.
+type DeployOptions struct {
+	// Deploy all stacks.
+	//
+	// Requried if `stacks` is not set.
+	// Experimental.
+	All *bool `json:"all" yaml:"all"`
+	// command-line for executing your app or a cloud assembly directory e.g. "node bin/my-app.js" or "cdk.out".
+	// Experimental.
+	App *string `json:"app" yaml:"app"`
+	// Include "aws:asset:*" CloudFormation metadata for resources that use assets.
+	// Experimental.
+	AssetMetadata *bool `json:"assetMetadata" yaml:"assetMetadata"`
+	// Path to CA certificate to use when validating HTTPS requests.
+	// Experimental.
+	CaBundlePath *string `json:"caBundlePath" yaml:"caBundlePath"`
+	// Show colors and other style from console output.
+	// Experimental.
+	Color *bool `json:"color" yaml:"color"`
+	// Additional context.
+	// Experimental.
+	Context *map[string]*string `json:"context" yaml:"context"`
+	// enable emission of additional debugging information, such as creation stack traces of tokens.
+	// Experimental.
+	Debug *bool `json:"debug" yaml:"debug"`
+	// Force trying to fetch EC2 instance credentials.
+	// Experimental.
+	Ec2Creds *bool `json:"ec2Creds" yaml:"ec2Creds"`
+	// Ignores synthesis errors, which will likely produce an invalid output.
+	// Experimental.
+	IgnoreErrors *bool `json:"ignoreErrors" yaml:"ignoreErrors"`
+	// Use JSON output instead of YAML when templates are printed to STDOUT.
+	// Experimental.
+	Json *bool `json:"json" yaml:"json"`
+	// Perform context lookups.
+	//
+	// Synthesis fails if this is disabled and context lookups need
+	// to be performed.
+	// Experimental.
+	Lookups *bool `json:"lookups" yaml:"lookups"`
+	// Show relevant notices.
+	// Experimental.
+	Notices *bool `json:"notices" yaml:"notices"`
+	// Emits the synthesized cloud assembly into a directory.
+	// Experimental.
+	Output *string `json:"output" yaml:"output"`
+	// Include "aws:cdk:path" CloudFormation metadata for each resource.
+	// Experimental.
+	PathMetadata *bool `json:"pathMetadata" yaml:"pathMetadata"`
+	// Use the indicated AWS profile as the default environment.
+	// Experimental.
+	Profile *string `json:"profile" yaml:"profile"`
+	// Use the indicated proxy.
+	//
+	// Will read from
+	// HTTPS_PROXY environment if specified.
+	// Experimental.
+	Proxy *string `json:"proxy" yaml:"proxy"`
+	// Role to pass to CloudFormation for deployment.
+	// Experimental.
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	// List of stacks to deploy.
+	//
+	// Requried if `all` is not set.
+	// Experimental.
+	Stacks *[]*string `json:"stacks" yaml:"stacks"`
+	// Copy assets to the output directory.
+	//
+	// Needed for local debugging the source files with SAM CLI.
+	// Experimental.
+	Staging *bool `json:"staging" yaml:"staging"`
+	// Do not construct stacks with warnings.
+	// Experimental.
+	Strict *bool `json:"strict" yaml:"strict"`
+	// Print trace for stack warnings.
+	// Experimental.
+	Trace *bool `json:"trace" yaml:"trace"`
+	// show debug logs.
+	// Experimental.
+	Verbose *bool `json:"verbose" yaml:"verbose"`
+	// Include "AWS::CDK::Metadata" resource in synthesized templates.
+	// Experimental.
+	VersionReporting *bool `json:"versionReporting" yaml:"versionReporting"`
+	// Optional name to use for the CloudFormation change set.
+	//
+	// If not provided, a name will be generated automatically.
+	// Experimental.
+	ChangeSetName *string `json:"changeSetName" yaml:"changeSetName"`
+	// Whether we are on a CI system.
+	// Experimental.
+	Ci *bool `json:"ci" yaml:"ci"`
+	// Only perform action on the given stack.
+	// Experimental.
+	Exclusively *bool `json:"exclusively" yaml:"exclusively"`
+	// Whether to execute the ChangeSet Not providing `execute` parameter will result in execution of ChangeSet.
+	// Experimental.
+	Execute *bool `json:"execute" yaml:"execute"`
+	// Always deploy, even if templates are identical.
+	// Experimental.
+	Force *bool `json:"force" yaml:"force"`
+	// ARNs of SNS topics that CloudFormation will notify with stack related events.
+	// Experimental.
+	NotificationArns *[]*string `json:"notificationArns" yaml:"notificationArns"`
+	// Path to file where stack outputs will be written after a successful deploy as JSON.
+	// Experimental.
+	OutputsFile *string `json:"outputsFile" yaml:"outputsFile"`
+	// Additional parameters for CloudFormation at deploy time.
+	// Experimental.
+	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
+	// What kind of security changes require approval.
+	// Experimental.
+	RequireApproval RequireApproval `json:"requireApproval" yaml:"requireApproval"`
+	// Reuse the assets with the given asset IDs.
+	// Experimental.
+	ReuseAssets *[]*string `json:"reuseAssets" yaml:"reuseAssets"`
+	// Rollback failed deployments.
+	// Experimental.
+	Rollback *bool `json:"rollback" yaml:"rollback"`
+	// Name of the toolkit stack to use/deploy.
+	// Experimental.
+	ToolkitStackName *string `json:"toolkitStackName" yaml:"toolkitStackName"`
+	// Use previous values for unspecified parameters.
+	//
+	// If not set, all parameters must be specified for every deployment.
+	// Experimental.
+	UsePreviousParameters *bool `json:"usePreviousParameters" yaml:"usePreviousParameters"`
+}
+
+// Represents a cdk destroy command.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloud_assembly_schema "github.com/aws/aws-cdk-go/awscdk/cloud_assembly_schema"
+//   destroyCommand := &destroyCommand{
+//   	args: &destroyOptions{
+//   		all: jsii.Boolean(false),
+//   		app: jsii.String("app"),
+//   		assetMetadata: jsii.Boolean(false),
+//   		caBundlePath: jsii.String("caBundlePath"),
+//   		color: jsii.Boolean(false),
+//   		context: map[string]*string{
+//   			"contextKey": jsii.String("context"),
+//   		},
+//   		debug: jsii.Boolean(false),
+//   		ec2Creds: jsii.Boolean(false),
+//   		exclusively: jsii.Boolean(false),
+//   		force: jsii.Boolean(false),
+//   		ignoreErrors: jsii.Boolean(false),
+//   		json: jsii.Boolean(false),
+//   		lookups: jsii.Boolean(false),
+//   		notices: jsii.Boolean(false),
+//   		output: jsii.String("output"),
+//   		pathMetadata: jsii.Boolean(false),
+//   		profile: jsii.String("profile"),
+//   		proxy: jsii.String("proxy"),
+//   		roleArn: jsii.String("roleArn"),
+//   		stacks: []*string{
+//   			jsii.String("stacks"),
+//   		},
+//   		staging: jsii.Boolean(false),
+//   		strict: jsii.Boolean(false),
+//   		trace: jsii.Boolean(false),
+//   		verbose: jsii.Boolean(false),
+//   		versionReporting: jsii.Boolean(false),
+//   	},
+//   	enabled: jsii.Boolean(false),
+//   	expectedMessage: jsii.String("expectedMessage"),
+//   	expectError: jsii.Boolean(false),
+//   }
+//
+// Experimental.
+type DestroyCommand struct {
+	// Whether or not to run this command as part of the workflow This can be used if you only want to test some of the workflow for example enable `synth` and disable `deploy` & `destroy` in order to limit the test to synthesis.
+	// Experimental.
+	Enabled *bool `json:"enabled" yaml:"enabled"`
+	// This can be used in combination with `expectedError` to validate that a specific message is returned.
+	// Experimental.
+	ExpectedMessage *string `json:"expectedMessage" yaml:"expectedMessage"`
+	// If the runner should expect this command to fail.
+	// Experimental.
+	ExpectError *bool `json:"expectError" yaml:"expectError"`
+	// Additional arguments to pass to the command This can be used to test specific CLI functionality.
+	// Experimental.
+	Args *DestroyOptions `json:"args" yaml:"args"`
+}
+
+// Options to use with cdk destroy.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloud_assembly_schema "github.com/aws/aws-cdk-go/awscdk/cloud_assembly_schema"
+//   destroyOptions := &destroyOptions{
+//   	all: jsii.Boolean(false),
+//   	app: jsii.String("app"),
+//   	assetMetadata: jsii.Boolean(false),
+//   	caBundlePath: jsii.String("caBundlePath"),
+//   	color: jsii.Boolean(false),
+//   	context: map[string]*string{
+//   		"contextKey": jsii.String("context"),
+//   	},
+//   	debug: jsii.Boolean(false),
+//   	ec2Creds: jsii.Boolean(false),
+//   	exclusively: jsii.Boolean(false),
+//   	force: jsii.Boolean(false),
+//   	ignoreErrors: jsii.Boolean(false),
+//   	json: jsii.Boolean(false),
+//   	lookups: jsii.Boolean(false),
+//   	notices: jsii.Boolean(false),
+//   	output: jsii.String("output"),
+//   	pathMetadata: jsii.Boolean(false),
+//   	profile: jsii.String("profile"),
+//   	proxy: jsii.String("proxy"),
+//   	roleArn: jsii.String("roleArn"),
+//   	stacks: []*string{
+//   		jsii.String("stacks"),
+//   	},
+//   	staging: jsii.Boolean(false),
+//   	strict: jsii.Boolean(false),
+//   	trace: jsii.Boolean(false),
+//   	verbose: jsii.Boolean(false),
+//   	versionReporting: jsii.Boolean(false),
+//   }
+//
+// Experimental.
+type DestroyOptions struct {
+	// Deploy all stacks.
+	//
+	// Requried if `stacks` is not set.
+	// Experimental.
+	All *bool `json:"all" yaml:"all"`
+	// command-line for executing your app or a cloud assembly directory e.g. "node bin/my-app.js" or "cdk.out".
+	// Experimental.
+	App *string `json:"app" yaml:"app"`
+	// Include "aws:asset:*" CloudFormation metadata for resources that use assets.
+	// Experimental.
+	AssetMetadata *bool `json:"assetMetadata" yaml:"assetMetadata"`
+	// Path to CA certificate to use when validating HTTPS requests.
+	// Experimental.
+	CaBundlePath *string `json:"caBundlePath" yaml:"caBundlePath"`
+	// Show colors and other style from console output.
+	// Experimental.
+	Color *bool `json:"color" yaml:"color"`
+	// Additional context.
+	// Experimental.
+	Context *map[string]*string `json:"context" yaml:"context"`
+	// enable emission of additional debugging information, such as creation stack traces of tokens.
+	// Experimental.
+	Debug *bool `json:"debug" yaml:"debug"`
+	// Force trying to fetch EC2 instance credentials.
+	// Experimental.
+	Ec2Creds *bool `json:"ec2Creds" yaml:"ec2Creds"`
+	// Ignores synthesis errors, which will likely produce an invalid output.
+	// Experimental.
+	IgnoreErrors *bool `json:"ignoreErrors" yaml:"ignoreErrors"`
+	// Use JSON output instead of YAML when templates are printed to STDOUT.
+	// Experimental.
+	Json *bool `json:"json" yaml:"json"`
+	// Perform context lookups.
+	//
+	// Synthesis fails if this is disabled and context lookups need
+	// to be performed.
+	// Experimental.
+	Lookups *bool `json:"lookups" yaml:"lookups"`
+	// Show relevant notices.
+	// Experimental.
+	Notices *bool `json:"notices" yaml:"notices"`
+	// Emits the synthesized cloud assembly into a directory.
+	// Experimental.
+	Output *string `json:"output" yaml:"output"`
+	// Include "aws:cdk:path" CloudFormation metadata for each resource.
+	// Experimental.
+	PathMetadata *bool `json:"pathMetadata" yaml:"pathMetadata"`
+	// Use the indicated AWS profile as the default environment.
+	// Experimental.
+	Profile *string `json:"profile" yaml:"profile"`
+	// Use the indicated proxy.
+	//
+	// Will read from
+	// HTTPS_PROXY environment if specified.
+	// Experimental.
+	Proxy *string `json:"proxy" yaml:"proxy"`
+	// Role to pass to CloudFormation for deployment.
+	// Experimental.
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	// List of stacks to deploy.
+	//
+	// Requried if `all` is not set.
+	// Experimental.
+	Stacks *[]*string `json:"stacks" yaml:"stacks"`
+	// Copy assets to the output directory.
+	//
+	// Needed for local debugging the source files with SAM CLI.
+	// Experimental.
+	Staging *bool `json:"staging" yaml:"staging"`
+	// Do not construct stacks with warnings.
+	// Experimental.
+	Strict *bool `json:"strict" yaml:"strict"`
+	// Print trace for stack warnings.
+	// Experimental.
+	Trace *bool `json:"trace" yaml:"trace"`
+	// show debug logs.
+	// Experimental.
+	Verbose *bool `json:"verbose" yaml:"verbose"`
+	// Include "AWS::CDK::Metadata" resource in synthesized templates.
+	// Experimental.
+	VersionReporting *bool `json:"versionReporting" yaml:"versionReporting"`
+	// Only destroy the given stack.
+	// Experimental.
+	Exclusively *bool `json:"exclusively" yaml:"exclusively"`
+	// Do not ask for permission before destroying stacks.
+	// Experimental.
+	Force *bool `json:"force" yaml:"force"`
+}
 
 // A file asset.
 //
@@ -953,6 +1640,41 @@ type FileSource struct {
 	Path *string `json:"path" yaml:"path"`
 }
 
+// Commands to run at predefined points during the integration test workflow.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloud_assembly_schema "github.com/aws/aws-cdk-go/awscdk/cloud_assembly_schema"
+//   hooks := &hooks{
+//   	postDeploy: []*string{
+//   		jsii.String("postDeploy"),
+//   	},
+//   	postDestroy: []*string{
+//   		jsii.String("postDestroy"),
+//   	},
+//   	preDeploy: []*string{
+//   		jsii.String("preDeploy"),
+//   	},
+//   	preDestroy: []*string{
+//   		jsii.String("preDestroy"),
+//   	},
+//   }
+//
+// Experimental.
+type Hooks struct {
+	// Commands to run prior after deploying the cdk stacks in the integration test.
+	// Experimental.
+	PostDeploy *[]*string `json:"postDeploy" yaml:"postDeploy"`
+	// Commands to run after destroying the cdk stacks in the integration test.
+	// Experimental.
+	PostDestroy *[]*string `json:"postDestroy" yaml:"postDestroy"`
+	// Commands to run prior to deploying the cdk stacks in the integration test.
+	// Experimental.
+	PreDeploy *[]*string `json:"preDeploy" yaml:"preDeploy"`
+	// Commands to run prior to destroying the cdk stacks in the integration test.
+	// Experimental.
+	PreDestroy *[]*string `json:"preDestroy" yaml:"preDestroy"`
+}
+
 // Query to hosted zone context provider.
 //
 // Example:
@@ -991,6 +1713,157 @@ type HostedZoneContextQuery struct {
 	// and raise an error.
 	// Experimental.
 	VpcId *string `json:"vpcId" yaml:"vpcId"`
+}
+
+// Definitions for the integration testing manifest.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloud_assembly_schema "github.com/aws/aws-cdk-go/awscdk/cloud_assembly_schema"
+//   integManifest := &integManifest{
+//   	testCases: map[string]testCase{
+//   		"testCasesKey": &testCase{
+//   			"stacks": []*string{
+//   				jsii.String("stacks"),
+//   			},
+//
+//   			// the properties below are optional
+//   			"allowDestroy": []*string{
+//   				jsii.String("allowDestroy"),
+//   			},
+//   			"cdkCommandOptions": &CdkCommands{
+//   				"deploy": &DeployCommand{
+//   					"args": &DeployOptions{
+//   						"all": jsii.Boolean(false),
+//   						"app": jsii.String("app"),
+//   						"assetMetadata": jsii.Boolean(false),
+//   						"caBundlePath": jsii.String("caBundlePath"),
+//   						"changeSetName": jsii.String("changeSetName"),
+//   						"ci": jsii.Boolean(false),
+//   						"color": jsii.Boolean(false),
+//   						"context": map[string]*string{
+//   							"contextKey": jsii.String("context"),
+//   						},
+//   						"debug": jsii.Boolean(false),
+//   						"ec2Creds": jsii.Boolean(false),
+//   						"exclusively": jsii.Boolean(false),
+//   						"execute": jsii.Boolean(false),
+//   						"force": jsii.Boolean(false),
+//   						"ignoreErrors": jsii.Boolean(false),
+//   						"json": jsii.Boolean(false),
+//   						"lookups": jsii.Boolean(false),
+//   						"notices": jsii.Boolean(false),
+//   						"notificationArns": []*string{
+//   							jsii.String("notificationArns"),
+//   						},
+//   						"output": jsii.String("output"),
+//   						"outputsFile": jsii.String("outputsFile"),
+//   						"parameters": map[string]*string{
+//   							"parametersKey": jsii.String("parameters"),
+//   						},
+//   						"pathMetadata": jsii.Boolean(false),
+//   						"profile": jsii.String("profile"),
+//   						"proxy": jsii.String("proxy"),
+//   						"requireApproval": cloud_assembly_schema.RequireApproval_NEVER,
+//   						"reuseAssets": []*string{
+//   							jsii.String("reuseAssets"),
+//   						},
+//   						"roleArn": jsii.String("roleArn"),
+//   						"rollback": jsii.Boolean(false),
+//   						"stacks": []*string{
+//   							jsii.String("stacks"),
+//   						},
+//   						"staging": jsii.Boolean(false),
+//   						"strict": jsii.Boolean(false),
+//   						"toolkitStackName": jsii.String("toolkitStackName"),
+//   						"trace": jsii.Boolean(false),
+//   						"usePreviousParameters": jsii.Boolean(false),
+//   						"verbose": jsii.Boolean(false),
+//   						"versionReporting": jsii.Boolean(false),
+//   					},
+//   					"enabled": jsii.Boolean(false),
+//   					"expectedMessage": jsii.String("expectedMessage"),
+//   					"expectError": jsii.Boolean(false),
+//   				},
+//   				"destroy": &DestroyCommand{
+//   					"args": &DestroyOptions{
+//   						"all": jsii.Boolean(false),
+//   						"app": jsii.String("app"),
+//   						"assetMetadata": jsii.Boolean(false),
+//   						"caBundlePath": jsii.String("caBundlePath"),
+//   						"color": jsii.Boolean(false),
+//   						"context": map[string]*string{
+//   							"contextKey": jsii.String("context"),
+//   						},
+//   						"debug": jsii.Boolean(false),
+//   						"ec2Creds": jsii.Boolean(false),
+//   						"exclusively": jsii.Boolean(false),
+//   						"force": jsii.Boolean(false),
+//   						"ignoreErrors": jsii.Boolean(false),
+//   						"json": jsii.Boolean(false),
+//   						"lookups": jsii.Boolean(false),
+//   						"notices": jsii.Boolean(false),
+//   						"output": jsii.String("output"),
+//   						"pathMetadata": jsii.Boolean(false),
+//   						"profile": jsii.String("profile"),
+//   						"proxy": jsii.String("proxy"),
+//   						"roleArn": jsii.String("roleArn"),
+//   						"stacks": []*string{
+//   							jsii.String("stacks"),
+//   						},
+//   						"staging": jsii.Boolean(false),
+//   						"strict": jsii.Boolean(false),
+//   						"trace": jsii.Boolean(false),
+//   						"verbose": jsii.Boolean(false),
+//   						"versionReporting": jsii.Boolean(false),
+//   					},
+//   					"enabled": jsii.Boolean(false),
+//   					"expectedMessage": jsii.String("expectedMessage"),
+//   					"expectError": jsii.Boolean(false),
+//   				},
+//   			},
+//   			"diffAssets": jsii.Boolean(false),
+//   			"hooks": &Hooks{
+//   				"postDeploy": []*string{
+//   					jsii.String("postDeploy"),
+//   				},
+//   				"postDestroy": []*string{
+//   					jsii.String("postDestroy"),
+//   				},
+//   				"preDeploy": []*string{
+//   					jsii.String("preDeploy"),
+//   				},
+//   				"preDestroy": []*string{
+//   					jsii.String("preDestroy"),
+//   				},
+//   			},
+//   			"regions": []*string{
+//   				jsii.String("regions"),
+//   			},
+//   			"stackUpdateWorkflow": jsii.Boolean(false),
+//   		},
+//   	},
+//   	version: jsii.String("version"),
+//
+//   	// the properties below are optional
+//   	enableLookups: jsii.Boolean(false),
+//   }
+//
+// Experimental.
+type IntegManifest struct {
+	// test cases.
+	// Experimental.
+	TestCases *map[string]*TestCase `json:"testCases" yaml:"testCases"`
+	// Version of the manifest.
+	// Experimental.
+	Version *string `json:"version" yaml:"version"`
+	// Enable lookups for this test.
+	//
+	// If lookups are enabled
+	// then `stackUpdateWorkflow` must be set to false.
+	// Lookups should only be enabled when you are explicitely testing
+	// lookups.
+	// Experimental.
+	EnableLookups *bool `json:"enableLookups" yaml:"enableLookups"`
 }
 
 // Query input for looking up a KMS Key.
@@ -1273,6 +2146,23 @@ func Manifest_LoadAssetManifest(filePath *string) *AssetManifest {
 	return returns
 }
 
+// Load and validates the integ manifest from file.
+// Experimental.
+func Manifest_LoadIntegManifest(filePath *string) *IntegManifest {
+	_init_.Initialize()
+
+	var returns *IntegManifest
+
+	_jsii_.StaticInvoke(
+		"monocdk.cloud_assembly_schema.Manifest",
+		"loadIntegManifest",
+		[]interface{}{filePath},
+		&returns,
+	)
+
+	return returns
+}
+
 // Deprecated.
 // Deprecated: use `saveAssemblyManifest()`.
 func Manifest_Save(manifest *AssemblyManifest, filePath *string) {
@@ -1305,6 +2195,18 @@ func Manifest_SaveAssetManifest(manifest *AssetManifest, filePath *string) {
 	_jsii_.StaticInvokeVoid(
 		"monocdk.cloud_assembly_schema.Manifest",
 		"saveAssetManifest",
+		[]interface{}{manifest, filePath},
+	)
+}
+
+// Validates and saves the integ manifest to file.
+// Experimental.
+func Manifest_SaveIntegManifest(manifest *IntegManifest, filePath *string) {
+	_init_.Initialize()
+
+	_jsii_.StaticInvokeVoid(
+		"monocdk.cloud_assembly_schema.Manifest",
+		"saveIntegManifest",
 		[]interface{}{manifest, filePath},
 	)
 }
@@ -1429,6 +2331,22 @@ type PluginContextQuery struct {
 	PluginName *string `json:"pluginName" yaml:"pluginName"`
 }
 
+// In what scenarios should the CLI ask for approval.
+// Experimental.
+type RequireApproval string
+
+const (
+	// Never ask for approval.
+	// Experimental.
+	RequireApproval_NEVER RequireApproval = "NEVER"
+	// Prompt for approval for any type  of change to the stack.
+	// Experimental.
+	RequireApproval_ANYCHANGE RequireApproval = "ANYCHANGE"
+	// Only prompt for approval if there are security related changes.
+	// Experimental.
+	RequireApproval_BROADENING RequireApproval = "BROADENING"
+)
+
 // Information about the application's runtime components.
 //
 // Example:
@@ -1537,6 +2455,168 @@ type Tag struct {
 	// https://github.com/aws/aws-cdk/blob/4aadaa779b48f35838cccd4e25107b2338f05547/packages/%40aws-cdk/cloud-assembly-schema/lib/manifest.ts#L137)
 	// Experimental.
 	Value *string `json:"value" yaml:"value"`
+}
+
+// Represents an integration test test case.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloud_assembly_schema "github.com/aws/aws-cdk-go/awscdk/cloud_assembly_schema"
+//   testCase := &testCase{
+//   	stacks: []*string{
+//   		jsii.String("stacks"),
+//   	},
+//
+//   	// the properties below are optional
+//   	allowDestroy: []*string{
+//   		jsii.String("allowDestroy"),
+//   	},
+//   	cdkCommandOptions: &cdkCommands{
+//   		deploy: &deployCommand{
+//   			args: &deployOptions{
+//   				all: jsii.Boolean(false),
+//   				app: jsii.String("app"),
+//   				assetMetadata: jsii.Boolean(false),
+//   				caBundlePath: jsii.String("caBundlePath"),
+//   				changeSetName: jsii.String("changeSetName"),
+//   				ci: jsii.Boolean(false),
+//   				color: jsii.Boolean(false),
+//   				context: map[string]*string{
+//   					"contextKey": jsii.String("context"),
+//   				},
+//   				debug: jsii.Boolean(false),
+//   				ec2Creds: jsii.Boolean(false),
+//   				exclusively: jsii.Boolean(false),
+//   				execute: jsii.Boolean(false),
+//   				force: jsii.Boolean(false),
+//   				ignoreErrors: jsii.Boolean(false),
+//   				json: jsii.Boolean(false),
+//   				lookups: jsii.Boolean(false),
+//   				notices: jsii.Boolean(false),
+//   				notificationArns: []*string{
+//   					jsii.String("notificationArns"),
+//   				},
+//   				output: jsii.String("output"),
+//   				outputsFile: jsii.String("outputsFile"),
+//   				parameters: map[string]*string{
+//   					"parametersKey": jsii.String("parameters"),
+//   				},
+//   				pathMetadata: jsii.Boolean(false),
+//   				profile: jsii.String("profile"),
+//   				proxy: jsii.String("proxy"),
+//   				requireApproval: cloud_assembly_schema.requireApproval_NEVER,
+//   				reuseAssets: []*string{
+//   					jsii.String("reuseAssets"),
+//   				},
+//   				roleArn: jsii.String("roleArn"),
+//   				rollback: jsii.Boolean(false),
+//   				stacks: []*string{
+//   					jsii.String("stacks"),
+//   				},
+//   				staging: jsii.Boolean(false),
+//   				strict: jsii.Boolean(false),
+//   				toolkitStackName: jsii.String("toolkitStackName"),
+//   				trace: jsii.Boolean(false),
+//   				usePreviousParameters: jsii.Boolean(false),
+//   				verbose: jsii.Boolean(false),
+//   				versionReporting: jsii.Boolean(false),
+//   			},
+//   			enabled: jsii.Boolean(false),
+//   			expectedMessage: jsii.String("expectedMessage"),
+//   			expectError: jsii.Boolean(false),
+//   		},
+//   		destroy: &destroyCommand{
+//   			args: &destroyOptions{
+//   				all: jsii.Boolean(false),
+//   				app: jsii.String("app"),
+//   				assetMetadata: jsii.Boolean(false),
+//   				caBundlePath: jsii.String("caBundlePath"),
+//   				color: jsii.Boolean(false),
+//   				context: map[string]*string{
+//   					"contextKey": jsii.String("context"),
+//   				},
+//   				debug: jsii.Boolean(false),
+//   				ec2Creds: jsii.Boolean(false),
+//   				exclusively: jsii.Boolean(false),
+//   				force: jsii.Boolean(false),
+//   				ignoreErrors: jsii.Boolean(false),
+//   				json: jsii.Boolean(false),
+//   				lookups: jsii.Boolean(false),
+//   				notices: jsii.Boolean(false),
+//   				output: jsii.String("output"),
+//   				pathMetadata: jsii.Boolean(false),
+//   				profile: jsii.String("profile"),
+//   				proxy: jsii.String("proxy"),
+//   				roleArn: jsii.String("roleArn"),
+//   				stacks: []*string{
+//   					jsii.String("stacks"),
+//   				},
+//   				staging: jsii.Boolean(false),
+//   				strict: jsii.Boolean(false),
+//   				trace: jsii.Boolean(false),
+//   				verbose: jsii.Boolean(false),
+//   				versionReporting: jsii.Boolean(false),
+//   			},
+//   			enabled: jsii.Boolean(false),
+//   			expectedMessage: jsii.String("expectedMessage"),
+//   			expectError: jsii.Boolean(false),
+//   		},
+//   	},
+//   	diffAssets: jsii.Boolean(false),
+//   	hooks: &hooks{
+//   		postDeploy: []*string{
+//   			jsii.String("postDeploy"),
+//   		},
+//   		postDestroy: []*string{
+//   			jsii.String("postDestroy"),
+//   		},
+//   		preDeploy: []*string{
+//   			jsii.String("preDeploy"),
+//   		},
+//   		preDestroy: []*string{
+//   			jsii.String("preDestroy"),
+//   		},
+//   	},
+//   	regions: []*string{
+//   		jsii.String("regions"),
+//   	},
+//   	stackUpdateWorkflow: jsii.Boolean(false),
+//   }
+//
+// Experimental.
+type TestCase struct {
+	// Stacks that should be tested as part of this test case The stackNames will be passed as args to the cdk commands so dependent stacks will be automatically deployed unless `exclusively` is passed.
+	// Experimental.
+	Stacks *[]*string `json:"stacks" yaml:"stacks"`
+	// List of CloudFormation resource types in this stack that can be destroyed as part of an update without failing the test.
+	//
+	// This list should only include resources that for this specific
+	// integration test we are sure will not cause errors or an outage if
+	// destroyed. For example, maybe we know that a new resource will be created
+	// first before the old resource is destroyed which prevents any outage.
+	//
+	// e.g. ['AWS::IAM::Role']
+	// Experimental.
+	AllowDestroy *[]*string `json:"allowDestroy" yaml:"allowDestroy"`
+	// Additional options to use for each CDK command.
+	// Experimental.
+	CdkCommandOptions *CdkCommands `json:"cdkCommandOptions" yaml:"cdkCommandOptions"`
+	// Whether or not to include asset hashes in the diff Asset hashes can introduces a lot of unneccessary noise into tests, but there are some cases where asset hashes _should_ be included.
+	//
+	// For example
+	// any tests involving custom resources or bundling.
+	// Experimental.
+	DiffAssets *bool `json:"diffAssets" yaml:"diffAssets"`
+	// Additional commands to run at predefined points in the test workflow.
+	//
+	// e.g. { postDeploy: ['yarn', 'test'] }
+	// Experimental.
+	Hooks *Hooks `json:"hooks" yaml:"hooks"`
+	// Limit deployment to these regions.
+	// Experimental.
+	Regions *[]*string `json:"regions" yaml:"regions"`
+	// Run update workflow on this test case This should only be set to false to test scenarios that are not possible to test as part of the update workflow.
+	// Experimental.
+	StackUpdateWorkflow *bool `json:"stackUpdateWorkflow" yaml:"stackUpdateWorkflow"`
 }
 
 // Artifact properties for the Construct Tree Artifact.

@@ -769,8 +769,11 @@ type CfnCertificateProps struct {
 //   		broker: jsii.String("broker"),
 //   		includeControlDetails: jsii.Boolean(false),
 //   		includeNullAndEmpty: jsii.Boolean(false),
+//   		includePartitionValue: jsii.Boolean(false),
 //   		includeTableAlterOperations: jsii.Boolean(false),
 //   		includeTransactionDetails: jsii.Boolean(false),
+//   		messageFormat: jsii.String("messageFormat"),
+//   		messageMaxBytes: jsii.Number(123),
 //   		noHexPrefix: jsii.Boolean(false),
 //   		partitionIncludeSchemaTable: jsii.Boolean(false),
 //   		saslPassword: jsii.String("saslPassword"),
@@ -785,6 +788,7 @@ type CfnCertificateProps struct {
 //   	kinesisSettings: &kinesisSettingsProperty{
 //   		includeControlDetails: jsii.Boolean(false),
 //   		includeNullAndEmpty: jsii.Boolean(false),
+//   		includePartitionValue: jsii.Boolean(false),
 //   		includeTableAlterOperations: jsii.Boolean(false),
 //   		includeTransactionDetails: jsii.Boolean(false),
 //   		messageFormat: jsii.String("messageFormat"),
@@ -814,8 +818,15 @@ type CfnCertificateProps struct {
 //   		username: jsii.String("username"),
 //   	},
 //   	mySqlSettings: &mySqlSettingsProperty{
+//   		afterConnectScript: jsii.String("afterConnectScript"),
+//   		cleanSourceMetadataOnMismatch: jsii.Boolean(false),
+//   		eventsPollInterval: jsii.Number(123),
+//   		maxFileSize: jsii.Number(123),
+//   		parallelLoadThreads: jsii.Number(123),
 //   		secretsManagerAccessRoleArn: jsii.String("secretsManagerAccessRoleArn"),
 //   		secretsManagerSecretId: jsii.String("secretsManagerSecretId"),
+//   		serverTimezone: jsii.String("serverTimezone"),
+//   		targetDbType: jsii.String("targetDbType"),
 //   	},
 //   	neptuneSettings: &neptuneSettingsProperty{
 //   		errorRetryDuration: jsii.Number(123),
@@ -827,16 +838,60 @@ type CfnCertificateProps struct {
 //   		serviceAccessRoleArn: jsii.String("serviceAccessRoleArn"),
 //   	},
 //   	oracleSettings: &oracleSettingsProperty{
+//   		accessAlternateDirectly: jsii.Boolean(false),
+//   		additionalArchivedLogDestId: jsii.Number(123),
+//   		addSupplementalLogging: jsii.Boolean(false),
+//   		allowSelectNestedTables: jsii.Boolean(false),
+//   		archivedLogDestId: jsii.Number(123),
+//   		archivedLogsOnly: jsii.Boolean(false),
+//   		asmPassword: jsii.String("asmPassword"),
+//   		asmServer: jsii.String("asmServer"),
+//   		asmUser: jsii.String("asmUser"),
+//   		charLengthSemantics: jsii.String("charLengthSemantics"),
+//   		directPathNoLog: jsii.Boolean(false),
+//   		directPathParallelLoad: jsii.Boolean(false),
+//   		enableHomogenousTablespace: jsii.Boolean(false),
+//   		extraArchivedLogDestIds: []interface{}{
+//   			jsii.Number(123),
+//   		},
+//   		failTasksOnLobTruncation: jsii.Boolean(false),
+//   		numberDatatypeScale: jsii.Number(123),
+//   		oraclePathPrefix: jsii.String("oraclePathPrefix"),
+//   		parallelAsmReadThreads: jsii.Number(123),
+//   		readAheadBlocks: jsii.Number(123),
+//   		readTableSpaceName: jsii.Boolean(false),
+//   		replacePathPrefix: jsii.Boolean(false),
+//   		retryInterval: jsii.Number(123),
 //   		secretsManagerAccessRoleArn: jsii.String("secretsManagerAccessRoleArn"),
 //   		secretsManagerOracleAsmAccessRoleArn: jsii.String("secretsManagerOracleAsmAccessRoleArn"),
 //   		secretsManagerOracleAsmSecretId: jsii.String("secretsManagerOracleAsmSecretId"),
 //   		secretsManagerSecretId: jsii.String("secretsManagerSecretId"),
+//   		securityDbEncryption: jsii.String("securityDbEncryption"),
+//   		securityDbEncryptionName: jsii.String("securityDbEncryptionName"),
+//   		spatialDataOptionToGeoJsonFunctionName: jsii.String("spatialDataOptionToGeoJsonFunctionName"),
+//   		standbyDelayTime: jsii.Number(123),
+//   		useAlternateFolderForOnline: jsii.Boolean(false),
+//   		useBFile: jsii.Boolean(false),
+//   		useDirectPathFullLoad: jsii.Boolean(false),
+//   		useLogminerReader: jsii.Boolean(false),
+//   		usePathPrefix: jsii.String("usePathPrefix"),
 //   	},
 //   	password: jsii.String("password"),
 //   	port: jsii.Number(123),
 //   	postgreSqlSettings: &postgreSqlSettingsProperty{
+//   		afterConnectScript: jsii.String("afterConnectScript"),
+//   		captureDdls: jsii.Boolean(false),
+//   		ddlArtifactsSchema: jsii.String("ddlArtifactsSchema"),
+//   		executeTimeout: jsii.Number(123),
+//   		failTasksOnLobTruncation: jsii.Boolean(false),
+//   		heartbeatEnable: jsii.Boolean(false),
+//   		heartbeatFrequency: jsii.Number(123),
+//   		heartbeatSchema: jsii.String("heartbeatSchema"),
+//   		maxFileSize: jsii.Number(123),
+//   		pluginName: jsii.String("pluginName"),
 //   		secretsManagerAccessRoleArn: jsii.String("secretsManagerAccessRoleArn"),
 //   		secretsManagerSecretId: jsii.String("secretsManagerSecretId"),
+//   		slotName: jsii.String("slotName"),
 //   	},
 //   	redisSettings: &redisSettingsProperty{
 //   		authPassword: jsii.String("authPassword"),
@@ -2402,8 +2457,11 @@ type CfnEndpoint_IbmDb2SettingsProperty struct {
 //   	broker: jsii.String("broker"),
 //   	includeControlDetails: jsii.Boolean(false),
 //   	includeNullAndEmpty: jsii.Boolean(false),
+//   	includePartitionValue: jsii.Boolean(false),
 //   	includeTableAlterOperations: jsii.Boolean(false),
 //   	includeTransactionDetails: jsii.Boolean(false),
+//   	messageFormat: jsii.String("messageFormat"),
+//   	messageMaxBytes: jsii.Number(123),
 //   	noHexPrefix: jsii.Boolean(false),
 //   	partitionIncludeSchemaTable: jsii.Boolean(false),
 //   	saslPassword: jsii.String("saslPassword"),
@@ -2429,6 +2487,8 @@ type CfnEndpoint_KafkaSettingsProperty struct {
 	//
 	// The default is `false` .
 	IncludeNullAndEmpty interface{} `json:"includeNullAndEmpty" yaml:"includeNullAndEmpty"`
+	// `CfnEndpoint.KafkaSettingsProperty.IncludePartitionValue`.
+	IncludePartitionValue interface{} `json:"includePartitionValue" yaml:"includePartitionValue"`
 	// Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table` , `drop-table` , `add-column` , `drop-column` , and `rename-column` .
 	//
 	// The default is `false` .
@@ -2437,6 +2497,10 @@ type CfnEndpoint_KafkaSettingsProperty struct {
 	//
 	// This information includes a commit timestamp, a log position, and values for `transaction_id` , previous `transaction_id` , and `transaction_record_id` (the record offset within a transaction). The default is `false` .
 	IncludeTransactionDetails interface{} `json:"includeTransactionDetails" yaml:"includeTransactionDetails"`
+	// `CfnEndpoint.KafkaSettingsProperty.MessageFormat`.
+	MessageFormat *string `json:"messageFormat" yaml:"messageFormat"`
+	// `CfnEndpoint.KafkaSettingsProperty.MessageMaxBytes`.
+	MessageMaxBytes *float64 `json:"messageMaxBytes" yaml:"messageMaxBytes"`
 	// Set this optional parameter to `true` to avoid adding a '0x' prefix to raw data in hexadecimal format.
 	//
 	// For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `NoHexPrefix` endpoint setting to enable migration of RAW data type columns without adding the '0x' prefix.
@@ -2476,6 +2540,7 @@ type CfnEndpoint_KafkaSettingsProperty struct {
 //   kinesisSettingsProperty := &kinesisSettingsProperty{
 //   	includeControlDetails: jsii.Boolean(false),
 //   	includeNullAndEmpty: jsii.Boolean(false),
+//   	includePartitionValue: jsii.Boolean(false),
 //   	includeTableAlterOperations: jsii.Boolean(false),
 //   	includeTransactionDetails: jsii.Boolean(false),
 //   	messageFormat: jsii.String("messageFormat"),
@@ -2494,6 +2559,8 @@ type CfnEndpoint_KinesisSettingsProperty struct {
 	//
 	// The default is `false` .
 	IncludeNullAndEmpty interface{} `json:"includeNullAndEmpty" yaml:"includeNullAndEmpty"`
+	// `CfnEndpoint.KinesisSettingsProperty.IncludePartitionValue`.
+	IncludePartitionValue interface{} `json:"includePartitionValue" yaml:"includePartitionValue"`
 	// Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table` , `drop-table` , `add-column` , `drop-column` , and `rename-column` .
 	//
 	// The default is `false` .
@@ -2624,11 +2691,28 @@ type CfnEndpoint_MongoDbSettingsProperty struct {
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dms "github.com/aws/aws-cdk-go/awscdk/aws_dms"
 //   mySqlSettingsProperty := &mySqlSettingsProperty{
+//   	afterConnectScript: jsii.String("afterConnectScript"),
+//   	cleanSourceMetadataOnMismatch: jsii.Boolean(false),
+//   	eventsPollInterval: jsii.Number(123),
+//   	maxFileSize: jsii.Number(123),
+//   	parallelLoadThreads: jsii.Number(123),
 //   	secretsManagerAccessRoleArn: jsii.String("secretsManagerAccessRoleArn"),
 //   	secretsManagerSecretId: jsii.String("secretsManagerSecretId"),
+//   	serverTimezone: jsii.String("serverTimezone"),
+//   	targetDbType: jsii.String("targetDbType"),
 //   }
 //
 type CfnEndpoint_MySqlSettingsProperty struct {
+	// `CfnEndpoint.MySqlSettingsProperty.AfterConnectScript`.
+	AfterConnectScript *string `json:"afterConnectScript" yaml:"afterConnectScript"`
+	// `CfnEndpoint.MySqlSettingsProperty.CleanSourceMetadataOnMismatch`.
+	CleanSourceMetadataOnMismatch interface{} `json:"cleanSourceMetadataOnMismatch" yaml:"cleanSourceMetadataOnMismatch"`
+	// `CfnEndpoint.MySqlSettingsProperty.EventsPollInterval`.
+	EventsPollInterval *float64 `json:"eventsPollInterval" yaml:"eventsPollInterval"`
+	// `CfnEndpoint.MySqlSettingsProperty.MaxFileSize`.
+	MaxFileSize *float64 `json:"maxFileSize" yaml:"maxFileSize"`
+	// `CfnEndpoint.MySqlSettingsProperty.ParallelLoadThreads`.
+	ParallelLoadThreads *float64 `json:"parallelLoadThreads" yaml:"parallelLoadThreads"`
 	// The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in `SecretsManagerSecret` .
 	//
 	// The role must allow the `iam:PassRole` action. `SecretsManagerSecret` has the value of the AWS Secrets Manager secret that allows access to the MySQL endpoint.
@@ -2639,6 +2723,10 @@ type CfnEndpoint_MySqlSettingsProperty struct {
 	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn" yaml:"secretsManagerAccessRoleArn"`
 	// The full ARN, partial ARN, or display name of the `SecretsManagerSecret` that contains the MySQL endpoint connection details.
 	SecretsManagerSecretId *string `json:"secretsManagerSecretId" yaml:"secretsManagerSecretId"`
+	// `CfnEndpoint.MySqlSettingsProperty.ServerTimezone`.
+	ServerTimezone *string `json:"serverTimezone" yaml:"serverTimezone"`
+	// `CfnEndpoint.MySqlSettingsProperty.TargetDbType`.
+	TargetDbType *string `json:"targetDbType" yaml:"targetDbType"`
 }
 
 // Provides information that defines an Amazon Neptune endpoint.
@@ -2691,13 +2779,144 @@ type CfnEndpoint_NeptuneSettingsProperty struct {
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dms "github.com/aws/aws-cdk-go/awscdk/aws_dms"
 //   oracleSettingsProperty := &oracleSettingsProperty{
+//   	accessAlternateDirectly: jsii.Boolean(false),
+//   	additionalArchivedLogDestId: jsii.Number(123),
+//   	addSupplementalLogging: jsii.Boolean(false),
+//   	allowSelectNestedTables: jsii.Boolean(false),
+//   	archivedLogDestId: jsii.Number(123),
+//   	archivedLogsOnly: jsii.Boolean(false),
+//   	asmPassword: jsii.String("asmPassword"),
+//   	asmServer: jsii.String("asmServer"),
+//   	asmUser: jsii.String("asmUser"),
+//   	charLengthSemantics: jsii.String("charLengthSemantics"),
+//   	directPathNoLog: jsii.Boolean(false),
+//   	directPathParallelLoad: jsii.Boolean(false),
+//   	enableHomogenousTablespace: jsii.Boolean(false),
+//   	extraArchivedLogDestIds: []interface{}{
+//   		jsii.Number(123),
+//   	},
+//   	failTasksOnLobTruncation: jsii.Boolean(false),
+//   	numberDatatypeScale: jsii.Number(123),
+//   	oraclePathPrefix: jsii.String("oraclePathPrefix"),
+//   	parallelAsmReadThreads: jsii.Number(123),
+//   	readAheadBlocks: jsii.Number(123),
+//   	readTableSpaceName: jsii.Boolean(false),
+//   	replacePathPrefix: jsii.Boolean(false),
+//   	retryInterval: jsii.Number(123),
 //   	secretsManagerAccessRoleArn: jsii.String("secretsManagerAccessRoleArn"),
 //   	secretsManagerOracleAsmAccessRoleArn: jsii.String("secretsManagerOracleAsmAccessRoleArn"),
 //   	secretsManagerOracleAsmSecretId: jsii.String("secretsManagerOracleAsmSecretId"),
 //   	secretsManagerSecretId: jsii.String("secretsManagerSecretId"),
+//   	securityDbEncryption: jsii.String("securityDbEncryption"),
+//   	securityDbEncryptionName: jsii.String("securityDbEncryptionName"),
+//   	spatialDataOptionToGeoJsonFunctionName: jsii.String("spatialDataOptionToGeoJsonFunctionName"),
+//   	standbyDelayTime: jsii.Number(123),
+//   	useAlternateFolderForOnline: jsii.Boolean(false),
+//   	useBFile: jsii.Boolean(false),
+//   	useDirectPathFullLoad: jsii.Boolean(false),
+//   	useLogminerReader: jsii.Boolean(false),
+//   	usePathPrefix: jsii.String("usePathPrefix"),
 //   }
 //
 type CfnEndpoint_OracleSettingsProperty struct {
+	// Set this attribute to `false` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+	//
+	// This tells the DMS instance to not access redo logs through any specified path prefix replacement using direct file access.
+	AccessAlternateDirectly interface{} `json:"accessAlternateDirectly" yaml:"accessAlternateDirectly"`
+	// Set this attribute with `ArchivedLogDestId` in a primary/ standby setup.
+	//
+	// This attribute is useful in the case of a switchover. In this case, AWS DMS needs to know which destination to get archive redo logs from to read changes. This need arises because the previous primary instance is now a standby instance after switchover.
+	//
+	// Although AWS DMS supports the use of the Oracle `RESETLOGS` option to open the database, never use `RESETLOGS` unless necessary. For additional information about `RESETLOGS` , see [RMAN Data Repair Concepts](https://docs.aws.amazon.com/https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/rman-data-repair-concepts.html#GUID-1805CCF7-4AF2-482D-B65A-998192F89C2B) in the *Oracle Database Backup and Recovery User's Guide* .
+	AdditionalArchivedLogDestId *float64 `json:"additionalArchivedLogDestId" yaml:"additionalArchivedLogDestId"`
+	// Set this attribute to set up table-level supplemental logging for the Oracle database.
+	//
+	// This attribute enables PRIMARY KEY supplemental logging on all tables selected for a migration task.
+	//
+	// If you use this option, you still need to enable database-level supplemental logging.
+	AddSupplementalLogging interface{} `json:"addSupplementalLogging" yaml:"addSupplementalLogging"`
+	// Set this attribute to `true` to enable replication of Oracle tables containing columns that are nested tables or defined types.
+	AllowSelectNestedTables interface{} `json:"allowSelectNestedTables" yaml:"allowSelectNestedTables"`
+	// Specifies the ID of the destination for the archived redo logs.
+	//
+	// This value should be the same as a number in the dest_id column of the v$archived_log view. If you work with an additional redo log destination, use the `AdditionalArchivedLogDestId` option to specify the additional destination ID. Doing this improves performance by ensuring that the correct logs are accessed from the outset.
+	ArchivedLogDestId *float64 `json:"archivedLogDestId" yaml:"archivedLogDestId"`
+	// When this field is set to `Y` , AWS DMS only accesses the archived redo logs.
+	//
+	// If the archived redo logs are stored on Oracle ASM only, the AWS DMS user account needs to be granted ASM privileges.
+	ArchivedLogsOnly interface{} `json:"archivedLogsOnly" yaml:"archivedLogsOnly"`
+	// For an Oracle source endpoint, your Oracle Automatic Storage Management (ASM) password.
+	//
+	// You can set this value from the `*asm_user_password*` value. You set this value as part of the comma-separated value that you set to the `Password` request parameter when you create the endpoint to access transaction logs using Binary Reader. For more information, see [Configuration for change data capture (CDC) on an Oracle source database](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration) .
+	AsmPassword *string `json:"asmPassword" yaml:"asmPassword"`
+	// For an Oracle source endpoint, your ASM server address.
+	//
+	// You can set this value from the `asm_server` value. You set `asm_server` as part of the extra connection attribute string to access an Oracle server with Binary Reader that uses ASM. For more information, see [Configuration for change data capture (CDC) on an Oracle source database](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration) .
+	AsmServer *string `json:"asmServer" yaml:"asmServer"`
+	// For an Oracle source endpoint, your ASM user name.
+	//
+	// You can set this value from the `asm_user` value. You set `asm_user` as part of the extra connection attribute string to access an Oracle server with Binary Reader that uses ASM. For more information, see [Configuration for change data capture (CDC) on an Oracle source database](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration) .
+	AsmUser *string `json:"asmUser" yaml:"asmUser"`
+	// Specifies whether the length of a character column is in bytes or in characters.
+	//
+	// To indicate that the character column length is in characters, set this attribute to `CHAR` . Otherwise, the character column length is in bytes.
+	//
+	// Example: `charLengthSemantics=CHAR;`.
+	CharLengthSemantics *string `json:"charLengthSemantics" yaml:"charLengthSemantics"`
+	// When set to `true` , this attribute helps to increase the commit rate on the Oracle target database by writing directly to tables and not writing a trail to database logs.
+	DirectPathNoLog interface{} `json:"directPathNoLog" yaml:"directPathNoLog"`
+	// When set to `true` , this attribute specifies a parallel load when `useDirectPathFullLoad` is set to `Y` .
+	//
+	// This attribute also only applies when you use the AWS DMS parallel load feature. Note that the target table cannot have any constraints or indexes.
+	DirectPathParallelLoad interface{} `json:"directPathParallelLoad" yaml:"directPathParallelLoad"`
+	// Set this attribute to enable homogenous tablespace replication and create existing tables or indexes under the same tablespace on the target.
+	EnableHomogenousTablespace interface{} `json:"enableHomogenousTablespace" yaml:"enableHomogenousTablespace"`
+	// Specifies the IDs of one more destinations for one or more archived redo logs.
+	//
+	// These IDs are the values of the `dest_id` column in the `v$archived_log` view. Use this setting with the `archivedLogDestId` extra connection attribute in a primary-to-single setup or a primary-to-multiple-standby setup.
+	//
+	// This setting is useful in a switchover when you use an Oracle Data Guard database as a source. In this case, AWS DMS needs information about what destination to get archive redo logs from to read changes. AWS DMS needs this because after the switchover the previous primary is a standby instance. For example, in a primary-to-single standby setup you might apply the following settings.
+	//
+	// `archivedLogDestId=1; ExtraArchivedLogDestIds=[2]`
+	//
+	// In a primary-to-multiple-standby setup, you might apply the following settings.
+	//
+	// `archivedLogDestId=1; ExtraArchivedLogDestIds=[2,3,4]`
+	//
+	// Although AWS DMS supports the use of the Oracle `RESETLOGS` option to open the database, never use `RESETLOGS` unless it's necessary. For more information about `RESETLOGS` , see [RMAN Data Repair Concepts](https://docs.aws.amazon.com/https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/rman-data-repair-concepts.html#GUID-1805CCF7-4AF2-482D-B65A-998192F89C2B) in the *Oracle Database Backup and Recovery User's Guide* .
+	ExtraArchivedLogDestIds interface{} `json:"extraArchivedLogDestIds" yaml:"extraArchivedLogDestIds"`
+	// When set to `true` , this attribute causes a task to fail if the actual size of an LOB column is greater than the specified `LobMaxSize` .
+	//
+	// If a task is set to limited LOB mode and this option is set to `true` , the task fails instead of truncating the LOB data.
+	FailTasksOnLobTruncation interface{} `json:"failTasksOnLobTruncation" yaml:"failTasksOnLobTruncation"`
+	// Specifies the number scale.
+	//
+	// You can select a scale up to 38, or you can select FLOAT. By default, the NUMBER data type is converted to precision 38, scale 10.
+	//
+	// Example: `numberDataTypeScale=12`.
+	NumberDatatypeScale *float64 `json:"numberDatatypeScale" yaml:"numberDatatypeScale"`
+	// Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+	//
+	// This value specifies the default Oracle root used to access the redo logs.
+	OraclePathPrefix *string `json:"oraclePathPrefix" yaml:"oraclePathPrefix"`
+	// Set this attribute to change the number of threads that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM).
+	//
+	// You can specify an integer value between 2 (the default) and 8 (the maximum). Use this attribute together with the `readAheadBlocks` attribute.
+	ParallelAsmReadThreads *float64 `json:"parallelAsmReadThreads" yaml:"parallelAsmReadThreads"`
+	// Set this attribute to change the number of read-ahead blocks that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM).
+	//
+	// You can specify an integer value between 1000 (the default) and 200,000 (the maximum).
+	ReadAheadBlocks *float64 `json:"readAheadBlocks" yaml:"readAheadBlocks"`
+	// When set to `true` , this attribute supports tablespace replication.
+	ReadTableSpaceName interface{} `json:"readTableSpaceName" yaml:"readTableSpaceName"`
+	// Set this attribute to true in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+	//
+	// This setting tells DMS instance to replace the default Oracle root with the specified `usePathPrefix` setting to access the redo logs.
+	ReplacePathPrefix interface{} `json:"replacePathPrefix" yaml:"replacePathPrefix"`
+	// Specifies the number of seconds that the system waits before resending a query.
+	//
+	// Example: `retryInterval=6;`.
+	RetryInterval *float64 `json:"retryInterval" yaml:"retryInterval"`
 	// The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in `SecretsManagerSecret` .
 	//
 	// The role must allow the `iam:PassRole` action. `SecretsManagerSecret` has the value of the AWS Secrets Manager secret that allows access to the Oracle endpoint.
@@ -2720,6 +2939,44 @@ type CfnEndpoint_OracleSettingsProperty struct {
 	SecretsManagerOracleAsmSecretId *string `json:"secretsManagerOracleAsmSecretId" yaml:"secretsManagerOracleAsmSecretId"`
 	// The full ARN, partial ARN, or display name of the `SecretsManagerSecret` that contains the Oracle endpoint connection details.
 	SecretsManagerSecretId *string `json:"secretsManagerSecretId" yaml:"secretsManagerSecretId"`
+	// For an Oracle source endpoint, the transparent data encryption (TDE) password required by AWM DMS to access Oracle redo logs encrypted by TDE using Binary Reader.
+	//
+	// It is also the `*TDE_Password*` part of the comma-separated value you set to the `Password` request parameter when you create the endpoint. The `SecurityDbEncryptian` setting is related to this `SecurityDbEncryptionName` setting. For more information, see [Supported encryption methods for using Oracle as a source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.Encryption) in the *AWS Database Migration Service User Guide* .
+	SecurityDbEncryption *string `json:"securityDbEncryption" yaml:"securityDbEncryption"`
+	// For an Oracle source endpoint, the name of a key used for the transparent data encryption (TDE) of the columns and tablespaces in an Oracle source database that is encrypted using TDE.
+	//
+	// The key value is the value of the `SecurityDbEncryption` setting. For more information on setting the key name value of `SecurityDbEncryptionName` , see the information and example for setting the `securityDbEncryptionName` extra connection attribute in [Supported encryption methods for using Oracle as a source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.Encryption) in the *AWS Database Migration Service User Guide* .
+	SecurityDbEncryptionName *string `json:"securityDbEncryptionName" yaml:"securityDbEncryptionName"`
+	// Use this attribute to convert `SDO_GEOMETRY` to `GEOJSON` format.
+	//
+	// By default, DMS calls the `SDO2GEOJSON` custom function if present and accessible. Or you can create your own custom function that mimics the operation of `SDOGEOJSON` and set `SpatialDataOptionToGeoJsonFunctionName` to call it instead.
+	SpatialDataOptionToGeoJsonFunctionName *string `json:"spatialDataOptionToGeoJsonFunctionName" yaml:"spatialDataOptionToGeoJsonFunctionName"`
+	// Use this attribute to specify a time in minutes for the delay in standby sync.
+	//
+	// If the source is an Oracle Active Data Guard standby database, use this attribute to specify the time lag between primary and standby databases.
+	//
+	// In AWS DMS , you can create an Oracle CDC task that uses an Active Data Guard standby instance as a source for replicating ongoing changes. Doing this eliminates the need to connect to an active database that might be in production.
+	StandbyDelayTime *float64 `json:"standbyDelayTime" yaml:"standbyDelayTime"`
+	// Set this attribute to `true` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+	//
+	// This tells the DMS instance to use any specified prefix replacement to access all online redo logs.
+	UseAlternateFolderForOnline interface{} `json:"useAlternateFolderForOnline" yaml:"useAlternateFolderForOnline"`
+	// Set this attribute to Y to capture change data using the Binary Reader utility.
+	//
+	// Set `UseLogminerReader` to N to set this attribute to Y. To use Binary Reader with Amazon RDS for Oracle as the source, you set additional attributes. For more information about using this setting with Oracle Automatic Storage Management (ASM), see [Using Oracle LogMiner or AWS DMS Binary Reader for CDC](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC) .
+	UseBFile interface{} `json:"useBFile" yaml:"useBFile"`
+	// Set this attribute to Y to have AWS DMS use a direct path full load.
+	//
+	// Specify this value to use the direct path protocol in the Oracle Call Interface (OCI). By using this OCI protocol, you can bulk-load Oracle target tables during a full load.
+	UseDirectPathFullLoad interface{} `json:"useDirectPathFullLoad" yaml:"useDirectPathFullLoad"`
+	// Set this attribute to Y to capture change data using the Oracle LogMiner utility (the default).
+	//
+	// Set this attribute to N if you want to access the redo logs as a binary file. When you set `UseLogminerReader` to N, also set `UseBfile` to Y. For more information on this setting and using Oracle ASM, see [Using Oracle LogMiner or AWS DMS Binary Reader for CDC](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC) in the *AWS DMS User Guide* .
+	UseLogminerReader interface{} `json:"useLogminerReader" yaml:"useLogminerReader"`
+	// Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+	//
+	// This value specifies the path prefix used to replace the default Oracle root to access the redo logs.
+	UsePathPrefix *string `json:"usePathPrefix" yaml:"usePathPrefix"`
 }
 
 // Provides information that defines a PostgreSQL endpoint.
@@ -2729,11 +2986,58 @@ type CfnEndpoint_OracleSettingsProperty struct {
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dms "github.com/aws/aws-cdk-go/awscdk/aws_dms"
 //   postgreSqlSettingsProperty := &postgreSqlSettingsProperty{
+//   	afterConnectScript: jsii.String("afterConnectScript"),
+//   	captureDdls: jsii.Boolean(false),
+//   	ddlArtifactsSchema: jsii.String("ddlArtifactsSchema"),
+//   	executeTimeout: jsii.Number(123),
+//   	failTasksOnLobTruncation: jsii.Boolean(false),
+//   	heartbeatEnable: jsii.Boolean(false),
+//   	heartbeatFrequency: jsii.Number(123),
+//   	heartbeatSchema: jsii.String("heartbeatSchema"),
+//   	maxFileSize: jsii.Number(123),
+//   	pluginName: jsii.String("pluginName"),
 //   	secretsManagerAccessRoleArn: jsii.String("secretsManagerAccessRoleArn"),
 //   	secretsManagerSecretId: jsii.String("secretsManagerSecretId"),
+//   	slotName: jsii.String("slotName"),
 //   }
 //
 type CfnEndpoint_PostgreSqlSettingsProperty struct {
+	// For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
+	//
+	// Example: `afterConnectScript=SET session_replication_role='replica'`.
+	AfterConnectScript *string `json:"afterConnectScript" yaml:"afterConnectScript"`
+	// To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
+	//
+	// You can later remove these artifacts.
+	//
+	// If this value is set to `N` , you don't have to create tables or triggers on the source database.
+	CaptureDdls interface{} `json:"captureDdls" yaml:"captureDdls"`
+	// The schema in which the operational DDL database artifacts are created.
+	//
+	// Example: `ddlArtifactsSchema=xyzddlschema;`.
+	DdlArtifactsSchema *string `json:"ddlArtifactsSchema" yaml:"ddlArtifactsSchema"`
+	// Sets the client statement timeout for the PostgreSQL instance, in seconds. The default value is 60 seconds.
+	//
+	// Example: `executeTimeout=100;`.
+	ExecuteTimeout *float64 `json:"executeTimeout" yaml:"executeTimeout"`
+	// When set to `true` , this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize` .
+	//
+	// If task is set to Limited LOB mode and this option is set to true, the task fails instead of truncating the LOB data.
+	FailTasksOnLobTruncation interface{} `json:"failTasksOnLobTruncation" yaml:"failTasksOnLobTruncation"`
+	// The write-ahead log (WAL) heartbeat feature mimics a dummy transaction.
+	//
+	// By doing this, it prevents idle logical replication slots from holding onto old WAL logs, which can result in storage full situations on the source. This heartbeat keeps `restart_lsn` moving and prevents storage full scenarios.
+	HeartbeatEnable interface{} `json:"heartbeatEnable" yaml:"heartbeatEnable"`
+	// Sets the WAL heartbeat frequency (in minutes).
+	HeartbeatFrequency *float64 `json:"heartbeatFrequency" yaml:"heartbeatFrequency"`
+	// Sets the schema in which the heartbeat artifacts are created.
+	HeartbeatSchema *string `json:"heartbeatSchema" yaml:"heartbeatSchema"`
+	// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL.
+	//
+	// Example: `maxFileSize=512`.
+	MaxFileSize *float64 `json:"maxFileSize" yaml:"maxFileSize"`
+	// Specifies the plugin to use to create a replication slot.
+	PluginName *string `json:"pluginName" yaml:"pluginName"`
 	// The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in `SecretsManagerSecret` .
 	//
 	// The role must allow the `iam:PassRole` action. `SecretsManagerSecret` has the value of the AWS Secrets Manager secret that allows access to the PostgreSQL endpoint.
@@ -2744,6 +3048,12 @@ type CfnEndpoint_PostgreSqlSettingsProperty struct {
 	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn" yaml:"secretsManagerAccessRoleArn"`
 	// The full ARN, partial ARN, or display name of the `SecretsManagerSecret` that contains the PostgreSQL endpoint connection details.
 	SecretsManagerSecretId *string `json:"secretsManagerSecretId" yaml:"secretsManagerSecretId"`
+	// Sets the name of a previously created logical replication slot for a change data capture (CDC) load of the PostgreSQL source instance.
+	//
+	// When used with the `CdcStartPosition` request parameter for the AWS DMS API , this attribute also makes it possible to use native CDC start points. DMS verifies that the specified logical replication slot exists before starting the CDC load task. It also verifies that the task was created with a valid setting of `CdcStartPosition` . If the specified slot doesn't exist or the task doesn't have a valid `CdcStartPosition` setting, DMS raises an error.
+	//
+	// For more information about setting the `CdcStartPosition` request parameter, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native) in the *AWS Database Migration Service User Guide* . For more information about using `CdcStartPosition` , see [CreateReplicationTask](https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateReplicationTask.html) , [StartReplicationTask](https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html) , and [ModifyReplicationTask](https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyReplicationTask.html) .
+	SlotName *string `json:"slotName" yaml:"slotName"`
 }
 
 // Provides information that defines a Redis target endpoint.
@@ -3153,8 +3463,11 @@ type CfnEndpoint_SybaseSettingsProperty struct {
 //   		broker: jsii.String("broker"),
 //   		includeControlDetails: jsii.Boolean(false),
 //   		includeNullAndEmpty: jsii.Boolean(false),
+//   		includePartitionValue: jsii.Boolean(false),
 //   		includeTableAlterOperations: jsii.Boolean(false),
 //   		includeTransactionDetails: jsii.Boolean(false),
+//   		messageFormat: jsii.String("messageFormat"),
+//   		messageMaxBytes: jsii.Number(123),
 //   		noHexPrefix: jsii.Boolean(false),
 //   		partitionIncludeSchemaTable: jsii.Boolean(false),
 //   		saslPassword: jsii.String("saslPassword"),
@@ -3169,6 +3482,7 @@ type CfnEndpoint_SybaseSettingsProperty struct {
 //   	kinesisSettings: &kinesisSettingsProperty{
 //   		includeControlDetails: jsii.Boolean(false),
 //   		includeNullAndEmpty: jsii.Boolean(false),
+//   		includePartitionValue: jsii.Boolean(false),
 //   		includeTableAlterOperations: jsii.Boolean(false),
 //   		includeTransactionDetails: jsii.Boolean(false),
 //   		messageFormat: jsii.String("messageFormat"),
@@ -3198,8 +3512,15 @@ type CfnEndpoint_SybaseSettingsProperty struct {
 //   		username: jsii.String("username"),
 //   	},
 //   	mySqlSettings: &mySqlSettingsProperty{
+//   		afterConnectScript: jsii.String("afterConnectScript"),
+//   		cleanSourceMetadataOnMismatch: jsii.Boolean(false),
+//   		eventsPollInterval: jsii.Number(123),
+//   		maxFileSize: jsii.Number(123),
+//   		parallelLoadThreads: jsii.Number(123),
 //   		secretsManagerAccessRoleArn: jsii.String("secretsManagerAccessRoleArn"),
 //   		secretsManagerSecretId: jsii.String("secretsManagerSecretId"),
+//   		serverTimezone: jsii.String("serverTimezone"),
+//   		targetDbType: jsii.String("targetDbType"),
 //   	},
 //   	neptuneSettings: &neptuneSettingsProperty{
 //   		errorRetryDuration: jsii.Number(123),
@@ -3211,16 +3532,60 @@ type CfnEndpoint_SybaseSettingsProperty struct {
 //   		serviceAccessRoleArn: jsii.String("serviceAccessRoleArn"),
 //   	},
 //   	oracleSettings: &oracleSettingsProperty{
+//   		accessAlternateDirectly: jsii.Boolean(false),
+//   		additionalArchivedLogDestId: jsii.Number(123),
+//   		addSupplementalLogging: jsii.Boolean(false),
+//   		allowSelectNestedTables: jsii.Boolean(false),
+//   		archivedLogDestId: jsii.Number(123),
+//   		archivedLogsOnly: jsii.Boolean(false),
+//   		asmPassword: jsii.String("asmPassword"),
+//   		asmServer: jsii.String("asmServer"),
+//   		asmUser: jsii.String("asmUser"),
+//   		charLengthSemantics: jsii.String("charLengthSemantics"),
+//   		directPathNoLog: jsii.Boolean(false),
+//   		directPathParallelLoad: jsii.Boolean(false),
+//   		enableHomogenousTablespace: jsii.Boolean(false),
+//   		extraArchivedLogDestIds: []interface{}{
+//   			jsii.Number(123),
+//   		},
+//   		failTasksOnLobTruncation: jsii.Boolean(false),
+//   		numberDatatypeScale: jsii.Number(123),
+//   		oraclePathPrefix: jsii.String("oraclePathPrefix"),
+//   		parallelAsmReadThreads: jsii.Number(123),
+//   		readAheadBlocks: jsii.Number(123),
+//   		readTableSpaceName: jsii.Boolean(false),
+//   		replacePathPrefix: jsii.Boolean(false),
+//   		retryInterval: jsii.Number(123),
 //   		secretsManagerAccessRoleArn: jsii.String("secretsManagerAccessRoleArn"),
 //   		secretsManagerOracleAsmAccessRoleArn: jsii.String("secretsManagerOracleAsmAccessRoleArn"),
 //   		secretsManagerOracleAsmSecretId: jsii.String("secretsManagerOracleAsmSecretId"),
 //   		secretsManagerSecretId: jsii.String("secretsManagerSecretId"),
+//   		securityDbEncryption: jsii.String("securityDbEncryption"),
+//   		securityDbEncryptionName: jsii.String("securityDbEncryptionName"),
+//   		spatialDataOptionToGeoJsonFunctionName: jsii.String("spatialDataOptionToGeoJsonFunctionName"),
+//   		standbyDelayTime: jsii.Number(123),
+//   		useAlternateFolderForOnline: jsii.Boolean(false),
+//   		useBFile: jsii.Boolean(false),
+//   		useDirectPathFullLoad: jsii.Boolean(false),
+//   		useLogminerReader: jsii.Boolean(false),
+//   		usePathPrefix: jsii.String("usePathPrefix"),
 //   	},
 //   	password: jsii.String("password"),
 //   	port: jsii.Number(123),
 //   	postgreSqlSettings: &postgreSqlSettingsProperty{
+//   		afterConnectScript: jsii.String("afterConnectScript"),
+//   		captureDdls: jsii.Boolean(false),
+//   		ddlArtifactsSchema: jsii.String("ddlArtifactsSchema"),
+//   		executeTimeout: jsii.Number(123),
+//   		failTasksOnLobTruncation: jsii.Boolean(false),
+//   		heartbeatEnable: jsii.Boolean(false),
+//   		heartbeatFrequency: jsii.Number(123),
+//   		heartbeatSchema: jsii.String("heartbeatSchema"),
+//   		maxFileSize: jsii.Number(123),
+//   		pluginName: jsii.String("pluginName"),
 //   		secretsManagerAccessRoleArn: jsii.String("secretsManagerAccessRoleArn"),
 //   		secretsManagerSecretId: jsii.String("secretsManagerSecretId"),
+//   		slotName: jsii.String("slotName"),
 //   	},
 //   	redisSettings: &redisSettingsProperty{
 //   		authPassword: jsii.String("authPassword"),

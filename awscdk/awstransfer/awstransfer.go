@@ -3157,10 +3157,10 @@ type CfnWorkflow_WorkflowStepProperty struct {
 	TagStepDetails interface{} `json:"tagStepDetails" yaml:"tagStepDetails"`
 	// Currently, the following step types are supported.
 	//
-	// - *Copy* : copy the file to another location
-	// - *Custom* : custom step with a lambda target
-	// - *Delete* : delete the file
-	// - *Tag* : add a tag to the file.
+	// - *COPY* : copy the file to another location
+	// - *CUSTOM* : custom step with a lambda target
+	// - *DELETE* : delete the file
+	// - *TAG* : add a tag to the file.
 	Type *string `json:"type" yaml:"type"`
 }
 

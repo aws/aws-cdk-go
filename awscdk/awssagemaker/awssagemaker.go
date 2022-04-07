@@ -44,7 +44,7 @@ type CfnApp interface {
 	// The type of app.
 	AppType() *string
 	SetAppType(val *string)
-	// The Amazon Resource Name (ARN) of the App, such as `arn:aws:sagemaker:us-west-2:account-id:app/my-app-name` .
+	// The Amazon Resource Name (ARN) of the app, such as `arn:aws:sagemaker:us-west-2:account-id:app/my-app-name` .
 	AttrAppArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	// Experimental.
@@ -5392,6 +5392,10 @@ type CfnDeviceProps struct {
 //   				sageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
 //   			},
 //   		},
+//   		rStudioServerProAppSettings: &rStudioServerProAppSettingsProperty{
+//   			accessStatus: jsii.String("accessStatus"),
+//   			userGroup: jsii.String("userGroup"),
+//   		},
 //   		securityGroups: []*string{
 //   			jsii.String("securityGroups"),
 //   		},
@@ -5409,6 +5413,24 @@ type CfnDeviceProps struct {
 //
 //   	// the properties below are optional
 //   	appNetworkAccessType: jsii.String("appNetworkAccessType"),
+//   	appSecurityGroupManagement: jsii.String("appSecurityGroupManagement"),
+//   	domainSettings: &domainSettingsProperty{
+//   		rStudioServerProDomainSettings: &rStudioServerProDomainSettingsProperty{
+//   			domainExecutionRoleArn: jsii.String("domainExecutionRoleArn"),
+//
+//   			// the properties below are optional
+//   			defaultResourceSpec: &resourceSpecProperty{
+//   				instanceType: jsii.String("instanceType"),
+//   				sageMakerImageArn: jsii.String("sageMakerImageArn"),
+//   				sageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   			},
+//   			rStudioConnectUrl: jsii.String("rStudioConnectUrl"),
+//   			rStudioPackageManagerUrl: jsii.String("rStudioPackageManagerUrl"),
+//   		},
+//   		securityGroupIds: []*string{
+//   			jsii.String("securityGroupIds"),
+//   		},
+//   	},
 //   	kmsKeyId: jsii.String("kmsKeyId"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -5429,17 +5451,24 @@ type CfnDomain interface {
 	// *Valid Values* : `PublicInternetOnly | VpcOnly`.
 	AppNetworkAccessType() *string
 	SetAppNetworkAccessType(val *string)
-	// The Amazon Resource Name (ARN) of the domain, such as `arn:aws:sagemaker:us-west-2:account-id:domain/my-domain-name` .
+	// The entity that creates and manages the required security groups for inter-app communication in `VpcOnly` mode.
+	//
+	// Required when `CreateDomain.AppNetworkAccessType` is `VpcOnly` and `DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn` is provided.
+	AppSecurityGroupManagement() *string
+	SetAppSecurityGroupManagement(val *string)
+	// The Amazon Resource Name (ARN) of the Domain, such as `arn:aws:sagemaker:us-west-2:account-id:domain/my-domain-name` .
 	AttrDomainArn() *string
-	// The domain ID.
+	// The Domain ID.
 	AttrDomainId() *string
 	// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
 	AttrHomeEfsFileSystemId() *string
+	// The ID of the security group that authorizes traffic between the `RSessionGateway` apps and the `RStudioServerPro` app.
+	AttrSecurityGroupIdForDomainBoundary() *string
 	// The AWS SSO managed application instance ID.
 	AttrSingleSignOnManagedApplicationInstanceId() *string
-	// The URL for the domain.
+	// The URL for the Domain.
 	AttrUrl() *string
-	// The mode of authentication that members use to access the domain.
+	// The mode of authentication that members use to access the Domain.
 	//
 	// *Valid Values* : `SSO | IAM`.
 	AuthMode() *string
@@ -5462,7 +5491,12 @@ type CfnDomain interface {
 	// The domain name.
 	DomainName() *string
 	SetDomainName(val *string)
-	// SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
+	// A collection of settings that apply to the `SageMaker Domain` .
+	//
+	// These settings are specified through the `CreateDomain` API call.
+	DomainSettings() interface{}
+	SetDomainSettings(val interface{})
+	// SageMaker uses AWS KMS to encrypt the EFS volume attached to the Domain with an AWS managed customer master key (CMK) by default.
 	//
 	// For more control, specify a customer managed CMK.
 	//
@@ -5509,7 +5543,7 @@ type CfnDomain interface {
 	//
 	// Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.
 	//
-	// Tags that you specify for the Domain are also added to all Apps that are launched in the Domain.
+	// Tags that you specify for the Domain are also added to all apps that are launched in the Domain.
 	//
 	// *Array members* : Minimum number of 0 items. Maximum number of 50 items.
 	Tags() awscdk.TagManager
@@ -5519,7 +5553,7 @@ type CfnDomain interface {
 	// collect and return the properties object for this resource.
 	// Experimental.
 	UpdatedProperites() *map[string]interface{}
-	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) that Studio uses for communication.
 	//
 	// *Length Constraints* : Maximum length of 32.
 	//
@@ -5708,6 +5742,16 @@ func (j *jsiiProxy_CfnDomain) AppNetworkAccessType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomain) AppSecurityGroupManagement() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"appSecurityGroupManagement",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomain) AttrDomainArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -5733,6 +5777,16 @@ func (j *jsiiProxy_CfnDomain) AttrHomeEfsFileSystemId() *string {
 	_jsii_.Get(
 		j,
 		"attrHomeEfsFileSystemId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomain) AttrSecurityGroupIdForDomainBoundary() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrSecurityGroupIdForDomainBoundary",
 		&returns,
 	)
 	return returns
@@ -5823,6 +5877,16 @@ func (j *jsiiProxy_CfnDomain) DomainName() *string {
 	_jsii_.Get(
 		j,
 		"domainName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomain) DomainSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"domainSettings",
 		&returns,
 	)
 	return returns
@@ -5953,6 +6017,14 @@ func (j *jsiiProxy_CfnDomain) SetAppNetworkAccessType(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnDomain) SetAppSecurityGroupManagement(val *string) {
+	_jsii_.Set(
+		j,
+		"appSecurityGroupManagement",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDomain) SetAuthMode(val *string) {
 	_jsii_.Set(
 		j,
@@ -5973,6 +6045,14 @@ func (j *jsiiProxy_CfnDomain) SetDomainName(val *string) {
 	_jsii_.Set(
 		j,
 		"domainName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomain) SetDomainSettings(val interface{}) {
+	_jsii_.Set(
+		j,
+		"domainSettings",
 		val,
 	)
 }
@@ -6296,6 +6376,37 @@ type CfnDomain_CustomImageProperty struct {
 	ImageVersionNumber *float64 `json:"imageVersionNumber" yaml:"imageVersionNumber"`
 }
 
+// A collection of settings that apply to the `SageMaker Domain` .
+//
+// These settings are specified through the `CreateDomain` API call.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   domainSettingsProperty := &domainSettingsProperty{
+//   	rStudioServerProDomainSettings: &rStudioServerProDomainSettingsProperty{
+//   		domainExecutionRoleArn: jsii.String("domainExecutionRoleArn"),
+//
+//   		// the properties below are optional
+//   		defaultResourceSpec: &resourceSpecProperty{
+//   			instanceType: jsii.String("instanceType"),
+//   			sageMakerImageArn: jsii.String("sageMakerImageArn"),
+//   			sageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   		},
+//   		rStudioConnectUrl: jsii.String("rStudioConnectUrl"),
+//   		rStudioPackageManagerUrl: jsii.String("rStudioPackageManagerUrl"),
+//   	},
+//   	securityGroupIds: []*string{
+//   		jsii.String("securityGroupIds"),
+//   	},
+//   }
+//
+type CfnDomain_DomainSettingsProperty struct {
+	// A collection of settings that configure the `RStudioServerPro` Domain-level app.
+	RStudioServerProDomainSettings interface{} `json:"rStudioServerProDomainSettings" yaml:"rStudioServerProDomainSettings"`
+	// The security groups for the Amazon Virtual Private Cloud that the `Domain` uses for communication between Domain-level apps and user apps.
+	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+}
+
 // The JupyterServer app settings.
 //
 // Example:
@@ -6341,6 +6452,54 @@ type CfnDomain_KernelGatewayAppSettingsProperty struct {
 	//
 	// > The Amazon SageMaker Studio UI does not use the default instance type value set here. The default instance type set here is used when Apps are created using the AWS Command Line Interface or AWS CloudFormation and the instance type parameter value is not passed.
 	DefaultResourceSpec interface{} `json:"defaultResourceSpec" yaml:"defaultResourceSpec"`
+}
+
+// A collection of settings that configure user interaction with the `RStudioServerPro` app.
+//
+// `RStudioServerProAppSettings` cannot be updated. The `RStudioServerPro` app must be deleted and a new one created to make any changes.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   rStudioServerProAppSettingsProperty := &rStudioServerProAppSettingsProperty{
+//   	accessStatus: jsii.String("accessStatus"),
+//   	userGroup: jsii.String("userGroup"),
+//   }
+//
+type CfnDomain_RStudioServerProAppSettingsProperty struct {
+	// Indicates whether the current user has access to the `RStudioServerPro` app.
+	AccessStatus *string `json:"accessStatus" yaml:"accessStatus"`
+	// The level of permissions that the user has within the `RStudioServerPro` app.
+	//
+	// This value defaults to `User`. The `Admin` value allows the user access to the RStudio Administrative Dashboard.
+	UserGroup *string `json:"userGroup" yaml:"userGroup"`
+}
+
+// A collection of settings that configure the `RStudioServerPro` Domain-level app.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   rStudioServerProDomainSettingsProperty := &rStudioServerProDomainSettingsProperty{
+//   	domainExecutionRoleArn: jsii.String("domainExecutionRoleArn"),
+//
+//   	// the properties below are optional
+//   	defaultResourceSpec: &resourceSpecProperty{
+//   		instanceType: jsii.String("instanceType"),
+//   		sageMakerImageArn: jsii.String("sageMakerImageArn"),
+//   		sageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   	},
+//   	rStudioConnectUrl: jsii.String("rStudioConnectUrl"),
+//   	rStudioPackageManagerUrl: jsii.String("rStudioPackageManagerUrl"),
+//   }
+//
+type CfnDomain_RStudioServerProDomainSettingsProperty struct {
+	// The ARN of the execution role for the `RStudioServerPro` Domain-level app.
+	DomainExecutionRoleArn *string `json:"domainExecutionRoleArn" yaml:"domainExecutionRoleArn"`
+	// A collection that defines the default `InstanceType` , `SageMakerImageArn` , and `SageMakerImageVersionArn` for the Domain.
+	DefaultResourceSpec interface{} `json:"defaultResourceSpec" yaml:"defaultResourceSpec"`
+	// A URL pointing to an RStudio Connect server.
+	RStudioConnectUrl *string `json:"rStudioConnectUrl" yaml:"rStudioConnectUrl"`
+	// A URL pointing to an RStudio Package Manager server.
+	RStudioPackageManagerUrl *string `json:"rStudioPackageManagerUrl" yaml:"rStudioPackageManagerUrl"`
 }
 
 // Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
@@ -6420,6 +6579,10 @@ type CfnDomain_SharingSettingsProperty struct {
 //   			sageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
 //   		},
 //   	},
+//   	rStudioServerProAppSettings: &rStudioServerProAppSettingsProperty{
+//   		accessStatus: jsii.String("accessStatus"),
+//   		userGroup: jsii.String("userGroup"),
+//   	},
 //   	securityGroups: []*string{
 //   		jsii.String("securityGroups"),
 //   	},
@@ -6437,6 +6600,8 @@ type CfnDomain_UserSettingsProperty struct {
 	JupyterServerAppSettings interface{} `json:"jupyterServerAppSettings" yaml:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.
 	KernelGatewayAppSettings interface{} `json:"kernelGatewayAppSettings" yaml:"kernelGatewayAppSettings"`
+	// A collection of settings that configure user interaction with the `RStudioServerPro` app.
+	RStudioServerProAppSettings interface{} `json:"rStudioServerProAppSettings" yaml:"rStudioServerProAppSettings"`
 	// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 	//
 	// Optional when the `CreateDomain.AppNetworkAccessType` parameter is set to `PublicInternetOnly` .
@@ -6480,6 +6645,10 @@ type CfnDomain_UserSettingsProperty struct {
 //   				sageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
 //   			},
 //   		},
+//   		rStudioServerProAppSettings: &rStudioServerProAppSettingsProperty{
+//   			accessStatus: jsii.String("accessStatus"),
+//   			userGroup: jsii.String("userGroup"),
+//   		},
 //   		securityGroups: []*string{
 //   			jsii.String("securityGroups"),
 //   		},
@@ -6497,6 +6666,24 @@ type CfnDomain_UserSettingsProperty struct {
 //
 //   	// the properties below are optional
 //   	appNetworkAccessType: jsii.String("appNetworkAccessType"),
+//   	appSecurityGroupManagement: jsii.String("appSecurityGroupManagement"),
+//   	domainSettings: &domainSettingsProperty{
+//   		rStudioServerProDomainSettings: &rStudioServerProDomainSettingsProperty{
+//   			domainExecutionRoleArn: jsii.String("domainExecutionRoleArn"),
+//
+//   			// the properties below are optional
+//   			defaultResourceSpec: &resourceSpecProperty{
+//   				instanceType: jsii.String("instanceType"),
+//   				sageMakerImageArn: jsii.String("sageMakerImageArn"),
+//   				sageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   			},
+//   			rStudioConnectUrl: jsii.String("rStudioConnectUrl"),
+//   			rStudioPackageManagerUrl: jsii.String("rStudioPackageManagerUrl"),
+//   		},
+//   		securityGroupIds: []*string{
+//   			jsii.String("securityGroupIds"),
+//   		},
+//   	},
 //   	kmsKeyId: jsii.String("kmsKeyId"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -6507,7 +6694,7 @@ type CfnDomain_UserSettingsProperty struct {
 //   }
 //
 type CfnDomainProps struct {
-	// The mode of authentication that members use to access the domain.
+	// The mode of authentication that members use to access the Domain.
 	//
 	// *Valid Values* : `SSO | IAM`.
 	AuthMode *string `json:"authMode" yaml:"authMode"`
@@ -6523,7 +6710,7 @@ type CfnDomainProps struct {
 	//
 	// *Pattern* : `[-0-9a-zA-Z]+`.
 	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
-	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) that Studio uses for communication.
 	//
 	// *Length Constraints* : Maximum length of 32.
 	//
@@ -6536,7 +6723,15 @@ type CfnDomainProps struct {
 	//
 	// *Valid Values* : `PublicInternetOnly | VpcOnly`.
 	AppNetworkAccessType *string `json:"appNetworkAccessType" yaml:"appNetworkAccessType"`
-	// SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
+	// The entity that creates and manages the required security groups for inter-app communication in `VpcOnly` mode.
+	//
+	// Required when `CreateDomain.AppNetworkAccessType` is `VpcOnly` and `DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn` is provided.
+	AppSecurityGroupManagement *string `json:"appSecurityGroupManagement" yaml:"appSecurityGroupManagement"`
+	// A collection of settings that apply to the `SageMaker Domain` .
+	//
+	// These settings are specified through the `CreateDomain` API call.
+	DomainSettings interface{} `json:"domainSettings" yaml:"domainSettings"`
+	// SageMaker uses AWS KMS to encrypt the EFS volume attached to the Domain with an AWS managed customer master key (CMK) by default.
 	//
 	// For more control, specify a customer managed CMK.
 	//
@@ -6548,7 +6743,7 @@ type CfnDomainProps struct {
 	//
 	// Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.
 	//
-	// Tags that you specify for the Domain are also added to all Apps that are launched in the Domain.
+	// Tags that you specify for the Domain are also added to all apps that are launched in the Domain.
 	//
 	// *Array members* : Minimum number of 0 items. Maximum number of 50 items.
 	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
@@ -12179,7 +12374,7 @@ type CfnModel_ContainerDefinitionProperty struct {
 	//
 	// For information about storing containers in a private Docker registry, see [Use a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html)
 	ImageConfig interface{} `json:"imageConfig" yaml:"imageConfig"`
-	// The inference specification name in the model package version.
+	// `CfnModel.ContainerDefinitionProperty.InferenceSpecificationName`.
 	InferenceSpecificationName *string `json:"inferenceSpecificationName" yaml:"inferenceSpecificationName"`
 	// Whether the container hosts a single model or multiple models.
 	Mode *string `json:"mode" yaml:"mode"`
@@ -20912,7 +21107,7 @@ type CfnPipeline interface {
 	// The construct tree node associated with this construct.
 	// Experimental.
 	Node() awscdk.ConstructNode
-	// The parallelism configuration applied to the pipeline.
+	// `AWS::SageMaker::Pipeline.ParallelismConfiguration`.
 	ParallelismConfiguration() interface{}
 	SetParallelismConfiguration(val interface{})
 	// The definition of the pipeline.
@@ -21661,7 +21856,7 @@ type CfnPipelineProps struct {
 	PipelineName *string `json:"pipelineName" yaml:"pipelineName"`
 	// The Amazon Resource Name (ARN) of the IAM role used to execute the pipeline.
 	RoleArn *string `json:"roleArn" yaml:"roleArn"`
-	// The parallelism configuration applied to the pipeline.
+	// `AWS::SageMaker::Pipeline.ParallelismConfiguration`.
 	ParallelismConfiguration interface{} `json:"parallelismConfiguration" yaml:"parallelismConfiguration"`
 	// The description of the pipeline.
 	PipelineDescription *string `json:"pipelineDescription" yaml:"pipelineDescription"`
@@ -22506,6 +22701,10 @@ type CfnProjectProps struct {
 //   				sageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
 //   			},
 //   		},
+//   		rStudioServerProAppSettings: &rStudioServerProAppSettingsProperty{
+//   			accessStatus: jsii.String("accessStatus"),
+//   			userGroup: jsii.String("userGroup"),
+//   		},
 //   		securityGroups: []*string{
 //   			jsii.String("securityGroups"),
 //   		},
@@ -22574,7 +22773,7 @@ type CfnUserProfile interface {
 	Stack() awscdk.Stack
 	// An array of key-value pairs to apply to this resource.
 	//
-	// Tags that you specify for the User Profile are also added to all Apps that the User Profile launches.
+	// Tags that you specify for the User Profile are also added to all apps that the User Profile launches.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
@@ -23331,6 +23530,26 @@ type CfnUserProfile_KernelGatewayAppSettingsProperty struct {
 	DefaultResourceSpec interface{} `json:"defaultResourceSpec" yaml:"defaultResourceSpec"`
 }
 
+// A collection of settings that configure user interaction with the `RStudioServerPro` app.
+//
+// `RStudioServerProAppSettings` cannot be updated. The `RStudioServerPro` app must be deleted and a new one created to make any changes.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   rStudioServerProAppSettingsProperty := &rStudioServerProAppSettingsProperty{
+//   	accessStatus: jsii.String("accessStatus"),
+//   	userGroup: jsii.String("userGroup"),
+//   }
+//
+type CfnUserProfile_RStudioServerProAppSettingsProperty struct {
+	// Indicates whether the current user has access to the `RStudioServerPro` app.
+	AccessStatus *string `json:"accessStatus" yaml:"accessStatus"`
+	// The level of permissions that the user has within the `RStudioServerPro` app.
+	//
+	// This value defaults to `User`. The `Admin` value allows the user access to the RStudio Administrative Dashboard.
+	UserGroup *string `json:"userGroup" yaml:"userGroup"`
+}
+
 // Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 //
 // Example:
@@ -23408,6 +23627,10 @@ type CfnUserProfile_SharingSettingsProperty struct {
 //   			sageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
 //   		},
 //   	},
+//   	rStudioServerProAppSettings: &rStudioServerProAppSettingsProperty{
+//   		accessStatus: jsii.String("accessStatus"),
+//   		userGroup: jsii.String("userGroup"),
+//   	},
 //   	securityGroups: []*string{
 //   		jsii.String("securityGroups"),
 //   	},
@@ -23425,6 +23648,8 @@ type CfnUserProfile_UserSettingsProperty struct {
 	JupyterServerAppSettings interface{} `json:"jupyterServerAppSettings" yaml:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.
 	KernelGatewayAppSettings interface{} `json:"kernelGatewayAppSettings" yaml:"kernelGatewayAppSettings"`
+	// A collection of settings that configure user interaction with the `RStudioServerPro` app.
+	RStudioServerProAppSettings interface{} `json:"rStudioServerProAppSettings" yaml:"rStudioServerProAppSettings"`
 	// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 	//
 	// Optional when the `CreateDomain.AppNetworkAccessType` parameter is set to `PublicInternetOnly` .
@@ -23479,6 +23704,10 @@ type CfnUserProfile_UserSettingsProperty struct {
 //   				sageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
 //   			},
 //   		},
+//   		rStudioServerProAppSettings: &rStudioServerProAppSettingsProperty{
+//   			accessStatus: jsii.String("accessStatus"),
+//   			userGroup: jsii.String("userGroup"),
+//   		},
 //   		securityGroups: []*string{
 //   			jsii.String("securityGroups"),
 //   		},
@@ -23505,7 +23734,7 @@ type CfnUserProfileProps struct {
 	SingleSignOnUserValue *string `json:"singleSignOnUserValue" yaml:"singleSignOnUserValue"`
 	// An array of key-value pairs to apply to this resource.
 	//
-	// Tags that you specify for the User Profile are also added to all Apps that the User Profile launches.
+	// Tags that you specify for the User Profile are also added to all apps that the User Profile launches.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`

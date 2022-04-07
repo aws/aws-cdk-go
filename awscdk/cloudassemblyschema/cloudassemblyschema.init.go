@@ -67,6 +67,14 @@ func init() {
 		reflect.TypeOf((*BootstrapRole)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.cloud_assembly_schema.CdkCommand",
+		reflect.TypeOf((*CdkCommand)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.cloud_assembly_schema.CdkCommands",
+		reflect.TypeOf((*CdkCommands)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.cloud_assembly_schema.ContainerImageAssetMetadataEntry",
 		reflect.TypeOf((*ContainerImageAssetMetadataEntry)(nil)).Elem(),
 	)
@@ -86,6 +94,26 @@ func init() {
 			"KEY_PROVIDER": ContextProvider_KEY_PROVIDER,
 			"PLUGIN": ContextProvider_PLUGIN,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.cloud_assembly_schema.DefaultCdkOptions",
+		reflect.TypeOf((*DefaultCdkOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.cloud_assembly_schema.DeployCommand",
+		reflect.TypeOf((*DeployCommand)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.cloud_assembly_schema.DeployOptions",
+		reflect.TypeOf((*DeployOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.cloud_assembly_schema.DestroyCommand",
+		reflect.TypeOf((*DestroyCommand)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.cloud_assembly_schema.DestroyOptions",
+		reflect.TypeOf((*DestroyOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.cloud_assembly_schema.DockerImageAsset",
@@ -128,8 +156,16 @@ func init() {
 		reflect.TypeOf((*FileSource)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.cloud_assembly_schema.Hooks",
+		reflect.TypeOf((*Hooks)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.cloud_assembly_schema.HostedZoneContextQuery",
 		reflect.TypeOf((*HostedZoneContextQuery)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.cloud_assembly_schema.IntegManifest",
+		reflect.TypeOf((*IntegManifest)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.cloud_assembly_schema.KeyContextQuery",
@@ -195,6 +231,15 @@ func init() {
 		"monocdk.cloud_assembly_schema.PluginContextQuery",
 		reflect.TypeOf((*PluginContextQuery)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"monocdk.cloud_assembly_schema.RequireApproval",
+		reflect.TypeOf((*RequireApproval)(nil)).Elem(),
+		map[string]interface{}{
+			"NEVER": RequireApproval_NEVER,
+			"ANYCHANGE": RequireApproval_ANYCHANGE,
+			"BROADENING": RequireApproval_BROADENING,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"monocdk.cloud_assembly_schema.RuntimeInfo",
 		reflect.TypeOf((*RuntimeInfo)(nil)).Elem(),
@@ -210,6 +255,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.cloud_assembly_schema.Tag",
 		reflect.TypeOf((*Tag)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.cloud_assembly_schema.TestCase",
+		reflect.TypeOf((*TestCase)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.cloud_assembly_schema.TreeArtifactProperties",

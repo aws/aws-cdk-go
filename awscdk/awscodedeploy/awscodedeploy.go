@@ -3943,8 +3943,6 @@ type CustomLambdaDeploymentConfig interface {
 	//
 	// This method can be implemented by derived constructs in order to perform
 	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
 	// Experimental.
 	Validate() *[]*string
 }
@@ -4371,8 +4369,6 @@ type EcsApplication interface {
 	//
 	// This method can be implemented by derived constructs in order to perform
 	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
 	// Experimental.
 	Validate() *[]*string
 }
@@ -5454,8 +5450,6 @@ type LambdaApplication interface {
 	//
 	// This method can be implemented by derived constructs in order to perform
 	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
 	// Experimental.
 	Validate() *[]*string
 }
@@ -6047,8 +6041,6 @@ type LambdaDeploymentGroup interface {
 	//
 	// This method can be implemented by derived constructs in order to perform
 	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
 	// Experimental.
 	Validate() *[]*string
 }
@@ -6760,8 +6752,6 @@ type ServerApplication interface {
 	//
 	// This method can be implemented by derived constructs in order to perform
 	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
 	// Experimental.
 	Validate() *[]*string
 }
@@ -7159,8 +7149,6 @@ type ServerDeploymentConfig interface {
 	//
 	// This method can be implemented by derived constructs in order to perform
 	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
 	// Experimental.
 	Validate() *[]*string
 }
@@ -7618,8 +7606,6 @@ type ServerDeploymentGroup interface {
 	//
 	// This method can be implemented by derived constructs in order to perform
 	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
 	// Experimental.
 	Validate() *[]*string
 }

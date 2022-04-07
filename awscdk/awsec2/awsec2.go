@@ -25395,6 +25395,8 @@ type CfnLaunchTemplate_InstanceRequirementsProperty struct {
 	VCpuCount interface{} `json:"vCpuCount" yaml:"vCpuCount"`
 }
 
+// Describes an IPv4 prefix.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
 //   ipv4PrefixSpecificationProperty := &ipv4PrefixSpecificationProperty{
@@ -25402,7 +25404,9 @@ type CfnLaunchTemplate_InstanceRequirementsProperty struct {
 //   }
 //
 type CfnLaunchTemplate_Ipv4PrefixSpecificationProperty struct {
-	// `CfnLaunchTemplate.Ipv4PrefixSpecificationProperty.Ipv4Prefix`.
+	// The IPv4 prefix.
+	//
+	// For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide* .
 	Ipv4Prefix *string `json:"ipv4Prefix" yaml:"ipv4Prefix"`
 }
 
@@ -25423,6 +25427,8 @@ type CfnLaunchTemplate_Ipv6AddProperty struct {
 	Ipv6Address *string `json:"ipv6Address" yaml:"ipv6Address"`
 }
 
+// Describes the IPv6 prefix.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
 //   ipv6PrefixSpecificationProperty := &ipv6PrefixSpecificationProperty{
@@ -25430,7 +25436,7 @@ type CfnLaunchTemplate_Ipv6AddProperty struct {
 //   }
 //
 type CfnLaunchTemplate_Ipv6PrefixSpecificationProperty struct {
-	// `CfnLaunchTemplate.Ipv6PrefixSpecificationProperty.Ipv6Prefix`.
+	// The IPv6 prefix.
 	Ipv6Prefix *string `json:"ipv6Prefix" yaml:"ipv6Prefix"`
 }
 

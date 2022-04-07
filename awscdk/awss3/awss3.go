@@ -363,6 +363,8 @@ type Bucket interface {
 	// Experimental.
 	ArnForObjects(keyPattern *string) *string
 	// Experimental.
+	EnableEventBridgeNotification()
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -1003,6 +1005,14 @@ func (b *jsiiProxy_Bucket) ArnForObjects(keyPattern *string) *string {
 	return returns
 }
 
+func (b *jsiiProxy_Bucket) EnableEventBridgeNotification() {
+	_jsii_.InvokeVoid(
+		b,
+		"enableEventBridgeNotification",
+		nil, // no parameters
+	)
+}
+
 func (b *jsiiProxy_Bucket) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -1580,6 +1590,8 @@ type BucketBase interface {
 	// Experimental.
 	ArnForObjects(keyPattern *string) *string
 	// Experimental.
+	EnableEventBridgeNotification()
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -2111,6 +2123,14 @@ func (b *jsiiProxy_BucketBase) ArnForObjects(keyPattern *string) *string {
 	)
 
 	return returns
+}
+
+func (b *jsiiProxy_BucketBase) EnableEventBridgeNotification() {
+	_jsii_.InvokeVoid(
+		b,
+		"enableEventBridgeNotification",
+		nil, // no parameters
+	)
 }
 
 func (b *jsiiProxy_BucketBase) GeneratePhysicalName() *string {
@@ -2972,6 +2992,9 @@ type BucketProps struct {
 	//
 	// Experimental.
 	EnforceSSL *bool `json:"enforceSSL" yaml:"enforceSSL"`
+	// Whether this bucket should send notifications to Amazon EventBridge or not.
+	// Experimental.
+	EventBridgeEnabled *bool `json:"eventBridgeEnabled" yaml:"eventBridgeEnabled"`
 	// Inteligent Tiering Configurations.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html
 	//

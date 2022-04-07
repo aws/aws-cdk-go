@@ -17883,6 +17883,9 @@ type PolicyStatement interface {
 	// Indicates if this permission has at least one resource associated with it.
 	// Experimental.
 	HasResource() *bool
+	// Expose principals to allow their ARNs to be replaced by account ID strings in policy statements for resources policies that don't allow full account ARNs, such as AWS::Logs::ResourcePolicy.
+	// Experimental.
+	Principals() *[]IPrincipal
 	// Statement ID for this statement.
 	// Experimental.
 	Sid() *string
@@ -17955,6 +17958,9 @@ type PolicyStatement interface {
 	// Adds a service principal to this policy statement.
 	// Experimental.
 	AddServicePrincipal(service *string, opts *ServicePrincipalOpts)
+	// Create a new `PolicyStatement` with the same exact properties as this one, except for the overrides.
+	// Experimental.
+	Copy(overrides *PolicyStatementProps) PolicyStatement
 	// JSON-ify the statement.
 	//
 	// Used when JSON.stringify() is called
@@ -18009,6 +18015,16 @@ func (j *jsiiProxy_PolicyStatement) HasResource() *bool {
 	_jsii_.Get(
 		j,
 		"hasResource",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PolicyStatement) Principals() *[]IPrincipal {
+	var returns *[]IPrincipal
+	_jsii_.Get(
+		j,
+		"principals",
 		&returns,
 	)
 	return returns
@@ -18250,6 +18266,19 @@ func (p *jsiiProxy_PolicyStatement) AddServicePrincipal(service *string, opts *S
 		"addServicePrincipal",
 		[]interface{}{service, opts},
 	)
+}
+
+func (p *jsiiProxy_PolicyStatement) Copy(overrides *PolicyStatementProps) PolicyStatement {
+	var returns PolicyStatement
+
+	_jsii_.Invoke(
+		p,
+		"copy",
+		[]interface{}{overrides},
+		&returns,
+	)
+
+	return returns
 }
 
 func (p *jsiiProxy_PolicyStatement) ToJSON() interface{} {

@@ -1038,7 +1038,9 @@ type CfnContainerRecipe interface {
 	// AWS resource type.
 	// Experimental.
 	CfnResourceType() *string
-	// Components for build and test that are included in the container recipe.
+	// Build and test components that are included in the container recipe.
+	//
+	// Recipes require a minimum of one build component, and can have a maximum of 20 build and test components in any combination.
 	Components() interface{}
 	SetComponents(val interface{})
 	// Specifies the type of container, such as Docker.
@@ -2152,7 +2154,9 @@ type CfnContainerRecipe_TargetContainerRepositoryProperty struct {
 //   }
 //
 type CfnContainerRecipeProps struct {
-	// Components for build and test that are included in the container recipe.
+	// Build and test components that are included in the container recipe.
+	//
+	// Recipes require a minimum of one build component, and can have a maximum of 20 build and test components in any combination.
 	Components interface{} `json:"components" yaml:"components"`
 	// Specifies the type of container, such as Docker.
 	ContainerType *string `json:"containerType" yaml:"containerType"`
@@ -5788,9 +5792,11 @@ func (c *jsiiProxy_CfnImageRecipe) ValidateProperties(_properties interface{}) {
 	)
 }
 
-// In addition to your infrastruction configuration, these settings provide an extra layer of control over your build instances.
+// In addition to your infrastructure configuration, these settings provide an extra layer of control over your build instances.
 //
-// For instances where Image Builder installs the Systems Manager agent, you can choose whether to keep it for the AMI that you create. You can also specify commands to run on launch for all of your build instances.
+// You can also specify commands to run on launch for all of your build instances.
+//
+// Image Builder does not automatically install the Systems Manager agent on Windows instances. If your base image includes the Systems Manager agent, then the AMI that you create will also include the agent. For Linux instances, if the base image does not already include the Systems Manager agent, Image Builder installs it. For Linux instances where Image Builder installs the Systems Manager agent, you can choose whether to keep it for the AMI that you create.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
@@ -6971,6 +6977,8 @@ func (c *jsiiProxy_CfnInfrastructureConfiguration) ValidateProperties(_propertie
 //
 type CfnInfrastructureConfiguration_InstanceMetadataOptionsProperty struct {
 	// Limit the number of hops that an instance metadata request can traverse to reach its destination.
+	//
+	// The default is one hop. However, if HTTP tokens are required, container image builds need a minimum of two hops.
 	HttpPutResponseHopLimit *float64 `json:"httpPutResponseHopLimit" yaml:"httpPutResponseHopLimit"`
 	// Indicates whether a signed token header is required for instance metadata retrieval requests.
 	//

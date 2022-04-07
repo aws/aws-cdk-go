@@ -1214,6 +1214,9 @@ type GoFunctionProps struct {
 	// The AWS KMS key that's used to encrypt your function's environment variables.
 	// Experimental.
 	EnvironmentEncryption awskms.IKey `json:"environmentEncryption" yaml:"environmentEncryption"`
+	// The size of the function’s /tmp directory in MB.
+	// Experimental.
+	EphemeralStorageSize awscdk.Size `json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
 	// Event sources for this function.
 	//
 	// You can also add event sources using `addEventSource`.

@@ -414,9 +414,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "appNetworkAccessType", GoGetter: "AppNetworkAccessType"},
+			_jsii_.MemberProperty{JsiiProperty: "appSecurityGroupManagement", GoGetter: "AppSecurityGroupManagement"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDomainArn", GoGetter: "AttrDomainArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDomainId", GoGetter: "AttrDomainId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrHomeEfsFileSystemId", GoGetter: "AttrHomeEfsFileSystemId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrSecurityGroupIdForDomainBoundary", GoGetter: "AttrSecurityGroupIdForDomainBoundary"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSingleSignOnManagedApplicationInstanceId", GoGetter: "AttrSingleSignOnManagedApplicationInstanceId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrUrl", GoGetter: "AttrUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "authMode", GoGetter: "AuthMode"},
@@ -426,6 +428,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultUserSettings", GoGetter: "DefaultUserSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},
+			_jsii_.MemberProperty{JsiiProperty: "domainSettings", GoGetter: "DomainSettings"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -462,12 +465,24 @@ func init() {
 		reflect.TypeOf((*CfnDomain_CustomImageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_sagemaker.CfnDomain.DomainSettingsProperty",
+		reflect.TypeOf((*CfnDomain_DomainSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnDomain.JupyterServerAppSettingsProperty",
 		reflect.TypeOf((*CfnDomain_JupyterServerAppSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnDomain.KernelGatewayAppSettingsProperty",
 		reflect.TypeOf((*CfnDomain_KernelGatewayAppSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_sagemaker.CfnDomain.RStudioServerProAppSettingsProperty",
+		reflect.TypeOf((*CfnDomain_RStudioServerProAppSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_sagemaker.CfnDomain.RStudioServerProDomainSettingsProperty",
+		reflect.TypeOf((*CfnDomain_RStudioServerProDomainSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnDomain.ResourceSpecProperty",
@@ -1700,6 +1715,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnUserProfile.KernelGatewayAppSettingsProperty",
 		reflect.TypeOf((*CfnUserProfile_KernelGatewayAppSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_sagemaker.CfnUserProfile.RStudioServerProAppSettingsProperty",
+		reflect.TypeOf((*CfnUserProfile_RStudioServerProAppSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnUserProfile.ResourceSpecProperty",

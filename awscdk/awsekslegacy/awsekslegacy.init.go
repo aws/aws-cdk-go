@@ -177,6 +177,10 @@ func init() {
 		reflect.TypeOf((*CfnCluster_LoggingTypeConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_eks_legacy.CfnCluster.ProviderProperty",
+		reflect.TypeOf((*CfnCluster_ProviderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_eks_legacy.CfnCluster.ResourcesVpcConfigProperty",
 		reflect.TypeOf((*CfnCluster_ResourcesVpcConfigProperty)(nil)).Elem(),
 	)

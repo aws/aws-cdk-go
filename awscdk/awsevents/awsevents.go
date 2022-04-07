@@ -3446,6 +3446,8 @@ func (c *jsiiProxy_CfnConnection) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Contains the API key authorization parameters for the connection.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
 //   apiKeyAuthParametersProperty := &apiKeyAuthParametersProperty{
@@ -3454,12 +3456,14 @@ func (c *jsiiProxy_CfnConnection) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnConnection_ApiKeyAuthParametersProperty struct {
-	// `CfnConnection.ApiKeyAuthParametersProperty.ApiKeyName`.
+	// The name of the API key to use for authorization.
 	ApiKeyName *string `json:"apiKeyName" yaml:"apiKeyName"`
-	// `CfnConnection.ApiKeyAuthParametersProperty.ApiKeyValue`.
+	// The value for the API key to use for authorization.
 	ApiKeyValue *string `json:"apiKeyValue" yaml:"apiKeyValue"`
 }
 
+// Contains the authorization parameters to use for the connection.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
 //   authParametersProperty := &authParametersProperty{
@@ -3542,16 +3546,18 @@ type CfnConnection_ApiKeyAuthParametersProperty struct {
 //   }
 //
 type CfnConnection_AuthParametersProperty struct {
-	// `CfnConnection.AuthParametersProperty.ApiKeyAuthParameters`.
+	// The API Key parameters to use for authorization.
 	ApiKeyAuthParameters interface{} `json:"apiKeyAuthParameters" yaml:"apiKeyAuthParameters"`
-	// `CfnConnection.AuthParametersProperty.BasicAuthParameters`.
+	// The authorization parameters for Basic authorization.
 	BasicAuthParameters interface{} `json:"basicAuthParameters" yaml:"basicAuthParameters"`
-	// `CfnConnection.AuthParametersProperty.InvocationHttpParameters`.
+	// Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.
 	InvocationHttpParameters interface{} `json:"invocationHttpParameters" yaml:"invocationHttpParameters"`
-	// `CfnConnection.AuthParametersProperty.OAuthParameters`.
+	// The OAuth parameters to use for authorization.
 	OAuthParameters interface{} `json:"oAuthParameters" yaml:"oAuthParameters"`
 }
 
+// Contains the Basic authorization parameters for the connection.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
 //   basicAuthParametersProperty := &basicAuthParametersProperty{
@@ -3560,12 +3566,14 @@ type CfnConnection_AuthParametersProperty struct {
 //   }
 //
 type CfnConnection_BasicAuthParametersProperty struct {
-	// `CfnConnection.BasicAuthParametersProperty.Password`.
+	// The password associated with the user name to use for Basic authorization.
 	Password *string `json:"password" yaml:"password"`
-	// `CfnConnection.BasicAuthParametersProperty.Username`.
+	// The user name to use for Basic authorization.
 	Username *string `json:"username" yaml:"username"`
 }
 
+// Contains the OAuth authorization parameters to use for the connection.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
 //   clientParametersProperty := &clientParametersProperty{
@@ -3574,9 +3582,9 @@ type CfnConnection_BasicAuthParametersProperty struct {
 //   }
 //
 type CfnConnection_ClientParametersProperty struct {
-	// `CfnConnection.ClientParametersProperty.ClientID`.
+	// The client ID to use for OAuth authorization.
 	ClientId *string `json:"clientId" yaml:"clientId"`
-	// `CfnConnection.ClientParametersProperty.ClientSecret`.
+	// The client secret assciated with the client ID to use for OAuth authorization.
 	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
 }
 
@@ -3623,6 +3631,8 @@ type CfnConnection_ConnectionHttpParametersProperty struct {
 	QueryStringParameters interface{} `json:"queryStringParameters" yaml:"queryStringParameters"`
 }
 
+// Contains the OAuth authorization parameters to use for the connection.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
 //   oAuthParametersProperty := &oAuthParametersProperty{
@@ -3666,16 +3676,20 @@ type CfnConnection_ConnectionHttpParametersProperty struct {
 //   }
 //
 type CfnConnection_OAuthParametersProperty struct {
-	// `CfnConnection.OAuthParametersProperty.AuthorizationEndpoint`.
+	// The URL to the authorization endpoint when OAuth is specified as the authorization type.
 	AuthorizationEndpoint *string `json:"authorizationEndpoint" yaml:"authorizationEndpoint"`
-	// `CfnConnection.OAuthParametersProperty.ClientParameters`.
+	// A `CreateConnectionOAuthClientRequestParameters` object that contains the client parameters for OAuth authorization.
 	ClientParameters interface{} `json:"clientParameters" yaml:"clientParameters"`
-	// `CfnConnection.OAuthParametersProperty.HttpMethod`.
+	// The method to use for the authorization request.
 	HttpMethod *string `json:"httpMethod" yaml:"httpMethod"`
-	// `CfnConnection.OAuthParametersProperty.OAuthHttpParameters`.
+	// A `ConnectionHttpParameters` object that contains details about the additional parameters to use for the connection.
 	OAuthHttpParameters interface{} `json:"oAuthHttpParameters" yaml:"oAuthHttpParameters"`
 }
 
+// Additional query string parameter for the connection.
+//
+// You can include up to 100 additional query string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
 //   parameterProperty := &parameterProperty{
@@ -3687,11 +3701,11 @@ type CfnConnection_OAuthParametersProperty struct {
 //   }
 //
 type CfnConnection_ParameterProperty struct {
-	// `CfnConnection.ParameterProperty.Key`.
+	// The key for a query string parameter.
 	Key *string `json:"key" yaml:"key"`
-	// `CfnConnection.ParameterProperty.Value`.
+	// The value associated with the key for the query string parameter.
 	Value *string `json:"value" yaml:"value"`
-	// `CfnConnection.ParameterProperty.IsValueSecret`.
+	// Specifies whether the value is secret.
 	IsValueSecret interface{} `json:"isValueSecret" yaml:"isValueSecret"`
 }
 
@@ -3871,7 +3885,7 @@ type CfnEventBus interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// `AWS::Events::EventBus.Tags`.
+	// Tags to associate with the event bus.
 	Tags() *[]*CfnEventBus_TagEntryProperty
 	SetTags(val *[]*CfnEventBus_TagEntryProperty)
 	// Return properties modified after initiation.
@@ -4523,6 +4537,10 @@ func (c *jsiiProxy_CfnEventBus) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// A key-value pair associated with an AWS resource.
+//
+// In EventBridge, rules and event buses support tagging.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
 //   tagEntryProperty := &tagEntryProperty{
@@ -4531,9 +4549,11 @@ func (c *jsiiProxy_CfnEventBus) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnEventBus_TagEntryProperty struct {
-	// `CfnEventBus.TagEntryProperty.Key`.
+	// A string you can use to assign a value.
+	//
+	// The combination of tag keys and values can help you organize and categorize your resources.
 	Key *string `json:"key" yaml:"key"`
-	// `CfnEventBus.TagEntryProperty.Value`.
+	// The value for the specified tag key.
 	Value *string `json:"value" yaml:"value"`
 }
 
@@ -5426,7 +5446,7 @@ type CfnEventBusProps struct {
 	Name *string `json:"name" yaml:"name"`
 	// If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
 	EventSourceName *string `json:"eventSourceName" yaml:"eventSourceName"`
-	// `AWS::Events::EventBus.Tags`.
+	// Tags to associate with the event bus.
 	Tags *[]*CfnEventBus_TagEntryProperty `json:"tags" yaml:"tags"`
 }
 

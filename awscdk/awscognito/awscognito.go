@@ -2129,6 +2129,8 @@ type CfnIdentityPoolRoleAttachmentProps struct {
 //
 // The `AWS::Cognito::UserPool` resource creates an Amazon Cognito user pool. For more information on working with Amazon Cognito user pools, see [Amazon Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html) and [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) .
 //
+// > If you don't specify a value for a parameter, Amazon Cognito sets it to a default value.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
 //
@@ -3430,7 +3432,7 @@ type CfnUserPool_AdminCreateUserConfigProperty struct {
 	//
 	// See also [Customizing User Invitation Messages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization) .
 	InviteMessageTemplate interface{} `json:"inviteMessageTemplate" yaml:"inviteMessageTemplate"`
-	// The user account expiration limit, in days, after which the account is no longer usable.
+	// The user account expiration limit, in days, after which a new account that hasn't signed in is no longer usable.
 	//
 	// To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `"RESEND"` for the `MessageAction` parameter. The default value for this parameter is 7.
 	//
@@ -3892,6 +3894,8 @@ type CfnUserPool_VerificationMessageTemplateProperty struct {
 //
 // The `AWS::Cognito::UserPoolClient` resource specifies an Amazon Cognito user pool client.
 //
+// > If you don't specify a value for a parameter, Amazon Cognito sets it to a default value.
+//
 // Example:
 //   import cognito "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk"import elbv2 "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"type App awscdk.App
 //   type CfnOutput awscdk.CfnOutput
@@ -3967,7 +3971,9 @@ type CfnUserPool_VerificationMessageTemplateProperty struct {
 type CfnUserPoolClient interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The time limit, after which the access token is no longer valid and cannot be used.
+	// The time limit after which the access token is no longer valid and can't be used.
+	//
+	// If you supply a TokenValidityUnits value, you override the default time unit of *hours* . The default time unit for AccessTokenValidity in an API request is hours.
 	AccessTokenValidity() *float64
 	SetAccessTokenValidity(val *float64)
 	// The allowed OAuth flows.
@@ -4062,7 +4068,9 @@ type CfnUserPoolClient interface {
 	// Boolean to specify whether you want to generate a secret for the user pool client being created.
 	GenerateSecret() interface{}
 	SetGenerateSecret(val interface{})
-	// The time limit, after which the ID token is no longer valid and cannot be used.
+	// The time limit after which the access token is no longer valid and can't be used.
+	//
+	// If you supply a TokenValidityUnits value, you override the default time unit of *hours* . The default time unit for AccessTokenValidity in an API request is hours.
 	IdTokenValidity() *float64
 	SetIdTokenValidity(val *float64)
 	// The logical ID for this CloudFormation stack element.
@@ -4096,7 +4104,9 @@ type CfnUserPoolClient interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
-	// The time limit, in days, after which the refresh token is no longer valid and can't be used.
+	// The time limit after which the refresh token is no longer valid and can't be used.
+	//
+	// The default time unit for RefreshTokenValidity in an API request is days.
 	RefreshTokenValidity() *float64
 	SetRefreshTokenValidity(val *float64)
 	// The stack in which this element is defined.
@@ -4109,9 +4119,9 @@ type CfnUserPoolClient interface {
 	// The following are supported: `COGNITO` , `Facebook` , `SignInWithApple` , `Google` and `LoginWithAmazon` .
 	SupportedIdentityProviders() *[]*string
 	SetSupportedIdentityProviders(val *[]*string)
-	// The units in which the validity times are represented in.
+	// The units in which the validity times are represented.
 	//
-	// Default for RefreshToken is days, and default for ID and access tokens are hours.
+	// The default unit for RefreshToken is days, and default for ID and access tokens are hours.
 	TokenValidityUnits() interface{}
 	SetTokenValidityUnits(val interface{})
 	// Return properties modified after initiation.
@@ -5096,9 +5106,9 @@ type CfnUserPoolClient_AnalyticsConfigurationProperty struct {
 	UserDataShared interface{} `json:"userDataShared" yaml:"userDataShared"`
 }
 
-// The units in which the validity times are represented in.
+// The units in which the validity times are represented.
 //
-// Default for RefreshToken is days, and default for ID and access tokens are hours.
+// The default unit for RefreshToken is days, and the default for ID and access tokens is hours.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
@@ -5109,11 +5119,11 @@ type CfnUserPoolClient_AnalyticsConfigurationProperty struct {
 //   }
 //
 type CfnUserPoolClient_TokenValidityUnitsProperty struct {
-	// A time unit in “seconds”, “minutes”, “hours” or “days” for the value in AccessTokenValidity, defaults to hours.
+	// A time unit in “seconds”, “minutes”, “hours”, or “days” for the value in AccessTokenValidity, defaulting to hours.
 	AccessToken *string `json:"accessToken" yaml:"accessToken"`
-	// A time unit in “seconds”, “minutes”, “hours” or “days” for the value in IdTokenValidity, defaults to hours.
+	// A time unit in “seconds”, “minutes”, “hours”, or “days” for the value in IdTokenValidity, defaulting to hours.
 	IdToken *string `json:"idToken" yaml:"idToken"`
-	// A time unit in “seconds”, “minutes”, “hours” or “days” for the value in RefreshTokenValidity, defaults to days.
+	// A time unit in “seconds”, “minutes”, “hours”, or “days” for the value in RefreshTokenValidity, defaulting to days.
 	RefreshToken *string `json:"refreshToken" yaml:"refreshToken"`
 }
 
@@ -5175,7 +5185,9 @@ type CfnUserPoolClient_TokenValidityUnitsProperty struct {
 type CfnUserPoolClientProps struct {
 	// The user pool ID for the user pool where you want to create a user pool client.
 	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
-	// The time limit, after which the access token is no longer valid and cannot be used.
+	// The time limit after which the access token is no longer valid and can't be used.
+	//
+	// If you supply a TokenValidityUnits value, you override the default time unit of *hours* . The default time unit for AccessTokenValidity in an API request is hours.
 	AccessTokenValidity *float64 `json:"accessTokenValidity" yaml:"accessTokenValidity"`
 	// The allowed OAuth flows.
 	//
@@ -5245,7 +5257,9 @@ type CfnUserPoolClientProps struct {
 	ExplicitAuthFlows *[]*string `json:"explicitAuthFlows" yaml:"explicitAuthFlows"`
 	// Boolean to specify whether you want to generate a secret for the user pool client being created.
 	GenerateSecret interface{} `json:"generateSecret" yaml:"generateSecret"`
-	// The time limit, after which the ID token is no longer valid and cannot be used.
+	// The time limit after which the access token is no longer valid and can't be used.
+	//
+	// If you supply a TokenValidityUnits value, you override the default time unit of *hours* . The default time unit for AccessTokenValidity in an API request is hours.
 	IdTokenValidity *float64 `json:"idTokenValidity" yaml:"idTokenValidity"`
 	// A list of allowed logout URLs for the identity providers.
 	LogoutUrLs *[]*string `json:"logoutUrLs" yaml:"logoutUrLs"`
@@ -5255,15 +5269,17 @@ type CfnUserPoolClientProps struct {
 	PreventUserExistenceErrors *string `json:"preventUserExistenceErrors" yaml:"preventUserExistenceErrors"`
 	// The read attributes.
 	ReadAttributes *[]*string `json:"readAttributes" yaml:"readAttributes"`
-	// The time limit, in days, after which the refresh token is no longer valid and can't be used.
+	// The time limit after which the refresh token is no longer valid and can't be used.
+	//
+	// The default time unit for RefreshTokenValidity in an API request is days.
 	RefreshTokenValidity *float64 `json:"refreshTokenValidity" yaml:"refreshTokenValidity"`
 	// A list of provider names for the identity providers that are supported on this client.
 	//
 	// The following are supported: `COGNITO` , `Facebook` , `SignInWithApple` , `Google` and `LoginWithAmazon` .
 	SupportedIdentityProviders *[]*string `json:"supportedIdentityProviders" yaml:"supportedIdentityProviders"`
-	// The units in which the validity times are represented in.
+	// The units in which the validity times are represented.
 	//
-	// Default for RefreshToken is days, and default for ID and access tokens are hours.
+	// The default unit for RefreshToken is days, and default for ID and access tokens are hours.
 	TokenValidityUnits interface{} `json:"tokenValidityUnits" yaml:"tokenValidityUnits"`
 	// The user pool attributes that the app client can write to.
 	//
@@ -6010,6 +6026,8 @@ type CfnUserPoolDomainProps struct {
 // Specifies a new group in the identified user pool.
 //
 // Calling this action requires developer credentials.
+//
+// > If you don't specify a value for a parameter, Amazon Cognito sets it to a default value.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
@@ -7850,6 +7868,8 @@ type CfnUserPoolProps struct {
 // A CloudFormation `AWS::Cognito::UserPoolResourceServer`.
 //
 // The `AWS::Cognito::UserPoolResourceServer` resource creates a new OAuth2.0 resource server and defines custom scopes in it.
+//
+// > If you don't specify a value for a parameter, Amazon Cognito sets it to a default value.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"

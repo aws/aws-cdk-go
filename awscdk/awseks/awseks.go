@@ -251,9 +251,9 @@ func (a *jsiiProxy_AlbController) Validate() *[]*string {
 //
 // Example:
 //   eks.NewCluster(this, jsii.String("HelloEKS"), &clusterProps{
-//   	version: eks.kubernetesVersion_V1_21(),
+//   	version: eks.kubernetesVersion_V1_22(),
 //   	albController: &albControllerOptions{
-//   		version: eks.albControllerVersion_V2_3_1(),
+//   		version: eks.albControllerVersion_V2_4_1(),
 //   	},
 //   })
 //
@@ -327,9 +327,9 @@ type AlbControllerProps struct {
 //
 // Example:
 //   eks.NewCluster(this, jsii.String("HelloEKS"), &clusterProps{
-//   	version: eks.kubernetesVersion_V1_21(),
+//   	version: eks.kubernetesVersion_V1_22(),
 //   	albController: &albControllerOptions{
-//   		version: eks.albControllerVersion_V2_3_1(),
+//   		version: eks.albControllerVersion_V2_4_1(),
 //   	},
 //   })
 //
@@ -527,6 +527,17 @@ func AlbControllerVersion_V2_3_1() AlbControllerVersion {
 	_jsii_.StaticGet(
 		"monocdk.aws_eks.AlbControllerVersion",
 		"V2_3_1",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_4_1() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_eks.AlbControllerVersion",
+		"V2_4_1",
 		&returns,
 	)
 	return returns
@@ -1968,8 +1979,6 @@ type CfnAddonProps struct {
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import eks "github.com/aws/aws-cdk-go/awscdk/aws_eks"
-//
-//   var provider interface{}
 //   cfnCluster := eks.NewCfnCluster(this, jsii.String("MyCfnCluster"), &cfnClusterProps{
 //   	resourcesVpcConfig: &resourcesVpcConfigProperty{
 //   		subnetIds: []*string{
@@ -1991,7 +2000,9 @@ type CfnAddonProps struct {
 //   	// the properties below are optional
 //   	encryptionConfig: []interface{}{
 //   		&encryptionConfigProperty{
-//   			provider: provider,
+//   			provider: &providerProperty{
+//   				keyArn: jsii.String("keyArn"),
+//   			},
 //   			resources: []*string{
 //   				jsii.String("resources"),
 //   			},
@@ -2909,10 +2920,10 @@ type CfnCluster_ClusterLoggingProperty struct {
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import eks "github.com/aws/aws-cdk-go/awscdk/aws_eks"
-//
-//   var provider interface{}
 //   encryptionConfigProperty := &encryptionConfigProperty{
-//   	provider: provider,
+//   	provider: &providerProperty{
+//   		keyArn: jsii.String("keyArn"),
+//   	},
 //   	resources: []*string{
 //   		jsii.String("resources"),
 //   	},
@@ -2996,6 +3007,21 @@ type CfnCluster_LoggingTypeConfigProperty struct {
 	Type *string `json:"type" yaml:"type"`
 }
 
+// Identifies the AWS Key Management Service ( AWS KMS ) key used to encrypt the secrets.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import eks "github.com/aws/aws-cdk-go/awscdk/aws_eks"
+//   providerProperty := &providerProperty{
+//   	keyArn: jsii.String("keyArn"),
+//   }
+//
+type CfnCluster_ProviderProperty struct {
+	// Amazon Resource Name (ARN) or alias of the KMS key.
+	//
+	// The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key. For more information, see [Allowing Users in Other Accounts to Use a KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html) in the *AWS Key Management Service Developer Guide* .
+	KeyArn *string `json:"keyArn" yaml:"keyArn"`
+}
+
 // An object representing the VPC configuration to use for an Amazon EKS cluster.
 //
 // > When updating a resource, you must include these properties if the previous CloudFormation template of the resource had them:
@@ -3054,8 +3080,6 @@ type CfnCluster_ResourcesVpcConfigProperty struct {
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import eks "github.com/aws/aws-cdk-go/awscdk/aws_eks"
-//
-//   var provider interface{}
 //   cfnClusterProps := &cfnClusterProps{
 //   	resourcesVpcConfig: &resourcesVpcConfigProperty{
 //   		subnetIds: []*string{
@@ -3077,7 +3101,9 @@ type CfnCluster_ResourcesVpcConfigProperty struct {
 //   	// the properties below are optional
 //   	encryptionConfig: []interface{}{
 //   		&encryptionConfigProperty{
-//   			provider: provider,
+//   			provider: &providerProperty{
+//   				keyArn: jsii.String("keyArn"),
+//   			},
 //   			resources: []*string{
 //   				jsii.String("resources"),
 //   			},
@@ -6250,7 +6276,7 @@ type CfnNodegroupProps struct {
 //   var vpc vpc
 //
 //   eks.NewCluster(this, jsii.String("HelloEKS"), &clusterProps{
-//   	version: eks.kubernetesVersion_V1_21(),
+//   	version: eks.kubernetesVersion_V1_22(),
 //   	vpc: vpc,
 //   	vpcSubnets: []subnetSelection{
 //   		&subnetSelection{
@@ -7335,7 +7361,7 @@ type ClusterAttributes struct {
 // Example:
 //   cluster := eks.NewCluster(this, jsii.String("Cluster"), &clusterProps{
 //   	// ...
-//   	version: eks.kubernetesVersion_V1_21(),
+//   	version: eks.kubernetesVersion_V1_22(),
 //   	clusterLogging: []clusterLoggingTypes{
 //   		eks.*clusterLoggingTypes_API,
 //   		eks.*clusterLoggingTypes_AUTHENTICATOR,
@@ -7575,7 +7601,7 @@ type ClusterOptions struct {
 //   var vpc vpc
 //
 //   eks.NewCluster(this, jsii.String("HelloEKS"), &clusterProps{
-//   	version: eks.kubernetesVersion_V1_21(),
+//   	version: eks.kubernetesVersion_V1_22(),
 //   	vpc: vpc,
 //   	vpcSubnets: []subnetSelection{
 //   		&subnetSelection{
@@ -7852,7 +7878,7 @@ const (
 //
 // Example:
 //   cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &clusterProps{
-//   	version: eks.kubernetesVersion_V1_21(),
+//   	version: eks.kubernetesVersion_V1_22(),
 //   	defaultCapacityType: eks.defaultCapacityType_EC2,
 //   })
 //
@@ -7959,7 +7985,7 @@ type EksOptimizedImageProps struct {
 //
 // Example:
 //   cluster := eks.NewCluster(this, jsii.String("hello-eks"), &clusterProps{
-//   	version: eks.kubernetesVersion_V1_21(),
+//   	version: eks.kubernetesVersion_V1_22(),
 //   	endpointAccess: eks.endpointAccess_PRIVATE(),
 //   })
 //
@@ -8036,7 +8062,7 @@ func (e *jsiiProxy_EndpointAccess) OnlyFrom(cidr ...*string) EndpointAccess {
 //
 // Example:
 //   cluster := eks.NewFargateCluster(this, jsii.String("MyCluster"), &fargateClusterProps{
-//   	version: eks.kubernetesVersion_V1_21(),
+//   	version: eks.kubernetesVersion_V1_22(),
 //   })
 //
 // Experimental.
@@ -9013,7 +9039,7 @@ func (f *jsiiProxy_FargateCluster) Validate() *[]*string {
 //
 // Example:
 //   cluster := eks.NewFargateCluster(this, jsii.String("MyCluster"), &fargateClusterProps{
-//   	version: eks.kubernetesVersion_V1_21(),
+//   	version: eks.kubernetesVersion_V1_22(),
 //   })
 //
 // Experimental.
@@ -12560,7 +12586,7 @@ type KubernetesPatchProps struct {
 //
 // Example:
 //   cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &clusterProps{
-//   	version: eks.kubernetesVersion_V1_21(),
+//   	version: eks.kubernetesVersion_V1_22(),
 //   	defaultCapacityType: eks.defaultCapacityType_EC2,
 //   })
 //
@@ -12687,6 +12713,17 @@ func KubernetesVersion_V1_21() KubernetesVersion {
 	_jsii_.StaticGet(
 		"monocdk.aws_eks.KubernetesVersion",
 		"V1_21",
+		&returns,
+	)
+	return returns
+}
+
+func KubernetesVersion_V1_22() KubernetesVersion {
+	_init_.Initialize()
+	var returns KubernetesVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_eks.KubernetesVersion",
+		"V1_22",
 		&returns,
 	)
 	return returns
@@ -13245,7 +13282,7 @@ func (n *jsiiProxy_Nodegroup) Validate() *[]*string {
 //
 // Example:
 //   cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &clusterProps{
-//   	version: eks.kubernetesVersion_V1_21(),
+//   	version: eks.kubernetesVersion_V1_22(),
 //   	defaultCapacity: jsii.Number(0),
 //   })
 //

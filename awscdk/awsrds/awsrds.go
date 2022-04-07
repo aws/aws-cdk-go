@@ -4131,13 +4131,23 @@ type CfnDBInstance interface {
 	// By default, minor engine upgrades are applied automatically.
 	AutoMinorVersionUpgrade() interface{}
 	SetAutoMinorVersionUpgrade(val interface{})
-	// The Availability Zone that the database instance will be created in.
+	// The Availability Zone (AZ) where the database will be created.
 	//
-	// Default: A random, system-chosen Availability Zone in the endpoint's region.
+	// For information on AWS Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html) .
+	//
+	// *Amazon Aurora*
+	//
+	// Not applicable. Availability Zones are managed by the DB cluster.
+	//
+	// Default: A random, system-chosen Availability Zone in the endpoint's AWS Region .
 	//
 	// Example: `us-east-1d`
 	//
-	// Constraint: The AvailabilityZone parameter cannot be specified if the MultiAZ parameter is set to `true` . The specified Availability Zone must be in the same region as the current endpoint.
+	// Constraint: The `AvailabilityZone` parameter can't be specified if the DB instance is a Multi-AZ deployment. The specified Availability Zone must be in the same AWS Region as the current endpoint.
+	//
+	// > If you're creating a DB instance in an RDS on VMware environment, specify the identifier of the custom Availability Zone to create the DB instance in.
+	// >
+	// > For more information about RDS on VMware, see the [RDS on VMware User Guide.](https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html)
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
 	// The number of days for which automated backups are retained.
@@ -6541,13 +6551,23 @@ type CfnDBInstanceProps struct {
 	//
 	// By default, minor engine upgrades are applied automatically.
 	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
-	// The Availability Zone that the database instance will be created in.
+	// The Availability Zone (AZ) where the database will be created.
 	//
-	// Default: A random, system-chosen Availability Zone in the endpoint's region.
+	// For information on AWS Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html) .
+	//
+	// *Amazon Aurora*
+	//
+	// Not applicable. Availability Zones are managed by the DB cluster.
+	//
+	// Default: A random, system-chosen Availability Zone in the endpoint's AWS Region .
 	//
 	// Example: `us-east-1d`
 	//
-	// Constraint: The AvailabilityZone parameter cannot be specified if the MultiAZ parameter is set to `true` . The specified Availability Zone must be in the same region as the current endpoint.
+	// Constraint: The `AvailabilityZone` parameter can't be specified if the DB instance is a Multi-AZ deployment. The specified Availability Zone must be in the same AWS Region as the current endpoint.
+	//
+	// > If you're creating a DB instance in an RDS on VMware environment, specify the identifier of the custom Availability Zone to create the DB instance in.
+	// >
+	// > For more information about RDS on VMware, see the [RDS on VMware User Guide.](https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html)
 	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// The number of days for which automated backups are retained.
 	//
@@ -11429,17 +11449,17 @@ func (c *jsiiProxy_CfnDBSecurityGroup) ValidateProperties(_properties interface{
 type CfnDBSecurityGroup_IngressProperty struct {
 	// The IP range to authorize.
 	Cidrip *string `json:"cidrip" yaml:"cidrip"`
-	// Id of the EC2 Security Group to authorize.
+	// Id of the EC2 security group to authorize.
 	//
-	// For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupId *string `json:"ec2SecurityGroupId" yaml:"ec2SecurityGroupId"`
-	// Name of the EC2 Security Group to authorize.
+	// Name of the EC2 security group to authorize.
 	//
-	// For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupName *string `json:"ec2SecurityGroupName" yaml:"ec2SecurityGroupName"`
-	// AWS Account Number of the owner of the EC2 Security Group specified in the EC2SecurityGroupName parameter.
+	// AWS account number of the owner of the EC2 security group specified in the `EC2SecurityGroupName` parameter.
 	//
-	// The AWS Access Key ID is not an acceptable value. For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// The AWS access key ID isn't an acceptable value. For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupOwnerId *string `json:"ec2SecurityGroupOwnerId" yaml:"ec2SecurityGroupOwnerId"`
 }
 
@@ -11481,22 +11501,22 @@ type CfnDBSecurityGroupIngress interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// The name of the DB Security Group to add authorization to.
+	// The name of the DB security group to add authorization to.
 	DbSecurityGroupName() *string
 	SetDbSecurityGroupName(val *string)
-	// Id of the EC2 Security Group to authorize.
+	// Id of the EC2 security group to authorize.
 	//
-	// For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupId() *string
 	SetEc2SecurityGroupId(val *string)
-	// Name of the EC2 Security Group to authorize.
+	// Name of the EC2 security group to authorize.
 	//
-	// For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupName() *string
 	SetEc2SecurityGroupName(val *string)
-	// AWS Account Number of the owner of the EC2 Security Group specified in the EC2SecurityGroupName parameter.
+	// AWS account number of the owner of the EC2 security group specified in the `EC2SecurityGroupName` parameter.
 	//
-	// The AWS Access Key ID is not an acceptable value. For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// The AWS access key ID isn't an acceptable value. For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupOwnerId() *string
 	SetEc2SecurityGroupOwnerId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -12194,21 +12214,21 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) ValidateProperties(_properties int
 //   }
 //
 type CfnDBSecurityGroupIngressProps struct {
-	// The name of the DB Security Group to add authorization to.
+	// The name of the DB security group to add authorization to.
 	DbSecurityGroupName *string `json:"dbSecurityGroupName" yaml:"dbSecurityGroupName"`
 	// The IP range to authorize.
 	Cidrip *string `json:"cidrip" yaml:"cidrip"`
-	// Id of the EC2 Security Group to authorize.
+	// Id of the EC2 security group to authorize.
 	//
-	// For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupId *string `json:"ec2SecurityGroupId" yaml:"ec2SecurityGroupId"`
-	// Name of the EC2 Security Group to authorize.
+	// Name of the EC2 security group to authorize.
 	//
-	// For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupName *string `json:"ec2SecurityGroupName" yaml:"ec2SecurityGroupName"`
-	// AWS Account Number of the owner of the EC2 Security Group specified in the EC2SecurityGroupName parameter.
+	// AWS account number of the owner of the EC2 security group specified in the `EC2SecurityGroupName` parameter.
 	//
-	// The AWS Access Key ID is not an acceptable value. For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// The AWS access key ID isn't an acceptable value. For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupOwnerId *string `json:"ec2SecurityGroupOwnerId" yaml:"ec2SecurityGroupOwnerId"`
 }
 
@@ -12289,7 +12309,7 @@ type CfnDBSubnetGroup interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// The description for the DB Subnet Group.
+	// The description for the DB subnet group.
 	DbSubnetGroupDescription() *string
 	SetDbSubnetGroupDescription(val *string)
 	// The name for the DB subnet group. This value is stored as a lowercase string.
@@ -12324,7 +12344,7 @@ type CfnDBSubnetGroup interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// The EC2 Subnet IDs for the DB Subnet Group.
+	// The EC2 Subnet IDs for the DB subnet group.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
 	// Tags to assign to the DB subnet group.
@@ -12979,9 +12999,9 @@ func (c *jsiiProxy_CfnDBSubnetGroup) ValidateProperties(_properties interface{})
 //   }
 //
 type CfnDBSubnetGroupProps struct {
-	// The description for the DB Subnet Group.
+	// The description for the DB subnet group.
 	DbSubnetGroupDescription *string `json:"dbSubnetGroupDescription" yaml:"dbSubnetGroupDescription"`
-	// The EC2 Subnet IDs for the DB Subnet Group.
+	// The EC2 Subnet IDs for the DB subnet group.
 	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 	// The name for the DB subnet group. This value is stored as a lowercase string.
 	//
@@ -13028,14 +13048,14 @@ type CfnEventSubscription interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// A Boolean value;
+	// A value that indicates whether to activate the subscription.
 	//
-	// set to *true* to activate the subscription, set to *false* to create the subscription but not active it.
+	// If the event notification subscription isn't activated, the subscription is created but not active.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	// A list of event categories for a SourceType that you want to subscribe to.
+	// A list of event categories for a particular source type ( `SourceType` ) that you want to subscribe to.
 	//
-	// You can see a list of the categories for a given SourceType in the [Events](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) topic in the Amazon RDS User Guide or by using the *DescribeEventCategories* action.
+	// You can see a list of the categories for a given source type in the "Amazon RDS event categories and event messages" section of the [*Amazon RDS User Guide*](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Messages.html) or the [*Amazon Aurora User Guide*](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.html) . You can also see this list by using the `DescribeEventCategories` operation.
 	EventCategories() *[]*string
 	SetEventCategories(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -13768,13 +13788,13 @@ type CfnEventSubscriptionProps struct {
 	//
 	// The ARN is created by Amazon SNS when you create a topic and subscribe to it.
 	SnsTopicArn *string `json:"snsTopicArn" yaml:"snsTopicArn"`
-	// A Boolean value;
+	// A value that indicates whether to activate the subscription.
 	//
-	// set to *true* to activate the subscription, set to *false* to create the subscription but not active it.
+	// If the event notification subscription isn't activated, the subscription is created but not active.
 	Enabled interface{} `json:"enabled" yaml:"enabled"`
-	// A list of event categories for a SourceType that you want to subscribe to.
+	// A list of event categories for a particular source type ( `SourceType` ) that you want to subscribe to.
 	//
-	// You can see a list of the categories for a given SourceType in the [Events](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) topic in the Amazon RDS User Guide or by using the *DescribeEventCategories* action.
+	// You can see a list of the categories for a given source type in the "Amazon RDS event categories and event messages" section of the [*Amazon RDS User Guide*](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Messages.html) or the [*Amazon Aurora User Guide*](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.html) . You can also see this list by using the `DescribeEventCategories` operation.
 	EventCategories *[]*string `json:"eventCategories" yaml:"eventCategories"`
 	// The list of identifiers of the event sources for which events are returned.
 	//
@@ -26684,9 +26704,11 @@ type InstanceProps struct {
 //   		jsii.String("listener"),
 //   	},
 //   	cloudwatchLogsRetention: logs.retentionDays_ONE_MONTH,
-//   	autoMinorVersionUpgrade: jsii.Boolean(false),
+//   	autoMinorVersionUpgrade: jsii.Boolean(true),
+//   	 // required to be true if LOCATOR is used in the option group
 //   	optionGroup: optionGroup,
 //   	parameterGroup: parameterGroup,
+//   	removalPolicy: removalPolicy_DESTROY,
 //   })
 //
 //   // Allow connections on default port from any IPV4
@@ -28068,9 +28090,11 @@ type OptionConfiguration struct {
 //   		jsii.String("listener"),
 //   	},
 //   	cloudwatchLogsRetention: logs.retentionDays_ONE_MONTH,
-//   	autoMinorVersionUpgrade: jsii.Boolean(false),
+//   	autoMinorVersionUpgrade: jsii.Boolean(true),
+//   	 // required to be true if LOCATOR is used in the option group
 //   	optionGroup: optionGroup,
 //   	parameterGroup: parameterGroup,
+//   	removalPolicy: removalPolicy_DESTROY,
 //   })
 //
 //   // Allow connections on default port from any IPV4
@@ -28556,9 +28580,11 @@ func (o *jsiiProxy_OptionGroup) Validate() *[]*string {
 //   		jsii.String("listener"),
 //   	},
 //   	cloudwatchLogsRetention: logs.retentionDays_ONE_MONTH,
-//   	autoMinorVersionUpgrade: jsii.Boolean(false),
+//   	autoMinorVersionUpgrade: jsii.Boolean(true),
+//   	 // required to be true if LOCATOR is used in the option group
 //   	optionGroup: optionGroup,
 //   	parameterGroup: parameterGroup,
+//   	removalPolicy: removalPolicy_DESTROY,
 //   })
 //
 //   // Allow connections on default port from any IPV4
@@ -30200,9 +30226,11 @@ type ParameterGroupInstanceConfig struct {
 //   		jsii.String("listener"),
 //   	},
 //   	cloudwatchLogsRetention: logs.retentionDays_ONE_MONTH,
-//   	autoMinorVersionUpgrade: jsii.Boolean(false),
+//   	autoMinorVersionUpgrade: jsii.Boolean(true),
+//   	 // required to be true if LOCATOR is used in the option group
 //   	optionGroup: optionGroup,
 //   	parameterGroup: parameterGroup,
+//   	removalPolicy: removalPolicy_DESTROY,
 //   })
 //
 //   // Allow connections on default port from any IPV4
@@ -33964,9 +33992,11 @@ type SqlServerWebInstanceEngineProps struct {
 //   		jsii.String("listener"),
 //   	},
 //   	cloudwatchLogsRetention: logs.retentionDays_ONE_MONTH,
-//   	autoMinorVersionUpgrade: jsii.Boolean(false),
+//   	autoMinorVersionUpgrade: jsii.Boolean(true),
+//   	 // required to be true if LOCATOR is used in the option group
 //   	optionGroup: optionGroup,
 //   	parameterGroup: parameterGroup,
+//   	removalPolicy: removalPolicy_DESTROY,
 //   })
 //
 //   // Allow connections on default port from any IPV4

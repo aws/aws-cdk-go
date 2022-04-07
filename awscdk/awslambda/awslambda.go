@@ -4437,6 +4437,7 @@ type CfnEventInvokeConfigProps struct {
 type CfnEventSourceMapping interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The event source mapping's ID.
 	AttrId() *string
 	// The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function.
 	//
@@ -8833,7 +8834,7 @@ type CfnLayerVersionProps struct {
 //   lambda.NewFunction(lambdaStack, jsii.String("Lambda"), &functionProps{
 //   	code: lambdaCode,
 //   	handler: jsii.String("index.handler"),
-//   	runtime: lambda.runtime_NODEJS_10_X(),
+//   	runtime: lambda.runtime_NODEJS_14_X(),
 //   })
 //   // other resources that your Lambda needs, added to the lambdaStack...
 //
@@ -9311,7 +9312,7 @@ type CfnParametersCodeProps struct {
 //
 // The `AWS::Lambda::Permission` resource grants an AWS service or another account permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.
 //
-// To grant permission to another account, specify the account ID as the `Principal` . For AWS services, the principal is a domain-style identifier defined by the service, like `s3.amazonaws.com` or `sns.amazonaws.com` . For AWS services, you can also specify the ARN of the associated resource as the `SourceArn` . If you grant permission to a service principal without specifying the source, other accounts could potentially configure resources in their account to invoke your Lambda function.
+// To grant permission to another account, specify the account ID as the `Principal` . To grant permission to an organization defined in AWS Organizations , specify the organization ID as the `PrincipalOrgID` . For AWS services, the principal is a domain-style identifier defined by the service, like `s3.amazonaws.com` or `sns.amazonaws.com` . For AWS services, you can also specify the ARN of the associated resource as the `SourceArn` . If you grant permission to a service principal without specifying the source, other accounts could potentially configure resources in their account to invoke your Lambda function.
 //
 // This resource adds a statement to a resource-based permission policy for the function. For more information about function policies, see [Lambda Function Policies](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html) .
 //
@@ -9380,7 +9381,9 @@ type CfnPermission interface {
 	// If you specify a service, use `SourceArn` or `SourceAccount` to limit who can invoke the function through that service.
 	Principal() *string
 	SetPrincipal(val *string)
-	// `AWS::Lambda::Permission.PrincipalOrgID`.
+	// The identifier for your organization in AWS Organizations .
+	//
+	// Use this to grant permissions to all the AWS accounts under this organization.
 	PrincipalOrgId() *string
 	SetPrincipalOrgId(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -10132,7 +10135,9 @@ type CfnPermissionProps struct {
 	Principal *string `json:"principal" yaml:"principal"`
 	// For Alexa Smart Home functions, a token that must be supplied by the invoker.
 	EventSourceToken *string `json:"eventSourceToken" yaml:"eventSourceToken"`
-	// `AWS::Lambda::Permission.PrincipalOrgID`.
+	// The identifier for your organization in AWS Organizations .
+	//
+	// Use this to grant permissions to all the AWS accounts under this organization.
 	PrincipalOrgId *string `json:"principalOrgId" yaml:"principalOrgId"`
 	// For Amazon S3, the ID of the account that owns the resource.
 	//
@@ -13002,6 +13007,9 @@ type DockerImageFunctionProps struct {
 	// The AWS KMS key that's used to encrypt your function's environment variables.
 	// Experimental.
 	EnvironmentEncryption awskms.IKey `json:"environmentEncryption" yaml:"environmentEncryption"`
+	// The size of the function’s /tmp directory in MB.
+	// Experimental.
+	EphemeralStorageSize awscdk.Size `json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
 	// Event sources for this function.
 	//
 	// You can also add event sources using `addEventSource`.
@@ -16544,6 +16552,7 @@ func (f *jsiiProxy_FunctionBase) WarnInvokeFunctionPermissions(scope awscdk.Cons
 //   var queue queue
 //   var role role
 //   var securityGroup securityGroup
+//   var size size
 //   var subnet subnet
 //   var subnetFilter subnetFilter
 //   var topic topic
@@ -16574,6 +16583,7 @@ func (f *jsiiProxy_FunctionBase) WarnInvokeFunctionPermissions(scope awscdk.Cons
 //   		"environmentKey": jsii.String("environment"),
 //   	},
 //   	environmentEncryption: key,
+//   	ephemeralStorageSize: size,
 //   	events: []*iEventSource{
 //   		eventSource,
 //   	},
@@ -16700,6 +16710,9 @@ type FunctionOptions struct {
 	// The AWS KMS key that's used to encrypt your function's environment variables.
 	// Experimental.
 	EnvironmentEncryption awskms.IKey `json:"environmentEncryption" yaml:"environmentEncryption"`
+	// The size of the function’s /tmp directory in MB.
+	// Experimental.
+	EphemeralStorageSize awscdk.Size `json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
 	// Event sources for this function.
 	//
 	// You can also add event sources using `addEventSource`.
@@ -16915,6 +16928,9 @@ type FunctionProps struct {
 	// The AWS KMS key that's used to encrypt your function's environment variables.
 	// Experimental.
 	EnvironmentEncryption awskms.IKey `json:"environmentEncryption" yaml:"environmentEncryption"`
+	// The size of the function’s /tmp directory in MB.
+	// Experimental.
+	EphemeralStorageSize awscdk.Size `json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
 	// Event sources for this function.
 	//
 	// You can also add event sources using `addEventSource`.
@@ -17773,7 +17789,7 @@ func (j *jsiiProxy_IVersion) Version() *string {
 //   layer := lambda.NewLayerVersion(stack, jsii.String("MyLayer"), &layerVersionProps{
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("layer-code"))),
 //   	compatibleRuntimes: []runtime{
-//   		lambda.*runtime_NODEJS_10_X(),
+//   		lambda.*runtime_NODEJS_14_X(),
 //   	},
 //   	license: jsii.String("Apache-2.0"),
 //   	description: jsii.String("A layer to test the L2 construct"),
@@ -17792,7 +17808,7 @@ func (j *jsiiProxy_IVersion) Version() *string {
 //   lambda.NewFunction(stack, jsii.String("MyLayeredLambda"), &functionProps{
 //   	code: lambda.NewInlineCode(jsii.String("foo")),
 //   	handler: jsii.String("index.handler"),
-//   	runtime: lambda.*runtime_NODEJS_10_X(),
+//   	runtime: lambda.*runtime_NODEJS_14_X(),
 //   	layers: []iLayerVersion{
 //   		layer,
 //   	},
@@ -18700,7 +18716,7 @@ type LayerVersionOptions struct {
 //   layer := lambda.NewLayerVersion(stack, jsii.String("MyLayer"), &layerVersionProps{
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("layer-code"))),
 //   	compatibleRuntimes: []runtime{
-//   		lambda.*runtime_NODEJS_10_X(),
+//   		lambda.*runtime_NODEJS_14_X(),
 //   	},
 //   	license: jsii.String("Apache-2.0"),
 //   	description: jsii.String("A layer to test the L2 construct"),
@@ -18719,7 +18735,7 @@ type LayerVersionOptions struct {
 //   lambda.NewFunction(stack, jsii.String("MyLayeredLambda"), &functionProps{
 //   	code: lambda.NewInlineCode(jsii.String("foo")),
 //   	handler: jsii.String("index.handler"),
-//   	runtime: lambda.*runtime_NODEJS_10_X(),
+//   	runtime: lambda.*runtime_NODEJS_14_X(),
 //   	layers: []iLayerVersion{
 //   		layer,
 //   	},
@@ -20643,6 +20659,7 @@ func (s *jsiiProxy_S3Code) BindToResource(_resource awscdk.CfnResource, _options
 //   var role role
 //   var runtime runtime
 //   var securityGroup securityGroup
+//   var size size
 //   var subnet subnet
 //   var subnetFilter subnetFilter
 //   var topic topic
@@ -20679,6 +20696,7 @@ func (s *jsiiProxy_S3Code) BindToResource(_resource awscdk.CfnResource, _options
 //   		"environmentKey": jsii.String("environment"),
 //   	},
 //   	environmentEncryption: key,
+//   	ephemeralStorageSize: size,
 //   	events: []*iEventSource{
 //   		eventSource,
 //   	},
@@ -21552,6 +21570,7 @@ func (s *jsiiProxy_SingletonFunction) WarnInvokeFunctionPermissions(scope awscdk
 //   var role role
 //   var runtime runtime
 //   var securityGroup securityGroup
+//   var size size
 //   var subnet subnet
 //   var subnetFilter subnetFilter
 //   var topic topic
@@ -21588,6 +21607,7 @@ func (s *jsiiProxy_SingletonFunction) WarnInvokeFunctionPermissions(scope awscdk
 //   		"environmentKey": jsii.String("environment"),
 //   	},
 //   	environmentEncryption: key,
+//   	ephemeralStorageSize: size,
 //   	events: []*iEventSource{
 //   		eventSource,
 //   	},
@@ -21715,6 +21735,9 @@ type SingletonFunctionProps struct {
 	// The AWS KMS key that's used to encrypt your function's environment variables.
 	// Experimental.
 	EnvironmentEncryption awskms.IKey `json:"environmentEncryption" yaml:"environmentEncryption"`
+	// The size of the function’s /tmp directory in MB.
+	// Experimental.
+	EphemeralStorageSize awscdk.Size `json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
 	// Event sources for this function.
 	//
 	// You can also add event sources using `addEventSource`.

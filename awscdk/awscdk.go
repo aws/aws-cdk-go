@@ -30131,7 +30131,7 @@ func (r *jsiiProxy_Reference) ToString() *string {
 //
 //   user := iam.NewUser(this, jsii.String("User"))
 //   domain := opensearch.NewDomain(this, jsii.String("Domain"), &domainProps{
-//   	version: opensearch.engineVersion_OPENSEARCH_1_1(),
+//   	version: opensearch.engineVersion_OPENSEARCH_1_2(),
 //   	removalPolicy: removalPolicy_DESTROY,
 //   	fineGrainedAccessControl: &advancedSecurityOptions{
 //   		masterUserArn: user.userArn,
@@ -31178,34 +31178,24 @@ type SecretsManagerSecretOptions struct {
 // When the amount is passed as a token, unit conversion is not possible.
 //
 // Example:
-//   tasks.NewSageMakerCreateTrainingJob(this, jsii.String("TrainSagemaker"), &sageMakerCreateTrainingJobProps{
-//   	trainingJobName: sfn.jsonPath.stringAt(jsii.String("$.JobName")),
-//   	algorithmSpecification: &algorithmSpecification{
-//   		algorithmName: jsii.String("BlazingText"),
-//   		trainingInputMode: tasks.inputMode_FILE,
-//   	},
-//   	inputDataConfig: []channel{
-//   		&channel{
-//   			channelName: jsii.String("train"),
-//   			dataSource: &dataSource{
-//   				s3DataSource: &s3DataSource{
-//   					s3DataType: tasks.s3DataType_S3_PREFIX,
-//   					s3Location: tasks.s3Location.fromJsonExpression(jsii.String("$.S3Bucket")),
-//   				},
-//   			},
-//   		},
-//   	},
-//   	outputDataConfig: &outputDataConfig{
-//   		s3OutputLocation: tasks.*s3Location.fromBucket(s3.bucket.fromBucketName(this, jsii.String("Bucket"), jsii.String("mybucket")), jsii.String("myoutputpath")),
-//   	},
-//   	resourceConfig: &resourceConfig{
-//   		instanceCount: jsii.Number(1),
-//   		instanceType: ec2.NewInstanceType(sfn.*jsonPath.stringAt(jsii.String("$.InstanceType"))),
-//   		volumeSize: size.gibibytes(jsii.Number(50)),
-//   	},
-//   	 // optional: default is 1 instance of EC2 `M4.XLarge` with `10GB` volume
-//   	stoppingCondition: &stoppingCondition{
-//   		maxRuntime: duration.hours(jsii.Number(2)),
+//   var bucket bucket// Provide a Lambda function that will transform records before delivery, with custom
+//   // buffering and retry configuration
+//   lambdaFunction := lambda.NewFunction(this, jsii.String("Processor"), &functionProps{
+//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	handler: jsii.String("index.handler"),
+//   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("process-records"))),
+//   })
+//   lambdaProcessor := firehose.NewLambdaFunctionProcessor(lambdaFunction, &dataProcessorProps{
+//   	bufferInterval: duration.minutes(jsii.Number(5)),
+//   	bufferSize: size.mebibytes(jsii.Number(5)),
+//   	retries: jsii.Number(5),
+//   })
+//   s3Destination := destinations.NewS3Bucket(bucket, &s3BucketProps{
+//   	processor: lambdaProcessor,
+//   })
+//   firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &deliveryStreamProps{
+//   	destinations: []iDestination{
+//   		s3Destination,
 //   	},
 //   })
 //

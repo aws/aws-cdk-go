@@ -16604,7 +16604,7 @@ type OpenIdConnectConfig struct {
 //
 //   user := iam.NewUser(this, jsii.String("User"))
 //   domain := opensearch.NewDomain(this, jsii.String("Domain"), &domainProps{
-//   	version: opensearch.engineVersion_OPENSEARCH_1_1(),
+//   	version: opensearch.engineVersion_OPENSEARCH_1_2(),
 //   	removalPolicy: removalPolicy_DESTROY,
 //   	fineGrainedAccessControl: &advancedSecurityOptions{
 //   		masterUserArn: user.userArn,

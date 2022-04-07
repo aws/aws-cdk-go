@@ -3145,12 +3145,25 @@ const (
 type PredefinedMetric string
 
 const (
-	// DYNAMODB_READ_CAPACITY_UTILIZATIO.
-	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
-	//
+	// Average percentage of instances in an AppStream fleet that are being used.
+	// Experimental.
+	PredefinedMetric_APPSTREAM_AVERAGE_CAPACITY_UTILIZATION PredefinedMetric = "APPSTREAM_AVERAGE_CAPACITY_UTILIZATION"
+	// Percentage of provisioned read capacity units utilized by a Keyspaces table.
+	// Experimental.
+	PredefinedMetric_CASSANDRA_READ_CAPACITY_UTILIZATION PredefinedMetric = "CASSANDRA_READ_CAPACITY_UTILIZATION"
+	// Percentage of provisioned write capacity units utilized by a Keyspaces table.
+	// Experimental.
+	PredefinedMetric_CASSANDRA_WRITE_CAPACITY_UTILIZATION PredefinedMetric = "CASSANDRA_WRITE_CAPACITY_UTILIZATION"
+	// Percentage of provisioned inference units utilized by a Comprehend endpoint.
+	// Experimental.
+	PredefinedMetric_COMPREHEND_INFERENCE_UTILIZATION PredefinedMetric = "COMPREHEND_INFERENCE_UTILIZATION"
+	// Average CPU Utilization of read replica instances in a Neptune DB cluster.
+	// Experimental.
+	PredefinedMetric_NEPTURE_READER_AVERAGE_CPU_UTILIZATION PredefinedMetric = "NEPTURE_READER_AVERAGE_CPU_UTILIZATION"
+	// Percentage of provisioned read capacity units consumed by a DynamoDB table.
 	// Experimental.
 	PredefinedMetric_DYNAMODB_READ_CAPACITY_UTILIZATION PredefinedMetric = "DYNAMODB_READ_CAPACITY_UTILIZATION"
-	// DYNAMODB_WRITE_CAPACITY_UTILIZATION.
+	// Percentage of provisioned write capacity units consumed by a DynamoDB table.
 	//
 	// Suffix `dummy` is necessary due to jsii bug (https://github.com/aws/jsii/issues/2782).
 	// Duplicate values will be dropped, so this suffix is added as a workaround.
@@ -4734,7 +4747,7 @@ type StepScalingPolicyProps struct {
 //   	customMetric: metric,
 //   	disableScaleIn: jsii.Boolean(false),
 //   	policyName: jsii.String("policyName"),
-//   	predefinedMetric: applicationautoscaling.predefinedMetric_DYNAMODB_READ_CAPACITY_UTILIZATION,
+//   	predefinedMetric: applicationautoscaling.predefinedMetric_APPSTREAM_AVERAGE_CAPACITY_UTILIZATION,
 //   	resourceLabel: jsii.String("resourceLabel"),
 //   	scaleInCooldown: duration,
 //   	scaleOutCooldown: duration,
@@ -4960,7 +4973,7 @@ func (t *jsiiProxy_TargetTrackingScalingPolicy) Validate() *[]*string {
 //   	customMetric: metric,
 //   	disableScaleIn: jsii.Boolean(false),
 //   	policyName: jsii.String("policyName"),
-//   	predefinedMetric: applicationautoscaling.predefinedMetric_DYNAMODB_READ_CAPACITY_UTILIZATION,
+//   	predefinedMetric: applicationautoscaling.predefinedMetric_APPSTREAM_AVERAGE_CAPACITY_UTILIZATION,
 //   	resourceLabel: jsii.String("resourceLabel"),
 //   	scaleInCooldown: duration,
 //   	scaleOutCooldown: duration,

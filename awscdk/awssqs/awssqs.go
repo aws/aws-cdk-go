@@ -1093,7 +1093,6 @@ func (c *jsiiProxy_CfnQueue) ValidateProperties(_properties interface{}) {
 type CfnQueuePolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -1317,16 +1316,6 @@ type CfnQueuePolicy interface {
 type jsiiProxy_CfnQueuePolicy struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
-}
-
-func (j *jsiiProxy_CfnQueuePolicy) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnQueuePolicy) CfnOptions() awscdk.ICfnResourceOptions {
@@ -3894,6 +3883,8 @@ type QueuePolicy interface {
 	// Experimental.
 	PhysicalName() *string
 	// Not currently supported by AWS CloudFormation.
+	//
+	// This attribute temporarily existed in CloudFormation, and then was removed again.
 	// Experimental.
 	QueuePolicyId() *string
 	// The stack in which this resource is defined.
