@@ -1,12 +1,12 @@
 package awssigner
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awssigner/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssigner/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::Signer::ProfilePermission`.
@@ -32,16 +32,13 @@ type CfnProfilePermission interface {
 	Action() *string
 	SetAction(val *string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -52,11 +49,9 @@ type CfnProfilePermission interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The AWS principal receiving cross-account permissions.
 	//
 	// This may be an IAM role or another AWS account ID.
@@ -72,12 +67,10 @@ type CfnProfilePermission interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A unique identifier for the cross-account permission statement.
 	StatementId() *string
@@ -86,16 +79,13 @@ type CfnProfilePermission interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -104,7 +94,6 @@ type CfnProfilePermission interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -149,15 +138,12 @@ type CfnProfilePermission interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -168,13 +154,11 @@ type CfnProfilePermission interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -183,74 +167,21 @@ type CfnProfilePermission interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -320,8 +251,8 @@ func (j *jsiiProxy_CfnProfilePermission) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProfilePermission) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnProfilePermission) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -402,13 +333,13 @@ func (j *jsiiProxy_CfnProfilePermission) UpdatedProperites() *map[string]interfa
 
 
 // Create a new `AWS::Signer::ProfilePermission`.
-func NewCfnProfilePermission(scope awscdk.Construct, id *string, props *CfnProfilePermissionProps) CfnProfilePermission {
+func NewCfnProfilePermission(scope constructs.Construct, id *string, props *CfnProfilePermissionProps) CfnProfilePermission {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnProfilePermission{}
 
 	_jsii_.Create(
-		"monocdk.aws_signer.CfnProfilePermission",
+		"aws-cdk-lib.aws_signer.CfnProfilePermission",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -417,11 +348,11 @@ func NewCfnProfilePermission(scope awscdk.Construct, id *string, props *CfnProfi
 }
 
 // Create a new `AWS::Signer::ProfilePermission`.
-func NewCfnProfilePermission_Override(c CfnProfilePermission, scope awscdk.Construct, id *string, props *CfnProfilePermissionProps) {
+func NewCfnProfilePermission_Override(c CfnProfilePermission, scope constructs.Construct, id *string, props *CfnProfilePermissionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_signer.CfnProfilePermission",
+		"aws-cdk-lib.aws_signer.CfnProfilePermission",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -473,14 +404,13 @@ func (j *jsiiProxy_CfnProfilePermission) SetStatementId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnProfilePermission_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_signer.CfnProfilePermission",
+		"aws-cdk-lib.aws_signer.CfnProfilePermission",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -490,14 +420,13 @@ func CfnProfilePermission_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnProfilePermission_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_signer.CfnProfilePermission",
+		"aws-cdk-lib.aws_signer.CfnProfilePermission",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -506,15 +435,17 @@ func CfnProfilePermission_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnProfilePermission_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_signer.CfnProfilePermission",
+		"aws-cdk-lib.aws_signer.CfnProfilePermission",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -527,7 +458,7 @@ func CfnProfilePermission_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_signer.CfnProfilePermission",
+		"aws-cdk-lib.aws_signer.CfnProfilePermission",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -624,48 +555,11 @@ func (c *jsiiProxy_CfnProfilePermission) Inspect(inspector awscdk.TreeInspector)
 	)
 }
 
-func (c *jsiiProxy_CfnProfilePermission) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnProfilePermission) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnProfilePermission) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnProfilePermission) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnProfilePermission) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -695,33 +589,12 @@ func (c *jsiiProxy_CfnProfilePermission) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnProfilePermission) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnProfilePermission) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnProfilePermission) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -796,16 +669,13 @@ type CfnSigningProfile interface {
 	AttrProfileVersion() *string
 	AttrProfileVersionArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -816,11 +686,9 @@ type CfnSigningProfile interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The ID of a platform that is available for use by a signing profile.
 	PlatformId() *string
 	SetPlatformId(val *string)
@@ -828,7 +696,6 @@ type CfnSigningProfile interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The validity period override for any signature generated using this signing profile.
 	//
@@ -838,7 +705,6 @@ type CfnSigningProfile interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A list of tags associated with the signing profile.
 	Tags() awscdk.TagManager
@@ -846,16 +712,13 @@ type CfnSigningProfile interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -864,7 +727,6 @@ type CfnSigningProfile interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -909,15 +771,12 @@ type CfnSigningProfile interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -928,13 +787,11 @@ type CfnSigningProfile interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -943,74 +800,21 @@ type CfnSigningProfile interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1110,8 +914,8 @@ func (j *jsiiProxy_CfnSigningProfile) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSigningProfile) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnSigningProfile) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1182,13 +986,13 @@ func (j *jsiiProxy_CfnSigningProfile) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::Signer::SigningProfile`.
-func NewCfnSigningProfile(scope awscdk.Construct, id *string, props *CfnSigningProfileProps) CfnSigningProfile {
+func NewCfnSigningProfile(scope constructs.Construct, id *string, props *CfnSigningProfileProps) CfnSigningProfile {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnSigningProfile{}
 
 	_jsii_.Create(
-		"monocdk.aws_signer.CfnSigningProfile",
+		"aws-cdk-lib.aws_signer.CfnSigningProfile",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1197,11 +1001,11 @@ func NewCfnSigningProfile(scope awscdk.Construct, id *string, props *CfnSigningP
 }
 
 // Create a new `AWS::Signer::SigningProfile`.
-func NewCfnSigningProfile_Override(c CfnSigningProfile, scope awscdk.Construct, id *string, props *CfnSigningProfileProps) {
+func NewCfnSigningProfile_Override(c CfnSigningProfile, scope constructs.Construct, id *string, props *CfnSigningProfileProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_signer.CfnSigningProfile",
+		"aws-cdk-lib.aws_signer.CfnSigningProfile",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1229,14 +1033,13 @@ func (j *jsiiProxy_CfnSigningProfile) SetSignatureValidityPeriod(val interface{}
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnSigningProfile_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_signer.CfnSigningProfile",
+		"aws-cdk-lib.aws_signer.CfnSigningProfile",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1246,14 +1049,13 @@ func CfnSigningProfile_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnSigningProfile_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_signer.CfnSigningProfile",
+		"aws-cdk-lib.aws_signer.CfnSigningProfile",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1262,15 +1064,17 @@ func CfnSigningProfile_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnSigningProfile_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_signer.CfnSigningProfile",
+		"aws-cdk-lib.aws_signer.CfnSigningProfile",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1283,7 +1087,7 @@ func CfnSigningProfile_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_signer.CfnSigningProfile",
+		"aws-cdk-lib.aws_signer.CfnSigningProfile",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1380,48 +1184,11 @@ func (c *jsiiProxy_CfnSigningProfile) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnSigningProfile) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnSigningProfile) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnSigningProfile) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnSigningProfile) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnSigningProfile) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1451,33 +1218,12 @@ func (c *jsiiProxy_CfnSigningProfile) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnSigningProfile) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnSigningProfile) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnSigningProfile) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1541,20 +1287,15 @@ type CfnSigningProfileProps struct {
 }
 
 // A Signer Profile.
-// Experimental.
 type ISigningProfile interface {
 	awscdk.IResource
 	// The ARN of the signing profile.
-	// Experimental.
 	SigningProfileArn() *string
 	// The name of signing profile.
-	// Experimental.
 	SigningProfileName() *string
 	// The version of signing profile.
-	// Experimental.
 	SigningProfileVersion() *string
 	// The ARN of signing profile version.
-	// Experimental.
 	SigningProfileVersionArn() *string
 }
 
@@ -1627,12 +1368,10 @@ func (j *jsiiProxy_ISigningProfile) SigningProfileVersionArn() *string {
 //
 // See: https://docs.aws.amazon.com/signer/latest/developerguide/gs-platform.html
 //
-// Experimental.
 type Platform interface {
 	// The id of signing platform.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid
 	//
-	// Experimental.
 	PlatformId() *string
 }
 
@@ -1656,7 +1395,7 @@ func Platform_AMAZON_FREE_RTOS_DEFAULT() Platform {
 	_init_.Initialize()
 	var returns Platform
 	_jsii_.StaticGet(
-		"monocdk.aws_signer.Platform",
+		"aws-cdk-lib.aws_signer.Platform",
 		"AMAZON_FREE_RTOS_DEFAULT",
 		&returns,
 	)
@@ -1667,7 +1406,7 @@ func Platform_AMAZON_FREE_RTOS_TI_CC3220SF() Platform {
 	_init_.Initialize()
 	var returns Platform
 	_jsii_.StaticGet(
-		"monocdk.aws_signer.Platform",
+		"aws-cdk-lib.aws_signer.Platform",
 		"AMAZON_FREE_RTOS_TI_CC3220SF",
 		&returns,
 	)
@@ -1678,7 +1417,7 @@ func Platform_AWS_IOT_DEVICE_MANAGEMENT_SHA256_ECDSA() Platform {
 	_init_.Initialize()
 	var returns Platform
 	_jsii_.StaticGet(
-		"monocdk.aws_signer.Platform",
+		"aws-cdk-lib.aws_signer.Platform",
 		"AWS_IOT_DEVICE_MANAGEMENT_SHA256_ECDSA",
 		&returns,
 	)
@@ -1689,7 +1428,7 @@ func Platform_AWS_LAMBDA_SHA384_ECDSA() Platform {
 	_init_.Initialize()
 	var returns Platform
 	_jsii_.StaticGet(
-		"monocdk.aws_signer.Platform",
+		"aws-cdk-lib.aws_signer.Platform",
 		"AWS_LAMBDA_SHA384_ECDSA",
 		&returns,
 	)
@@ -1718,7 +1457,6 @@ func Platform_AWS_LAMBDA_SHA384_ECDSA() Platform {
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   })
 //
-// Experimental.
 type SigningProfile interface {
 	awscdk.Resource
 	ISigningProfile
@@ -1730,11 +1468,9 @@ type SigningProfile interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -1742,22 +1478,16 @@ type SigningProfile interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The ARN of the signing profile.
-	// Experimental.
 	SigningProfileArn() *string
 	// The name of signing profile.
-	// Experimental.
 	SigningProfileName() *string
 	// The version of signing profile.
-	// Experimental.
 	SigningProfileVersion() *string
 	// The ARN of signing profile version.
-	// Experimental.
 	SigningProfileVersionArn() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
 	//
@@ -1768,9 +1498,7 @@ type SigningProfile interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -1778,66 +1506,15 @@ type SigningProfile interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for SigningProfile
@@ -1856,8 +1533,8 @@ func (j *jsiiProxy_SigningProfile) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_SigningProfile) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_SigningProfile) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1927,14 +1604,13 @@ func (j *jsiiProxy_SigningProfile) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewSigningProfile(scope constructs.Construct, id *string, props *SigningProfileProps) SigningProfile {
 	_init_.Initialize()
 
 	j := jsiiProxy_SigningProfile{}
 
 	_jsii_.Create(
-		"monocdk.aws_signer.SigningProfile",
+		"aws-cdk-lib.aws_signer.SigningProfile",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1942,26 +1618,24 @@ func NewSigningProfile(scope constructs.Construct, id *string, props *SigningPro
 	return &j
 }
 
-// Experimental.
 func NewSigningProfile_Override(s SigningProfile, scope constructs.Construct, id *string, props *SigningProfileProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_signer.SigningProfile",
+		"aws-cdk-lib.aws_signer.SigningProfile",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
 // Creates a Signing Profile construct that represents an external Signing Profile.
-// Experimental.
 func SigningProfile_FromSigningProfileAttributes(scope constructs.Construct, id *string, attrs *SigningProfileAttributes) ISigningProfile {
 	_init_.Initialize()
 
 	var returns ISigningProfile
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_signer.SigningProfile",
+		"aws-cdk-lib.aws_signer.SigningProfile",
 		"fromSigningProfileAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -1970,15 +1644,17 @@ func SigningProfile_FromSigningProfileAttributes(scope constructs.Construct, id 
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func SigningProfile_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_signer.SigningProfile",
+		"aws-cdk-lib.aws_signer.SigningProfile",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1988,14 +1664,13 @@ func SigningProfile_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
-func SigningProfile_IsResource(construct awscdk.IConstruct) *bool {
+func SigningProfile_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_signer.SigningProfile",
+		"aws-cdk-lib.aws_signer.SigningProfile",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -2051,70 +1726,12 @@ func (s *jsiiProxy_SigningProfile) GetResourceNameAttribute(nameAttr *string) *s
 	return returns
 }
 
-func (s *jsiiProxy_SigningProfile) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (s *jsiiProxy_SigningProfile) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (s *jsiiProxy_SigningProfile) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_SigningProfile) Prepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (s *jsiiProxy_SigningProfile) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (s *jsiiProxy_SigningProfile) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		s,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_SigningProfile) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2131,13 +1748,10 @@ func (s *jsiiProxy_SigningProfile) Validate() *[]*string {
 //   	signingProfileVersion: jsii.String("signingProfileVersion"),
 //   }
 //
-// Experimental.
 type SigningProfileAttributes struct {
 	// The name of signing profile.
-	// Experimental.
 	SigningProfileName *string `json:"signingProfileName" yaml:"signingProfileName"`
 	// The version of signing profile.
-	// Experimental.
 	SigningProfileVersion *string `json:"signingProfileVersion" yaml:"signingProfileVersion"`
 }
 
@@ -2163,18 +1777,14 @@ type SigningProfileAttributes struct {
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   })
 //
-// Experimental.
 type SigningProfileProps struct {
 	// The Signing Platform available for signing profile.
 	// See: https://docs.aws.amazon.com/signer/latest/developerguide/gs-platform.html
 	//
-	// Experimental.
 	Platform Platform `json:"platform" yaml:"platform"`
 	// The validity period for signatures generated using this signing profile.
-	// Experimental.
 	SignatureValidity awscdk.Duration `json:"signatureValidity" yaml:"signatureValidity"`
 	// Physical name of this Signing Profile.
-	// Experimental.
 	SigningProfileName *string `json:"signingProfileName" yaml:"signingProfileName"`
 }
 
