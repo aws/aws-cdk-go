@@ -1366,7 +1366,10 @@ type CfnFileSystem_NfsExportsProperty struct {
 type CfnFileSystem_OntapConfigurationProperty struct {
 	// Specifies the FSx for ONTAP file system deployment type to use in creating the file system.
 	//
-	// `MULTI_AZ_1` is the supported ONTAP deployment type.
+	// - `MULTI_AZ_1` - (Default) A high availability file system configured for Multi-AZ redundancy to tolerate temporary Availability Zone (AZ) unavailability.
+	// - `SINGLE_AZ_1` - A file system configured for Single-AZ redundancy.
+	//
+	// For information about the use cases for Multi-AZ and Single-AZ deployments, refer to [Choosing a file system deployment type](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-AZ.html) .
 	DeploymentType *string `json:"deploymentType" yaml:"deploymentType"`
 	// The number of days to retain automatic backups.
 	//
@@ -1378,7 +1381,7 @@ type CfnFileSystem_OntapConfigurationProperty struct {
 	DailyAutomaticBackupStartTime *string `json:"dailyAutomaticBackupStartTime" yaml:"dailyAutomaticBackupStartTime"`
 	// The SSD IOPS configuration for the FSx for ONTAP file system.
 	DiskIopsConfiguration interface{} `json:"diskIopsConfiguration" yaml:"diskIopsConfiguration"`
-	// Specifies the IP address range in which the endpoints to access your file system will be created.
+	// (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
 	//
 	// By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
 	//
@@ -1390,7 +1393,7 @@ type CfnFileSystem_OntapConfigurationProperty struct {
 	//
 	// This specifies the subnet in which you want the preferred file server to be located.
 	PreferredSubnetId *string `json:"preferredSubnetId" yaml:"preferredSubnetId"`
-	// Specifies the virtual private cloud (VPC) route tables in which your file system's endpoints will be created.
+	// (Multi-AZ only) Specifies the virtual private cloud (VPC) route tables in which your file system's endpoints will be created.
 	//
 	// You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
 	RouteTableIds *[]*string `json:"routeTableIds" yaml:"routeTableIds"`

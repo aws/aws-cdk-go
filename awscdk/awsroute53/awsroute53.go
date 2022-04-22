@@ -11090,11 +11090,13 @@ type PrivateHostedZoneProps struct {
 // Create a Route53 public hosted zone.
 //
 // Example:
-//   parentZone := route53.NewPublicHostedZone(this, jsii.String("HostedZone"), &publicHostedZoneProps{
-//   	zoneName: jsii.String("someexample.com"),
-//   	crossAccountZoneDelegationPrincipal: iam.NewAccountPrincipal(jsii.String("12345678901")),
-//   	crossAccountZoneDelegationRoleName: jsii.String("MyDelegationRole"),
+//   zoneFromAttributes := route53.publicHostedZone.fromPublicHostedZoneAttributes(this, jsii.String("MyZone"), &publicHostedZoneAttributes{
+//   	zoneName: jsii.String("example.com"),
+//   	hostedZoneId: jsii.String("ZOJJZC49E0EPZ"),
 //   })
+//
+//   // Does not know zoneName
+//   zoneFromId := route53.publicHostedZone.fromPublicHostedZoneId(this, jsii.String("MyZone"), jsii.String("ZOJJZC49E0EPZ"))
 //
 // Experimental.
 type PublicHostedZone interface {
@@ -11426,6 +11428,25 @@ func PublicHostedZone_FromLookup(scope constructs.Construct, id *string, query *
 	return returns
 }
 
+// Imports a public hosted zone from another stack.
+//
+// Use when both hosted zone ID and hosted zone name are known.
+// Experimental.
+func PublicHostedZone_FromPublicHostedZoneAttributes(scope constructs.Construct, id *string, attrs *PublicHostedZoneAttributes) IHostedZone {
+	_init_.Initialize()
+
+	var returns IHostedZone
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_route53.PublicHostedZone",
+		"fromPublicHostedZoneAttributes",
+		[]interface{}{scope, id, attrs},
+		&returns,
+	)
+
+	return returns
+}
+
 // Import a Route 53 public hosted zone defined either outside the CDK, or in a different CDK stack.
 // Experimental.
 func PublicHostedZone_FromPublicHostedZoneId(scope constructs.Construct, id *string, publicHostedZoneId *string) IPublicHostedZone {
@@ -11609,6 +11630,27 @@ func (p *jsiiProxy_PublicHostedZone) Validate() *[]*string {
 	)
 
 	return returns
+}
+
+// Reference to a public hosted zone.
+//
+// Example:
+//   zoneFromAttributes := route53.publicHostedZone.fromPublicHostedZoneAttributes(this, jsii.String("MyZone"), &publicHostedZoneAttributes{
+//   	zoneName: jsii.String("example.com"),
+//   	hostedZoneId: jsii.String("ZOJJZC49E0EPZ"),
+//   })
+//
+//   // Does not know zoneName
+//   zoneFromId := route53.publicHostedZone.fromPublicHostedZoneId(this, jsii.String("MyZone"), jsii.String("ZOJJZC49E0EPZ"))
+//
+// Experimental.
+type PublicHostedZoneAttributes struct {
+	// Identifier of the hosted zone.
+	// Experimental.
+	HostedZoneId *string `json:"hostedZoneId" yaml:"hostedZoneId"`
+	// Name of the hosted zone.
+	// Experimental.
+	ZoneName *string `json:"zoneName" yaml:"zoneName"`
 }
 
 // Construction properties for a PublicHostedZone.

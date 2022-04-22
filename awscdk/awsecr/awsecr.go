@@ -3924,7 +3924,7 @@ type IRepository interface {
 	// Defines an AWS CloudWatch event rule that can trigger a target when the image scan is completed.
 	// Experimental.
 	OnImageScanCompleted(id *string, options *OnImageScanCompletedOptions) awsevents.Rule
-	// Returns the URI of the repository for a certain tag. Can be used in `docker push/pull`.
+	// Returns the URI of the repository for a certain digest. Can be used in `docker push/pull`.
 	//
 	// ACCOUNT.dkr.ecr.REGION.amazonaws.com/REPOSITORY[@DIGEST]
 	// Experimental.
@@ -3934,6 +3934,14 @@ type IRepository interface {
 	// ACCOUNT.dkr.ecr.REGION.amazonaws.com/REPOSITORY[:TAG]
 	// Experimental.
 	RepositoryUriForTag(tag *string) *string
+	// Returns the URI of the repository for a certain tag or digest, inferring based on the syntax of the tag.
+	//
+	// Can be used in `docker push/pull`.
+	//
+	//     ACCOUNT.dkr.ecr.REGION.amazonaws.com/REPOSITORY[:TAG]
+	//     ACCOUNT.dkr.ecr.REGION.amazonaws.com/REPOSITORY[@DIGEST]
+	// Experimental.
+	RepositoryUriForTagOrDigest(tagOrDigest *string) *string
 	// The ARN of the repository.
 	// Experimental.
 	RepositoryArn() *string
@@ -4081,6 +4089,19 @@ func (i *jsiiProxy_IRepository) RepositoryUriForTag(tag *string) *string {
 		i,
 		"repositoryUriForTag",
 		[]interface{}{tag},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IRepository) RepositoryUriForTagOrDigest(tagOrDigest *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		i,
+		"repositoryUriForTagOrDigest",
+		[]interface{}{tagOrDigest},
 		&returns,
 	)
 
@@ -4352,7 +4373,7 @@ func PublicGalleryAuthorizationToken_GrantRead(grantee awsiam.IGrantable) {
 //   			port: jsii.Number(80),
 //   		},
 //   		repository: ecr.repository.fromRepositoryName(this, jsii.String("NginxRepository"), jsii.String("nginx")),
-//   		tag: jsii.String("latest"),
+//   		tagOrDigest: jsii.String("latest"),
 //   	}),
 //   })
 //
@@ -4506,6 +4527,12 @@ type Repository interface {
 	// ACCOUNT.dkr.ecr.REGION.amazonaws.com/REPOSITORY[:TAG]
 	// Experimental.
 	RepositoryUriForTag(tag *string) *string
+	// Returns the URL of the repository. Can be used in `docker push/pull`.
+	//
+	// ACCOUNT.dkr.ecr.REGION.amazonaws.com/REPOSITORY[:TAG]
+	//     ACCOUNT.dkr.ecr.REGION.amazonaws.com/REPOSITORY[@DIGEST]
+	// Experimental.
+	RepositoryUriForTagOrDigest(tagOrDigest *string) *string
 	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
 	//
 	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
@@ -4952,6 +4979,19 @@ func (r *jsiiProxy_Repository) RepositoryUriForTag(tag *string) *string {
 	return returns
 }
 
+func (r *jsiiProxy_Repository) RepositoryUriForTagOrDigest(tagOrDigest *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		r,
+		"repositoryUriForTagOrDigest",
+		[]interface{}{tagOrDigest},
+		&returns,
+	)
+
+	return returns
+}
+
 func (r *jsiiProxy_Repository) Synthesize(session awscdk.ISynthesisSession) {
 	_jsii_.InvokeVoid(
 		r,
@@ -5149,6 +5189,12 @@ type RepositoryBase interface {
 	// ACCOUNT.dkr.ecr.REGION.amazonaws.com/REPOSITORY[:TAG]
 	// Experimental.
 	RepositoryUriForTag(tag *string) *string
+	// Returns the URL of the repository. Can be used in `docker push/pull`.
+	//
+	// ACCOUNT.dkr.ecr.REGION.amazonaws.com/REPOSITORY[:TAG]
+	//     ACCOUNT.dkr.ecr.REGION.amazonaws.com/REPOSITORY[@DIGEST]
+	// Experimental.
+	RepositoryUriForTagOrDigest(tagOrDigest *string) *string
 	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
 	//
 	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
@@ -5503,6 +5549,19 @@ func (r *jsiiProxy_RepositoryBase) RepositoryUriForTag(tag *string) *string {
 		r,
 		"repositoryUriForTag",
 		[]interface{}{tag},
+		&returns,
+	)
+
+	return returns
+}
+
+func (r *jsiiProxy_RepositoryBase) RepositoryUriForTagOrDigest(tagOrDigest *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		r,
+		"repositoryUriForTagOrDigest",
+		[]interface{}{tagOrDigest},
 		&returns,
 	)
 

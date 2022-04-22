@@ -16,7 +16,9 @@ import (
 //
 //   var authorizers interface{}
 //   var definitionBody interface{}
+//   var gatewayResponses interface{}
 //   var methodSettings interface{}
+//   var models interface{}
 //   cfnApi := sam.NewCfnApi(this, jsii.String("MyCfnApi"), &cfnApiProps{
 //   	stageName: jsii.String("stageName"),
 //
@@ -47,16 +49,12 @@ import (
 //   	definitionUri: jsii.String("definitionUri"),
 //   	description: jsii.String("description"),
 //   	endpointConfiguration: jsii.String("endpointConfiguration"),
-//   	gatewayResponses: map[string]*string{
-//   		"gatewayResponsesKey": jsii.String("gatewayResponses"),
-//   	},
+//   	gatewayResponses: gatewayResponses,
 //   	methodSettings: []interface{}{
 //   		methodSettings,
 //   	},
 //   	minimumCompressionSize: jsii.Number(123),
-//   	models: map[string]*string{
-//   		"modelsKey": jsii.String("models"),
-//   	},
+//   	models: models,
 //   	name: jsii.String("name"),
 //   	openApiVersion: jsii.String("openApiVersion"),
 //   	tags: map[string]*string{
@@ -1233,7 +1231,9 @@ type CfnApi_S3LocationProperty struct {
 //
 //   var authorizers interface{}
 //   var definitionBody interface{}
+//   var gatewayResponses interface{}
 //   var methodSettings interface{}
+//   var models interface{}
 //   cfnApiProps := &cfnApiProps{
 //   	stageName: jsii.String("stageName"),
 //
@@ -1264,16 +1264,12 @@ type CfnApi_S3LocationProperty struct {
 //   	definitionUri: jsii.String("definitionUri"),
 //   	description: jsii.String("description"),
 //   	endpointConfiguration: jsii.String("endpointConfiguration"),
-//   	gatewayResponses: map[string]*string{
-//   		"gatewayResponsesKey": jsii.String("gatewayResponses"),
-//   	},
+//   	gatewayResponses: gatewayResponses,
 //   	methodSettings: []interface{}{
 //   		methodSettings,
 //   	},
 //   	minimumCompressionSize: jsii.Number(123),
-//   	models: map[string]*string{
-//   		"modelsKey": jsii.String("models"),
-//   	},
+//   	models: models,
 //   	name: jsii.String("name"),
 //   	openApiVersion: jsii.String("openApiVersion"),
 //   	tags: map[string]*string{
@@ -2136,8 +2132,9 @@ type CfnApplicationProps struct {
 //   		alarms: []*string{
 //   			jsii.String("alarms"),
 //   		},
-//   		hooks: []*string{
-//   			jsii.String("hooks"),
+//   		hooks: &hooksProperty{
+//   			postTraffic: jsii.String("postTraffic"),
+//   			preTraffic: jsii.String("preTraffic"),
 //   		},
 //   	},
 //   	description: jsii.String("description"),
@@ -3805,8 +3802,9 @@ type CfnFunction_DeadLetterQueueProperty struct {
 //   	alarms: []*string{
 //   		jsii.String("alarms"),
 //   	},
-//   	hooks: []*string{
-//   		jsii.String("hooks"),
+//   	hooks: &hooksProperty{
+//   		postTraffic: jsii.String("postTraffic"),
+//   		preTraffic: jsii.String("preTraffic"),
 //   	},
 //   }
 //
@@ -3818,7 +3816,7 @@ type CfnFunction_DeploymentPreferenceProperty struct {
 	// `CfnFunction.DeploymentPreferenceProperty.Alarms`.
 	Alarms *[]*string `json:"alarms" yaml:"alarms"`
 	// `CfnFunction.DeploymentPreferenceProperty.Hooks`.
-	Hooks *[]*string `json:"hooks" yaml:"hooks"`
+	Hooks interface{} `json:"hooks" yaml:"hooks"`
 }
 
 // Example:
@@ -4051,6 +4049,20 @@ type CfnFunction_FunctionEnvironmentProperty struct {
 type CfnFunction_FunctionSAMPTProperty struct {
 	// `CfnFunction.FunctionSAMPTProperty.FunctionName`.
 	FunctionName *string `json:"functionName" yaml:"functionName"`
+}
+
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   hooksProperty := &hooksProperty{
+//   	postTraffic: jsii.String("postTraffic"),
+//   	preTraffic: jsii.String("preTraffic"),
+//   }
+//
+type CfnFunction_HooksProperty struct {
+	// `CfnFunction.HooksProperty.PostTraffic`.
+	PostTraffic *string `json:"postTraffic" yaml:"postTraffic"`
+	// `CfnFunction.HooksProperty.PreTraffic`.
+	PreTraffic *string `json:"preTraffic" yaml:"preTraffic"`
 }
 
 // Example:
@@ -4575,8 +4587,9 @@ type CfnFunction_VpcConfigProperty struct {
 //   		alarms: []*string{
 //   			jsii.String("alarms"),
 //   		},
-//   		hooks: []*string{
-//   			jsii.String("hooks"),
+//   		hooks: &hooksProperty{
+//   			postTraffic: jsii.String("postTraffic"),
+//   			preTraffic: jsii.String("preTraffic"),
 //   		},
 //   	},
 //   	description: jsii.String("description"),

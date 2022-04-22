@@ -1448,6 +1448,7 @@ func init() {
 		reflect.TypeOf((*IClusterEngine)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bindToCluster", GoMethod: "BindToCluster"},
+			_jsii_.MemberProperty{JsiiProperty: "combineImportAndExportRoles", GoGetter: "CombineImportAndExportRoles"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultUsername", GoGetter: "DefaultUsername"},
 			_jsii_.MemberProperty{JsiiProperty: "engineFamily", GoGetter: "EngineFamily"},
 			_jsii_.MemberProperty{JsiiProperty: "engineType", GoGetter: "EngineType"},

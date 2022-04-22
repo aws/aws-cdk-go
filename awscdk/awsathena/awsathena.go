@@ -2344,28 +2344,6 @@ type CfnPreparedStatementProps struct {
 //   			outputLocation: jsii.String("outputLocation"),
 //   		},
 //   	},
-//   	workGroupConfigurationUpdates: &workGroupConfigurationUpdatesProperty{
-//   		bytesScannedCutoffPerQuery: jsii.Number(123),
-//   		enforceWorkGroupConfiguration: jsii.Boolean(false),
-//   		engineVersion: &engineVersionProperty{
-//   			effectiveEngineVersion: jsii.String("effectiveEngineVersion"),
-//   			selectedEngineVersion: jsii.String("selectedEngineVersion"),
-//   		},
-//   		publishCloudWatchMetricsEnabled: jsii.Boolean(false),
-//   		removeBytesScannedCutoffPerQuery: jsii.Boolean(false),
-//   		requesterPaysEnabled: jsii.Boolean(false),
-//   		resultConfigurationUpdates: &resultConfigurationUpdatesProperty{
-//   			encryptionConfiguration: &encryptionConfigurationProperty{
-//   				encryptionOption: jsii.String("encryptionOption"),
-//
-//   				// the properties below are optional
-//   				kmsKey: jsii.String("kmsKey"),
-//   			},
-//   			outputLocation: jsii.String("outputLocation"),
-//   			removeEncryptionConfiguration: jsii.Boolean(false),
-//   			removeOutputLocation: jsii.Boolean(false),
-//   		},
-//   	},
 //   })
 //
 type CfnWorkGroup interface {
@@ -2376,7 +2354,6 @@ type CfnWorkGroup interface {
 	// For example: `1582761016` .
 	AttrCreationTime() *string
 	AttrWorkGroupConfigurationEngineVersionEffectiveEngineVersion() *string
-	AttrWorkGroupConfigurationUpdatesEngineVersionEffectiveEngineVersion() *string
 	// Options for this resource, such as condition, update policy etc.
 	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -2441,9 +2418,6 @@ type CfnWorkGroup interface {
 	// The `EnforceWorkGroupConfiguration` option determines whether workgroup settings override client-side query settings.
 	WorkGroupConfiguration() interface{}
 	SetWorkGroupConfiguration(val interface{})
-	// The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified.
-	WorkGroupConfigurationUpdates() interface{}
-	SetWorkGroupConfigurationUpdates(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	// Experimental.
 	AddDeletionOverride(path *string)
@@ -2636,16 +2610,6 @@ func (j *jsiiProxy_CfnWorkGroup) AttrWorkGroupConfigurationEngineVersionEffectiv
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkGroup) AttrWorkGroupConfigurationUpdatesEngineVersionEffectiveEngineVersion() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrWorkGroupConfigurationUpdatesEngineVersionEffectiveEngineVersion",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnWorkGroup) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -2796,16 +2760,6 @@ func (j *jsiiProxy_CfnWorkGroup) WorkGroupConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkGroup) WorkGroupConfigurationUpdates() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"workGroupConfigurationUpdates",
-		&returns,
-	)
-	return returns
-}
-
 
 // Create a new `AWS::Athena::WorkGroup`.
 func NewCfnWorkGroup(scope awscdk.Construct, id *string, props *CfnWorkGroupProps) CfnWorkGroup {
@@ -2869,14 +2823,6 @@ func (j *jsiiProxy_CfnWorkGroup) SetWorkGroupConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"workGroupConfiguration",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnWorkGroup) SetWorkGroupConfigurationUpdates(val interface{}) {
-	_jsii_.Set(
-		j,
-		"workGroupConfigurationUpdates",
 		val,
 	)
 }
@@ -3218,39 +3164,6 @@ type CfnWorkGroup_ResultConfigurationProperty struct {
 	OutputLocation *string `json:"outputLocation" yaml:"outputLocation"`
 }
 
-// The information about the updates in the query results, such as output location and encryption configuration for the query results.
-//
-// Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
-//   resultConfigurationUpdatesProperty := &resultConfigurationUpdatesProperty{
-//   	encryptionConfiguration: &encryptionConfigurationProperty{
-//   		encryptionOption: jsii.String("encryptionOption"),
-//
-//   		// the properties below are optional
-//   		kmsKey: jsii.String("kmsKey"),
-//   	},
-//   	outputLocation: jsii.String("outputLocation"),
-//   	removeEncryptionConfiguration: jsii.Boolean(false),
-//   	removeOutputLocation: jsii.Boolean(false),
-//   }
-//
-type CfnWorkGroup_ResultConfigurationUpdatesProperty struct {
-	// The encryption configuration for the query results.
-	EncryptionConfiguration interface{} `json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
-	// The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/` .
-	//
-	// For more information, see [Query Results](https://docs.aws.amazon.com/athena/latest/ug/querying.html) If workgroup settings override client-side settings, then the query uses the location for the query results and the encryption configuration that are specified for the workgroup. The "workgroup settings override" is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See `EnforceWorkGroupConfiguration` .
-	OutputLocation *string `json:"outputLocation" yaml:"outputLocation"`
-	// If set to "true", indicates that the previously-specified encryption configuration (also known as the client-side setting) for queries in this workgroup should be ignored and set to null.
-	//
-	// If set to "false" or not set, and a value is present in the EncryptionConfiguration in ResultConfigurationUpdates (the client-side setting), the EncryptionConfiguration in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
-	RemoveEncryptionConfiguration interface{} `json:"removeEncryptionConfiguration" yaml:"removeEncryptionConfiguration"`
-	// If set to "true", indicates that the previously-specified query results location (also known as a client-side setting) for queries in this workgroup should be ignored and set to null.
-	//
-	// If set to "false" or not set, and a value is present in the OutputLocation in ResultConfigurationUpdates (the client-side setting), the OutputLocation in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
-	RemoveOutputLocation interface{} `json:"removeOutputLocation" yaml:"removeOutputLocation"`
-}
-
 // The configuration of the workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether Amazon CloudWatch Metrics are enabled for the workgroup, and the limit for the amount of bytes scanned (cutoff) per query, if it is specified.
 //
 // The `EnforceWorkGroupConfiguration` option determines whether workgroup settings override client-side query settings.
@@ -3304,64 +3217,6 @@ type CfnWorkGroup_WorkGroupConfigurationProperty struct {
 	ResultConfiguration interface{} `json:"resultConfiguration" yaml:"resultConfiguration"`
 }
 
-// The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified.
-//
-// Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
-//   workGroupConfigurationUpdatesProperty := &workGroupConfigurationUpdatesProperty{
-//   	bytesScannedCutoffPerQuery: jsii.Number(123),
-//   	enforceWorkGroupConfiguration: jsii.Boolean(false),
-//   	engineVersion: &engineVersionProperty{
-//   		effectiveEngineVersion: jsii.String("effectiveEngineVersion"),
-//   		selectedEngineVersion: jsii.String("selectedEngineVersion"),
-//   	},
-//   	publishCloudWatchMetricsEnabled: jsii.Boolean(false),
-//   	removeBytesScannedCutoffPerQuery: jsii.Boolean(false),
-//   	requesterPaysEnabled: jsii.Boolean(false),
-//   	resultConfigurationUpdates: &resultConfigurationUpdatesProperty{
-//   		encryptionConfiguration: &encryptionConfigurationProperty{
-//   			encryptionOption: jsii.String("encryptionOption"),
-//
-//   			// the properties below are optional
-//   			kmsKey: jsii.String("kmsKey"),
-//   		},
-//   		outputLocation: jsii.String("outputLocation"),
-//   		removeEncryptionConfiguration: jsii.Boolean(false),
-//   		removeOutputLocation: jsii.Boolean(false),
-//   	},
-//   }
-//
-type CfnWorkGroup_WorkGroupConfigurationUpdatesProperty struct {
-	// The upper limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan.
-	//
-	// No default is defined.
-	//
-	// > This property currently supports integer types. Support for long values is planned.
-	BytesScannedCutoffPerQuery *float64 `json:"bytesScannedCutoffPerQuery" yaml:"bytesScannedCutoffPerQuery"`
-	// If set to "true", the settings for the workgroup override client-side settings.
-	//
-	// If set to "false" client-side settings are used. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
-	EnforceWorkGroupConfiguration interface{} `json:"enforceWorkGroupConfiguration" yaml:"enforceWorkGroupConfiguration"`
-	// The engine version requested when a workgroup is updated.
-	//
-	// After the update, all queries on the workgroup run on the requested engine version. If no value was previously set, the default is Auto. Queries on the `AmazonAthenaPreviewFunctionality` workgroup run on the preview engine regardless of this setting.
-	EngineVersion interface{} `json:"engineVersion" yaml:"engineVersion"`
-	// Indicates whether this workgroup enables publishing metrics to Amazon CloudWatch.
-	PublishCloudWatchMetricsEnabled interface{} `json:"publishCloudWatchMetricsEnabled" yaml:"publishCloudWatchMetricsEnabled"`
-	// Indicates that the data usage control limit per query is removed.
-	//
-	// See `BytesScannedCutoffPerQuery` .
-	RemoveBytesScannedCutoffPerQuery interface{} `json:"removeBytesScannedCutoffPerQuery" yaml:"removeBytesScannedCutoffPerQuery"`
-	// If set to `true` , allows members assigned to a workgroup to specify Amazon S3 Requester Pays buckets in queries.
-	//
-	// If set to `false` , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is `false` . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the *Amazon Simple Storage Service Developer Guide* .
-	RequesterPaysEnabled interface{} `json:"requesterPaysEnabled" yaml:"requesterPaysEnabled"`
-	// The result configuration information about the queries in this workgroup that will be updated.
-	//
-	// Includes the updated results location and an updated option for encrypting query results.
-	ResultConfigurationUpdates interface{} `json:"resultConfigurationUpdates" yaml:"resultConfigurationUpdates"`
-}
-
 // Properties for defining a `CfnWorkGroup`.
 //
 // Example:
@@ -3398,28 +3253,6 @@ type CfnWorkGroup_WorkGroupConfigurationUpdatesProperty struct {
 //   			outputLocation: jsii.String("outputLocation"),
 //   		},
 //   	},
-//   	workGroupConfigurationUpdates: &workGroupConfigurationUpdatesProperty{
-//   		bytesScannedCutoffPerQuery: jsii.Number(123),
-//   		enforceWorkGroupConfiguration: jsii.Boolean(false),
-//   		engineVersion: &engineVersionProperty{
-//   			effectiveEngineVersion: jsii.String("effectiveEngineVersion"),
-//   			selectedEngineVersion: jsii.String("selectedEngineVersion"),
-//   		},
-//   		publishCloudWatchMetricsEnabled: jsii.Boolean(false),
-//   		removeBytesScannedCutoffPerQuery: jsii.Boolean(false),
-//   		requesterPaysEnabled: jsii.Boolean(false),
-//   		resultConfigurationUpdates: &resultConfigurationUpdatesProperty{
-//   			encryptionConfiguration: &encryptionConfigurationProperty{
-//   				encryptionOption: jsii.String("encryptionOption"),
-//
-//   				// the properties below are optional
-//   				kmsKey: jsii.String("kmsKey"),
-//   			},
-//   			outputLocation: jsii.String("outputLocation"),
-//   			removeEncryptionConfiguration: jsii.Boolean(false),
-//   			removeOutputLocation: jsii.Boolean(false),
-//   		},
-//   	},
 //   }
 //
 type CfnWorkGroupProps struct {
@@ -3439,7 +3272,5 @@ type CfnWorkGroupProps struct {
 	//
 	// The `EnforceWorkGroupConfiguration` option determines whether workgroup settings override client-side query settings.
 	WorkGroupConfiguration interface{} `json:"workGroupConfiguration" yaml:"workGroupConfiguration"`
-	// The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified.
-	WorkGroupConfigurationUpdates interface{} `json:"workGroupConfigurationUpdates" yaml:"workGroupConfigurationUpdates"`
 }
 

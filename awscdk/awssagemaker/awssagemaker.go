@@ -42,6 +42,8 @@ type CfnApp interface {
 	AppName() *string
 	SetAppName(val *string)
 	// The type of app.
+	//
+	// *Allowed Values* : `JupyterServer | KernelGateway | RSessionGateway | RStudioServerPro | TensorBoard | Canvas`.
 	AppType() *string
 	SetAppType(val *string)
 	// The Amazon Resource Name (ARN) of the app, such as `arn:aws:sagemaker:us-west-2:account-id:app/my-app-name` .
@@ -81,7 +83,7 @@ type CfnApp interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
-	// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+	// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 	ResourceSpec() interface{}
 	SetResourceSpec(val interface{})
 	// The stack in which this element is defined.
@@ -1650,12 +1652,14 @@ type CfnAppProps struct {
 	// The name of the app.
 	AppName *string `json:"appName" yaml:"appName"`
 	// The type of app.
+	//
+	// *Allowed Values* : `JupyterServer | KernelGateway | RSessionGateway | RStudioServerPro | TensorBoard | Canvas`.
 	AppType *string `json:"appType" yaml:"appType"`
 	// The domain ID.
 	DomainId *string `json:"domainId" yaml:"domainId"`
 	// The user profile name.
 	UserProfileName *string `json:"userProfileName" yaml:"userProfileName"`
-	// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+	// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 	ResourceSpec interface{} `json:"resourceSpec" yaml:"resourceSpec"`
 	// An array of key-value pairs to apply to this resource.
 	//

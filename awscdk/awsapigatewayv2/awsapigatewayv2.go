@@ -16352,6 +16352,9 @@ type HttpStageOptions struct {
 	// The options for custom domain and api mapping.
 	// Experimental.
 	DomainMapping *DomainMappingOptions `json:"domainMapping" yaml:"domainMapping"`
+	// Throttle settings for the routes of this stage.
+	// Experimental.
+	Throttle *ThrottleSettings `json:"throttle" yaml:"throttle"`
 	// The name of the stage.
 	//
 	// See `StageName` class for more details.
@@ -16377,6 +16380,9 @@ type HttpStageProps struct {
 	// The options for custom domain and api mapping.
 	// Experimental.
 	DomainMapping *DomainMappingOptions `json:"domainMapping" yaml:"domainMapping"`
+	// Throttle settings for the routes of this stage.
+	// Experimental.
+	Throttle *ThrottleSettings `json:"throttle" yaml:"throttle"`
 	// The name of the stage.
 	//
 	// See `StageName` class for more details.
@@ -17913,6 +17919,10 @@ type StageAttributes struct {
 //   		// the properties below are optional
 //   		mappingKey: jsii.String("mappingKey"),
 //   	},
+//   	throttle: &throttleSettings{
+//   		burstLimit: jsii.Number(123),
+//   		rateLimit: jsii.Number(123),
+//   	},
 //   }
 //
 // Experimental.
@@ -17923,6 +17933,28 @@ type StageOptions struct {
 	// The options for custom domain and api mapping.
 	// Experimental.
 	DomainMapping *DomainMappingOptions `json:"domainMapping" yaml:"domainMapping"`
+	// Throttle settings for the routes of this stage.
+	// Experimental.
+	Throttle *ThrottleSettings `json:"throttle" yaml:"throttle"`
+}
+
+// Container for defining throttling parameters to API stages.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   throttleSettings := &throttleSettings{
+//   	burstLimit: jsii.Number(123),
+//   	rateLimit: jsii.Number(123),
+//   }
+//
+// Experimental.
+type ThrottleSettings struct {
+	// The maximum API request rate limit over a time ranging from one to a few seconds.
+	// Experimental.
+	BurstLimit *float64 `json:"burstLimit" yaml:"burstLimit"`
+	// The API request steady-state rate limit (average requests per second over an extended period of time).
+	// Experimental.
+	RateLimit *float64 `json:"rateLimit" yaml:"rateLimit"`
 }
 
 // Define a new VPC Link Specifies an API Gateway VPC link for a HTTP API to access resources in an Amazon Virtual Private Cloud (VPC).
@@ -21049,6 +21081,9 @@ type WebSocketStageProps struct {
 	// The options for custom domain and api mapping.
 	// Experimental.
 	DomainMapping *DomainMappingOptions `json:"domainMapping" yaml:"domainMapping"`
+	// Throttle settings for the routes of this stage.
+	// Experimental.
+	Throttle *ThrottleSettings `json:"throttle" yaml:"throttle"`
 	// The name of the stage.
 	// Experimental.
 	StageName *string `json:"stageName" yaml:"stageName"`

@@ -7688,18 +7688,18 @@ type CfnInputProps struct {
 //   	stateName: jsii.String("cold"),
 //   })
 //
-//   // transit to coldState when temperature is 10
+//   // transit to coldState when temperature is less than 15
 //   warmState.transitionTo(coldState, &transitionOptions{
 //   	eventName: jsii.String("to_coldState"),
 //   	 // optional property, default by combining the names of the States
-//   	when: iotevents.*expression.eq(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("10"))),
+//   	when: iotevents.*expression.lt(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("15"))),
 //   	executing: []*iAction{
 //   		actions.NewLambdaInvokeAction(func),
 //   	},
 //   })
-//   // transit to warmState when temperature is 20
+//   // transit to warmState when temperature is greater than or equal to 15
 //   coldState.transitionTo(warmState, &transitionOptions{
-//   	when: iotevents.*expression.eq(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("20"))),
+//   	when: iotevents.*expression.gte(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("15"))),
 //   })
 //
 //   iotevents.NewDetectorModel(this, jsii.String("MyDetectorModel"), &detectorModelProps{
@@ -8129,18 +8129,18 @@ func (d *jsiiProxy_DetectorModel) Validate() *[]*string {
 //   	stateName: jsii.String("cold"),
 //   })
 //
-//   // transit to coldState when temperature is 10
+//   // transit to coldState when temperature is less than 15
 //   warmState.transitionTo(coldState, &transitionOptions{
 //   	eventName: jsii.String("to_coldState"),
 //   	 // optional property, default by combining the names of the States
-//   	when: iotevents.*expression.eq(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("10"))),
+//   	when: iotevents.*expression.lt(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("15"))),
 //   	executing: []*iAction{
 //   		actions.NewLambdaInvokeAction(func),
 //   	},
 //   })
-//   // transit to warmState when temperature is 20
+//   // transit to warmState when temperature is greater than or equal to 15
 //   coldState.transitionTo(warmState, &transitionOptions{
-//   	when: iotevents.*expression.eq(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("20"))),
+//   	when: iotevents.*expression.gte(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("15"))),
 //   })
 //
 //   iotevents.NewDetectorModel(this, jsii.String("MyDetectorModel"), &detectorModelProps{
@@ -8270,18 +8270,18 @@ type Event struct {
 //   	stateName: jsii.String("cold"),
 //   })
 //
-//   // transit to coldState when temperature is 10
+//   // transit to coldState when temperature is less than 15
 //   warmState.transitionTo(coldState, &transitionOptions{
 //   	eventName: jsii.String("to_coldState"),
 //   	 // optional property, default by combining the names of the States
-//   	when: iotevents.*expression.eq(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("10"))),
+//   	when: iotevents.*expression.lt(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("15"))),
 //   	executing: []*iAction{
 //   		actions.NewLambdaInvokeAction(func),
 //   	},
 //   })
-//   // transit to warmState when temperature is 20
+//   // transit to warmState when temperature is greater than or equal to 15
 //   coldState.transitionTo(warmState, &transitionOptions{
-//   	when: iotevents.*expression.eq(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("20"))),
+//   	when: iotevents.*expression.gte(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("15"))),
 //   })
 //
 //   iotevents.NewDetectorModel(this, jsii.String("MyDetectorModel"), &detectorModelProps{
@@ -8339,7 +8339,7 @@ const (
 type Expression interface {
 	// This is called to evaluate the expression.
 	// Experimental.
-	Evaluate() *string
+	Evaluate(parentPriority *float64) *string
 }
 
 // The jsii proxy struct for Expression
@@ -8428,6 +8428,40 @@ func Expression_FromString(value *string) Expression {
 	return returns
 }
 
+// Create a expression for the Greater Than operator.
+// Experimental.
+func Expression_Gt(left Expression, right Expression) Expression {
+	_init_.Initialize()
+
+	var returns Expression
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_iotevents.Expression",
+		"gt",
+		[]interface{}{left, right},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create a expression for the Greater Than Or Equal operator.
+// Experimental.
+func Expression_Gte(left Expression, right Expression) Expression {
+	_init_.Initialize()
+
+	var returns Expression
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_iotevents.Expression",
+		"gte",
+		[]interface{}{left, right},
+		&returns,
+	)
+
+	return returns
+}
+
 // Create a expression for get an input attribute as `$input.TemperatureInput.temperatures[2]`.
 // Experimental.
 func Expression_InputAttribute(input IInput, path *string) Expression {
@@ -8445,13 +8479,81 @@ func Expression_InputAttribute(input IInput, path *string) Expression {
 	return returns
 }
 
-func (e *jsiiProxy_Expression) Evaluate() *string {
+// Create a expression for the Less Than operator.
+// Experimental.
+func Expression_Lt(left Expression, right Expression) Expression {
+	_init_.Initialize()
+
+	var returns Expression
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_iotevents.Expression",
+		"lt",
+		[]interface{}{left, right},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create a expression for the Less Than Or Equal operator.
+// Experimental.
+func Expression_Lte(left Expression, right Expression) Expression {
+	_init_.Initialize()
+
+	var returns Expression
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_iotevents.Expression",
+		"lte",
+		[]interface{}{left, right},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create a expression for the Not Equal operator.
+// Experimental.
+func Expression_Neq(left Expression, right Expression) Expression {
+	_init_.Initialize()
+
+	var returns Expression
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_iotevents.Expression",
+		"neq",
+		[]interface{}{left, right},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create a expression for the OR operator.
+// Experimental.
+func Expression_Or(left Expression, right Expression) Expression {
+	_init_.Initialize()
+
+	var returns Expression
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_iotevents.Expression",
+		"or",
+		[]interface{}{left, right},
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_Expression) Evaluate(parentPriority *float64) *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		e,
 		"evaluate",
-		nil, // no parameters
+		[]interface{}{parentPriority},
 		&returns,
 	)
 
@@ -8632,18 +8734,18 @@ func (j *jsiiProxy_IInput) InputName() *string {
 //   	stateName: jsii.String("cold"),
 //   })
 //
-//   // transit to coldState when temperature is 10
+//   // transit to coldState when temperature is less than 15
 //   warmState.transitionTo(coldState, &transitionOptions{
 //   	eventName: jsii.String("to_coldState"),
 //   	 // optional property, default by combining the names of the States
-//   	when: iotevents.*expression.eq(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("10"))),
+//   	when: iotevents.*expression.lt(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("15"))),
 //   	executing: []*iAction{
 //   		actions.NewLambdaInvokeAction(func),
 //   	},
 //   })
-//   // transit to warmState when temperature is 20
+//   // transit to warmState when temperature is greater than or equal to 15
 //   coldState.transitionTo(warmState, &transitionOptions{
-//   	when: iotevents.*expression.eq(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("20"))),
+//   	when: iotevents.*expression.gte(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("15"))),
 //   })
 //
 //   iotevents.NewDetectorModel(this, jsii.String("MyDetectorModel"), &detectorModelProps{
@@ -9123,18 +9225,18 @@ func (i *jsiiProxy_Input) Validate() *[]*string {
 //   	stateName: jsii.String("cold"),
 //   })
 //
-//   // transit to coldState when temperature is 10
+//   // transit to coldState when temperature is less than 15
 //   warmState.transitionTo(coldState, &transitionOptions{
 //   	eventName: jsii.String("to_coldState"),
 //   	 // optional property, default by combining the names of the States
-//   	when: iotevents.*expression.eq(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("10"))),
+//   	when: iotevents.*expression.lt(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("15"))),
 //   	executing: []*iAction{
 //   		actions.NewLambdaInvokeAction(func),
 //   	},
 //   })
-//   // transit to warmState when temperature is 20
+//   // transit to warmState when temperature is greater than or equal to 15
 //   coldState.transitionTo(warmState, &transitionOptions{
-//   	when: iotevents.*expression.eq(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("20"))),
+//   	when: iotevents.*expression.gte(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("15"))),
 //   })
 //
 //   iotevents.NewDetectorModel(this, jsii.String("MyDetectorModel"), &detectorModelProps{
@@ -9351,18 +9453,18 @@ type StateProps struct {
 //   	stateName: jsii.String("cold"),
 //   })
 //
-//   // transit to coldState when temperature is 10
+//   // transit to coldState when temperature is less than 15
 //   warmState.transitionTo(coldState, &transitionOptions{
 //   	eventName: jsii.String("to_coldState"),
 //   	 // optional property, default by combining the names of the States
-//   	when: iotevents.*expression.eq(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("10"))),
+//   	when: iotevents.*expression.lt(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("15"))),
 //   	executing: []*iAction{
 //   		actions.NewLambdaInvokeAction(func),
 //   	},
 //   })
-//   // transit to warmState when temperature is 20
+//   // transit to warmState when temperature is greater than or equal to 15
 //   coldState.transitionTo(warmState, &transitionOptions{
-//   	when: iotevents.*expression.eq(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("20"))),
+//   	when: iotevents.*expression.gte(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("15"))),
 //   })
 //
 //   iotevents.NewDetectorModel(this, jsii.String("MyDetectorModel"), &detectorModelProps{

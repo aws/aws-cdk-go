@@ -171,6 +171,9 @@ type Alias interface {
 	// Adds an event source that maps to this AWS Lambda function.
 	// Experimental.
 	AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping
+	// Adds a url to this lambda function.
+	// Experimental.
+	AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl
 	// Adds a permission to the Lambda resource policy.
 	// See: Permission for details.
 	//
@@ -221,6 +224,9 @@ type Alias interface {
 	// Grant the given identity permissions to invoke this Lambda.
 	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant the given identity permissions to invoke this Lambda Function URL.
+	// Experimental.
+	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Function.
 	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
@@ -606,6 +612,19 @@ func (a *jsiiProxy_Alias) AddEventSourceMapping(id *string, options *EventSource
 	return returns
 }
 
+func (a *jsiiProxy_Alias) AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl {
+	var returns FunctionUrl
+
+	_jsii_.Invoke(
+		a,
+		"addFunctionUrl",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
 func (a *jsiiProxy_Alias) AddPermission(id *string, permission *Permission) {
 	_jsii_.InvokeVoid(
 		a,
@@ -691,6 +710,19 @@ func (a *jsiiProxy_Alias) GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant {
 	_jsii_.Invoke(
 		a,
 		"grantInvoke",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Alias) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant {
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		a,
+		"grantInvokeUrl",
 		[]interface{}{grantee},
 		&returns,
 	)
@@ -1009,13 +1041,12 @@ type AliasProps struct {
 // Architectures supported by AWS Lambda.
 //
 // Example:
-//   lambda.NewLayerVersion(this, jsii.String("MyLayer"), &layerVersionProps{
-//   	removalPolicy: removalPolicy_RETAIN,
+//   lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
+//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	handler: jsii.String("index.handler"),
+//   	architecture: lambda.architecture_ARM_64(),
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
-//   	compatibleArchitectures: []architecture{
-//   		lambda.*architecture_X86_64(),
-//   		lambda.*architecture_ARM_64(),
-//   	},
+//   	insightsVersion: lambda.lambdaInsightsVersion_VERSION_1_0_119_0(),
 //   })
 //
 // Experimental.
@@ -4562,12 +4593,11 @@ type CfnEventSourceMapping interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// The position in a stream from which to start reading.
-	//
-	// Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources.
+	// The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB.
 	//
 	// - *LATEST* - Read only new records.
 	// - *TRIM_HORIZON* - Process all available records.
+	// - *AT_TIMESTAMP* - Specify a time from which to start reading records.
 	StartingPosition() *string
 	SetStartingPosition(val *string)
 	// With `StartingPosition` set to `AT_TIMESTAMP` , the time from which to start reading, in Unix time seconds.
@@ -5745,12 +5775,11 @@ type CfnEventSourceMappingProps struct {
 	SelfManagedEventSource interface{} `json:"selfManagedEventSource" yaml:"selfManagedEventSource"`
 	// An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
 	SourceAccessConfigurations interface{} `json:"sourceAccessConfigurations" yaml:"sourceAccessConfigurations"`
-	// The position in a stream from which to start reading.
-	//
-	// Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources.
+	// The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB.
 	//
 	// - *LATEST* - Read only new records.
 	// - *TRIM_HORIZON* - Process all available records.
+	// - *AT_TIMESTAMP* - Specify a time from which to start reading records.
 	StartingPosition *string `json:"startingPosition" yaml:"startingPosition"`
 	// With `StartingPosition` set to `AT_TIMESTAMP` , the time from which to start reading, in Unix time seconds.
 	StartingPositionTimestamp *float64 `json:"startingPositionTimestamp" yaml:"startingPositionTimestamp"`
@@ -9314,6 +9343,8 @@ type CfnParametersCodeProps struct {
 //
 // To grant permission to another account, specify the account ID as the `Principal` . To grant permission to an organization defined in AWS Organizations , specify the organization ID as the `PrincipalOrgID` . For AWS services, the principal is a domain-style identifier defined by the service, like `s3.amazonaws.com` or `sns.amazonaws.com` . For AWS services, you can also specify the ARN of the associated resource as the `SourceArn` . If you grant permission to a service principal without specifying the source, other accounts could potentially configure resources in their account to invoke your Lambda function.
 //
+// If your function has a function URL, you can specify the `FunctionUrlAuthType` parameter. This adds a condition to your permission that only applies when your function URL's `AuthType` matches the specified `FunctionUrlAuthType` . For more information about the `AuthType` parameter, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
+//
 // This resource adds a statement to a resource-based permission policy for the function. For more information about function policies, see [Lambda Function Policies](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html) .
 //
 // Example:
@@ -9325,6 +9356,7 @@ type CfnParametersCodeProps struct {
 //
 //   	// the properties below are optional
 //   	eventSourceToken: jsii.String("eventSourceToken"),
+//   	functionUrlAuthType: jsii.String("functionUrlAuthType"),
 //   	principalOrgId: jsii.String("principalOrgId"),
 //   	sourceAccount: jsii.String("sourceAccount"),
 //   	sourceArn: jsii.String("sourceArn"),
@@ -9362,6 +9394,11 @@ type CfnPermission interface {
 	// You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 	FunctionName() *string
 	SetFunctionName(val *string)
+	// The type of authentication that your function URL uses.
+	//
+	// Set to `AWS_IAM` if you want to restrict access to authenticated `IAM` users only. Set to `NONE` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
+	FunctionUrlAuthType() *string
+	SetFunctionUrlAuthType(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -9657,6 +9694,16 @@ func (j *jsiiProxy_CfnPermission) FunctionName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPermission) FunctionUrlAuthType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"functionUrlAuthType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPermission) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -9794,6 +9841,14 @@ func (j *jsiiProxy_CfnPermission) SetFunctionName(val *string) {
 	_jsii_.Set(
 		j,
 		"functionName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPermission) SetFunctionUrlAuthType(val *string) {
+	_jsii_.Set(
+		j,
+		"functionUrlAuthType",
 		val,
 	)
 }
@@ -10111,6 +10166,7 @@ func (c *jsiiProxy_CfnPermission) ValidateProperties(_properties interface{}) {
 //
 //   	// the properties below are optional
 //   	eventSourceToken: jsii.String("eventSourceToken"),
+//   	functionUrlAuthType: jsii.String("functionUrlAuthType"),
 //   	principalOrgId: jsii.String("principalOrgId"),
 //   	sourceAccount: jsii.String("sourceAccount"),
 //   	sourceArn: jsii.String("sourceArn"),
@@ -10135,6 +10191,10 @@ type CfnPermissionProps struct {
 	Principal *string `json:"principal" yaml:"principal"`
 	// For Alexa Smart Home functions, a token that must be supplied by the invoker.
 	EventSourceToken *string `json:"eventSourceToken" yaml:"eventSourceToken"`
+	// The type of authentication that your function URL uses.
+	//
+	// Set to `AWS_IAM` if you want to restrict access to authenticated `IAM` users only. Set to `NONE` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
+	FunctionUrlAuthType *string `json:"functionUrlAuthType" yaml:"functionUrlAuthType"`
 	// The identifier for your organization in AWS Organizations .
 	//
 	// Use this to grant permissions to all the AWS accounts under this organization.
@@ -10149,6 +10209,854 @@ type CfnPermissionProps struct {
 	//
 	// Note that Lambda configures the comparison using the `StringLike` operator.
 	SourceArn *string `json:"sourceArn" yaml:"sourceArn"`
+}
+
+// A CloudFormation `AWS::Lambda::Url`.
+//
+// The `AWS::Lambda::Url` resource creates a function URL with the specified configuration parameters. A [function URL](https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html) is a dedicated HTTP(S) endpoint that you can use to invoke your function.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   cfnUrl := lambda.NewCfnUrl(this, jsii.String("MyCfnUrl"), &cfnUrlProps{
+//   	authType: jsii.String("authType"),
+//   	targetFunctionArn: jsii.String("targetFunctionArn"),
+//
+//   	// the properties below are optional
+//   	cors: &corsProperty{
+//   		allowCredentials: jsii.Boolean(false),
+//   		allowHeaders: []*string{
+//   			jsii.String("allowHeaders"),
+//   		},
+//   		allowMethods: []*string{
+//   			jsii.String("allowMethods"),
+//   		},
+//   		allowOrigins: []*string{
+//   			jsii.String("allowOrigins"),
+//   		},
+//   		exposeHeaders: []*string{
+//   			jsii.String("exposeHeaders"),
+//   		},
+//   		maxAge: jsii.Number(123),
+//   	},
+//   	qualifier: jsii.String("qualifier"),
+//   })
+//
+type CfnUrl interface {
+	awscdk.CfnResource
+	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the function.
+	AttrFunctionArn() *string
+	// The HTTP URL endpoint for your function.
+	AttrFunctionUrl() *string
+	// The type of authentication that your function URL uses.
+	//
+	// Set to `AWS_IAM` if you want to restrict access to authenticated `IAM` users only. Set to `NONE` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
+	AuthType() *string
+	SetAuthType(val *string)
+	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
+	CfnOptions() awscdk.ICfnResourceOptions
+	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	// Experimental.
+	CfnResourceType() *string
+	// The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
+	Cors() interface{}
+	SetCors(val interface{})
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	// Experimental.
+	CreationStack() *[]*string
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	// Experimental.
+	LogicalId() *string
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// The alias name.
+	Qualifier() *string
+	SetQualifier(val *string)
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
+	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
+	Stack() awscdk.Stack
+	// The name of the Lambda function.
+	//
+	// **Name formats** - *Function name* - `my-function` .
+	// - *Function ARN* - `arn:aws:lambda:us-west-2:123456789012:function:my-function` .
+	// - *Partial ARN* - `123456789012:function:my-function` .
+	//
+	// The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+	TargetFunctionArn() *string
+	SetTargetFunctionArn(val *string)
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	// Experimental.
+	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
+	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
+	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
+	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	// Experimental.
+	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
+	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
+	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	// Experimental.
+	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	// Experimental.
+	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
+	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
+	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	// Experimental.
+	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	// Experimental.
+	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
+	ValidateProperties(_properties interface{})
+}
+
+// The jsii proxy struct for CfnUrl
+type jsiiProxy_CfnUrl struct {
+	internal.Type__awscdkCfnResource
+	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnUrl) AttrFunctionArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrFunctionArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUrl) AttrFunctionUrl() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrFunctionUrl",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUrl) AuthType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"authType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUrl) CfnOptions() awscdk.ICfnResourceOptions {
+	var returns awscdk.ICfnResourceOptions
+	_jsii_.Get(
+		j,
+		"cfnOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUrl) CfnProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUrl) CfnResourceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUrl) Cors() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"cors",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUrl) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUrl) LogicalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUrl) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUrl) Qualifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"qualifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUrl) Ref() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUrl) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUrl) TargetFunctionArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"targetFunctionArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUrl) UpdatedProperites() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a new `AWS::Lambda::Url`.
+func NewCfnUrl(scope awscdk.Construct, id *string, props *CfnUrlProps) CfnUrl {
+	_init_.Initialize()
+
+	j := jsiiProxy_CfnUrl{}
+
+	_jsii_.Create(
+		"monocdk.aws_lambda.CfnUrl",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a new `AWS::Lambda::Url`.
+func NewCfnUrl_Override(c CfnUrl, scope awscdk.Construct, id *string, props *CfnUrlProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_lambda.CfnUrl",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+func (j *jsiiProxy_CfnUrl) SetAuthType(val *string) {
+	_jsii_.Set(
+		j,
+		"authType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUrl) SetCors(val interface{}) {
+	_jsii_.Set(
+		j,
+		"cors",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUrl) SetQualifier(val *string) {
+	_jsii_.Set(
+		j,
+		"qualifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUrl) SetTargetFunctionArn(val *string) {
+	_jsii_.Set(
+		j,
+		"targetFunctionArn",
+		val,
+	)
+}
+
+// Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
+//
+// Uses duck-typing instead of `instanceof` to allow stack elements from different
+// versions of this library to be included in the same stack.
+//
+// Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
+func CfnUrl_IsCfnElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_lambda.CfnUrl",
+		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a CfnResource.
+// Experimental.
+func CfnUrl_IsCfnResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_lambda.CfnUrl",
+		"isCfnResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func CfnUrl_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_lambda.CfnUrl",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnUrl_CFN_RESOURCE_TYPE_NAME() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"monocdk.aws_lambda.CfnUrl",
+		"CFN_RESOURCE_TYPE_NAME",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnUrl) AddDeletionOverride(path *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDeletionOverride",
+		[]interface{}{path},
+	)
+}
+
+func (c *jsiiProxy_CfnUrl) AddDependsOn(target awscdk.CfnResource) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDependsOn",
+		[]interface{}{target},
+	)
+}
+
+func (c *jsiiProxy_CfnUrl) AddMetadata(key *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addMetadata",
+		[]interface{}{key, value},
+	)
+}
+
+func (c *jsiiProxy_CfnUrl) AddOverride(path *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addOverride",
+		[]interface{}{path, value},
+	)
+}
+
+func (c *jsiiProxy_CfnUrl) AddPropertyDeletionOverride(propertyPath *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyDeletionOverride",
+		[]interface{}{propertyPath},
+	)
+}
+
+func (c *jsiiProxy_CfnUrl) AddPropertyOverride(propertyPath *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyOverride",
+		[]interface{}{propertyPath, value},
+	)
+}
+
+func (c *jsiiProxy_CfnUrl) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"applyRemovalPolicy",
+		[]interface{}{policy, options},
+	)
+}
+
+func (c *jsiiProxy_CfnUrl) GetAtt(attributeName *string) awscdk.Reference {
+	var returns awscdk.Reference
+
+	_jsii_.Invoke(
+		c,
+		"getAtt",
+		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnUrl) GetMetadata(key *string) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"getMetadata",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnUrl) Inspect(inspector awscdk.TreeInspector) {
+	_jsii_.InvokeVoid(
+		c,
+		"inspect",
+		[]interface{}{inspector},
+	)
+}
+
+func (c *jsiiProxy_CfnUrl) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnUrl) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnUrl) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnUrl) OverrideLogicalId(newLogicalId *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"overrideLogicalId",
+		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnUrl) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnUrl) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderProperties",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnUrl) ShouldSynthesize() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"shouldSynthesize",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnUrl) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnUrl) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnUrl) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnUrl) ValidateProperties(_properties interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"validateProperties",
+		[]interface{}{_properties},
+	)
+}
+
+// The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL. Use CORS to grant access to your function URL from any origin. You can also use CORS to control access for specific HTTP headers and methods in requests to your function URL.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   corsProperty := &corsProperty{
+//   	allowCredentials: jsii.Boolean(false),
+//   	allowHeaders: []*string{
+//   		jsii.String("allowHeaders"),
+//   	},
+//   	allowMethods: []*string{
+//   		jsii.String("allowMethods"),
+//   	},
+//   	allowOrigins: []*string{
+//   		jsii.String("allowOrigins"),
+//   	},
+//   	exposeHeaders: []*string{
+//   		jsii.String("exposeHeaders"),
+//   	},
+//   	maxAge: jsii.Number(123),
+//   }
+//
+type CfnUrl_CorsProperty struct {
+	// Whether you want to allow cookies or other credentials in requests to your function URL.
+	//
+	// The default is `false` .
+	AllowCredentials interface{} `json:"allowCredentials" yaml:"allowCredentials"`
+	// The HTTP headers that origins can include in requests to your function URL.
+	//
+	// For example: `Date` , `Keep-Alive` , `X-Custom-Header` .
+	AllowHeaders *[]*string `json:"allowHeaders" yaml:"allowHeaders"`
+	// The HTTP methods that are allowed when calling your function URL.
+	//
+	// For example: `GET` , `POST` , `DELETE` , or the wildcard character ( `*` ).
+	AllowMethods *[]*string `json:"allowMethods" yaml:"allowMethods"`
+	// The origins that can access your function URL.
+	//
+	// You can list any number of specific origins, separated by a comma. For example: `https://www.example.com` , `http://localhost:60905` .
+	//
+	// Alternatively, you can grant access to all origins with the wildcard character ( `*` ).
+	AllowOrigins *[]*string `json:"allowOrigins" yaml:"allowOrigins"`
+	// The HTTP headers in your function response that you want to expose to origins that call your function URL.
+	//
+	// For example: `Date` , `Keep-Alive` , `X-Custom-Header` .
+	ExposeHeaders *[]*string `json:"exposeHeaders" yaml:"exposeHeaders"`
+	// The maximum amount of time, in seconds, that browsers can cache results of a preflight request.
+	//
+	// By default, this is set to `0` , which means the browser will not cache results.
+	MaxAge *float64 `json:"maxAge" yaml:"maxAge"`
+}
+
+// Properties for defining a `CfnUrl`.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   cfnUrlProps := &cfnUrlProps{
+//   	authType: jsii.String("authType"),
+//   	targetFunctionArn: jsii.String("targetFunctionArn"),
+//
+//   	// the properties below are optional
+//   	cors: &corsProperty{
+//   		allowCredentials: jsii.Boolean(false),
+//   		allowHeaders: []*string{
+//   			jsii.String("allowHeaders"),
+//   		},
+//   		allowMethods: []*string{
+//   			jsii.String("allowMethods"),
+//   		},
+//   		allowOrigins: []*string{
+//   			jsii.String("allowOrigins"),
+//   		},
+//   		exposeHeaders: []*string{
+//   			jsii.String("exposeHeaders"),
+//   		},
+//   		maxAge: jsii.Number(123),
+//   	},
+//   	qualifier: jsii.String("qualifier"),
+//   }
+//
+type CfnUrlProps struct {
+	// The type of authentication that your function URL uses.
+	//
+	// Set to `AWS_IAM` if you want to restrict access to authenticated `IAM` users only. Set to `NONE` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
+	AuthType *string `json:"authType" yaml:"authType"`
+	// The name of the Lambda function.
+	//
+	// **Name formats** - *Function name* - `my-function` .
+	// - *Function ARN* - `arn:aws:lambda:us-west-2:123456789012:function:my-function` .
+	// - *Partial ARN* - `123456789012:function:my-function` .
+	//
+	// The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+	TargetFunctionArn *string `json:"targetFunctionArn" yaml:"targetFunctionArn"`
+	// The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
+	Cors interface{} `json:"cors" yaml:"cors"`
+	// The alias name.
+	Qualifier *string `json:"qualifier" yaml:"qualifier"`
 }
 
 // A CloudFormation `AWS::Lambda::Version`.
@@ -12022,6 +12930,9 @@ type DockerImageFunction interface {
 	// Adds an event source that maps to this AWS Lambda function.
 	// Experimental.
 	AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping
+	// Adds a url to this lambda function.
+	// Experimental.
+	AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl
 	// Adds one or more Lambda Layers to this Lambda function.
 	// Experimental.
 	AddLayers(layers ...ILayerVersion)
@@ -12091,6 +13002,9 @@ type DockerImageFunction interface {
 	// Grant the given identity permissions to invoke this Lambda.
 	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant the given identity permissions to invoke this Lambda Function URL.
+	// Experimental.
+	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Function.
 	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
@@ -12663,6 +13577,19 @@ func (d *jsiiProxy_DockerImageFunction) AddEventSourceMapping(id *string, option
 	return returns
 }
 
+func (d *jsiiProxy_DockerImageFunction) AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl {
+	var returns FunctionUrl
+
+	_jsii_.Invoke(
+		d,
+		"addFunctionUrl",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
 func (d *jsiiProxy_DockerImageFunction) AddLayers(layers ...ILayerVersion) {
 	args := []interface{}{}
 	for _, a := range layers {
@@ -12774,6 +13701,19 @@ func (d *jsiiProxy_DockerImageFunction) GrantInvoke(grantee awsiam.IGrantable) a
 	_jsii_.Invoke(
 		d,
 		"grantInvoke",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DockerImageFunction) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant {
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		d,
+		"grantInvokeUrl",
 		[]interface{}{grantee},
 		&returns,
 	)
@@ -13007,7 +13947,7 @@ type DockerImageFunctionProps struct {
 	// The AWS KMS key that's used to encrypt your function's environment variables.
 	// Experimental.
 	EnvironmentEncryption awskms.IKey `json:"environmentEncryption" yaml:"environmentEncryption"`
-	// The size of the function’s /tmp directory in MB.
+	// The size of the function’s /tmp directory in MiB.
 	// Experimental.
 	EphemeralStorageSize awscdk.Size `json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
 	// Event sources for this function.
@@ -13144,6 +14084,7 @@ type DockerImageFunctionProps struct {
 //   		jsii.String("entrypoint"),
 //   	},
 //   	tag: jsii.String("tag"),
+//   	tagOrDigest: jsii.String("tagOrDigest"),
 //   	workingDirectory: jsii.String("workingDirectory"),
 //   })
 //
@@ -13433,6 +14374,7 @@ func (e *jsiiProxy_EcrImageCode) BindToResource(_resource awscdk.CfnResource, _o
 //   		jsii.String("entrypoint"),
 //   	},
 //   	tag: jsii.String("tag"),
+//   	tagOrDigest: jsii.String("tagOrDigest"),
 //   	workingDirectory: jsii.String("workingDirectory"),
 //   }
 //
@@ -13454,8 +14396,11 @@ type EcrImageCodeProps struct {
 	// Experimental.
 	Entrypoint *[]*string `json:"entrypoint" yaml:"entrypoint"`
 	// The image tag to use when pulling the image from ECR.
-	// Experimental.
+	// Deprecated: use `tagOrDigest`.
 	Tag *string `json:"tag" yaml:"tag"`
+	// The image tag or digest to use when pulling the image from ECR (digests must start with `sha256:`).
+	// Experimental.
+	TagOrDigest *string `json:"tagOrDigest" yaml:"tagOrDigest"`
 	// Specify or override the WORKDIR on the specified Docker image or Dockerfile.
 	//
 	// A WORKDIR allows you to configure the working directory the container will use.
@@ -14883,6 +15828,9 @@ type Function interface {
 	// Adds an event source that maps to this AWS Lambda function.
 	// Experimental.
 	AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping
+	// Adds a url to this lambda function.
+	// Experimental.
+	AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl
 	// Adds one or more Lambda Layers to this Lambda function.
 	// Experimental.
 	AddLayers(layers ...ILayerVersion)
@@ -14952,6 +15900,9 @@ type Function interface {
 	// Grant the given identity permissions to invoke this Lambda.
 	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant the given identity permissions to invoke this Lambda Function URL.
+	// Experimental.
+	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Function.
 	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
@@ -15524,6 +16475,19 @@ func (f *jsiiProxy_Function) AddEventSourceMapping(id *string, options *EventSou
 	return returns
 }
 
+func (f *jsiiProxy_Function) AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl {
+	var returns FunctionUrl
+
+	_jsii_.Invoke(
+		f,
+		"addFunctionUrl",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
 func (f *jsiiProxy_Function) AddLayers(layers ...ILayerVersion) {
 	args := []interface{}{}
 	for _, a := range layers {
@@ -15635,6 +16599,19 @@ func (f *jsiiProxy_Function) GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	_jsii_.Invoke(
 		f,
 		"grantInvoke",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_Function) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant {
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		f,
+		"grantInvokeUrl",
 		[]interface{}{grantee},
 		&returns,
 	)
@@ -15945,6 +16922,9 @@ type FunctionBase interface {
 	// Adds an event source that maps to this AWS Lambda function.
 	// Experimental.
 	AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping
+	// Adds a url to this lambda function.
+	// Experimental.
+	AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl
 	// Adds a permission to the Lambda resource policy.
 	// See: Permission for details.
 	//
@@ -15995,6 +16975,9 @@ type FunctionBase interface {
 	// Grant the given identity permissions to invoke this Lambda.
 	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant the given identity permissions to invoke this Lambda Function URL.
+	// Experimental.
+	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Function.
 	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
@@ -16297,6 +17280,19 @@ func (f *jsiiProxy_FunctionBase) AddEventSourceMapping(id *string, options *Even
 	return returns
 }
 
+func (f *jsiiProxy_FunctionBase) AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl {
+	var returns FunctionUrl
+
+	_jsii_.Invoke(
+		f,
+		"addFunctionUrl",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
 func (f *jsiiProxy_FunctionBase) AddPermission(id *string, permission *Permission) {
 	_jsii_.InvokeVoid(
 		f,
@@ -16382,6 +17378,19 @@ func (f *jsiiProxy_FunctionBase) GrantInvoke(grantee awsiam.IGrantable) awsiam.G
 	_jsii_.Invoke(
 		f,
 		"grantInvoke",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FunctionBase) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant {
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		f,
+		"grantInvokeUrl",
 		[]interface{}{grantee},
 		&returns,
 	)
@@ -16710,7 +17719,7 @@ type FunctionOptions struct {
 	// The AWS KMS key that's used to encrypt your function's environment variables.
 	// Experimental.
 	EnvironmentEncryption awskms.IKey `json:"environmentEncryption" yaml:"environmentEncryption"`
-	// The size of the function’s /tmp directory in MB.
+	// The size of the function’s /tmp directory in MiB.
 	// Experimental.
 	EphemeralStorageSize awscdk.Size `json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
 	// Event sources for this function.
@@ -16928,7 +17937,7 @@ type FunctionProps struct {
 	// The AWS KMS key that's used to encrypt your function's environment variables.
 	// Experimental.
 	EnvironmentEncryption awskms.IKey `json:"environmentEncryption" yaml:"environmentEncryption"`
-	// The size of the function’s /tmp directory in MB.
+	// The size of the function’s /tmp directory in MiB.
 	// Experimental.
 	EphemeralStorageSize awscdk.Size `json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
 	// Event sources for this function.
@@ -17072,6 +18081,531 @@ type FunctionProps struct {
 	Runtime Runtime `json:"runtime" yaml:"runtime"`
 }
 
+// Defines a Lambda function url.
+//
+// Example:
+//   // Can be a Function or an Alias
+//   var fn function
+//   var myRole role
+//
+//   fnUrl := fn.addFunctionUrl()
+//   fnUrl.grantInvokeUrl(myRole)
+//
+//   NewCfnOutput(this, jsii.String("TheUrl"), &cfnOutputProps{
+//   	// The .url attributes will return the unique Function URL
+//   	value: fnUrl.url,
+//   })
+//
+// Experimental.
+type FunctionUrl interface {
+	awscdk.Resource
+	IFunctionUrl
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	// Experimental.
+	Env() *awscdk.ResourceEnvironment
+	// The ARN of the function this URL refers to.
+	// Experimental.
+	FunctionArn() *string
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	// Experimental.
+	PhysicalName() *string
+	// The stack in which this resource is defined.
+	// Experimental.
+	Stack() awscdk.Stack
+	// The url of the Lambda function.
+	// Experimental.
+	Url() *string
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
+	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	// Experimental.
+	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	// Experimental.
+	GetResourceNameAttribute(nameAttr *string) *string
+	// Grant the given identity permissions to invoke this Lambda Function URL.
+	// Experimental.
+	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
+	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+}
+
+// The jsii proxy struct for FunctionUrl
+type jsiiProxy_FunctionUrl struct {
+	internal.Type__awscdkResource
+	jsiiProxy_IFunctionUrl
+}
+
+func (j *jsiiProxy_FunctionUrl) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FunctionUrl) FunctionArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"functionArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FunctionUrl) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FunctionUrl) PhysicalName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FunctionUrl) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FunctionUrl) Url() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"url",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewFunctionUrl(scope constructs.Construct, id *string, props *FunctionUrlProps) FunctionUrl {
+	_init_.Initialize()
+
+	j := jsiiProxy_FunctionUrl{}
+
+	_jsii_.Create(
+		"monocdk.aws_lambda.FunctionUrl",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewFunctionUrl_Override(f FunctionUrl, scope constructs.Construct, id *string, props *FunctionUrlProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_lambda.FunctionUrl",
+		[]interface{}{scope, id, props},
+		f,
+	)
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func FunctionUrl_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_lambda.FunctionUrl",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+// Experimental.
+func FunctionUrl_IsResource(construct awscdk.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_lambda.FunctionUrl",
+		"isResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FunctionUrl) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		f,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+func (f *jsiiProxy_FunctionUrl) GeneratePhysicalName() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		f,
+		"generatePhysicalName",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FunctionUrl) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		f,
+		"getResourceArnAttribute",
+		[]interface{}{arnAttr, arnComponents},
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FunctionUrl) GetResourceNameAttribute(nameAttr *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		f,
+		"getResourceNameAttribute",
+		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FunctionUrl) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant {
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		f,
+		"grantInvokeUrl",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FunctionUrl) OnPrepare() {
+	_jsii_.InvokeVoid(
+		f,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (f *jsiiProxy_FunctionUrl) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		f,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (f *jsiiProxy_FunctionUrl) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		f,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FunctionUrl) Prepare() {
+	_jsii_.InvokeVoid(
+		f,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (f *jsiiProxy_FunctionUrl) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		f,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+func (f *jsiiProxy_FunctionUrl) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		f,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FunctionUrl) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		f,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// The auth types for a function url.
+//
+// Example:
+//   // Can be a Function or an Alias
+//   var fn function
+//
+//   fnUrl := fn.addFunctionUrl(&functionUrlOptions{
+//   	authType: lambda.functionUrlAuthType_NONE,
+//   })
+//
+//   NewCfnOutput(this, jsii.String("TheUrl"), &cfnOutputProps{
+//   	value: fnUrl.url,
+//   })
+//
+// Experimental.
+type FunctionUrlAuthType string
+
+const (
+	// Restrict access to authenticated IAM users only.
+	// Experimental.
+	FunctionUrlAuthType_AWS_IAM FunctionUrlAuthType = "AWS_IAM"
+	// Bypass IAM authentication to create a public endpoint.
+	// Experimental.
+	FunctionUrlAuthType_NONE FunctionUrlAuthType = "NONE"
+)
+
+// Specifies a cross-origin access property for a function URL.
+//
+// Example:
+//   var fn function
+//
+//   fn.addFunctionUrl(&functionUrlOptions{
+//   	authType: lambda.functionUrlAuthType_NONE,
+//   	cors: &functionUrlCorsOptions{
+//   		// Allow this to be called from websites on https://example.com.
+//   		// Can also be ['*'] to allow all domain.
+//   		allowedOrigins: []*string{
+//   			jsii.String("https://example.com"),
+//   		},
+//   	},
+//   })
+//
+// Experimental.
+type FunctionUrlCorsOptions struct {
+	// Whether to allow cookies or other credentials in requests to your function URL.
+	// Experimental.
+	AllowCredentials *bool `json:"allowCredentials" yaml:"allowCredentials"`
+	// Headers that are specified in the Access-Control-Request-Headers header.
+	// Experimental.
+	AllowedHeaders *[]*string `json:"allowedHeaders" yaml:"allowedHeaders"`
+	// An HTTP method that you allow the origin to execute.
+	// Experimental.
+	AllowedMethods *[]HttpMethod `json:"allowedMethods" yaml:"allowedMethods"`
+	// One or more origins you want customers to be able to access the bucket from.
+	// Experimental.
+	AllowedOrigins *[]*string `json:"allowedOrigins" yaml:"allowedOrigins"`
+	// One or more headers in the response that you want customers to be able to access from their applications.
+	// Experimental.
+	ExposedHeaders *[]*string `json:"exposedHeaders" yaml:"exposedHeaders"`
+	// The time in seconds that your browser is to cache the preflight response for the specified resource.
+	// Experimental.
+	MaxAge awscdk.Duration `json:"maxAge" yaml:"maxAge"`
+}
+
+// Options to add a url to a Lambda function.
+//
+// Example:
+//   // Can be a Function or an Alias
+//   var fn function
+//
+//   fnUrl := fn.addFunctionUrl(&functionUrlOptions{
+//   	authType: lambda.functionUrlAuthType_NONE,
+//   })
+//
+//   NewCfnOutput(this, jsii.String("TheUrl"), &cfnOutputProps{
+//   	value: fnUrl.url,
+//   })
+//
+// Experimental.
+type FunctionUrlOptions struct {
+	// The type of authentication that your function URL uses.
+	// Experimental.
+	AuthType FunctionUrlAuthType `json:"authType" yaml:"authType"`
+	// The cross-origin resource sharing (CORS) settings for your function URL.
+	// Experimental.
+	Cors *FunctionUrlCorsOptions `json:"cors" yaml:"cors"`
+}
+
+// Properties for a FunctionUrl.
+//
+// Example:
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//
+//   var duration duration
+//   var function_ function
+//   functionUrlProps := &functionUrlProps{
+//   	function: function_,
+//
+//   	// the properties below are optional
+//   	authType: lambda.functionUrlAuthType_AWS_IAM,
+//   	cors: &functionUrlCorsOptions{
+//   		allowCredentials: jsii.Boolean(false),
+//   		allowedHeaders: []*string{
+//   			jsii.String("allowedHeaders"),
+//   		},
+//   		allowedMethods: []httpMethod{
+//   			lambda.*httpMethod_GET,
+//   		},
+//   		allowedOrigins: []*string{
+//   			jsii.String("allowedOrigins"),
+//   		},
+//   		exposedHeaders: []*string{
+//   			jsii.String("exposedHeaders"),
+//   		},
+//   		maxAge: duration,
+//   	},
+//   }
+//
+// Experimental.
+type FunctionUrlProps struct {
+	// The type of authentication that your function URL uses.
+	// Experimental.
+	AuthType FunctionUrlAuthType `json:"authType" yaml:"authType"`
+	// The cross-origin resource sharing (CORS) settings for your function URL.
+	// Experimental.
+	Cors *FunctionUrlCorsOptions `json:"cors" yaml:"cors"`
+	// The function to which this url refers.
+	//
+	// It can also be an `Alias` but not a `Version`.
+	// Experimental.
+	Function IFunction `json:"function" yaml:"function"`
+}
+
 // Lambda function handler.
 // Experimental.
 type Handler interface {
@@ -17092,6 +18626,37 @@ func Handler_FROM_IMAGE() *string {
 	)
 	return returns
 }
+
+// All http request methods.
+// Experimental.
+type HttpMethod string
+
+const (
+	// The GET method requests a representation of the specified resource.
+	// Experimental.
+	HttpMethod_GET HttpMethod = "GET"
+	// The PUT method replaces all current representations of the target resource with the request payload.
+	// Experimental.
+	HttpMethod_PUT HttpMethod = "PUT"
+	// The HEAD method asks for a response identical to that of a GET request, but without the response body.
+	// Experimental.
+	HttpMethod_HEAD HttpMethod = "HEAD"
+	// The POST method is used to submit an entity to the specified resource, often causing a change in state or side effects on the server.
+	// Experimental.
+	HttpMethod_POST HttpMethod = "POST"
+	// The DELETE method deletes the specified resource.
+	// Experimental.
+	HttpMethod_DELETE HttpMethod = "DELETE"
+	// The PATCH method applies partial modifications to a resource.
+	// Experimental.
+	HttpMethod_PATCH HttpMethod = "PATCH"
+	// The OPTIONS method describes the communication options for the target resource.
+	// Experimental.
+	HttpMethod_OPTIONS HttpMethod = "OPTIONS"
+	// The wildcard entry to allow all methods.
+	// Experimental.
+	HttpMethod_ALL HttpMethod = "ALL"
+)
 
 // Experimental.
 type IAlias interface {
@@ -17284,6 +18849,9 @@ type IFunction interface {
 	// Adds an event source that maps to this AWS Lambda function.
 	// Experimental.
 	AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping
+	// Adds a url to this lambda function.
+	// Experimental.
+	AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl
 	// Adds a permission to the Lambda resource policy.
 	// See: Permission for details.
 	//
@@ -17298,6 +18866,9 @@ type IFunction interface {
 	// Grant the given identity permissions to invoke this Lambda.
 	// Experimental.
 	GrantInvoke(identity awsiam.IGrantable) awsiam.Grant
+	// Grant the given identity permissions to invoke this Lambda Function URL.
+	// Experimental.
+	GrantInvokeUrl(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Lambda Return the given named metric for this Function.
 	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
@@ -17387,6 +18958,19 @@ func (i *jsiiProxy_IFunction) AddEventSourceMapping(id *string, options *EventSo
 	return returns
 }
 
+func (i *jsiiProxy_IFunction) AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl {
+	var returns FunctionUrl
+
+	_jsii_.Invoke(
+		i,
+		"addFunctionUrl",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
 func (i *jsiiProxy_IFunction) AddPermission(id *string, permission *Permission) {
 	_jsii_.InvokeVoid(
 		i,
@@ -17417,6 +19001,19 @@ func (i *jsiiProxy_IFunction) GrantInvoke(identity awsiam.IGrantable) awsiam.Gra
 	_jsii_.Invoke(
 		i,
 		"grantInvoke",
+		[]interface{}{identity},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IFunction) GrantInvokeUrl(identity awsiam.IGrantable) awsiam.Grant {
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grantInvokeUrl",
 		[]interface{}{identity},
 		&returns,
 	)
@@ -17622,6 +19219,59 @@ func (j *jsiiProxy_IFunction) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+// A Lambda function Url.
+// Experimental.
+type IFunctionUrl interface {
+	awscdk.IResource
+	// Grant the given identity permissions to invoke this Lambda Function URL.
+	// Experimental.
+	GrantInvokeUrl(identity awsiam.IGrantable) awsiam.Grant
+	// The ARN of the function this URL refers to.
+	// Experimental.
+	FunctionArn() *string
+	// The url of the Lambda function.
+	// Experimental.
+	Url() *string
+}
+
+// The jsii proxy for IFunctionUrl
+type jsiiProxy_IFunctionUrl struct {
+	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_IFunctionUrl) GrantInvokeUrl(identity awsiam.IGrantable) awsiam.Grant {
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grantInvokeUrl",
+		[]interface{}{identity},
+		&returns,
+	)
+
+	return returns
+}
+
+func (j *jsiiProxy_IFunctionUrl) FunctionArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"functionArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IFunctionUrl) Url() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"url",
 		&returns,
 	)
 	return returns
@@ -19116,6 +20766,9 @@ type Permission struct {
 	// A unique token that must be supplied by the principal invoking the function.
 	// Experimental.
 	EventSourceToken *string `json:"eventSourceToken" yaml:"eventSourceToken"`
+	// The authType for the function URL that you are granting permissions for.
+	// Experimental.
+	FunctionUrlAuthType FunctionUrlAuthType `json:"functionUrlAuthType" yaml:"functionUrlAuthType"`
 	// The scope to which the permission constructs be attached.
 	//
 	// The default is
@@ -19244,6 +20897,9 @@ type QualifiedFunctionBase interface {
 	// Adds an event source that maps to this AWS Lambda function.
 	// Experimental.
 	AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping
+	// Adds a url to this lambda function.
+	// Experimental.
+	AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl
 	// Adds a permission to the Lambda resource policy.
 	// See: Permission for details.
 	//
@@ -19294,6 +20950,9 @@ type QualifiedFunctionBase interface {
 	// Grant the given identity permissions to invoke this Lambda.
 	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant the given identity permissions to invoke this Lambda Function URL.
+	// Experimental.
+	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Function.
 	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
@@ -19614,6 +21273,19 @@ func (q *jsiiProxy_QualifiedFunctionBase) AddEventSourceMapping(id *string, opti
 	return returns
 }
 
+func (q *jsiiProxy_QualifiedFunctionBase) AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl {
+	var returns FunctionUrl
+
+	_jsii_.Invoke(
+		q,
+		"addFunctionUrl",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
 func (q *jsiiProxy_QualifiedFunctionBase) AddPermission(id *string, permission *Permission) {
 	_jsii_.InvokeVoid(
 		q,
@@ -19699,6 +21371,19 @@ func (q *jsiiProxy_QualifiedFunctionBase) GrantInvoke(grantee awsiam.IGrantable)
 	_jsii_.Invoke(
 		q,
 		"grantInvoke",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (q *jsiiProxy_QualifiedFunctionBase) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant {
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		q,
+		"grantInvokeUrl",
 		[]interface{}{grantee},
 		&returns,
 	)
@@ -20867,6 +22552,9 @@ type SingletonFunction interface {
 	// Adds an event source that maps to this AWS Lambda function.
 	// Experimental.
 	AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping
+	// Adds a url to this lambda function.
+	// Experimental.
+	AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl
 	// Adds one or more Lambda Layers to this Lambda function.
 	// Experimental.
 	AddLayers(layers ...ILayerVersion)
@@ -20921,6 +22609,9 @@ type SingletonFunction interface {
 	// Grant the given identity permissions to invoke this Lambda.
 	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant the given identity permissions to invoke this Lambda Function URL.
+	// Experimental.
+	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Function.
 	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
@@ -21292,6 +22983,19 @@ func (s *jsiiProxy_SingletonFunction) AddEventSourceMapping(id *string, options 
 	return returns
 }
 
+func (s *jsiiProxy_SingletonFunction) AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl {
+	var returns FunctionUrl
+
+	_jsii_.Invoke(
+		s,
+		"addFunctionUrl",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
 func (s *jsiiProxy_SingletonFunction) AddLayers(layers ...ILayerVersion) {
 	args := []interface{}{}
 	for _, a := range layers {
@@ -21398,6 +23102,19 @@ func (s *jsiiProxy_SingletonFunction) GrantInvoke(grantee awsiam.IGrantable) aws
 	_jsii_.Invoke(
 		s,
 		"grantInvoke",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_SingletonFunction) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant {
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		s,
+		"grantInvokeUrl",
 		[]interface{}{grantee},
 		&returns,
 	)
@@ -21735,7 +23452,7 @@ type SingletonFunctionProps struct {
 	// The AWS KMS key that's used to encrypt your function's environment variables.
 	// Experimental.
 	EnvironmentEncryption awskms.IKey `json:"environmentEncryption" yaml:"environmentEncryption"`
-	// The size of the function’s /tmp directory in MB.
+	// The size of the function’s /tmp directory in MiB.
 	// Experimental.
 	EphemeralStorageSize awscdk.Size `json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
 	// Event sources for this function.
@@ -22316,6 +24033,9 @@ type Version interface {
 	// Adds an event source that maps to this AWS Lambda function.
 	// Experimental.
 	AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping
+	// Adds a url to this lambda function.
+	// Experimental.
+	AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl
 	// Adds a permission to the Lambda resource policy.
 	// See: Permission for details.
 	//
@@ -22366,6 +24086,9 @@ type Version interface {
 	// Grant the given identity permissions to invoke this Lambda.
 	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant the given identity permissions to invoke this Lambda Function URL.
+	// Experimental.
+	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Function.
 	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
@@ -22768,6 +24491,19 @@ func (v *jsiiProxy_Version) AddEventSourceMapping(id *string, options *EventSour
 	return returns
 }
 
+func (v *jsiiProxy_Version) AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl {
+	var returns FunctionUrl
+
+	_jsii_.Invoke(
+		v,
+		"addFunctionUrl",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
 func (v *jsiiProxy_Version) AddPermission(id *string, permission *Permission) {
 	_jsii_.InvokeVoid(
 		v,
@@ -22853,6 +24589,19 @@ func (v *jsiiProxy_Version) GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant 
 	_jsii_.Invoke(
 		v,
 		"grantInvoke",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (v *jsiiProxy_Version) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant {
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		v,
+		"grantInvokeUrl",
 		[]interface{}{grantee},
 		&returns,
 	)

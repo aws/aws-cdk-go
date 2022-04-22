@@ -8293,8 +8293,8 @@ type CfnServiceProps struct {
 //   				},
 //   				scope: jsii.String("scope"),
 //   			},
-//   			efsVolumeConfiguration: &efsVolumeConfigurationProperty{
-//   				fileSystemId: jsii.String("fileSystemId"),
+//   			efsVolumeConfiguration: &eFSVolumeConfigurationProperty{
+//   				filesystemId: jsii.String("filesystemId"),
 //
 //   				// the properties below are optional
 //   				authorizationConfig: &authorizationConfigProperty{
@@ -9942,10 +9942,14 @@ type CfnTaskDefinition_DockerVolumeConfigurationProperty struct {
 	Scope *string `json:"scope" yaml:"scope"`
 }
 
+// This parameter is specified when you're using an Amazon Elastic File System file system for task storage.
+//
+// For more information, see [Amazon EFS Volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html) in the *Amazon Elastic Container Service Developer Guide* .
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk/aws_ecs"
-//   efsVolumeConfigurationProperty := &efsVolumeConfigurationProperty{
-//   	fileSystemId: jsii.String("fileSystemId"),
+//   eFSVolumeConfigurationProperty := &eFSVolumeConfigurationProperty{
+//   	filesystemId: jsii.String("filesystemId"),
 //
 //   	// the properties below are optional
 //   	authorizationConfig: &authorizationConfigProperty{
@@ -9957,16 +9961,24 @@ type CfnTaskDefinition_DockerVolumeConfigurationProperty struct {
 //   	transitEncryptionPort: jsii.Number(123),
 //   }
 //
-type CfnTaskDefinition_EfsVolumeConfigurationProperty struct {
-	// `CfnTaskDefinition.EfsVolumeConfigurationProperty.FileSystemId`.
-	FileSystemId *string `json:"fileSystemId" yaml:"fileSystemId"`
-	// `CfnTaskDefinition.EfsVolumeConfigurationProperty.AuthorizationConfig`.
+type CfnTaskDefinition_EFSVolumeConfigurationProperty struct {
+	// The Amazon EFS file system ID to use.
+	FilesystemId *string `json:"filesystemId" yaml:"filesystemId"`
+	// The authorization configuration details for the Amazon EFS file system.
 	AuthorizationConfig interface{} `json:"authorizationConfig" yaml:"authorizationConfig"`
-	// `CfnTaskDefinition.EfsVolumeConfigurationProperty.RootDirectory`.
+	// The directory within the Amazon EFS file system to mount as the root directory inside the host.
+	//
+	// If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying `/` will have the same effect as omitting this parameter.
+	//
+	// > If an EFS access point is specified in the `authorizationConfig` , the root directory parameter must either be omitted or set to `/` which will enforce the path set on the EFS access point.
 	RootDirectory *string `json:"rootDirectory" yaml:"rootDirectory"`
-	// `CfnTaskDefinition.EfsVolumeConfigurationProperty.TransitEncryption`.
+	// Determines whether to use encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server.
+	//
+	// Transit encryption must be enabled if Amazon EFS IAM authorization is used. If this parameter is omitted, the default value of `DISABLED` is used. For more information, see [Encrypting Data in Transit](https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html) in the *Amazon Elastic File System User Guide* .
 	TransitEncryption *string `json:"transitEncryption" yaml:"transitEncryption"`
-	// `CfnTaskDefinition.EfsVolumeConfigurationProperty.TransitEncryptionPort`.
+	// The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.
+	//
+	// If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses. For more information, see [EFS Mount Helper](https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html) in the *Amazon Elastic File System User Guide* .
 	TransitEncryptionPort *float64 `json:"transitEncryptionPort" yaml:"transitEncryptionPort"`
 }
 
@@ -10648,8 +10660,8 @@ type CfnTaskDefinition_VolumeFromProperty struct {
 //   		},
 //   		scope: jsii.String("scope"),
 //   	},
-//   	efsVolumeConfiguration: &efsVolumeConfigurationProperty{
-//   		fileSystemId: jsii.String("fileSystemId"),
+//   	efsVolumeConfiguration: &eFSVolumeConfigurationProperty{
+//   		filesystemId: jsii.String("filesystemId"),
 //
 //   		// the properties below are optional
 //   		authorizationConfig: &authorizationConfigProperty{
@@ -10673,7 +10685,7 @@ type CfnTaskDefinition_VolumeProperty struct {
 	//
 	// > Docker volumes aren't supported by tasks run on AWS Fargate .
 	DockerVolumeConfiguration interface{} `json:"dockerVolumeConfiguration" yaml:"dockerVolumeConfiguration"`
-	// `CfnTaskDefinition.VolumeProperty.EfsVolumeConfiguration`.
+	// This parameter is specified when you use an Amazon Elastic File System file system for task storage.
 	EfsVolumeConfiguration interface{} `json:"efsVolumeConfiguration" yaml:"efsVolumeConfiguration"`
 	// This parameter is specified when you use bind mount host volumes.
 	//
@@ -10931,8 +10943,8 @@ type CfnTaskDefinition_VolumeProperty struct {
 //   				},
 //   				scope: jsii.String("scope"),
 //   			},
-//   			efsVolumeConfiguration: &efsVolumeConfigurationProperty{
-//   				fileSystemId: jsii.String("fileSystemId"),
+//   			efsVolumeConfiguration: &eFSVolumeConfigurationProperty{
+//   				filesystemId: jsii.String("filesystemId"),
 //
 //   				// the properties below are optional
 //   				authorizationConfig: &authorizationConfigProperty{

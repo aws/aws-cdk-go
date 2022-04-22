@@ -1659,6 +1659,10 @@ func init() {
 		"monocdk.aws_apigatewayv2.StageOptions",
 		reflect.TypeOf((*StageOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_apigatewayv2.ThrottleSettings",
+		reflect.TypeOf((*ThrottleSettings)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_apigatewayv2.VpcLink",
 		reflect.TypeOf((*VpcLink)(nil)).Elem(),

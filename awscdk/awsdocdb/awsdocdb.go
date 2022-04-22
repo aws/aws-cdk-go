@@ -4762,8 +4762,10 @@ func (d *jsiiProxy_DatabaseCluster) Validate() *[]*string {
 //
 //   var securityGroup securityGroup
 //   databaseClusterAttributes := &databaseClusterAttributes{
-//   	clusterEndpointAddress: jsii.String("clusterEndpointAddress"),
 //   	clusterIdentifier: jsii.String("clusterIdentifier"),
+//
+//   	// the properties below are optional
+//   	clusterEndpointAddress: jsii.String("clusterEndpointAddress"),
 //   	instanceEndpointAddresses: []*string{
 //   		jsii.String("instanceEndpointAddresses"),
 //   	},
@@ -4777,12 +4779,12 @@ func (d *jsiiProxy_DatabaseCluster) Validate() *[]*string {
 //
 // Experimental.
 type DatabaseClusterAttributes struct {
-	// Cluster endpoint address.
-	// Experimental.
-	ClusterEndpointAddress *string `json:"clusterEndpointAddress" yaml:"clusterEndpointAddress"`
 	// Identifier for the cluster.
 	// Experimental.
 	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
+	// Cluster endpoint address.
+	// Experimental.
+	ClusterEndpointAddress *string `json:"clusterEndpointAddress" yaml:"clusterEndpointAddress"`
 	// Endpoint addresses of individual instances.
 	// Experimental.
 	InstanceEndpointAddresses *[]*string `json:"instanceEndpointAddresses" yaml:"instanceEndpointAddresses"`

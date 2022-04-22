@@ -140,6 +140,9 @@ type EdgeFunction interface {
 	// Adds an event source that maps to this AWS Lambda function.
 	// Experimental.
 	AddEventSourceMapping(id *string, options *awslambda.EventSourceMappingOptions) awslambda.EventSourceMapping
+	// Adds a url to this lambda function.
+	// Experimental.
+	AddFunctionUrl(options *awslambda.FunctionUrlOptions) awslambda.FunctionUrl
 	// Adds a permission to the Lambda resource policy.
 	// Experimental.
 	AddPermission(id *string, permission *awslambda.Permission)
@@ -180,6 +183,9 @@ type EdgeFunction interface {
 	// Grant the given identity permissions to invoke this Lambda.
 	// Experimental.
 	GrantInvoke(identity awsiam.IGrantable) awsiam.Grant
+	// Grant the given identity permissions to invoke this Lambda Function URL.
+	// Experimental.
+	GrantInvokeUrl(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Lambda Return the given named metric for this Function.
 	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
@@ -537,6 +543,19 @@ func (e *jsiiProxy_EdgeFunction) AddEventSourceMapping(id *string, options *awsl
 	return returns
 }
 
+func (e *jsiiProxy_EdgeFunction) AddFunctionUrl(options *awslambda.FunctionUrlOptions) awslambda.FunctionUrl {
+	var returns awslambda.FunctionUrl
+
+	_jsii_.Invoke(
+		e,
+		"addFunctionUrl",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
 func (e *jsiiProxy_EdgeFunction) AddPermission(id *string, permission *awslambda.Permission) {
 	_jsii_.InvokeVoid(
 		e,
@@ -614,6 +633,19 @@ func (e *jsiiProxy_EdgeFunction) GrantInvoke(identity awsiam.IGrantable) awsiam.
 	_jsii_.Invoke(
 		e,
 		"grantInvoke",
+		[]interface{}{identity},
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_EdgeFunction) GrantInvokeUrl(identity awsiam.IGrantable) awsiam.Grant {
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		e,
+		"grantInvokeUrl",
 		[]interface{}{identity},
 		&returns,
 	)
@@ -854,7 +886,7 @@ type EdgeFunctionProps struct {
 	// The AWS KMS key that's used to encrypt your function's environment variables.
 	// Experimental.
 	EnvironmentEncryption awskms.IKey `json:"environmentEncryption" yaml:"environmentEncryption"`
-	// The size of the function’s /tmp directory in MB.
+	// The size of the function’s /tmp directory in MiB.
 	// Experimental.
 	EphemeralStorageSize awscdk.Size `json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
 	// Event sources for this function.

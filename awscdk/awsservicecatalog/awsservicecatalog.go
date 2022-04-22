@@ -13266,6 +13266,8 @@ type CloudFormationProductVersion struct {
 // Example:
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var portfolio portfolio
+//   var product cloudFormationProduct
 //
 //   portfolio.constrainCloudFormationParameters(product, &cloudFormationRuleConstraintOptions{
 //   	rule: &templateRule{
@@ -13301,15 +13303,22 @@ type CloudFormationRuleConstraintOptions struct {
 // Represents the Product Provisioning Artifact Template.
 //
 // Example:
-//   import iam "github.com/aws/aws-cdk-go/awscdk"
+//   import path "github.com/aws-samples/dummy/path"
 //
-//
-//   launchRole := iam.NewRole(this, jsii.String("LaunchRole"), &roleProps{
-//   	roleName: jsii.String("MyRole"),
-//   	assumedBy: iam.NewServicePrincipal(jsii.String("servicecatalog.amazonaws.com")),
+//   product := servicecatalog.NewCloudFormationProduct(this, jsii.String("Product"), &cloudFormationProductProps{
+//   	productName: jsii.String("My Product"),
+//   	owner: jsii.String("Product Owner"),
+//   	productVersions: []cloudFormationProductVersion{
+//   		&cloudFormationProductVersion{
+//   			productVersionName: jsii.String("v1"),
+//   			cloudFormationTemplate: servicecatalog.cloudFormationTemplate.fromUrl(jsii.String("https://raw.githubusercontent.com/awslabs/aws-cloudformation-templates/master/aws/services/ServiceCatalog/Product.yaml")),
+//   		},
+//   		&cloudFormationProductVersion{
+//   			productVersionName: jsii.String("v2"),
+//   			cloudFormationTemplate: servicecatalog.*cloudFormationTemplate.fromAsset(path.join(__dirname, jsii.String("development-environment.template.json"))),
+//   		},
+//   	},
 //   })
-//
-//   portfolio.setLocalLaunchRole(product, launchRole)
 //
 // Experimental.
 type CloudFormationTemplate interface {
@@ -13418,6 +13427,8 @@ type CloudFormationTemplateConfig struct {
 // Example:
 //   import sns "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var portfolio portfolio
+//   var product cloudFormationProduct
 //
 //   topic1 := sns.NewTopic(this, jsii.String("Topic1"))
 //   portfolio.notifyOnStackEvents(product, topic1)
@@ -15750,6 +15761,8 @@ func (p *jsiiProxy_ProductStack) Validate() *[]*string {
 // Example:
 //   import iam "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var portfolio portfolio
+//   var product cloudFormationProduct
 //
 //   adminRole := iam.NewRole(this, jsii.String("AdminRole"), &roleProps{
 //   	assumedBy: iam.NewAccountRootPrincipal(),
@@ -15806,6 +15819,9 @@ type StackSetsConstraintOptions struct {
 // See https://docs.aws.amazon.com/servicecatalog/latest/adminguide/tagoptions.html
 //
 // Example:
+//   var portfolio portfolio
+//   var product cloudFormationProduct
+//
 //   tagOptionsForPortfolio := servicecatalog.NewTagOptions(this, jsii.String("OrgTagOptions"), &tagOptionsProps{
 //   	allowedValuesForTags: map[string][]*string{
 //   		"Group": []*string{
@@ -16170,6 +16186,9 @@ func (t *jsiiProxy_TagOptions) Validate() *[]*string {
 // Properties for TagOptions.
 //
 // Example:
+//   var portfolio portfolio
+//   var product cloudFormationProduct
+//
 //   tagOptionsForPortfolio := servicecatalog.NewTagOptions(this, jsii.String("OrgTagOptions"), &tagOptionsProps{
 //   	allowedValuesForTags: map[string][]*string{
 //   		"Group": []*string{
@@ -16211,6 +16230,9 @@ type TagOptionsProps struct {
 // Properties for ResourceUpdateConstraint.
 //
 // Example:
+//   var portfolio portfolio
+//   var product cloudFormationProduct
+//
 //   // to disable tag updates:
 //   portfolio.constrainTagUpdates(product, &tagUpdateConstraintOptions{
 //   	allow: jsii.Boolean(false),
@@ -16236,6 +16258,8 @@ type TagUpdateConstraintOptions struct {
 // Example:
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var portfolio portfolio
+//   var product cloudFormationProduct
 //
 //   portfolio.constrainCloudFormationParameters(product, &cloudFormationRuleConstraintOptions{
 //   	rule: &templateRule{

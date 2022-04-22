@@ -60,18 +60,18 @@ import (
 //   	stateName: jsii.String("cold"),
 //   })
 //
-//   // transit to coldState when temperature is 10
+//   // transit to coldState when temperature is less than 15
 //   warmState.transitionTo(coldState, &transitionOptions{
 //   	eventName: jsii.String("to_coldState"),
 //   	 // optional property, default by combining the names of the States
-//   	when: iotevents.*expression.eq(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("10"))),
+//   	when: iotevents.*expression.lt(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("15"))),
 //   	executing: []*iAction{
 //   		actions.NewLambdaInvokeAction(func),
 //   	},
 //   })
-//   // transit to warmState when temperature is 20
+//   // transit to warmState when temperature is greater than or equal to 15
 //   coldState.transitionTo(warmState, &transitionOptions{
-//   	when: iotevents.*expression.eq(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("20"))),
+//   	when: iotevents.*expression.gte(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("15"))),
 //   })
 //
 //   iotevents.NewDetectorModel(this, jsii.String("MyDetectorModel"), &detectorModelProps{

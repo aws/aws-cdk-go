@@ -12,10 +12,14 @@ import (
 // Define a new IAM Access Key.
 //
 // Example:
-//   user := iam.NewUser(this, jsii.String("MyUser"))
-//   accessKey := iam.NewAccessKey(this, jsii.String("MyAccessKey"), &accessKeyProps{
+//   // Creates a new IAM user, access and secret keys, and stores the secret access key in a Secret.
+//   user := iam.NewUser(this, jsii.String("User"))
+//   accessKey := iam.NewAccessKey(this, jsii.String("AccessKey"), &accessKeyProps{
 //   	user: user,
-//   	serial: jsii.Number(1),
+//   })
+//   secretValue := secretsmanager.secretStringValueBeta1.fromToken(accessKey.secretAccessKey.toString())
+//   secretsmanager.NewSecret(this, jsii.String("Secret"), &secretProps{
+//   	secretStringBeta1: secretValue,
 //   })
 //
 // Experimental.
@@ -382,10 +386,14 @@ func (a *jsiiProxy_AccessKey) Validate() *[]*string {
 // Properties for defining an IAM access key.
 //
 // Example:
-//   user := iam.NewUser(this, jsii.String("MyUser"))
-//   accessKey := iam.NewAccessKey(this, jsii.String("MyAccessKey"), &accessKeyProps{
+//   // Creates a new IAM user, access and secret keys, and stores the secret access key in a Secret.
+//   user := iam.NewUser(this, jsii.String("User"))
+//   accessKey := iam.NewAccessKey(this, jsii.String("AccessKey"), &accessKeyProps{
 //   	user: user,
-//   	serial: jsii.Number(1),
+//   })
+//   secretValue := secretsmanager.secretStringValueBeta1.fromToken(accessKey.secretAccessKey.toString())
+//   secretsmanager.NewSecret(this, jsii.String("Secret"), &secretProps{
+//   	secretStringBeta1: secretValue,
 //   })
 //
 // Experimental.
@@ -22164,7 +22172,7 @@ type UserAttributes struct {
 //
 // Example:
 //   user := NewUser(this, jsii.String("MyUser"), &userProps{
-//   	password: cdk.secretValue.plainText(jsii.String("1234")),
+//   	password: cdk.secretValue.unsafePlainText(jsii.String("1234")),
 //   })
 //   group := NewGroup(this, jsii.String("MyGroup"))
 //
@@ -22188,7 +22196,7 @@ type UserProps struct {
 	ManagedPolicies *[]IManagedPolicy `json:"managedPolicies" yaml:"managedPolicies"`
 	// The password for the user. This is required so the user can access the AWS Management Console.
 	//
-	// You can use `SecretValue.plainText` to specify a password in plain text or
+	// You can use `SecretValue.unsafePlainText` to specify a password in plain text or
 	// use `secretsmanager.Secret.fromSecretAttributes` to reference a secret in
 	// Secrets Manager.
 	// Experimental.

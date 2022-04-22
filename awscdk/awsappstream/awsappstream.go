@@ -4841,6 +4841,10 @@ type CfnEntitlementProps struct {
 //   	maxConcurrentSessions: jsii.Number(123),
 //   	maxUserDurationInSeconds: jsii.Number(123),
 //   	platform: jsii.String("platform"),
+//   	sessionScriptS3Location: &s3LocationProperty{
+//   		s3Bucket: jsii.String("s3Bucket"),
+//   		s3Key: jsii.String("s3Key"),
+//   	},
 //   	streamView: jsii.String("streamView"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -5017,6 +5021,11 @@ type CfnFleet interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
+	// The S3 location of the session scripts configuration zip file.
+	//
+	// This only applies to Elastic fleets.
+	SessionScriptS3Location() interface{}
+	SetSessionScriptS3Location(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -5447,6 +5456,16 @@ func (j *jsiiProxy_CfnFleet) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFleet) SessionScriptS3Location() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"sessionScriptS3Location",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFleet) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -5658,6 +5677,14 @@ func (j *jsiiProxy_CfnFleet) SetPlatform(val *string) {
 	_jsii_.Set(
 		j,
 		"platform",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFleet) SetSessionScriptS3Location(val interface{}) {
+	_jsii_.Set(
+		j,
+		"sessionScriptS3Location",
 		val,
 	)
 }
@@ -5985,6 +6012,22 @@ type CfnFleet_DomainJoinInfoProperty struct {
 	OrganizationalUnitDistinguishedName *string `json:"organizationalUnitDistinguishedName" yaml:"organizationalUnitDistinguishedName"`
 }
 
+// Describes the S3 location.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appstream "github.com/aws/aws-cdk-go/awscdk/aws_appstream"
+//   s3LocationProperty := &s3LocationProperty{
+//   	s3Bucket: jsii.String("s3Bucket"),
+//   	s3Key: jsii.String("s3Key"),
+//   }
+//
+type CfnFleet_S3LocationProperty struct {
+	// The S3 bucket of the S3 object.
+	S3Bucket *string `json:"s3Bucket" yaml:"s3Bucket"`
+	// The S3 key of the S3 object.
+	S3Key *string `json:"s3Key" yaml:"s3Key"`
+}
+
 // The VPC configuration information for the fleet.
 //
 // Example:
@@ -6035,6 +6078,10 @@ type CfnFleet_VpcConfigProperty struct {
 //   	maxConcurrentSessions: jsii.Number(123),
 //   	maxUserDurationInSeconds: jsii.Number(123),
 //   	platform: jsii.String("platform"),
+//   	sessionScriptS3Location: &s3LocationProperty{
+//   		s3Bucket: jsii.String("s3Bucket"),
+//   		s3Key: jsii.String("s3Key"),
+//   	},
 //   	streamView: jsii.String("streamView"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -6161,6 +6208,10 @@ type CfnFleetProps struct {
 	//
 	// *Allowed Values* : `WINDOWS_SERVER_2019` | `AMAZON_LINUX2`.
 	Platform *string `json:"platform" yaml:"platform"`
+	// The S3 location of the session scripts configuration zip file.
+	//
+	// This only applies to Elastic fleets.
+	SessionScriptS3Location interface{} `json:"sessionScriptS3Location" yaml:"sessionScriptS3Location"`
 	// The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays.
 	//
 	// The default value is `APP` .

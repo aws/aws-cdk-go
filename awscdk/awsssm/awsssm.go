@@ -1274,6 +1274,7 @@ type CfnAssociationProps struct {
 //   		},
 //   	},
 //   	targetType: jsii.String("targetType"),
+//   	updateMethod: jsii.String("updateMethod"),
 //   	versionName: jsii.String("versionName"),
 //   })
 //
@@ -1364,6 +1365,9 @@ type CfnDocument interface {
 	// collect and return the properties object for this resource.
 	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// `AWS::SSM::Document.UpdateMethod`.
+	UpdateMethod() *string
+	SetUpdateMethod(val *string)
 	// An optional field specifying the version of the artifact you are creating with the document.
 	//
 	// For example, "Release 12, Update 6". This value is unique across all versions of a document, and can't be changed.
@@ -1711,6 +1715,16 @@ func (j *jsiiProxy_CfnDocument) UpdatedProperites() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDocument) UpdateMethod() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"updateMethod",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDocument) VersionName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1800,6 +1814,14 @@ func (j *jsiiProxy_CfnDocument) SetTargetType(val *string) {
 	_jsii_.Set(
 		j,
 		"targetType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDocument) SetUpdateMethod(val *string) {
+	_jsii_.Set(
+		j,
+		"updateMethod",
 		val,
 	)
 }
@@ -2172,6 +2194,7 @@ type CfnDocument_DocumentRequiresProperty struct {
 //   		},
 //   	},
 //   	targetType: jsii.String("targetType"),
+//   	updateMethod: jsii.String("updateMethod"),
 //   	versionName: jsii.String("versionName"),
 //   }
 //
@@ -2210,6 +2233,8 @@ type CfnDocumentProps struct {
 	//
 	// For example, to run a document on EC2 instances, specify the following value: `/AWS::EC2::Instance` . If you specify a value of '/' the document can run on all types of resources. If you don't specify a value, the document can't run on any resources. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) in the *AWS CloudFormation User Guide* .
 	TargetType *string `json:"targetType" yaml:"targetType"`
+	// `AWS::SSM::Document.UpdateMethod`.
+	UpdateMethod *string `json:"updateMethod" yaml:"updateMethod"`
 	// An optional field specifying the version of the artifact you are creating with the document.
 	//
 	// For example, "Release 12, Update 6". This value is unique across all versions of a document, and can't be changed.
@@ -9820,7 +9845,7 @@ func StringParameter_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 // Returns a token that will resolve (during deployment).
-// Experimental.
+// Deprecated: Use `SecretValue.ssmSecure()` instead, it will correctly type the imported value as a `SecretValue` and allow importing without version.
 func StringParameter_ValueForSecureStringParameter(scope constructs.Construct, parameterName *string, version *float64) *string {
 	_init_.Initialize()
 

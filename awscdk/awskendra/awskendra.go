@@ -595,7 +595,7 @@ type CfnDataSource interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::Kendra::DataSource.CustomDocumentEnrichmentConfiguration`.
+	// Configuration information for altering document metadata and content during the document ingestion process.
 	CustomDocumentEnrichmentConfiguration() interface{}
 	SetCustomDocumentEnrichmentConfiguration(val interface{})
 	// Configuration information for an Amazon Kendra data source.
@@ -4571,7 +4571,7 @@ type CfnDataSourceProps struct {
 	Name *string `json:"name" yaml:"name"`
 	// The type of the data source.
 	Type *string `json:"type" yaml:"type"`
-	// `AWS::Kendra::DataSource.CustomDocumentEnrichmentConfiguration`.
+	// Configuration information for altering document metadata and content during the document ingestion process.
 	CustomDocumentEnrichmentConfiguration interface{} `json:"customDocumentEnrichmentConfiguration" yaml:"customDocumentEnrichmentConfiguration"`
 	// Configuration information for an Amazon Kendra data source.
 	//

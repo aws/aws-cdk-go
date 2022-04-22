@@ -311,6 +311,9 @@ type BucketDeploymentProps struct {
 	// The file paths to invalidate in the CloudFront distribution.
 	// Experimental.
 	DistributionPaths *[]*string `json:"distributionPaths" yaml:"distributionPaths"`
+	// The size of the AWS Lambda function’s /tmp directory in MiB.
+	// Experimental.
+	EphemeralStorageSize awscdk.Size `json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
 	// If this is set, matching files or objects will be excluded from the deployment's sync command.
 	//
 	// This can be used to exclude a file from being pruned in the destination bucket.

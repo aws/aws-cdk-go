@@ -2823,7 +2823,7 @@ type CfnAssetModel_AssetModelPropertyProperty struct {
 	//
 	// The maximum length is 256 characters with the pattern `[^\ u0000-\ u001F\ u007F]+` .
 	Name *string `json:"name" yaml:"name"`
-	// Contains a property type, which can be one of `attribute` , `measurement` , `metric` , or `transform` .
+	// Contains a property type, which can be one of `Attribute` , `Measurement` , `Metric` , or `Transform` .
 	Type interface{} `json:"type" yaml:"type"`
 	// The data type of the structure for this property.
 	//
@@ -2939,7 +2939,7 @@ type CfnAssetModel_MetricWindowProperty struct {
 	Tumbling interface{} `json:"tumbling" yaml:"tumbling"`
 }
 
-// Contains a property type, which can be one of `attribute` , `measurement` , `metric` , or `transform` .
+// Contains a property type, which can be one of `Attribute` , `Measurement` , `Metric` , or `Transform` .
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotsitewise "github.com/aws/aws-cdk-go/awscdk/aws_iotsitewise"

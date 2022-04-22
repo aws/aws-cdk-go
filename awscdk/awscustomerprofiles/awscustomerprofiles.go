@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::CustomerProfiles::Domain`.
 //
-// The AWS::CustomerProfiles::Domain resource specifies an Amazon Connect Customer Profiles Domain.
+// Specifies an Amazon Connect Customer Profiles Domain.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
@@ -797,7 +797,7 @@ type CfnDomainProps struct {
 
 // A CloudFormation `AWS::CustomerProfiles::Integration`.
 //
-// The AWS::CustomerProfiles::Integration resource specifies an Amazon Connect Customer Profiles Integration.
+// Specifies an Amazon Connect Customer Profiles Integration.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
@@ -945,7 +945,7 @@ type CfnIntegration interface {
 	// The name of the profile object type mapping to use.
 	ObjectTypeName() *string
 	SetObjectTypeName(val *string)
-	// `AWS::CustomerProfiles::Integration.ObjectTypeNames`.
+	// The object type mapping.
 	ObjectTypeNames() interface{}
 	SetObjectTypeNames(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -1806,6 +1806,8 @@ type CfnIntegration_MarketoSourcePropertiesProperty struct {
 	Object *string `json:"object" yaml:"object"`
 }
 
+// A map in which each key is an event type from an external application such as Segment or Shopify, and each value is an `ObjectTypeName` (template) used to ingest the event.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
 //   objectTypeMappingProperty := &objectTypeMappingProperty{
@@ -1814,9 +1816,9 @@ type CfnIntegration_MarketoSourcePropertiesProperty struct {
 //   }
 //
 type CfnIntegration_ObjectTypeMappingProperty struct {
-	// `CfnIntegration.ObjectTypeMappingProperty.Key`.
+	// The key.
 	Key *string `json:"key" yaml:"key"`
-	// `CfnIntegration.ObjectTypeMappingProperty.Value`.
+	// The value.
 	Value *string `json:"value" yaml:"value"`
 }
 
@@ -1996,7 +1998,7 @@ type CfnIntegration_SourceFlowConfigProperty struct {
 	SourceConnectorProperties interface{} `json:"sourceConnectorProperties" yaml:"sourceConnectorProperties"`
 	// The name of the Amazon AppFlow connector profile.
 	//
-	// This name must be unique for each connector profile in the AWS account.
+	// This name must be unique for each connector profile in the AWS account .
 	ConnectorProfileName *string `json:"connectorProfileName" yaml:"connectorProfileName"`
 	// Defines the configuration for a scheduled incremental data pull.
 	//
@@ -2251,7 +2253,7 @@ type CfnIntegrationProps struct {
 	FlowDefinition interface{} `json:"flowDefinition" yaml:"flowDefinition"`
 	// The name of the profile object type mapping to use.
 	ObjectTypeName *string `json:"objectTypeName" yaml:"objectTypeName"`
-	// `AWS::CustomerProfiles::Integration.ObjectTypeNames`.
+	// The object type mapping.
 	ObjectTypeNames interface{} `json:"objectTypeNames" yaml:"objectTypeNames"`
 	// The tags used to organize, track, or control access for this resource.
 	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
@@ -2261,7 +2263,7 @@ type CfnIntegrationProps struct {
 
 // A CloudFormation `AWS::CustomerProfiles::ObjectType`.
 //
-// The AWS::CustomerProfiles::ObjectType resource specifies an Amazon Connect Customer Profiles Object Type Mapping.
+// Specifies an Amazon Connect Customer Profiles Object Type Mapping.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"

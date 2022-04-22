@@ -1396,6 +1396,9 @@ type AlarmStatusWidget interface {
 	// The amount of vertical grid units the widget will take up.
 	// Experimental.
 	Height() *float64
+	// Any warnings that are produced as a result of putting together this widget.
+	// Experimental.
+	Warnings() *[]*string
 	// The amount of horizontal grid units the widget will take up.
 	// Experimental.
 	Width() *float64
@@ -1407,6 +1410,9 @@ type AlarmStatusWidget interface {
 	Y() *float64
 	// Experimental.
 	SetY(val *float64)
+	// Copy the warnings from the given metric.
+	// Experimental.
+	CopyMetricWarnings(ms ...IMetric)
 	// Place the widget at a given position.
 	// Experimental.
 	Position(x *float64, y *float64)
@@ -1425,6 +1431,16 @@ func (j *jsiiProxy_AlarmStatusWidget) Height() *float64 {
 	_jsii_.Get(
 		j,
 		"height",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AlarmStatusWidget) Warnings() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"warnings",
 		&returns,
 	)
 	return returns
@@ -1500,6 +1516,19 @@ func (j *jsiiProxy_AlarmStatusWidget) SetY(val *float64) {
 		j,
 		"y",
 		val,
+	)
+}
+
+func (a *jsiiProxy_AlarmStatusWidget) CopyMetricWarnings(ms ...IMetric) {
+	args := []interface{}{}
+	for _, a := range ms {
+		args = append(args, a)
+	}
+
+	_jsii_.InvokeVoid(
+		a,
+		"copyMetricWarnings",
+		args,
 	)
 }
 
@@ -1617,6 +1646,9 @@ type AlarmWidget interface {
 	// The amount of vertical grid units the widget will take up.
 	// Experimental.
 	Height() *float64
+	// Any warnings that are produced as a result of putting together this widget.
+	// Experimental.
+	Warnings() *[]*string
 	// The amount of horizontal grid units the widget will take up.
 	// Experimental.
 	Width() *float64
@@ -1628,6 +1660,9 @@ type AlarmWidget interface {
 	Y() *float64
 	// Experimental.
 	SetY(val *float64)
+	// Copy the warnings from the given metric.
+	// Experimental.
+	CopyMetricWarnings(ms ...IMetric)
 	// Place the widget at a given position.
 	// Experimental.
 	Position(x *float64, y *float64)
@@ -1646,6 +1681,16 @@ func (j *jsiiProxy_AlarmWidget) Height() *float64 {
 	_jsii_.Get(
 		j,
 		"height",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AlarmWidget) Warnings() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"warnings",
 		&returns,
 	)
 	return returns
@@ -1721,6 +1766,19 @@ func (j *jsiiProxy_AlarmWidget) SetY(val *float64) {
 		j,
 		"y",
 		val,
+	)
+}
+
+func (a *jsiiProxy_AlarmWidget) CopyMetricWarnings(ms ...IMetric) {
+	args := []interface{}{}
+	for _, a := range ms {
+		args = append(args, a)
+	}
+
+	_jsii_.InvokeVoid(
+		a,
+		"copyMetricWarnings",
+		args,
 	)
 }
 
@@ -6914,6 +6972,19 @@ type CfnInsightRuleProps struct {
 //   		},
 //   	},
 //   	name: jsii.String("name"),
+//   	statisticsConfigurations: []interface{}{
+//   		&metricStreamStatisticsConfigurationProperty{
+//   			additionalStatistics: []*string{
+//   				jsii.String("additionalStatistics"),
+//   			},
+//   			includeMetrics: []interface{}{
+//   				&metricStreamStatisticsMetricProperty{
+//   					metricName: jsii.String("metricName"),
+//   					namespace: jsii.String("namespace"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -7008,6 +7079,13 @@ type CfnMetricStream interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
+	// By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed.
+	//
+	// You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
+	//
+	// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `OutputFormat` . If the `OutputFormat` is `json` , you can stream any additional statistic that is supported by CloudWatch , listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html) . If the `OutputFormat` is `opentelemetry0` .7, you can stream percentile statistics *(p??)* .
+	StatisticsConfigurations() interface{}
+	SetStatisticsConfigurations(val interface{})
 	// An array of key-value pairs to apply to the metric stream.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
@@ -7370,6 +7448,16 @@ func (j *jsiiProxy_CfnMetricStream) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMetricStream) StatisticsConfigurations() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"statisticsConfigurations",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMetricStream) Tags() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -7461,6 +7549,14 @@ func (j *jsiiProxy_CfnMetricStream) SetRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"roleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMetricStream) SetStatisticsConfigurations(val interface{}) {
+	_jsii_.Set(
+		j,
+		"statisticsConfigurations",
 		val,
 	)
 }
@@ -7748,6 +7844,47 @@ type CfnMetricStream_MetricStreamFilterProperty struct {
 	Namespace *string `json:"namespace" yaml:"namespace"`
 }
 
+// This structure specifies a list of additional statistics to stream, and the metrics to stream those additional statistics for.
+//
+// All metrics that match the combination of metric name and namespace will be streamed with the additional statistics, no matter their dimensions.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   metricStreamStatisticsConfigurationProperty := &metricStreamStatisticsConfigurationProperty{
+//   	additionalStatistics: []*string{
+//   		jsii.String("additionalStatistics"),
+//   	},
+//   	includeMetrics: []interface{}{
+//   		&metricStreamStatisticsMetricProperty{
+//   			metricName: jsii.String("metricName"),
+//   			namespace: jsii.String("namespace"),
+//   		},
+//   	},
+//   }
+//
+type CfnMetricStream_MetricStreamStatisticsConfigurationProperty struct {
+	// The additional statistics to stream for the metrics listed in `IncludeMetrics` .
+	AdditionalStatistics *[]*string `json:"additionalStatistics" yaml:"additionalStatistics"`
+	// An array that defines the metrics that are to have additional statistics streamed.
+	IncludeMetrics interface{} `json:"includeMetrics" yaml:"includeMetrics"`
+}
+
+// A structure that specifies the metric name and namespace for one metric that is going to have additional statistics included in the stream.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   metricStreamStatisticsMetricProperty := &metricStreamStatisticsMetricProperty{
+//   	metricName: jsii.String("metricName"),
+//   	namespace: jsii.String("namespace"),
+//   }
+//
+type CfnMetricStream_MetricStreamStatisticsMetricProperty struct {
+	// The name of the metric.
+	MetricName *string `json:"metricName" yaml:"metricName"`
+	// The namespace of the metric.
+	Namespace *string `json:"namespace" yaml:"namespace"`
+}
+
 // Properties for defining a `CfnMetricStream`.
 //
 // Example:
@@ -7769,6 +7906,19 @@ type CfnMetricStream_MetricStreamFilterProperty struct {
 //   		},
 //   	},
 //   	name: jsii.String("name"),
+//   	statisticsConfigurations: []interface{}{
+//   		&metricStreamStatisticsConfigurationProperty{
+//   			additionalStatistics: []*string{
+//   				jsii.String("additionalStatistics"),
+//   			},
+//   			includeMetrics: []interface{}{
+//   				&metricStreamStatisticsMetricProperty{
+//   					metricName: jsii.String("metricName"),
+//   					namespace: jsii.String("namespace"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -7810,6 +7960,12 @@ type CfnMetricStreamProps struct {
 	//
 	// If you are updating a metric stream, specify the name of that stream here.
 	Name *string `json:"name" yaml:"name"`
+	// By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed.
+	//
+	// You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
+	//
+	// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `OutputFormat` . If the `OutputFormat` is `json` , you can stream any additional statistic that is supported by CloudWatch , listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html) . If the `OutputFormat` is `opentelemetry0` .7, you can stream percentile statistics *(p??)* .
+	StatisticsConfigurations interface{} `json:"statisticsConfigurations" yaml:"statisticsConfigurations"`
 	// An array of key-value pairs to apply to the metric stream.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
@@ -7952,6 +8108,9 @@ type Column interface {
 	// The amount of vertical grid units the widget will take up.
 	// Experimental.
 	Height() *float64
+	// List of contained widgets.
+	// Experimental.
+	Widgets() *[]IWidget
 	// The amount of horizontal grid units the widget will take up.
 	// Experimental.
 	Width() *float64
@@ -7973,6 +8132,16 @@ func (j *jsiiProxy_Column) Height() *float64 {
 	_jsii_.Get(
 		j,
 		"height",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Column) Widgets() *[]IWidget {
+	var returns *[]IWidget
+	_jsii_.Get(
+		j,
+		"widgets",
 		&returns,
 	)
 	return returns
@@ -8760,6 +8929,9 @@ type ConcreteWidget interface {
 	// The amount of vertical grid units the widget will take up.
 	// Experimental.
 	Height() *float64
+	// Any warnings that are produced as a result of putting together this widget.
+	// Experimental.
+	Warnings() *[]*string
 	// The amount of horizontal grid units the widget will take up.
 	// Experimental.
 	Width() *float64
@@ -8771,6 +8943,9 @@ type ConcreteWidget interface {
 	Y() *float64
 	// Experimental.
 	SetY(val *float64)
+	// Copy the warnings from the given metric.
+	// Experimental.
+	CopyMetricWarnings(ms ...IMetric)
 	// Place the widget at a given position.
 	// Experimental.
 	Position(x *float64, y *float64)
@@ -8789,6 +8964,16 @@ func (j *jsiiProxy_ConcreteWidget) Height() *float64 {
 	_jsii_.Get(
 		j,
 		"height",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ConcreteWidget) Warnings() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"warnings",
 		&returns,
 	)
 	return returns
@@ -8849,6 +9034,19 @@ func (j *jsiiProxy_ConcreteWidget) SetY(val *float64) {
 		j,
 		"y",
 		val,
+	)
+}
+
+func (c *jsiiProxy_ConcreteWidget) CopyMetricWarnings(ms ...IMetric) {
+	args := []interface{}{}
+	for _, a := range ms {
+		args = append(args, a)
+	}
+
+	_jsii_.InvokeVoid(
+		c,
+		"copyMetricWarnings",
+		args,
 	)
 }
 
@@ -9413,6 +9611,9 @@ type GraphWidget interface {
 	// The amount of vertical grid units the widget will take up.
 	// Experimental.
 	Height() *float64
+	// Any warnings that are produced as a result of putting together this widget.
+	// Experimental.
+	Warnings() *[]*string
 	// The amount of horizontal grid units the widget will take up.
 	// Experimental.
 	Width() *float64
@@ -9430,6 +9631,9 @@ type GraphWidget interface {
 	// Add another metric to the right Y axis of the GraphWidget.
 	// Experimental.
 	AddRightMetric(metric IMetric)
+	// Copy the warnings from the given metric.
+	// Experimental.
+	CopyMetricWarnings(ms ...IMetric)
 	// Place the widget at a given position.
 	// Experimental.
 	Position(x *float64, y *float64)
@@ -9448,6 +9652,16 @@ func (j *jsiiProxy_GraphWidget) Height() *float64 {
 	_jsii_.Get(
 		j,
 		"height",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_GraphWidget) Warnings() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"warnings",
 		&returns,
 	)
 	return returns
@@ -9539,6 +9753,19 @@ func (g *jsiiProxy_GraphWidget) AddRightMetric(metric IMetric) {
 		g,
 		"addRightMetric",
 		[]interface{}{metric},
+	)
+}
+
+func (g *jsiiProxy_GraphWidget) CopyMetricWarnings(ms ...IMetric) {
+	args := []interface{}{}
+	for _, a := range ms {
+		args = append(args, a)
+	}
+
+	_jsii_.InvokeVoid(
+		g,
+		"copyMetricWarnings",
+		args,
 	)
 }
 
@@ -9850,6 +10077,11 @@ type IMetric interface {
 	// Inspect the details of the metric object.
 	// Experimental.
 	ToMetricConfig() *MetricConfig
+	// Any warnings related to this metric.
+	//
+	// Should be attached to the consuming construct.
+	// Experimental.
+	Warnings() *[]*string
 }
 
 // The jsii proxy for IMetric
@@ -9896,6 +10128,16 @@ func (i *jsiiProxy_IMetric) ToMetricConfig() *MetricConfig {
 	return returns
 }
 
+func (j *jsiiProxy_IMetric) Warnings() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"warnings",
+		&returns,
+	)
+	return returns
+}
+
 // A single dashboard widget.
 // Experimental.
 type IWidget interface {
@@ -9908,6 +10150,9 @@ type IWidget interface {
 	// The amount of vertical grid units the widget will take up.
 	// Experimental.
 	Height() *float64
+	// Any warnings that are produced as a result of putting together this widget.
+	// Experimental.
+	Warnings() *[]*string
 	// The amount of horizontal grid units the widget will take up.
 	// Experimental.
 	Width() *float64
@@ -9944,6 +10189,16 @@ func (j *jsiiProxy_IWidget) Height() *float64 {
 	_jsii_.Get(
 		j,
 		"height",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IWidget) Warnings() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"warnings",
 		&returns,
 	)
 	return returns
@@ -10046,6 +10301,9 @@ type LogQueryWidget interface {
 	// The amount of vertical grid units the widget will take up.
 	// Experimental.
 	Height() *float64
+	// Any warnings that are produced as a result of putting together this widget.
+	// Experimental.
+	Warnings() *[]*string
 	// The amount of horizontal grid units the widget will take up.
 	// Experimental.
 	Width() *float64
@@ -10057,6 +10315,9 @@ type LogQueryWidget interface {
 	Y() *float64
 	// Experimental.
 	SetY(val *float64)
+	// Copy the warnings from the given metric.
+	// Experimental.
+	CopyMetricWarnings(ms ...IMetric)
 	// Place the widget at a given position.
 	// Experimental.
 	Position(x *float64, y *float64)
@@ -10075,6 +10336,16 @@ func (j *jsiiProxy_LogQueryWidget) Height() *float64 {
 	_jsii_.Get(
 		j,
 		"height",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_LogQueryWidget) Warnings() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"warnings",
 		&returns,
 	)
 	return returns
@@ -10150,6 +10421,19 @@ func (j *jsiiProxy_LogQueryWidget) SetY(val *float64) {
 		j,
 		"y",
 		val,
+	)
+}
+
+func (l *jsiiProxy_LogQueryWidget) CopyMetricWarnings(ms ...IMetric) {
+	args := []interface{}{}
+	for _, a := range ms {
+		args = append(args, a)
+	}
+
+	_jsii_.InvokeVoid(
+		l,
+		"copyMetricWarnings",
+		args,
 	)
 }
 
@@ -10274,6 +10558,9 @@ type MathExpression interface {
 	// The metrics used in the expression as KeyValuePair <id, metric>.
 	// Experimental.
 	UsingMetrics() *map[string]IMetric
+	// Warnings generated by this math expression.
+	// Experimental.
+	Warnings() *[]*string
 	// Make a new Alarm for this metric.
 	//
 	// Combines both properties that may adjust the metric (aggregation) as well
@@ -10369,6 +10656,16 @@ func (j *jsiiProxy_MathExpression) UsingMetrics() *map[string]IMetric {
 	_jsii_.Get(
 		j,
 		"usingMetrics",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_MathExpression) Warnings() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"warnings",
 		&returns,
 	)
 	return returns
@@ -11466,6 +11763,9 @@ type Row interface {
 	// The amount of vertical grid units the widget will take up.
 	// Experimental.
 	Height() *float64
+	// List of contained widgets.
+	// Experimental.
+	Widgets() *[]IWidget
 	// The amount of horizontal grid units the widget will take up.
 	// Experimental.
 	Width() *float64
@@ -11487,6 +11787,16 @@ func (j *jsiiProxy_Row) Height() *float64 {
 	_jsii_.Get(
 		j,
 		"height",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Row) Widgets() *[]IWidget {
+	var returns *[]IWidget
+	_jsii_.Get(
+		j,
+		"widgets",
 		&returns,
 	)
 	return returns
@@ -11596,6 +11906,9 @@ type SingleValueWidget interface {
 	// The amount of vertical grid units the widget will take up.
 	// Experimental.
 	Height() *float64
+	// Any warnings that are produced as a result of putting together this widget.
+	// Experimental.
+	Warnings() *[]*string
 	// The amount of horizontal grid units the widget will take up.
 	// Experimental.
 	Width() *float64
@@ -11607,6 +11920,9 @@ type SingleValueWidget interface {
 	Y() *float64
 	// Experimental.
 	SetY(val *float64)
+	// Copy the warnings from the given metric.
+	// Experimental.
+	CopyMetricWarnings(ms ...IMetric)
 	// Place the widget at a given position.
 	// Experimental.
 	Position(x *float64, y *float64)
@@ -11625,6 +11941,16 @@ func (j *jsiiProxy_SingleValueWidget) Height() *float64 {
 	_jsii_.Get(
 		j,
 		"height",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SingleValueWidget) Warnings() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"warnings",
 		&returns,
 	)
 	return returns
@@ -11700,6 +12026,19 @@ func (j *jsiiProxy_SingleValueWidget) SetY(val *float64) {
 		j,
 		"y",
 		val,
+	)
+}
+
+func (s *jsiiProxy_SingleValueWidget) CopyMetricWarnings(ms ...IMetric) {
+	args := []interface{}{}
+	for _, a := range ms {
+		args = append(args, a)
+	}
+
+	_jsii_.InvokeVoid(
+		s,
+		"copyMetricWarnings",
+		args,
 	)
 }
 
@@ -11946,6 +12285,9 @@ type TextWidget interface {
 	// The amount of vertical grid units the widget will take up.
 	// Experimental.
 	Height() *float64
+	// Any warnings that are produced as a result of putting together this widget.
+	// Experimental.
+	Warnings() *[]*string
 	// The amount of horizontal grid units the widget will take up.
 	// Experimental.
 	Width() *float64
@@ -11957,6 +12299,9 @@ type TextWidget interface {
 	Y() *float64
 	// Experimental.
 	SetY(val *float64)
+	// Copy the warnings from the given metric.
+	// Experimental.
+	CopyMetricWarnings(ms ...IMetric)
 	// Place the widget at a given position.
 	// Experimental.
 	Position(x *float64, y *float64)
@@ -11975,6 +12320,16 @@ func (j *jsiiProxy_TextWidget) Height() *float64 {
 	_jsii_.Get(
 		j,
 		"height",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TextWidget) Warnings() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"warnings",
 		&returns,
 	)
 	return returns
@@ -12050,6 +12405,19 @@ func (j *jsiiProxy_TextWidget) SetY(val *float64) {
 		j,
 		"y",
 		val,
+	)
+}
+
+func (t *jsiiProxy_TextWidget) CopyMetricWarnings(ms ...IMetric) {
+	args := []interface{}{}
+	for _, a := range ms {
+		args = append(args, a)
+	}
+
+	_jsii_.InvokeVoid(
+		t,
+		"copyMetricWarnings",
+		args,
 	)
 }
 

@@ -383,6 +383,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "sessionScriptS3Location", GoGetter: "SessionScriptS3Location"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "streamView", GoGetter: "StreamView"},
@@ -409,6 +410,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_appstream.CfnFleet.DomainJoinInfoProperty",
 		reflect.TypeOf((*CfnFleet_DomainJoinInfoProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_appstream.CfnFleet.S3LocationProperty",
+		reflect.TypeOf((*CfnFleet_S3LocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_appstream.CfnFleet.VpcConfigProperty",

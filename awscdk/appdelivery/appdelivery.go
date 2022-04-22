@@ -50,7 +50,7 @@ import (
 //   	output: sourceOutput,
 //   	owner: jsii.String("myName"),
 //   	repo: jsii.String("myRepo"),
-//   	oauthToken: cdk.secretValue.plainText(jsii.String("secret")),
+//   	oauthToken: cdk.secretValue.unsafePlainText(jsii.String("secret")),
 //   })
 //   pipeline.addStage(&stageOptions{
 //   	stageName: jsii.String("source"),
@@ -267,7 +267,7 @@ func (p *jsiiProxy_PipelineDeployStackAction) OnStateChange(name *string, target
 //   	output: sourceOutput,
 //   	owner: jsii.String("myName"),
 //   	repo: jsii.String("myRepo"),
-//   	oauthToken: cdk.secretValue.plainText(jsii.String("secret")),
+//   	oauthToken: cdk.secretValue.unsafePlainText(jsii.String("secret")),
 //   })
 //   pipeline.addStage(&stageOptions{
 //   	stageName: jsii.String("source"),

@@ -732,6 +732,9 @@ type CfnCertificateProps struct {
 //   	certificateArn: jsii.String("certificateArn"),
 //   	databaseName: jsii.String("databaseName"),
 //   	docDbSettings: &docDbSettingsProperty{
+//   		docsToInvestigate: jsii.Number(123),
+//   		extractDocId: jsii.Boolean(false),
+//   		nestingLevel: jsii.String("nestingLevel"),
 //   		secretsManagerAccessRoleArn: jsii.String("secretsManagerAccessRoleArn"),
 //   		secretsManagerSecretId: jsii.String("secretsManagerSecretId"),
 //   	},
@@ -762,8 +765,11 @@ type CfnCertificateProps struct {
 //   		username: jsii.String("username"),
 //   	},
 //   	ibmDb2Settings: &ibmDb2SettingsProperty{
+//   		currentLsn: jsii.String("currentLsn"),
+//   		maxKBytesPerRead: jsii.Number(123),
 //   		secretsManagerAccessRoleArn: jsii.String("secretsManagerAccessRoleArn"),
 //   		secretsManagerSecretId: jsii.String("secretsManagerSecretId"),
+//   		setDataCaptureChanges: jsii.Boolean(false),
 //   	},
 //   	kafkaSettings: &kafkaSettingsProperty{
 //   		broker: jsii.String("broker"),
@@ -799,8 +805,15 @@ type CfnCertificateProps struct {
 //   	},
 //   	kmsKeyId: jsii.String("kmsKeyId"),
 //   	microsoftSqlServerSettings: &microsoftSqlServerSettingsProperty{
+//   		bcpPacketSize: jsii.Number(123),
+//   		controlTablesFileGroup: jsii.String("controlTablesFileGroup"),
+//   		querySingleAlwaysOnNode: jsii.Boolean(false),
+//   		readBackupOnly: jsii.Boolean(false),
+//   		safeguardPolicy: jsii.String("safeguardPolicy"),
 //   		secretsManagerAccessRoleArn: jsii.String("secretsManagerAccessRoleArn"),
 //   		secretsManagerSecretId: jsii.String("secretsManagerSecretId"),
+//   		useBcpFullLoad: jsii.Boolean(false),
+//   		useThirdPartyBackupDevice: jsii.Boolean(false),
 //   	},
 //   	mongoDbSettings: &mongoDbSettingsProperty{
 //   		authMechanism: jsii.String("authMechanism"),
@@ -903,8 +916,31 @@ type CfnCertificateProps struct {
 //   		sslSecurityProtocol: jsii.String("sslSecurityProtocol"),
 //   	},
 //   	redshiftSettings: &redshiftSettingsProperty{
+//   		acceptAnyDate: jsii.Boolean(false),
+//   		afterConnectScript: jsii.String("afterConnectScript"),
+//   		bucketFolder: jsii.String("bucketFolder"),
+//   		bucketName: jsii.String("bucketName"),
+//   		caseSensitiveNames: jsii.Boolean(false),
+//   		compUpdate: jsii.Boolean(false),
+//   		connectionTimeout: jsii.Number(123),
+//   		dateFormat: jsii.String("dateFormat"),
+//   		emptyAsNull: jsii.Boolean(false),
+//   		encryptionMode: jsii.String("encryptionMode"),
+//   		explicitIds: jsii.Boolean(false),
+//   		fileTransferUploadStreams: jsii.Number(123),
+//   		loadTimeout: jsii.Number(123),
+//   		maxFileSize: jsii.Number(123),
+//   		removeQuotes: jsii.Boolean(false),
+//   		replaceChars: jsii.String("replaceChars"),
+//   		replaceInvalidChars: jsii.String("replaceInvalidChars"),
 //   		secretsManagerAccessRoleArn: jsii.String("secretsManagerAccessRoleArn"),
 //   		secretsManagerSecretId: jsii.String("secretsManagerSecretId"),
+//   		serverSideEncryptionKmsKeyId: jsii.String("serverSideEncryptionKmsKeyId"),
+//   		serviceAccessRoleArn: jsii.String("serviceAccessRoleArn"),
+//   		timeFormat: jsii.String("timeFormat"),
+//   		trimBlanks: jsii.Boolean(false),
+//   		truncateColumns: jsii.Boolean(false),
+//   		writeBufferSize: jsii.Number(123),
 //   	},
 //   	resourceIdentifier: jsii.String("resourceIdentifier"),
 //   	s3Settings: &s3SettingsProperty{
@@ -2282,11 +2318,28 @@ func (c *jsiiProxy_CfnEndpoint) ValidateProperties(_properties interface{}) {
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dms "github.com/aws/aws-cdk-go/awscdk/aws_dms"
 //   docDbSettingsProperty := &docDbSettingsProperty{
+//   	docsToInvestigate: jsii.Number(123),
+//   	extractDocId: jsii.Boolean(false),
+//   	nestingLevel: jsii.String("nestingLevel"),
 //   	secretsManagerAccessRoleArn: jsii.String("secretsManagerAccessRoleArn"),
 //   	secretsManagerSecretId: jsii.String("secretsManagerSecretId"),
 //   }
 //
 type CfnEndpoint_DocDbSettingsProperty struct {
+	// Indicates the number of documents to preview to determine the document organization.
+	//
+	// Use this setting when `NestingLevel` is set to `"one"` .
+	//
+	// Must be a positive value greater than `0` . Default value is `1000` .
+	DocsToInvestigate *float64 `json:"docsToInvestigate" yaml:"docsToInvestigate"`
+	// Specifies the document ID. Use this setting when `NestingLevel` is set to `"none"` .
+	//
+	// Default value is `"false"` .
+	ExtractDocId interface{} `json:"extractDocId" yaml:"extractDocId"`
+	// Specifies either document or table mode.
+	//
+	// Default value is `"none"` . Specify `"none"` to use document mode. Specify `"one"` to use table mode.
+	NestingLevel *string `json:"nestingLevel" yaml:"nestingLevel"`
 	// The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in `SecretsManagerSecret` .
 	//
 	// The role must allow the `iam:PassRole` action. `SecretsManagerSecret` has the value of the AWS Secrets Manager secret that allows access to the DocumentDB endpoint.
@@ -2430,11 +2483,20 @@ type CfnEndpoint_GcpMySQLSettingsProperty struct {
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dms "github.com/aws/aws-cdk-go/awscdk/aws_dms"
 //   ibmDb2SettingsProperty := &ibmDb2SettingsProperty{
+//   	currentLsn: jsii.String("currentLsn"),
+//   	maxKBytesPerRead: jsii.Number(123),
 //   	secretsManagerAccessRoleArn: jsii.String("secretsManagerAccessRoleArn"),
 //   	secretsManagerSecretId: jsii.String("secretsManagerSecretId"),
+//   	setDataCaptureChanges: jsii.Boolean(false),
 //   }
 //
 type CfnEndpoint_IbmDb2SettingsProperty struct {
+	// For ongoing replication (CDC), use CurrentLSN to specify a log sequence number (LSN) where you want the replication to start.
+	CurrentLsn *string `json:"currentLsn" yaml:"currentLsn"`
+	// Maximum number of bytes per read, as a NUMBER value.
+	//
+	// The default is 64 KB.
+	MaxKBytesPerRead *float64 `json:"maxKBytesPerRead" yaml:"maxKBytesPerRead"`
 	// The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in `SecretsManagerSecret` .
 	//
 	// The role must allow the `iam:PassRole` action. `SecretsManagerSecret` has the value ofthe AWS Secrets Manager secret that allows access to the Db2 LUW endpoint.
@@ -2445,6 +2507,10 @@ type CfnEndpoint_IbmDb2SettingsProperty struct {
 	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn" yaml:"secretsManagerAccessRoleArn"`
 	// The full ARN, partial ARN, or display name of the `SecretsManagerSecret` that contains the IBMDB2 endpoint connection details.
 	SecretsManagerSecretId *string `json:"secretsManagerSecretId" yaml:"secretsManagerSecretId"`
+	// Enables ongoing replication (CDC) as a BOOLEAN value.
+	//
+	// The default is true.
+	SetDataCaptureChanges interface{} `json:"setDataCaptureChanges" yaml:"setDataCaptureChanges"`
 }
 
 // Provides information that describes an Apache Kafka endpoint.
@@ -2487,7 +2553,9 @@ type CfnEndpoint_KafkaSettingsProperty struct {
 	//
 	// The default is `false` .
 	IncludeNullAndEmpty interface{} `json:"includeNullAndEmpty" yaml:"includeNullAndEmpty"`
-	// `CfnEndpoint.KafkaSettingsProperty.IncludePartitionValue`.
+	// Shows the partition value within the Kafka message output unless the partition type is `schema-table-type` .
+	//
+	// The default is `false` .
 	IncludePartitionValue interface{} `json:"includePartitionValue" yaml:"includePartitionValue"`
 	// Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table` , `drop-table` , `add-column` , `drop-column` , and `rename-column` .
 	//
@@ -2497,9 +2565,11 @@ type CfnEndpoint_KafkaSettingsProperty struct {
 	//
 	// This information includes a commit timestamp, a log position, and values for `transaction_id` , previous `transaction_id` , and `transaction_record_id` (the record offset within a transaction). The default is `false` .
 	IncludeTransactionDetails interface{} `json:"includeTransactionDetails" yaml:"includeTransactionDetails"`
-	// `CfnEndpoint.KafkaSettingsProperty.MessageFormat`.
+	// The output format for the records created on the endpoint.
+	//
+	// The message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
 	MessageFormat *string `json:"messageFormat" yaml:"messageFormat"`
-	// `CfnEndpoint.KafkaSettingsProperty.MessageMaxBytes`.
+	// The maximum size in bytes for records created on the endpoint The default is 1,000,000.
 	MessageMaxBytes *float64 `json:"messageMaxBytes" yaml:"messageMaxBytes"`
 	// Set this optional parameter to `true` to avoid adding a '0x' prefix to raw data in hexadecimal format.
 	//
@@ -2559,7 +2629,9 @@ type CfnEndpoint_KinesisSettingsProperty struct {
 	//
 	// The default is `false` .
 	IncludeNullAndEmpty interface{} `json:"includeNullAndEmpty" yaml:"includeNullAndEmpty"`
-	// `CfnEndpoint.KinesisSettingsProperty.IncludePartitionValue`.
+	// Shows the partition value within the Kinesis message output, unless the partition type is `schema-table-type` .
+	//
+	// The default is `false` .
 	IncludePartitionValue interface{} `json:"includePartitionValue" yaml:"includePartitionValue"`
 	// Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table` , `drop-table` , `add-column` , `drop-column` , and `rename-column` .
 	//
@@ -2596,11 +2668,38 @@ type CfnEndpoint_KinesisSettingsProperty struct {
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dms "github.com/aws/aws-cdk-go/awscdk/aws_dms"
 //   microsoftSqlServerSettingsProperty := &microsoftSqlServerSettingsProperty{
+//   	bcpPacketSize: jsii.Number(123),
+//   	controlTablesFileGroup: jsii.String("controlTablesFileGroup"),
+//   	querySingleAlwaysOnNode: jsii.Boolean(false),
+//   	readBackupOnly: jsii.Boolean(false),
+//   	safeguardPolicy: jsii.String("safeguardPolicy"),
 //   	secretsManagerAccessRoleArn: jsii.String("secretsManagerAccessRoleArn"),
 //   	secretsManagerSecretId: jsii.String("secretsManagerSecretId"),
+//   	useBcpFullLoad: jsii.Boolean(false),
+//   	useThirdPartyBackupDevice: jsii.Boolean(false),
 //   }
 //
 type CfnEndpoint_MicrosoftSqlServerSettingsProperty struct {
+	// The maximum size of the packets (in bytes) used to transfer data using BCP.
+	BcpPacketSize *float64 `json:"bcpPacketSize" yaml:"bcpPacketSize"`
+	// Specifies a file group for the AWS DMS internal tables.
+	//
+	// When the replication task starts, all the internal AWS DMS control tables (awsdms_ apply_exception, awsdms_apply, awsdms_changes) are created for the specified file group.
+	ControlTablesFileGroup *string `json:"controlTablesFileGroup" yaml:"controlTablesFileGroup"`
+	// Cleans and recreates table metadata information on the replication instance when a mismatch occurs.
+	//
+	// An example is a situation where running an alter DDL statement on a table might result in different information about the table cached in the replication instance.
+	QuerySingleAlwaysOnNode interface{} `json:"querySingleAlwaysOnNode" yaml:"querySingleAlwaysOnNode"`
+	// When this attribute is set to `Y` , AWS DMS only reads changes from transaction log backups and doesn't read from the active transaction log file during ongoing replication.
+	//
+	// Setting this parameter to `Y` enables you to control active transaction log file growth during full load and ongoing replication tasks. However, it can add some source latency to ongoing replication.
+	ReadBackupOnly interface{} `json:"readBackupOnly" yaml:"readBackupOnly"`
+	// Use this attribute to minimize the need to access the backup log and enable AWS DMS to prevent truncation using one of the following two methods.
+	//
+	// *Start transactions in the database:* This is the default method. When this method is used, AWS DMS prevents TLOG truncation by mimicking a transaction in the database. As long as such a transaction is open, changes that appear after the transaction started aren't truncated. If you need Microsoft Replication to be enabled in your database, then you must choose this method.
+	//
+	// *Exclusively use sp_repldone within a single task* : When this method is used, AWS DMS reads the changes and then uses sp_repldone to mark the TLOG transactions as ready for truncation. Although this method doesn't involve any transactional activities, it can only be used when Microsoft Replication isn't running. Also, when using this method, only one AWS DMS task can access the database at any given time. Therefore, if you need to run parallel AWS DMS tasks against the same database, use the default method.
+	SafeguardPolicy *string `json:"safeguardPolicy" yaml:"safeguardPolicy"`
 	// The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in `SecretsManagerSecret` .
 	//
 	// The role must allow the `iam:PassRole` action. `SecretsManagerSecret` has the value of the AWS Secrets Manager secret that allows access to the SQL Server endpoint.
@@ -2611,6 +2710,12 @@ type CfnEndpoint_MicrosoftSqlServerSettingsProperty struct {
 	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn" yaml:"secretsManagerAccessRoleArn"`
 	// The full ARN, partial ARN, or display name of the `SecretsManagerSecret` that contains the MicrosoftSQLServer endpoint connection details.
 	SecretsManagerSecretId *string `json:"secretsManagerSecretId" yaml:"secretsManagerSecretId"`
+	// Use this to attribute to transfer data for full-load operations using BCP.
+	//
+	// When the target table contains an identity column that does not exist in the source table, you must disable the use BCP for loading table option.
+	UseBcpFullLoad interface{} `json:"useBcpFullLoad" yaml:"useBcpFullLoad"`
+	// When this attribute is set to `Y` , DMS processes third-party transaction log backups if they are created in native format.
+	UseThirdPartyBackupDevice interface{} `json:"useThirdPartyBackupDevice" yaml:"useThirdPartyBackupDevice"`
 }
 
 // Provides information that defines a MongoDB endpoint.
@@ -2703,15 +2808,33 @@ type CfnEndpoint_MongoDbSettingsProperty struct {
 //   }
 //
 type CfnEndpoint_MySqlSettingsProperty struct {
-	// `CfnEndpoint.MySqlSettingsProperty.AfterConnectScript`.
+	// Specifies a script to run immediately after AWS DMS connects to the endpoint.
+	//
+	// The migration task continues running regardless if the SQL statement succeeds or fails.
+	//
+	// For this parameter, provide the code of the script itself, not the name of a file containing the script.
 	AfterConnectScript *string `json:"afterConnectScript" yaml:"afterConnectScript"`
-	// `CfnEndpoint.MySqlSettingsProperty.CleanSourceMetadataOnMismatch`.
+	// Adjusts the behavior of DMS when migrating from an SQL Server source database that is hosted as part of an Always On availability group cluster.
+	//
+	// If you need DMS to poll all the nodes in the Always On cluster for transaction backups, set this attribute to `false` .
 	CleanSourceMetadataOnMismatch interface{} `json:"cleanSourceMetadataOnMismatch" yaml:"cleanSourceMetadataOnMismatch"`
-	// `CfnEndpoint.MySqlSettingsProperty.EventsPollInterval`.
+	// Specifies how often to check the binary log for new changes/events when the database is idle.
+	//
+	// The default is five seconds.
+	//
+	// Example: `eventsPollInterval=5;`
+	//
+	// In the example, AWS DMS checks for changes in the binary logs every five seconds.
 	EventsPollInterval *float64 `json:"eventsPollInterval" yaml:"eventsPollInterval"`
-	// `CfnEndpoint.MySqlSettingsProperty.MaxFileSize`.
+	// Specifies the maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+	//
+	// Example: `maxFileSize=512`.
 	MaxFileSize *float64 `json:"maxFileSize" yaml:"maxFileSize"`
-	// `CfnEndpoint.MySqlSettingsProperty.ParallelLoadThreads`.
+	// Improves performance when loading data into the MySQL-compatible target database.
+	//
+	// Specifies how many threads to use to load the data into the MySQL-compatible target database. Setting a large number of threads can have an adverse effect on database performance, because a separate connection is required for each thread. The default is one.
+	//
+	// Example: `parallelLoadThreads=1`.
 	ParallelLoadThreads *float64 `json:"parallelLoadThreads" yaml:"parallelLoadThreads"`
 	// The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in `SecretsManagerSecret` .
 	//
@@ -2723,9 +2846,17 @@ type CfnEndpoint_MySqlSettingsProperty struct {
 	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn" yaml:"secretsManagerAccessRoleArn"`
 	// The full ARN, partial ARN, or display name of the `SecretsManagerSecret` that contains the MySQL endpoint connection details.
 	SecretsManagerSecretId *string `json:"secretsManagerSecretId" yaml:"secretsManagerSecretId"`
-	// `CfnEndpoint.MySqlSettingsProperty.ServerTimezone`.
+	// Specifies the time zone for the source MySQL database.
+	//
+	// Example: `serverTimezone=US/Pacific;`
+	//
+	// Note: Do not enclose time zones in single quotes.
 	ServerTimezone *string `json:"serverTimezone" yaml:"serverTimezone"`
-	// `CfnEndpoint.MySqlSettingsProperty.TargetDbType`.
+	// Specifies where to migrate source tables on the target, either to a single database or multiple databases.
+	//
+	// If you specify `SPECIFIC_DATABASE` , specify the database name using the `DatabaseName` parameter of the `Endpoint` object.
+	//
+	// Example: `targetDbType=MULTIPLE_DATABASES`.
 	TargetDbType *string `json:"targetDbType" yaml:"targetDbType"`
 }
 
@@ -3102,11 +3233,108 @@ type CfnEndpoint_RedisSettingsProperty struct {
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dms "github.com/aws/aws-cdk-go/awscdk/aws_dms"
 //   redshiftSettingsProperty := &redshiftSettingsProperty{
+//   	acceptAnyDate: jsii.Boolean(false),
+//   	afterConnectScript: jsii.String("afterConnectScript"),
+//   	bucketFolder: jsii.String("bucketFolder"),
+//   	bucketName: jsii.String("bucketName"),
+//   	caseSensitiveNames: jsii.Boolean(false),
+//   	compUpdate: jsii.Boolean(false),
+//   	connectionTimeout: jsii.Number(123),
+//   	dateFormat: jsii.String("dateFormat"),
+//   	emptyAsNull: jsii.Boolean(false),
+//   	encryptionMode: jsii.String("encryptionMode"),
+//   	explicitIds: jsii.Boolean(false),
+//   	fileTransferUploadStreams: jsii.Number(123),
+//   	loadTimeout: jsii.Number(123),
+//   	maxFileSize: jsii.Number(123),
+//   	removeQuotes: jsii.Boolean(false),
+//   	replaceChars: jsii.String("replaceChars"),
+//   	replaceInvalidChars: jsii.String("replaceInvalidChars"),
 //   	secretsManagerAccessRoleArn: jsii.String("secretsManagerAccessRoleArn"),
 //   	secretsManagerSecretId: jsii.String("secretsManagerSecretId"),
+//   	serverSideEncryptionKmsKeyId: jsii.String("serverSideEncryptionKmsKeyId"),
+//   	serviceAccessRoleArn: jsii.String("serviceAccessRoleArn"),
+//   	timeFormat: jsii.String("timeFormat"),
+//   	trimBlanks: jsii.Boolean(false),
+//   	truncateColumns: jsii.Boolean(false),
+//   	writeBufferSize: jsii.Number(123),
 //   }
 //
 type CfnEndpoint_RedshiftSettingsProperty struct {
+	// A value that indicates to allow any date format, including invalid formats such as 00/00/00 00:00:00, to be loaded without generating an error.
+	//
+	// You can choose `true` or `false` (the default).
+	//
+	// This parameter applies only to TIMESTAMP and DATE columns. Always use ACCEPTANYDATE with the DATEFORMAT parameter. If the date format for the data doesn't match the DATEFORMAT specification, Amazon Redshift inserts a NULL value into that field.
+	AcceptAnyDate interface{} `json:"acceptAnyDate" yaml:"acceptAnyDate"`
+	// Code to run after connecting.
+	//
+	// This parameter should contain the code itself, not the name of a file containing the code.
+	AfterConnectScript *string `json:"afterConnectScript" yaml:"afterConnectScript"`
+	// An S3 folder where the comma-separated-value (.csv) files are stored before being uploaded to the target Redshift cluster.
+	//
+	// For full load mode, AWS DMS converts source records into .csv files and loads them to the *BucketFolder/TableID* path. AWS DMS uses the Redshift `COPY` command to upload the .csv files to the target table. The files are deleted once the `COPY` operation has finished. For more information, see [COPY](https://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html) in the *Amazon Redshift Database Developer Guide* .
+	//
+	// For change-data-capture (CDC) mode, AWS DMS creates a *NetChanges* table, and loads the .csv files to this *BucketFolder/NetChangesTableID* path.
+	BucketFolder *string `json:"bucketFolder" yaml:"bucketFolder"`
+	// The name of the intermediate S3 bucket used to store .csv files before uploading data to Redshift.
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
+	// If Amazon Redshift is configured to support case sensitive schema names, set `CaseSensitiveNames` to `true` .
+	//
+	// The default is `false` .
+	CaseSensitiveNames interface{} `json:"caseSensitiveNames" yaml:"caseSensitiveNames"`
+	// If you set `CompUpdate` to `true` Amazon Redshift applies automatic compression if the table is empty.
+	//
+	// This applies even if the table columns already have encodings other than `RAW` . If you set `CompUpdate` to `false` , automatic compression is disabled and existing column encodings aren't changed. The default is `true` .
+	CompUpdate interface{} `json:"compUpdate" yaml:"compUpdate"`
+	// A value that sets the amount of time to wait (in milliseconds) before timing out, beginning from when you initially establish a connection.
+	ConnectionTimeout *float64 `json:"connectionTimeout" yaml:"connectionTimeout"`
+	// The date format that you are using.
+	//
+	// Valid values are `auto` (case-sensitive), your date format string enclosed in quotes, or NULL. If this parameter is left unset (NULL), it defaults to a format of 'YYYY-MM-DD'. Using `auto` recognizes most strings, even some that aren't supported when you use a date format string.
+	//
+	// If your date and time values use formats different from each other, set this to `auto` .
+	DateFormat *string `json:"dateFormat" yaml:"dateFormat"`
+	// A value that specifies whether AWS DMS should migrate empty CHAR and VARCHAR fields as NULL.
+	//
+	// A value of `true` sets empty CHAR and VARCHAR fields to null. The default is `false` .
+	EmptyAsNull interface{} `json:"emptyAsNull" yaml:"emptyAsNull"`
+	// The type of server-side encryption that you want to use for your data.
+	//
+	// This encryption type is part of the endpoint settings or the extra connections attributes for Amazon S3. You can choose either `SSE_S3` (the default) or `SSE_KMS` .
+	//
+	// > For the `ModifyEndpoint` operation, you can change the existing value of the `EncryptionMode` parameter from `SSE_KMS` to `SSE_S3` . But you can’t change the existing value from `SSE_S3` to `SSE_KMS` .
+	//
+	// To use `SSE_S3` , create an AWS Identity and Access Management (IAM) role with a policy that allows `"arn:aws:s3:::*"` to use the following actions: `"s3:PutObject", "s3:ListBucket"`.
+	EncryptionMode *string `json:"encryptionMode" yaml:"encryptionMode"`
+	// This setting is only valid for a full-load migration task.
+	//
+	// Set `ExplicitIds` to `true` to have tables with `IDENTITY` columns override their auto-generated values with explicit values loaded from the source data files used to populate the tables. The default is `false` .
+	ExplicitIds interface{} `json:"explicitIds" yaml:"explicitIds"`
+	// The number of threads used to upload a single file.
+	//
+	// This parameter accepts a value from 1 through 64. It defaults to 10.
+	//
+	// The number of parallel streams used to upload a single .csv file to an S3 bucket using S3 Multipart Upload. For more information, see [Multipart upload overview](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html) .
+	//
+	// `FileTransferUploadStreams` accepts a value from 1 through 64. It defaults to 10.
+	FileTransferUploadStreams *float64 `json:"fileTransferUploadStreams" yaml:"fileTransferUploadStreams"`
+	// The amount of time to wait (in milliseconds) before timing out of operations performed by AWS DMS on a Redshift cluster, such as Redshift COPY, INSERT, DELETE, and UPDATE.
+	LoadTimeout *float64 `json:"loadTimeout" yaml:"loadTimeout"`
+	// The maximum size (in KB) of any .csv file used to load data on an S3 bucket and transfer data to Amazon Redshift. It defaults to 1048576KB (1 GB).
+	MaxFileSize *float64 `json:"maxFileSize" yaml:"maxFileSize"`
+	// A value that specifies to remove surrounding quotation marks from strings in the incoming data.
+	//
+	// All characters within the quotation marks, including delimiters, are retained. Choose `true` to remove quotation marks. The default is `false` .
+	RemoveQuotes interface{} `json:"removeQuotes" yaml:"removeQuotes"`
+	// A value that specifies to replaces the invalid characters specified in `ReplaceInvalidChars` , substituting the specified characters instead.
+	//
+	// The default is `"?"` .
+	ReplaceChars *string `json:"replaceChars" yaml:"replaceChars"`
+	// A list of characters that you want to replace.
+	//
+	// Use with `ReplaceChars` .
+	ReplaceInvalidChars *string `json:"replaceInvalidChars" yaml:"replaceInvalidChars"`
 	// The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in `SecretsManagerSecret` .
 	//
 	// The role must allow the `iam:PassRole` action. `SecretsManagerSecret` has the value of the AWS Secrets Manager secret that allows access to the Amazon Redshift endpoint.
@@ -3117,6 +3345,30 @@ type CfnEndpoint_RedshiftSettingsProperty struct {
 	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn" yaml:"secretsManagerAccessRoleArn"`
 	// The full ARN, partial ARN, or display name of the `SecretsManagerSecret` that contains the Amazon Redshift endpoint connection details.
 	SecretsManagerSecretId *string `json:"secretsManagerSecretId" yaml:"secretsManagerSecretId"`
+	// The AWS KMS key ID.
+	//
+	// If you are using `SSE_KMS` for the `EncryptionMode` , provide this key ID. The key that you use needs an attached policy that enables IAM user permissions and allows use of the key.
+	ServerSideEncryptionKmsKeyId *string `json:"serverSideEncryptionKmsKeyId" yaml:"serverSideEncryptionKmsKeyId"`
+	// The Amazon Resource Name (ARN) of the IAM role that has access to the Amazon Redshift service.
+	//
+	// The role must allow the `iam:PassRole` action.
+	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn" yaml:"serviceAccessRoleArn"`
+	// The time format that you want to use.
+	//
+	// Valid values are `auto` (case-sensitive), `'timeformat_string'` , `'epochsecs'` , or `'epochmillisecs'` . It defaults to 10. Using `auto` recognizes most strings, even some that aren't supported when you use a time format string.
+	//
+	// If your date and time values use formats different from each other, set this parameter to `auto` .
+	TimeFormat *string `json:"timeFormat" yaml:"timeFormat"`
+	// A value that specifies to remove the trailing white space characters from a VARCHAR string.
+	//
+	// This parameter applies only to columns with a VARCHAR data type. Choose `true` to remove unneeded white space. The default is `false` .
+	TrimBlanks interface{} `json:"trimBlanks" yaml:"trimBlanks"`
+	// A value that specifies to truncate data in columns to the appropriate number of characters, so that the data fits in the column.
+	//
+	// This parameter applies only to columns with a VARCHAR or CHAR data type, and rows with a size of 4 MB or less. Choose `true` to truncate data. The default is `false` .
+	TruncateColumns interface{} `json:"truncateColumns" yaml:"truncateColumns"`
+	// The size (in KB) of the in-memory file write buffer used when generating .csv files on the local disk at the DMS replication instance. The default value is 1000 (buffer size is 1000KB).
+	WriteBufferSize *float64 `json:"writeBufferSize" yaml:"writeBufferSize"`
 }
 
 // Provides information that defines an Amazon S3 endpoint.
@@ -3426,6 +3678,9 @@ type CfnEndpoint_SybaseSettingsProperty struct {
 //   	certificateArn: jsii.String("certificateArn"),
 //   	databaseName: jsii.String("databaseName"),
 //   	docDbSettings: &docDbSettingsProperty{
+//   		docsToInvestigate: jsii.Number(123),
+//   		extractDocId: jsii.Boolean(false),
+//   		nestingLevel: jsii.String("nestingLevel"),
 //   		secretsManagerAccessRoleArn: jsii.String("secretsManagerAccessRoleArn"),
 //   		secretsManagerSecretId: jsii.String("secretsManagerSecretId"),
 //   	},
@@ -3456,8 +3711,11 @@ type CfnEndpoint_SybaseSettingsProperty struct {
 //   		username: jsii.String("username"),
 //   	},
 //   	ibmDb2Settings: &ibmDb2SettingsProperty{
+//   		currentLsn: jsii.String("currentLsn"),
+//   		maxKBytesPerRead: jsii.Number(123),
 //   		secretsManagerAccessRoleArn: jsii.String("secretsManagerAccessRoleArn"),
 //   		secretsManagerSecretId: jsii.String("secretsManagerSecretId"),
+//   		setDataCaptureChanges: jsii.Boolean(false),
 //   	},
 //   	kafkaSettings: &kafkaSettingsProperty{
 //   		broker: jsii.String("broker"),
@@ -3493,8 +3751,15 @@ type CfnEndpoint_SybaseSettingsProperty struct {
 //   	},
 //   	kmsKeyId: jsii.String("kmsKeyId"),
 //   	microsoftSqlServerSettings: &microsoftSqlServerSettingsProperty{
+//   		bcpPacketSize: jsii.Number(123),
+//   		controlTablesFileGroup: jsii.String("controlTablesFileGroup"),
+//   		querySingleAlwaysOnNode: jsii.Boolean(false),
+//   		readBackupOnly: jsii.Boolean(false),
+//   		safeguardPolicy: jsii.String("safeguardPolicy"),
 //   		secretsManagerAccessRoleArn: jsii.String("secretsManagerAccessRoleArn"),
 //   		secretsManagerSecretId: jsii.String("secretsManagerSecretId"),
+//   		useBcpFullLoad: jsii.Boolean(false),
+//   		useThirdPartyBackupDevice: jsii.Boolean(false),
 //   	},
 //   	mongoDbSettings: &mongoDbSettingsProperty{
 //   		authMechanism: jsii.String("authMechanism"),
@@ -3597,8 +3862,31 @@ type CfnEndpoint_SybaseSettingsProperty struct {
 //   		sslSecurityProtocol: jsii.String("sslSecurityProtocol"),
 //   	},
 //   	redshiftSettings: &redshiftSettingsProperty{
+//   		acceptAnyDate: jsii.Boolean(false),
+//   		afterConnectScript: jsii.String("afterConnectScript"),
+//   		bucketFolder: jsii.String("bucketFolder"),
+//   		bucketName: jsii.String("bucketName"),
+//   		caseSensitiveNames: jsii.Boolean(false),
+//   		compUpdate: jsii.Boolean(false),
+//   		connectionTimeout: jsii.Number(123),
+//   		dateFormat: jsii.String("dateFormat"),
+//   		emptyAsNull: jsii.Boolean(false),
+//   		encryptionMode: jsii.String("encryptionMode"),
+//   		explicitIds: jsii.Boolean(false),
+//   		fileTransferUploadStreams: jsii.Number(123),
+//   		loadTimeout: jsii.Number(123),
+//   		maxFileSize: jsii.Number(123),
+//   		removeQuotes: jsii.Boolean(false),
+//   		replaceChars: jsii.String("replaceChars"),
+//   		replaceInvalidChars: jsii.String("replaceInvalidChars"),
 //   		secretsManagerAccessRoleArn: jsii.String("secretsManagerAccessRoleArn"),
 //   		secretsManagerSecretId: jsii.String("secretsManagerSecretId"),
+//   		serverSideEncryptionKmsKeyId: jsii.String("serverSideEncryptionKmsKeyId"),
+//   		serviceAccessRoleArn: jsii.String("serviceAccessRoleArn"),
+//   		timeFormat: jsii.String("timeFormat"),
+//   		trimBlanks: jsii.Boolean(false),
+//   		truncateColumns: jsii.Boolean(false),
+//   		writeBufferSize: jsii.Number(123),
 //   	},
 //   	resourceIdentifier: jsii.String("resourceIdentifier"),
 //   	s3Settings: &s3SettingsProperty{

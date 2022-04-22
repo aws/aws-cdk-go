@@ -9972,6 +9972,8 @@ type CfnLoadBalancerProps struct {
 //
 // Specifies a target group for a load balancer.
 //
+// If the protocol of the target group is TCP, TLS, UDP, or TCP_UDP, you can't modify the health check protocol, interval, timeout, or success codes.
+//
 // Before you register a Lambda function as a target, you must create a `AWS::Lambda::Permission` resource that grants the Elastic Load Balancing service principal permission to invoke the Lambda function.
 //
 // Example:

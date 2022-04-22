@@ -10507,48 +10507,42 @@ type CfnModuleVersionProps struct {
 }
 
 // Example:
-//   import targets "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk"import patterns "github.com/aws/aws-cdk-go/awscdk"
+//   var cluster cluster
+//   // add service account
+//   serviceAccount := cluster.addServiceAccount(jsii.String("MyServiceAccount"))
 //
-//   var vpc vpc
+//   bucket := s3.NewBucket(this, jsii.String("Bucket"))
+//   bucket.grantReadWrite(serviceAccount)
 //
-//   task := ecs.NewFargateTaskDefinition(this, jsii.String("Task"), &fargateTaskDefinitionProps{
-//   	cpu: jsii.Number(256),
-//   	memoryLimitMiB: jsii.Number(512),
-//   })
-//   task.addContainer(jsii.String("nginx"), &containerDefinitionOptions{
-//   	image: ecs.containerImage.fromRegistry(jsii.String("public.ecr.aws/nginx/nginx:latest")),
-//   	portMappings: []portMapping{
-//   		&portMapping{
-//   			containerPort: jsii.Number(80),
+//   mypod := cluster.addManifest(jsii.String("mypod"), map[string]interface{}{
+//   	"apiVersion": jsii.String("v1"),
+//   	"kind": jsii.String("Pod"),
+//   	"metadata": map[string]*string{
+//   		"name": jsii.String("mypod"),
+//   	},
+//   	"spec": map[string]interface{}{
+//   		"serviceAccountName": serviceAccount.serviceAccountName,
+//   		"containers": []map[string]interface{}{
+//   			map[string]interface{}{
+//   				"name": jsii.String("hello"),
+//   				"image": jsii.String("paulbouwer/hello-kubernetes:1.5"),
+//   				"ports": []map[string]*f64{
+//   					map[string]*f64{
+//   						"containerPort": jsii.Number(8080),
+//   					},
+//   				},
+//   			},
 //   		},
 //   	},
 //   })
 //
-//   svc := patterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
-//   	vpc: vpc,
-//   	taskDefinition: task,
-//   	publicLoadBalancer: jsii.Boolean(false),
-//   })
+//   // create the resource after the service account.
+//   mypod.node.addDependency(serviceAccount)
 //
-//   nlb := elbv2.NewNetworkLoadBalancer(this, jsii.String("Nlb"), &networkLoadBalancerProps{
-//   	vpc: vpc,
-//   	crossZoneEnabled: jsii.Boolean(true),
-//   	internetFacing: jsii.Boolean(true),
-//   })
-//
-//   listener := nlb.addListener(jsii.String("listener"), &baseNetworkListenerProps{
-//   	port: jsii.Number(80),
-//   })
-//
-//   listener.addTargets(jsii.String("Targets"), &addNetworkTargetsProps{
-//   	targets: []iNetworkLoadBalancerTarget{
-//   		targets.NewAlbTarget(svc.loadBalancer, jsii.Number(80)),
-//   	},
-//   	port: jsii.Number(80),
-//   })
-//
-//   NewCfnOutput(this, jsii.String("NlbEndpoint"), &cfnOutputProps{
-//   	value: fmt.Sprintf("http://%v", nlb.loadBalancerDnsName),
+//   // print the IAM role arn for this service account
+//   // print the IAM role arn for this service account
+//   NewCfnOutput(this, jsii.String("ServiceAccountIamRole"), &cfnOutputProps{
+//   	value: serviceAccount.role.roleArn,
 //   })
 //
 // Experimental.
@@ -10954,48 +10948,42 @@ func (c *jsiiProxy_CfnOutput) Validate() *[]*string {
 }
 
 // Example:
-//   import targets "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk"import patterns "github.com/aws/aws-cdk-go/awscdk"
+//   var cluster cluster
+//   // add service account
+//   serviceAccount := cluster.addServiceAccount(jsii.String("MyServiceAccount"))
 //
-//   var vpc vpc
+//   bucket := s3.NewBucket(this, jsii.String("Bucket"))
+//   bucket.grantReadWrite(serviceAccount)
 //
-//   task := ecs.NewFargateTaskDefinition(this, jsii.String("Task"), &fargateTaskDefinitionProps{
-//   	cpu: jsii.Number(256),
-//   	memoryLimitMiB: jsii.Number(512),
-//   })
-//   task.addContainer(jsii.String("nginx"), &containerDefinitionOptions{
-//   	image: ecs.containerImage.fromRegistry(jsii.String("public.ecr.aws/nginx/nginx:latest")),
-//   	portMappings: []portMapping{
-//   		&portMapping{
-//   			containerPort: jsii.Number(80),
+//   mypod := cluster.addManifest(jsii.String("mypod"), map[string]interface{}{
+//   	"apiVersion": jsii.String("v1"),
+//   	"kind": jsii.String("Pod"),
+//   	"metadata": map[string]*string{
+//   		"name": jsii.String("mypod"),
+//   	},
+//   	"spec": map[string]interface{}{
+//   		"serviceAccountName": serviceAccount.serviceAccountName,
+//   		"containers": []map[string]interface{}{
+//   			map[string]interface{}{
+//   				"name": jsii.String("hello"),
+//   				"image": jsii.String("paulbouwer/hello-kubernetes:1.5"),
+//   				"ports": []map[string]*f64{
+//   					map[string]*f64{
+//   						"containerPort": jsii.Number(8080),
+//   					},
+//   				},
+//   			},
 //   		},
 //   	},
 //   })
 //
-//   svc := patterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
-//   	vpc: vpc,
-//   	taskDefinition: task,
-//   	publicLoadBalancer: jsii.Boolean(false),
-//   })
+//   // create the resource after the service account.
+//   mypod.node.addDependency(serviceAccount)
 //
-//   nlb := elbv2.NewNetworkLoadBalancer(this, jsii.String("Nlb"), &networkLoadBalancerProps{
-//   	vpc: vpc,
-//   	crossZoneEnabled: jsii.Boolean(true),
-//   	internetFacing: jsii.Boolean(true),
-//   })
-//
-//   listener := nlb.addListener(jsii.String("listener"), &baseNetworkListenerProps{
-//   	port: jsii.Number(80),
-//   })
-//
-//   listener.addTargets(jsii.String("Targets"), &addNetworkTargetsProps{
-//   	targets: []iNetworkLoadBalancerTarget{
-//   		targets.NewAlbTarget(svc.loadBalancer, jsii.Number(80)),
-//   	},
-//   	port: jsii.Number(80),
-//   })
-//
-//   NewCfnOutput(this, jsii.String("NlbEndpoint"), &cfnOutputProps{
-//   	value: fmt.Sprintf("http://%v", nlb.loadBalancerDnsName),
+//   // print the IAM role arn for this service account
+//   // print the IAM role arn for this service account
+//   NewCfnOutput(this, jsii.String("ServiceAccountIamRole"), &cfnOutputProps{
+//   	value: serviceAccount.role.roleArn,
 //   })
 //
 // Experimental.
@@ -24985,17 +24973,10 @@ type FileAssetLocation struct {
 	S3ObjectUrl *string `json:"s3ObjectUrl" yaml:"s3ObjectUrl"`
 	// The ARN of the KMS key used to encrypt the file asset bucket, if any.
 	//
-	// If so, the consuming role should be given "kms:Decrypt" permissions in its
-	// identity policy.
-	//
-	// It's the responsibility of they key's creator to make sure that all
-	// consumers that the key's key policy is configured such that the key can be used
-	// by all consumers that need it.
-	//
-	// The default bootstrap stack provisioned by the CDK CLI ensures this, and
-	// can be used as an example for how to configure the key properly.
-	// Deprecated: Since bootstrap bucket v4, the key policy properly allows use of the
-	// key via the bucket and no additional parameters have to be granted anymore.
+	// The CDK bootstrap stack comes with a key policy that does not require
+	// setting this property, so you only need to set this property if you
+	// have customized the bootstrap stack to require it.
+	// Experimental.
 	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// Like `s3ObjectUrl`, but not suitable for CloudFormation consumption.
 	//
@@ -25269,14 +25250,26 @@ type FingerprintOptions struct {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html
 //
 // Example:
-//   var cfnTemplate cfnInclude
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   // mutating the rule
-//   var myParameter cfnParameter
-//   rule := cfnTemplate.getRule(jsii.String("MyRule"))
-//   rule.addAssertion(core.fn.conditionContains([]*string{
-//   	jsii.String("m1.small"),
-//   }, myParameter.valueAsString), jsii.String("MyParameter has to be m1.small"))
+//   var portfolio portfolio
+//   var product cloudFormationProduct
+//
+//   portfolio.constrainCloudFormationParameters(product, &cloudFormationRuleConstraintOptions{
+//   	rule: &templateRule{
+//   		ruleName: jsii.String("testInstanceType"),
+//   		condition: cdk.fn.conditionEquals(cdk.*fn.ref(jsii.String("Environment")), jsii.String("test")),
+//   		assertions: []templateRuleAssertion{
+//   			&templateRuleAssertion{
+//   				assert: cdk.*fn.conditionContains([]*string{
+//   					jsii.String("t2.micro"),
+//   					jsii.String("t2.small"),
+//   				}, cdk.*fn.ref(jsii.String("InstanceType"))),
+//   				description: jsii.String("For test environment, the instance type should be small"),
+//   			},
+//   		},
+//   	},
+//   })
 //
 // Experimental.
 type Fn interface {
@@ -26878,6 +26871,9 @@ type IResolveContext interface {
 	// Resolve an inner object.
 	// Experimental.
 	Resolve(x interface{}, options *ResolveChangeContextOptions) interface{}
+	// Path in the JSON document that is being constructed.
+	// Experimental.
+	DocumentPath() *[]*string
 	// True when we are still preparing, false if we're rendering the final output.
 	// Experimental.
 	Preparing() *bool
@@ -26909,6 +26905,16 @@ func (i *jsiiProxy_IResolveContext) Resolve(x interface{}, options *ResolveChang
 		&returns,
 	)
 
+	return returns
+}
+
+func (j *jsiiProxy_IResolveContext) DocumentPath() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"documentPath",
+		&returns,
+	)
 	return returns
 }
 
@@ -30893,17 +30899,32 @@ func NewScopedAws_Override(s ScopedAws, scope Construct) {
 
 // Work with secret values in the CDK.
 //
-// Secret values in the CDK (such as those retrieved from SecretsManager) are
-// represented as regular strings, just like other values that are only
-// available at deployment time.
+// Constructs that need secrets will declare parameters of type `SecretValue`.
 //
-// To help you avoid accidental mistakes which would lead to you putting your
-// secret values directly into a CloudFormation template, constructs that take
-// secret values will not allow you to pass in a literal secret value. They do
-// so by calling `Secret.assertSafeSecret()`.
+// The actual values of these secrets should not be committed to your
+// repository, or even end up in the synthesized CloudFormation template. Instead, you should
+// store them in an external system like AWS Secrets Manager or SSM Parameter
+// Store, and you can reference them by calling `SecretValue.secretsManager()` or
+// `SecretValue.ssmSecure()`.
 //
-// You can escape the check by calling `Secret.plainText()`, but doing
-// so is highly discouraged.
+// You can use `SecretValue.unsafePlainText()` to construct a `SecretValue` from a
+// literal string, but doing so is highly discouraged.
+//
+// To make sure secret values don't accidentally end up in readable parts
+// of your infrastructure definition (such as the environment variables
+// of an AWS Lambda Function, where everyone who can read the function
+// definition has access to the secret), using secret values directly is not
+// allowed. You must pass them to constructs that accept `SecretValue`
+// properties, which are guaranteed to use the value only in CloudFormation
+// properties that are write-only.
+//
+// If you are sure that what you are doing is safe, you can call
+// `secretValue.unsafeUnwrap()` to access the protected string of the secret
+// value.
+//
+// (If you are writing something like an AWS Lambda Function and need to access
+// a secret inside it, make the API call to `GetSecretValue` directly inside
+// your Lamba's code, instead of using environment variables.)
 //
 // Example:
 //   // Read the secret from Secrets Manager
@@ -30933,9 +30954,12 @@ type SecretValue interface {
 	// Creates a throwable Error object that contains the token creation stack trace.
 	// Experimental.
 	NewError(message *string) interface{}
-	// Produce the Token's value at resolution time.
+	// Resolve the secret.
+	//
+	// If the feature flag is not set, resolve as normal. Otherwise, throw a descriptive
+	// error that the usage guard is missing.
 	// Experimental.
-	Resolve(_context IResolveContext) interface{}
+	Resolve(context IResolveContext) interface{}
 	// Turn this Token into JSON.
 	//
 	// Called automatically when JSON.stringify() is called on a Token.
@@ -30948,6 +30972,22 @@ type SecretValue interface {
 	// stringification.
 	// Experimental.
 	ToString() *string
+	// Disable usage protection on this secret.
+	//
+	// Call this to indicate that you want to use the secret value held by this
+	// object in an unchecked way. If you don't call this method, using the secret
+	// value directly in a string context or as a property value somewhere will
+	// produce an error.
+	//
+	// This method has 'unsafe' in the name on purpose! Make sure that the
+	// construct property you are using the returned value in is does not end up
+	// in a place in your AWS infrastructure where it could be read by anyone
+	// unexpected.
+	//
+	// When in doubt, don't call this method and only pass the object to constructs that
+	// accept `SecretValue` parameters.
+	// Experimental.
+	UnsafeUnwrap() *string
 }
 
 // The jsii proxy struct for SecretValue
@@ -30966,28 +31006,36 @@ func (j *jsiiProxy_SecretValue) CreationStack() *[]*string {
 }
 
 
+// Construct a SecretValue (do not use!).
+//
+// Do not use the constructor directly: use one of the factory functions on the class
+// instead.
 // Experimental.
-func NewSecretValue(value interface{}, options *IntrinsicProps) SecretValue {
+func NewSecretValue(protectedValue interface{}, options *IntrinsicProps) SecretValue {
 	_init_.Initialize()
 
 	j := jsiiProxy_SecretValue{}
 
 	_jsii_.Create(
 		"monocdk.SecretValue",
-		[]interface{}{value, options},
+		[]interface{}{protectedValue, options},
 		&j,
 	)
 
 	return &j
 }
 
+// Construct a SecretValue (do not use!).
+//
+// Do not use the constructor directly: use one of the factory functions on the class
+// instead.
 // Experimental.
-func NewSecretValue_Override(s SecretValue, value interface{}, options *IntrinsicProps) {
+func NewSecretValue_Override(s SecretValue, protectedValue interface{}, options *IntrinsicProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"monocdk.SecretValue",
-		[]interface{}{value, options},
+		[]interface{}{protectedValue, options},
 		s,
 	)
 }
@@ -31031,12 +31079,31 @@ func SecretValue_CfnParameter(param CfnParameter) SecretValue {
 	return returns
 }
 
+// Test whether an object is a SecretValue.
+// Experimental.
+func SecretValue_IsSecretValue(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.SecretValue",
+		"isSecretValue",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Construct a literal secret value for use with secret-aware constructs.
 //
-// *Do not use this method for any secrets that you care about.*
+// Do not use this method for any secrets that you care about! The value
+// will be visible to anyone who has access to the CloudFormation template
+// (via the AWS Console, SDKs, or CLI).
 //
 // The only reasonable use case for using this method is when you are testing.
-// Experimental.
+// Deprecated: Use `unsafePlainText()` instead.
 func SecretValue_PlainText(secret *string) SecretValue {
 	_init_.Initialize()
 
@@ -31046,6 +31113,23 @@ func SecretValue_PlainText(secret *string) SecretValue {
 		"monocdk.SecretValue",
 		"plainText",
 		[]interface{}{secret},
+		&returns,
+	)
+
+	return returns
+}
+
+// Use a resource's output as secret value.
+// Experimental.
+func SecretValue_ResourceAttribute(attr *string) SecretValue {
+	_init_.Initialize()
+
+	var returns SecretValue
+
+	_jsii_.StaticInvoke(
+		"monocdk.SecretValue",
+		"resourceAttribute",
+		[]interface{}{attr},
 		&returns,
 	)
 
@@ -31086,6 +31170,29 @@ func SecretValue_SsmSecure(parameterName *string, version *string) SecretValue {
 	return returns
 }
 
+// Construct a literal secret value for use with secret-aware constructs.
+//
+// Do not use this method for any secrets that you care about! The value
+// will be visible to anyone who has access to the CloudFormation template
+// (via the AWS Console, SDKs, or CLI).
+//
+// The only reasonable use case for using this method is when you are testing.
+// Experimental.
+func SecretValue_UnsafePlainText(secret *string) SecretValue {
+	_init_.Initialize()
+
+	var returns SecretValue
+
+	_jsii_.StaticInvoke(
+		"monocdk.SecretValue",
+		"unsafePlainText",
+		[]interface{}{secret},
+		&returns,
+	)
+
+	return returns
+}
+
 func (s *jsiiProxy_SecretValue) NewError(message *string) interface{} {
 	var returns interface{}
 
@@ -31099,13 +31206,13 @@ func (s *jsiiProxy_SecretValue) NewError(message *string) interface{} {
 	return returns
 }
 
-func (s *jsiiProxy_SecretValue) Resolve(_context IResolveContext) interface{} {
+func (s *jsiiProxy_SecretValue) Resolve(context IResolveContext) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		s,
 		"resolve",
-		[]interface{}{_context},
+		[]interface{}{context},
 		&returns,
 	)
 
@@ -31131,6 +31238,19 @@ func (s *jsiiProxy_SecretValue) ToString() *string {
 	_jsii_.Invoke(
 		s,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_SecretValue) UnsafeUnwrap() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"unsafeUnwrap",
 		nil, // no parameters
 		&returns,
 	)
@@ -32503,49 +32623,41 @@ func (s *jsiiProxy_Stack) Validate() *[]*string {
 }
 
 // Example:
-//   /**
-//    * Stack that defines the bucket
-//    */
-//   type producer struct {
-//   	stack
-//   	myBucket bucket
-//   }
-//
-//   func newProducer(scope app, id *string, props stackProps) *producer {
-//   	this := &producer{}
-//   	cdk.NewStack_Override(this, scope, id, props)
-//
-//   	bucket := s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
-//   		removalPolicy: cdk.removalPolicy_DESTROY,
-//   	})
-//   	this.myBucket = bucket
-//   	return this
-//   }
-//
-//   type consumerProps struct {
+//   type stackUnderTestProps struct {
 //   	stackProps
-//   	userBucket iBucket
+//   	architecture architecture
 //   }
 //
-//   /**
-//    * Stack that consumes the bucket
-//    */
-//   type consumer struct {
+//   type stackUnderTest struct {
 //   	stack
 //   }
 //
-//   func newConsumer(scope app, id *string, props consumerProps) *consumer {
-//   	this := &consumer{}
-//   	cdk.NewStack_Override(this, scope, id, props)
+//   func newStackUnderTest(scope construct, id *string, props stackUnderTestProps) *stackUnderTest {
+//   	this := &stackUnderTest{}
+//   	newStack_Override(this, scope, id, props)
 //
-//   	user := iam.NewUser(this, jsii.String("MyUser"))
-//   	*props.userBucket.grantReadWrite(user)
+//   	lambda.NewFunction(this, jsii.String("Handler"), &functionProps{
+//   		runtime: lambda.runtime_NODEJS_12_X(),
+//   		handler: jsii.String("index.handler"),
+//   		code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+//   		architecture: props.architecture,
+//   	})
 //   	return this
 //   }
 //
-//   producer := NewProducer(app, jsii.String("ProducerStack"))
-//   NewConsumer(app, jsii.String("ConsumerStack"), &consumerProps{
-//   	userBucket: producer.myBucket,
+//   // Beginning of the test suite
+//   app := NewApp()
+//
+//   stack := NewStack(app, jsii.String("stack"))
+//   NewIntegTestCase(stack, jsii.String("DifferentArchitectures"), &integTestCaseProps{
+//   	stacks: []*stack{
+//   		NewStackUnderTest(app, jsii.String("Stack1"), &stackUnderTestProps{
+//   			architecture: lambda.*architecture_ARM_64(),
+//   		}),
+//   		NewStackUnderTest(app, jsii.String("Stack2"), &stackUnderTestProps{
+//   			architecture: lambda.*architecture_X86_64(),
+//   		}),
+//   	},
 //   })
 //
 // Experimental.

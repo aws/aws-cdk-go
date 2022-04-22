@@ -22,6 +22,12 @@ import (
 //   	// the properties below are optional
 //   	monitorDimension: jsii.String("monitorDimension"),
 //   	monitorSpecification: jsii.String("monitorSpecification"),
+//   	resourceTags: []interface{}{
+//   		&resourceTagProperty{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 type CfnAnomalyMonitor interface {
@@ -83,6 +89,9 @@ type CfnAnomalyMonitor interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
+	// `AWS::CE::AnomalyMonitor.ResourceTags`.
+	ResourceTags() interface{}
+	SetResourceTags(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -426,6 +435,16 @@ func (j *jsiiProxy_CfnAnomalyMonitor) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAnomalyMonitor) ResourceTags() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"resourceTags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAnomalyMonitor) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -501,6 +520,14 @@ func (j *jsiiProxy_CfnAnomalyMonitor) SetMonitorType(val *string) {
 	_jsii_.Set(
 		j,
 		"monitorType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAnomalyMonitor) SetResourceTags(val interface{}) {
+	_jsii_.Set(
+		j,
+		"resourceTags",
 		val,
 	)
 }
@@ -775,6 +802,24 @@ func (c *jsiiProxy_CfnAnomalyMonitor) ValidateProperties(_properties interface{}
 	)
 }
 
+// The tag structure that contains a tag key and value.
+//
+// > Tagging is supported only for the following Cost Explorer resource types: [`AnomalyMonitor`](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalyMonitor.html) , [`AnomalySubscription`](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalySubscription.html) , [`CostCategory`](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategory.html) .
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ce "github.com/aws/aws-cdk-go/awscdk/aws_ce"
+//   resourceTagProperty := &resourceTagProperty{
+//   	key: jsii.String("key"),
+//   	value: jsii.String("value"),
+//   }
+//
+type CfnAnomalyMonitor_ResourceTagProperty struct {
+	// The key that is associated with the tag.
+	Key *string `json:"key" yaml:"key"`
+	// The value that is associated with the tag.
+	Value *string `json:"value" yaml:"value"`
+}
+
 // Properties for defining a `CfnAnomalyMonitor`.
 //
 // Example:
@@ -786,6 +831,12 @@ func (c *jsiiProxy_CfnAnomalyMonitor) ValidateProperties(_properties interface{}
 //   	// the properties below are optional
 //   	monitorDimension: jsii.String("monitorDimension"),
 //   	monitorSpecification: jsii.String("monitorSpecification"),
+//   	resourceTags: []interface{}{
+//   		&resourceTagProperty{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 type CfnAnomalyMonitorProps struct {
@@ -799,6 +850,8 @@ type CfnAnomalyMonitorProps struct {
 	//
 	// For instance, you can use `MonitorSpecification` to specify a tag, Cost Category, or linked account for your custom anomaly monitor. For further information, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#aws-resource-ce-anomalymonitor--examples) section of this page.
 	MonitorSpecification *string `json:"monitorSpecification" yaml:"monitorSpecification"`
+	// `AWS::CE::AnomalyMonitor.ResourceTags`.
+	ResourceTags interface{} `json:"resourceTags" yaml:"resourceTags"`
 }
 
 // A CloudFormation `AWS::CE::AnomalySubscription`.
@@ -823,6 +876,14 @@ type CfnAnomalyMonitorProps struct {
 //   	},
 //   	subscriptionName: jsii.String("subscriptionName"),
 //   	threshold: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	resourceTags: []interface{}{
+//   		&resourceTagProperty{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 type CfnAnomalySubscription interface {
@@ -870,6 +931,9 @@ type CfnAnomalySubscription interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
+	// `AWS::CE::AnomalySubscription.ResourceTags`.
+	ResourceTags() interface{}
+	SetResourceTags(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -1172,6 +1236,16 @@ func (j *jsiiProxy_CfnAnomalySubscription) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAnomalySubscription) ResourceTags() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"resourceTags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAnomalySubscription) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -1261,6 +1335,14 @@ func (j *jsiiProxy_CfnAnomalySubscription) SetMonitorArnList(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"monitorArnList",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAnomalySubscription) SetResourceTags(val interface{}) {
+	_jsii_.Set(
+		j,
+		"resourceTags",
 		val,
 	)
 }
@@ -1559,6 +1641,24 @@ func (c *jsiiProxy_CfnAnomalySubscription) ValidateProperties(_properties interf
 	)
 }
 
+// The tag structure that contains a tag key and value.
+//
+// > Tagging is supported only for the following Cost Explorer resource types: [`AnomalyMonitor`](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalyMonitor.html) , [`AnomalySubscription`](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalySubscription.html) , [`CostCategory`](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategory.html) .
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ce "github.com/aws/aws-cdk-go/awscdk/aws_ce"
+//   resourceTagProperty := &resourceTagProperty{
+//   	key: jsii.String("key"),
+//   	value: jsii.String("value"),
+//   }
+//
+type CfnAnomalySubscription_ResourceTagProperty struct {
+	// The key that is associated with the tag.
+	Key *string `json:"key" yaml:"key"`
+	// The value that is associated with the tag.
+	Value *string `json:"value" yaml:"value"`
+}
+
 // The recipient of `AnomalySubscription` notifications.
 //
 // Example:
@@ -1600,6 +1700,14 @@ type CfnAnomalySubscription_SubscriberProperty struct {
 //   	},
 //   	subscriptionName: jsii.String("subscriptionName"),
 //   	threshold: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	resourceTags: []interface{}{
+//   		&resourceTagProperty{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 type CfnAnomalySubscriptionProps struct {
@@ -1613,6 +1721,8 @@ type CfnAnomalySubscriptionProps struct {
 	SubscriptionName *string `json:"subscriptionName" yaml:"subscriptionName"`
 	// The dollar value that triggers a notification if the threshold is exceeded.
 	Threshold *float64 `json:"threshold" yaml:"threshold"`
+	// `AWS::CE::AnomalySubscription.ResourceTags`.
+	ResourceTags interface{} `json:"resourceTags" yaml:"resourceTags"`
 }
 
 // A CloudFormation `AWS::CE::CostCategory`.

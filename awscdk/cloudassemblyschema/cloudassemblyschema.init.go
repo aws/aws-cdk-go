@@ -261,6 +261,10 @@ func init() {
 		reflect.TypeOf((*TestCase)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.cloud_assembly_schema.TestOptions",
+		reflect.TypeOf((*TestOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.cloud_assembly_schema.TreeArtifactProperties",
 		reflect.TypeOf((*TreeArtifactProperties)(nil)).Elem(),
 	)

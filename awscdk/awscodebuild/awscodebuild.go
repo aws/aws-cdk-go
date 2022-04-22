@@ -606,6 +606,28 @@ type BitBucketSourceProps struct {
 	//
 	// Experimental.
 	BranchOrRef *string `json:"branchOrRef" yaml:"branchOrRef"`
+	// This parameter is used for the `name` parameter in the Bitbucket commit status.
+	//
+	// Can use built-in CodeBuild variables, like $AWS_REGION.
+	//
+	// Example:
+	//   "My build #$CODEBUILD_BUILD_NUMBER"
+	//
+	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-env-vars.html
+	//
+	// Experimental.
+	BuildStatusName *string `json:"buildStatusName" yaml:"buildStatusName"`
+	// The URL that the build will report back to the source provider.
+	//
+	// Can use built-in CodeBuild variables, like $AWS_REGION.
+	//
+	// Example:
+	//   "$CODEBUILD_PUBLIC_BUILD_URL"
+	//
+	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-env-vars.html
+	//
+	// Experimental.
+	BuildStatusUrl *string `json:"buildStatusUrl" yaml:"buildStatusUrl"`
 	// The depth of history to download.
 	//
 	// Minimum value is 0.
@@ -6402,6 +6424,28 @@ type GitHubEnterpriseSourceProps struct {
 	//
 	// Experimental.
 	BranchOrRef *string `json:"branchOrRef" yaml:"branchOrRef"`
+	// This parameter is used for the `context` parameter in the GitHub commit status.
+	//
+	// Can use built-in CodeBuild variables, like $AWS_REGION.
+	//
+	// Example:
+	//   "My build #$CODEBUILD_BUILD_NUMBER"
+	//
+	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-env-vars.html
+	//
+	// Experimental.
+	BuildStatusContext *string `json:"buildStatusContext" yaml:"buildStatusContext"`
+	// The URL that the build will report back to the source provider.
+	//
+	// Can use built-in CodeBuild variables, like $AWS_REGION.
+	//
+	// Example:
+	//   "$CODEBUILD_PUBLIC_BUILD_URL"
+	//
+	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-env-vars.html
+	//
+	// Experimental.
+	BuildStatusUrl *string `json:"buildStatusUrl" yaml:"buildStatusUrl"`
 	// The depth of history to download.
 	//
 	// Minimum value is 0.
@@ -6835,6 +6879,28 @@ type GitHubSourceProps struct {
 	//
 	// Experimental.
 	BranchOrRef *string `json:"branchOrRef" yaml:"branchOrRef"`
+	// This parameter is used for the `context` parameter in the GitHub commit status.
+	//
+	// Can use built-in CodeBuild variables, like $AWS_REGION.
+	//
+	// Example:
+	//   "My build #$CODEBUILD_BUILD_NUMBER"
+	//
+	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-env-vars.html
+	//
+	// Experimental.
+	BuildStatusContext *string `json:"buildStatusContext" yaml:"buildStatusContext"`
+	// The URL that the build will report back to the source provider.
+	//
+	// Can use built-in CodeBuild variables, like $AWS_REGION.
+	//
+	// Example:
+	//   "$CODEBUILD_PUBLIC_BUILD_URL"
+	//
+	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-env-vars.html
+	//
+	// Experimental.
+	BuildStatusUrl *string `json:"buildStatusUrl" yaml:"buildStatusUrl"`
 	// The depth of history to download.
 	//
 	// Minimum value is 0.
@@ -7807,7 +7873,7 @@ func LinuxArmBuildImage_FromCodeBuildImageId(id *string) IBuildImage {
 // See: https://docs.aws.amazon.com/codebuild/latest/userguide/sample-ecr.html
 //
 // Experimental.
-func LinuxArmBuildImage_FromEcrRepository(repository awsecr.IRepository, tag *string) IBuildImage {
+func LinuxArmBuildImage_FromEcrRepository(repository awsecr.IRepository, tagOrDigest *string) IBuildImage {
 	_init_.Initialize()
 
 	var returns IBuildImage
@@ -7815,7 +7881,7 @@ func LinuxArmBuildImage_FromEcrRepository(repository awsecr.IRepository, tag *st
 	_jsii_.StaticInvoke(
 		"monocdk.aws_codebuild.LinuxArmBuildImage",
 		"fromEcrRepository",
-		[]interface{}{repository, tag},
+		[]interface{}{repository, tagOrDigest},
 		&returns,
 	)
 
@@ -8077,7 +8143,7 @@ func LinuxBuildImage_FromDockerRegistry(name *string, options *DockerImageOption
 // See: https://docs.aws.amazon.com/codebuild/latest/userguide/sample-ecr.html
 //
 // Experimental.
-func LinuxBuildImage_FromEcrRepository(repository awsecr.IRepository, tag *string) IBuildImage {
+func LinuxBuildImage_FromEcrRepository(repository awsecr.IRepository, tagOrDigest *string) IBuildImage {
 	_init_.Initialize()
 
 	var returns IBuildImage
@@ -8085,7 +8151,7 @@ func LinuxBuildImage_FromEcrRepository(repository awsecr.IRepository, tag *strin
 	_jsii_.StaticInvoke(
 		"monocdk.aws_codebuild.LinuxBuildImage",
 		"fromEcrRepository",
-		[]interface{}{repository, tag},
+		[]interface{}{repository, tagOrDigest},
 		&returns,
 	)
 
@@ -12768,7 +12834,7 @@ func WindowsBuildImage_FromDockerRegistry(name *string, options *DockerImageOpti
 // See: https://docs.aws.amazon.com/codebuild/latest/userguide/sample-ecr.html
 //
 // Experimental.
-func WindowsBuildImage_FromEcrRepository(repository awsecr.IRepository, tag *string, imageType WindowsImageType) IBuildImage {
+func WindowsBuildImage_FromEcrRepository(repository awsecr.IRepository, tagOrDigest *string, imageType WindowsImageType) IBuildImage {
 	_init_.Initialize()
 
 	var returns IBuildImage
@@ -12776,7 +12842,7 @@ func WindowsBuildImage_FromEcrRepository(repository awsecr.IRepository, tag *str
 	_jsii_.StaticInvoke(
 		"monocdk.aws_codebuild.WindowsBuildImage",
 		"fromEcrRepository",
-		[]interface{}{repository, tag, imageType},
+		[]interface{}{repository, tagOrDigest, imageType},
 		&returns,
 	)
 

@@ -380,7 +380,7 @@ type AuroraMysqlEngineVersion interface {
 	AuroraMysqlFullVersion() *string
 	// The major version of the engine.
 	//
-	// Currently, it's always "5.7".
+	// Currently, it's either "5.7", or "8.0".
 	// Experimental.
 	AuroraMysqlMajorVersion() *string
 }
@@ -910,6 +910,28 @@ func AuroraPostgresEngineVersion_VER_10_18() AuroraPostgresEngineVersion {
 	return returns
 }
 
+func AuroraPostgresEngineVersion_VER_10_19() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
+		"VER_10_19",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraPostgresEngineVersion_VER_10_20() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
+		"VER_10_20",
+		&returns,
+	)
+	return returns
+}
+
 func AuroraPostgresEngineVersion_VER_10_4() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
@@ -976,6 +998,28 @@ func AuroraPostgresEngineVersion_VER_11_13() AuroraPostgresEngineVersion {
 	return returns
 }
 
+func AuroraPostgresEngineVersion_VER_11_14() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
+		"VER_11_14",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraPostgresEngineVersion_VER_11_15() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
+		"VER_11_15",
+		&returns,
+	)
+	return returns
+}
+
 func AuroraPostgresEngineVersion_VER_11_4() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
@@ -1031,6 +1075,17 @@ func AuroraPostgresEngineVersion_VER_11_9() AuroraPostgresEngineVersion {
 	return returns
 }
 
+func AuroraPostgresEngineVersion_VER_12_10() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
+		"VER_12_10",
+		&returns,
+	)
+	return returns
+}
+
 func AuroraPostgresEngineVersion_VER_12_4() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
@@ -1064,6 +1119,17 @@ func AuroraPostgresEngineVersion_VER_12_8() AuroraPostgresEngineVersion {
 	return returns
 }
 
+func AuroraPostgresEngineVersion_VER_12_9() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
+		"VER_12_9",
+		&returns,
+	)
+	return returns
+}
+
 func AuroraPostgresEngineVersion_VER_13_3() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
@@ -1081,6 +1147,28 @@ func AuroraPostgresEngineVersion_VER_13_4() AuroraPostgresEngineVersion {
 	_jsii_.StaticGet(
 		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_13_4",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraPostgresEngineVersion_VER_13_5() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
+		"VER_13_5",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraPostgresEngineVersion_VER_13_6() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
+		"VER_13_6",
 		&returns,
 	)
 	return returns
@@ -1492,12 +1580,12 @@ type CfnDBCluster interface {
 	LogicalId() *string
 	// The name of the master user for the DB cluster.
 	//
-	// > If you specify the `SourceDBClusterIdentifier` or `SnapshotIdentifier` property, don't specify this property. The value is inherited from the source DB instance or snapshot.
+	// > If you specify the `SourceDBClusterIdentifier` , `SnapshotIdentifier` , or `GlobalClusterIdentifier` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.
 	MasterUsername() *string
 	SetMasterUsername(val *string)
 	// The master password for the DB instance.
 	//
-	// > If you specify the `SourceDBClusterIdentifier` or `SnapshotIdentifier` property, don't specify this property. The value is inherited from the source DB instance or snapshot.
+	// > If you specify the `SourceDBClusterIdentifier` , `SnapshotIdentifier` , or `GlobalClusterIdentifier` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.
 	MasterUserPassword() *string
 	SetMasterUserPassword(val *string)
 	// The construct tree node associated with this construct.
@@ -3832,11 +3920,11 @@ type CfnDBClusterProps struct {
 	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The name of the master user for the DB cluster.
 	//
-	// > If you specify the `SourceDBClusterIdentifier` or `SnapshotIdentifier` property, don't specify this property. The value is inherited from the source DB instance or snapshot.
+	// > If you specify the `SourceDBClusterIdentifier` , `SnapshotIdentifier` , or `GlobalClusterIdentifier` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.
 	MasterUsername *string `json:"masterUsername" yaml:"masterUsername"`
 	// The master password for the DB instance.
 	//
-	// > If you specify the `SourceDBClusterIdentifier` or `SnapshotIdentifier` property, don't specify this property. The value is inherited from the source DB instance or snapshot.
+	// > If you specify the `SourceDBClusterIdentifier` , `SnapshotIdentifier` , or `GlobalClusterIdentifier` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.
 	MasterUserPassword *string `json:"masterUserPassword" yaml:"masterUserPassword"`
 	// The port number on which the DB instances in the DB cluster accept connections.
 	//
@@ -4116,6 +4204,10 @@ type CfnDBInstance interface {
 	AllowMajorVersionUpgrade() interface{}
 	SetAllowMajorVersionUpgrade(val interface{})
 	// The AWS Identity and Access Management (IAM) roles associated with the DB instance.
+	//
+	// *Amazon Aurora*
+	//
+	// Not applicable. The associated roles are managed by the DB cluster.
 	AssociatedRoles() interface{}
 	SetAssociatedRoles(val interface{})
 	// The connection endpoint for the database.
@@ -4137,7 +4229,7 @@ type CfnDBInstance interface {
 	//
 	// *Amazon Aurora*
 	//
-	// Not applicable. Availability Zones are managed by the DB cluster.
+	// Each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
 	//
 	// Default: A random, system-chosen Availability Zone in the endpoint's AWS Region .
 	//
@@ -4226,6 +4318,10 @@ type CfnDBInstance interface {
 	// >
 	// > If you restore DB instances from snapshots, this property doesn't apply to the MySQL, PostgreSQL, or MariaDB engines.
 	//
+	// *Amazon Aurora*
+	//
+	// Not applicable. The database name is managed by the DB cluster.
+	//
 	// *MySQL*
 	//
 	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance.
@@ -4267,25 +4363,6 @@ type CfnDBInstance interface {
 	// *SQL Server*
 	//
 	// Not applicable. Must be null.
-	//
-	// *Amazon Aurora MySQL*
-	//
-	// The name of the database to create when the primary DB instance of the Aurora MySQL DB cluster is created. If this parameter isn't specified for an Aurora MySQL DB cluster, no database is created in the DB cluster.
-	//
-	// Constraints:
-	//
-	// - It must contain 1 to 64 alphanumeric characters.
-	// - It can't be a word reserved by the database engine.
-	//
-	// *Amazon Aurora PostgreSQL*
-	//
-	// The name of the database to create when the primary DB instance of the Aurora PostgreSQL DB cluster is created. If this parameter isn't specified for an Aurora PostgreSQL DB cluster, a database named `postgres` is created in the DB cluster.
-	//
-	// Constraints:
-	//
-	// - It must contain 1 to 63 alphanumeric characters.
-	// - It must begin with a letter or an underscore. Subsequent characters can be letters, underscores, or digits (0 to 9).
-	// - It can't be a word reserved by the database engine.
 	DbName() *string
 	SetDbName(val *string)
 	// The name of an existing DB parameter group or a reference to an [AWS::RDS::DBParameterGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbparametergroup.html) resource created in the template.
@@ -4358,7 +4435,11 @@ type CfnDBInstance interface {
 	// - `SourceDBInstanceIdentifier`
 	// - `SourceRegion`
 	// - `StorageEncrypted`
-	// - `Timezone`.
+	// - `Timezone`
+	//
+	// *Amazon Aurora*
+	//
+	// Not applicable. Snapshot restore is managed by the DB cluster.
 	DbSnapshotIdentifier() *string
 	SetDbSnapshotIdentifier(val *string)
 	// A DB subnet group to associate with the DB instance.
@@ -6546,6 +6627,10 @@ type CfnDBInstanceProps struct {
 	// Constraints: Major version upgrades must be allowed when specifying a value for the `EngineVersion` parameter that is a different major version than the DB instance's current version.
 	AllowMajorVersionUpgrade interface{} `json:"allowMajorVersionUpgrade" yaml:"allowMajorVersionUpgrade"`
 	// The AWS Identity and Access Management (IAM) roles associated with the DB instance.
+	//
+	// *Amazon Aurora*
+	//
+	// Not applicable. The associated roles are managed by the DB cluster.
 	AssociatedRoles interface{} `json:"associatedRoles" yaml:"associatedRoles"`
 	// A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window.
 	//
@@ -6557,7 +6642,7 @@ type CfnDBInstanceProps struct {
 	//
 	// *Amazon Aurora*
 	//
-	// Not applicable. Availability Zones are managed by the DB cluster.
+	// Each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
 	//
 	// Default: A random, system-chosen Availability Zone in the endpoint's AWS Region .
 	//
@@ -6622,6 +6707,10 @@ type CfnDBInstanceProps struct {
 	// >
 	// > If you restore DB instances from snapshots, this property doesn't apply to the MySQL, PostgreSQL, or MariaDB engines.
 	//
+	// *Amazon Aurora*
+	//
+	// Not applicable. The database name is managed by the DB cluster.
+	//
 	// *MySQL*
 	//
 	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance.
@@ -6663,25 +6752,6 @@ type CfnDBInstanceProps struct {
 	// *SQL Server*
 	//
 	// Not applicable. Must be null.
-	//
-	// *Amazon Aurora MySQL*
-	//
-	// The name of the database to create when the primary DB instance of the Aurora MySQL DB cluster is created. If this parameter isn't specified for an Aurora MySQL DB cluster, no database is created in the DB cluster.
-	//
-	// Constraints:
-	//
-	// - It must contain 1 to 64 alphanumeric characters.
-	// - It can't be a word reserved by the database engine.
-	//
-	// *Amazon Aurora PostgreSQL*
-	//
-	// The name of the database to create when the primary DB instance of the Aurora PostgreSQL DB cluster is created. If this parameter isn't specified for an Aurora PostgreSQL DB cluster, a database named `postgres` is created in the DB cluster.
-	//
-	// Constraints:
-	//
-	// - It must contain 1 to 63 alphanumeric characters.
-	// - It must begin with a letter or an underscore. Subsequent characters can be letters, underscores, or digits (0 to 9).
-	// - It can't be a word reserved by the database engine.
 	DbName *string `json:"dbName" yaml:"dbName"`
 	// The name of an existing DB parameter group or a reference to an [AWS::RDS::DBParameterGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbparametergroup.html) resource created in the template.
 	//
@@ -6751,7 +6821,11 @@ type CfnDBInstanceProps struct {
 	// - `SourceDBInstanceIdentifier`
 	// - `SourceRegion`
 	// - `StorageEncrypted`
-	// - `Timezone`.
+	// - `Timezone`
+	//
+	// *Amazon Aurora*
+	//
+	// Not applicable. Snapshot restore is managed by the DB cluster.
 	DbSnapshotIdentifier *string `json:"dbSnapshotIdentifier" yaml:"dbSnapshotIdentifier"`
 	// A DB subnet group to associate with the DB instance.
 	//
@@ -25160,6 +25234,9 @@ type IClusterEngine interface {
 	// Method called when the engine is used to create a new cluster.
 	// Experimental.
 	BindToCluster(scope awscdk.Construct, options *ClusterEngineBindOptions) *ClusterEngineConfig
+	// Whether the IAM Roles used for data importing and exporting need to be combined for this Engine, or can they be kept separate.
+	// Experimental.
+	CombineImportAndExportRoles() *bool
 	// The application used by this engine to perform rotation for a multi-user scenario.
 	// Experimental.
 	MultiUserRotationApplication() awssecretsmanager.SecretRotationApplication
@@ -25186,6 +25263,16 @@ func (i *jsiiProxy_IClusterEngine) BindToCluster(scope awscdk.Construct, options
 		&returns,
 	)
 
+	return returns
+}
+
+func (j *jsiiProxy_IClusterEngine) CombineImportAndExportRoles() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"combineImportAndExportRoles",
+		&returns,
+	)
 	return returns
 }
 

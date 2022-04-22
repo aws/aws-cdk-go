@@ -599,6 +599,9 @@ type NodejsFunction interface {
 	// Adds an event source that maps to this AWS Lambda function.
 	// Experimental.
 	AddEventSourceMapping(id *string, options *awslambda.EventSourceMappingOptions) awslambda.EventSourceMapping
+	// Adds a url to this lambda function.
+	// Experimental.
+	AddFunctionUrl(options *awslambda.FunctionUrlOptions) awslambda.FunctionUrl
 	// Adds one or more Lambda Layers to this Lambda function.
 	// Experimental.
 	AddLayers(layers ...awslambda.ILayerVersion)
@@ -668,6 +671,9 @@ type NodejsFunction interface {
 	// Grant the given identity permissions to invoke this Lambda.
 	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant the given identity permissions to invoke this Lambda Function URL.
+	// Experimental.
+	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Function.
 	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
@@ -1240,6 +1246,19 @@ func (n *jsiiProxy_NodejsFunction) AddEventSourceMapping(id *string, options *aw
 	return returns
 }
 
+func (n *jsiiProxy_NodejsFunction) AddFunctionUrl(options *awslambda.FunctionUrlOptions) awslambda.FunctionUrl {
+	var returns awslambda.FunctionUrl
+
+	_jsii_.Invoke(
+		n,
+		"addFunctionUrl",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
 func (n *jsiiProxy_NodejsFunction) AddLayers(layers ...awslambda.ILayerVersion) {
 	args := []interface{}{}
 	for _, a := range layers {
@@ -1351,6 +1370,19 @@ func (n *jsiiProxy_NodejsFunction) GrantInvoke(grantee awsiam.IGrantable) awsiam
 	_jsii_.Invoke(
 		n,
 		"grantInvoke",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (n *jsiiProxy_NodejsFunction) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant {
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		n,
+		"grantInvokeUrl",
 		[]interface{}{grantee},
 		&returns,
 	)
@@ -1636,7 +1668,7 @@ type NodejsFunctionProps struct {
 	// The AWS KMS key that's used to encrypt your function's environment variables.
 	// Experimental.
 	EnvironmentEncryption awskms.IKey `json:"environmentEncryption" yaml:"environmentEncryption"`
-	// The size of the function’s /tmp directory in MB.
+	// The size of the function’s /tmp directory in MiB.
 	// Experimental.
 	EphemeralStorageSize awscdk.Size `json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
 	// Event sources for this function.

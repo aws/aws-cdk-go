@@ -1441,9 +1441,15 @@ type BranchProps struct {
 type CfnApp interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// Personal Access token for 3rd party source control system for an Amplify app, used to create webhook and read-only deploy key.
+	// The personal access token for a GitHub repository for an Amplify app.
 	//
-	// Token is not stored.
+	// The personal access token is used to authorize access to a GitHub repository using the Amplify GitHub App. The token is not stored.
+	//
+	// Use `AccessToken` for GitHub repositories only. To authorize access to a repository provider such as Bitbucket or CodeCommit, use `OauthToken` .
+	//
+	// You must specify either `AccessToken` or `OauthToken` when you create a new app.
+	//
+	// Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
 	AccessToken() *string
@@ -1536,7 +1542,13 @@ type CfnApp interface {
 	Node() awscdk.ConstructNode
 	// The OAuth token for a third-party source control system for an Amplify app.
 	//
-	// The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
+	// The OAuth token is used to create a webhook and a read-only deploy key using SSH cloning. The OAuth token is not stored.
+	//
+	// Use `OauthToken` for repository providers other than GitHub, such as Bitbucket or CodeCommit. To authorize access to GitHub as your repository provider, use `AccessToken` .
+	//
+	// You must specify either `OauthToken` or `AccessToken` when you create a new app.
+	//
+	// Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
 	//
 	// *Length Constraints:* Maximum length of 1000.
 	//
@@ -2461,7 +2473,7 @@ type CfnApp_AutoBranchCreationConfigProperty struct {
 	//
 	// To provide backend support for your preview, the Amplify Console automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
 	//
-	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Console User Guide* .
+	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
 	EnablePullRequestPreview interface{} `json:"enablePullRequestPreview" yaml:"enablePullRequestPreview"`
 	// Environment variables for the auto created branch.
 	EnvironmentVariables interface{} `json:"environmentVariables" yaml:"environmentVariables"`
@@ -2473,7 +2485,7 @@ type CfnApp_AutoBranchCreationConfigProperty struct {
 	//
 	// If you don't specify an environment, the Amplify Console provides backend support for each preview by automatically provisioning a temporary backend environment. Amplify Console deletes this environment when the pull request is closed.
 	//
-	// For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Console User Guide* .
+	// For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
 	//
 	// *Length Constraints:* Maximum length of 20.
 	//
@@ -2655,9 +2667,15 @@ type CfnAppProps struct {
 	//
 	// *Pattern:* (?s).+
 	Name *string `json:"name" yaml:"name"`
-	// Personal Access token for 3rd party source control system for an Amplify app, used to create webhook and read-only deploy key.
+	// The personal access token for a GitHub repository for an Amplify app.
 	//
-	// Token is not stored.
+	// The personal access token is used to authorize access to a GitHub repository using the Amplify GitHub App. The token is not stored.
+	//
+	// Use `AccessToken` for GitHub repositories only. To authorize access to a repository provider such as Bitbucket or CodeCommit, use `OauthToken` .
+	//
+	// You must specify either `AccessToken` or `OauthToken` when you create a new app.
+	//
+	// Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
 	AccessToken *string `json:"accessToken" yaml:"accessToken"`
@@ -2699,7 +2717,13 @@ type CfnAppProps struct {
 	IamServiceRole *string `json:"iamServiceRole" yaml:"iamServiceRole"`
 	// The OAuth token for a third-party source control system for an Amplify app.
 	//
-	// The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
+	// The OAuth token is used to create a webhook and a read-only deploy key using SSH cloning. The OAuth token is not stored.
+	//
+	// Use `OauthToken` for repository providers other than GitHub, such as Bitbucket or CodeCommit. To authorize access to GitHub as your repository provider, use `AccessToken` .
+	//
+	// You must specify either `OauthToken` or `AccessToken` when you create a new app.
+	//
+	// Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
 	//
 	// *Length Constraints:* Maximum length of 1000.
 	//
@@ -2762,9 +2786,9 @@ type CfnBranch interface {
 	// *Pattern:* d[a-z0-9]+.
 	AppId() *string
 	SetAppId(val *string)
-	// ARN for a branch, part of an Amplify app.
+	// ARN for a branch, part of an Amplify App.
 	AttrArn() *string
-	// Name for a branch, part of an Amplify app.
+	// Name for a branch, part of an Amplify App.
 	AttrBranchName() *string
 	// The basic authorization credentials for a branch of an Amplify app.
 	//
@@ -2818,7 +2842,7 @@ type CfnBranch interface {
 	//
 	// To provide backend support for your preview, the Amplify Console automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
 	//
-	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Console User Guide* .
+	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
 	EnablePullRequestPreview() interface{}
 	SetEnablePullRequestPreview(val interface{})
 	// The environment variables for the branch.
@@ -2846,7 +2870,7 @@ type CfnBranch interface {
 	//
 	// If you don't specify an environment, the Amplify Console provides backend support for each preview by automatically provisioning a temporary backend environment. Amplify Console deletes this environment when the pull request is closed.
 	//
-	// For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Console User Guide* .
+	// For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
 	//
 	// *Length Constraints:* Maximum length of 20.
 	//
@@ -3793,7 +3817,7 @@ type CfnBranchProps struct {
 	//
 	// To provide backend support for your preview, the Amplify Console automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
 	//
-	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Console User Guide* .
+	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
 	EnablePullRequestPreview interface{} `json:"enablePullRequestPreview" yaml:"enablePullRequestPreview"`
 	// The environment variables for the branch.
 	EnvironmentVariables interface{} `json:"environmentVariables" yaml:"environmentVariables"`
@@ -3805,7 +3829,7 @@ type CfnBranchProps struct {
 	//
 	// If you don't specify an environment, the Amplify Console provides backend support for each preview by automatically provisioning a temporary backend environment. Amplify Console deletes this environment when the pull request is closed.
 	//
-	// For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Console User Guide* .
+	// For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
 	//
 	// *Length Constraints:* Maximum length of 20.
 	//
@@ -5921,7 +5945,7 @@ type SourceCodeProviderConfig struct {
 	// OAuth token is not stored.
 	//
 	// Either `accessToken` or `oauthToken` must be specified if `repository`
-	// is sepcified.
+	// is specified.
 	// Experimental.
 	OauthToken awscdk.SecretValue `json:"oauthToken" yaml:"oauthToken"`
 }

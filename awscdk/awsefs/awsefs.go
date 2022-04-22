@@ -1592,7 +1592,7 @@ type CfnFileSystem interface {
 	AttrArn() *string
 	// The ID of the EFS file system.
 	//
-	// For example: `fs-12345678`.
+	// For example: `fs-abcdef0123456789a`.
 	AttrFileSystemId() *string
 	// Used to create a file system that uses One Zone storage classes.
 	//
@@ -1604,9 +1604,9 @@ type CfnFileSystem interface {
 	// Use the `BackupPolicy` to turn automatic backups on or off for the file system.
 	BackupPolicy() interface{}
 	SetBackupPolicy(val interface{})
-	// (Optional) Use this boolean to use or bypass the `FileSystemPolicy` lockout safety check.
+	// (Optional) A boolean that specifies whether or not to bypass the `FileSystemPolicy` lockout safety check.
 	//
-	// The policy lockout safety check determines if the `FileSystemPolicy` in the request will lock out the IAM principal making the request, preventing them from making future `PutFileSystemPolicy` requests on the file system. Set `BypassPolicyLockoutSafetyCheck` to `True` only when you intend to prevent the IAM principal that is making the request from making a subsequent `PutFileSystemPolicy` request on the file system. The default value is `False` .
+	// The lockout safety check determines whether the policy in the request will lock out, or prevent, the IAM principal that is making the request from making future `PutFileSystemPolicy` requests on this file system. Set `BypassPolicyLockoutSafetyCheck` to `True` only when you intend to prevent the IAM principal that is making the request from making subsequent `PutFileSystemPolicy` requests on this file system. The default value is `False` .
 	BypassPolicyLockoutSafetyCheck() interface{}
 	SetBypassPolicyLockoutSafetyCheck(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -1643,7 +1643,14 @@ type CfnFileSystem interface {
 	// If `KmsKeyId` is specified, the `Encrypted` parameter must be set to true.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
-	// A list of one LifecyclePolicy that tells EFS lifecycle management when to transition files to the Infrequent Access (IA) storage classes.
+	// An array of `LifecyclePolicy` objects that define the file system's `LifecycleConfiguration` object.
+	//
+	// A `LifecycleConfiguration` object informs EFS lifecycle management and intelligent tiering of the following:
+	//
+	// - When to move files in the file system from primary storage to the IA storage class.
+	// - When to move files that are in IA storage to primary storage.
+	//
+	// > Amazon EFS requires that each `LifecyclePolicy` object have only a single transition. This means that in a request body, `LifecyclePolicies` needs to be structured as an array of `LifecyclePolicy` objects, one object for each transition, `TransitionToIA` , `TransitionToPrimaryStorageClass` . See the example requests in the following section for more information.
 	LifecyclePolicies() interface{}
 	SetLifecyclePolicies(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -2505,9 +2512,12 @@ type CfnFileSystem_ElasticFileSystemTagProperty struct {
 	Value *string `json:"value" yaml:"value"`
 }
 
-// A policy used by EFS lifecycle management to transition files to the Infrequent Access (IA) storage classes.
+// Describes a policy used by EFS lifecycle management and EFS Intelligent-Tiering that specifies when to transition files into and out of the file system's Infrequent Access (IA) storage class.
 //
-// For more information, see [EFS Lifecycle Management](https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html) in the *Amazon EFS User Guide* .
+// For more information, see [EFS Intelligent‐Tiering and EFS Lifecycle Management](https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html) .
+//
+// > - Each `LifecyclePolicy` object can have only a single transition. This means that in a request body, `LifecyclePolicies` must be structured as an array of `LifecyclePolicy` objects, one object for each transition, `TransitionToIA` , `TransitionToPrimaryStorageClass` .
+// > - See the AWS::EFS::FileSystem examples for the correct `LifecyclePolicy` structure. Do not use the syntax shown on this page.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import efs "github.com/aws/aws-cdk-go/awscdk/aws_efs"
@@ -2568,9 +2578,9 @@ type CfnFileSystemProps struct {
 	AvailabilityZoneName *string `json:"availabilityZoneName" yaml:"availabilityZoneName"`
 	// Use the `BackupPolicy` to turn automatic backups on or off for the file system.
 	BackupPolicy interface{} `json:"backupPolicy" yaml:"backupPolicy"`
-	// (Optional) Use this boolean to use or bypass the `FileSystemPolicy` lockout safety check.
+	// (Optional) A boolean that specifies whether or not to bypass the `FileSystemPolicy` lockout safety check.
 	//
-	// The policy lockout safety check determines if the `FileSystemPolicy` in the request will lock out the IAM principal making the request, preventing them from making future `PutFileSystemPolicy` requests on the file system. Set `BypassPolicyLockoutSafetyCheck` to `True` only when you intend to prevent the IAM principal that is making the request from making a subsequent `PutFileSystemPolicy` request on the file system. The default value is `False` .
+	// The lockout safety check determines whether the policy in the request will lock out, or prevent, the IAM principal that is making the request from making future `PutFileSystemPolicy` requests on this file system. Set `BypassPolicyLockoutSafetyCheck` to `True` only when you intend to prevent the IAM principal that is making the request from making subsequent `PutFileSystemPolicy` requests on this file system. The default value is `False` .
 	BypassPolicyLockoutSafetyCheck interface{} `json:"bypassPolicyLockoutSafetyCheck" yaml:"bypassPolicyLockoutSafetyCheck"`
 	// A Boolean value that, if true, creates an encrypted file system.
 	//
@@ -2595,7 +2605,14 @@ type CfnFileSystemProps struct {
 	//
 	// If `KmsKeyId` is specified, the `Encrypted` parameter must be set to true.
 	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
-	// A list of one LifecyclePolicy that tells EFS lifecycle management when to transition files to the Infrequent Access (IA) storage classes.
+	// An array of `LifecyclePolicy` objects that define the file system's `LifecycleConfiguration` object.
+	//
+	// A `LifecycleConfiguration` object informs EFS lifecycle management and intelligent tiering of the following:
+	//
+	// - When to move files in the file system from primary storage to the IA storage class.
+	// - When to move files that are in IA storage to primary storage.
+	//
+	// > Amazon EFS requires that each `LifecyclePolicy` object have only a single transition. This means that in a request body, `LifecyclePolicies` needs to be structured as an array of `LifecyclePolicy` objects, one object for each transition, `TransitionToIA` , `TransitionToPrimaryStorageClass` . See the example requests in the following section for more information.
 	LifecyclePolicies interface{} `json:"lifecyclePolicies" yaml:"lifecyclePolicies"`
 	// The performance mode of the file system.
 	//

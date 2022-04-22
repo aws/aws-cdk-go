@@ -2204,7 +2204,7 @@ type CfnConfigRule_SourceDetailProperty struct {
 	MaximumExecutionFrequency *string `json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
 }
 
-// Provides the AWS Config rule owner ( AWS or customer), the rule identifier, and the events that trigger the evaluation of your AWS resources.
+// Provides the CustomPolicyDetails, the rule owner ( AWS or customer), the rule identifier, and the events that cause the evaluation of your AWS resources.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
@@ -2226,14 +2226,24 @@ type CfnConfigRule_SourceDetailProperty struct {
 //
 type CfnConfigRule_SourceProperty struct {
 	// Indicates whether AWS or the customer owns and manages the AWS Config rule.
+	//
+	// AWS Config Managed Rules are predefined rules owned by AWS . For more information, see [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) in the AWS Config developer guide.
+	//
+	// AWS Config Custom Rules are rules that you can develop either with Guard ( `CUSTOM_POLICY` ) or AWS Lambda ( `CUSTOM_LAMBDA` ). For more information, see [AWS Config Custom Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html) in the AWS Config developer guide.
 	Owner *string `json:"owner" yaml:"owner"`
-	// For AWS Config managed rules, a predefined identifier from a list.
+	// For AWS Config Managed rules, a predefined identifier from a list.
 	//
-	// For example, `IAM_PASSWORD_POLICY` is a managed rule. To reference a managed rule, see [Using AWS Config managed rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) .
+	// For example, `IAM_PASSWORD_POLICY` is a managed rule. To reference a managed rule, see [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) .
 	//
-	// For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as `arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name` .
+	// For AWS Config Custom Lambda rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as `arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name` .
+	//
+	// For AWS Config Custom Policy rules, this field will be ignored.
 	SourceIdentifier *string `json:"sourceIdentifier" yaml:"sourceIdentifier"`
-	// Provides the source and type of the event that causes AWS Config to evaluate your AWS resources.
+	// Provides the source and the message types that cause AWS Config to evaluate your AWS resources against a rule.
+	//
+	// It also provides the frequency with which you want AWS Config to run evaluations for the rule if the trigger type is periodic.
+	//
+	// If the owner is set to `CUSTOM_POLICY` , the only acceptable values for the AWS Config rule trigger message type are `ConfigurationItemChangeNotification` and `OversizedConfigurationItemChangeNotification` .
 	SourceDetails interface{} `json:"sourceDetails" yaml:"sourceDetails"`
 }
 
@@ -5677,7 +5687,7 @@ type CfnOrganizationConfigRule interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// A comma-separated list of accounts excluded from organization config rule.
+	// A comma-separated list of accounts excluded from organization AWS Config rule.
 	ExcludedAccounts() *[]*string
 	SetExcludedAccounts(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -5694,7 +5704,7 @@ type CfnOrganizationConfigRule interface {
 	// The construct tree node associated with this construct.
 	// Experimental.
 	Node() awscdk.ConstructNode
-	// The name that you assign to organization config rule.
+	// The name that you assign to organization AWS Config rule.
 	OrganizationConfigRuleName() *string
 	SetOrganizationConfigRuleName(val *string)
 	// `AWS::Config::OrganizationConfigRule.OrganizationCustomCodeRuleMetadata`.
@@ -6456,9 +6466,9 @@ type CfnOrganizationConfigRule_OrganizationCustomRuleMetadataProperty struct {
 	// - `OversizedConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
 	// - `ScheduledNotification` - Triggers a periodic evaluation at the frequency specified for `MaximumExecutionFrequency` .
 	OrganizationConfigRuleTriggerTypes *[]*string `json:"organizationConfigRuleTriggerTypes" yaml:"organizationConfigRuleTriggerTypes"`
-	// The description that you provide for organization config rule.
+	// The description that you provide for your organization AWS Config rule.
 	Description *string `json:"description" yaml:"description"`
-	// A string, in JSON format, that is passed to organization config rule Lambda function.
+	// A string, in JSON format, that is passed to your organization AWS Config rule Lambda function.
 	InputParameters *string `json:"inputParameters" yaml:"inputParameters"`
 	// The maximum frequency with which AWS Config runs evaluations for a rule.
 	//
@@ -6506,9 +6516,9 @@ type CfnOrganizationConfigRule_OrganizationManagedRuleMetadataProperty struct {
 	//
 	// For example, `IAM_PASSWORD_POLICY` is a managed rule. To reference a managed rule, see [Using AWS Config managed rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) .
 	RuleIdentifier *string `json:"ruleIdentifier" yaml:"ruleIdentifier"`
-	// The description that you provide for organization config rule.
+	// The description that you provide for your organization AWS Config rule.
 	Description *string `json:"description" yaml:"description"`
-	// A string, in JSON format, that is passed to organization config rule Lambda function.
+	// A string, in JSON format, that is passed to your organization AWS Config rule Lambda function.
 	InputParameters *string `json:"inputParameters" yaml:"inputParameters"`
 	// The maximum frequency with which AWS Config runs evaluations for a rule.
 	//
@@ -6596,9 +6606,9 @@ type CfnOrganizationConfigRule_OrganizationManagedRuleMetadataProperty struct {
 //   }
 //
 type CfnOrganizationConfigRuleProps struct {
-	// The name that you assign to organization config rule.
+	// The name that you assign to organization AWS Config rule.
 	OrganizationConfigRuleName *string `json:"organizationConfigRuleName" yaml:"organizationConfigRuleName"`
-	// A comma-separated list of accounts excluded from organization config rule.
+	// A comma-separated list of accounts excluded from organization AWS Config rule.
 	ExcludedAccounts *[]*string `json:"excludedAccounts" yaml:"excludedAccounts"`
 	// `AWS::Config::OrganizationConfigRule.OrganizationCustomCodeRuleMetadata`.
 	OrganizationCustomCodeRuleMetadata interface{} `json:"organizationCustomCodeRuleMetadata" yaml:"organizationCustomCodeRuleMetadata"`

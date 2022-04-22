@@ -11916,7 +11916,7 @@ const (
 //
 //   user := user.fromUserAttributes(this, jsii.String("User"), &userAttributes{
 //   	username: username,
-//   	password: secretValue.plainText(jsii.String("NOT_FOR_PRODUCTION")),
+//   	password: secretValue.unsafePlainText(jsii.String("NOT_FOR_PRODUCTION")),
 //   	cluster: cluster,
 //   	databaseName: databaseName,
 //   })
@@ -12418,7 +12418,7 @@ func (u *jsiiProxy_User) Validate() *[]*string {
 //
 //   user := user.fromUserAttributes(this, jsii.String("User"), &userAttributes{
 //   	username: username,
-//   	password: secretValue.plainText(jsii.String("NOT_FOR_PRODUCTION")),
+//   	password: secretValue.unsafePlainText(jsii.String("NOT_FOR_PRODUCTION")),
 //   	cluster: cluster,
 //   	databaseName: databaseName,
 //   })

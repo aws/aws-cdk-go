@@ -317,6 +317,10 @@ func init() {
 		reflect.TypeOf((*CfnFunction_FunctionSAMPTProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_sam.CfnFunction.HooksProperty",
+		reflect.TypeOf((*CfnFunction_HooksProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_sam.CfnFunction.IAMPolicyDocumentProperty",
 		reflect.TypeOf((*CfnFunction_IAMPolicyDocumentProperty)(nil)).Elem(),
 	)

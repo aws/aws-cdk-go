@@ -707,8 +707,8 @@ func init() {
 		reflect.TypeOf((*CfnTaskDefinition_DockerVolumeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ecs.CfnTaskDefinition.EfsVolumeConfigurationProperty",
-		reflect.TypeOf((*CfnTaskDefinition_EfsVolumeConfigurationProperty)(nil)).Elem(),
+		"monocdk.aws_ecs.CfnTaskDefinition.EFSVolumeConfigurationProperty",
+		reflect.TypeOf((*CfnTaskDefinition_EFSVolumeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_ecs.CfnTaskDefinition.EnvironmentFileProperty",

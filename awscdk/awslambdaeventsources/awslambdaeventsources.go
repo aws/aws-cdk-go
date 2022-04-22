@@ -124,13 +124,12 @@ const (
 	AuthenticationMethod_CLIENT_CERTIFICATE_TLS_AUTH AuthenticationMethod = "CLIENT_CERTIFICATE_TLS_AUTH"
 )
 
-// The set of properties for event sources that follow the streaming model, such as, Dynamo, Kinesis and Kafka.
+// The set of properties for streaming event sources shared by Dynamo, Kinesis and Kafka.
 //
 // Example:
 //   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda_event_sources "github.com/aws/aws-cdk-go/awscdk/aws_lambda_event_sources"
 //
 //   var duration duration
-//   var eventSourceDlq iEventSourceDlq
 //   baseStreamEventSourceProps := &baseStreamEventSourceProps{
 //   	startingPosition: lambda.startingPosition_TRIM_HORIZON,
 //
@@ -138,7 +137,6 @@ const (
 //   	batchSize: jsii.Number(123),
 //   	enabled: jsii.Boolean(false),
 //   	maxBatchingWindow: duration,
-//   	onFailure: eventSourceDlq,
 //   }
 //
 // Experimental.
@@ -166,9 +164,6 @@ type BaseStreamEventSourceProps struct {
 	// Maximum of Duration.minutes(5)
 	// Experimental.
 	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
-	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	// Experimental.
-	OnFailure awslambda.IEventSourceDlq `json:"onFailure" yaml:"onFailure"`
 }
 
 // Use an Amazon DynamoDB stream as an event source for AWS Lambda.
@@ -320,9 +315,6 @@ type DynamoEventSourceProps struct {
 	// Maximum of Duration.minutes(5)
 	// Experimental.
 	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
-	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	// Experimental.
-	OnFailure awslambda.IEventSourceDlq `json:"onFailure" yaml:"onFailure"`
 	// If the function returns an error, split the batch in two and retry.
 	// Experimental.
 	BisectBatchOnError *bool `json:"bisectBatchOnError" yaml:"bisectBatchOnError"`
@@ -333,6 +325,9 @@ type DynamoEventSourceProps struct {
 	// * Maximum value of 7 days.
 	// Experimental.
 	MaxRecordAge awscdk.Duration `json:"maxRecordAge" yaml:"maxRecordAge"`
+	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+	// Experimental.
+	OnFailure awslambda.IEventSourceDlq `json:"onFailure" yaml:"onFailure"`
 	// The number of batches to process from each shard concurrently.
 	//
 	// Valid Range:
@@ -359,7 +354,6 @@ type DynamoEventSourceProps struct {
 //   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda_event_sources "github.com/aws/aws-cdk-go/awscdk/aws_lambda_event_sources"import awscdk "github.com/aws/aws-cdk-go/awscdk"import secretsmanager "github.com/aws/aws-cdk-go/awscdk/aws_secretsmanager"
 //
 //   var duration duration
-//   var eventSourceDlq iEventSourceDlq
 //   var secret secret
 //   kafkaEventSourceProps := &kafkaEventSourceProps{
 //   	startingPosition: lambda.startingPosition_TRIM_HORIZON,
@@ -369,7 +363,6 @@ type DynamoEventSourceProps struct {
 //   	batchSize: jsii.Number(123),
 //   	enabled: jsii.Boolean(false),
 //   	maxBatchingWindow: duration,
-//   	onFailure: eventSourceDlq,
 //   	secret: secret,
 //   }
 //
@@ -398,9 +391,6 @@ type KafkaEventSourceProps struct {
 	// Maximum of Duration.minutes(5)
 	// Experimental.
 	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
-	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	// Experimental.
-	OnFailure awslambda.IEventSourceDlq `json:"onFailure" yaml:"onFailure"`
 	// The Kafka topic to subscribe to.
 	// Experimental.
 	Topic *string `json:"topic" yaml:"topic"`
@@ -560,9 +550,6 @@ type KinesisEventSourceProps struct {
 	// Maximum of Duration.minutes(5)
 	// Experimental.
 	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
-	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	// Experimental.
-	OnFailure awslambda.IEventSourceDlq `json:"onFailure" yaml:"onFailure"`
 	// If the function returns an error, split the batch in two and retry.
 	// Experimental.
 	BisectBatchOnError *bool `json:"bisectBatchOnError" yaml:"bisectBatchOnError"`
@@ -573,6 +560,9 @@ type KinesisEventSourceProps struct {
 	// * Maximum value of 7 days.
 	// Experimental.
 	MaxRecordAge awscdk.Duration `json:"maxRecordAge" yaml:"maxRecordAge"`
+	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+	// Experimental.
+	OnFailure awslambda.IEventSourceDlq `json:"onFailure" yaml:"onFailure"`
 	// The number of batches to process from each shard concurrently.
 	//
 	// Valid Range:
@@ -760,9 +750,6 @@ type ManagedKafkaEventSourceProps struct {
 	// Maximum of Duration.minutes(5)
 	// Experimental.
 	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
-	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	// Experimental.
-	OnFailure awslambda.IEventSourceDlq `json:"onFailure" yaml:"onFailure"`
 	// The Kafka topic to subscribe to.
 	// Experimental.
 	Topic *string `json:"topic" yaml:"topic"`
@@ -1038,9 +1025,6 @@ type SelfManagedKafkaEventSourceProps struct {
 	// Maximum of Duration.minutes(5)
 	// Experimental.
 	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
-	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	// Experimental.
-	OnFailure awslambda.IEventSourceDlq `json:"onFailure" yaml:"onFailure"`
 	// The Kafka topic to subscribe to.
 	// Experimental.
 	Topic *string `json:"topic" yaml:"topic"`
@@ -1488,7 +1472,7 @@ func (s *jsiiProxy_StreamEventSource) EnrichMappingOptions(options *awslambda.Ev
 	return returns
 }
 
-// The set of properties for event sources that follow the streaming model, such as, Dynamo, Kinesis.
+// The set of properties for streaming event sources shared by Dynamo and Kinesis.
 //
 // Example:
 //   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda_event_sources "github.com/aws/aws-cdk-go/awscdk/aws_lambda_event_sources"
@@ -1536,9 +1520,6 @@ type StreamEventSourceProps struct {
 	// Maximum of Duration.minutes(5)
 	// Experimental.
 	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
-	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	// Experimental.
-	OnFailure awslambda.IEventSourceDlq `json:"onFailure" yaml:"onFailure"`
 	// If the function returns an error, split the batch in two and retry.
 	// Experimental.
 	BisectBatchOnError *bool `json:"bisectBatchOnError" yaml:"bisectBatchOnError"`
@@ -1549,6 +1530,9 @@ type StreamEventSourceProps struct {
 	// * Maximum value of 7 days.
 	// Experimental.
 	MaxRecordAge awscdk.Duration `json:"maxRecordAge" yaml:"maxRecordAge"`
+	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+	// Experimental.
+	OnFailure awslambda.IEventSourceDlq `json:"onFailure" yaml:"onFailure"`
 	// The number of batches to process from each shard concurrently.
 	//
 	// Valid Range:

@@ -12799,6 +12799,21 @@ type DistributionProps struct {
 	// that has the lowest latency among the edge locations in your price class.
 	// Experimental.
 	PriceClass PriceClass `json:"priceClass" yaml:"priceClass"`
+	// The SSL method CloudFront will use for your distribution.
+	//
+	// Server Name Indication (SNI) - is an extension to the TLS computer networking protocol by which a client indicates
+	// which hostname it is attempting to connect to at the start of the handshaking process. This allows a server to present
+	// multiple certificates on the same IP address and TCP port number and hence allows multiple secure (HTTPS) websites
+	// (or any other service over TLS) to be served by the same IP address without requiring all those sites to use the same certificate.
+	//
+	// CloudFront can use SNI to host multiple distributions on the same IP - which a large majority of clients will support.
+	//
+	// If your clients cannot support SNI however - CloudFront can use dedicated IPs for your distribution - but there is a prorated monthly charge for
+	// using this feature. By default, we use SNI - but you can optionally enable dedicated IPs (VIP).
+	//
+	// See the CloudFront SSL for more details about pricing : https://aws.amazon.com/cloudfront/custom-ssl-domains/
+	// Experimental.
+	SslSupportMethod SSLMethod `json:"sslSupportMethod" yaml:"sslSupportMethod"`
 	// Unique identifier that specifies the AWS WAF web ACL to associate with this CloudFront distribution.
 	//
 	// To specify a web ACL created using the latest version of AWS WAF, use the ACL ARN, for example
@@ -18341,13 +18356,6 @@ type S3OriginConfig struct {
 // Example:
 //   s3BucketSource := s3.NewBucket(this, jsii.String("Bucket"))
 //
-//   certificate := certificatemanager.NewCertificate(this, jsii.String("Certificate"), &certificateProps{
-//   	domainName: jsii.String("example.com"),
-//   	subjectAlternativeNames: []*string{
-//   		jsii.String("*.example.com"),
-//   	},
-//   })
-//
 //   distribution := cloudfront.NewCloudFrontWebDistribution(this, jsii.String("AnAmazingWebsiteProbably"), &cloudFrontWebDistributionProps{
 //   	originConfigs: []sourceConfiguration{
 //   		&sourceConfiguration{
@@ -18361,12 +18369,11 @@ type S3OriginConfig struct {
 //   			},
 //   		},
 //   	},
-//   	viewerCertificate: cloudfront.viewerCertificate.fromAcmCertificate(certificate, &viewerCertificateOptions{
+//   	viewerCertificate: cloudfront.viewerCertificate.fromIamCertificate(jsii.String("certificateId"), &viewerCertificateOptions{
 //   		aliases: []*string{
 //   			jsii.String("example.com"),
-//   			jsii.String("www.example.com"),
 //   		},
-//   		securityPolicy: cloudfront.securityPolicyProtocol_TLS_V1,
+//   		securityPolicy: cloudfront.securityPolicyProtocol_SSL_V3,
 //   		 // default
 //   		sslMethod: cloudfront.sSLMethod_SNI,
 //   	}),

@@ -875,6 +875,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_route53.PublicHostedZoneAttributes",
+		reflect.TypeOf((*PublicHostedZoneAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_route53.PublicHostedZoneProps",
 		reflect.TypeOf((*PublicHostedZoneProps)(nil)).Elem(),
 	)

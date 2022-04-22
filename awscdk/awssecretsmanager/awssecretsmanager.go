@@ -2697,7 +2697,7 @@ type CfnSecretProps struct {
 
 // A CloudFormation `AWS::SecretsManager::SecretTargetAttachment`.
 //
-// The `AWS::SecretsManager::SecretTargetAttachment` resource completes the final link between a Secrets Manager secret and the associated database. This is required because each has a dependency on the other.
+// The `AWS::SecretsManager::SecretTargetAttachment` resource completes the final link between a Secrets Manager secret and the associated database by adding the database connection information to the secret JSON. If you want to turn on automatic rotation for a database credential secret, the secret must contain the database connection information. For more information, see [JSON structure of Secrets Manager database credential secrets](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_secret_json_structure.html) .
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import secretsmanager "github.com/aws/aws-cdk-go/awscdk/aws_secretsmanager"
@@ -5844,9 +5844,23 @@ type SecretProps struct {
 	// Specifies text data that you want to encrypt and store in this new version of the secret.
 	// May be a simple string value, or a string representation of a JSON structure.
 	//
-	// Only one of `secretString` and `generateSecretString` can be provided.
-	// Experimental.
+	// Only one of `secretStringBeta1`, `secretStringValue`, and `generateSecretString` can be provided.
+	// Deprecated: Use `secretStringValue` instead.
 	SecretStringBeta1 SecretStringValueBeta1 `json:"secretStringBeta1" yaml:"secretStringBeta1"`
+	// Initial value for the secret.
+	//
+	// **NOTE:** *It is **highly** encouraged to leave this field undefined and allow SecretsManager to create the secret value.
+	// The secret string -- if provided -- will be included in the output of the cdk as part of synthesis,
+	// and will appear in the CloudFormation template in the console. This can be secure(-ish) if that value is merely reference to
+	// another resource (or one of its attributes), but if the value is a plaintext string, it will be visible to anyone with access
+	// to the CloudFormation template (via the AWS Console, SDKs, or CLI).
+	//
+	// Specifies text data that you want to encrypt and store in this new version of the secret.
+	// May be a simple string value, or a string representation of a JSON structure.
+	//
+	// Only one of `secretStringBeta1`, `secretStringValue`, and `generateSecretString` can be provided.
+	// Experimental.
+	SecretStringValue awscdk.SecretValue `json:"secretStringValue" yaml:"secretStringValue"`
 }
 
 // Secret rotation for a service or database.
@@ -6515,10 +6529,10 @@ type SecretStringGenerator struct {
 //   	secretStringBeta1: secretValue,
 //   })
 //
-// Experimental.
+// Deprecated: Use `cdk.SecretValue` instead.
 type SecretStringValueBeta1 interface {
 	// Returns the secret value.
-	// Experimental.
+	// Deprecated: Use `cdk.SecretValue` instead.
 	SecretValue() *string
 }
 
@@ -6534,27 +6548,33 @@ type jsiiProxy_SecretStringValueBeta1 struct {
 // This method throws if it determines the input is an unsafe plaintext string.
 //
 // For example:
+//
 // ```ts
-//      // Creates a new IAM user, access and secret keys, and stores the secret access key in a Secret.
-//      const user = new iam.User(this, 'User');
-//      const accessKey = new iam.AccessKey(this, 'AccessKey', { user });
-//      const secretValue = secretsmanager.SecretStringValueBeta1.fromToken(accessKey.secretAccessKey.toString());
-//      new secretsmanager.Secret(this, 'Secret', {
-//        secretStringBeta1: secretValue,
-//      });
+// // Creates a new IAM user, access and secret keys, and stores the secret access key in a Secret.
+// const user = new iam.User(this, 'User');
+// const accessKey = new iam.AccessKey(this, 'AccessKey', { user });
+// const secretValue = secretsmanager.SecretStringValueBeta1.fromToken(accessKey.secretAccessKey.toString());
+// new secretsmanager.Secret(this, 'Secret', {
+//    secretStringBeta1: secretValue,
+// });
 // ```
 //
 // The secret may also be embedded in a string representation of a JSON structure:
-//      const secretValue = secretsmanager.SecretStringValueBeta1.fromToken(JSON.stringify({
-//        username: user.userName,
-//        database: 'foo',
-//        password: accessKey.secretAccessKey.toString(),
-//      }));
+//
+// ```ts
+// const user = new iam.User(this, 'User');
+// const accessKey = new iam.AccessKey(this, 'AccessKey', { user });
+// const secretValue = secretsmanager.SecretStringValueBeta1.fromToken(JSON.stringify({
+//    username: user.userName,
+//    database: 'foo',
+//    password: accessKey.secretAccessKey.unsafeUnwrap(),
+// }));
+// ```
 //
 // Note that the value being a Token does *not* guarantee safety. For example, a Lazy-evaluated string
 // (e.g., `Lazy.string({ produce: () => 'myInsecurePassword' }))`) is a Token, but as the output is
 // ultimately a plaintext string, and so insecure.
-// Experimental.
+// Deprecated: Use `cdk.SecretValue` instead.
 func SecretStringValueBeta1_FromToken(secretValueFromToken *string) SecretStringValueBeta1 {
 	_init_.Initialize()
 
@@ -6575,7 +6595,7 @@ func SecretStringValueBeta1_FromToken(secretValueFromToken *string) SecretString
 // This approach is inherently unsafe, as the secret value may be visible in your source control repository
 // and will also appear in plaintext in the resulting CloudFormation template, including in the AWS Console or APIs.
 // Usage of this method is discouraged, especially for production workloads.
-// Experimental.
+// Deprecated: Use `cdk.SecretValue` instead.
 func SecretStringValueBeta1_FromUnsafePlaintext(secretValue *string) SecretStringValueBeta1 {
 	_init_.Initialize()
 

@@ -10126,7 +10126,7 @@ func DockerImage_FromAsset(scope constructs.Construct, id *string, props *awsecr
 
 // Reference a Docker image stored in an ECR repository.
 // Experimental.
-func DockerImage_FromEcrRepository(repository awsecr.IRepository, tag *string) DockerImage {
+func DockerImage_FromEcrRepository(repository awsecr.IRepository, tagOrDigest *string) DockerImage {
 	_init_.Initialize()
 
 	var returns DockerImage
@@ -10134,7 +10134,7 @@ func DockerImage_FromEcrRepository(repository awsecr.IRepository, tag *string) D
 	_jsii_.StaticInvoke(
 		"monocdk.aws_stepfunctions_tasks.DockerImage",
 		"fromEcrRepository",
-		[]interface{}{repository, tag},
+		[]interface{}{repository, tagOrDigest},
 		&returns,
 	)
 

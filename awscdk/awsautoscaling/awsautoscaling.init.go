@@ -786,6 +786,14 @@ func init() {
 			return &jsiiProxy_ILifecycleHookTarget{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_autoscaling.InstancesDistribution",
+		reflect.TypeOf((*InstancesDistribution)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_autoscaling.LaunchTemplateOverrides",
+		reflect.TypeOf((*LaunchTemplateOverrides)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_autoscaling.LifecycleHook",
 		reflect.TypeOf((*LifecycleHook)(nil)).Elem(),
@@ -844,6 +852,10 @@ func init() {
 		"monocdk.aws_autoscaling.MetricTargetTrackingProps",
 		reflect.TypeOf((*MetricTargetTrackingProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_autoscaling.MixedInstancesPolicy",
+		reflect.TypeOf((*MixedInstancesPolicy)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"monocdk.aws_autoscaling.Monitoring",
 		reflect.TypeOf((*Monitoring)(nil)).Elem(),
@@ -859,6 +871,13 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_autoscaling.NotificationConfiguration",
 		reflect.TypeOf((*NotificationConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_autoscaling.OnDemandAllocationStrategy",
+		reflect.TypeOf((*OnDemandAllocationStrategy)(nil)).Elem(),
+		map[string]interface{}{
+			"PRIORITIZED": OnDemandAllocationStrategy_PRIORITIZED,
+		},
 	)
 	_jsii_.RegisterEnum(
 		"monocdk.aws_autoscaling.PoolState",
@@ -986,6 +1005,15 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_autoscaling.SignalsOptions",
 		reflect.TypeOf((*SignalsOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_autoscaling.SpotAllocationStrategy",
+		reflect.TypeOf((*SpotAllocationStrategy)(nil)).Elem(),
+		map[string]interface{}{
+			"LOWEST_PRICE": SpotAllocationStrategy_LOWEST_PRICE,
+			"CAPACITY_OPTIMIZED": SpotAllocationStrategy_CAPACITY_OPTIMIZED,
+			"CAPACITY_OPTIMIZED_PRIORITIZED": SpotAllocationStrategy_CAPACITY_OPTIMIZED_PRIORITIZED,
+		},
 	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_autoscaling.StepScalingAction",

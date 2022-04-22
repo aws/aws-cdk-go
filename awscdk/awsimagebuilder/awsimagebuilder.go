@@ -2204,17 +2204,47 @@ type CfnContainerRecipeProps struct {
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
-//
-//   var amiDistributionConfiguration interface{}
-//   var containerDistributionConfiguration interface{}
 //   cfnDistributionConfiguration := imagebuilder.NewCfnDistributionConfiguration(this, jsii.String("MyCfnDistributionConfiguration"), &cfnDistributionConfigurationProps{
 //   	distributions: []interface{}{
 //   		&distributionProperty{
 //   			region: jsii.String("region"),
 //
 //   			// the properties below are optional
-//   			amiDistributionConfiguration: amiDistributionConfiguration,
-//   			containerDistributionConfiguration: containerDistributionConfiguration,
+//   			amiDistributionConfiguration: &amiDistributionConfigurationProperty{
+//   				amiTags: map[string]*string{
+//   					"amiTagsKey": jsii.String("amiTags"),
+//   				},
+//   				description: jsii.String("description"),
+//   				kmsKeyId: jsii.String("kmsKeyId"),
+//   				launchPermissionConfiguration: &launchPermissionConfigurationProperty{
+//   					organizationalUnitArns: []*string{
+//   						jsii.String("organizationalUnitArns"),
+//   					},
+//   					organizationArns: []*string{
+//   						jsii.String("organizationArns"),
+//   					},
+//   					userGroups: []*string{
+//   						jsii.String("userGroups"),
+//   					},
+//   					userIds: []*string{
+//   						jsii.String("userIds"),
+//   					},
+//   				},
+//   				name: jsii.String("name"),
+//   				targetAccountIds: []*string{
+//   					jsii.String("targetAccountIds"),
+//   				},
+//   			},
+//   			containerDistributionConfiguration: &containerDistributionConfigurationProperty{
+//   				containerTags: []*string{
+//   					jsii.String("containerTags"),
+//   				},
+//   				description: jsii.String("description"),
+//   				targetRepository: &targetContainerRepositoryProperty{
+//   					repositoryName: jsii.String("repositoryName"),
+//   					service: jsii.String("service"),
+//   				},
+//   			},
 //   			launchTemplateConfigurations: []interface{}{
 //   				&launchTemplateConfigurationProperty{
 //   					accountId: jsii.String("accountId"),
@@ -2942,6 +2972,77 @@ func (c *jsiiProxy_CfnDistributionConfiguration) ValidateProperties(_properties 
 	)
 }
 
+// Define and configure the output AMIs of the pipeline.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   amiDistributionConfigurationProperty := &amiDistributionConfigurationProperty{
+//   	amiTags: map[string]*string{
+//   		"amiTagsKey": jsii.String("amiTags"),
+//   	},
+//   	description: jsii.String("description"),
+//   	kmsKeyId: jsii.String("kmsKeyId"),
+//   	launchPermissionConfiguration: &launchPermissionConfigurationProperty{
+//   		organizationalUnitArns: []*string{
+//   			jsii.String("organizationalUnitArns"),
+//   		},
+//   		organizationArns: []*string{
+//   			jsii.String("organizationArns"),
+//   		},
+//   		userGroups: []*string{
+//   			jsii.String("userGroups"),
+//   		},
+//   		userIds: []*string{
+//   			jsii.String("userIds"),
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//   	targetAccountIds: []*string{
+//   		jsii.String("targetAccountIds"),
+//   	},
+//   }
+//
+type CfnDistributionConfiguration_AmiDistributionConfigurationProperty struct {
+	// The tags to apply to AMIs distributed to this Region.
+	AmiTags interface{} `json:"amiTags" yaml:"amiTags"`
+	// The description of the AMI distribution configuration.
+	//
+	// Minimum and maximum length are in characters.
+	Description *string `json:"description" yaml:"description"`
+	// The KMS key identifier used to encrypt the distributed image.
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	// `CfnDistributionConfiguration.AmiDistributionConfigurationProperty.LaunchPermissionConfiguration`.
+	LaunchPermissionConfiguration interface{} `json:"launchPermissionConfiguration" yaml:"launchPermissionConfiguration"`
+	// The name of the output AMI.
+	Name *string `json:"name" yaml:"name"`
+	// The ID of an account to which you want to distribute an image.
+	TargetAccountIds *[]*string `json:"targetAccountIds" yaml:"targetAccountIds"`
+}
+
+// Container distribution settings for encryption, licensing, and sharing in a specific Region.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   containerDistributionConfigurationProperty := &containerDistributionConfigurationProperty{
+//   	containerTags: []*string{
+//   		jsii.String("containerTags"),
+//   	},
+//   	description: jsii.String("description"),
+//   	targetRepository: &targetContainerRepositoryProperty{
+//   		repositoryName: jsii.String("repositoryName"),
+//   		service: jsii.String("service"),
+//   	},
+//   }
+//
+type CfnDistributionConfiguration_ContainerDistributionConfigurationProperty struct {
+	// Tags that are attached to the container distribution configuration.
+	ContainerTags *[]*string `json:"containerTags" yaml:"containerTags"`
+	// The description of the container distribution configuration.
+	Description *string `json:"description" yaml:"description"`
+	// The destination repository for the container distribution configuration.
+	TargetRepository interface{} `json:"targetRepository" yaml:"targetRepository"`
+}
+
 // The distribution configuration distribution defines the settings for a specific Region in the Distribution Configuration.
 //
 // You must specify whether the distribution is for an AMI or a container image. To do so, include exactly one of the following data types for your distribution:
@@ -2951,15 +3052,45 @@ func (c *jsiiProxy_CfnDistributionConfiguration) ValidateProperties(_properties 
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
-//
-//   var amiDistributionConfiguration interface{}
-//   var containerDistributionConfiguration interface{}
 //   distributionProperty := &distributionProperty{
 //   	region: jsii.String("region"),
 //
 //   	// the properties below are optional
-//   	amiDistributionConfiguration: amiDistributionConfiguration,
-//   	containerDistributionConfiguration: containerDistributionConfiguration,
+//   	amiDistributionConfiguration: &amiDistributionConfigurationProperty{
+//   		amiTags: map[string]*string{
+//   			"amiTagsKey": jsii.String("amiTags"),
+//   		},
+//   		description: jsii.String("description"),
+//   		kmsKeyId: jsii.String("kmsKeyId"),
+//   		launchPermissionConfiguration: &launchPermissionConfigurationProperty{
+//   			organizationalUnitArns: []*string{
+//   				jsii.String("organizationalUnitArns"),
+//   			},
+//   			organizationArns: []*string{
+//   				jsii.String("organizationArns"),
+//   			},
+//   			userGroups: []*string{
+//   				jsii.String("userGroups"),
+//   			},
+//   			userIds: []*string{
+//   				jsii.String("userIds"),
+//   			},
+//   		},
+//   		name: jsii.String("name"),
+//   		targetAccountIds: []*string{
+//   			jsii.String("targetAccountIds"),
+//   		},
+//   	},
+//   	containerDistributionConfiguration: &containerDistributionConfigurationProperty{
+//   		containerTags: []*string{
+//   			jsii.String("containerTags"),
+//   		},
+//   		description: jsii.String("description"),
+//   		targetRepository: &targetContainerRepositoryProperty{
+//   			repositoryName: jsii.String("repositoryName"),
+//   			service: jsii.String("service"),
+//   		},
+//   	},
 //   	launchTemplateConfigurations: []interface{}{
 //   		&launchTemplateConfigurationProperty{
 //   			accountId: jsii.String("accountId"),
@@ -2993,6 +3124,42 @@ type CfnDistributionConfiguration_DistributionProperty struct {
 	LicenseConfigurationArns *[]*string `json:"licenseConfigurationArns" yaml:"licenseConfigurationArns"`
 }
 
+// Describes the configuration for a launch permission.
+//
+// The launch permission modification request is sent to the [Amazon EC2 ModifyImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html) API on behalf of the user for each Region they have selected to distribute the AMI. To make an AMI public, set the launch permission authorized accounts to `all` . See the examples for making an AMI public at [Amazon EC2 ModifyImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html) .
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   launchPermissionConfigurationProperty := &launchPermissionConfigurationProperty{
+//   	organizationalUnitArns: []*string{
+//   		jsii.String("organizationalUnitArns"),
+//   	},
+//   	organizationArns: []*string{
+//   		jsii.String("organizationArns"),
+//   	},
+//   	userGroups: []*string{
+//   		jsii.String("userGroups"),
+//   	},
+//   	userIds: []*string{
+//   		jsii.String("userIds"),
+//   	},
+//   }
+//
+type CfnDistributionConfiguration_LaunchPermissionConfigurationProperty struct {
+	// The ARN for an AWS Organizations organizational unit (OU) that you want to share your AMI with.
+	//
+	// For more information about key concepts for AWS Organizations , see [AWS Organizations terminology and concepts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html) .
+	OrganizationalUnitArns *[]*string `json:"organizationalUnitArns" yaml:"organizationalUnitArns"`
+	// The ARN for an AWS Organization that you want to share your AMI with.
+	//
+	// For more information, see [What is AWS Organizations ?](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html) .
+	OrganizationArns *[]*string `json:"organizationArns" yaml:"organizationArns"`
+	// The name of the group.
+	UserGroups *[]*string `json:"userGroups" yaml:"userGroups"`
+	// The AWS account ID.
+	UserIds *[]*string `json:"userIds" yaml:"userIds"`
+}
+
 // Identifies an Amazon EC2 launch template to use for a specific account.
 //
 // Example:
@@ -3012,21 +3179,69 @@ type CfnDistributionConfiguration_LaunchTemplateConfigurationProperty struct {
 	SetDefaultVersion interface{} `json:"setDefaultVersion" yaml:"setDefaultVersion"`
 }
 
+// The container repository where the output container image is stored.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   targetContainerRepositoryProperty := &targetContainerRepositoryProperty{
+//   	repositoryName: jsii.String("repositoryName"),
+//   	service: jsii.String("service"),
+//   }
+//
+type CfnDistributionConfiguration_TargetContainerRepositoryProperty struct {
+	// The name of the container repository where the output container image is stored.
+	//
+	// This name is prefixed by the repository location.
+	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
+	// Specifies the service in which this image was registered.
+	Service *string `json:"service" yaml:"service"`
+}
+
 // Properties for defining a `CfnDistributionConfiguration`.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
-//
-//   var amiDistributionConfiguration interface{}
-//   var containerDistributionConfiguration interface{}
 //   cfnDistributionConfigurationProps := &cfnDistributionConfigurationProps{
 //   	distributions: []interface{}{
 //   		&distributionProperty{
 //   			region: jsii.String("region"),
 //
 //   			// the properties below are optional
-//   			amiDistributionConfiguration: amiDistributionConfiguration,
-//   			containerDistributionConfiguration: containerDistributionConfiguration,
+//   			amiDistributionConfiguration: &amiDistributionConfigurationProperty{
+//   				amiTags: map[string]*string{
+//   					"amiTagsKey": jsii.String("amiTags"),
+//   				},
+//   				description: jsii.String("description"),
+//   				kmsKeyId: jsii.String("kmsKeyId"),
+//   				launchPermissionConfiguration: &launchPermissionConfigurationProperty{
+//   					organizationalUnitArns: []*string{
+//   						jsii.String("organizationalUnitArns"),
+//   					},
+//   					organizationArns: []*string{
+//   						jsii.String("organizationArns"),
+//   					},
+//   					userGroups: []*string{
+//   						jsii.String("userGroups"),
+//   					},
+//   					userIds: []*string{
+//   						jsii.String("userIds"),
+//   					},
+//   				},
+//   				name: jsii.String("name"),
+//   				targetAccountIds: []*string{
+//   					jsii.String("targetAccountIds"),
+//   				},
+//   			},
+//   			containerDistributionConfiguration: &containerDistributionConfigurationProperty{
+//   				containerTags: []*string{
+//   					jsii.String("containerTags"),
+//   				},
+//   				description: jsii.String("description"),
+//   				targetRepository: &targetContainerRepositoryProperty{
+//   					repositoryName: jsii.String("repositoryName"),
+//   					service: jsii.String("service"),
+//   				},
+//   			},
 //   			launchTemplateConfigurations: []interface{}{
 //   				&launchTemplateConfigurationProperty{
 //   					accountId: jsii.String("accountId"),
@@ -5031,7 +5246,7 @@ type CfnImageRecipe interface {
 	Node() awscdk.ConstructNode
 	// The parent image of the image recipe.
 	//
-	// The string must be either an Image ARN (SemVers is ok) or an AMI ID.
+	// The string must be either an Image ARN or an AMI ID.
 	ParentImage() *string
 	SetParentImage(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -6011,7 +6226,7 @@ type CfnImageRecipeProps struct {
 	Name *string `json:"name" yaml:"name"`
 	// The parent image of the image recipe.
 	//
-	// The string must be either an Image ARN (SemVers is ok) or an AMI ID.
+	// The string must be either an Image ARN or an AMI ID.
 	ParentImage *string `json:"parentImage" yaml:"parentImage"`
 	// The semantic version of the image recipe.
 	Version *string `json:"version" yaml:"version"`

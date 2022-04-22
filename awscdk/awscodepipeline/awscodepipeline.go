@@ -5646,6 +5646,15 @@ type StageOptions struct {
 	// You can always add more Actions later by calling {@link IStage#addAction}.
 	// Experimental.
 	Actions *[]IAction `json:"actions" yaml:"actions"`
+	// The reason for disabling transition to this stage.
+	//
+	// Only applicable
+	// if `transitionToEnabled` is set to `false`.
+	// Experimental.
+	TransitionDisabledReason *string `json:"transitionDisabledReason" yaml:"transitionDisabledReason"`
+	// Whether to enable transition to this stage.
+	// Experimental.
+	TransitionToEnabled *bool `json:"transitionToEnabled" yaml:"transitionToEnabled"`
 	// Experimental.
 	Placement *StagePlacement `json:"placement" yaml:"placement"`
 }
@@ -5695,6 +5704,8 @@ type StagePlacement struct {
 //   	actions: []iAction{
 //   		action,
 //   	},
+//   	transitionDisabledReason: jsii.String("transitionDisabledReason"),
+//   	transitionToEnabled: jsii.Boolean(false),
 //   }
 //
 // Experimental.
@@ -5707,5 +5718,14 @@ type StageProps struct {
 	// You can always add more Actions later by calling {@link IStage#addAction}.
 	// Experimental.
 	Actions *[]IAction `json:"actions" yaml:"actions"`
+	// The reason for disabling transition to this stage.
+	//
+	// Only applicable
+	// if `transitionToEnabled` is set to `false`.
+	// Experimental.
+	TransitionDisabledReason *string `json:"transitionDisabledReason" yaml:"transitionDisabledReason"`
+	// Whether to enable transition to this stage.
+	// Experimental.
+	TransitionToEnabled *bool `json:"transitionToEnabled" yaml:"transitionToEnabled"`
 }
 

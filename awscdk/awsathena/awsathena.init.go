@@ -173,7 +173,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreationTime", GoGetter: "AttrCreationTime"},
 			_jsii_.MemberProperty{JsiiProperty: "attrWorkGroupConfigurationEngineVersionEffectiveEngineVersion", GoGetter: "AttrWorkGroupConfigurationEngineVersionEffectiveEngineVersion"},
-			_jsii_.MemberProperty{JsiiProperty: "attrWorkGroupConfigurationUpdatesEngineVersionEffectiveEngineVersion", GoGetter: "AttrWorkGroupConfigurationUpdatesEngineVersionEffectiveEngineVersion"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -203,7 +202,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "workGroupConfiguration", GoGetter: "WorkGroupConfiguration"},
-			_jsii_.MemberProperty{JsiiProperty: "workGroupConfigurationUpdates", GoGetter: "WorkGroupConfigurationUpdates"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnWorkGroup{}
@@ -225,16 +223,8 @@ func init() {
 		reflect.TypeOf((*CfnWorkGroup_ResultConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_athena.CfnWorkGroup.ResultConfigurationUpdatesProperty",
-		reflect.TypeOf((*CfnWorkGroup_ResultConfigurationUpdatesProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"monocdk.aws_athena.CfnWorkGroup.WorkGroupConfigurationProperty",
 		reflect.TypeOf((*CfnWorkGroup_WorkGroupConfigurationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"monocdk.aws_athena.CfnWorkGroup.WorkGroupConfigurationUpdatesProperty",
-		reflect.TypeOf((*CfnWorkGroup_WorkGroupConfigurationUpdatesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_athena.CfnWorkGroupProps",

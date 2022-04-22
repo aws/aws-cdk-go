@@ -199,12 +199,28 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_imagebuilder.CfnDistributionConfiguration.AmiDistributionConfigurationProperty",
+		reflect.TypeOf((*CfnDistributionConfiguration_AmiDistributionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_imagebuilder.CfnDistributionConfiguration.ContainerDistributionConfigurationProperty",
+		reflect.TypeOf((*CfnDistributionConfiguration_ContainerDistributionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_imagebuilder.CfnDistributionConfiguration.DistributionProperty",
 		reflect.TypeOf((*CfnDistributionConfiguration_DistributionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_imagebuilder.CfnDistributionConfiguration.LaunchPermissionConfigurationProperty",
+		reflect.TypeOf((*CfnDistributionConfiguration_LaunchPermissionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_imagebuilder.CfnDistributionConfiguration.LaunchTemplateConfigurationProperty",
 		reflect.TypeOf((*CfnDistributionConfiguration_LaunchTemplateConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_imagebuilder.CfnDistributionConfiguration.TargetContainerRepositoryProperty",
+		reflect.TypeOf((*CfnDistributionConfiguration_TargetContainerRepositoryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_imagebuilder.CfnDistributionConfigurationProps",

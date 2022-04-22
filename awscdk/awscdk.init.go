@@ -2164,6 +2164,7 @@ func init() {
 		"monocdk.IResolveContext",
 		reflect.TypeOf((*IResolveContext)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "documentPath", GoGetter: "DocumentPath"},
 			_jsii_.MemberProperty{JsiiProperty: "preparing", GoGetter: "Preparing"},
 			_jsii_.MemberMethod{JsiiMethod: "registerPostProcessor", GoMethod: "RegisterPostProcessor"},
 			_jsii_.MemberMethod{JsiiMethod: "resolve", GoMethod: "Resolve"},
@@ -2599,6 +2600,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "resolve", GoMethod: "Resolve"},
 			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "unsafeUnwrap", GoMethod: "UnsafeUnwrap"},
 		},
 		func() interface{} {
 			j := jsiiProxy_SecretValue{}

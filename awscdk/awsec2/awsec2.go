@@ -22749,8 +22749,8 @@ type CfnInstance_EbsProperty struct {
 	//
 	// - Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
 	// - Key alias. For example, alias/ExampleAlias.
-	// - Key ARN. For example, arn:aws:kms:us-east-1:012345678910:1234abcd-12ab-34cd-56ef-1234567890ab.
-	// - Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
+	// - Key ARN. For example, arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab.
+	// - Alias ARN. For example, arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias.
 	//
 	// > After the instance is running, modifying this parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
 	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
@@ -25395,7 +25395,9 @@ type CfnLaunchTemplate_InstanceRequirementsProperty struct {
 	VCpuCount interface{} `json:"vCpuCount" yaml:"vCpuCount"`
 }
 
-// Describes an IPv4 prefix.
+// Specifies an IPv4 prefix for a network interface.
+//
+// `Ipv4PrefixSpecification` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html) .
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
@@ -25427,7 +25429,9 @@ type CfnLaunchTemplate_Ipv6AddProperty struct {
 	Ipv6Address *string `json:"ipv6Address" yaml:"ipv6Address"`
 }
 
-// Describes the IPv6 prefix.
+// Specifies an IPv6 prefix for a network interface.
+//
+// `Ipv6PrefixSpecification` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html) .
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
@@ -25441,6 +25445,8 @@ type CfnLaunchTemplate_Ipv6PrefixSpecificationProperty struct {
 }
 
 // The information to include in the launch template.
+//
+// > You must specify at least one parameter for the launch template data.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
@@ -25580,6 +25586,9 @@ type CfnLaunchTemplate_Ipv6PrefixSpecificationProperty struct {
 //   			licenseConfigurationArn: jsii.String("licenseConfigurationArn"),
 //   		},
 //   	},
+//   	maintenanceOptions: &maintenanceOptionsProperty{
+//   		autoRecovery: jsii.String("autoRecovery"),
+//   	},
 //   	metadataOptions: &metadataOptionsProperty{
 //   		httpEndpoint: jsii.String("httpEndpoint"),
 //   		httpProtocolIpv6: jsii.String("httpProtocolIpv6"),
@@ -25715,7 +25724,11 @@ type CfnLaunchTemplate_LaunchTemplateDataProperty struct {
 	InstanceInitiatedShutdownBehavior *string `json:"instanceInitiatedShutdownBehavior" yaml:"instanceInitiatedShutdownBehavior"`
 	// The market (purchasing) option for the instances.
 	InstanceMarketOptions interface{} `json:"instanceMarketOptions" yaml:"instanceMarketOptions"`
-	// `CfnLaunchTemplate.LaunchTemplateDataProperty.InstanceRequirements`.
+	// The attributes for the instance types.
+	//
+	// When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
+	//
+	// If you specify `InstanceRequirements` , you can't specify `InstanceTypes` .
 	InstanceRequirements interface{} `json:"instanceRequirements" yaml:"instanceRequirements"`
 	// The instance type. For more information, see [Instance Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide* .
 	//
@@ -25731,6 +25744,8 @@ type CfnLaunchTemplate_LaunchTemplateDataProperty struct {
 	KeyName *string `json:"keyName" yaml:"keyName"`
 	// The license configurations.
 	LicenseSpecifications interface{} `json:"licenseSpecifications" yaml:"licenseSpecifications"`
+	// `CfnLaunchTemplate.LaunchTemplateDataProperty.MaintenanceOptions`.
+	MaintenanceOptions interface{} `json:"maintenanceOptions" yaml:"maintenanceOptions"`
 	// The metadata options for the instance.
 	//
 	// For more information, see [Instance Metadata and User Data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon Elastic Compute Cloud User Guide* .
@@ -25831,6 +25846,19 @@ type CfnLaunchTemplate_LaunchTemplateTagSpecificationProperty struct {
 type CfnLaunchTemplate_LicenseSpecificationProperty struct {
 	// The Amazon Resource Name (ARN) of the license configuration.
 	LicenseConfigurationArn *string `json:"licenseConfigurationArn" yaml:"licenseConfigurationArn"`
+}
+
+// The maintenance options of your instance.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   maintenanceOptionsProperty := &maintenanceOptionsProperty{
+//   	autoRecovery: jsii.String("autoRecovery"),
+//   }
+//
+type CfnLaunchTemplate_MaintenanceOptionsProperty struct {
+	// Disables the automatic recovery behavior of your instance or sets it to default.
+	AutoRecovery *string `json:"autoRecovery" yaml:"autoRecovery"`
 }
 
 // The minimum and maximum amount of memory per vCPU, in GiB.
@@ -26029,9 +26057,13 @@ type CfnLaunchTemplate_NetworkInterfaceProperty struct {
 	//
 	// Valid values: `interface` | `efa`.
 	InterfaceType *string `json:"interfaceType" yaml:"interfaceType"`
-	// `CfnLaunchTemplate.NetworkInterfaceProperty.Ipv4PrefixCount`.
+	// The number of IPv4 prefixes to be automatically assigned to the network interface.
+	//
+	// You cannot use this option if you use the `Ipv4Prefix` option.
 	Ipv4PrefixCount *float64 `json:"ipv4PrefixCount" yaml:"ipv4PrefixCount"`
-	// `CfnLaunchTemplate.NetworkInterfaceProperty.Ipv4Prefixes`.
+	// One or more IPv4 prefixes to be assigned to the network interface.
+	//
+	// You cannot use this option if you use the `Ipv4PrefixCount` option.
 	Ipv4Prefixes interface{} `json:"ipv4Prefixes" yaml:"ipv4Prefixes"`
 	// The number of IPv6 addresses to assign to a network interface.
 	//
@@ -26041,9 +26073,13 @@ type CfnLaunchTemplate_NetworkInterfaceProperty struct {
 	//
 	// You can't use this option if you're specifying a number of IPv6 addresses.
 	Ipv6Addresses interface{} `json:"ipv6Addresses" yaml:"ipv6Addresses"`
-	// `CfnLaunchTemplate.NetworkInterfaceProperty.Ipv6PrefixCount`.
+	// The number of IPv6 prefixes to be automatically assigned to the network interface.
+	//
+	// You cannot use this option if you use the `Ipv6Prefix` option.
 	Ipv6PrefixCount *float64 `json:"ipv6PrefixCount" yaml:"ipv6PrefixCount"`
-	// `CfnLaunchTemplate.NetworkInterfaceProperty.Ipv6Prefixes`.
+	// One or more IPv6 prefixes to be assigned to the network interface.
+	//
+	// You cannot use this option if you use the `Ipv6PrefixCount` option.
 	Ipv6Prefixes interface{} `json:"ipv6Prefixes" yaml:"ipv6Prefixes"`
 	// The index of the network card.
 	//
@@ -41071,13 +41107,13 @@ type CfnSecurityGroup_IngressProperty struct {
 	IpProtocol *string `json:"ipProtocol" yaml:"ipProtocol"`
 	// The IPv4 address range, in CIDR format.
 	//
-	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
+	// You must specify a source security group ( `SourcePrefixListId` or `SourceSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
 	//
 	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
 	CidrIp *string `json:"cidrIp" yaml:"cidrIp"`
 	// The IPv6 address range, in CIDR format.
 	//
-	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
+	// You must specify a source security group ( `SourcePrefixListId` or `SourceSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
 	//
 	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
 	CidrIpv6 *string `json:"cidrIpv6" yaml:"cidrIpv6"`
@@ -42075,14 +42111,14 @@ type CfnSecurityGroupIngress interface {
 	CfnResourceType() *string
 	// The IPv4 address range, in CIDR format.
 	//
-	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
+	// You must specify a source security group ( `SourcePrefixListId` or `SourceSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
 	//
 	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
 	CidrIp() *string
 	SetCidrIp(val *string)
 	// The IPv6 address range, in CIDR format.
 	//
-	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
+	// You must specify a source security group ( `SourcePrefixListId` or `SourceSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
 	//
 	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
 	CidrIpv6() *string
@@ -42990,13 +43026,13 @@ type CfnSecurityGroupIngressProps struct {
 	IpProtocol *string `json:"ipProtocol" yaml:"ipProtocol"`
 	// The IPv4 address range, in CIDR format.
 	//
-	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
+	// You must specify a source security group ( `SourcePrefixListId` or `SourceSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
 	//
 	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
 	CidrIp *string `json:"cidrIp" yaml:"cidrIp"`
 	// The IPv6 address range, in CIDR format.
 	//
-	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
+	// You must specify a source security group ( `SourcePrefixListId` or `SourceSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
 	//
 	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
 	CidrIpv6 *string `json:"cidrIpv6" yaml:"cidrIpv6"`
@@ -84716,6 +84752,12 @@ type LaunchTemplate interface {
 	// Principal to grant permissions to.
 	// Experimental.
 	GrantPrincipal() awsiam.IPrincipal
+	// The AMI ID of the image to use.
+	// Experimental.
+	ImageId() *string
+	// Type of instance to launch.
+	// Experimental.
+	InstanceType() InstanceType
 	// The latest version of the launch template.
 	// Experimental.
 	LatestVersionNumber() *string
@@ -84883,6 +84925,26 @@ func (j *jsiiProxy_LaunchTemplate) GrantPrincipal() awsiam.IPrincipal {
 	_jsii_.Get(
 		j,
 		"grantPrincipal",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_LaunchTemplate) ImageId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"imageId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_LaunchTemplate) InstanceType() InstanceType {
+	var returns InstanceType
+	_jsii_.Get(
+		j,
+		"instanceType",
 		&returns,
 	)
 	return returns
@@ -95865,8 +95927,9 @@ type VpnConnectionOptions struct {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
 //
+//   var secretValue secretValue
 //   var vpc vpc
 //   vpnConnectionProps := &vpnConnectionProps{
 //   	ip: jsii.String("ip"),
@@ -95880,6 +95943,7 @@ type VpnConnectionOptions struct {
 //   	tunnelOptions: []vpnTunnelOption{
 //   		&vpnTunnelOption{
 //   			preSharedKey: jsii.String("preSharedKey"),
+//   			preSharedKeySecret: secretValue,
 //   			tunnelInsideCidr: jsii.String("tunnelInsideCidr"),
 //   		},
 //   	},
@@ -96314,9 +96378,12 @@ const (
 )
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//
+//   var secretValue secretValue
 //   vpnTunnelOption := &vpnTunnelOption{
 //   	preSharedKey: jsii.String("preSharedKey"),
+//   	preSharedKeySecret: secretValue,
 //   	tunnelInsideCidr: jsii.String("tunnelInsideCidr"),
 //   }
 //
@@ -96324,10 +96391,18 @@ const (
 type VpnTunnelOption struct {
 	// The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway.
 	//
-	// Allowed characters are alphanumeric characters
-	// and ._. Must be between 8 and 64 characters in length and cannot start with zero (0).
-	// Experimental.
+	// Allowed characters are
+	// alphanumeric characters period `.` and underscores `_`. Must be between 8
+	// and 64 characters in length and cannot start with zero (0).
+	// Deprecated: Use `preSharedKeySecret` instead.
 	PreSharedKey *string `json:"preSharedKey" yaml:"preSharedKey"`
+	// The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway.
+	//
+	// Allowed characters are
+	// alphanumeric characters period `.` and underscores `_`. Must be between 8
+	// and 64 characters in length and cannot start with zero (0).
+	// Experimental.
+	PreSharedKeySecret awscdk.SecretValue `json:"preSharedKeySecret" yaml:"preSharedKeySecret"`
 	// The range of inside IP addresses for the tunnel.
 	//
 	// Any specified CIDR blocks must be

@@ -313,6 +313,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "repositoryUri", GoGetter: "RepositoryUri"},
 			_jsii_.MemberMethod{JsiiMethod: "repositoryUriForDigest", GoMethod: "RepositoryUriForDigest"},
 			_jsii_.MemberMethod{JsiiMethod: "repositoryUriForTag", GoMethod: "RepositoryUriForTag"},
+			_jsii_.MemberMethod{JsiiMethod: "repositoryUriForTagOrDigest", GoMethod: "RepositoryUriForTagOrDigest"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
@@ -370,6 +371,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "repositoryUri", GoGetter: "RepositoryUri"},
 			_jsii_.MemberMethod{JsiiMethod: "repositoryUriForDigest", GoMethod: "RepositoryUriForDigest"},
 			_jsii_.MemberMethod{JsiiMethod: "repositoryUriForTag", GoMethod: "RepositoryUriForTag"},
+			_jsii_.MemberMethod{JsiiMethod: "repositoryUriForTagOrDigest", GoMethod: "RepositoryUriForTagOrDigest"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
@@ -413,6 +415,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "repositoryUri", GoGetter: "RepositoryUri"},
 			_jsii_.MemberMethod{JsiiMethod: "repositoryUriForDigest", GoMethod: "RepositoryUriForDigest"},
 			_jsii_.MemberMethod{JsiiMethod: "repositoryUriForTag", GoMethod: "RepositoryUriForTag"},
+			_jsii_.MemberMethod{JsiiMethod: "repositoryUriForTagOrDigest", GoMethod: "RepositoryUriForTagOrDigest"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
