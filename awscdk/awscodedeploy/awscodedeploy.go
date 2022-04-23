@@ -1,18 +1,18 @@
 package awscodedeploy
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodedeploy/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancing"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awscodedeploy/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancing"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // The configuration for automatically rolling back deployments in a given Deployment Group.
@@ -75,12 +75,16 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type AutoRollbackConfig struct {
 	// Whether to automatically roll back a deployment during which one of the configured CloudWatch alarms for this Deployment Group went off.
+	// Experimental.
 	DeploymentInAlarm *bool `json:"deploymentInAlarm" yaml:"deploymentInAlarm"`
 	// Whether to automatically roll back a deployment that fails.
+	// Experimental.
 	FailedDeployment *bool `json:"failedDeployment" yaml:"failedDeployment"`
 	// Whether to automatically roll back a deployment that was manually stopped.
+	// Experimental.
 	StoppedDeployment *bool `json:"stoppedDeployment" yaml:"stoppedDeployment"`
 }
 
@@ -112,9 +116,11 @@ type CfnApplication interface {
 	ApplicationName() *string
 	SetApplicationName(val *string)
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// The compute platform that CodeDeploy deploys the application to.
 	ComputePlatform() *string
@@ -122,6 +128,7 @@ type CfnApplication interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -132,17 +139,21 @@ type CfnApplication interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// The metadata that you apply to CodeDeploy applications to help you organize and categorize them.
 	//
@@ -152,13 +163,16 @@ type CfnApplication interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -167,6 +181,7 @@ type CfnApplication interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -211,12 +226,15 @@ type CfnApplication interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -227,11 +245,13 @@ type CfnApplication interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -240,21 +260,74 @@ type CfnApplication interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -334,8 +407,8 @@ func (j *jsiiProxy_CfnApplication) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplication) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnApplication) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -386,13 +459,13 @@ func (j *jsiiProxy_CfnApplication) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::CodeDeploy::Application`.
-func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplicationProps) CfnApplication {
+func NewCfnApplication(scope awscdk.Construct, id *string, props *CfnApplicationProps) CfnApplication {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnApplication{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.CfnApplication",
+		"monocdk.aws_codedeploy.CfnApplication",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -401,11 +474,11 @@ func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplica
 }
 
 // Create a new `AWS::CodeDeploy::Application`.
-func NewCfnApplication_Override(c CfnApplication, scope constructs.Construct, id *string, props *CfnApplicationProps) {
+func NewCfnApplication_Override(c CfnApplication, scope awscdk.Construct, id *string, props *CfnApplicationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.CfnApplication",
+		"monocdk.aws_codedeploy.CfnApplication",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -433,13 +506,14 @@ func (j *jsiiProxy_CfnApplication) SetComputePlatform(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnApplication_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.CfnApplication",
+		"monocdk.aws_codedeploy.CfnApplication",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -449,13 +523,14 @@ func CfnApplication_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnApplication_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.CfnApplication",
+		"monocdk.aws_codedeploy.CfnApplication",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -464,17 +539,15 @@ func CfnApplication_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnApplication_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.CfnApplication",
+		"monocdk.aws_codedeploy.CfnApplication",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -487,7 +560,7 @@ func CfnApplication_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.CfnApplication",
+		"monocdk.aws_codedeploy.CfnApplication",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -584,11 +657,48 @@ func (c *jsiiProxy_CfnApplication) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+func (c *jsiiProxy_CfnApplication) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnApplication) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnApplication) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnApplication) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnApplication) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -618,12 +728,33 @@ func (c *jsiiProxy_CfnApplication) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnApplication) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnApplication) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnApplication) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -701,9 +832,11 @@ type CfnDeploymentConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// The destination platform type for the deployment ( `Lambda` , `Server` , or `ECS` ).
 	ComputePlatform() *string
@@ -711,6 +844,7 @@ type CfnDeploymentConfig interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// A name for the deployment configuration.
 	//
@@ -728,6 +862,7 @@ type CfnDeploymentConfig interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
 	// The minimum number of healthy instances that should be available at any time during the deployment.
 	//
@@ -745,16 +880,19 @@ type CfnDeploymentConfig interface {
 	// For more information about instance health, see [CodeDeploy Instance Health](https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html) in the AWS CodeDeploy User Guide.
 	MinimumHealthyHosts() interface{}
 	SetMinimumHealthyHosts(val interface{})
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// The configuration that specifies how the deployment traffic is routed.
 	TrafficRoutingConfig() interface{}
@@ -763,13 +901,16 @@ type CfnDeploymentConfig interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -778,6 +919,7 @@ type CfnDeploymentConfig interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -822,12 +964,15 @@ type CfnDeploymentConfig interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -838,11 +983,13 @@ type CfnDeploymentConfig interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -851,21 +998,74 @@ type CfnDeploymentConfig interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -955,8 +1155,8 @@ func (j *jsiiProxy_CfnDeploymentConfig) MinimumHealthyHosts() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeploymentConfig) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDeploymentConfig) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1007,13 +1207,13 @@ func (j *jsiiProxy_CfnDeploymentConfig) UpdatedProperites() *map[string]interfac
 
 
 // Create a new `AWS::CodeDeploy::DeploymentConfig`.
-func NewCfnDeploymentConfig(scope constructs.Construct, id *string, props *CfnDeploymentConfigProps) CfnDeploymentConfig {
+func NewCfnDeploymentConfig(scope awscdk.Construct, id *string, props *CfnDeploymentConfigProps) CfnDeploymentConfig {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDeploymentConfig{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.CfnDeploymentConfig",
+		"monocdk.aws_codedeploy.CfnDeploymentConfig",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1022,11 +1222,11 @@ func NewCfnDeploymentConfig(scope constructs.Construct, id *string, props *CfnDe
 }
 
 // Create a new `AWS::CodeDeploy::DeploymentConfig`.
-func NewCfnDeploymentConfig_Override(c CfnDeploymentConfig, scope constructs.Construct, id *string, props *CfnDeploymentConfigProps) {
+func NewCfnDeploymentConfig_Override(c CfnDeploymentConfig, scope awscdk.Construct, id *string, props *CfnDeploymentConfigProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.CfnDeploymentConfig",
+		"monocdk.aws_codedeploy.CfnDeploymentConfig",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1070,13 +1270,14 @@ func (j *jsiiProxy_CfnDeploymentConfig) SetTrafficRoutingConfig(val interface{})
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDeploymentConfig_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.CfnDeploymentConfig",
+		"monocdk.aws_codedeploy.CfnDeploymentConfig",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1086,13 +1287,14 @@ func CfnDeploymentConfig_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDeploymentConfig_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.CfnDeploymentConfig",
+		"monocdk.aws_codedeploy.CfnDeploymentConfig",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1101,17 +1303,15 @@ func CfnDeploymentConfig_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDeploymentConfig_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.CfnDeploymentConfig",
+		"monocdk.aws_codedeploy.CfnDeploymentConfig",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1124,7 +1324,7 @@ func CfnDeploymentConfig_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.CfnDeploymentConfig",
+		"monocdk.aws_codedeploy.CfnDeploymentConfig",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1221,11 +1421,48 @@ func (c *jsiiProxy_CfnDeploymentConfig) Inspect(inspector awscdk.TreeInspector) 
 	)
 }
 
+func (c *jsiiProxy_CfnDeploymentConfig) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnDeploymentConfig) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnDeploymentConfig) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnDeploymentConfig) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnDeploymentConfig) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1255,12 +1492,33 @@ func (c *jsiiProxy_CfnDeploymentConfig) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnDeploymentConfig) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnDeploymentConfig) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDeploymentConfig) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1612,13 +1870,16 @@ type CfnDeploymentGroup interface {
 	BlueGreenDeploymentConfiguration() interface{}
 	SetBlueGreenDeploymentConfiguration(val interface{})
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// The application revision to deploy to this deployment group.
 	//
@@ -1675,9 +1936,11 @@ type CfnDeploymentGroup interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// The on-premises instance tags already applied to on-premises instances that you want to include in the deployment group.
 	//
 	// CodeDeploy includes all on-premises instances identified by any of the tags you specify in this deployment group. To register on-premises instances with CodeDeploy , see [Working with On-Premises Instances for CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-on-premises.html) in the *AWS CodeDeploy User Guide* . Duplicates are not allowed.
@@ -1703,6 +1966,7 @@ type CfnDeploymentGroup interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// A service role Amazon Resource Name (ARN) that grants CodeDeploy permission to make calls to AWS services on your behalf.
 	//
@@ -1714,6 +1978,7 @@ type CfnDeploymentGroup interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// The metadata that you apply to CodeDeploy deployment groups to help you organize and categorize them.
 	//
@@ -1728,13 +1993,16 @@ type CfnDeploymentGroup interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1743,6 +2011,7 @@ type CfnDeploymentGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1787,12 +2056,15 @@ type CfnDeploymentGroup interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1803,11 +2075,13 @@ type CfnDeploymentGroup interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1816,21 +2090,74 @@ type CfnDeploymentGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2020,8 +2347,8 @@ func (j *jsiiProxy_CfnDeploymentGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeploymentGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDeploymentGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2122,13 +2449,13 @@ func (j *jsiiProxy_CfnDeploymentGroup) UpdatedProperites() *map[string]interface
 
 
 // Create a new `AWS::CodeDeploy::DeploymentGroup`.
-func NewCfnDeploymentGroup(scope constructs.Construct, id *string, props *CfnDeploymentGroupProps) CfnDeploymentGroup {
+func NewCfnDeploymentGroup(scope awscdk.Construct, id *string, props *CfnDeploymentGroupProps) CfnDeploymentGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDeploymentGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.CfnDeploymentGroup",
+		"monocdk.aws_codedeploy.CfnDeploymentGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2137,11 +2464,11 @@ func NewCfnDeploymentGroup(scope constructs.Construct, id *string, props *CfnDep
 }
 
 // Create a new `AWS::CodeDeploy::DeploymentGroup`.
-func NewCfnDeploymentGroup_Override(c CfnDeploymentGroup, scope constructs.Construct, id *string, props *CfnDeploymentGroupProps) {
+func NewCfnDeploymentGroup_Override(c CfnDeploymentGroup, scope awscdk.Construct, id *string, props *CfnDeploymentGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.CfnDeploymentGroup",
+		"monocdk.aws_codedeploy.CfnDeploymentGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2297,13 +2624,14 @@ func (j *jsiiProxy_CfnDeploymentGroup) SetTriggerConfigurations(val interface{})
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDeploymentGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.CfnDeploymentGroup",
+		"monocdk.aws_codedeploy.CfnDeploymentGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2313,13 +2641,14 @@ func CfnDeploymentGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDeploymentGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.CfnDeploymentGroup",
+		"monocdk.aws_codedeploy.CfnDeploymentGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2328,17 +2657,15 @@ func CfnDeploymentGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDeploymentGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.CfnDeploymentGroup",
+		"monocdk.aws_codedeploy.CfnDeploymentGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2351,7 +2678,7 @@ func CfnDeploymentGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.CfnDeploymentGroup",
+		"monocdk.aws_codedeploy.CfnDeploymentGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2448,11 +2775,48 @@ func (c *jsiiProxy_CfnDeploymentGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+func (c *jsiiProxy_CfnDeploymentGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnDeploymentGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnDeploymentGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnDeploymentGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnDeploymentGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2482,12 +2846,33 @@ func (c *jsiiProxy_CfnDeploymentGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnDeploymentGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnDeploymentGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDeploymentGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3448,12 +3833,15 @@ type CfnDeploymentGroupProps struct {
 //   	deploymentConfig: config,
 //   })
 //
+// Experimental.
 type CustomLambdaDeploymentConfig interface {
 	awscdk.Resource
 	ILambdaDeploymentConfig
 	// The arn of the deployment config.
+	// Experimental.
 	DeploymentConfigArn() *string
 	// The name of the deployment config.
+	// Experimental.
 	DeploymentConfigName() *string
 	// The environment this resource belongs to.
 	//
@@ -3463,9 +3851,11 @@ type CustomLambdaDeploymentConfig interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -3473,8 +3863,10 @@ type CustomLambdaDeploymentConfig interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
 	//
@@ -3485,7 +3877,9 @@ type CustomLambdaDeploymentConfig interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -3493,15 +3887,64 @@ type CustomLambdaDeploymentConfig interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for CustomLambdaDeploymentConfig
@@ -3540,8 +3983,8 @@ func (j *jsiiProxy_CustomLambdaDeploymentConfig) Env() *awscdk.ResourceEnvironme
 	return returns
 }
 
-func (j *jsiiProxy_CustomLambdaDeploymentConfig) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CustomLambdaDeploymentConfig) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3571,13 +4014,14 @@ func (j *jsiiProxy_CustomLambdaDeploymentConfig) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewCustomLambdaDeploymentConfig(scope constructs.Construct, id *string, props *CustomLambdaDeploymentConfigProps) CustomLambdaDeploymentConfig {
 	_init_.Initialize()
 
 	j := jsiiProxy_CustomLambdaDeploymentConfig{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.CustomLambdaDeploymentConfig",
+		"monocdk.aws_codedeploy.CustomLambdaDeploymentConfig",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3585,27 +4029,26 @@ func NewCustomLambdaDeploymentConfig(scope constructs.Construct, id *string, pro
 	return &j
 }
 
+// Experimental.
 func NewCustomLambdaDeploymentConfig_Override(c CustomLambdaDeploymentConfig, scope constructs.Construct, id *string, props *CustomLambdaDeploymentConfigProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.CustomLambdaDeploymentConfig",
+		"monocdk.aws_codedeploy.CustomLambdaDeploymentConfig",
 		[]interface{}{scope, id, props},
 		c,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func CustomLambdaDeploymentConfig_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.CustomLambdaDeploymentConfig",
+		"monocdk.aws_codedeploy.CustomLambdaDeploymentConfig",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3615,13 +4058,14 @@ func CustomLambdaDeploymentConfig_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func CustomLambdaDeploymentConfig_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func CustomLambdaDeploymentConfig_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.CustomLambdaDeploymentConfig",
+		"monocdk.aws_codedeploy.CustomLambdaDeploymentConfig",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -3677,12 +4121,70 @@ func (c *jsiiProxy_CustomLambdaDeploymentConfig) GetResourceNameAttribute(nameAt
 	return returns
 }
 
+func (c *jsiiProxy_CustomLambdaDeploymentConfig) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CustomLambdaDeploymentConfig) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CustomLambdaDeploymentConfig) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CustomLambdaDeploymentConfig) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CustomLambdaDeploymentConfig) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CustomLambdaDeploymentConfig) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CustomLambdaDeploymentConfig) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3705,17 +4207,22 @@ func (c *jsiiProxy_CustomLambdaDeploymentConfig) ToString() *string {
 //   	deploymentConfig: config,
 //   })
 //
+// Experimental.
 type CustomLambdaDeploymentConfigProps struct {
 	// The interval, in number of minutes: - For LINEAR, how frequently additional traffic is shifted - For CANARY, how long to shift traffic before the full deployment.
+	// Experimental.
 	Interval awscdk.Duration `json:"interval" yaml:"interval"`
 	// The integer percentage of traffic to shift: - For LINEAR, the percentage to shift every interval - For CANARY, the percentage to shift until the interval passes, before the full deployment.
+	// Experimental.
 	Percentage *float64 `json:"percentage" yaml:"percentage"`
 	// The type of deployment config, either CANARY or LINEAR.
+	// Experimental.
 	Type CustomLambdaDeploymentConfigType `json:"type" yaml:"type"`
 	// The verbatim name of the deployment config.
 	//
 	// Must be unique per account/region.
 	// Other parameters cannot be updated if this name is provided.
+	// Experimental.
 	DeploymentConfigName *string `json:"deploymentConfigName" yaml:"deploymentConfigName"`
 }
 
@@ -3734,12 +4241,15 @@ type CustomLambdaDeploymentConfigProps struct {
 //   	deploymentConfig: config,
 //   })
 //
+// Experimental.
 type CustomLambdaDeploymentConfigType string
 
 const (
 	// Canary deployment type.
+	// Experimental.
 	CustomLambdaDeploymentConfigType_CANARY CustomLambdaDeploymentConfigType = "CANARY"
 	// Linear deployment type.
+	// Experimental.
 	CustomLambdaDeploymentConfigType_LINEAR CustomLambdaDeploymentConfigType = "LINEAR"
 )
 
@@ -3751,10 +4261,13 @@ const (
 //   	applicationName: jsii.String("applicationName"),
 //   })
 //
+// Experimental.
 type EcsApplication interface {
 	awscdk.Resource
 	IEcsApplication
+	// Experimental.
 	ApplicationArn() *string
+	// Experimental.
 	ApplicationName() *string
 	// The environment this resource belongs to.
 	//
@@ -3764,9 +4277,11 @@ type EcsApplication interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -3774,8 +4289,10 @@ type EcsApplication interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
 	//
@@ -3786,7 +4303,9 @@ type EcsApplication interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -3794,15 +4313,64 @@ type EcsApplication interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for EcsApplication
@@ -3841,8 +4409,8 @@ func (j *jsiiProxy_EcsApplication) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_EcsApplication) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_EcsApplication) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3872,13 +4440,14 @@ func (j *jsiiProxy_EcsApplication) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewEcsApplication(scope constructs.Construct, id *string, props *EcsApplicationProps) EcsApplication {
 	_init_.Initialize()
 
 	j := jsiiProxy_EcsApplication{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.EcsApplication",
+		"monocdk.aws_codedeploy.EcsApplication",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3886,11 +4455,12 @@ func NewEcsApplication(scope constructs.Construct, id *string, props *EcsApplica
 	return &j
 }
 
+// Experimental.
 func NewEcsApplication_Override(e EcsApplication, scope constructs.Construct, id *string, props *EcsApplicationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.EcsApplication",
+		"monocdk.aws_codedeploy.EcsApplication",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -3899,13 +4469,14 @@ func NewEcsApplication_Override(e EcsApplication, scope constructs.Construct, id
 // Import an Application defined either outside the CDK, or in a different CDK Stack.
 //
 // Returns: a Construct representing a reference to an existing Application.
+// Experimental.
 func EcsApplication_FromEcsApplicationName(scope constructs.Construct, id *string, ecsApplicationName *string) IEcsApplication {
 	_init_.Initialize()
 
 	var returns IEcsApplication
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.EcsApplication",
+		"monocdk.aws_codedeploy.EcsApplication",
 		"fromEcsApplicationName",
 		[]interface{}{scope, id, ecsApplicationName},
 		&returns,
@@ -3914,17 +4485,15 @@ func EcsApplication_FromEcsApplicationName(scope constructs.Construct, id *strin
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func EcsApplication_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.EcsApplication",
+		"monocdk.aws_codedeploy.EcsApplication",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3934,13 +4503,14 @@ func EcsApplication_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func EcsApplication_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func EcsApplication_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.EcsApplication",
+		"monocdk.aws_codedeploy.EcsApplication",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -3996,12 +4566,70 @@ func (e *jsiiProxy_EcsApplication) GetResourceNameAttribute(nameAttr *string) *s
 	return returns
 }
 
+func (e *jsiiProxy_EcsApplication) OnPrepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (e *jsiiProxy_EcsApplication) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (e *jsiiProxy_EcsApplication) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_EcsApplication) Prepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (e *jsiiProxy_EcsApplication) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (e *jsiiProxy_EcsApplication) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		e,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_EcsApplication) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4017,8 +4645,10 @@ func (e *jsiiProxy_EcsApplication) ToString() *string {
 //   	applicationName: jsii.String("applicationName"),
 //   }
 //
+// Experimental.
 type EcsApplicationProps struct {
 	// The physical, human-readable name of the CodeDeploy Application.
+	// Experimental.
 	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
 }
 
@@ -4026,7 +4656,8 @@ type EcsApplicationProps struct {
 //
 // Note: This class currently stands as namespaced container of the default configurations
 // until CloudFormation supports custom ECS Deployment Configs. Until then it is closed
-// (private constructor) and does not extend {@link Construct}.
+// (private constructor) and does not extend {@link cdk.Construct}
+// Experimental.
 type EcsDeploymentConfig interface {
 }
 
@@ -4038,13 +4669,14 @@ type jsiiProxy_EcsDeploymentConfig struct {
 // Import a custom Deployment Configuration for an ECS Deployment Group defined outside the CDK.
 //
 // Returns: a Construct representing a reference to an existing custom Deployment Configuration.
+// Experimental.
 func EcsDeploymentConfig_FromEcsDeploymentConfigName(_scope constructs.Construct, _id *string, ecsDeploymentConfigName *string) IEcsDeploymentConfig {
 	_init_.Initialize()
 
 	var returns IEcsDeploymentConfig
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.EcsDeploymentConfig",
+		"monocdk.aws_codedeploy.EcsDeploymentConfig",
 		"fromEcsDeploymentConfigName",
 		[]interface{}{_scope, _id, ecsDeploymentConfigName},
 		&returns,
@@ -4057,7 +4689,7 @@ func EcsDeploymentConfig_ALL_AT_ONCE() IEcsDeploymentConfig {
 	_init_.Initialize()
 	var returns IEcsDeploymentConfig
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.EcsDeploymentConfig",
+		"monocdk.aws_codedeploy.EcsDeploymentConfig",
 		"ALL_AT_ONCE",
 		&returns,
 	)
@@ -4067,7 +4699,8 @@ func EcsDeploymentConfig_ALL_AT_ONCE() IEcsDeploymentConfig {
 // Note: This class currently stands as a namespaced container for importing an ECS Deployment Group defined outside the CDK app until CloudFormation supports provisioning ECS Deployment Groups.
 //
 // Until then it is closed (private constructor) and does not
-// extend {@link Construct}.
+// extend {@link cdk.Construct}.
+// Experimental.
 type EcsDeploymentGroup interface {
 }
 
@@ -4079,13 +4712,14 @@ type jsiiProxy_EcsDeploymentGroup struct {
 // Import an ECS Deployment Group defined outside the CDK app.
 //
 // Returns: a Construct representing a reference to an existing Deployment Group.
+// Experimental.
 func EcsDeploymentGroup_FromEcsDeploymentGroupAttributes(scope constructs.Construct, id *string, attrs *EcsDeploymentGroupAttributes) IEcsDeploymentGroup {
 	_init_.Initialize()
 
 	var returns IEcsDeploymentGroup
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.EcsDeploymentGroup",
+		"monocdk.aws_codedeploy.EcsDeploymentGroup",
 		"fromEcsDeploymentGroupAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -4111,12 +4745,16 @@ func EcsDeploymentGroup_FromEcsDeploymentGroupAttributes(scope constructs.Constr
 //
 // See: EcsDeploymentGroup#fromEcsDeploymentGroupAttributes.
 //
+// Experimental.
 type EcsDeploymentGroupAttributes struct {
 	// The reference to the CodeDeploy ECS Application that this Deployment Group belongs to.
+	// Experimental.
 	Application IEcsApplication `json:"application" yaml:"application"`
 	// The physical, human-readable name of the CodeDeploy ECS Deployment Group that we are referencing.
+	// Experimental.
 	DeploymentGroupName *string `json:"deploymentGroupName" yaml:"deploymentGroupName"`
 	// The Deployment Configuration this Deployment Group uses.
+	// Experimental.
 	DeploymentConfig IEcsDeploymentConfig `json:"deploymentConfig" yaml:"deploymentConfig"`
 }
 
@@ -4128,9 +4766,12 @@ type EcsDeploymentGroupAttributes struct {
 // If you want to reference an already existing Application,
 // or one defined in a different CDK Stack,
 // use the {@link EcsApplication#fromEcsApplicationName} method.
+// Experimental.
 type IEcsApplication interface {
 	awscdk.IResource
+	// Experimental.
 	ApplicationArn() *string
+	// Experimental.
 	ApplicationName() *string
 }
 
@@ -4167,8 +4808,11 @@ func (j *jsiiProxy_IEcsApplication) ApplicationName() *string {
 // Note: CloudFormation does not currently support creating custom ECS configs outside
 // of using a custom resource. You can import custom deployment config created outside the
 // CDK or via a custom resource with {@link EcsDeploymentConfig#fromEcsDeploymentConfigName}.
+// Experimental.
 type IEcsDeploymentConfig interface {
+	// Experimental.
 	DeploymentConfigArn() *string
+	// Experimental.
 	DeploymentConfigName() *string
 }
 
@@ -4198,15 +4842,20 @@ func (j *jsiiProxy_IEcsDeploymentConfig) DeploymentConfigName() *string {
 }
 
 // Interface for an ECS deployment group.
+// Experimental.
 type IEcsDeploymentGroup interface {
 	awscdk.IResource
 	// The reference to the CodeDeploy ECS Application that this Deployment Group belongs to.
+	// Experimental.
 	Application() IEcsApplication
 	// The Deployment Configuration this Group uses.
+	// Experimental.
 	DeploymentConfig() IEcsDeploymentConfig
 	// The ARN of this Deployment Group.
+	// Experimental.
 	DeploymentGroupArn() *string
 	// The physical name of the CodeDeploy Deployment Group.
+	// Experimental.
 	DeploymentGroupName() *string
 }
 
@@ -4263,9 +4912,12 @@ func (j *jsiiProxy_IEcsDeploymentGroup) DeploymentGroupName() *string {
 // If you want to reference an already existing Application,
 // or one defined in a different CDK Stack,
 // use the {@link LambdaApplication#fromLambdaApplicationName} method.
+// Experimental.
 type ILambdaApplication interface {
 	awscdk.IResource
+	// Experimental.
 	ApplicationArn() *string
+	// Experimental.
 	ApplicationName() *string
 }
 
@@ -4302,8 +4954,11 @@ func (j *jsiiProxy_ILambdaApplication) ApplicationName() *string {
 // Note: CloudFormation does not currently support creating custom lambda configs outside
 // of using a custom resource. You can import custom deployment config created outside the
 // CDK or via a custom resource with {@link LambdaDeploymentConfig#import}.
+// Experimental.
 type ILambdaDeploymentConfig interface {
+	// Experimental.
 	DeploymentConfigArn() *string
+	// Experimental.
 	DeploymentConfigName() *string
 }
 
@@ -4333,15 +4988,20 @@ func (j *jsiiProxy_ILambdaDeploymentConfig) DeploymentConfigName() *string {
 }
 
 // Interface for a Lambda deployment groups.
+// Experimental.
 type ILambdaDeploymentGroup interface {
 	awscdk.IResource
 	// The reference to the CodeDeploy Lambda Application that this Deployment Group belongs to.
+	// Experimental.
 	Application() ILambdaApplication
 	// The Deployment Configuration this Group uses.
+	// Experimental.
 	DeploymentConfig() ILambdaDeploymentConfig
 	// The ARN of this Deployment Group.
+	// Experimental.
 	DeploymentGroupArn() *string
 	// The physical name of the CodeDeploy Deployment Group.
+	// Experimental.
 	DeploymentGroupName() *string
 }
 
@@ -4398,9 +5058,12 @@ func (j *jsiiProxy_ILambdaDeploymentGroup) DeploymentGroupName() *string {
 // If you want to reference an already existing Application,
 // or one defined in a different CDK Stack,
 // use the {@link #fromServerApplicationName} method.
+// Experimental.
 type IServerApplication interface {
 	awscdk.IResource
+	// Experimental.
 	ApplicationArn() *string
+	// Experimental.
 	ApplicationName() *string
 }
 
@@ -4435,8 +5098,11 @@ func (j *jsiiProxy_IServerApplication) ApplicationName() *string {
 // (`ServerDeploymentConfig.HALF_AT_A_TIME`, `ServerDeploymentConfig.ALL_AT_ONCE`, etc.).
 // To create a custom Deployment Configuration,
 // instantiate the {@link ServerDeploymentConfig} Construct.
+// Experimental.
 type IServerDeploymentConfig interface {
+	// Experimental.
 	DeploymentConfigArn() *string
+	// Experimental.
 	DeploymentConfigName() *string
 }
 
@@ -4465,13 +5131,20 @@ func (j *jsiiProxy_IServerDeploymentConfig) DeploymentConfigName() *string {
 	return returns
 }
 
+// Experimental.
 type IServerDeploymentGroup interface {
 	awscdk.IResource
+	// Experimental.
 	Application() IServerApplication
+	// Experimental.
 	AutoScalingGroups() *[]awsautoscaling.IAutoScalingGroup
+	// Experimental.
 	DeploymentConfig() IServerDeploymentConfig
+	// Experimental.
 	DeploymentGroupArn() *string
+	// Experimental.
 	DeploymentGroupName() *string
+	// Experimental.
 	Role() awsiam.IRole
 }
 
@@ -4604,7 +5277,9 @@ func (j *jsiiProxy_IServerDeploymentGroup) Role() awsiam.IRole {
 //   	},
 //   })
 //
+// Experimental.
 type InstanceTagSet interface {
+	// Experimental.
 	InstanceTagGroups() *[]*map[string]*[]*string
 }
 
@@ -4624,6 +5299,7 @@ func (j *jsiiProxy_InstanceTagSet) InstanceTagGroups() *[]*map[string]*[]*string
 }
 
 
+// Experimental.
 func NewInstanceTagSet(instanceTagGroups ...*map[string]*[]*string) InstanceTagSet {
 	_init_.Initialize()
 
@@ -4635,7 +5311,7 @@ func NewInstanceTagSet(instanceTagGroups ...*map[string]*[]*string) InstanceTagS
 	j := jsiiProxy_InstanceTagSet{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.InstanceTagSet",
+		"monocdk.aws_codedeploy.InstanceTagSet",
 		args,
 		&j,
 	)
@@ -4643,6 +5319,7 @@ func NewInstanceTagSet(instanceTagGroups ...*map[string]*[]*string) InstanceTagS
 	return &j
 }
 
+// Experimental.
 func NewInstanceTagSet_Override(i InstanceTagSet, instanceTagGroups ...*map[string]*[]*string) {
 	_init_.Initialize()
 
@@ -4652,7 +5329,7 @@ func NewInstanceTagSet_Override(i InstanceTagSet, instanceTagGroups ...*map[stri
 	}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.InstanceTagSet",
+		"monocdk.aws_codedeploy.InstanceTagSet",
 		args,
 		i,
 	)
@@ -4665,10 +5342,13 @@ func NewInstanceTagSet_Override(i InstanceTagSet, instanceTagGroups ...*map[stri
 //   	applicationName: jsii.String("MyApplication"),
 //   })
 //
+// Experimental.
 type LambdaApplication interface {
 	awscdk.Resource
 	ILambdaApplication
+	// Experimental.
 	ApplicationArn() *string
+	// Experimental.
 	ApplicationName() *string
 	// The environment this resource belongs to.
 	//
@@ -4678,9 +5358,11 @@ type LambdaApplication interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -4688,8 +5370,10 @@ type LambdaApplication interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
 	//
@@ -4700,7 +5384,9 @@ type LambdaApplication interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -4708,15 +5394,64 @@ type LambdaApplication interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for LambdaApplication
@@ -4755,8 +5490,8 @@ func (j *jsiiProxy_LambdaApplication) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_LambdaApplication) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_LambdaApplication) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4786,13 +5521,14 @@ func (j *jsiiProxy_LambdaApplication) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewLambdaApplication(scope constructs.Construct, id *string, props *LambdaApplicationProps) LambdaApplication {
 	_init_.Initialize()
 
 	j := jsiiProxy_LambdaApplication{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.LambdaApplication",
+		"monocdk.aws_codedeploy.LambdaApplication",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4800,11 +5536,12 @@ func NewLambdaApplication(scope constructs.Construct, id *string, props *LambdaA
 	return &j
 }
 
+// Experimental.
 func NewLambdaApplication_Override(l LambdaApplication, scope constructs.Construct, id *string, props *LambdaApplicationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.LambdaApplication",
+		"monocdk.aws_codedeploy.LambdaApplication",
 		[]interface{}{scope, id, props},
 		l,
 	)
@@ -4813,13 +5550,14 @@ func NewLambdaApplication_Override(l LambdaApplication, scope constructs.Constru
 // Import an Application defined either outside the CDK, or in a different CDK Stack.
 //
 // Returns: a Construct representing a reference to an existing Application.
+// Experimental.
 func LambdaApplication_FromLambdaApplicationName(scope constructs.Construct, id *string, lambdaApplicationName *string) ILambdaApplication {
 	_init_.Initialize()
 
 	var returns ILambdaApplication
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.LambdaApplication",
+		"monocdk.aws_codedeploy.LambdaApplication",
 		"fromLambdaApplicationName",
 		[]interface{}{scope, id, lambdaApplicationName},
 		&returns,
@@ -4828,17 +5566,15 @@ func LambdaApplication_FromLambdaApplicationName(scope constructs.Construct, id 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func LambdaApplication_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.LambdaApplication",
+		"monocdk.aws_codedeploy.LambdaApplication",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4848,13 +5584,14 @@ func LambdaApplication_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func LambdaApplication_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func LambdaApplication_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.LambdaApplication",
+		"monocdk.aws_codedeploy.LambdaApplication",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -4910,12 +5647,70 @@ func (l *jsiiProxy_LambdaApplication) GetResourceNameAttribute(nameAttr *string)
 	return returns
 }
 
+func (l *jsiiProxy_LambdaApplication) OnPrepare() {
+	_jsii_.InvokeVoid(
+		l,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (l *jsiiProxy_LambdaApplication) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		l,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (l *jsiiProxy_LambdaApplication) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		l,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_LambdaApplication) Prepare() {
+	_jsii_.InvokeVoid(
+		l,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (l *jsiiProxy_LambdaApplication) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		l,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (l *jsiiProxy_LambdaApplication) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		l,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_LambdaApplication) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		l,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4930,8 +5725,10 @@ func (l *jsiiProxy_LambdaApplication) ToString() *string {
 //   	applicationName: jsii.String("MyApplication"),
 //   })
 //
+// Experimental.
 type LambdaApplicationProps struct {
 	// The physical, human-readable name of the CodeDeploy Application.
+	// Experimental.
 	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
 }
 
@@ -4939,7 +5736,7 @@ type LambdaApplicationProps struct {
 //
 // Note: This class currently stands as namespaced container of the default configurations
 // until CloudFormation supports custom Lambda Deployment Configs. Until then it is closed
-// (private constructor) and does not extend {@link Construct}.
+// (private constructor) and does not extend {@link cdk.Construct}
 //
 // Example:
 //   var myApplication lambdaApplication
@@ -4957,6 +5754,7 @@ type LambdaApplicationProps struct {
 //   	deploymentConfig: codedeploy.lambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_1MINUTE(),
 //   })
 //
+// Experimental.
 type LambdaDeploymentConfig interface {
 }
 
@@ -4968,13 +5766,14 @@ type jsiiProxy_LambdaDeploymentConfig struct {
 // Import a custom Deployment Configuration for a Lambda Deployment Group defined outside the CDK.
 //
 // Returns: a Construct representing a reference to an existing custom Deployment Configuration.
+// Experimental.
 func LambdaDeploymentConfig_Import(_scope constructs.Construct, _id *string, props *LambdaDeploymentConfigImportProps) ILambdaDeploymentConfig {
 	_init_.Initialize()
 
 	var returns ILambdaDeploymentConfig
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentConfig",
+		"monocdk.aws_codedeploy.LambdaDeploymentConfig",
 		"import",
 		[]interface{}{_scope, _id, props},
 		&returns,
@@ -4987,7 +5786,7 @@ func LambdaDeploymentConfig_ALL_AT_ONCE() ILambdaDeploymentConfig {
 	_init_.Initialize()
 	var returns ILambdaDeploymentConfig
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentConfig",
+		"monocdk.aws_codedeploy.LambdaDeploymentConfig",
 		"ALL_AT_ONCE",
 		&returns,
 	)
@@ -4998,7 +5797,7 @@ func LambdaDeploymentConfig_CANARY_10PERCENT_10MINUTES() ILambdaDeploymentConfig
 	_init_.Initialize()
 	var returns ILambdaDeploymentConfig
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentConfig",
+		"monocdk.aws_codedeploy.LambdaDeploymentConfig",
 		"CANARY_10PERCENT_10MINUTES",
 		&returns,
 	)
@@ -5009,7 +5808,7 @@ func LambdaDeploymentConfig_CANARY_10PERCENT_15MINUTES() ILambdaDeploymentConfig
 	_init_.Initialize()
 	var returns ILambdaDeploymentConfig
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentConfig",
+		"monocdk.aws_codedeploy.LambdaDeploymentConfig",
 		"CANARY_10PERCENT_15MINUTES",
 		&returns,
 	)
@@ -5020,7 +5819,7 @@ func LambdaDeploymentConfig_CANARY_10PERCENT_30MINUTES() ILambdaDeploymentConfig
 	_init_.Initialize()
 	var returns ILambdaDeploymentConfig
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentConfig",
+		"monocdk.aws_codedeploy.LambdaDeploymentConfig",
 		"CANARY_10PERCENT_30MINUTES",
 		&returns,
 	)
@@ -5031,7 +5830,7 @@ func LambdaDeploymentConfig_CANARY_10PERCENT_5MINUTES() ILambdaDeploymentConfig 
 	_init_.Initialize()
 	var returns ILambdaDeploymentConfig
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentConfig",
+		"monocdk.aws_codedeploy.LambdaDeploymentConfig",
 		"CANARY_10PERCENT_5MINUTES",
 		&returns,
 	)
@@ -5042,7 +5841,7 @@ func LambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_10MINUTES() ILambdaDeployment
 	_init_.Initialize()
 	var returns ILambdaDeploymentConfig
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentConfig",
+		"monocdk.aws_codedeploy.LambdaDeploymentConfig",
 		"LINEAR_10PERCENT_EVERY_10MINUTES",
 		&returns,
 	)
@@ -5053,7 +5852,7 @@ func LambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_1MINUTE() ILambdaDeploymentCo
 	_init_.Initialize()
 	var returns ILambdaDeploymentConfig
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentConfig",
+		"monocdk.aws_codedeploy.LambdaDeploymentConfig",
 		"LINEAR_10PERCENT_EVERY_1MINUTE",
 		&returns,
 	)
@@ -5064,7 +5863,7 @@ func LambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_2MINUTES() ILambdaDeploymentC
 	_init_.Initialize()
 	var returns ILambdaDeploymentConfig
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentConfig",
+		"monocdk.aws_codedeploy.LambdaDeploymentConfig",
 		"LINEAR_10PERCENT_EVERY_2MINUTES",
 		&returns,
 	)
@@ -5075,7 +5874,7 @@ func LambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_3MINUTES() ILambdaDeploymentC
 	_init_.Initialize()
 	var returns ILambdaDeploymentConfig
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentConfig",
+		"monocdk.aws_codedeploy.LambdaDeploymentConfig",
 		"LINEAR_10PERCENT_EVERY_3MINUTES",
 		&returns,
 	)
@@ -5092,8 +5891,10 @@ func LambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_3MINUTES() ILambdaDeploymentC
 //
 // See: LambdaDeploymentConfig#import.
 //
+// Experimental.
 type LambdaDeploymentConfigImportProps struct {
 	// The physical, human-readable name of the custom CodeDeploy Lambda Deployment Configuration that we are referencing.
+	// Experimental.
 	DeploymentConfigName *string `json:"deploymentConfigName" yaml:"deploymentConfigName"`
 }
 
@@ -5110,16 +5911,21 @@ type LambdaDeploymentConfigImportProps struct {
 //   	deploymentConfig: config,
 //   })
 //
+// Experimental.
 type LambdaDeploymentGroup interface {
 	awscdk.Resource
 	ILambdaDeploymentGroup
 	// The reference to the CodeDeploy Lambda Application that this Deployment Group belongs to.
+	// Experimental.
 	Application() ILambdaApplication
 	// The Deployment Configuration this Group uses.
+	// Experimental.
 	DeploymentConfig() ILambdaDeploymentConfig
 	// The ARN of this Deployment Group.
+	// Experimental.
 	DeploymentGroupArn() *string
 	// The physical name of the CodeDeploy Deployment Group.
+	// Experimental.
 	DeploymentGroupName() *string
 	// The environment this resource belongs to.
 	//
@@ -5129,9 +5935,11 @@ type LambdaDeploymentGroup interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -5139,15 +5947,21 @@ type LambdaDeploymentGroup interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
+	// Experimental.
 	Role() awsiam.IRole
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// Associates an additional alarm with this Deployment Group.
+	// Experimental.
 	AddAlarm(alarm awscloudwatch.IAlarm)
 	// Associate a function to run after deployment completes.
+	// Experimental.
 	AddPostHook(postHook awslambda.IFunction)
 	// Associate a function to run before deployment begins.
+	// Experimental.
 	AddPreHook(preHook awslambda.IFunction)
 	// Apply the given removal policy to this resource.
 	//
@@ -5158,7 +5972,9 @@ type LambdaDeploymentGroup interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -5166,17 +5982,67 @@ type LambdaDeploymentGroup interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant a principal permission to codedeploy:PutLifecycleEventHookExecutionStatus on this deployment group resource.
+	// Experimental.
 	GrantPutLifecycleEventHookExecutionStatus(grantee awsiam.IGrantable) awsiam.Grant
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for LambdaDeploymentGroup
@@ -5235,8 +6101,8 @@ func (j *jsiiProxy_LambdaDeploymentGroup) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_LambdaDeploymentGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_LambdaDeploymentGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5276,13 +6142,14 @@ func (j *jsiiProxy_LambdaDeploymentGroup) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewLambdaDeploymentGroup(scope constructs.Construct, id *string, props *LambdaDeploymentGroupProps) LambdaDeploymentGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_LambdaDeploymentGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentGroup",
+		"monocdk.aws_codedeploy.LambdaDeploymentGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5290,11 +6157,12 @@ func NewLambdaDeploymentGroup(scope constructs.Construct, id *string, props *Lam
 	return &j
 }
 
+// Experimental.
 func NewLambdaDeploymentGroup_Override(l LambdaDeploymentGroup, scope constructs.Construct, id *string, props *LambdaDeploymentGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentGroup",
+		"monocdk.aws_codedeploy.LambdaDeploymentGroup",
 		[]interface{}{scope, id, props},
 		l,
 	)
@@ -5303,13 +6171,14 @@ func NewLambdaDeploymentGroup_Override(l LambdaDeploymentGroup, scope constructs
 // Import an Lambda Deployment Group defined either outside the CDK app, or in a different AWS region.
 //
 // Returns: a Construct representing a reference to an existing Deployment Group.
+// Experimental.
 func LambdaDeploymentGroup_FromLambdaDeploymentGroupAttributes(scope constructs.Construct, id *string, attrs *LambdaDeploymentGroupAttributes) ILambdaDeploymentGroup {
 	_init_.Initialize()
 
 	var returns ILambdaDeploymentGroup
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentGroup",
+		"monocdk.aws_codedeploy.LambdaDeploymentGroup",
 		"fromLambdaDeploymentGroupAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -5318,17 +6187,15 @@ func LambdaDeploymentGroup_FromLambdaDeploymentGroupAttributes(scope constructs.
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func LambdaDeploymentGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentGroup",
+		"monocdk.aws_codedeploy.LambdaDeploymentGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5338,13 +6205,14 @@ func LambdaDeploymentGroup_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func LambdaDeploymentGroup_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func LambdaDeploymentGroup_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentGroup",
+		"monocdk.aws_codedeploy.LambdaDeploymentGroup",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -5437,12 +6305,70 @@ func (l *jsiiProxy_LambdaDeploymentGroup) GrantPutLifecycleEventHookExecutionSta
 	return returns
 }
 
+func (l *jsiiProxy_LambdaDeploymentGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		l,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (l *jsiiProxy_LambdaDeploymentGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		l,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (l *jsiiProxy_LambdaDeploymentGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		l,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_LambdaDeploymentGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		l,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (l *jsiiProxy_LambdaDeploymentGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		l,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (l *jsiiProxy_LambdaDeploymentGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		l,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_LambdaDeploymentGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		l,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5461,12 +6387,16 @@ func (l *jsiiProxy_LambdaDeploymentGroup) ToString() *string {
 //
 // See: LambdaDeploymentGroup#fromLambdaDeploymentGroupAttributes.
 //
+// Experimental.
 type LambdaDeploymentGroupAttributes struct {
 	// The reference to the CodeDeploy Lambda Application that this Deployment Group belongs to.
+	// Experimental.
 	Application ILambdaApplication `json:"application" yaml:"application"`
 	// The physical, human-readable name of the CodeDeploy Lambda Deployment Group that we are referencing.
+	// Experimental.
 	DeploymentGroupName *string `json:"deploymentGroupName" yaml:"deploymentGroupName"`
 	// The Deployment Configuration this Deployment Group uses.
+	// Experimental.
 	DeploymentConfig ILambdaDeploymentConfig `json:"deploymentConfig" yaml:"deploymentConfig"`
 }
 
@@ -5485,10 +6415,12 @@ type LambdaDeploymentGroupAttributes struct {
 //   	deploymentConfig: config,
 //   })
 //
+// Experimental.
 type LambdaDeploymentGroupProps struct {
 	// Lambda Alias to shift traffic. Updating the version of the alias will trigger a CodeDeploy deployment.
 	//
 	// [disable-awslint:ref-via-interface] since we need to modify the alias CFN resource update policy.
+	// Experimental.
 	Alias awslambda.Alias `json:"alias" yaml:"alias"`
 	// The CloudWatch alarms associated with this Deployment Group.
 	//
@@ -5498,22 +6430,31 @@ type LambdaDeploymentGroupProps struct {
 	// Alarms can also be added after the Deployment Group is created using the {@link #addAlarm} method.
 	// See: https://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-create-alarms.html
 	//
+	// Experimental.
 	Alarms *[]awscloudwatch.IAlarm `json:"alarms" yaml:"alarms"`
 	// The reference to the CodeDeploy Lambda Application that this Deployment Group belongs to.
+	// Experimental.
 	Application ILambdaApplication `json:"application" yaml:"application"`
 	// The auto-rollback configuration for this Deployment Group.
+	// Experimental.
 	AutoRollback *AutoRollbackConfig `json:"autoRollback" yaml:"autoRollback"`
 	// The Deployment Configuration this Deployment Group uses.
+	// Experimental.
 	DeploymentConfig ILambdaDeploymentConfig `json:"deploymentConfig" yaml:"deploymentConfig"`
 	// The physical, human-readable name of the CodeDeploy Deployment Group.
+	// Experimental.
 	DeploymentGroupName *string `json:"deploymentGroupName" yaml:"deploymentGroupName"`
 	// Whether to continue a deployment even if fetching the alarm status from CloudWatch failed.
+	// Experimental.
 	IgnorePollAlarmsFailure *bool `json:"ignorePollAlarmsFailure" yaml:"ignorePollAlarmsFailure"`
 	// The Lambda function to run after traffic routing starts.
+	// Experimental.
 	PostHook awslambda.IFunction `json:"postHook" yaml:"postHook"`
 	// The Lambda function to run before traffic routing starts.
+	// Experimental.
 	PreHook awslambda.IFunction `json:"preHook" yaml:"preHook"`
 	// The service Role of this Deployment Group.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 }
 
@@ -5534,8 +6475,11 @@ type LambdaDeploymentGroupProps struct {
 //   	loadBalancer: codedeploy.loadBalancer.classic(lb),
 //   })
 //
+// Experimental.
 type LoadBalancer interface {
+	// Experimental.
 	Generation() LoadBalancerGeneration
+	// Experimental.
 	Name() *string
 }
 
@@ -5565,24 +6509,26 @@ func (j *jsiiProxy_LoadBalancer) Name() *string {
 }
 
 
+// Experimental.
 func NewLoadBalancer_Override(l LoadBalancer) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.LoadBalancer",
+		"monocdk.aws_codedeploy.LoadBalancer",
 		nil, // no parameters
 		l,
 	)
 }
 
 // Creates a new CodeDeploy load balancer from an Application Load Balancer Target Group.
+// Experimental.
 func LoadBalancer_Application(albTargetGroup awselasticloadbalancingv2.IApplicationTargetGroup) LoadBalancer {
 	_init_.Initialize()
 
 	var returns LoadBalancer
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.LoadBalancer",
+		"monocdk.aws_codedeploy.LoadBalancer",
 		"application",
 		[]interface{}{albTargetGroup},
 		&returns,
@@ -5592,13 +6538,14 @@ func LoadBalancer_Application(albTargetGroup awselasticloadbalancingv2.IApplicat
 }
 
 // Creates a new CodeDeploy load balancer from a Classic ELB Load Balancer.
+// Experimental.
 func LoadBalancer_Classic(loadBalancer awselasticloadbalancing.LoadBalancer) LoadBalancer {
 	_init_.Initialize()
 
 	var returns LoadBalancer
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.LoadBalancer",
+		"monocdk.aws_codedeploy.LoadBalancer",
 		"classic",
 		[]interface{}{loadBalancer},
 		&returns,
@@ -5608,13 +6555,14 @@ func LoadBalancer_Classic(loadBalancer awselasticloadbalancing.LoadBalancer) Loa
 }
 
 // Creates a new CodeDeploy load balancer from a Network Load Balancer Target Group.
+// Experimental.
 func LoadBalancer_Network(nlbTargetGroup awselasticloadbalancingv2.INetworkTargetGroup) LoadBalancer {
 	_init_.Initialize()
 
 	var returns LoadBalancer
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.LoadBalancer",
+		"monocdk.aws_codedeploy.LoadBalancer",
 		"network",
 		[]interface{}{nlbTargetGroup},
 		&returns,
@@ -5624,12 +6572,15 @@ func LoadBalancer_Network(nlbTargetGroup awselasticloadbalancingv2.INetworkTarge
 }
 
 // The generations of AWS load balancing solutions.
+// Experimental.
 type LoadBalancerGeneration string
 
 const (
 	// The first generation (ELB Classic).
+	// Experimental.
 	LoadBalancerGeneration_FIRST LoadBalancerGeneration = "FIRST"
 	// The second generation (ALB and NLB).
+	// Experimental.
 	LoadBalancerGeneration_SECOND LoadBalancerGeneration = "SECOND"
 )
 
@@ -5643,6 +6594,7 @@ const (
 //   	minimumHealthyHosts: codedeploy.minimumHealthyHosts.count(jsii.Number(2)),
 //   })
 //
+// Experimental.
 type MinimumHealthyHosts interface {
 }
 
@@ -5652,13 +6604,14 @@ type jsiiProxy_MinimumHealthyHosts struct {
 }
 
 // The minimum healhty hosts threshold expressed as an absolute number.
+// Experimental.
 func MinimumHealthyHosts_Count(value *float64) MinimumHealthyHosts {
 	_init_.Initialize()
 
 	var returns MinimumHealthyHosts
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.MinimumHealthyHosts",
+		"monocdk.aws_codedeploy.MinimumHealthyHosts",
 		"count",
 		[]interface{}{value},
 		&returns,
@@ -5668,13 +6621,14 @@ func MinimumHealthyHosts_Count(value *float64) MinimumHealthyHosts {
 }
 
 // The minmum healhty hosts threshold expressed as a percentage of the fleet.
+// Experimental.
 func MinimumHealthyHosts_Percentage(value *float64) MinimumHealthyHosts {
 	_init_.Initialize()
 
 	var returns MinimumHealthyHosts
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.MinimumHealthyHosts",
+		"monocdk.aws_codedeploy.MinimumHealthyHosts",
 		"percentage",
 		[]interface{}{value},
 		&returns,
@@ -5690,10 +6644,13 @@ func MinimumHealthyHosts_Percentage(value *float64) MinimumHealthyHosts {
 //   	applicationName: jsii.String("MyApplication"),
 //   })
 //
+// Experimental.
 type ServerApplication interface {
 	awscdk.Resource
 	IServerApplication
+	// Experimental.
 	ApplicationArn() *string
+	// Experimental.
 	ApplicationName() *string
 	// The environment this resource belongs to.
 	//
@@ -5703,9 +6660,11 @@ type ServerApplication interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -5713,8 +6672,10 @@ type ServerApplication interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
 	//
@@ -5725,7 +6686,9 @@ type ServerApplication interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -5733,15 +6696,64 @@ type ServerApplication interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ServerApplication
@@ -5780,8 +6792,8 @@ func (j *jsiiProxy_ServerApplication) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_ServerApplication) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ServerApplication) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5811,13 +6823,14 @@ func (j *jsiiProxy_ServerApplication) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewServerApplication(scope constructs.Construct, id *string, props *ServerApplicationProps) ServerApplication {
 	_init_.Initialize()
 
 	j := jsiiProxy_ServerApplication{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.ServerApplication",
+		"monocdk.aws_codedeploy.ServerApplication",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5825,11 +6838,12 @@ func NewServerApplication(scope constructs.Construct, id *string, props *ServerA
 	return &j
 }
 
+// Experimental.
 func NewServerApplication_Override(s ServerApplication, scope constructs.Construct, id *string, props *ServerApplicationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.ServerApplication",
+		"monocdk.aws_codedeploy.ServerApplication",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -5838,13 +6852,14 @@ func NewServerApplication_Override(s ServerApplication, scope constructs.Constru
 // Import an Application defined either outside the CDK app, or in a different region.
 //
 // Returns: a Construct representing a reference to an existing Application.
+// Experimental.
 func ServerApplication_FromServerApplicationName(scope constructs.Construct, id *string, serverApplicationName *string) IServerApplication {
 	_init_.Initialize()
 
 	var returns IServerApplication
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.ServerApplication",
+		"monocdk.aws_codedeploy.ServerApplication",
 		"fromServerApplicationName",
 		[]interface{}{scope, id, serverApplicationName},
 		&returns,
@@ -5853,17 +6868,15 @@ func ServerApplication_FromServerApplicationName(scope constructs.Construct, id 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func ServerApplication_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.ServerApplication",
+		"monocdk.aws_codedeploy.ServerApplication",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5873,13 +6886,14 @@ func ServerApplication_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func ServerApplication_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func ServerApplication_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.ServerApplication",
+		"monocdk.aws_codedeploy.ServerApplication",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -5935,12 +6949,70 @@ func (s *jsiiProxy_ServerApplication) GetResourceNameAttribute(nameAttr *string)
 	return returns
 }
 
+func (s *jsiiProxy_ServerApplication) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_ServerApplication) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (s *jsiiProxy_ServerApplication) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ServerApplication) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_ServerApplication) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (s *jsiiProxy_ServerApplication) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		s,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ServerApplication) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5955,8 +7027,10 @@ func (s *jsiiProxy_ServerApplication) ToString() *string {
 //   	applicationName: jsii.String("MyApplication"),
 //   })
 //
+// Experimental.
 type ServerApplicationProps struct {
 	// The physical, human-readable name of the CodeDeploy Application.
+	// Experimental.
 	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
 }
 
@@ -5967,10 +7041,13 @@ type ServerApplicationProps struct {
 //   	deploymentConfig: codedeploy.serverDeploymentConfig_ALL_AT_ONCE(),
 //   })
 //
+// Experimental.
 type ServerDeploymentConfig interface {
 	awscdk.Resource
 	IServerDeploymentConfig
+	// Experimental.
 	DeploymentConfigArn() *string
+	// Experimental.
 	DeploymentConfigName() *string
 	// The environment this resource belongs to.
 	//
@@ -5980,9 +7057,11 @@ type ServerDeploymentConfig interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -5990,8 +7069,10 @@ type ServerDeploymentConfig interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
 	//
@@ -6002,7 +7083,9 @@ type ServerDeploymentConfig interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -6010,15 +7093,64 @@ type ServerDeploymentConfig interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ServerDeploymentConfig
@@ -6057,8 +7189,8 @@ func (j *jsiiProxy_ServerDeploymentConfig) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_ServerDeploymentConfig) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ServerDeploymentConfig) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -6088,13 +7220,14 @@ func (j *jsiiProxy_ServerDeploymentConfig) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewServerDeploymentConfig(scope constructs.Construct, id *string, props *ServerDeploymentConfigProps) ServerDeploymentConfig {
 	_init_.Initialize()
 
 	j := jsiiProxy_ServerDeploymentConfig{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.ServerDeploymentConfig",
+		"monocdk.aws_codedeploy.ServerDeploymentConfig",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6102,11 +7235,12 @@ func NewServerDeploymentConfig(scope constructs.Construct, id *string, props *Se
 	return &j
 }
 
+// Experimental.
 func NewServerDeploymentConfig_Override(s ServerDeploymentConfig, scope constructs.Construct, id *string, props *ServerDeploymentConfigProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.ServerDeploymentConfig",
+		"monocdk.aws_codedeploy.ServerDeploymentConfig",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -6115,13 +7249,14 @@ func NewServerDeploymentConfig_Override(s ServerDeploymentConfig, scope construc
 // Import a custom Deployment Configuration for an EC2/on-premise Deployment Group defined either outside the CDK app, or in a different region.
 //
 // Returns: a Construct representing a reference to an existing custom Deployment Configuration.
+// Experimental.
 func ServerDeploymentConfig_FromServerDeploymentConfigName(scope constructs.Construct, id *string, serverDeploymentConfigName *string) IServerDeploymentConfig {
 	_init_.Initialize()
 
 	var returns IServerDeploymentConfig
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.ServerDeploymentConfig",
+		"monocdk.aws_codedeploy.ServerDeploymentConfig",
 		"fromServerDeploymentConfigName",
 		[]interface{}{scope, id, serverDeploymentConfigName},
 		&returns,
@@ -6130,17 +7265,15 @@ func ServerDeploymentConfig_FromServerDeploymentConfigName(scope constructs.Cons
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func ServerDeploymentConfig_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.ServerDeploymentConfig",
+		"monocdk.aws_codedeploy.ServerDeploymentConfig",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6150,13 +7283,14 @@ func ServerDeploymentConfig_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func ServerDeploymentConfig_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func ServerDeploymentConfig_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.ServerDeploymentConfig",
+		"monocdk.aws_codedeploy.ServerDeploymentConfig",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -6169,7 +7303,7 @@ func ServerDeploymentConfig_ALL_AT_ONCE() IServerDeploymentConfig {
 	_init_.Initialize()
 	var returns IServerDeploymentConfig
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.ServerDeploymentConfig",
+		"monocdk.aws_codedeploy.ServerDeploymentConfig",
 		"ALL_AT_ONCE",
 		&returns,
 	)
@@ -6180,7 +7314,7 @@ func ServerDeploymentConfig_HALF_AT_A_TIME() IServerDeploymentConfig {
 	_init_.Initialize()
 	var returns IServerDeploymentConfig
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.ServerDeploymentConfig",
+		"monocdk.aws_codedeploy.ServerDeploymentConfig",
 		"HALF_AT_A_TIME",
 		&returns,
 	)
@@ -6191,7 +7325,7 @@ func ServerDeploymentConfig_ONE_AT_A_TIME() IServerDeploymentConfig {
 	_init_.Initialize()
 	var returns IServerDeploymentConfig
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.ServerDeploymentConfig",
+		"monocdk.aws_codedeploy.ServerDeploymentConfig",
 		"ONE_AT_A_TIME",
 		&returns,
 	)
@@ -6245,12 +7379,70 @@ func (s *jsiiProxy_ServerDeploymentConfig) GetResourceNameAttribute(nameAttr *st
 	return returns
 }
 
+func (s *jsiiProxy_ServerDeploymentConfig) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_ServerDeploymentConfig) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (s *jsiiProxy_ServerDeploymentConfig) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ServerDeploymentConfig) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_ServerDeploymentConfig) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (s *jsiiProxy_ServerDeploymentConfig) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		s,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ServerDeploymentConfig) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6268,10 +7460,13 @@ func (s *jsiiProxy_ServerDeploymentConfig) ToString() *string {
 //   	minimumHealthyHosts: codedeploy.minimumHealthyHosts.count(jsii.Number(2)),
 //   })
 //
+// Experimental.
 type ServerDeploymentConfigProps struct {
 	// Minimum number of healthy hosts.
+	// Experimental.
 	MinimumHealthyHosts MinimumHealthyHosts `json:"minimumHealthyHosts" yaml:"minimumHealthyHosts"`
 	// The physical, human-readable name of the Deployment Configuration.
+	// Experimental.
 	DeploymentConfigName *string `json:"deploymentConfigName" yaml:"deploymentConfigName"`
 }
 
@@ -6289,13 +7484,19 @@ type ServerDeploymentConfigProps struct {
 //   	loadBalancer: codedeploy.loadBalancer.classic(lb),
 //   })
 //
+// Experimental.
 type ServerDeploymentGroup interface {
 	awscdk.Resource
 	IServerDeploymentGroup
+	// Experimental.
 	Application() IServerApplication
+	// Experimental.
 	AutoScalingGroups() *[]awsautoscaling.IAutoScalingGroup
+	// Experimental.
 	DeploymentConfig() IServerDeploymentConfig
+	// Experimental.
 	DeploymentGroupArn() *string
+	// Experimental.
 	DeploymentGroupName() *string
 	// The environment this resource belongs to.
 	//
@@ -6305,9 +7506,11 @@ type ServerDeploymentGroup interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -6315,13 +7518,18 @@ type ServerDeploymentGroup interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
+	// Experimental.
 	Role() awsiam.IRole
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// Associates an additional alarm with this Deployment Group.
+	// Experimental.
 	AddAlarm(alarm awscloudwatch.IAlarm)
 	// Adds an additional auto-scaling group to this Deployment Group.
+	// Experimental.
 	AddAutoScalingGroup(asg awsautoscaling.AutoScalingGroup)
 	// Apply the given removal policy to this resource.
 	//
@@ -6332,7 +7540,9 @@ type ServerDeploymentGroup interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -6340,15 +7550,64 @@ type ServerDeploymentGroup interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ServerDeploymentGroup
@@ -6417,8 +7676,8 @@ func (j *jsiiProxy_ServerDeploymentGroup) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_ServerDeploymentGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ServerDeploymentGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -6458,13 +7717,14 @@ func (j *jsiiProxy_ServerDeploymentGroup) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewServerDeploymentGroup(scope constructs.Construct, id *string, props *ServerDeploymentGroupProps) ServerDeploymentGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_ServerDeploymentGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.ServerDeploymentGroup",
+		"monocdk.aws_codedeploy.ServerDeploymentGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6472,11 +7732,12 @@ func NewServerDeploymentGroup(scope constructs.Construct, id *string, props *Ser
 	return &j
 }
 
+// Experimental.
 func NewServerDeploymentGroup_Override(s ServerDeploymentGroup, scope constructs.Construct, id *string, props *ServerDeploymentGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codedeploy.ServerDeploymentGroup",
+		"monocdk.aws_codedeploy.ServerDeploymentGroup",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -6485,13 +7746,14 @@ func NewServerDeploymentGroup_Override(s ServerDeploymentGroup, scope constructs
 // Import an EC2/on-premise Deployment Group defined either outside the CDK app, or in a different region.
 //
 // Returns: a Construct representing a reference to an existing Deployment Group.
+// Experimental.
 func ServerDeploymentGroup_FromServerDeploymentGroupAttributes(scope constructs.Construct, id *string, attrs *ServerDeploymentGroupAttributes) IServerDeploymentGroup {
 	_init_.Initialize()
 
 	var returns IServerDeploymentGroup
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.ServerDeploymentGroup",
+		"monocdk.aws_codedeploy.ServerDeploymentGroup",
 		"fromServerDeploymentGroupAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -6500,17 +7762,15 @@ func ServerDeploymentGroup_FromServerDeploymentGroupAttributes(scope constructs.
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func ServerDeploymentGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.ServerDeploymentGroup",
+		"monocdk.aws_codedeploy.ServerDeploymentGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6520,13 +7780,14 @@ func ServerDeploymentGroup_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func ServerDeploymentGroup_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func ServerDeploymentGroup_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.ServerDeploymentGroup",
+		"monocdk.aws_codedeploy.ServerDeploymentGroup",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -6598,12 +7859,70 @@ func (s *jsiiProxy_ServerDeploymentGroup) GetResourceNameAttribute(nameAttr *str
 	return returns
 }
 
+func (s *jsiiProxy_ServerDeploymentGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_ServerDeploymentGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (s *jsiiProxy_ServerDeploymentGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ServerDeploymentGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_ServerDeploymentGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (s *jsiiProxy_ServerDeploymentGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		s,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ServerDeploymentGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6622,12 +7941,16 @@ func (s *jsiiProxy_ServerDeploymentGroup) ToString() *string {
 //
 // See: ServerDeploymentGroup#import.
 //
+// Experimental.
 type ServerDeploymentGroupAttributes struct {
 	// The reference to the CodeDeploy EC2/on-premise Application that this Deployment Group belongs to.
+	// Experimental.
 	Application IServerApplication `json:"application" yaml:"application"`
 	// The physical, human-readable name of the CodeDeploy EC2/on-premise Deployment Group that we are referencing.
+	// Experimental.
 	DeploymentGroupName *string `json:"deploymentGroupName" yaml:"deploymentGroupName"`
 	// The Deployment Configuration this Deployment Group uses.
+	// Experimental.
 	DeploymentConfig IServerDeploymentConfig `json:"deploymentConfig" yaml:"deploymentConfig"`
 }
 
@@ -6648,6 +7971,7 @@ type ServerDeploymentGroupAttributes struct {
 //   	loadBalancer: codedeploy.loadBalancer.application(targetGroup),
 //   })
 //
+// Experimental.
 type ServerDeploymentGroupProps struct {
 	// The CloudWatch alarms associated with this Deployment Group.
 	//
@@ -6657,10 +7981,13 @@ type ServerDeploymentGroupProps struct {
 	// Alarms can also be added after the Deployment Group is created using the {@link #addAlarm} method.
 	// See: https://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-create-alarms.html
 	//
+	// Experimental.
 	Alarms *[]awscloudwatch.IAlarm `json:"alarms" yaml:"alarms"`
 	// The CodeDeploy EC2/on-premise Application this Deployment Group belongs to.
+	// Experimental.
 	Application IServerApplication `json:"application" yaml:"application"`
 	// The auto-rollback configuration for this Deployment Group.
+	// Experimental.
 	AutoRollback *AutoRollbackConfig `json:"autoRollback" yaml:"autoRollback"`
 	// The auto-scaling groups belonging to this Deployment Group.
 	//
@@ -6669,27 +7996,36 @@ type ServerDeploymentGroupProps struct {
 	//
 	// [disable-awslint:ref-via-interface] is needed because we update userdata
 	// for ASGs to install the codedeploy agent.
+	// Experimental.
 	AutoScalingGroups *[]awsautoscaling.IAutoScalingGroup `json:"autoScalingGroups" yaml:"autoScalingGroups"`
 	// The EC2/on-premise Deployment Configuration to use for this Deployment Group.
+	// Experimental.
 	DeploymentConfig IServerDeploymentConfig `json:"deploymentConfig" yaml:"deploymentConfig"`
 	// The physical, human-readable name of the CodeDeploy Deployment Group.
+	// Experimental.
 	DeploymentGroupName *string `json:"deploymentGroupName" yaml:"deploymentGroupName"`
 	// All EC2 instances matching the given set of tags when a deployment occurs will be added to this Deployment Group.
+	// Experimental.
 	Ec2InstanceTags InstanceTagSet `json:"ec2InstanceTags" yaml:"ec2InstanceTags"`
 	// Whether to continue a deployment even if fetching the alarm status from CloudWatch failed.
+	// Experimental.
 	IgnorePollAlarmsFailure *bool `json:"ignorePollAlarmsFailure" yaml:"ignorePollAlarmsFailure"`
 	// If you've provided any auto-scaling groups with the {@link #autoScalingGroups} property, you can set this property to add User Data that installs the CodeDeploy agent on the instances.
 	// See: https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent-operations-install.html
 	//
+	// Experimental.
 	InstallAgent *bool `json:"installAgent" yaml:"installAgent"`
 	// The load balancer to place in front of this Deployment Group.
 	//
 	// Can be created from either a classic Elastic Load Balancer,
 	// or an Application Load Balancer / Network Load Balancer Target Group.
+	// Experimental.
 	LoadBalancer LoadBalancer `json:"loadBalancer" yaml:"loadBalancer"`
 	// All on-premise instances matching the given set of tags when a deployment occurs will be added to this Deployment Group.
+	// Experimental.
 	OnPremiseInstanceTags InstanceTagSet `json:"onPremiseInstanceTags" yaml:"onPremiseInstanceTags"`
 	// The service Role of this Deployment Group.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 }
 
