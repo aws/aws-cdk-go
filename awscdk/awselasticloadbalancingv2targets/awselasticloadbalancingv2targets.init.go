@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_elasticloadbalancingv2_targets.AlbArnTarget",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.AlbArnTarget",
 		reflect.TypeOf((*AlbArnTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "attachToNetworkTargetGroup", GoMethod: "AttachToNetworkTargetGroup"},
@@ -20,7 +20,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_elasticloadbalancingv2_targets.AlbTarget",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.AlbTarget",
 		reflect.TypeOf((*AlbTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "attachToNetworkTargetGroup", GoMethod: "AttachToNetworkTargetGroup"},
@@ -32,7 +32,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_elasticloadbalancingv2_targets.InstanceIdTarget",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.InstanceIdTarget",
 		reflect.TypeOf((*InstanceIdTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "attachToApplicationTargetGroup", GoMethod: "AttachToApplicationTargetGroup"},
@@ -46,7 +46,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_elasticloadbalancingv2_targets.InstanceTarget",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.InstanceTarget",
 		reflect.TypeOf((*InstanceTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "attachToApplicationTargetGroup", GoMethod: "AttachToApplicationTargetGroup"},
@@ -59,7 +59,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_elasticloadbalancingv2_targets.IpTarget",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.IpTarget",
 		reflect.TypeOf((*IpTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "attachToApplicationTargetGroup", GoMethod: "AttachToApplicationTargetGroup"},
@@ -73,7 +73,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_elasticloadbalancingv2_targets.LambdaTarget",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.LambdaTarget",
 		reflect.TypeOf((*LambdaTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "attachToApplicationTargetGroup", GoMethod: "AttachToApplicationTargetGroup"},
