@@ -25719,7 +25719,8 @@ func (s *jsiiProxy_Stack) ToString() *string {
 //   app := NewApp()
 //
 //   stack := NewStack(app, jsii.String("stack"))
-//   NewIntegTestCase(stack, jsii.String("DifferentArchitectures"), &integTestCaseProps{
+//
+//   differentArchsCase := NewIntegTestCase(stack, jsii.String("DifferentArchitectures"), &integTestCaseProps{
 //   	stacks: []*stack{
 //   		NewStackUnderTest(app, jsii.String("Stack1"), &stackUnderTestProps{
 //   			architecture: lambda.*architecture_ARM_64(),
@@ -25727,6 +25728,16 @@ func (s *jsiiProxy_Stack) ToString() *string {
 //   		NewStackUnderTest(app, jsii.String("Stack2"), &stackUnderTestProps{
 //   			architecture: lambda.*architecture_X86_64(),
 //   		}),
+//   	},
+//   })
+//
+//   // There must be exactly one instance of TestCase per file
+//   // There must be exactly one instance of TestCase per file
+//   NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
+//
+//   	// Register as many test cases as you want here
+//   	testCases: []integTestCase{
+//   		differentArchsCase,
 //   	},
 //   })
 //

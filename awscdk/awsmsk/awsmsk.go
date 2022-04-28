@@ -679,6 +679,8 @@ type CfnCluster interface {
 	awscdk.IInspectable
 	AttrArn() *string
 	// The setup to be used for brokers in the cluster.
+	//
+	// AWS CloudFormation may replace the cluster when you update certain `BrokerNodeGroupInfo` properties. To understand the update behavior for your use case, you should review the child properties for [`BrokerNodeGroupInfo`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html#aws-properties-msk-cluster-brokernodegroupinfo-properties) .
 	BrokerNodeGroupInfo() interface{}
 	SetBrokerNodeGroupInfo(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -2059,6 +2061,8 @@ type CfnCluster_UnauthenticatedProperty struct {
 //
 type CfnClusterProps struct {
 	// The setup to be used for brokers in the cluster.
+	//
+	// AWS CloudFormation may replace the cluster when you update certain `BrokerNodeGroupInfo` properties. To understand the update behavior for your use case, you should review the child properties for [`BrokerNodeGroupInfo`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html#aws-properties-msk-cluster-brokernodegroupinfo-properties) .
 	BrokerNodeGroupInfo interface{} `json:"brokerNodeGroupInfo" yaml:"brokerNodeGroupInfo"`
 	// The name of the cluster.
 	ClusterName *string `json:"clusterName" yaml:"clusterName"`

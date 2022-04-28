@@ -57,7 +57,7 @@ type CfnSlackChannelConfiguration interface {
 	CreationStack() *[]*string
 	// The list of IAM policy ARNs that are applied as channel guardrails.
 	//
-	// The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set. Currently, only 1 IAM policy is supported.
+	// The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
 	GuardrailPolicies() *[]*string
 	SetGuardrailPolicies(val *[]*string)
 	// The ARN of the IAM role that defines the permissions for AWS Chatbot .
@@ -744,7 +744,7 @@ type CfnSlackChannelConfigurationProps struct {
 	SlackWorkspaceId *string `json:"slackWorkspaceId" yaml:"slackWorkspaceId"`
 	// The list of IAM policy ARNs that are applied as channel guardrails.
 	//
-	// The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set. Currently, only 1 IAM policy is supported.
+	// The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
 	GuardrailPolicies *[]*string `json:"guardrailPolicies" yaml:"guardrailPolicies"`
 	// Specifies the logging level for this configuration. This property affects the log entries pushed to Amazon CloudWatch Logs.
 	//

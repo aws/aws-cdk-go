@@ -39,10 +39,10 @@ import (
 type CfnReportDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// A list of manifests that you want Amazon Web Services to create for this report.
+	// A list of manifests that you want AWS to create for this report.
 	AdditionalArtifacts() *[]*string
 	SetAdditionalArtifacts(val *[]*string)
-	// A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs.
+	// A list of strings that indicate additional content that AWS includes in the report, such as individual resource IDs.
 	AdditionalSchemaElements() *[]*string
 	SetAdditionalSchemaElements(val *[]*string)
 	// The Amazon Resource Name (ARN) of the billing view.
@@ -82,7 +82,7 @@ type CfnReportDefinition interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Whether you want Amazon Web Services to update your reports after they have been finalized if AWS detects charges related to previous months.
+	// Whether you want AWS to update your reports after they have been finalized if AWS detects charges related to previous months.
 	//
 	// These charges can include refunds, credits, or support fees.
 	RefreshClosedReports() interface{}
@@ -92,7 +92,7 @@ type CfnReportDefinition interface {
 	// The name must be unique, is case sensitive, and can't include spaces.
 	ReportName() *string
 	SetReportName(val *string)
-	// Whether you want Amazon Web Services to overwrite the previous version of each report or to deliver the report in addition to the previous versions.
+	// Whether you want AWS to overwrite the previous version of each report or to deliver the report in addition to the previous versions.
 	ReportVersioning() *string
 	SetReportVersioning(val *string)
 	// The S3 bucket where Amazon Web Services delivers the report.
@@ -804,7 +804,7 @@ type CfnReportDefinitionProps struct {
 	Compression *string `json:"compression" yaml:"compression"`
 	// The format that Amazon Web Services saves the report in.
 	Format *string `json:"format" yaml:"format"`
-	// Whether you want Amazon Web Services to update your reports after they have been finalized if AWS detects charges related to previous months.
+	// Whether you want AWS to update your reports after they have been finalized if AWS detects charges related to previous months.
 	//
 	// These charges can include refunds, credits, or support fees.
 	RefreshClosedReports interface{} `json:"refreshClosedReports" yaml:"refreshClosedReports"`
@@ -812,7 +812,7 @@ type CfnReportDefinitionProps struct {
 	//
 	// The name must be unique, is case sensitive, and can't include spaces.
 	ReportName *string `json:"reportName" yaml:"reportName"`
-	// Whether you want Amazon Web Services to overwrite the previous version of each report or to deliver the report in addition to the previous versions.
+	// Whether you want AWS to overwrite the previous version of each report or to deliver the report in addition to the previous versions.
 	ReportVersioning *string `json:"reportVersioning" yaml:"reportVersioning"`
 	// The S3 bucket where Amazon Web Services delivers the report.
 	S3Bucket *string `json:"s3Bucket" yaml:"s3Bucket"`
@@ -824,9 +824,9 @@ type CfnReportDefinitionProps struct {
 	S3Region *string `json:"s3Region" yaml:"s3Region"`
 	// The granularity of the line items in the report.
 	TimeUnit *string `json:"timeUnit" yaml:"timeUnit"`
-	// A list of manifests that you want Amazon Web Services to create for this report.
+	// A list of manifests that you want AWS to create for this report.
 	AdditionalArtifacts *[]*string `json:"additionalArtifacts" yaml:"additionalArtifacts"`
-	// A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs.
+	// A list of strings that indicate additional content that AWS includes in the report, such as individual resource IDs.
 	AdditionalSchemaElements *[]*string `json:"additionalSchemaElements" yaml:"additionalSchemaElements"`
 	// The Amazon Resource Name (ARN) of the billing view.
 	//

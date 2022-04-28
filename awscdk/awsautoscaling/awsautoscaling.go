@@ -1706,7 +1706,7 @@ type CfnAutoScalingGroup interface {
 	SetAutoScalingGroupName(val *string)
 	// A list of Availability Zones where instances in the Auto Scaling group can be created.
 	//
-	// You must specify one of the following properties: `VPCZoneIdentifier` or `AvailabilityZones` . If your account supports EC2-Classic and VPC, this property is required to create an Auto Scaling group that launches instances into EC2-Classic.
+	// Used for launching into EC2-Classic or the default VPC subnet in each Availability Zone when not using the `VPCZoneIdentifier` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
 	AvailabilityZones() *[]*string
 	SetAvailabilityZones(val *[]*string)
 	// Indicates whether Capacity Rebalancing is enabled.
@@ -1722,9 +1722,11 @@ type CfnAutoScalingGroup interface {
 	// Reserved.
 	Context() *string
 	SetContext(val *string)
-	// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
+	// *Only needed if you use simple scaling policies.*.
 	//
-	// The default value is `300` . This setting applies when using simple scaling policies, but not when using other scaling policies or scheduled scaling. For more information, see [Scaling cooldowns for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html) in the *Amazon EC2 Auto Scaling User Guide* .
+	// The amount of time, in seconds, between one scaling activity ending and another one starting due to simple scaling policies. For more information, see [Scaling cooldowns for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html) in the *Amazon EC2 Auto Scaling User Guide* .
+	//
+	// Default: `300` seconds.
 	Cooldown() *string
 	SetCooldown(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -1749,11 +1751,11 @@ type CfnAutoScalingGroup interface {
 	// Valid values: `units` | `vcpu` | `memory-mib`.
 	DesiredCapacityType() *string
 	SetDesiredCapacityType(val *string)
-	// The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed health check.
+	// The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed Elastic Load Balancing or custom health check.
 	//
-	// The default value is `0` . For more information, see [Health checks for Auto Scaling instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html) in the *Amazon EC2 Auto Scaling User Guide* .
+	// This is useful if your instances do not immediately pass these health checks after they enter the `InService` state. For more information, see [Health checks for Auto Scaling instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html) in the *Amazon EC2 Auto Scaling User Guide* .
 	//
-	// If you are adding an `ELB` health check, you must specify this property.
+	// Default: `0` seconds.
 	HealthCheckGracePeriod() *float64
 	SetHealthCheckGracePeriod(val *float64)
 	// The service to use for the health checks.
@@ -1778,7 +1780,7 @@ type CfnAutoScalingGroup interface {
 	// If you omit this property, you must specify `MixedInstancesPolicy` , `LaunchConfigurationName` , or `InstanceId` .
 	LaunchTemplate() interface{}
 	SetLaunchTemplate(val interface{})
-	// One or more lifecycle hooks for the group, which specify actions to perform when Amazon EC2 Auto Scaling launches or terminates instances.
+	// One or more lifecycle hooks to add to the Auto Scaling group before instances are launched.
 	LifecycleHookSpecificationList() interface{}
 	SetLifecycleHookSpecificationList(val interface{})
 	// A list of Classic Load Balancers associated with this Auto Scaling group.
@@ -1876,6 +1878,8 @@ type CfnAutoScalingGroup interface {
 	// If you specify `VPCZoneIdentifier` with `AvailabilityZones` , the subnets that you specify for this property must reside in those Availability Zones.
 	//
 	// If this resource specifies public subnets and is also in a VPC that is defined in the same stack template, you must use the [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to declare a dependency on the [VPC-gateway attachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html) .
+	//
+	// Conditional: If your account supports EC2-Classic and VPC, this property is required to launch instances into a VPC.
 	//
 	// > When you update `VPCZoneIdentifier` , this retains the same Auto Scaling group and replaces old instances with new ones, according to the specified subnets. You can optionally specify how CloudFormation handles these updates by using an [UpdatePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html) .
 	VpcZoneIdentifier() *[]*string
@@ -3900,7 +3904,7 @@ type CfnAutoScalingGroupProps struct {
 	AutoScalingGroupName *string `json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
 	// A list of Availability Zones where instances in the Auto Scaling group can be created.
 	//
-	// You must specify one of the following properties: `VPCZoneIdentifier` or `AvailabilityZones` . If your account supports EC2-Classic and VPC, this property is required to create an Auto Scaling group that launches instances into EC2-Classic.
+	// Used for launching into EC2-Classic or the default VPC subnet in each Availability Zone when not using the `VPCZoneIdentifier` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
 	AvailabilityZones *[]*string `json:"availabilityZones" yaml:"availabilityZones"`
 	// Indicates whether Capacity Rebalancing is enabled.
 	//
@@ -3908,9 +3912,11 @@ type CfnAutoScalingGroupProps struct {
 	CapacityRebalance interface{} `json:"capacityRebalance" yaml:"capacityRebalance"`
 	// Reserved.
 	Context *string `json:"context" yaml:"context"`
-	// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
+	// *Only needed if you use simple scaling policies.*.
 	//
-	// The default value is `300` . This setting applies when using simple scaling policies, but not when using other scaling policies or scheduled scaling. For more information, see [Scaling cooldowns for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html) in the *Amazon EC2 Auto Scaling User Guide* .
+	// The amount of time, in seconds, between one scaling activity ending and another one starting due to simple scaling policies. For more information, see [Scaling cooldowns for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html) in the *Amazon EC2 Auto Scaling User Guide* .
+	//
+	// Default: `300` seconds.
 	Cooldown *string `json:"cooldown" yaml:"cooldown"`
 	// The desired capacity is the initial capacity of the Auto Scaling group at the time of its creation and the capacity it attempts to maintain.
 	//
@@ -3928,11 +3934,11 @@ type CfnAutoScalingGroupProps struct {
 	//
 	// Valid values: `units` | `vcpu` | `memory-mib`.
 	DesiredCapacityType *string `json:"desiredCapacityType" yaml:"desiredCapacityType"`
-	// The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed health check.
+	// The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed Elastic Load Balancing or custom health check.
 	//
-	// The default value is `0` . For more information, see [Health checks for Auto Scaling instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html) in the *Amazon EC2 Auto Scaling User Guide* .
+	// This is useful if your instances do not immediately pass these health checks after they enter the `InService` state. For more information, see [Health checks for Auto Scaling instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html) in the *Amazon EC2 Auto Scaling User Guide* .
 	//
-	// If you are adding an `ELB` health check, you must specify this property.
+	// Default: `0` seconds.
 	HealthCheckGracePeriod *float64 `json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// The service to use for the health checks.
 	//
@@ -3952,7 +3958,7 @@ type CfnAutoScalingGroupProps struct {
 	//
 	// If you omit this property, you must specify `MixedInstancesPolicy` , `LaunchConfigurationName` , or `InstanceId` .
 	LaunchTemplate interface{} `json:"launchTemplate" yaml:"launchTemplate"`
-	// One or more lifecycle hooks for the group, which specify actions to perform when Amazon EC2 Auto Scaling launches or terminates instances.
+	// One or more lifecycle hooks to add to the Auto Scaling group before instances are launched.
 	LifecycleHookSpecificationList interface{} `json:"lifecycleHookSpecificationList" yaml:"lifecycleHookSpecificationList"`
 	// A list of Classic Load Balancers associated with this Auto Scaling group.
 	//
@@ -4005,6 +4011,8 @@ type CfnAutoScalingGroupProps struct {
 	// If you specify `VPCZoneIdentifier` with `AvailabilityZones` , the subnets that you specify for this property must reside in those Availability Zones.
 	//
 	// If this resource specifies public subnets and is also in a VPC that is defined in the same stack template, you must use the [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to declare a dependency on the [VPC-gateway attachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html) .
+	//
+	// Conditional: If your account supports EC2-Classic and VPC, this property is required to launch instances into a VPC.
 	//
 	// > When you update `VPCZoneIdentifier` , this retains the same Auto Scaling group and replaces old instances with new ones, according to the specified subnets. You can optionally specify how CloudFormation handles these updates by using an [UpdatePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html) .
 	VpcZoneIdentifier *[]*string `json:"vpcZoneIdentifier" yaml:"vpcZoneIdentifier"`
@@ -6236,11 +6244,13 @@ type CfnScalingPolicy interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The duration of the policy's cooldown period, in seconds.
+	// A cooldown period, in seconds, that applies to a specific simple scaling policy.
 	//
-	// When a cooldown period is specified here, it overrides the default cooldown period defined for the Auto Scaling group.
+	// When a cooldown period is specified here, it overrides the default cooldown.
 	//
 	// Valid only if the policy type is `SimpleScaling` . For more information, see [Scaling cooldowns for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html) in the *Amazon EC2 Auto Scaling User Guide* .
+	//
+	// Default: None.
 	Cooldown() *string
 	SetCooldown(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -6249,7 +6259,7 @@ type CfnScalingPolicy interface {
 	CreationStack() *[]*string
 	// The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
 	//
-	// If not provided, the default is to use the value from the default cooldown period for the Auto Scaling group.
+	// This warm-up period applies to instances launched due to a specific target tracking or step scaling policy.
 	//
 	// Valid only if the policy type is `TargetTrackingScaling` or `StepScaling` .
 	EstimatedInstanceWarmup() *float64
@@ -8029,15 +8039,17 @@ type CfnScalingPolicyProps struct {
 	//
 	// Required if the policy type is `StepScaling` or `SimpleScaling` . For more information, see [Scaling adjustment types](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment) in the *Amazon EC2 Auto Scaling User Guide* .
 	AdjustmentType *string `json:"adjustmentType" yaml:"adjustmentType"`
-	// The duration of the policy's cooldown period, in seconds.
+	// A cooldown period, in seconds, that applies to a specific simple scaling policy.
 	//
-	// When a cooldown period is specified here, it overrides the default cooldown period defined for the Auto Scaling group.
+	// When a cooldown period is specified here, it overrides the default cooldown.
 	//
 	// Valid only if the policy type is `SimpleScaling` . For more information, see [Scaling cooldowns for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html) in the *Amazon EC2 Auto Scaling User Guide* .
+	//
+	// Default: None.
 	Cooldown *string `json:"cooldown" yaml:"cooldown"`
 	// The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
 	//
-	// If not provided, the default is to use the value from the default cooldown period for the Auto Scaling group.
+	// This warm-up period applies to instances launched due to a specific target tracking or step scaling policy.
 	//
 	// Valid only if the policy type is `TargetTrackingScaling` or `StepScaling` .
 	EstimatedInstanceWarmup *float64 `json:"estimatedInstanceWarmup" yaml:"estimatedInstanceWarmup"`

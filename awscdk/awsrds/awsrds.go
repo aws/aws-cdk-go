@@ -4132,8 +4132,6 @@ type CfnDBInstance interface {
 	// - `EnablePerformanceInsights`
 	// - `KmsKeyId`
 	// - `MasterUsername`
-	// - `MonitoringInterval`
-	// - `MonitoringRoleArn`
 	// - `PerformanceInsightsKMSKeyId`
 	// - `PerformanceInsightsRetentionPeriod`
 	// - `PromotionTier`
@@ -6394,8 +6392,6 @@ type CfnDBInstanceProps struct {
 	// - `EnablePerformanceInsights`
 	// - `KmsKeyId`
 	// - `MasterUsername`
-	// - `MonitoringInterval`
-	// - `MonitoringRoleArn`
 	// - `PerformanceInsightsKMSKeyId`
 	// - `PerformanceInsightsRetentionPeriod`
 	// - `PromotionTier`
@@ -6877,7 +6873,7 @@ type CfnDBParameterGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Provides the customer-specified description for this DB parameter group.
+	// Provides the customer-specified description for this DB Parameter Group.
 	Description() *string
 	SetDescription(val *string)
 	// The DB parameter group family name.
@@ -7459,7 +7455,7 @@ func (c *jsiiProxy_CfnDBParameterGroup) ValidateProperties(_properties interface
 //   }
 //
 type CfnDBParameterGroupProps struct {
-	// Provides the customer-specified description for this DB parameter group.
+	// Provides the customer-specified description for this DB Parameter Group.
 	Description *string `json:"description" yaml:"description"`
 	// The DB parameter group family name.
 	//
@@ -9920,7 +9916,7 @@ type CfnDBSecurityGroup interface {
 	// > The `EC2VpcId` property is for backward compatibility with older regions, and is no longer recommended for providing security information to an RDS DB instance.
 	Ec2VpcId() *string
 	SetEc2VpcId(val *string)
-	// Provides the description of the DB security group.
+	// Provides the description of the DB Security Group.
 	GroupDescription() *string
 	SetGroupDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -11153,7 +11149,7 @@ type CfnDBSecurityGroupIngressProps struct {
 type CfnDBSecurityGroupProps struct {
 	// Ingress rules to be applied to the DB security group.
 	DbSecurityGroupIngress interface{} `json:"dbSecurityGroupIngress" yaml:"dbSecurityGroupIngress"`
-	// Provides the description of the DB security group.
+	// Provides the description of the DB Security Group.
 	GroupDescription *string `json:"groupDescription" yaml:"groupDescription"`
 	// The identifier of an Amazon VPC. This property indicates the VPC that this DB security group belongs to.
 	//
@@ -16431,6 +16427,8 @@ type DatabaseClusterFromSnapshotProps struct {
 	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole" yaml:"cloudwatchLogsRetentionRole"`
 	// An optional identifier for the cluster.
 	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
+	// Whether to copy tags to the snapshot when a snapshot is created.
+	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// Name of a database which is automatically created inside the cluster.
 	DefaultDatabaseName *string `json:"defaultDatabaseName" yaml:"defaultDatabaseName"`
 	// Indicates whether the DB cluster should have deletion protection enabled.

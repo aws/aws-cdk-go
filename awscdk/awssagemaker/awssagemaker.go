@@ -7653,16 +7653,12 @@ type CfnEndpointConfig_ProductionVariantProperty struct {
 	InitialInstanceCount *float64 `json:"initialInstanceCount" yaml:"initialInstanceCount"`
 	// The ML compute instance type.
 	InstanceType *string `json:"instanceType" yaml:"instanceType"`
-	// The serverless configuration for an endpoint. Specifies a serverless endpoint configuration instead of an instance-based endpoint configuration.
+	// The serverless configuration for an endpoint.
 	//
-	// > Serverless Inference is in preview release for Amazon SageMaker and is subject to change. We do not recommend using this feature in production environments.
+	// Specifies a serverless endpoint configuration instead of an instance-based endpoint configuration.
 	ServerlessConfig interface{} `json:"serverlessConfig" yaml:"serverlessConfig"`
 }
 
-// > Serverless Inference is in preview release for Amazon SageMaker and is subject to change.
-//
-// We do not recommend using this feature in production environments.
-//
 // Specifies the serverless configuration for an endpoint variant.
 //
 // Example:

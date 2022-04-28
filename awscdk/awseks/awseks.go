@@ -139,7 +139,7 @@ func (a *jsiiProxy_AlbController) ToString() *string {
 //
 // Example:
 //   eks.NewCluster(this, jsii.String("HelloEKS"), &clusterProps{
-//   	version: eks.kubernetesVersion_V1_22(),
+//   	version: eks.kubernetesVersion_V1_21(),
 //   	albController: &albControllerOptions{
 //   		version: eks.albControllerVersion_V2_4_1(),
 //   	},
@@ -206,7 +206,7 @@ type AlbControllerProps struct {
 //
 // Example:
 //   eks.NewCluster(this, jsii.String("HelloEKS"), &clusterProps{
-//   	version: eks.kubernetesVersion_V1_22(),
+//   	version: eks.kubernetesVersion_V1_21(),
 //   	albController: &albControllerOptions{
 //   		version: eks.albControllerVersion_V2_4_1(),
 //   	},
@@ -5319,7 +5319,7 @@ type CfnNodegroupProps struct {
 //   var vpc vpc
 //
 //   eks.NewCluster(this, jsii.String("HelloEKS"), &clusterProps{
-//   	version: eks.kubernetesVersion_V1_22(),
+//   	version: eks.kubernetesVersion_V1_21(),
 //   	vpc: vpc,
 //   	vpcSubnets: []subnetSelection{
 //   		&subnetSelection{
@@ -6228,7 +6228,7 @@ type ClusterAttributes struct {
 // Example:
 //   cluster := eks.NewCluster(this, jsii.String("Cluster"), &clusterProps{
 //   	// ...
-//   	version: eks.kubernetesVersion_V1_22(),
+//   	version: eks.kubernetesVersion_V1_21(),
 //   	clusterLogging: []clusterLoggingTypes{
 //   		eks.*clusterLoggingTypes_API,
 //   		eks.*clusterLoggingTypes_AUTHENTICATOR,
@@ -6437,7 +6437,7 @@ type ClusterOptions struct {
 //   var vpc vpc
 //
 //   eks.NewCluster(this, jsii.String("HelloEKS"), &clusterProps{
-//   	version: eks.kubernetesVersion_V1_22(),
+//   	version: eks.kubernetesVersion_V1_21(),
 //   	vpc: vpc,
 //   	vpcSubnets: []subnetSelection{
 //   		&subnetSelection{
@@ -6668,7 +6668,7 @@ const (
 //
 // Example:
 //   cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &clusterProps{
-//   	version: eks.kubernetesVersion_V1_22(),
+//   	version: eks.kubernetesVersion_V1_21(),
 //   	defaultCapacityType: eks.defaultCapacityType_EC2,
 //   })
 //
@@ -6764,7 +6764,7 @@ type EksOptimizedImageProps struct {
 //
 // Example:
 //   cluster := eks.NewCluster(this, jsii.String("hello-eks"), &clusterProps{
-//   	version: eks.kubernetesVersion_V1_22(),
+//   	version: eks.kubernetesVersion_V1_21(),
 //   	endpointAccess: eks.endpointAccess_PRIVATE(),
 //   })
 //
@@ -6839,7 +6839,7 @@ func (e *jsiiProxy_EndpointAccess) OnlyFrom(cidr ...*string) EndpointAccess {
 //
 // Example:
 //   cluster := eks.NewFargateCluster(this, jsii.String("MyCluster"), &fargateClusterProps{
-//   	version: eks.kubernetesVersion_V1_22(),
+//   	version: eks.kubernetesVersion_V1_21(),
 //   })
 //
 type FargateCluster interface {
@@ -7659,7 +7659,7 @@ func (f *jsiiProxy_FargateCluster) ToString() *string {
 //
 // Example:
 //   cluster := eks.NewFargateCluster(this, jsii.String("MyCluster"), &fargateClusterProps{
-//   	version: eks.kubernetesVersion_V1_22(),
+//   	version: eks.kubernetesVersion_V1_21(),
 //   })
 //
 type FargateClusterProps struct {
@@ -10255,7 +10255,7 @@ type KubernetesPatchProps struct {
 //
 // Example:
 //   cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &clusterProps{
-//   	version: eks.kubernetesVersion_V1_22(),
+//   	version: eks.kubernetesVersion_V1_21(),
 //   	defaultCapacityType: eks.defaultCapacityType_EC2,
 //   })
 //
@@ -10379,17 +10379,6 @@ func KubernetesVersion_V1_21() KubernetesVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_eks.KubernetesVersion",
 		"V1_21",
-		&returns,
-	)
-	return returns
-}
-
-func KubernetesVersion_V1_22() KubernetesVersion {
-	_init_.Initialize()
-	var returns KubernetesVersion
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.KubernetesVersion",
-		"V1_22",
 		&returns,
 	)
 	return returns
@@ -10814,7 +10803,7 @@ func (n *jsiiProxy_Nodegroup) ToString() *string {
 //
 // Example:
 //   cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &clusterProps{
-//   	version: eks.kubernetesVersion_V1_22(),
+//   	version: eks.kubernetesVersion_V1_21(),
 //   	defaultCapacity: jsii.Number(0),
 //   })
 //
@@ -11469,43 +11458,23 @@ type Selector struct {
 // Service Account.
 //
 // Example:
-//   var cluster cluster
-//   // add service account
+//   // or create a new one using an existing issuer url
+//   var issuerUrl string// you can import an existing provider
+//   provider := eks.openIdConnectProvider.fromOpenIdConnectProviderArn(this, jsii.String("Provider"), jsii.String("arn:aws:iam::123456:oidc-provider/oidc.eks.eu-west-1.amazonaws.com/id/AB123456ABC"))
+//   provider2 := eks.NewOpenIdConnectProvider(this, jsii.String("Provider"), &openIdConnectProviderProps{
+//   	url: issuerUrl,
+//   })
+//
+//   cluster := eks.cluster.fromClusterAttributes(this, jsii.String("MyCluster"), &clusterAttributes{
+//   	clusterName: jsii.String("Cluster"),
+//   	openIdConnectProvider: provider,
+//   	kubectlRoleArn: jsii.String("arn:aws:iam::123456:role/service-role/k8sservicerole"),
+//   })
+//
 //   serviceAccount := cluster.addServiceAccount(jsii.String("MyServiceAccount"))
 //
 //   bucket := s3.NewBucket(this, jsii.String("Bucket"))
 //   bucket.grantReadWrite(serviceAccount)
-//
-//   mypod := cluster.addManifest(jsii.String("mypod"), map[string]interface{}{
-//   	"apiVersion": jsii.String("v1"),
-//   	"kind": jsii.String("Pod"),
-//   	"metadata": map[string]*string{
-//   		"name": jsii.String("mypod"),
-//   	},
-//   	"spec": map[string]interface{}{
-//   		"serviceAccountName": serviceAccount.serviceAccountName,
-//   		"containers": []map[string]interface{}{
-//   			map[string]interface{}{
-//   				"name": jsii.String("hello"),
-//   				"image": jsii.String("paulbouwer/hello-kubernetes:1.5"),
-//   				"ports": []map[string]*f64{
-//   					map[string]*f64{
-//   						"containerPort": jsii.Number(8080),
-//   					},
-//   				},
-//   			},
-//   		},
-//   	},
-//   })
-//
-//   // create the resource after the service account.
-//   mypod.node.addDependency(serviceAccount)
-//
-//   // print the IAM role arn for this service account
-//   // print the IAM role arn for this service account
-//   NewCfnOutput(this, jsii.String("ServiceAccountIamRole"), &cfnOutputProps{
-//   	value: serviceAccount.role.roleArn,
-//   })
 //
 type ServiceAccount interface {
 	constructs.Construct
@@ -11679,13 +11648,22 @@ func (s *jsiiProxy_ServiceAccount) ToString() *string {
 // Options for `ServiceAccount`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import eks "github.com/aws/aws-cdk-go/awscdk/aws_eks"
-//   serviceAccountOptions := &serviceAccountOptions{
-//   	name: jsii.String("name"),
-//   	namespace: jsii.String("namespace"),
-//   }
+//   var cluster cluster
+//   // add service account with annotations and labels
+//   serviceAccount := cluster.addServiceAccount(jsii.String("MyServiceAccount"), &serviceAccountOptions{
+//   	annotations: map[string]*string{
+//   		"eks.amazonaws.com/sts-regional-endpoints": jsii.String("false"),
+//   	},
+//   	labels: map[string]*string{
+//   		"some-label": jsii.String("with-some-value"),
+//   	},
+//   })
 //
 type ServiceAccountOptions struct {
+	// Additional annotations of the service account.
+	Annotations *map[string]*string `json:"annotations" yaml:"annotations"`
+	// Additional labels of the service account.
+	Labels *map[string]*string `json:"labels" yaml:"labels"`
 	// The name of the service account.
 	//
 	// The name of a ServiceAccount object must be a valid DNS subdomain name.
@@ -11708,11 +11686,21 @@ type ServiceAccountOptions struct {
 //   	cluster: cluster,
 //
 //   	// the properties below are optional
+//   	annotations: map[string]*string{
+//   		"annotationsKey": jsii.String("annotations"),
+//   	},
+//   	labels: map[string]*string{
+//   		"labelsKey": jsii.String("labels"),
+//   	},
 //   	name: jsii.String("name"),
 //   	namespace: jsii.String("namespace"),
 //   }
 //
 type ServiceAccountProps struct {
+	// Additional annotations of the service account.
+	Annotations *map[string]*string `json:"annotations" yaml:"annotations"`
+	// Additional labels of the service account.
+	Labels *map[string]*string `json:"labels" yaml:"labels"`
 	// The name of the service account.
 	//
 	// The name of a ServiceAccount object must be a valid DNS subdomain name.

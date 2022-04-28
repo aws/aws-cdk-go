@@ -127,6 +127,7 @@ const (
 // - `dynamodb:UpdateContributorInsights`
 // - `dynamodb:UpdateContinuousBackups`
 // - `dynamodb:ListTagsOfResource`
+// - `dynamodb:TableClass`
 // - `dynamodb:TagResource`
 // - `dynamodb:UntagResource`
 // - `dynamodb:BatchWriteItem`

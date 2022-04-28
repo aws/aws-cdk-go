@@ -505,7 +505,7 @@ type CdkCommand struct {
 //
 //   stack := NewStack(app, jsii.String("stack"))
 //
-//   NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
+//   testCase := NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
 //   	stacks: []stack{
 //   		stackUnderTest,
 //   	},
@@ -523,6 +523,12 @@ type CdkCommand struct {
 //   				force: jsii.Boolean(true),
 //   			},
 //   		},
+//   	},
+//   })
+//
+//   NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
+//   	testCases: []integTestCase{
+//   		testCase,
 //   	},
 //   })
 //
@@ -718,7 +724,7 @@ type DefaultCdkOptions struct {
 //
 //   stack := NewStack(app, jsii.String("stack"))
 //
-//   NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
+//   testCase := NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
 //   	stacks: []stack{
 //   		stackUnderTest,
 //   	},
@@ -736,6 +742,12 @@ type DefaultCdkOptions struct {
 //   				force: jsii.Boolean(true),
 //   			},
 //   		},
+//   	},
+//   })
+//
+//   NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
+//   	testCases: []integTestCase{
+//   		testCase,
 //   	},
 //   })
 //
@@ -759,7 +771,7 @@ type DeployCommand struct {
 //
 //   stack := NewStack(app, jsii.String("stack"))
 //
-//   NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
+//   testCase := NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
 //   	stacks: []stack{
 //   		stackUnderTest,
 //   	},
@@ -777,6 +789,12 @@ type DeployCommand struct {
 //   				force: jsii.Boolean(true),
 //   			},
 //   		},
+//   	},
+//   })
+//
+//   NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
+//   	testCases: []integTestCase{
+//   		testCase,
 //   	},
 //   })
 //
@@ -880,7 +898,7 @@ type DeployOptions struct {
 //
 //   stack := NewStack(app, jsii.String("stack"))
 //
-//   NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
+//   testCase := NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
 //   	stacks: []stack{
 //   		stackUnderTest,
 //   	},
@@ -898,6 +916,12 @@ type DeployOptions struct {
 //   				force: jsii.Boolean(true),
 //   			},
 //   		},
+//   	},
+//   })
+//
+//   NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
+//   	testCases: []integTestCase{
+//   		testCase,
 //   	},
 //   })
 //
@@ -921,7 +945,7 @@ type DestroyCommand struct {
 //
 //   stack := NewStack(app, jsii.String("stack"))
 //
-//   NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
+//   testCase := NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
 //   	stacks: []stack{
 //   		stackUnderTest,
 //   	},
@@ -939,6 +963,12 @@ type DestroyCommand struct {
 //   				force: jsii.Boolean(true),
 //   			},
 //   		},
+//   	},
+//   })
+//
+//   NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
+//   	testCases: []integTestCase{
+//   		testCase,
 //   	},
 //   })
 //
@@ -1858,7 +1888,7 @@ type PluginContextQuery struct {
 //
 //   stack := NewStack(app, jsii.String("stack"))
 //
-//   NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
+//   testCase := NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
 //   	stacks: []stack{
 //   		stackUnderTest,
 //   	},
@@ -1876,6 +1906,12 @@ type PluginContextQuery struct {
 //   				force: jsii.Boolean(true),
 //   			},
 //   		},
+//   	},
+//   })
+//
+//   NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
+//   	testCases: []integTestCase{
+//   		testCase,
 //   	},
 //   })
 //

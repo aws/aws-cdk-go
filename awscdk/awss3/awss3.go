@@ -5333,7 +5333,7 @@ type CfnBucket_QueueConfigurationProperty struct {
 	Queue *string `json:"queue" yaml:"queue"`
 	// The filtering rules that determine which objects trigger notifications.
 	//
-	// For example, you can create a filter so that Amazon S3 sends notifications only when image files with a `.jpg` extension are added to the bucket.
+	// For example, you can create a filter so that Amazon S3 sends notifications only when image files with a `.jpg` extension are added to the bucket. For more information, see [Configuring event notifications using object key name filtering](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/notification-how-to-filtering.html) in the *Amazon S3 User Guide* .
 	Filter interface{} `json:"filter" yaml:"filter"`
 }
 

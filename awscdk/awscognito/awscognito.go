@@ -15995,6 +15995,7 @@ type UserPoolResourceServerProps struct {
 // Example:
 //   cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
 //   	email: cognito.userPoolEmail.withSES(&userPoolSESOptions{
+//   		sesRegion: jsii.String("us-east-1"),
 //   		fromEmail: jsii.String("noreply@myawesomeapp.com"),
 //   		fromName: jsii.String("Awesome App"),
 //   		replyTo: jsii.String("support@myawesomeapp.com"),
@@ -16027,6 +16028,8 @@ type UserPoolSESOptions struct {
 	//
 	// Must be 'us-east-1', 'us-west-2', or 'eu-west-1'.
 	SesRegion *string `json:"sesRegion" yaml:"sesRegion"`
+	// SES Verified custom domain to be used to verify the identity.
+	SesVerifiedDomain *string `json:"sesVerifiedDomain" yaml:"sesVerifiedDomain"`
 }
 
 // Triggers for a user pool.

@@ -2223,6 +2223,8 @@ type CfnConnection interface {
 	// The ARN for the secret created for the connection.
 	AttrSecretArn() *string
 	// The type of authorization to use for the connection.
+	//
+	// > OAUTH tokens are refreshed when a 401 or 407 response is returned.
 	AuthorizationType() *string
 	SetAuthorizationType(val *string)
 	// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
@@ -3156,6 +3158,8 @@ type CfnConnection_ParameterProperty struct {
 //
 type CfnConnectionProps struct {
 	// The type of authorization to use for the connection.
+	//
+	// > OAUTH tokens are refreshed when a 401 or 407 response is returned.
 	AuthorizationType *string `json:"authorizationType" yaml:"authorizationType"`
 	// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
 	AuthParameters interface{} `json:"authParameters" yaml:"authParameters"`

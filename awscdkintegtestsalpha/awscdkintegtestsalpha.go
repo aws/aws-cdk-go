@@ -11,6 +11,155 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+// A collection of test cases.
+//
+// Each test case file should contain exactly one
+// instance of this class.
+//
+// Example:
+//   type stackUnderTestProps struct {
+//   	stackProps
+//   	architecture architecture
+//   }
+//
+//   type stackUnderTest struct {
+//   	stack
+//   }
+//
+//   func newStackUnderTest(scope construct, id *string, props stackUnderTestProps) *stackUnderTest {
+//   	this := &stackUnderTest{}
+//   	newStack_Override(this, scope, id, props)
+//
+//   	lambda.NewFunction(this, jsii.String("Handler"), &functionProps{
+//   		runtime: lambda.runtime_NODEJS_12_X(),
+//   		handler: jsii.String("index.handler"),
+//   		code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+//   		architecture: props.architecture,
+//   	})
+//   	return this
+//   }
+//
+//   // Beginning of the test suite
+//   app := NewApp()
+//
+//   stack := NewStack(app, jsii.String("stack"))
+//
+//   differentArchsCase := NewIntegTestCase(stack, jsii.String("DifferentArchitectures"), &integTestCaseProps{
+//   	stacks: []*stack{
+//   		NewStackUnderTest(app, jsii.String("Stack1"), &stackUnderTestProps{
+//   			architecture: lambda.*architecture_ARM_64(),
+//   		}),
+//   		NewStackUnderTest(app, jsii.String("Stack2"), &stackUnderTestProps{
+//   			architecture: lambda.*architecture_X86_64(),
+//   		}),
+//   	},
+//   })
+//
+//   // There must be exactly one instance of TestCase per file
+//   // There must be exactly one instance of TestCase per file
+//   NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
+//
+//   	// Register as many test cases as you want here
+//   	testCases: []integTestCase{
+//   		differentArchsCase,
+//   	},
+//   })
+//
+// Experimental.
+type IntegTest interface {
+	constructs.Construct
+	// The tree node.
+	// Experimental.
+	Node() constructs.Node
+	// Experimental.
+	OnPrepare()
+	// Returns a string representation of this construct.
+	// Experimental.
+	ToString() *string
+}
+
+// The jsii proxy struct for IntegTest
+type jsiiProxy_IntegTest struct {
+	internal.Type__constructsConstruct
+}
+
+func (j *jsiiProxy_IntegTest) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewIntegTest(scope constructs.Construct, id *string, props *IntegTestProps) IntegTest {
+	_init_.Initialize()
+
+	j := jsiiProxy_IntegTest{}
+
+	_jsii_.Create(
+		"@aws-cdk/integ-tests-alpha.IntegTest",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewIntegTest_Override(i IntegTest, scope constructs.Construct, id *string, props *IntegTestProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/integ-tests-alpha.IntegTest",
+		[]interface{}{scope, id, props},
+		i,
+	)
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
+func IntegTest_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/integ-tests-alpha.IntegTest",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IntegTest) OnPrepare() {
+	_jsii_.InvokeVoid(
+		i,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (i *jsiiProxy_IntegTest) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		i,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // An integration test case.
 //
 // Allows the definition of test properties that
@@ -43,7 +192,8 @@ import (
 //   app := NewApp()
 //
 //   stack := NewStack(app, jsii.String("stack"))
-//   NewIntegTestCase(stack, jsii.String("DifferentArchitectures"), &integTestCaseProps{
+//
+//   differentArchsCase := NewIntegTestCase(stack, jsii.String("DifferentArchitectures"), &integTestCaseProps{
 //   	stacks: []*stack{
 //   		NewStackUnderTest(app, jsii.String("Stack1"), &stackUnderTestProps{
 //   			architecture: lambda.*architecture_ARM_64(),
@@ -54,9 +204,25 @@ import (
 //   	},
 //   })
 //
+//   // There must be exactly one instance of TestCase per file
+//   // There must be exactly one instance of TestCase per file
+//   NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
+//
+//   	// Register as many test cases as you want here
+//   	testCases: []integTestCase{
+//   		differentArchsCase,
+//   	},
+//   })
+//
 // Experimental.
 type IntegTestCase interface {
 	constructs.Construct
+	// The integration test manifest for this test case.
+	//
+	// Manifests are used
+	// by the integration test runner.
+	// Experimental.
+	Manifest() *cloudassemblyschema.IntegManifest
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
@@ -68,6 +234,16 @@ type IntegTestCase interface {
 // The jsii proxy struct for IntegTestCase
 type jsiiProxy_IntegTestCase struct {
 	internal.Type__constructsConstruct
+}
+
+func (j *jsiiProxy_IntegTestCase) Manifest() *cloudassemblyschema.IntegManifest {
+	var returns *cloudassemblyschema.IntegManifest
+	_jsii_.Get(
+		j,
+		"manifest",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_IntegTestCase) Node() constructs.Node {
@@ -168,7 +344,8 @@ func (i *jsiiProxy_IntegTestCase) ToString() *string {
 //   app := NewApp()
 //
 //   stack := NewStack(app, jsii.String("stack"))
-//   NewIntegTestCase(stack, jsii.String("DifferentArchitectures"), &integTestCaseProps{
+//
+//   differentArchsCase := NewIntegTestCase(stack, jsii.String("DifferentArchitectures"), &integTestCaseProps{
 //   	stacks: []*stack{
 //   		NewStackUnderTest(app, jsii.String("Stack1"), &stackUnderTestProps{
 //   			architecture: lambda.*architecture_ARM_64(),
@@ -176,6 +353,16 @@ func (i *jsiiProxy_IntegTestCase) ToString() *string {
 //   		NewStackUnderTest(app, jsii.String("Stack2"), &stackUnderTestProps{
 //   			architecture: lambda.*architecture_X86_64(),
 //   		}),
+//   	},
+//   })
+//
+//   // There must be exactly one instance of TestCase per file
+//   // There must be exactly one instance of TestCase per file
+//   NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
+//
+//   	// Register as many test cases as you want here
+//   	testCases: []integTestCase{
+//   		differentArchsCase,
 //   	},
 //   })
 //
@@ -214,5 +401,63 @@ type IntegTestCaseProps struct {
 	// Stacks to be deployed during the test.
 	// Experimental.
 	Stacks *[]awscdk.Stack `json:"stacks" yaml:"stacks"`
+}
+
+// Integration test properties.
+//
+// Example:
+//   type stackUnderTestProps struct {
+//   	stackProps
+//   	architecture architecture
+//   }
+//
+//   type stackUnderTest struct {
+//   	stack
+//   }
+//
+//   func newStackUnderTest(scope construct, id *string, props stackUnderTestProps) *stackUnderTest {
+//   	this := &stackUnderTest{}
+//   	newStack_Override(this, scope, id, props)
+//
+//   	lambda.NewFunction(this, jsii.String("Handler"), &functionProps{
+//   		runtime: lambda.runtime_NODEJS_12_X(),
+//   		handler: jsii.String("index.handler"),
+//   		code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+//   		architecture: props.architecture,
+//   	})
+//   	return this
+//   }
+//
+//   // Beginning of the test suite
+//   app := NewApp()
+//
+//   stack := NewStack(app, jsii.String("stack"))
+//
+//   differentArchsCase := NewIntegTestCase(stack, jsii.String("DifferentArchitectures"), &integTestCaseProps{
+//   	stacks: []*stack{
+//   		NewStackUnderTest(app, jsii.String("Stack1"), &stackUnderTestProps{
+//   			architecture: lambda.*architecture_ARM_64(),
+//   		}),
+//   		NewStackUnderTest(app, jsii.String("Stack2"), &stackUnderTestProps{
+//   			architecture: lambda.*architecture_X86_64(),
+//   		}),
+//   	},
+//   })
+//
+//   // There must be exactly one instance of TestCase per file
+//   // There must be exactly one instance of TestCase per file
+//   NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
+//
+//   	// Register as many test cases as you want here
+//   	testCases: []integTestCase{
+//   		differentArchsCase,
+//   	},
+//   })
+//
+// Experimental.
+type IntegTestProps struct {
+	// List of test cases that make up this test.
+	// Experimental.
+	TestCases *[]IntegTestCase `json:"testCases" yaml:"testCases"`
 }
 

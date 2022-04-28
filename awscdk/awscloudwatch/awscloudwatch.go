@@ -7842,6 +7842,8 @@ type CreateAlarmOptions struct {
 //
 type Dashboard interface {
 	awscdk.Resource
+	// ARN of this dashboard.
+	DashboardArn() *string
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -7902,6 +7904,16 @@ type Dashboard interface {
 // The jsii proxy struct for Dashboard
 type jsiiProxy_Dashboard struct {
 	internal.Type__awscdkResource
+}
+
+func (j *jsiiProxy_Dashboard) DashboardArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"dashboardArn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_Dashboard) Env() *awscdk.ResourceEnvironment {

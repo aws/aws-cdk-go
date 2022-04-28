@@ -3502,7 +3502,7 @@ type CfnReceiptRule_RuleProperty struct {
 	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// The name of the receipt rule. The name must meet the following requirements:.
 	//
-	// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
+	// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), dashes (-), or periods (.).
 	// - Start and end with a letter or number.
 	// - Contain 64 characters or fewer.
 	Name *string `json:"name" yaml:"name"`
