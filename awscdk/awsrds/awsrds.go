@@ -1,20 +1,20 @@
 package awsrds
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Aurora capacity units (ACUs).
@@ -39,30 +39,42 @@ import (
 //
 // See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.architecture
 //
+// Experimental.
 type AuroraCapacityUnit string
 
 const (
 	// 1 Aurora Capacity Unit.
+	// Experimental.
 	AuroraCapacityUnit_ACU_1 AuroraCapacityUnit = "ACU_1"
 	// 2 Aurora Capacity Units.
+	// Experimental.
 	AuroraCapacityUnit_ACU_2 AuroraCapacityUnit = "ACU_2"
 	// 4 Aurora Capacity Units.
+	// Experimental.
 	AuroraCapacityUnit_ACU_4 AuroraCapacityUnit = "ACU_4"
 	// 8 Aurora Capacity Units.
+	// Experimental.
 	AuroraCapacityUnit_ACU_8 AuroraCapacityUnit = "ACU_8"
 	// 16 Aurora Capacity Units.
+	// Experimental.
 	AuroraCapacityUnit_ACU_16 AuroraCapacityUnit = "ACU_16"
 	// 32 Aurora Capacity Units.
+	// Experimental.
 	AuroraCapacityUnit_ACU_32 AuroraCapacityUnit = "ACU_32"
 	// 64 Aurora Capacity Units.
+	// Experimental.
 	AuroraCapacityUnit_ACU_64 AuroraCapacityUnit = "ACU_64"
 	// 128 Aurora Capacity Units.
+	// Experimental.
 	AuroraCapacityUnit_ACU_128 AuroraCapacityUnit = "ACU_128"
 	// 192 Aurora Capacity Units.
+	// Experimental.
 	AuroraCapacityUnit_ACU_192 AuroraCapacityUnit = "ACU_192"
 	// 256 Aurora Capacity Units.
+	// Experimental.
 	AuroraCapacityUnit_ACU_256 AuroraCapacityUnit = "ACU_256"
 	// 384 Aurora Capacity Units.
+	// Experimental.
 	AuroraCapacityUnit_ACU_384 AuroraCapacityUnit = "ACU_384"
 )
 
@@ -82,8 +94,10 @@ const (
 //   	snapshotIdentifier: jsii.String("mySnapshot"),
 //   })
 //
+// Experimental.
 type AuroraClusterEngineProps struct {
 	// The version of the Aurora cluster engine.
+	// Experimental.
 	Version AuroraEngineVersion `json:"version" yaml:"version"`
 }
 
@@ -101,12 +115,15 @@ type AuroraClusterEngineProps struct {
 //   	snapshotIdentifier: jsii.String("mySnapshot"),
 //   })
 //
+// Experimental.
 type AuroraEngineVersion interface {
 	// The full version string, for example, "5.6.mysql_aurora.1.78.3.6".
+	// Experimental.
 	AuroraFullVersion() *string
 	// The major version of the engine.
 	//
 	// Currently, it's always "5.6".
+	// Experimental.
 	AuroraMajorVersion() *string
 }
 
@@ -137,13 +154,14 @@ func (j *jsiiProxy_AuroraEngineVersion) AuroraMajorVersion() *string {
 
 
 // Create a new AuroraEngineVersion with an arbitrary version.
+// Experimental.
 func AuroraEngineVersion_Of(auroraFullVersion *string, auroraMajorVersion *string) AuroraEngineVersion {
 	_init_.Initialize()
 
 	var returns AuroraEngineVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"of",
 		[]interface{}{auroraFullVersion, auroraMajorVersion},
 		&returns,
@@ -156,7 +174,7 @@ func AuroraEngineVersion_VER_1_17_9() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_17_9",
 		&returns,
 	)
@@ -167,7 +185,7 @@ func AuroraEngineVersion_VER_1_19_0() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_19_0",
 		&returns,
 	)
@@ -178,7 +196,7 @@ func AuroraEngineVersion_VER_1_19_1() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_19_1",
 		&returns,
 	)
@@ -189,7 +207,7 @@ func AuroraEngineVersion_VER_1_19_2() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_19_2",
 		&returns,
 	)
@@ -200,7 +218,7 @@ func AuroraEngineVersion_VER_1_19_5() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_19_5",
 		&returns,
 	)
@@ -211,7 +229,7 @@ func AuroraEngineVersion_VER_1_19_6() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_19_6",
 		&returns,
 	)
@@ -222,7 +240,7 @@ func AuroraEngineVersion_VER_1_20_0() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_20_0",
 		&returns,
 	)
@@ -233,7 +251,7 @@ func AuroraEngineVersion_VER_1_20_1() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_20_1",
 		&returns,
 	)
@@ -244,7 +262,7 @@ func AuroraEngineVersion_VER_1_21_0() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_21_0",
 		&returns,
 	)
@@ -255,7 +273,7 @@ func AuroraEngineVersion_VER_1_22_0() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_22_0",
 		&returns,
 	)
@@ -266,7 +284,7 @@ func AuroraEngineVersion_VER_1_22_1() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_22_1",
 		&returns,
 	)
@@ -277,7 +295,7 @@ func AuroraEngineVersion_VER_1_22_1_3() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_22_1_3",
 		&returns,
 	)
@@ -288,7 +306,7 @@ func AuroraEngineVersion_VER_1_22_2() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_22_2",
 		&returns,
 	)
@@ -299,7 +317,7 @@ func AuroraEngineVersion_VER_10A() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_10A",
 		&returns,
 	)
@@ -328,8 +346,10 @@ func AuroraEngineVersion_VER_10A() AuroraEngineVersion {
 //   	},
 //   })
 //
+// Experimental.
 type AuroraMysqlClusterEngineProps struct {
 	// The version of the Aurora MySQL cluster engine.
+	// Experimental.
 	Version AuroraMysqlEngineVersion `json:"version" yaml:"version"`
 }
 
@@ -353,12 +373,15 @@ type AuroraMysqlClusterEngineProps struct {
 //   	},
 //   })
 //
+// Experimental.
 type AuroraMysqlEngineVersion interface {
 	// The full version string, for example, "5.7.mysql_aurora.1.78.3.6".
+	// Experimental.
 	AuroraMysqlFullVersion() *string
 	// The major version of the engine.
 	//
 	// Currently, it's either "5.7", or "8.0".
+	// Experimental.
 	AuroraMysqlMajorVersion() *string
 }
 
@@ -389,13 +412,14 @@ func (j *jsiiProxy_AuroraMysqlEngineVersion) AuroraMysqlMajorVersion() *string {
 
 
 // Create a new AuroraMysqlEngineVersion with an arbitrary version.
+// Experimental.
 func AuroraMysqlEngineVersion_Of(auroraMysqlFullVersion *string, auroraMysqlMajorVersion *string) AuroraMysqlEngineVersion {
 	_init_.Initialize()
 
 	var returns AuroraMysqlEngineVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"of",
 		[]interface{}{auroraMysqlFullVersion, auroraMysqlMajorVersion},
 		&returns,
@@ -408,7 +432,7 @@ func AuroraMysqlEngineVersion_VER_2_03_2() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_03_2",
 		&returns,
 	)
@@ -419,7 +443,7 @@ func AuroraMysqlEngineVersion_VER_2_03_3() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_03_3",
 		&returns,
 	)
@@ -430,7 +454,7 @@ func AuroraMysqlEngineVersion_VER_2_03_4() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_03_4",
 		&returns,
 	)
@@ -441,7 +465,7 @@ func AuroraMysqlEngineVersion_VER_2_04_0() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_04_0",
 		&returns,
 	)
@@ -452,7 +476,7 @@ func AuroraMysqlEngineVersion_VER_2_04_1() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_04_1",
 		&returns,
 	)
@@ -463,7 +487,7 @@ func AuroraMysqlEngineVersion_VER_2_04_2() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_04_2",
 		&returns,
 	)
@@ -474,7 +498,7 @@ func AuroraMysqlEngineVersion_VER_2_04_3() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_04_3",
 		&returns,
 	)
@@ -485,7 +509,7 @@ func AuroraMysqlEngineVersion_VER_2_04_4() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_04_4",
 		&returns,
 	)
@@ -496,7 +520,7 @@ func AuroraMysqlEngineVersion_VER_2_04_5() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_04_5",
 		&returns,
 	)
@@ -507,7 +531,7 @@ func AuroraMysqlEngineVersion_VER_2_04_6() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_04_6",
 		&returns,
 	)
@@ -518,7 +542,7 @@ func AuroraMysqlEngineVersion_VER_2_04_7() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_04_7",
 		&returns,
 	)
@@ -529,7 +553,7 @@ func AuroraMysqlEngineVersion_VER_2_04_8() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_04_8",
 		&returns,
 	)
@@ -540,7 +564,7 @@ func AuroraMysqlEngineVersion_VER_2_05_0() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_05_0",
 		&returns,
 	)
@@ -551,7 +575,7 @@ func AuroraMysqlEngineVersion_VER_2_06_0() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_06_0",
 		&returns,
 	)
@@ -562,7 +586,7 @@ func AuroraMysqlEngineVersion_VER_2_07_0() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_07_0",
 		&returns,
 	)
@@ -573,7 +597,7 @@ func AuroraMysqlEngineVersion_VER_2_07_1() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_07_1",
 		&returns,
 	)
@@ -584,7 +608,7 @@ func AuroraMysqlEngineVersion_VER_2_07_2() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_07_2",
 		&returns,
 	)
@@ -595,7 +619,7 @@ func AuroraMysqlEngineVersion_VER_2_08_0() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_08_0",
 		&returns,
 	)
@@ -606,7 +630,7 @@ func AuroraMysqlEngineVersion_VER_2_08_1() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_08_1",
 		&returns,
 	)
@@ -617,7 +641,7 @@ func AuroraMysqlEngineVersion_VER_2_08_2() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_08_2",
 		&returns,
 	)
@@ -628,7 +652,7 @@ func AuroraMysqlEngineVersion_VER_2_09_0() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_09_0",
 		&returns,
 	)
@@ -639,7 +663,7 @@ func AuroraMysqlEngineVersion_VER_2_09_1() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_09_1",
 		&returns,
 	)
@@ -650,7 +674,7 @@ func AuroraMysqlEngineVersion_VER_2_09_2() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_09_2",
 		&returns,
 	)
@@ -661,7 +685,7 @@ func AuroraMysqlEngineVersion_VER_2_09_3() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_09_3",
 		&returns,
 	)
@@ -672,7 +696,7 @@ func AuroraMysqlEngineVersion_VER_2_10_0() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_10_0",
 		&returns,
 	)
@@ -683,7 +707,7 @@ func AuroraMysqlEngineVersion_VER_2_10_1() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_10_1",
 		&returns,
 	)
@@ -694,7 +718,7 @@ func AuroraMysqlEngineVersion_VER_2_10_2() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_10_2",
 		&returns,
 	)
@@ -705,7 +729,7 @@ func AuroraMysqlEngineVersion_VER_3_01_0() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_3_01_0",
 		&returns,
 	)
@@ -716,7 +740,7 @@ func AuroraMysqlEngineVersion_VER_5_7_12() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_5_7_12",
 		&returns,
 	)
@@ -735,8 +759,10 @@ func AuroraMysqlEngineVersion_VER_5_7_12() AuroraMysqlEngineVersion {
 //   	version: auroraPostgresEngineVersion,
 //   }
 //
+// Experimental.
 type AuroraPostgresClusterEngineProps struct {
 	// The version of the Aurora PostgreSQL cluster engine.
+	// Experimental.
 	Version AuroraPostgresEngineVersion `json:"version" yaml:"version"`
 }
 
@@ -749,10 +775,13 @@ type AuroraPostgresClusterEngineProps struct {
 //   	s3Import: jsii.Boolean(false),
 //   }
 //
+// Experimental.
 type AuroraPostgresEngineFeatures struct {
 	// Whether this version of the Aurora Postgres cluster engine supports the S3 data export feature.
+	// Experimental.
 	S3Export *bool `json:"s3Export" yaml:"s3Export"`
 	// Whether this version of the Aurora Postgres cluster engine supports the S3 data import feature.
+	// Experimental.
 	S3Import *bool `json:"s3Import" yaml:"s3Import"`
 }
 
@@ -762,10 +791,13 @@ type AuroraPostgresEngineFeatures struct {
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import rds "github.com/aws/aws-cdk-go/awscdk/aws_rds"
 //   auroraPostgresEngineVersion := rds.auroraPostgresEngineVersion_VER_10_11()
 //
+// Experimental.
 type AuroraPostgresEngineVersion interface {
 	// The full version string, for example, "9.6.25.1".
+	// Experimental.
 	AuroraPostgresFullVersion() *string
 	// The major version of the engine, for example, "9.6".
+	// Experimental.
 	AuroraPostgresMajorVersion() *string
 }
 
@@ -796,13 +828,14 @@ func (j *jsiiProxy_AuroraPostgresEngineVersion) AuroraPostgresMajorVersion() *st
 
 
 // Create a new AuroraPostgresEngineVersion with an arbitrary version.
+// Experimental.
 func AuroraPostgresEngineVersion_Of(auroraPostgresFullVersion *string, auroraPostgresMajorVersion *string, auroraPostgresFeatures *AuroraPostgresEngineFeatures) AuroraPostgresEngineVersion {
 	_init_.Initialize()
 
 	var returns AuroraPostgresEngineVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"of",
 		[]interface{}{auroraPostgresFullVersion, auroraPostgresMajorVersion, auroraPostgresFeatures},
 		&returns,
@@ -815,7 +848,7 @@ func AuroraPostgresEngineVersion_VER_10_11() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_10_11",
 		&returns,
 	)
@@ -826,7 +859,7 @@ func AuroraPostgresEngineVersion_VER_10_12() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_10_12",
 		&returns,
 	)
@@ -837,7 +870,7 @@ func AuroraPostgresEngineVersion_VER_10_13() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_10_13",
 		&returns,
 	)
@@ -848,7 +881,7 @@ func AuroraPostgresEngineVersion_VER_10_14() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_10_14",
 		&returns,
 	)
@@ -859,7 +892,7 @@ func AuroraPostgresEngineVersion_VER_10_16() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_10_16",
 		&returns,
 	)
@@ -870,7 +903,7 @@ func AuroraPostgresEngineVersion_VER_10_18() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_10_18",
 		&returns,
 	)
@@ -881,7 +914,7 @@ func AuroraPostgresEngineVersion_VER_10_19() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_10_19",
 		&returns,
 	)
@@ -892,7 +925,7 @@ func AuroraPostgresEngineVersion_VER_10_20() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_10_20",
 		&returns,
 	)
@@ -903,7 +936,7 @@ func AuroraPostgresEngineVersion_VER_10_4() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_10_4",
 		&returns,
 	)
@@ -914,7 +947,7 @@ func AuroraPostgresEngineVersion_VER_10_5() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_10_5",
 		&returns,
 	)
@@ -925,7 +958,7 @@ func AuroraPostgresEngineVersion_VER_10_6() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_10_6",
 		&returns,
 	)
@@ -936,7 +969,7 @@ func AuroraPostgresEngineVersion_VER_10_7() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_10_7",
 		&returns,
 	)
@@ -947,7 +980,7 @@ func AuroraPostgresEngineVersion_VER_11_11() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_11_11",
 		&returns,
 	)
@@ -958,7 +991,7 @@ func AuroraPostgresEngineVersion_VER_11_13() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_11_13",
 		&returns,
 	)
@@ -969,7 +1002,7 @@ func AuroraPostgresEngineVersion_VER_11_14() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_11_14",
 		&returns,
 	)
@@ -980,7 +1013,7 @@ func AuroraPostgresEngineVersion_VER_11_15() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_11_15",
 		&returns,
 	)
@@ -991,7 +1024,7 @@ func AuroraPostgresEngineVersion_VER_11_4() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_11_4",
 		&returns,
 	)
@@ -1002,7 +1035,7 @@ func AuroraPostgresEngineVersion_VER_11_6() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_11_6",
 		&returns,
 	)
@@ -1013,7 +1046,7 @@ func AuroraPostgresEngineVersion_VER_11_7() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_11_7",
 		&returns,
 	)
@@ -1024,7 +1057,7 @@ func AuroraPostgresEngineVersion_VER_11_8() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_11_8",
 		&returns,
 	)
@@ -1035,7 +1068,7 @@ func AuroraPostgresEngineVersion_VER_11_9() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_11_9",
 		&returns,
 	)
@@ -1046,7 +1079,7 @@ func AuroraPostgresEngineVersion_VER_12_10() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_12_10",
 		&returns,
 	)
@@ -1057,7 +1090,7 @@ func AuroraPostgresEngineVersion_VER_12_4() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_12_4",
 		&returns,
 	)
@@ -1068,7 +1101,7 @@ func AuroraPostgresEngineVersion_VER_12_6() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_12_6",
 		&returns,
 	)
@@ -1079,7 +1112,7 @@ func AuroraPostgresEngineVersion_VER_12_8() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_12_8",
 		&returns,
 	)
@@ -1090,7 +1123,7 @@ func AuroraPostgresEngineVersion_VER_12_9() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_12_9",
 		&returns,
 	)
@@ -1101,7 +1134,7 @@ func AuroraPostgresEngineVersion_VER_13_3() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_13_3",
 		&returns,
 	)
@@ -1112,7 +1145,7 @@ func AuroraPostgresEngineVersion_VER_13_4() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_13_4",
 		&returns,
 	)
@@ -1123,7 +1156,7 @@ func AuroraPostgresEngineVersion_VER_13_5() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_13_5",
 		&returns,
 	)
@@ -1134,7 +1167,7 @@ func AuroraPostgresEngineVersion_VER_13_6() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_13_6",
 		&returns,
 	)
@@ -1145,7 +1178,7 @@ func AuroraPostgresEngineVersion_VER_9_6_11() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_9_6_11",
 		&returns,
 	)
@@ -1156,7 +1189,7 @@ func AuroraPostgresEngineVersion_VER_9_6_12() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_9_6_12",
 		&returns,
 	)
@@ -1167,7 +1200,7 @@ func AuroraPostgresEngineVersion_VER_9_6_16() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_9_6_16",
 		&returns,
 	)
@@ -1178,7 +1211,7 @@ func AuroraPostgresEngineVersion_VER_9_6_17() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_9_6_17",
 		&returns,
 	)
@@ -1189,7 +1222,7 @@ func AuroraPostgresEngineVersion_VER_9_6_18() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_9_6_18",
 		&returns,
 	)
@@ -1200,7 +1233,7 @@ func AuroraPostgresEngineVersion_VER_9_6_19() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_9_6_19",
 		&returns,
 	)
@@ -1211,7 +1244,7 @@ func AuroraPostgresEngineVersion_VER_9_6_8() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_9_6_8",
 		&returns,
 	)
@@ -1222,7 +1255,7 @@ func AuroraPostgresEngineVersion_VER_9_6_9() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_9_6_9",
 		&returns,
 	)
@@ -1232,9 +1265,11 @@ func AuroraPostgresEngineVersion_VER_9_6_9() AuroraPostgresEngineVersion {
 // Backup configuration for RDS databases.
 //
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import rds "github.com/aws/aws-cdk-go/awscdk/aws_rds"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import rds "github.com/aws/aws-cdk-go/awscdk/aws_rds"
+//
+//   var duration duration
 //   backupProps := &backupProps{
-//   	retention: cdk.duration.minutes(jsii.Number(30)),
+//   	retention: duration,
 //
 //   	// the properties below are optional
 //   	preferredWindow: jsii.String("preferredWindow"),
@@ -1242,14 +1277,17 @@ func AuroraPostgresEngineVersion_VER_9_6_9() AuroraPostgresEngineVersion {
 //
 // See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow
 //
+// Experimental.
 type BackupProps struct {
 	// How many days to retain the backup.
+	// Experimental.
 	Retention awscdk.Duration `json:"retention" yaml:"retention"`
 	// A daily time range in 24-hours UTC format in which backups preferably execute.
 	//
 	// Must be at least 30 minutes long.
 	//
 	// Example: '01:00-02:00'.
+	// Experimental.
 	PreferredWindow *string `json:"preferredWindow" yaml:"preferredWindow"`
 }
 
@@ -1391,9 +1429,11 @@ type CfnDBCluster interface {
 	BackupRetentionPeriod() *float64
 	SetBackupRetentionPeriod(val *float64)
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster.
 	//
@@ -1403,6 +1443,7 @@ type CfnDBCluster interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// The name of your database.
 	//
@@ -1535,6 +1576,7 @@ type CfnDBCluster interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
 	// The name of the master user for the DB cluster.
 	//
@@ -1546,8 +1588,9 @@ type CfnDBCluster interface {
 	// > If you specify the `SourceDBClusterIdentifier` , `SnapshotIdentifier` , or `GlobalClusterIdentifier` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.
 	MasterUserPassword() *string
 	SetMasterUserPassword(val *string)
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// The port number on which the DB instances in the DB cluster accept connections.
 	//
 	// Default:
@@ -1588,6 +1631,7 @@ type CfnDBCluster interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a read replica.
 	ReplicationSourceIdentifier() *string
@@ -1642,6 +1686,7 @@ type CfnDBCluster interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// Indicates whether the DB cluster is encrypted.
 	//
@@ -1656,6 +1701,7 @@ type CfnDBCluster interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// A value that indicates whether to restore the DB cluster to the latest restorable backup time.
 	//
@@ -1668,11 +1714,13 @@ type CfnDBCluster interface {
 	VpcSecurityGroupIds() *[]*string
 	SetVpcSecurityGroupIds(val *[]*string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1681,6 +1729,7 @@ type CfnDBCluster interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1725,12 +1774,15 @@ type CfnDBCluster interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1741,11 +1793,13 @@ type CfnDBCluster interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1754,21 +1808,74 @@ type CfnDBCluster interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2058,8 +2165,8 @@ func (j *jsiiProxy_CfnDBCluster) MasterUserPassword() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBCluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDBCluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2230,13 +2337,13 @@ func (j *jsiiProxy_CfnDBCluster) VpcSecurityGroupIds() *[]*string {
 
 
 // Create a new `AWS::RDS::DBCluster`.
-func NewCfnDBCluster(scope constructs.Construct, id *string, props *CfnDBClusterProps) CfnDBCluster {
+func NewCfnDBCluster(scope awscdk.Construct, id *string, props *CfnDBClusterProps) CfnDBCluster {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDBCluster{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBCluster",
+		"monocdk.aws_rds.CfnDBCluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2245,11 +2352,11 @@ func NewCfnDBCluster(scope constructs.Construct, id *string, props *CfnDBCluster
 }
 
 // Create a new `AWS::RDS::DBCluster`.
-func NewCfnDBCluster_Override(c CfnDBCluster, scope constructs.Construct, id *string, props *CfnDBClusterProps) {
+func NewCfnDBCluster_Override(c CfnDBCluster, scope awscdk.Construct, id *string, props *CfnDBClusterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBCluster",
+		"monocdk.aws_rds.CfnDBCluster",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2517,13 +2624,14 @@ func (j *jsiiProxy_CfnDBCluster) SetVpcSecurityGroupIds(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDBCluster_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBCluster",
+		"monocdk.aws_rds.CfnDBCluster",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2533,13 +2641,14 @@ func CfnDBCluster_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDBCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBCluster",
+		"monocdk.aws_rds.CfnDBCluster",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2548,17 +2657,15 @@ func CfnDBCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDBCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBCluster",
+		"monocdk.aws_rds.CfnDBCluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2571,7 +2678,7 @@ func CfnDBCluster_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnDBCluster",
+		"monocdk.aws_rds.CfnDBCluster",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2668,11 +2775,48 @@ func (c *jsiiProxy_CfnDBCluster) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+func (c *jsiiProxy_CfnDBCluster) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnDBCluster) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnDBCluster) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnDBCluster) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnDBCluster) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2702,12 +2846,33 @@ func (c *jsiiProxy_CfnDBCluster) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnDBCluster) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnDBCluster) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDBCluster) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2817,13 +2982,16 @@ type CfnDBClusterParameterGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// A friendly description for this DB cluster parameter group.
 	Description() *string
@@ -2852,9 +3020,11 @@ type CfnDBClusterParameterGroup interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Provides a list of parameters for the DB cluster parameter group.
 	Parameters() interface{}
 	SetParameters(val interface{})
@@ -2862,10 +3032,12 @@ type CfnDBClusterParameterGroup interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// Tags to assign to the DB cluster parameter group.
 	Tags() awscdk.TagManager
@@ -2873,13 +3045,16 @@ type CfnDBClusterParameterGroup interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2888,6 +3063,7 @@ type CfnDBClusterParameterGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -2932,12 +3108,15 @@ type CfnDBClusterParameterGroup interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -2948,11 +3127,13 @@ type CfnDBClusterParameterGroup interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2961,21 +3142,74 @@ type CfnDBClusterParameterGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -3055,8 +3289,8 @@ func (j *jsiiProxy_CfnDBClusterParameterGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBClusterParameterGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDBClusterParameterGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3117,13 +3351,13 @@ func (j *jsiiProxy_CfnDBClusterParameterGroup) UpdatedProperites() *map[string]i
 
 
 // Create a new `AWS::RDS::DBClusterParameterGroup`.
-func NewCfnDBClusterParameterGroup(scope constructs.Construct, id *string, props *CfnDBClusterParameterGroupProps) CfnDBClusterParameterGroup {
+func NewCfnDBClusterParameterGroup(scope awscdk.Construct, id *string, props *CfnDBClusterParameterGroupProps) CfnDBClusterParameterGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDBClusterParameterGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBClusterParameterGroup",
+		"monocdk.aws_rds.CfnDBClusterParameterGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3132,11 +3366,11 @@ func NewCfnDBClusterParameterGroup(scope constructs.Construct, id *string, props
 }
 
 // Create a new `AWS::RDS::DBClusterParameterGroup`.
-func NewCfnDBClusterParameterGroup_Override(c CfnDBClusterParameterGroup, scope constructs.Construct, id *string, props *CfnDBClusterParameterGroupProps) {
+func NewCfnDBClusterParameterGroup_Override(c CfnDBClusterParameterGroup, scope awscdk.Construct, id *string, props *CfnDBClusterParameterGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBClusterParameterGroup",
+		"monocdk.aws_rds.CfnDBClusterParameterGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3172,13 +3406,14 @@ func (j *jsiiProxy_CfnDBClusterParameterGroup) SetParameters(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDBClusterParameterGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBClusterParameterGroup",
+		"monocdk.aws_rds.CfnDBClusterParameterGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3188,13 +3423,14 @@ func CfnDBClusterParameterGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDBClusterParameterGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBClusterParameterGroup",
+		"monocdk.aws_rds.CfnDBClusterParameterGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3203,17 +3439,15 @@ func CfnDBClusterParameterGroup_IsCfnResource(construct constructs.IConstruct) *
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDBClusterParameterGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBClusterParameterGroup",
+		"monocdk.aws_rds.CfnDBClusterParameterGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3226,7 +3460,7 @@ func CfnDBClusterParameterGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnDBClusterParameterGroup",
+		"monocdk.aws_rds.CfnDBClusterParameterGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3323,11 +3557,48 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) Inspect(inspector awscdk.TreeInsp
 	)
 }
 
+func (c *jsiiProxy_CfnDBClusterParameterGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnDBClusterParameterGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnDBClusterParameterGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnDBClusterParameterGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnDBClusterParameterGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3357,12 +3628,33 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnDBClusterParameterGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnDBClusterParameterGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDBClusterParameterGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3931,23 +4223,13 @@ type CfnDBInstance interface {
 	// By default, minor engine upgrades are applied automatically.
 	AutoMinorVersionUpgrade() interface{}
 	SetAutoMinorVersionUpgrade(val interface{})
-	// The Availability Zone (AZ) where the database will be created.
+	// The Availability Zone that the database instance will be created in.
 	//
-	// For information on AWS Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html) .
-	//
-	// *Amazon Aurora*
-	//
-	// Each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
-	//
-	// Default: A random, system-chosen Availability Zone in the endpoint's AWS Region .
+	// Default: A random, system-chosen Availability Zone in the endpoint's region.
 	//
 	// Example: `us-east-1d`
 	//
-	// Constraint: The `AvailabilityZone` parameter can't be specified if the DB instance is a Multi-AZ deployment. The specified Availability Zone must be in the same AWS Region as the current endpoint.
-	//
-	// > If you're creating a DB instance in an RDS on VMware environment, specify the identifier of the custom Availability Zone to create the DB instance in.
-	// >
-	// > For more information about RDS on VMware, see the [RDS on VMware User Guide.](https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html)
+	// Constraint: The AvailabilityZone parameter cannot be specified if the MultiAZ parameter is set to `true` . The specified Availability Zone must be in the same region as the current endpoint.
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
 	// The number of days for which automated backups are retained.
@@ -3976,9 +4258,11 @@ type CfnDBInstance interface {
 	CaCertificateIdentifier() *string
 	SetCaCertificateIdentifier(val *string)
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// For supported engines, indicates that the DB instance should be associated with the specified character set.
 	//
@@ -3999,6 +4283,7 @@ type CfnDBInstance interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// The identifier of the DB cluster that the instance will belong to.
 	DbClusterIdentifier() *string
@@ -4334,6 +4619,7 @@ type CfnDBInstance interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
 	// The master user name for the DB instance.
 	//
@@ -4455,8 +4741,9 @@ type CfnDBInstance interface {
 	// Not applicable. Amazon Aurora storage is replicated across all of the Availability Zones and doesn't require the `MultiAZ` option to be set.
 	MultiAz() interface{}
 	SetMultiAz(val interface{})
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Indicates that the DB instance should be associated with the specified option group.
 	//
 	// Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group. Also, that option group can't be removed from a DB instance once it is associated with a DB instance.
@@ -4541,6 +4828,7 @@ type CfnDBInstance interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// If you want to create a read replica DB instance, specify the ID of the source DB instance.
 	//
@@ -4564,6 +4852,7 @@ type CfnDBInstance interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
 	//
@@ -4604,6 +4893,7 @@ type CfnDBInstance interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// A value that indicates whether the DB instance class of the DB instance uses its default processor features.
 	//
@@ -4632,11 +4922,13 @@ type CfnDBInstance interface {
 	VpcSecurityGroups() *[]*string
 	SetVpcSecurityGroups(val *[]*string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -4645,6 +4937,7 @@ type CfnDBInstance interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -4689,12 +4982,15 @@ type CfnDBInstance interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -4705,11 +5001,13 @@ type CfnDBInstance interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -4718,21 +5016,74 @@ type CfnDBInstance interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -5162,8 +5513,8 @@ func (j *jsiiProxy_CfnDBInstance) MultiAz() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBInstance) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDBInstance) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5374,13 +5725,13 @@ func (j *jsiiProxy_CfnDBInstance) VpcSecurityGroups() *[]*string {
 
 
 // Create a new `AWS::RDS::DBInstance`.
-func NewCfnDBInstance(scope constructs.Construct, id *string, props *CfnDBInstanceProps) CfnDBInstance {
+func NewCfnDBInstance(scope awscdk.Construct, id *string, props *CfnDBInstanceProps) CfnDBInstance {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDBInstance{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBInstance",
+		"monocdk.aws_rds.CfnDBInstance",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5389,11 +5740,11 @@ func NewCfnDBInstance(scope constructs.Construct, id *string, props *CfnDBInstan
 }
 
 // Create a new `AWS::RDS::DBInstance`.
-func NewCfnDBInstance_Override(c CfnDBInstance, scope constructs.Construct, id *string, props *CfnDBInstanceProps) {
+func NewCfnDBInstance_Override(c CfnDBInstance, scope awscdk.Construct, id *string, props *CfnDBInstanceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBInstance",
+		"monocdk.aws_rds.CfnDBInstance",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5813,13 +6164,14 @@ func (j *jsiiProxy_CfnDBInstance) SetVpcSecurityGroups(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDBInstance_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBInstance",
+		"monocdk.aws_rds.CfnDBInstance",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -5829,13 +6181,14 @@ func CfnDBInstance_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDBInstance_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBInstance",
+		"monocdk.aws_rds.CfnDBInstance",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -5844,17 +6197,15 @@ func CfnDBInstance_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDBInstance_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBInstance",
+		"monocdk.aws_rds.CfnDBInstance",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5867,7 +6218,7 @@ func CfnDBInstance_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnDBInstance",
+		"monocdk.aws_rds.CfnDBInstance",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -5964,11 +6315,48 @@ func (c *jsiiProxy_CfnDBInstance) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+func (c *jsiiProxy_CfnDBInstance) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnDBInstance) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnDBInstance) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnDBInstance) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnDBInstance) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -5998,12 +6386,33 @@ func (c *jsiiProxy_CfnDBInstance) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnDBInstance) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnDBInstance) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDBInstance) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6215,23 +6624,13 @@ type CfnDBInstanceProps struct {
 	//
 	// By default, minor engine upgrades are applied automatically.
 	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
-	// The Availability Zone (AZ) where the database will be created.
+	// The Availability Zone that the database instance will be created in.
 	//
-	// For information on AWS Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html) .
-	//
-	// *Amazon Aurora*
-	//
-	// Each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
-	//
-	// Default: A random, system-chosen Availability Zone in the endpoint's AWS Region .
+	// Default: A random, system-chosen Availability Zone in the endpoint's region.
 	//
 	// Example: `us-east-1d`
 	//
-	// Constraint: The `AvailabilityZone` parameter can't be specified if the DB instance is a Multi-AZ deployment. The specified Availability Zone must be in the same AWS Region as the current endpoint.
-	//
-	// > If you're creating a DB instance in an RDS on VMware environment, specify the identifier of the custom Availability Zone to create the DB instance in.
-	// >
-	// > For more information about RDS on VMware, see the [RDS on VMware User Guide.](https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html)
+	// Constraint: The AvailabilityZone parameter cannot be specified if the MultiAZ parameter is set to `true` . The specified Availability Zone must be in the same region as the current endpoint.
 	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// The number of days for which automated backups are retained.
 	//
@@ -6865,15 +7264,18 @@ type CfnDBParameterGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
-	// Provides the customer-specified description for this DB Parameter Group.
+	// Provides the customer-specified description for this DB parameter group.
 	Description() *string
 	SetDescription(val *string)
 	// The DB parameter group family name.
@@ -6900,9 +7302,11 @@ type CfnDBParameterGroup interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// An array of parameter names and values for the parameter update.
 	//
 	// At least one parameter name and value must be supplied. Subsequent arguments are optional.
@@ -6918,10 +7322,12 @@ type CfnDBParameterGroup interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// Tags to assign to the DB parameter group.
 	Tags() awscdk.TagManager
@@ -6929,13 +7335,16 @@ type CfnDBParameterGroup interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -6944,6 +7353,7 @@ type CfnDBParameterGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -6988,12 +7398,15 @@ type CfnDBParameterGroup interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -7004,11 +7417,13 @@ type CfnDBParameterGroup interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -7017,21 +7432,74 @@ type CfnDBParameterGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -7111,8 +7579,8 @@ func (j *jsiiProxy_CfnDBParameterGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBParameterGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDBParameterGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -7173,13 +7641,13 @@ func (j *jsiiProxy_CfnDBParameterGroup) UpdatedProperites() *map[string]interfac
 
 
 // Create a new `AWS::RDS::DBParameterGroup`.
-func NewCfnDBParameterGroup(scope constructs.Construct, id *string, props *CfnDBParameterGroupProps) CfnDBParameterGroup {
+func NewCfnDBParameterGroup(scope awscdk.Construct, id *string, props *CfnDBParameterGroupProps) CfnDBParameterGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDBParameterGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBParameterGroup",
+		"monocdk.aws_rds.CfnDBParameterGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7188,11 +7656,11 @@ func NewCfnDBParameterGroup(scope constructs.Construct, id *string, props *CfnDB
 }
 
 // Create a new `AWS::RDS::DBParameterGroup`.
-func NewCfnDBParameterGroup_Override(c CfnDBParameterGroup, scope constructs.Construct, id *string, props *CfnDBParameterGroupProps) {
+func NewCfnDBParameterGroup_Override(c CfnDBParameterGroup, scope awscdk.Construct, id *string, props *CfnDBParameterGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBParameterGroup",
+		"monocdk.aws_rds.CfnDBParameterGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -7228,13 +7696,14 @@ func (j *jsiiProxy_CfnDBParameterGroup) SetParameters(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDBParameterGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBParameterGroup",
+		"monocdk.aws_rds.CfnDBParameterGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -7244,13 +7713,14 @@ func CfnDBParameterGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDBParameterGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBParameterGroup",
+		"monocdk.aws_rds.CfnDBParameterGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -7259,17 +7729,15 @@ func CfnDBParameterGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDBParameterGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBParameterGroup",
+		"monocdk.aws_rds.CfnDBParameterGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7282,7 +7750,7 @@ func CfnDBParameterGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnDBParameterGroup",
+		"monocdk.aws_rds.CfnDBParameterGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -7379,11 +7847,48 @@ func (c *jsiiProxy_CfnDBParameterGroup) Inspect(inspector awscdk.TreeInspector) 
 	)
 }
 
+func (c *jsiiProxy_CfnDBParameterGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnDBParameterGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnDBParameterGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnDBParameterGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnDBParameterGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -7413,12 +7918,33 @@ func (c *jsiiProxy_CfnDBParameterGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnDBParameterGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnDBParameterGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDBParameterGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -7455,7 +7981,7 @@ func (c *jsiiProxy_CfnDBParameterGroup) ValidateProperties(_properties interface
 //   }
 //
 type CfnDBParameterGroupProps struct {
-	// Provides the customer-specified description for this DB Parameter Group.
+	// Provides the customer-specified description for this DB parameter group.
 	Description *string `json:"description" yaml:"description"`
 	// The DB parameter group family name.
 	//
@@ -7544,13 +8070,16 @@ type CfnDBProxy interface {
 	Auth() interface{}
 	SetAuth(val interface{})
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// The identifier for the proxy.
 	//
@@ -7583,13 +8112,16 @@ type CfnDBProxy interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
 	//
@@ -7602,6 +8134,7 @@ type CfnDBProxy interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
 	Tags() *[]*CfnDBProxy_TagFormatProperty
@@ -7610,6 +8143,7 @@ type CfnDBProxy interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// One or more VPC security group IDs to associate with the new proxy.
 	//
@@ -7620,11 +8154,13 @@ type CfnDBProxy interface {
 	VpcSubnetIds() *[]*string
 	SetVpcSubnetIds(val *[]*string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -7633,6 +8169,7 @@ type CfnDBProxy interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -7677,12 +8214,15 @@ type CfnDBProxy interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -7693,11 +8233,13 @@ type CfnDBProxy interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -7706,21 +8248,74 @@ type CfnDBProxy interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -7850,8 +8445,8 @@ func (j *jsiiProxy_CfnDBProxy) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBProxy) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDBProxy) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -7942,13 +8537,13 @@ func (j *jsiiProxy_CfnDBProxy) VpcSubnetIds() *[]*string {
 
 
 // Create a new `AWS::RDS::DBProxy`.
-func NewCfnDBProxy(scope constructs.Construct, id *string, props *CfnDBProxyProps) CfnDBProxy {
+func NewCfnDBProxy(scope awscdk.Construct, id *string, props *CfnDBProxyProps) CfnDBProxy {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDBProxy{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBProxy",
+		"monocdk.aws_rds.CfnDBProxy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7957,11 +8552,11 @@ func NewCfnDBProxy(scope constructs.Construct, id *string, props *CfnDBProxyProp
 }
 
 // Create a new `AWS::RDS::DBProxy`.
-func NewCfnDBProxy_Override(c CfnDBProxy, scope constructs.Construct, id *string, props *CfnDBProxyProps) {
+func NewCfnDBProxy_Override(c CfnDBProxy, scope awscdk.Construct, id *string, props *CfnDBProxyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBProxy",
+		"monocdk.aws_rds.CfnDBProxy",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -8053,13 +8648,14 @@ func (j *jsiiProxy_CfnDBProxy) SetVpcSubnetIds(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDBProxy_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBProxy",
+		"monocdk.aws_rds.CfnDBProxy",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -8069,13 +8665,14 @@ func CfnDBProxy_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDBProxy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBProxy",
+		"monocdk.aws_rds.CfnDBProxy",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -8084,17 +8681,15 @@ func CfnDBProxy_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDBProxy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBProxy",
+		"monocdk.aws_rds.CfnDBProxy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8107,7 +8702,7 @@ func CfnDBProxy_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnDBProxy",
+		"monocdk.aws_rds.CfnDBProxy",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -8204,11 +8799,48 @@ func (c *jsiiProxy_CfnDBProxy) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+func (c *jsiiProxy_CfnDBProxy) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnDBProxy) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnDBProxy) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnDBProxy) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnDBProxy) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -8238,12 +8870,33 @@ func (c *jsiiProxy_CfnDBProxy) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnDBProxy) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnDBProxy) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDBProxy) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -8352,13 +9005,16 @@ type CfnDBProxyEndpoint interface {
 	// The VPC ID of the DB proxy endpoint.
 	AttrVpcId() *string
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// The name of the DB proxy endpoint to create.
 	DbProxyEndpointName() *string
@@ -8375,17 +9031,21 @@ type CfnDBProxyEndpoint interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
 	Tags() *[]*CfnDBProxyEndpoint_TagFormatProperty
@@ -8399,6 +9059,7 @@ type CfnDBProxyEndpoint interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The VPC security group IDs for the DB proxy endpoint that you create.
 	//
@@ -8411,11 +9072,13 @@ type CfnDBProxyEndpoint interface {
 	VpcSubnetIds() *[]*string
 	SetVpcSubnetIds(val *[]*string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -8424,6 +9087,7 @@ type CfnDBProxyEndpoint interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -8468,12 +9132,15 @@ type CfnDBProxyEndpoint interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -8484,11 +9151,13 @@ type CfnDBProxyEndpoint interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -8497,21 +9166,74 @@ type CfnDBProxyEndpoint interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -8631,8 +9353,8 @@ func (j *jsiiProxy_CfnDBProxyEndpoint) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBProxyEndpoint) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDBProxyEndpoint) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -8713,13 +9435,13 @@ func (j *jsiiProxy_CfnDBProxyEndpoint) VpcSubnetIds() *[]*string {
 
 
 // Create a new `AWS::RDS::DBProxyEndpoint`.
-func NewCfnDBProxyEndpoint(scope constructs.Construct, id *string, props *CfnDBProxyEndpointProps) CfnDBProxyEndpoint {
+func NewCfnDBProxyEndpoint(scope awscdk.Construct, id *string, props *CfnDBProxyEndpointProps) CfnDBProxyEndpoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDBProxyEndpoint{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBProxyEndpoint",
+		"monocdk.aws_rds.CfnDBProxyEndpoint",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -8728,11 +9450,11 @@ func NewCfnDBProxyEndpoint(scope constructs.Construct, id *string, props *CfnDBP
 }
 
 // Create a new `AWS::RDS::DBProxyEndpoint`.
-func NewCfnDBProxyEndpoint_Override(c CfnDBProxyEndpoint, scope constructs.Construct, id *string, props *CfnDBProxyEndpointProps) {
+func NewCfnDBProxyEndpoint_Override(c CfnDBProxyEndpoint, scope awscdk.Construct, id *string, props *CfnDBProxyEndpointProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBProxyEndpoint",
+		"monocdk.aws_rds.CfnDBProxyEndpoint",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -8792,13 +9514,14 @@ func (j *jsiiProxy_CfnDBProxyEndpoint) SetVpcSubnetIds(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDBProxyEndpoint_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBProxyEndpoint",
+		"monocdk.aws_rds.CfnDBProxyEndpoint",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -8808,13 +9531,14 @@ func CfnDBProxyEndpoint_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDBProxyEndpoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBProxyEndpoint",
+		"monocdk.aws_rds.CfnDBProxyEndpoint",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -8823,17 +9547,15 @@ func CfnDBProxyEndpoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDBProxyEndpoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBProxyEndpoint",
+		"monocdk.aws_rds.CfnDBProxyEndpoint",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8846,7 +9568,7 @@ func CfnDBProxyEndpoint_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnDBProxyEndpoint",
+		"monocdk.aws_rds.CfnDBProxyEndpoint",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -8943,11 +9665,48 @@ func (c *jsiiProxy_CfnDBProxyEndpoint) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+func (c *jsiiProxy_CfnDBProxyEndpoint) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnDBProxyEndpoint) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnDBProxyEndpoint) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnDBProxyEndpoint) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnDBProxyEndpoint) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -8977,12 +9736,33 @@ func (c *jsiiProxy_CfnDBProxyEndpoint) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnDBProxyEndpoint) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnDBProxyEndpoint) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDBProxyEndpoint) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -9182,9 +9962,11 @@ type CfnDBProxyTargetGroup interface {
 	// The Amazon Resource Name (ARN) representing the target group.
 	AttrTargetGroupArn() *string
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// Settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
 	ConnectionPoolConfigurationInfo() interface{}
@@ -9192,6 +9974,7 @@ type CfnDBProxyTargetGroup interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// One or more DB cluster identifiers.
 	DbClusterIdentifiers() *[]*string
@@ -9211,17 +9994,21 @@ type CfnDBProxyTargetGroup interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// The identifier for the target group.
 	//
@@ -9232,13 +10019,16 @@ type CfnDBProxyTargetGroup interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -9247,6 +10037,7 @@ type CfnDBProxyTargetGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -9291,12 +10082,15 @@ type CfnDBProxyTargetGroup interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -9307,11 +10101,13 @@ type CfnDBProxyTargetGroup interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -9320,21 +10116,74 @@ type CfnDBProxyTargetGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -9444,8 +10293,8 @@ func (j *jsiiProxy_CfnDBProxyTargetGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBProxyTargetGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDBProxyTargetGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -9496,13 +10345,13 @@ func (j *jsiiProxy_CfnDBProxyTargetGroup) UpdatedProperites() *map[string]interf
 
 
 // Create a new `AWS::RDS::DBProxyTargetGroup`.
-func NewCfnDBProxyTargetGroup(scope constructs.Construct, id *string, props *CfnDBProxyTargetGroupProps) CfnDBProxyTargetGroup {
+func NewCfnDBProxyTargetGroup(scope awscdk.Construct, id *string, props *CfnDBProxyTargetGroupProps) CfnDBProxyTargetGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDBProxyTargetGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBProxyTargetGroup",
+		"monocdk.aws_rds.CfnDBProxyTargetGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -9511,11 +10360,11 @@ func NewCfnDBProxyTargetGroup(scope constructs.Construct, id *string, props *Cfn
 }
 
 // Create a new `AWS::RDS::DBProxyTargetGroup`.
-func NewCfnDBProxyTargetGroup_Override(c CfnDBProxyTargetGroup, scope constructs.Construct, id *string, props *CfnDBProxyTargetGroupProps) {
+func NewCfnDBProxyTargetGroup_Override(c CfnDBProxyTargetGroup, scope awscdk.Construct, id *string, props *CfnDBProxyTargetGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBProxyTargetGroup",
+		"monocdk.aws_rds.CfnDBProxyTargetGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -9567,13 +10416,14 @@ func (j *jsiiProxy_CfnDBProxyTargetGroup) SetTargetGroupName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDBProxyTargetGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBProxyTargetGroup",
+		"monocdk.aws_rds.CfnDBProxyTargetGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -9583,13 +10433,14 @@ func CfnDBProxyTargetGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDBProxyTargetGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBProxyTargetGroup",
+		"monocdk.aws_rds.CfnDBProxyTargetGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -9598,17 +10449,15 @@ func CfnDBProxyTargetGroup_IsCfnResource(construct constructs.IConstruct) *bool 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDBProxyTargetGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBProxyTargetGroup",
+		"monocdk.aws_rds.CfnDBProxyTargetGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -9621,7 +10470,7 @@ func CfnDBProxyTargetGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnDBProxyTargetGroup",
+		"monocdk.aws_rds.CfnDBProxyTargetGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -9718,11 +10567,48 @@ func (c *jsiiProxy_CfnDBProxyTargetGroup) Inspect(inspector awscdk.TreeInspector
 	)
 }
 
+func (c *jsiiProxy_CfnDBProxyTargetGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnDBProxyTargetGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnDBProxyTargetGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnDBProxyTargetGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnDBProxyTargetGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -9752,12 +10638,33 @@ func (c *jsiiProxy_CfnDBProxyTargetGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnDBProxyTargetGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnDBProxyTargetGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDBProxyTargetGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -9900,13 +10807,16 @@ type CfnDBSecurityGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// Ingress rules to be applied to the DB security group.
 	DbSecurityGroupIngress() interface{}
@@ -9916,7 +10826,7 @@ type CfnDBSecurityGroup interface {
 	// > The `EC2VpcId` property is for backward compatibility with older regions, and is no longer recommended for providing security information to an RDS DB instance.
 	Ec2VpcId() *string
 	SetEc2VpcId(val *string)
-	// Provides the description of the DB Security Group.
+	// Provides the description of the DB security group.
 	GroupDescription() *string
 	SetGroupDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -9928,17 +10838,21 @@ type CfnDBSecurityGroup interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// Tags to assign to the DB security group.
 	Tags() awscdk.TagManager
@@ -9946,13 +10860,16 @@ type CfnDBSecurityGroup interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -9961,6 +10878,7 @@ type CfnDBSecurityGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -10005,12 +10923,15 @@ type CfnDBSecurityGroup interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -10021,11 +10942,13 @@ type CfnDBSecurityGroup interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -10034,21 +10957,74 @@ type CfnDBSecurityGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -10138,8 +11114,8 @@ func (j *jsiiProxy_CfnDBSecurityGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBSecurityGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDBSecurityGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -10190,13 +11166,13 @@ func (j *jsiiProxy_CfnDBSecurityGroup) UpdatedProperites() *map[string]interface
 
 
 // Create a new `AWS::RDS::DBSecurityGroup`.
-func NewCfnDBSecurityGroup(scope constructs.Construct, id *string, props *CfnDBSecurityGroupProps) CfnDBSecurityGroup {
+func NewCfnDBSecurityGroup(scope awscdk.Construct, id *string, props *CfnDBSecurityGroupProps) CfnDBSecurityGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDBSecurityGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBSecurityGroup",
+		"monocdk.aws_rds.CfnDBSecurityGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -10205,11 +11181,11 @@ func NewCfnDBSecurityGroup(scope constructs.Construct, id *string, props *CfnDBS
 }
 
 // Create a new `AWS::RDS::DBSecurityGroup`.
-func NewCfnDBSecurityGroup_Override(c CfnDBSecurityGroup, scope constructs.Construct, id *string, props *CfnDBSecurityGroupProps) {
+func NewCfnDBSecurityGroup_Override(c CfnDBSecurityGroup, scope awscdk.Construct, id *string, props *CfnDBSecurityGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBSecurityGroup",
+		"monocdk.aws_rds.CfnDBSecurityGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -10245,13 +11221,14 @@ func (j *jsiiProxy_CfnDBSecurityGroup) SetGroupDescription(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDBSecurityGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBSecurityGroup",
+		"monocdk.aws_rds.CfnDBSecurityGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -10261,13 +11238,14 @@ func CfnDBSecurityGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDBSecurityGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBSecurityGroup",
+		"monocdk.aws_rds.CfnDBSecurityGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -10276,17 +11254,15 @@ func CfnDBSecurityGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDBSecurityGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBSecurityGroup",
+		"monocdk.aws_rds.CfnDBSecurityGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -10299,7 +11275,7 @@ func CfnDBSecurityGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnDBSecurityGroup",
+		"monocdk.aws_rds.CfnDBSecurityGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -10396,11 +11372,48 @@ func (c *jsiiProxy_CfnDBSecurityGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+func (c *jsiiProxy_CfnDBSecurityGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnDBSecurityGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnDBSecurityGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnDBSecurityGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnDBSecurityGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -10430,12 +11443,33 @@ func (c *jsiiProxy_CfnDBSecurityGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnDBSecurityGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnDBSecurityGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDBSecurityGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -10465,17 +11499,17 @@ func (c *jsiiProxy_CfnDBSecurityGroup) ValidateProperties(_properties interface{
 type CfnDBSecurityGroup_IngressProperty struct {
 	// The IP range to authorize.
 	Cidrip *string `json:"cidrip" yaml:"cidrip"`
-	// Id of the EC2 security group to authorize.
+	// Id of the EC2 Security Group to authorize.
 	//
-	// For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupId *string `json:"ec2SecurityGroupId" yaml:"ec2SecurityGroupId"`
-	// Name of the EC2 security group to authorize.
+	// Name of the EC2 Security Group to authorize.
 	//
-	// For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupName *string `json:"ec2SecurityGroupName" yaml:"ec2SecurityGroupName"`
-	// AWS account number of the owner of the EC2 security group specified in the `EC2SecurityGroupName` parameter.
+	// AWS Account Number of the owner of the EC2 Security Group specified in the EC2SecurityGroupName parameter.
 	//
-	// The AWS access key ID isn't an acceptable value. For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// The AWS Access Key ID is not an acceptable value. For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupOwnerId *string `json:"ec2SecurityGroupOwnerId" yaml:"ec2SecurityGroupOwnerId"`
 }
 
@@ -10503,9 +11537,11 @@ type CfnDBSecurityGroupIngress interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// The IP range to authorize.
 	Cidrip() *string
@@ -10513,23 +11549,24 @@ type CfnDBSecurityGroupIngress interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
-	// The name of the DB security group to add authorization to.
+	// The name of the DB Security Group to add authorization to.
 	DbSecurityGroupName() *string
 	SetDbSecurityGroupName(val *string)
-	// Id of the EC2 security group to authorize.
+	// Id of the EC2 Security Group to authorize.
 	//
-	// For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupId() *string
 	SetEc2SecurityGroupId(val *string)
-	// Name of the EC2 security group to authorize.
+	// Name of the EC2 Security Group to authorize.
 	//
-	// For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupName() *string
 	SetEc2SecurityGroupName(val *string)
-	// AWS account number of the owner of the EC2 security group specified in the `EC2SecurityGroupName` parameter.
+	// AWS Account Number of the owner of the EC2 Security Group specified in the EC2SecurityGroupName parameter.
 	//
-	// The AWS access key ID isn't an acceptable value. For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// The AWS Access Key ID is not an acceptable value. For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupOwnerId() *string
 	SetEc2SecurityGroupOwnerId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -10541,29 +11578,36 @@ type CfnDBSecurityGroupIngress interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -10572,6 +11616,7 @@ type CfnDBSecurityGroupIngress interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -10616,12 +11661,15 @@ type CfnDBSecurityGroupIngress interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -10632,11 +11680,13 @@ type CfnDBSecurityGroupIngress interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -10645,21 +11695,74 @@ type CfnDBSecurityGroupIngress interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -10769,8 +11872,8 @@ func (j *jsiiProxy_CfnDBSecurityGroupIngress) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBSecurityGroupIngress) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDBSecurityGroupIngress) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -10811,13 +11914,13 @@ func (j *jsiiProxy_CfnDBSecurityGroupIngress) UpdatedProperites() *map[string]in
 
 
 // Create a new `AWS::RDS::DBSecurityGroupIngress`.
-func NewCfnDBSecurityGroupIngress(scope constructs.Construct, id *string, props *CfnDBSecurityGroupIngressProps) CfnDBSecurityGroupIngress {
+func NewCfnDBSecurityGroupIngress(scope awscdk.Construct, id *string, props *CfnDBSecurityGroupIngressProps) CfnDBSecurityGroupIngress {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDBSecurityGroupIngress{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBSecurityGroupIngress",
+		"monocdk.aws_rds.CfnDBSecurityGroupIngress",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -10826,11 +11929,11 @@ func NewCfnDBSecurityGroupIngress(scope constructs.Construct, id *string, props 
 }
 
 // Create a new `AWS::RDS::DBSecurityGroupIngress`.
-func NewCfnDBSecurityGroupIngress_Override(c CfnDBSecurityGroupIngress, scope constructs.Construct, id *string, props *CfnDBSecurityGroupIngressProps) {
+func NewCfnDBSecurityGroupIngress_Override(c CfnDBSecurityGroupIngress, scope awscdk.Construct, id *string, props *CfnDBSecurityGroupIngressProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBSecurityGroupIngress",
+		"monocdk.aws_rds.CfnDBSecurityGroupIngress",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -10882,13 +11985,14 @@ func (j *jsiiProxy_CfnDBSecurityGroupIngress) SetEc2SecurityGroupOwnerId(val *st
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDBSecurityGroupIngress_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBSecurityGroupIngress",
+		"monocdk.aws_rds.CfnDBSecurityGroupIngress",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -10898,13 +12002,14 @@ func CfnDBSecurityGroupIngress_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDBSecurityGroupIngress_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBSecurityGroupIngress",
+		"monocdk.aws_rds.CfnDBSecurityGroupIngress",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -10913,17 +12018,15 @@ func CfnDBSecurityGroupIngress_IsCfnResource(construct constructs.IConstruct) *b
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDBSecurityGroupIngress_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBSecurityGroupIngress",
+		"monocdk.aws_rds.CfnDBSecurityGroupIngress",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -10936,7 +12039,7 @@ func CfnDBSecurityGroupIngress_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnDBSecurityGroupIngress",
+		"monocdk.aws_rds.CfnDBSecurityGroupIngress",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -11033,11 +12136,48 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) Inspect(inspector awscdk.TreeInspe
 	)
 }
 
+func (c *jsiiProxy_CfnDBSecurityGroupIngress) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnDBSecurityGroupIngress) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnDBSecurityGroupIngress) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnDBSecurityGroupIngress) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnDBSecurityGroupIngress) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -11067,12 +12207,33 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnDBSecurityGroupIngress) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnDBSecurityGroupIngress) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDBSecurityGroupIngress) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -11103,21 +12264,21 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) ValidateProperties(_properties int
 //   }
 //
 type CfnDBSecurityGroupIngressProps struct {
-	// The name of the DB security group to add authorization to.
+	// The name of the DB Security Group to add authorization to.
 	DbSecurityGroupName *string `json:"dbSecurityGroupName" yaml:"dbSecurityGroupName"`
 	// The IP range to authorize.
 	Cidrip *string `json:"cidrip" yaml:"cidrip"`
-	// Id of the EC2 security group to authorize.
+	// Id of the EC2 Security Group to authorize.
 	//
-	// For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupId *string `json:"ec2SecurityGroupId" yaml:"ec2SecurityGroupId"`
-	// Name of the EC2 security group to authorize.
+	// Name of the EC2 Security Group to authorize.
 	//
-	// For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupName *string `json:"ec2SecurityGroupName" yaml:"ec2SecurityGroupName"`
-	// AWS account number of the owner of the EC2 security group specified in the `EC2SecurityGroupName` parameter.
+	// AWS Account Number of the owner of the EC2 Security Group specified in the EC2SecurityGroupName parameter.
 	//
-	// The AWS access key ID isn't an acceptable value. For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// The AWS Access Key ID is not an acceptable value. For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupOwnerId *string `json:"ec2SecurityGroupOwnerId" yaml:"ec2SecurityGroupOwnerId"`
 }
 
@@ -11149,7 +12310,7 @@ type CfnDBSecurityGroupIngressProps struct {
 type CfnDBSecurityGroupProps struct {
 	// Ingress rules to be applied to the DB security group.
 	DbSecurityGroupIngress interface{} `json:"dbSecurityGroupIngress" yaml:"dbSecurityGroupIngress"`
-	// Provides the description of the DB Security Group.
+	// Provides the description of the DB security group.
 	GroupDescription *string `json:"groupDescription" yaml:"groupDescription"`
 	// The identifier of an Amazon VPC. This property indicates the VPC that this DB security group belongs to.
 	//
@@ -11187,15 +12348,18 @@ type CfnDBSubnetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
-	// The description for the DB subnet group.
+	// The description for the DB Subnet Group.
 	DbSubnetGroupDescription() *string
 	SetDbSubnetGroupDescription(val *string)
 	// The name for the DB subnet group. This value is stored as a lowercase string.
@@ -11214,19 +12378,23 @@ type CfnDBSubnetGroup interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
-	// The EC2 Subnet IDs for the DB subnet group.
+	// The EC2 Subnet IDs for the DB Subnet Group.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
 	// Tags to assign to the DB subnet group.
@@ -11235,13 +12403,16 @@ type CfnDBSubnetGroup interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -11250,6 +12421,7 @@ type CfnDBSubnetGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -11294,12 +12466,15 @@ type CfnDBSubnetGroup interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -11310,11 +12485,13 @@ type CfnDBSubnetGroup interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -11323,21 +12500,74 @@ type CfnDBSubnetGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -11417,8 +12647,8 @@ func (j *jsiiProxy_CfnDBSubnetGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBSubnetGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDBSubnetGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -11479,13 +12709,13 @@ func (j *jsiiProxy_CfnDBSubnetGroup) UpdatedProperites() *map[string]interface{}
 
 
 // Create a new `AWS::RDS::DBSubnetGroup`.
-func NewCfnDBSubnetGroup(scope constructs.Construct, id *string, props *CfnDBSubnetGroupProps) CfnDBSubnetGroup {
+func NewCfnDBSubnetGroup(scope awscdk.Construct, id *string, props *CfnDBSubnetGroupProps) CfnDBSubnetGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDBSubnetGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBSubnetGroup",
+		"monocdk.aws_rds.CfnDBSubnetGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -11494,11 +12724,11 @@ func NewCfnDBSubnetGroup(scope constructs.Construct, id *string, props *CfnDBSub
 }
 
 // Create a new `AWS::RDS::DBSubnetGroup`.
-func NewCfnDBSubnetGroup_Override(c CfnDBSubnetGroup, scope constructs.Construct, id *string, props *CfnDBSubnetGroupProps) {
+func NewCfnDBSubnetGroup_Override(c CfnDBSubnetGroup, scope awscdk.Construct, id *string, props *CfnDBSubnetGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBSubnetGroup",
+		"monocdk.aws_rds.CfnDBSubnetGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -11534,13 +12764,14 @@ func (j *jsiiProxy_CfnDBSubnetGroup) SetSubnetIds(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDBSubnetGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBSubnetGroup",
+		"monocdk.aws_rds.CfnDBSubnetGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -11550,13 +12781,14 @@ func CfnDBSubnetGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDBSubnetGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBSubnetGroup",
+		"monocdk.aws_rds.CfnDBSubnetGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -11565,17 +12797,15 @@ func CfnDBSubnetGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDBSubnetGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBSubnetGroup",
+		"monocdk.aws_rds.CfnDBSubnetGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -11588,7 +12818,7 @@ func CfnDBSubnetGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnDBSubnetGroup",
+		"monocdk.aws_rds.CfnDBSubnetGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -11685,11 +12915,48 @@ func (c *jsiiProxy_CfnDBSubnetGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+func (c *jsiiProxy_CfnDBSubnetGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnDBSubnetGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnDBSubnetGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnDBSubnetGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnDBSubnetGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -11719,12 +12986,33 @@ func (c *jsiiProxy_CfnDBSubnetGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnDBSubnetGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnDBSubnetGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDBSubnetGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -11761,9 +13049,9 @@ func (c *jsiiProxy_CfnDBSubnetGroup) ValidateProperties(_properties interface{})
 //   }
 //
 type CfnDBSubnetGroupProps struct {
-	// The description for the DB subnet group.
+	// The description for the DB Subnet Group.
 	DbSubnetGroupDescription *string `json:"dbSubnetGroupDescription" yaml:"dbSubnetGroupDescription"`
-	// The EC2 Subnet IDs for the DB subnet group.
+	// The EC2 Subnet IDs for the DB Subnet Group.
 	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 	// The name for the DB subnet group. This value is stored as a lowercase string.
 	//
@@ -11799,22 +13087,25 @@ type CfnEventSubscription interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
-	// A value that indicates whether to activate the subscription.
+	// A Boolean value;
 	//
-	// If the event notification subscription isn't activated, the subscription is created but not active.
+	// set to *true* to activate the subscription, set to *false* to create the subscription but not active it.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	// A list of event categories for a particular source type ( `SourceType` ) that you want to subscribe to.
+	// A list of event categories for a SourceType that you want to subscribe to.
 	//
-	// You can see a list of the categories for a given source type in the "Amazon RDS event categories and event messages" section of the [*Amazon RDS User Guide*](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Messages.html) or the [*Amazon Aurora User Guide*](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.html) . You can also see this list by using the `DescribeEventCategories` operation.
+	// You can see a list of the categories for a given SourceType in the [Events](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) topic in the Amazon RDS User Guide or by using the *DescribeEventCategories* action.
 	EventCategories() *[]*string
 	SetEventCategories(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -11826,13 +13117,16 @@ type CfnEventSubscription interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// The Amazon Resource Name (ARN) of the SNS topic created for event notification.
 	//
@@ -11864,18 +13158,22 @@ type CfnEventSubscription interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -11884,6 +13182,7 @@ type CfnEventSubscription interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -11928,12 +13227,15 @@ type CfnEventSubscription interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -11944,11 +13246,13 @@ type CfnEventSubscription interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -11957,21 +13261,74 @@ type CfnEventSubscription interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -12051,8 +13408,8 @@ func (j *jsiiProxy_CfnEventSubscription) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventSubscription) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnEventSubscription) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -12123,13 +13480,13 @@ func (j *jsiiProxy_CfnEventSubscription) UpdatedProperites() *map[string]interfa
 
 
 // Create a new `AWS::RDS::EventSubscription`.
-func NewCfnEventSubscription(scope constructs.Construct, id *string, props *CfnEventSubscriptionProps) CfnEventSubscription {
+func NewCfnEventSubscription(scope awscdk.Construct, id *string, props *CfnEventSubscriptionProps) CfnEventSubscription {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnEventSubscription{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnEventSubscription",
+		"monocdk.aws_rds.CfnEventSubscription",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -12138,11 +13495,11 @@ func NewCfnEventSubscription(scope constructs.Construct, id *string, props *CfnE
 }
 
 // Create a new `AWS::RDS::EventSubscription`.
-func NewCfnEventSubscription_Override(c CfnEventSubscription, scope constructs.Construct, id *string, props *CfnEventSubscriptionProps) {
+func NewCfnEventSubscription_Override(c CfnEventSubscription, scope awscdk.Construct, id *string, props *CfnEventSubscriptionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnEventSubscription",
+		"monocdk.aws_rds.CfnEventSubscription",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -12194,13 +13551,14 @@ func (j *jsiiProxy_CfnEventSubscription) SetSourceType(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnEventSubscription_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnEventSubscription",
+		"monocdk.aws_rds.CfnEventSubscription",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -12210,13 +13568,14 @@ func CfnEventSubscription_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnEventSubscription_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnEventSubscription",
+		"monocdk.aws_rds.CfnEventSubscription",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -12225,17 +13584,15 @@ func CfnEventSubscription_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnEventSubscription_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnEventSubscription",
+		"monocdk.aws_rds.CfnEventSubscription",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -12248,7 +13605,7 @@ func CfnEventSubscription_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnEventSubscription",
+		"monocdk.aws_rds.CfnEventSubscription",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -12345,11 +13702,48 @@ func (c *jsiiProxy_CfnEventSubscription) Inspect(inspector awscdk.TreeInspector)
 	)
 }
 
+func (c *jsiiProxy_CfnEventSubscription) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnEventSubscription) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnEventSubscription) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnEventSubscription) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnEventSubscription) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -12379,12 +13773,33 @@ func (c *jsiiProxy_CfnEventSubscription) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnEventSubscription) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnEventSubscription) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnEventSubscription) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -12423,13 +13838,13 @@ type CfnEventSubscriptionProps struct {
 	//
 	// The ARN is created by Amazon SNS when you create a topic and subscribe to it.
 	SnsTopicArn *string `json:"snsTopicArn" yaml:"snsTopicArn"`
-	// A value that indicates whether to activate the subscription.
+	// A Boolean value;
 	//
-	// If the event notification subscription isn't activated, the subscription is created but not active.
+	// set to *true* to activate the subscription, set to *false* to create the subscription but not active it.
 	Enabled interface{} `json:"enabled" yaml:"enabled"`
-	// A list of event categories for a particular source type ( `SourceType` ) that you want to subscribe to.
+	// A list of event categories for a SourceType that you want to subscribe to.
 	//
-	// You can see a list of the categories for a given source type in the "Amazon RDS event categories and event messages" section of the [*Amazon RDS User Guide*](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Messages.html) or the [*Amazon Aurora User Guide*](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.html) . You can also see this list by using the `DescribeEventCategories` operation.
+	// You can see a list of the categories for a given SourceType in the [Events](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) topic in the Amazon RDS User Guide or by using the *DescribeEventCategories* action.
 	EventCategories *[]*string `json:"eventCategories" yaml:"eventCategories"`
 	// The list of identifiers of the event sources for which events are returned.
 	//
@@ -12478,13 +13893,16 @@ type CfnGlobalCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// The deletion protection setting for the new global database.
 	//
@@ -12513,13 +13931,16 @@ type CfnGlobalCluster interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// The DB cluster identifier or Amazon Resource Name (ARN) to use as the primary cluster of the global database.
 	//
@@ -12529,6 +13950,7 @@ type CfnGlobalCluster interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// The storage encryption setting for the global database cluster.
 	StorageEncrypted() interface{}
@@ -12537,13 +13959,16 @@ type CfnGlobalCluster interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -12552,6 +13977,7 @@ type CfnGlobalCluster interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -12596,12 +14022,15 @@ type CfnGlobalCluster interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -12612,11 +14041,13 @@ type CfnGlobalCluster interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -12625,21 +14056,74 @@ type CfnGlobalCluster interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -12739,8 +14223,8 @@ func (j *jsiiProxy_CfnGlobalCluster) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGlobalCluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnGlobalCluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -12801,13 +14285,13 @@ func (j *jsiiProxy_CfnGlobalCluster) UpdatedProperites() *map[string]interface{}
 
 
 // Create a new `AWS::RDS::GlobalCluster`.
-func NewCfnGlobalCluster(scope constructs.Construct, id *string, props *CfnGlobalClusterProps) CfnGlobalCluster {
+func NewCfnGlobalCluster(scope awscdk.Construct, id *string, props *CfnGlobalClusterProps) CfnGlobalCluster {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnGlobalCluster{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnGlobalCluster",
+		"monocdk.aws_rds.CfnGlobalCluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -12816,11 +14300,11 @@ func NewCfnGlobalCluster(scope constructs.Construct, id *string, props *CfnGloba
 }
 
 // Create a new `AWS::RDS::GlobalCluster`.
-func NewCfnGlobalCluster_Override(c CfnGlobalCluster, scope constructs.Construct, id *string, props *CfnGlobalClusterProps) {
+func NewCfnGlobalCluster_Override(c CfnGlobalCluster, scope awscdk.Construct, id *string, props *CfnGlobalClusterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnGlobalCluster",
+		"monocdk.aws_rds.CfnGlobalCluster",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -12880,13 +14364,14 @@ func (j *jsiiProxy_CfnGlobalCluster) SetStorageEncrypted(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnGlobalCluster_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnGlobalCluster",
+		"monocdk.aws_rds.CfnGlobalCluster",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -12896,13 +14381,14 @@ func CfnGlobalCluster_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnGlobalCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnGlobalCluster",
+		"monocdk.aws_rds.CfnGlobalCluster",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -12911,17 +14397,15 @@ func CfnGlobalCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnGlobalCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnGlobalCluster",
+		"monocdk.aws_rds.CfnGlobalCluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -12934,7 +14418,7 @@ func CfnGlobalCluster_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnGlobalCluster",
+		"monocdk.aws_rds.CfnGlobalCluster",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -13031,11 +14515,48 @@ func (c *jsiiProxy_CfnGlobalCluster) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+func (c *jsiiProxy_CfnGlobalCluster) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnGlobalCluster) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnGlobalCluster) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnGlobalCluster) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnGlobalCluster) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -13065,12 +14586,33 @@ func (c *jsiiProxy_CfnGlobalCluster) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnGlobalCluster) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnGlobalCluster) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnGlobalCluster) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -13167,13 +14709,16 @@ type CfnOptionGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// Specifies the name of the engine that this option group should be associated with.
 	//
@@ -13201,12 +14746,14 @@ type CfnOptionGroup interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
 	// Specifies the major version of the engine that this option group should be associated with.
 	MajorEngineVersion() *string
 	SetMajorEngineVersion(val *string)
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// A list of options and the settings for each option.
 	OptionConfigurations() interface{}
 	SetOptionConfigurations(val interface{})
@@ -13217,10 +14764,12 @@ type CfnOptionGroup interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// Tags to assign to the option group.
 	Tags() awscdk.TagManager
@@ -13228,13 +14777,16 @@ type CfnOptionGroup interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -13243,6 +14795,7 @@ type CfnOptionGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -13287,12 +14840,15 @@ type CfnOptionGroup interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -13303,11 +14859,13 @@ type CfnOptionGroup interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -13316,21 +14874,74 @@ type CfnOptionGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -13410,8 +15021,8 @@ func (j *jsiiProxy_CfnOptionGroup) MajorEngineVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOptionGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnOptionGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -13482,13 +15093,13 @@ func (j *jsiiProxy_CfnOptionGroup) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::RDS::OptionGroup`.
-func NewCfnOptionGroup(scope constructs.Construct, id *string, props *CfnOptionGroupProps) CfnOptionGroup {
+func NewCfnOptionGroup(scope awscdk.Construct, id *string, props *CfnOptionGroupProps) CfnOptionGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnOptionGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnOptionGroup",
+		"monocdk.aws_rds.CfnOptionGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -13497,11 +15108,11 @@ func NewCfnOptionGroup(scope constructs.Construct, id *string, props *CfnOptionG
 }
 
 // Create a new `AWS::RDS::OptionGroup`.
-func NewCfnOptionGroup_Override(c CfnOptionGroup, scope constructs.Construct, id *string, props *CfnOptionGroupProps) {
+func NewCfnOptionGroup_Override(c CfnOptionGroup, scope awscdk.Construct, id *string, props *CfnOptionGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnOptionGroup",
+		"monocdk.aws_rds.CfnOptionGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -13545,13 +15156,14 @@ func (j *jsiiProxy_CfnOptionGroup) SetOptionGroupDescription(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnOptionGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnOptionGroup",
+		"monocdk.aws_rds.CfnOptionGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -13561,13 +15173,14 @@ func CfnOptionGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnOptionGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnOptionGroup",
+		"monocdk.aws_rds.CfnOptionGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -13576,17 +15189,15 @@ func CfnOptionGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnOptionGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnOptionGroup",
+		"monocdk.aws_rds.CfnOptionGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -13599,7 +15210,7 @@ func CfnOptionGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnOptionGroup",
+		"monocdk.aws_rds.CfnOptionGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -13696,11 +15307,48 @@ func (c *jsiiProxy_CfnOptionGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+func (c *jsiiProxy_CfnOptionGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnOptionGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnOptionGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnOptionGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnOptionGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -13730,12 +15378,33 @@ func (c *jsiiProxy_CfnOptionGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnOptionGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnOptionGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnOptionGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -13885,12 +15554,16 @@ type CfnOptionGroupProps struct {
 //   	s3ImportRole: role,
 //   }
 //
+// Experimental.
 type ClusterEngineBindOptions struct {
 	// The customer-provided ParameterGroup.
+	// Experimental.
 	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// The role used for S3 exporting.
+	// Experimental.
 	S3ExportRole awsiam.IRole `json:"s3ExportRole" yaml:"s3ExportRole"`
 	// The role used for S3 importing.
+	// Experimental.
 	S3ImportRole awsiam.IRole `json:"s3ImportRole" yaml:"s3ImportRole"`
 }
 
@@ -13909,14 +15582,18 @@ type ClusterEngineBindOptions struct {
 //   	port: jsii.Number(123),
 //   }
 //
+// Experimental.
 type ClusterEngineConfig struct {
 	// Features supported by the database engine.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html
 	//
+	// Experimental.
 	Features *ClusterEngineFeatures `json:"features" yaml:"features"`
 	// The ParameterGroup to use for the cluster.
+	// Experimental.
 	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// The port to use for this cluster, unless the customer specified the port directly.
+	// Experimental.
 	Port *float64 `json:"port" yaml:"port"`
 }
 
@@ -13929,23 +15606,27 @@ type ClusterEngineConfig struct {
 //   	s3Import: jsii.String("s3Import"),
 //   }
 //
+// Experimental.
 type ClusterEngineFeatures struct {
 	// Feature name for the DB instance that the IAM role to export to S3 bucket is to be associated with.
+	// Experimental.
 	S3Export *string `json:"s3Export" yaml:"s3Export"`
 	// Feature name for the DB instance that the IAM role to access the S3 bucket for import is to be associated with.
+	// Experimental.
 	S3Import *string `json:"s3Import" yaml:"s3Import"`
 }
 
 // Properties common to single-user and multi-user rotation options.
 //
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import rds "github.com/aws/aws-cdk-go/awscdk/aws_rds"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import rds "github.com/aws/aws-cdk-go/awscdk/aws_rds"
 //
+//   var duration duration
 //   var interfaceVpcEndpoint interfaceVpcEndpoint
 //   var subnet subnet
 //   var subnetFilter subnetFilter
 //   commonRotationUserOptions := &commonRotationUserOptions{
-//   	automaticallyAfter: cdk.duration.minutes(jsii.Number(30)),
+//   	automaticallyAfter: duration,
 //   	endpoint: interfaceVpcEndpoint,
 //   	excludeCharacters: jsii.String("excludeCharacters"),
 //   	vpcSubnets: &subnetSelection{
@@ -13957,15 +15638,18 @@ type ClusterEngineFeatures struct {
 //   			subnetFilter,
 //   		},
 //   		subnetGroupName: jsii.String("subnetGroupName"),
+//   		subnetName: jsii.String("subnetName"),
 //   		subnets: []iSubnet{
 //   			subnet,
 //   		},
-//   		subnetType: ec2.subnetType_PRIVATE_ISOLATED,
+//   		subnetType: ec2.subnetType_ISOLATED,
 //   	},
 //   }
 //
+// Experimental.
 type CommonRotationUserOptions struct {
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
+	// Experimental.
 	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter" yaml:"automaticallyAfter"`
 	// The VPC interface endpoint to use for the Secrets Manager API.
 	//
@@ -13973,10 +15657,13 @@ type CommonRotationUserOptions struct {
 	// need to specify an endpoint. The standard Secrets Manager DNS hostname the Secrets Manager
 	// CLI and SDKs use by default (https://secretsmanager.<region>.amazonaws.com) automatically
 	// resolves to your VPC endpoint.
+	// Experimental.
 	Endpoint awsec2.IInterfaceVpcEndpoint `json:"endpoint" yaml:"endpoint"`
 	// Specifies characters to not include in generated passwords.
+	// Experimental.
 	ExcludeCharacters *string `json:"excludeCharacters" yaml:"excludeCharacters"`
 	// Where to place the rotation Lambda function.
+	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
@@ -14020,26 +15707,35 @@ type CommonRotationUserOptions struct {
 //   	responseMappingTemplate: appsync.*mappingTemplate.fromString(jsii.String("\n    $utils.toJson($utils.rds.toJsonObject($ctx.result)[1][0])\n  ")),
 //   })
 //
+// Experimental.
 type Credentials interface {
 	// KMS encryption key to encrypt the generated secret.
+	// Experimental.
 	EncryptionKey() awskms.IKey
 	// The characters to exclude from the generated password.
 	//
 	// Only used if {@link password} has not been set.
+	// Experimental.
 	ExcludeCharacters() *string
 	// Password.
 	//
 	// Do not put passwords in your CDK code directly.
+	// Experimental.
 	Password() awscdk.SecretValue
 	// A list of regions where to replicate the generated secret.
+	// Experimental.
 	ReplicaRegions() *[]*awssecretsmanager.ReplicaRegion
 	// Secret used to instantiate this Login.
+	// Experimental.
 	Secret() awssecretsmanager.ISecret
 	// The name to use for the Secret if a new Secret is to be generated in SecretsManager for these Credentials.
+	// Experimental.
 	SecretName() *string
 	// Username.
+	// Experimental.
 	Username() *string
 	// Whether the username should be referenced as a string and not as a dynamic reference to the username in the secret.
+	// Experimental.
 	UsernameAsString() *bool
 }
 
@@ -14129,24 +15825,26 @@ func (j *jsiiProxy_Credentials) UsernameAsString() *bool {
 }
 
 
+// Experimental.
 func NewCredentials_Override(c Credentials) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.Credentials",
+		"monocdk.aws_rds.Credentials",
 		nil, // no parameters
 		c,
 	)
 }
 
 // Creates Credentials with a password generated and stored in Secrets Manager.
+// Experimental.
 func Credentials_FromGeneratedSecret(username *string, options *CredentialsBaseOptions) Credentials {
 	_init_.Initialize()
 
 	var returns Credentials
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.Credentials",
+		"monocdk.aws_rds.Credentials",
 		"fromGeneratedSecret",
 		[]interface{}{username, options},
 		&returns,
@@ -14158,13 +15856,14 @@ func Credentials_FromGeneratedSecret(username *string, options *CredentialsBaseO
 // Creates Credentials from a password.
 //
 // Do not put passwords in your CDK code directly.
+// Experimental.
 func Credentials_FromPassword(username *string, password awscdk.SecretValue) Credentials {
 	_init_.Initialize()
 
 	var returns Credentials
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.Credentials",
+		"monocdk.aws_rds.Credentials",
 		"fromPassword",
 		[]interface{}{username, password},
 		&returns,
@@ -14183,13 +15882,14 @@ func Credentials_FromPassword(username *string, password awscdk.SecretValue) Cre
 //    "password": <required: password>,
 // }
 // ```.
+// Experimental.
 func Credentials_FromSecret(secret awssecretsmanager.ISecret, username *string) Credentials {
 	_init_.Initialize()
 
 	var returns Credentials
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.Credentials",
+		"monocdk.aws_rds.Credentials",
 		"fromSecret",
 		[]interface{}{secret, username},
 		&returns,
@@ -14201,13 +15901,14 @@ func Credentials_FromSecret(secret awssecretsmanager.ISecret, username *string) 
 // Creates Credentials for the given username, and optional password and key.
 //
 // If no password is provided, one will be generated and stored in Secrets Manager.
+// Experimental.
 func Credentials_FromUsername(username *string, options *CredentialsFromUsernameOptions) Credentials {
 	_init_.Initialize()
 
 	var returns Credentials
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.Credentials",
+		"monocdk.aws_rds.Credentials",
 		"fromUsername",
 		[]interface{}{username, options},
 		&returns,
@@ -14243,23 +15944,28 @@ func Credentials_FromUsername(username *string, options *CredentialsFromUsername
 //   	}),
 //   })
 //
+// Experimental.
 type CredentialsBaseOptions struct {
 	// KMS encryption key to encrypt the generated secret.
+	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// The characters to exclude from the generated password.
 	//
 	// Has no effect if {@link password} has been provided.
+	// Experimental.
 	ExcludeCharacters *string `json:"excludeCharacters" yaml:"excludeCharacters"`
 	// A list of regions where to replicate this secret.
+	// Experimental.
 	ReplicaRegions *[]*awssecretsmanager.ReplicaRegion `json:"replicaRegions" yaml:"replicaRegions"`
 	// The name of the secret.
+	// Experimental.
 	SecretName *string `json:"secretName" yaml:"secretName"`
 }
 
 // Options for creating Credentials from a username.
 //
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"import awscdk "github.com/aws/aws-cdk-go/awscdk"import rds "github.com/aws/aws-cdk-go/awscdk/aws_rds"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"import awscdk "github.com/aws/aws-cdk-go/awscdk"import rds "github.com/aws/aws-cdk-go/awscdk/aws_rds"
 //
 //   var key key
 //   var secretValue secretValue
@@ -14278,20 +15984,26 @@ type CredentialsBaseOptions struct {
 //   	secretName: jsii.String("secretName"),
 //   }
 //
+// Experimental.
 type CredentialsFromUsernameOptions struct {
 	// KMS encryption key to encrypt the generated secret.
+	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// The characters to exclude from the generated password.
 	//
 	// Has no effect if {@link password} has been provided.
+	// Experimental.
 	ExcludeCharacters *string `json:"excludeCharacters" yaml:"excludeCharacters"`
 	// A list of regions where to replicate this secret.
+	// Experimental.
 	ReplicaRegions *[]*awssecretsmanager.ReplicaRegion `json:"replicaRegions" yaml:"replicaRegions"`
 	// The name of the secret.
+	// Experimental.
 	SecretName *string `json:"secretName" yaml:"secretName"`
 	// Password.
 	//
 	// Do not put passwords in your CDK code directly.
+	// Experimental.
 	Password awscdk.SecretValue `json:"password" yaml:"password"`
 }
 
@@ -14319,19 +16031,25 @@ type CredentialsFromUsernameOptions struct {
 //   })
 //   proxy.grantConnect(role, jsii.String("admin"))
 //
+// Experimental.
 type DatabaseCluster interface {
 	DatabaseClusterBase
 	// The endpoint to use for read/write operations.
+	// Experimental.
 	ClusterEndpoint() Endpoint
 	// Identifier of the cluster.
+	// Experimental.
 	ClusterIdentifier() *string
 	// Endpoint to use for load-balanced read-only operations.
+	// Experimental.
 	ClusterReadEndpoint() Endpoint
 	// Access to the network connections.
+	// Experimental.
 	Connections() awsec2.Connections
 	// The engine for this Cluster.
 	//
 	// Never undefined.
+	// Experimental.
 	Engine() IClusterEngine
 	// The environment this resource belongs to.
 	//
@@ -14341,14 +16059,19 @@ type DatabaseCluster interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// Endpoints which address each individual replica.
+	// Experimental.
 	InstanceEndpoints() *[]Endpoint
 	// Identifiers of the replicas.
+	// Experimental.
 	InstanceIdentifiers() *[]*string
+	// Experimental.
 	NewCfnProps() *CfnDBClusterProps
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -14356,18 +16079,26 @@ type DatabaseCluster interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The secret attached to this cluster.
+	// Experimental.
 	Secret() awssecretsmanager.ISecret
+	// Experimental.
 	SecurityGroups() *[]awsec2.ISecurityGroup
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
+	// Experimental.
 	SubnetGroup() ISubnetGroup
 	// Add a new db proxy to this cluster.
+	// Experimental.
 	AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy
 	// Adds the multi user rotation to this cluster.
+	// Experimental.
 	AddRotationMultiUser(id *string, options *RotationMultiUserOptions) awssecretsmanager.SecretRotation
 	// Adds the single user rotation of the master password to this cluster.
+	// Experimental.
 	AddRotationSingleUser(options *RotationSingleUserOptions) awssecretsmanager.SecretRotation
 	// Apply the given removal policy to this resource.
 	//
@@ -14378,9 +16109,12 @@ type DatabaseCluster interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Renders the secret attachment target specifications.
+	// Experimental.
 	AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -14388,73 +16122,139 @@ type DatabaseCluster interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Return the given named metric for this DBCluster.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The percentage of CPU utilization.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of database connections in use.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The average number of deadlocks in the database per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricDeadlocks(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of time that the instance has been running, in seconds.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricEngineUptime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of available random access memory, in bytes.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of local storage available, in bytes.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricFreeLocalStorage(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of network throughput received from clients by each instance, in bytes per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricNetworkReceiveThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of network throughput both received from and transmitted to clients by each instance, in bytes per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricNetworkThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of network throughput sent to clients by each instance, in bytes per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricNetworkTransmitThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total amount of backup storage in bytes consumed by all Aurora snapshots outside its backup retention window.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricSnapshotStorageUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total amount of backup storage in bytes for which you are billed.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricTotalBackupStorageBilled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of storage used by your Aurora DB instance, in bytes.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricVolumeBytesUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of billed read I/O operations from a cluster volume, reported at 5-minute intervals.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricVolumeReadIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of write disk I/O operations to the cluster volume, reported at 5-minute intervals.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricVolumeWriteIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for DatabaseCluster
@@ -14552,8 +16352,8 @@ func (j *jsiiProxy_DatabaseCluster) NewCfnProps() *CfnDBClusterProps {
 	return returns
 }
 
-func (j *jsiiProxy_DatabaseCluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DatabaseCluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -14613,13 +16413,14 @@ func (j *jsiiProxy_DatabaseCluster) SubnetGroup() ISubnetGroup {
 }
 
 
+// Experimental.
 func NewDatabaseCluster(scope constructs.Construct, id *string, props *DatabaseClusterProps) DatabaseCluster {
 	_init_.Initialize()
 
 	j := jsiiProxy_DatabaseCluster{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseCluster",
+		"monocdk.aws_rds.DatabaseCluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -14627,24 +16428,26 @@ func NewDatabaseCluster(scope constructs.Construct, id *string, props *DatabaseC
 	return &j
 }
 
+// Experimental.
 func NewDatabaseCluster_Override(d DatabaseCluster, scope constructs.Construct, id *string, props *DatabaseClusterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseCluster",
+		"monocdk.aws_rds.DatabaseCluster",
 		[]interface{}{scope, id, props},
 		d,
 	)
 }
 
 // Import an existing DatabaseCluster from properties.
+// Experimental.
 func DatabaseCluster_FromDatabaseClusterAttributes(scope constructs.Construct, id *string, attrs *DatabaseClusterAttributes) IDatabaseCluster {
 	_init_.Initialize()
 
 	var returns IDatabaseCluster
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseCluster",
+		"monocdk.aws_rds.DatabaseCluster",
 		"fromDatabaseClusterAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -14653,17 +16456,15 @@ func DatabaseCluster_FromDatabaseClusterAttributes(scope constructs.Construct, i
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func DatabaseCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseCluster",
+		"monocdk.aws_rds.DatabaseCluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -14673,13 +16474,14 @@ func DatabaseCluster_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func DatabaseCluster_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func DatabaseCluster_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseCluster",
+		"monocdk.aws_rds.DatabaseCluster",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -14982,12 +16784,70 @@ func (d *jsiiProxy_DatabaseCluster) MetricVolumeWriteIOPs(props *awscloudwatch.M
 	return returns
 }
 
+func (d *jsiiProxy_DatabaseCluster) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (d *jsiiProxy_DatabaseCluster) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (d *jsiiProxy_DatabaseCluster) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseCluster) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (d *jsiiProxy_DatabaseCluster) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (d *jsiiProxy_DatabaseCluster) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		d,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseCluster) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -15021,40 +16881,55 @@ func (d *jsiiProxy_DatabaseCluster) ToString() *string {
 //   	},
 //   }
 //
+// Experimental.
 type DatabaseClusterAttributes struct {
 	// Identifier for the cluster.
+	// Experimental.
 	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// Cluster endpoint address.
+	// Experimental.
 	ClusterEndpointAddress *string `json:"clusterEndpointAddress" yaml:"clusterEndpointAddress"`
 	// The engine of the existing Cluster.
+	// Experimental.
 	Engine IClusterEngine `json:"engine" yaml:"engine"`
 	// Endpoint addresses of individual instances.
+	// Experimental.
 	InstanceEndpointAddresses *[]*string `json:"instanceEndpointAddresses" yaml:"instanceEndpointAddresses"`
 	// Identifier for the instances.
+	// Experimental.
 	InstanceIdentifiers *[]*string `json:"instanceIdentifiers" yaml:"instanceIdentifiers"`
 	// The database port.
+	// Experimental.
 	Port *float64 `json:"port" yaml:"port"`
 	// Reader endpoint address.
+	// Experimental.
 	ReaderEndpointAddress *string `json:"readerEndpointAddress" yaml:"readerEndpointAddress"`
 	// The security groups of the database cluster.
+	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 }
 
 // A new or imported clustered database.
+// Experimental.
 type DatabaseClusterBase interface {
 	awscdk.Resource
 	IDatabaseCluster
 	// The endpoint to use for read/write operations.
+	// Experimental.
 	ClusterEndpoint() Endpoint
 	// Identifier of the cluster.
+	// Experimental.
 	ClusterIdentifier() *string
 	// Endpoint to use for load-balanced read-only operations.
+	// Experimental.
 	ClusterReadEndpoint() Endpoint
 	// Access to the network connections.
+	// Experimental.
 	Connections() awsec2.Connections
 	// The engine of this Cluster.
 	//
 	// May be not known for imported Clusters if it wasn't provided explicitly.
+	// Experimental.
 	Engine() IClusterEngine
 	// The environment this resource belongs to.
 	//
@@ -15064,13 +16939,17 @@ type DatabaseClusterBase interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// Endpoints which address each individual replica.
+	// Experimental.
 	InstanceEndpoints() *[]Endpoint
 	// Identifiers of the replicas.
+	// Experimental.
 	InstanceIdentifiers() *[]*string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -15078,10 +16957,13 @@ type DatabaseClusterBase interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// Add a new db proxy to this cluster.
+	// Experimental.
 	AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy
 	// Apply the given removal policy to this resource.
 	//
@@ -15092,9 +16974,12 @@ type DatabaseClusterBase interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Renders the secret attachment target specifications.
+	// Experimental.
 	AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -15102,73 +16987,139 @@ type DatabaseClusterBase interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Return the given named metric for this DBCluster.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The percentage of CPU utilization.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of database connections in use.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The average number of deadlocks in the database per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricDeadlocks(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of time that the instance has been running, in seconds.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricEngineUptime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of available random access memory, in bytes.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of local storage available, in bytes.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricFreeLocalStorage(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of network throughput received from clients by each instance, in bytes per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricNetworkReceiveThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of network throughput both received from and transmitted to clients by each instance, in bytes per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricNetworkThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of network throughput sent to clients by each instance, in bytes per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricNetworkTransmitThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total amount of backup storage in bytes consumed by all Aurora snapshots outside its backup retention window.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricSnapshotStorageUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total amount of backup storage in bytes for which you are billed.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricTotalBackupStorageBilled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of storage used by your Aurora DB instance, in bytes.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricVolumeBytesUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of billed read I/O operations from a cluster volume, reported at 5-minute intervals.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricVolumeReadIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of write disk I/O operations to the cluster volume, reported at 5-minute intervals.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricVolumeWriteIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for DatabaseClusterBase
@@ -15257,8 +17208,8 @@ func (j *jsiiProxy_DatabaseClusterBase) InstanceIdentifiers() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_DatabaseClusterBase) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DatabaseClusterBase) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -15288,27 +17239,26 @@ func (j *jsiiProxy_DatabaseClusterBase) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewDatabaseClusterBase_Override(d DatabaseClusterBase, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseClusterBase",
+		"monocdk.aws_rds.DatabaseClusterBase",
 		[]interface{}{scope, id, props},
 		d,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func DatabaseClusterBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseClusterBase",
+		"monocdk.aws_rds.DatabaseClusterBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -15318,13 +17268,14 @@ func DatabaseClusterBase_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func DatabaseClusterBase_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func DatabaseClusterBase_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseClusterBase",
+		"monocdk.aws_rds.DatabaseClusterBase",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -15601,12 +17552,70 @@ func (d *jsiiProxy_DatabaseClusterBase) MetricVolumeWriteIOPs(props *awscloudwat
 	return returns
 }
 
+func (d *jsiiProxy_DatabaseClusterBase) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (d *jsiiProxy_DatabaseClusterBase) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (d *jsiiProxy_DatabaseClusterBase) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseClusterBase) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (d *jsiiProxy_DatabaseClusterBase) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (d *jsiiProxy_DatabaseClusterBase) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		d,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseClusterBase) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -15635,6 +17644,7 @@ func (d *jsiiProxy_DatabaseClusterBase) ToString() *string {
 //   	},
 //   })
 //
+// Experimental.
 type DatabaseClusterEngine interface {
 }
 
@@ -15643,13 +17653,14 @@ type jsiiProxy_DatabaseClusterEngine struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewDatabaseClusterEngine() DatabaseClusterEngine {
 	_init_.Initialize()
 
 	j := jsiiProxy_DatabaseClusterEngine{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseClusterEngine",
+		"monocdk.aws_rds.DatabaseClusterEngine",
 		nil, // no parameters
 		&j,
 	)
@@ -15657,24 +17668,26 @@ func NewDatabaseClusterEngine() DatabaseClusterEngine {
 	return &j
 }
 
+// Experimental.
 func NewDatabaseClusterEngine_Override(d DatabaseClusterEngine) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseClusterEngine",
+		"monocdk.aws_rds.DatabaseClusterEngine",
 		nil, // no parameters
 		d,
 	)
 }
 
 // Creates a new plain Aurora database cluster engine.
+// Experimental.
 func DatabaseClusterEngine_Aurora(props *AuroraClusterEngineProps) IClusterEngine {
 	_init_.Initialize()
 
 	var returns IClusterEngine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseClusterEngine",
+		"monocdk.aws_rds.DatabaseClusterEngine",
 		"aurora",
 		[]interface{}{props},
 		&returns,
@@ -15684,13 +17697,14 @@ func DatabaseClusterEngine_Aurora(props *AuroraClusterEngineProps) IClusterEngin
 }
 
 // Creates a new Aurora MySQL database cluster engine.
+// Experimental.
 func DatabaseClusterEngine_AuroraMysql(props *AuroraMysqlClusterEngineProps) IClusterEngine {
 	_init_.Initialize()
 
 	var returns IClusterEngine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseClusterEngine",
+		"monocdk.aws_rds.DatabaseClusterEngine",
 		"auroraMysql",
 		[]interface{}{props},
 		&returns,
@@ -15700,13 +17714,14 @@ func DatabaseClusterEngine_AuroraMysql(props *AuroraMysqlClusterEngineProps) ICl
 }
 
 // Creates a new Aurora PostgreSQL database cluster engine.
+// Experimental.
 func DatabaseClusterEngine_AuroraPostgres(props *AuroraPostgresClusterEngineProps) IClusterEngine {
 	_init_.Initialize()
 
 	var returns IClusterEngine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseClusterEngine",
+		"monocdk.aws_rds.DatabaseClusterEngine",
 		"auroraPostgres",
 		[]interface{}{props},
 		&returns,
@@ -15719,7 +17734,7 @@ func DatabaseClusterEngine_AURORA() IClusterEngine {
 	_init_.Initialize()
 	var returns IClusterEngine
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.DatabaseClusterEngine",
+		"monocdk.aws_rds.DatabaseClusterEngine",
 		"AURORA",
 		&returns,
 	)
@@ -15730,7 +17745,7 @@ func DatabaseClusterEngine_AURORA_MYSQL() IClusterEngine {
 	_init_.Initialize()
 	var returns IClusterEngine
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.DatabaseClusterEngine",
+		"monocdk.aws_rds.DatabaseClusterEngine",
 		"AURORA_MYSQL",
 		&returns,
 	)
@@ -15741,7 +17756,7 @@ func DatabaseClusterEngine_AURORA_POSTGRESQL() IClusterEngine {
 	_init_.Initialize()
 	var returns IClusterEngine
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.DatabaseClusterEngine",
+		"monocdk.aws_rds.DatabaseClusterEngine",
 		"AURORA_POSTGRESQL",
 		&returns,
 	)
@@ -15762,19 +17777,25 @@ func DatabaseClusterEngine_AURORA_POSTGRESQL() IClusterEngine {
 //   	snapshotIdentifier: jsii.String("mySnapshot"),
 //   })
 //
+// Experimental.
 type DatabaseClusterFromSnapshot interface {
 	DatabaseClusterBase
 	// The endpoint to use for read/write operations.
+	// Experimental.
 	ClusterEndpoint() Endpoint
 	// Identifier of the cluster.
+	// Experimental.
 	ClusterIdentifier() *string
 	// Endpoint to use for load-balanced read-only operations.
+	// Experimental.
 	ClusterReadEndpoint() Endpoint
 	// Access to the network connections.
+	// Experimental.
 	Connections() awsec2.Connections
 	// The engine for this Cluster.
 	//
 	// Never undefined.
+	// Experimental.
 	Engine() IClusterEngine
 	// The environment this resource belongs to.
 	//
@@ -15784,14 +17805,19 @@ type DatabaseClusterFromSnapshot interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// Endpoints which address each individual replica.
+	// Experimental.
 	InstanceEndpoints() *[]Endpoint
 	// Identifiers of the replicas.
+	// Experimental.
 	InstanceIdentifiers() *[]*string
+	// Experimental.
 	NewCfnProps() *CfnDBClusterProps
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -15799,12 +17825,17 @@ type DatabaseClusterFromSnapshot interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
+	// Experimental.
 	SecurityGroups() *[]awsec2.ISecurityGroup
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
+	// Experimental.
 	SubnetGroup() ISubnetGroup
 	// Add a new db proxy to this cluster.
+	// Experimental.
 	AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy
 	// Apply the given removal policy to this resource.
 	//
@@ -15815,9 +17846,12 @@ type DatabaseClusterFromSnapshot interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Renders the secret attachment target specifications.
+	// Experimental.
 	AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -15825,73 +17859,139 @@ type DatabaseClusterFromSnapshot interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Return the given named metric for this DBCluster.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The percentage of CPU utilization.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of database connections in use.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The average number of deadlocks in the database per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricDeadlocks(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of time that the instance has been running, in seconds.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricEngineUptime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of available random access memory, in bytes.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of local storage available, in bytes.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricFreeLocalStorage(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of network throughput received from clients by each instance, in bytes per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricNetworkReceiveThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of network throughput both received from and transmitted to clients by each instance, in bytes per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricNetworkThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of network throughput sent to clients by each instance, in bytes per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricNetworkTransmitThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total amount of backup storage in bytes consumed by all Aurora snapshots outside its backup retention window.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricSnapshotStorageUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total amount of backup storage in bytes for which you are billed.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricTotalBackupStorageBilled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of storage used by your Aurora DB instance, in bytes.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricVolumeBytesUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of billed read I/O operations from a cluster volume, reported at 5-minute intervals.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricVolumeReadIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of write disk I/O operations to the cluster volume, reported at 5-minute intervals.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricVolumeWriteIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for DatabaseClusterFromSnapshot
@@ -15989,8 +18089,8 @@ func (j *jsiiProxy_DatabaseClusterFromSnapshot) NewCfnProps() *CfnDBClusterProps
 	return returns
 }
 
-func (j *jsiiProxy_DatabaseClusterFromSnapshot) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DatabaseClusterFromSnapshot) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -16040,13 +18140,14 @@ func (j *jsiiProxy_DatabaseClusterFromSnapshot) SubnetGroup() ISubnetGroup {
 }
 
 
+// Experimental.
 func NewDatabaseClusterFromSnapshot(scope constructs.Construct, id *string, props *DatabaseClusterFromSnapshotProps) DatabaseClusterFromSnapshot {
 	_init_.Initialize()
 
 	j := jsiiProxy_DatabaseClusterFromSnapshot{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseClusterFromSnapshot",
+		"monocdk.aws_rds.DatabaseClusterFromSnapshot",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -16054,27 +18155,26 @@ func NewDatabaseClusterFromSnapshot(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Experimental.
 func NewDatabaseClusterFromSnapshot_Override(d DatabaseClusterFromSnapshot, scope constructs.Construct, id *string, props *DatabaseClusterFromSnapshotProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseClusterFromSnapshot",
+		"monocdk.aws_rds.DatabaseClusterFromSnapshot",
 		[]interface{}{scope, id, props},
 		d,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func DatabaseClusterFromSnapshot_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseClusterFromSnapshot",
+		"monocdk.aws_rds.DatabaseClusterFromSnapshot",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -16084,13 +18184,14 @@ func DatabaseClusterFromSnapshot_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func DatabaseClusterFromSnapshot_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func DatabaseClusterFromSnapshot_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseClusterFromSnapshot",
+		"monocdk.aws_rds.DatabaseClusterFromSnapshot",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -16367,12 +18468,70 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricVolumeWriteIOPs(props *aws
 	return returns
 }
 
+func (d *jsiiProxy_DatabaseClusterFromSnapshot) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (d *jsiiProxy_DatabaseClusterFromSnapshot) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (d *jsiiProxy_DatabaseClusterFromSnapshot) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseClusterFromSnapshot) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (d *jsiiProxy_DatabaseClusterFromSnapshot) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		d,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseClusterFromSnapshot) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -16394,15 +18553,19 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) ToString() *string {
 //   	snapshotIdentifier: jsii.String("mySnapshot"),
 //   })
 //
+// Experimental.
 type DatabaseClusterFromSnapshotProps struct {
 	// What kind of database to start.
+	// Experimental.
 	Engine IClusterEngine `json:"engine" yaml:"engine"`
 	// Settings for the individual instances that are launched.
+	// Experimental.
 	InstanceProps *InstanceProps `json:"instanceProps" yaml:"instanceProps"`
 	// The identifier for the DB instance snapshot or DB cluster snapshot to restore from.
 	//
 	// You can use either the name or the Amazon Resource Name (ARN) to specify a DB cluster snapshot.
 	// However, you can use only the ARN to specify a DB instance snapshot.
+	// Experimental.
 	SnapshotIdentifier *string `json:"snapshotIdentifier" yaml:"snapshotIdentifier"`
 	// The number of seconds to set a cluster's target backtrack window to.
 	//
@@ -16410,59 +18573,78 @@ type DatabaseClusterFromSnapshotProps struct {
 	// cannot be enabled on existing clusters.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html
 	//
+	// Experimental.
 	BacktrackWindow awscdk.Duration `json:"backtrackWindow" yaml:"backtrackWindow"`
 	// Backup settings.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow
 	//
+	// Experimental.
 	Backup *BackupProps `json:"backup" yaml:"backup"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
+	// Experimental.
 	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports" yaml:"cloudwatchLogsExports"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `Infinity`.
+	// Experimental.
 	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention" yaml:"cloudwatchLogsRetention"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
+	// Experimental.
 	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole" yaml:"cloudwatchLogsRetentionRole"`
 	// An optional identifier for the cluster.
+	// Experimental.
 	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// Whether to copy tags to the snapshot when a snapshot is created.
+	// Experimental.
 	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// Name of a database which is automatically created inside the cluster.
+	// Experimental.
 	DefaultDatabaseName *string `json:"defaultDatabaseName" yaml:"defaultDatabaseName"`
 	// Indicates whether the DB cluster should have deletion protection enabled.
+	// Experimental.
 	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
+	// Experimental.
 	IamAuthentication *bool `json:"iamAuthentication" yaml:"iamAuthentication"`
 	// Base identifier for instances.
 	//
 	// Every replica is named by appending the replica number to this string, 1-based.
+	// Experimental.
 	InstanceIdentifierBase *string `json:"instanceIdentifierBase" yaml:"instanceIdentifierBase"`
 	// How many replicas/instances to create.
 	//
 	// Has to be at least 1.
+	// Experimental.
 	Instances *float64 `json:"instances" yaml:"instances"`
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instances.
+	// Experimental.
 	MonitoringInterval awscdk.Duration `json:"monitoringInterval" yaml:"monitoringInterval"`
 	// Role that will be used to manage DB instances monitoring.
+	// Experimental.
 	MonitoringRole awsiam.IRole `json:"monitoringRole" yaml:"monitoringRole"`
 	// Additional parameters to pass to the database engine.
+	// Experimental.
 	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// The parameters in the DBClusterParameterGroup to create automatically.
 	//
 	// You can only specify parameterGroup or parameters but not both.
 	// You need to use a versioned engine to auto-generate a DBClusterParameterGroup.
+	// Experimental.
 	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
 	// What port to listen on.
+	// Experimental.
 	Port *float64 `json:"port" yaml:"port"`
 	// A preferred maintenance window day/time range. Should be specified as a range ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
 	//
 	// Example: 'Sun:23:45-Mon:00:15'.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance
 	//
+	// Experimental.
 	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The removal policy to apply when the cluster and its instances are removed from the stack or replaced during an update.
+	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// S3 buckets that you want to load data into. This feature is only supported by the Aurora database engine.
 	//
@@ -16471,6 +18653,7 @@ type DatabaseClusterFromSnapshotProps struct {
 	// For MySQL:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/postgresql-s3-export.html
 	//
+	// Experimental.
 	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets" yaml:"s3ExportBuckets"`
 	// Role that will be associated with this DB cluster to enable S3 export.
 	//
@@ -16481,6 +18664,7 @@ type DatabaseClusterFromSnapshotProps struct {
 	// For MySQL:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/postgresql-s3-export.html
 	//
+	// Experimental.
 	S3ExportRole awsiam.IRole `json:"s3ExportRole" yaml:"s3ExportRole"`
 	// S3 buckets that you want to load data from. This feature is only supported by the Aurora database engine.
 	//
@@ -16489,6 +18673,7 @@ type DatabaseClusterFromSnapshotProps struct {
 	// For MySQL:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Migrating.html
 	//
+	// Experimental.
 	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets" yaml:"s3ImportBuckets"`
 	// Role that will be associated with this DB cluster to enable S3 import.
 	//
@@ -16499,14 +18684,18 @@ type DatabaseClusterFromSnapshotProps struct {
 	// For MySQL:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Migrating.html
 	//
+	// Experimental.
 	S3ImportRole awsiam.IRole `json:"s3ImportRole" yaml:"s3ImportRole"`
 	// Whether to enable storage encryption.
+	// Experimental.
 	StorageEncrypted *bool `json:"storageEncrypted" yaml:"storageEncrypted"`
 	// The KMS key for storage encryption.
 	//
 	// If specified, {@link storageEncrypted} will be set to `true`.
+	// Experimental.
 	StorageEncryptionKey awskms.IKey `json:"storageEncryptionKey" yaml:"storageEncryptionKey"`
 	// Existing subnet group for the cluster.
+	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup" yaml:"subnetGroup"`
 }
 
@@ -16534,10 +18723,13 @@ type DatabaseClusterFromSnapshotProps struct {
 //   })
 //   proxy.grantConnect(role, jsii.String("admin"))
 //
+// Experimental.
 type DatabaseClusterProps struct {
 	// What kind of database to start.
+	// Experimental.
 	Engine IClusterEngine `json:"engine" yaml:"engine"`
 	// Settings for the individual instances that are launched.
+	// Experimental.
 	InstanceProps *InstanceProps `json:"instanceProps" yaml:"instanceProps"`
 	// The number of seconds to set a cluster's target backtrack window to.
 	//
@@ -16545,61 +18737,81 @@ type DatabaseClusterProps struct {
 	// cannot be enabled on existing clusters.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html
 	//
+	// Experimental.
 	BacktrackWindow awscdk.Duration `json:"backtrackWindow" yaml:"backtrackWindow"`
 	// Backup settings.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow
 	//
+	// Experimental.
 	Backup *BackupProps `json:"backup" yaml:"backup"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
+	// Experimental.
 	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports" yaml:"cloudwatchLogsExports"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `Infinity`.
+	// Experimental.
 	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention" yaml:"cloudwatchLogsRetention"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
+	// Experimental.
 	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole" yaml:"cloudwatchLogsRetentionRole"`
 	// An optional identifier for the cluster.
+	// Experimental.
 	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// Whether to copy tags to the snapshot when a snapshot is created.
+	// Experimental.
 	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// Credentials for the administrative user.
+	// Experimental.
 	Credentials Credentials `json:"credentials" yaml:"credentials"`
 	// Name of a database which is automatically created inside the cluster.
+	// Experimental.
 	DefaultDatabaseName *string `json:"defaultDatabaseName" yaml:"defaultDatabaseName"`
 	// Indicates whether the DB cluster should have deletion protection enabled.
+	// Experimental.
 	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
+	// Experimental.
 	IamAuthentication *bool `json:"iamAuthentication" yaml:"iamAuthentication"`
 	// Base identifier for instances.
 	//
 	// Every replica is named by appending the replica number to this string, 1-based.
+	// Experimental.
 	InstanceIdentifierBase *string `json:"instanceIdentifierBase" yaml:"instanceIdentifierBase"`
 	// How many replicas/instances to create.
 	//
 	// Has to be at least 1.
+	// Experimental.
 	Instances *float64 `json:"instances" yaml:"instances"`
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instances.
+	// Experimental.
 	MonitoringInterval awscdk.Duration `json:"monitoringInterval" yaml:"monitoringInterval"`
 	// Role that will be used to manage DB instances monitoring.
+	// Experimental.
 	MonitoringRole awsiam.IRole `json:"monitoringRole" yaml:"monitoringRole"`
 	// Additional parameters to pass to the database engine.
+	// Experimental.
 	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// The parameters in the DBClusterParameterGroup to create automatically.
 	//
 	// You can only specify parameterGroup or parameters but not both.
 	// You need to use a versioned engine to auto-generate a DBClusterParameterGroup.
+	// Experimental.
 	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
 	// What port to listen on.
+	// Experimental.
 	Port *float64 `json:"port" yaml:"port"`
 	// A preferred maintenance window day/time range. Should be specified as a range ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
 	//
 	// Example: 'Sun:23:45-Mon:00:15'.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance
 	//
+	// Experimental.
 	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The removal policy to apply when the cluster and its instances are removed from the stack or replaced during an update.
+	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// S3 buckets that you want to load data into. This feature is only supported by the Aurora database engine.
 	//
@@ -16608,6 +18820,7 @@ type DatabaseClusterProps struct {
 	// For MySQL:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/postgresql-s3-export.html
 	//
+	// Experimental.
 	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets" yaml:"s3ExportBuckets"`
 	// Role that will be associated with this DB cluster to enable S3 export.
 	//
@@ -16618,6 +18831,7 @@ type DatabaseClusterProps struct {
 	// For MySQL:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/postgresql-s3-export.html
 	//
+	// Experimental.
 	S3ExportRole awsiam.IRole `json:"s3ExportRole" yaml:"s3ExportRole"`
 	// S3 buckets that you want to load data from. This feature is only supported by the Aurora database engine.
 	//
@@ -16626,6 +18840,7 @@ type DatabaseClusterProps struct {
 	// For MySQL:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Migrating.html
 	//
+	// Experimental.
 	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets" yaml:"s3ImportBuckets"`
 	// Role that will be associated with this DB cluster to enable S3 import.
 	//
@@ -16636,14 +18851,18 @@ type DatabaseClusterProps struct {
 	// For MySQL:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Migrating.html
 	//
+	// Experimental.
 	S3ImportRole awsiam.IRole `json:"s3ImportRole" yaml:"s3ImportRole"`
 	// Whether to enable storage encryption.
+	// Experimental.
 	StorageEncrypted *bool `json:"storageEncrypted" yaml:"storageEncrypted"`
 	// The KMS key for storage encryption.
 	//
 	// If specified, {@link storageEncrypted} will be set to `true`.
+	// Experimental.
 	StorageEncryptionKey awskms.IKey `json:"storageEncryptionKey" yaml:"storageEncryptionKey"`
 	// Existing subnet group for the cluster.
+	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup" yaml:"subnetGroup"`
 }
 
@@ -16673,21 +18892,28 @@ type DatabaseClusterProps struct {
 //   	credentials: rds.*credentials.fromSecret(mySecret),
 //   })
 //
+// Experimental.
 type DatabaseInstance interface {
 	DatabaseInstanceBase
 	IDatabaseInstance
 	// Access to network connections.
+	// Experimental.
 	Connections() awsec2.Connections
 	// The instance endpoint address.
+	// Experimental.
 	DbInstanceEndpointAddress() *string
 	// The instance endpoint port.
+	// Experimental.
 	DbInstanceEndpointPort() *string
+	// Experimental.
 	EnableIamAuthentication() *bool
+	// Experimental.
 	SetEnableIamAuthentication(val *bool)
 	// The engine of this database Instance.
 	//
 	// May be not known for imported Instances if it wasn't provided explicitly,
 	// or for read replicas.
+	// Experimental.
 	Engine() IInstanceEngine
 	// The environment this resource belongs to.
 	//
@@ -16697,17 +18923,24 @@ type DatabaseInstance interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// The instance arn.
+	// Experimental.
 	InstanceArn() *string
 	// The instance endpoint.
+	// Experimental.
 	InstanceEndpoint() Endpoint
 	// The instance identifier.
+	// Experimental.
 	InstanceIdentifier() *string
+	// Experimental.
 	InstanceType() awsec2.InstanceType
+	// Experimental.
 	NewCfnProps() *CfnDBInstanceProps
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -16715,20 +18948,29 @@ type DatabaseInstance interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The AWS Secrets Manager secret attached to the instance.
+	// Experimental.
 	Secret() awssecretsmanager.ISecret
+	// Experimental.
 	SourceCfnProps() *CfnDBInstanceProps
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// The VPC where this database instance is deployed.
+	// Experimental.
 	Vpc() awsec2.IVpc
+	// Experimental.
 	VpcPlacement() *awsec2.SubnetSelection
 	// Add a new db proxy to this instance.
+	// Experimental.
 	AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy
 	// Adds the multi user rotation to this instance.
+	// Experimental.
 	AddRotationMultiUser(id *string, options *RotationMultiUserOptions) awssecretsmanager.SecretRotation
 	// Adds the single user rotation of the master password to this instance.
+	// Experimental.
 	AddRotationSingleUser(options *RotationSingleUserOptions) awssecretsmanager.SecretRotation
 	// Apply the given removal policy to this resource.
 	//
@@ -16739,9 +18981,12 @@ type DatabaseInstance interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Renders the secret attachment target specifications.
+	// Experimental.
 	AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -16749,51 +18994,112 @@ type DatabaseInstance interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity connection access to the database.
 	//
 	// **Note**: this method does not currently work, see https://github.com/aws/aws-cdk/issues/11851 for details.
+	// Experimental.
 	GrantConnect(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this DBInstance.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The percentage of CPU utilization.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of database connections in use.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of available random access memory.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of available storage space.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The average number of disk write I/O operations per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricReadIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The average number of disk read I/O operations per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricWriteIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Defines a CloudWatch event rule which triggers for instance events.
 	//
 	// Use
 	// `rule.addEventPattern(pattern)` to specify a filter.
+	// Experimental.
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Experimental.
 	SetLogRetention()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for DatabaseInstance
@@ -16912,8 +19218,8 @@ func (j *jsiiProxy_DatabaseInstance) NewCfnProps() *CfnDBInstanceProps {
 	return returns
 }
 
-func (j *jsiiProxy_DatabaseInstance) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DatabaseInstance) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -16983,13 +19289,14 @@ func (j *jsiiProxy_DatabaseInstance) VpcPlacement() *awsec2.SubnetSelection {
 }
 
 
+// Experimental.
 func NewDatabaseInstance(scope constructs.Construct, id *string, props *DatabaseInstanceProps) DatabaseInstance {
 	_init_.Initialize()
 
 	j := jsiiProxy_DatabaseInstance{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseInstance",
+		"monocdk.aws_rds.DatabaseInstance",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -16997,11 +19304,12 @@ func NewDatabaseInstance(scope constructs.Construct, id *string, props *Database
 	return &j
 }
 
+// Experimental.
 func NewDatabaseInstance_Override(d DatabaseInstance, scope constructs.Construct, id *string, props *DatabaseInstanceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseInstance",
+		"monocdk.aws_rds.DatabaseInstance",
 		[]interface{}{scope, id, props},
 		d,
 	)
@@ -17016,13 +19324,14 @@ func (j *jsiiProxy_DatabaseInstance) SetEnableIamAuthentication(val *bool) {
 }
 
 // Import an existing database instance.
+// Experimental.
 func DatabaseInstance_FromDatabaseInstanceAttributes(scope constructs.Construct, id *string, attrs *DatabaseInstanceAttributes) IDatabaseInstance {
 	_init_.Initialize()
 
 	var returns IDatabaseInstance
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstance",
+		"monocdk.aws_rds.DatabaseInstance",
 		"fromDatabaseInstanceAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -17031,17 +19340,15 @@ func DatabaseInstance_FromDatabaseInstanceAttributes(scope constructs.Construct,
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func DatabaseInstance_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstance",
+		"monocdk.aws_rds.DatabaseInstance",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -17051,13 +19358,14 @@ func DatabaseInstance_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func DatabaseInstance_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func DatabaseInstance_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstance",
+		"monocdk.aws_rds.DatabaseInstance",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -17282,11 +19590,56 @@ func (d *jsiiProxy_DatabaseInstance) OnEvent(id *string, options *awsevents.OnEv
 	return returns
 }
 
+func (d *jsiiProxy_DatabaseInstance) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (d *jsiiProxy_DatabaseInstance) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (d *jsiiProxy_DatabaseInstance) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseInstance) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 func (d *jsiiProxy_DatabaseInstance) SetLogRetention() {
 	_jsii_.InvokeVoid(
 		d,
 		"setLogRetention",
 		nil, // no parameters
+	)
+}
+
+func (d *jsiiProxy_DatabaseInstance) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
 	)
 }
 
@@ -17296,6 +19649,19 @@ func (d *jsiiProxy_DatabaseInstance) ToString() *string {
 	_jsii_.Invoke(
 		d,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseInstance) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -17322,16 +19688,22 @@ func (d *jsiiProxy_DatabaseInstance) ToString() *string {
 //   	engine: instanceEngine,
 //   }
 //
+// Experimental.
 type DatabaseInstanceAttributes struct {
 	// The endpoint address.
+	// Experimental.
 	InstanceEndpointAddress *string `json:"instanceEndpointAddress" yaml:"instanceEndpointAddress"`
 	// The instance identifier.
+	// Experimental.
 	InstanceIdentifier *string `json:"instanceIdentifier" yaml:"instanceIdentifier"`
 	// The database port.
+	// Experimental.
 	Port *float64 `json:"port" yaml:"port"`
 	// The security groups of the instance.
+	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The engine of the existing database Instance.
+	// Experimental.
 	Engine IInstanceEngine `json:"engine" yaml:"engine"`
 }
 
@@ -17354,21 +19726,28 @@ type DatabaseInstanceAttributes struct {
 //   	engine: instanceEngine,
 //   })
 //
+// Experimental.
 type DatabaseInstanceBase interface {
 	awscdk.Resource
 	IDatabaseInstance
 	// Access to network connections.
+	// Experimental.
 	Connections() awsec2.Connections
 	// The instance endpoint address.
+	// Experimental.
 	DbInstanceEndpointAddress() *string
 	// The instance endpoint port.
+	// Experimental.
 	DbInstanceEndpointPort() *string
+	// Experimental.
 	EnableIamAuthentication() *bool
+	// Experimental.
 	SetEnableIamAuthentication(val *bool)
 	// The engine of this database Instance.
 	//
 	// May be not known for imported Instances if it wasn't provided explicitly,
 	// or for read replicas.
+	// Experimental.
 	Engine() IInstanceEngine
 	// The environment this resource belongs to.
 	//
@@ -17378,15 +19757,20 @@ type DatabaseInstanceBase interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// The instance arn.
+	// Experimental.
 	InstanceArn() *string
 	// The instance endpoint.
+	// Experimental.
 	InstanceEndpoint() Endpoint
 	// The instance identifier.
+	// Experimental.
 	InstanceIdentifier() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -17394,10 +19778,13 @@ type DatabaseInstanceBase interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// Add a new db proxy to this instance.
+	// Experimental.
 	AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy
 	// Apply the given removal policy to this resource.
 	//
@@ -17408,9 +19795,12 @@ type DatabaseInstanceBase interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Renders the secret attachment target specifications.
+	// Experimental.
 	AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -17418,50 +19808,110 @@ type DatabaseInstanceBase interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity connection access to the database.
 	//
 	// **Note**: this method does not currently work, see https://github.com/aws/aws-cdk/issues/11851 for details.
+	// Experimental.
 	GrantConnect(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this DBInstance.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The percentage of CPU utilization.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of database connections in use.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of available random access memory.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of available storage space.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The average number of disk write I/O operations per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricReadIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The average number of disk read I/O operations per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricWriteIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Defines a CloudWatch event rule which triggers for instance events.
 	//
 	// Use
 	// `rule.addEventPattern(pattern)` to specify a filter.
+	// Experimental.
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for DatabaseInstanceBase
@@ -17560,8 +20010,8 @@ func (j *jsiiProxy_DatabaseInstanceBase) InstanceIdentifier() *string {
 	return returns
 }
 
-func (j *jsiiProxy_DatabaseInstanceBase) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DatabaseInstanceBase) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -17591,11 +20041,12 @@ func (j *jsiiProxy_DatabaseInstanceBase) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewDatabaseInstanceBase_Override(d DatabaseInstanceBase, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceBase",
+		"monocdk.aws_rds.DatabaseInstanceBase",
 		[]interface{}{scope, id, props},
 		d,
 	)
@@ -17610,13 +20061,14 @@ func (j *jsiiProxy_DatabaseInstanceBase) SetEnableIamAuthentication(val *bool) {
 }
 
 // Import an existing database instance.
+// Experimental.
 func DatabaseInstanceBase_FromDatabaseInstanceAttributes(scope constructs.Construct, id *string, attrs *DatabaseInstanceAttributes) IDatabaseInstance {
 	_init_.Initialize()
 
 	var returns IDatabaseInstance
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceBase",
+		"monocdk.aws_rds.DatabaseInstanceBase",
 		"fromDatabaseInstanceAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -17625,17 +20077,15 @@ func DatabaseInstanceBase_FromDatabaseInstanceAttributes(scope constructs.Constr
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func DatabaseInstanceBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceBase",
+		"monocdk.aws_rds.DatabaseInstanceBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -17645,13 +20095,14 @@ func DatabaseInstanceBase_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func DatabaseInstanceBase_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func DatabaseInstanceBase_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceBase",
+		"monocdk.aws_rds.DatabaseInstanceBase",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -17850,12 +20301,70 @@ func (d *jsiiProxy_DatabaseInstanceBase) OnEvent(id *string, options *awsevents.
 	return returns
 }
 
+func (d *jsiiProxy_DatabaseInstanceBase) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (d *jsiiProxy_DatabaseInstanceBase) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (d *jsiiProxy_DatabaseInstanceBase) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseInstanceBase) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (d *jsiiProxy_DatabaseInstanceBase) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (d *jsiiProxy_DatabaseInstanceBase) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		d,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseInstanceBase) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -17887,6 +20396,7 @@ func (d *jsiiProxy_DatabaseInstanceBase) ToString() *string {
 //   	vpc: vpc,
 //   })
 //
+// Experimental.
 type DatabaseInstanceEngine interface {
 }
 
@@ -17895,13 +20405,14 @@ type jsiiProxy_DatabaseInstanceEngine struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewDatabaseInstanceEngine() DatabaseInstanceEngine {
 	_init_.Initialize()
 
 	j := jsiiProxy_DatabaseInstanceEngine{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		nil, // no parameters
 		&j,
 	)
@@ -17909,24 +20420,26 @@ func NewDatabaseInstanceEngine() DatabaseInstanceEngine {
 	return &j
 }
 
+// Experimental.
 func NewDatabaseInstanceEngine_Override(d DatabaseInstanceEngine) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		nil, // no parameters
 		d,
 	)
 }
 
 // Creates a new MariaDB instance engine.
+// Experimental.
 func DatabaseInstanceEngine_MariaDb(props *MariaDbInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"mariaDb",
 		[]interface{}{props},
 		&returns,
@@ -17936,13 +20449,14 @@ func DatabaseInstanceEngine_MariaDb(props *MariaDbInstanceEngineProps) IInstance
 }
 
 // Creates a new MySQL instance engine.
+// Experimental.
 func DatabaseInstanceEngine_Mysql(props *MySqlInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"mysql",
 		[]interface{}{props},
 		&returns,
@@ -17952,13 +20466,14 @@ func DatabaseInstanceEngine_Mysql(props *MySqlInstanceEngineProps) IInstanceEngi
 }
 
 // Creates a new Oracle Enterprise Edition instance engine.
+// Experimental.
 func DatabaseInstanceEngine_OracleEe(props *OracleEeInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"oracleEe",
 		[]interface{}{props},
 		&returns,
@@ -17967,14 +20482,49 @@ func DatabaseInstanceEngine_OracleEe(props *OracleEeInstanceEngineProps) IInstan
 	return returns
 }
 
+// Creates a new Oracle Standard Edition instance engine.
+// Deprecated: instances can no longer be created with this engine. See https://forums.aws.amazon.com/ann.jspa?annID=7341
+func DatabaseInstanceEngine_OracleSe(props *OracleSeInstanceEngineProps) IInstanceEngine {
+	_init_.Initialize()
+
+	var returns IInstanceEngine
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_rds.DatabaseInstanceEngine",
+		"oracleSe",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new Oracle Standard Edition 1 instance engine.
+// Deprecated: instances can no longer be created with this engine. See https://forums.aws.amazon.com/ann.jspa?annID=7341
+func DatabaseInstanceEngine_OracleSe1(props *OracleSe1InstanceEngineProps) IInstanceEngine {
+	_init_.Initialize()
+
+	var returns IInstanceEngine
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_rds.DatabaseInstanceEngine",
+		"oracleSe1",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new Oracle Standard Edition 1 instance engine.
+// Experimental.
 func DatabaseInstanceEngine_OracleSe2(props *OracleSe2InstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"oracleSe2",
 		[]interface{}{props},
 		&returns,
@@ -17984,13 +20534,14 @@ func DatabaseInstanceEngine_OracleSe2(props *OracleSe2InstanceEngineProps) IInst
 }
 
 // Creates a new PostgreSQL instance engine.
+// Experimental.
 func DatabaseInstanceEngine_Postgres(props *PostgresInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"postgres",
 		[]interface{}{props},
 		&returns,
@@ -18000,13 +20551,14 @@ func DatabaseInstanceEngine_Postgres(props *PostgresInstanceEngineProps) IInstan
 }
 
 // Creates a new SQL Server Enterprise Edition instance engine.
+// Experimental.
 func DatabaseInstanceEngine_SqlServerEe(props *SqlServerEeInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"sqlServerEe",
 		[]interface{}{props},
 		&returns,
@@ -18016,13 +20568,14 @@ func DatabaseInstanceEngine_SqlServerEe(props *SqlServerEeInstanceEngineProps) I
 }
 
 // Creates a new SQL Server Express Edition instance engine.
+// Experimental.
 func DatabaseInstanceEngine_SqlServerEx(props *SqlServerExInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"sqlServerEx",
 		[]interface{}{props},
 		&returns,
@@ -18032,13 +20585,14 @@ func DatabaseInstanceEngine_SqlServerEx(props *SqlServerExInstanceEngineProps) I
 }
 
 // Creates a new SQL Server Standard Edition instance engine.
+// Experimental.
 func DatabaseInstanceEngine_SqlServerSe(props *SqlServerSeInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"sqlServerSe",
 		[]interface{}{props},
 		&returns,
@@ -18048,13 +20602,14 @@ func DatabaseInstanceEngine_SqlServerSe(props *SqlServerSeInstanceEngineProps) I
 }
 
 // Creates a new SQL Server Web Edition instance engine.
+// Experimental.
 func DatabaseInstanceEngine_SqlServerWeb(props *SqlServerWebInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"sqlServerWeb",
 		[]interface{}{props},
 		&returns,
@@ -18067,7 +20622,7 @@ func DatabaseInstanceEngine_MARIADB() IInstanceEngine {
 	_init_.Initialize()
 	var returns IInstanceEngine
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"MARIADB",
 		&returns,
 	)
@@ -18078,7 +20633,7 @@ func DatabaseInstanceEngine_MYSQL() IInstanceEngine {
 	_init_.Initialize()
 	var returns IInstanceEngine
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"MYSQL",
 		&returns,
 	)
@@ -18089,8 +20644,30 @@ func DatabaseInstanceEngine_ORACLE_EE() IInstanceEngine {
 	_init_.Initialize()
 	var returns IInstanceEngine
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"ORACLE_EE",
+		&returns,
+	)
+	return returns
+}
+
+func DatabaseInstanceEngine_ORACLE_SE() IInstanceEngine {
+	_init_.Initialize()
+	var returns IInstanceEngine
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.DatabaseInstanceEngine",
+		"ORACLE_SE",
+		&returns,
+	)
+	return returns
+}
+
+func DatabaseInstanceEngine_ORACLE_SE1() IInstanceEngine {
+	_init_.Initialize()
+	var returns IInstanceEngine
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.DatabaseInstanceEngine",
+		"ORACLE_SE1",
 		&returns,
 	)
 	return returns
@@ -18100,7 +20677,7 @@ func DatabaseInstanceEngine_ORACLE_SE2() IInstanceEngine {
 	_init_.Initialize()
 	var returns IInstanceEngine
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"ORACLE_SE2",
 		&returns,
 	)
@@ -18111,7 +20688,7 @@ func DatabaseInstanceEngine_POSTGRES() IInstanceEngine {
 	_init_.Initialize()
 	var returns IInstanceEngine
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"POSTGRES",
 		&returns,
 	)
@@ -18122,7 +20699,7 @@ func DatabaseInstanceEngine_SQL_SERVER_EE() IInstanceEngine {
 	_init_.Initialize()
 	var returns IInstanceEngine
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"SQL_SERVER_EE",
 		&returns,
 	)
@@ -18133,7 +20710,7 @@ func DatabaseInstanceEngine_SQL_SERVER_EX() IInstanceEngine {
 	_init_.Initialize()
 	var returns IInstanceEngine
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"SQL_SERVER_EX",
 		&returns,
 	)
@@ -18144,7 +20721,7 @@ func DatabaseInstanceEngine_SQL_SERVER_SE() IInstanceEngine {
 	_init_.Initialize()
 	var returns IInstanceEngine
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"SQL_SERVER_SE",
 		&returns,
 	)
@@ -18155,7 +20732,7 @@ func DatabaseInstanceEngine_SQL_SERVER_WEB() IInstanceEngine {
 	_init_.Initialize()
 	var returns IInstanceEngine
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"SQL_SERVER_WEB",
 		&returns,
 	)
@@ -18183,21 +20760,28 @@ func DatabaseInstanceEngine_SQL_SERVER_WEB() IInstanceEngine {
 //   	vpc: vpc,
 //   })
 //
+// Experimental.
 type DatabaseInstanceFromSnapshot interface {
 	DatabaseInstanceBase
 	IDatabaseInstance
 	// Access to network connections.
+	// Experimental.
 	Connections() awsec2.Connections
 	// The instance endpoint address.
+	// Experimental.
 	DbInstanceEndpointAddress() *string
 	// The instance endpoint port.
+	// Experimental.
 	DbInstanceEndpointPort() *string
+	// Experimental.
 	EnableIamAuthentication() *bool
+	// Experimental.
 	SetEnableIamAuthentication(val *bool)
 	// The engine of this database Instance.
 	//
 	// May be not known for imported Instances if it wasn't provided explicitly,
 	// or for read replicas.
+	// Experimental.
 	Engine() IInstanceEngine
 	// The environment this resource belongs to.
 	//
@@ -18207,17 +20791,24 @@ type DatabaseInstanceFromSnapshot interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// The instance arn.
+	// Experimental.
 	InstanceArn() *string
 	// The instance endpoint.
+	// Experimental.
 	InstanceEndpoint() Endpoint
 	// The instance identifier.
+	// Experimental.
 	InstanceIdentifier() *string
+	// Experimental.
 	InstanceType() awsec2.InstanceType
+	// Experimental.
 	NewCfnProps() *CfnDBInstanceProps
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -18225,20 +20816,29 @@ type DatabaseInstanceFromSnapshot interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The AWS Secrets Manager secret attached to the instance.
+	// Experimental.
 	Secret() awssecretsmanager.ISecret
+	// Experimental.
 	SourceCfnProps() *CfnDBInstanceProps
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// The VPC where this database instance is deployed.
+	// Experimental.
 	Vpc() awsec2.IVpc
+	// Experimental.
 	VpcPlacement() *awsec2.SubnetSelection
 	// Add a new db proxy to this instance.
+	// Experimental.
 	AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy
 	// Adds the multi user rotation to this instance.
+	// Experimental.
 	AddRotationMultiUser(id *string, options *RotationMultiUserOptions) awssecretsmanager.SecretRotation
 	// Adds the single user rotation of the master password to this instance.
+	// Experimental.
 	AddRotationSingleUser(options *RotationSingleUserOptions) awssecretsmanager.SecretRotation
 	// Apply the given removal policy to this resource.
 	//
@@ -18249,9 +20849,12 @@ type DatabaseInstanceFromSnapshot interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Renders the secret attachment target specifications.
+	// Experimental.
 	AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -18259,51 +20862,112 @@ type DatabaseInstanceFromSnapshot interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity connection access to the database.
 	//
 	// **Note**: this method does not currently work, see https://github.com/aws/aws-cdk/issues/11851 for details.
+	// Experimental.
 	GrantConnect(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this DBInstance.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The percentage of CPU utilization.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of database connections in use.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of available random access memory.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of available storage space.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The average number of disk write I/O operations per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricReadIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The average number of disk read I/O operations per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricWriteIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Defines a CloudWatch event rule which triggers for instance events.
 	//
 	// Use
 	// `rule.addEventPattern(pattern)` to specify a filter.
+	// Experimental.
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Experimental.
 	SetLogRetention()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for DatabaseInstanceFromSnapshot
@@ -18422,8 +21086,8 @@ func (j *jsiiProxy_DatabaseInstanceFromSnapshot) NewCfnProps() *CfnDBInstancePro
 	return returns
 }
 
-func (j *jsiiProxy_DatabaseInstanceFromSnapshot) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DatabaseInstanceFromSnapshot) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -18493,13 +21157,14 @@ func (j *jsiiProxy_DatabaseInstanceFromSnapshot) VpcPlacement() *awsec2.SubnetSe
 }
 
 
+// Experimental.
 func NewDatabaseInstanceFromSnapshot(scope constructs.Construct, id *string, props *DatabaseInstanceFromSnapshotProps) DatabaseInstanceFromSnapshot {
 	_init_.Initialize()
 
 	j := jsiiProxy_DatabaseInstanceFromSnapshot{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceFromSnapshot",
+		"monocdk.aws_rds.DatabaseInstanceFromSnapshot",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -18507,11 +21172,12 @@ func NewDatabaseInstanceFromSnapshot(scope constructs.Construct, id *string, pro
 	return &j
 }
 
+// Experimental.
 func NewDatabaseInstanceFromSnapshot_Override(d DatabaseInstanceFromSnapshot, scope constructs.Construct, id *string, props *DatabaseInstanceFromSnapshotProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceFromSnapshot",
+		"monocdk.aws_rds.DatabaseInstanceFromSnapshot",
 		[]interface{}{scope, id, props},
 		d,
 	)
@@ -18526,13 +21192,14 @@ func (j *jsiiProxy_DatabaseInstanceFromSnapshot) SetEnableIamAuthentication(val 
 }
 
 // Import an existing database instance.
+// Experimental.
 func DatabaseInstanceFromSnapshot_FromDatabaseInstanceAttributes(scope constructs.Construct, id *string, attrs *DatabaseInstanceAttributes) IDatabaseInstance {
 	_init_.Initialize()
 
 	var returns IDatabaseInstance
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceFromSnapshot",
+		"monocdk.aws_rds.DatabaseInstanceFromSnapshot",
 		"fromDatabaseInstanceAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -18541,17 +21208,15 @@ func DatabaseInstanceFromSnapshot_FromDatabaseInstanceAttributes(scope construct
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func DatabaseInstanceFromSnapshot_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceFromSnapshot",
+		"monocdk.aws_rds.DatabaseInstanceFromSnapshot",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -18561,13 +21226,14 @@ func DatabaseInstanceFromSnapshot_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func DatabaseInstanceFromSnapshot_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func DatabaseInstanceFromSnapshot_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceFromSnapshot",
+		"monocdk.aws_rds.DatabaseInstanceFromSnapshot",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -18792,11 +21458,56 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) OnEvent(id *string, options *aw
 	return returns
 }
 
+func (d *jsiiProxy_DatabaseInstanceFromSnapshot) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (d *jsiiProxy_DatabaseInstanceFromSnapshot) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (d *jsiiProxy_DatabaseInstanceFromSnapshot) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseInstanceFromSnapshot) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 func (d *jsiiProxy_DatabaseInstanceFromSnapshot) SetLogRetention() {
 	_jsii_.InvokeVoid(
 		d,
 		"setLogRetention",
 		nil, // no parameters
+	)
+}
+
+func (d *jsiiProxy_DatabaseInstanceFromSnapshot) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
 	)
 }
 
@@ -18806,6 +21517,19 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) ToString() *string {
 	_jsii_.Invoke(
 		d,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseInstanceFromSnapshot) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -18834,74 +21558,100 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) ToString() *string {
 //   	vpc: vpc,
 //   })
 //
+// Experimental.
 type DatabaseInstanceFromSnapshotProps struct {
 	// The VPC network where the DB subnet group should be created.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.
+	// Experimental.
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// The name of the Availability Zone where the DB instance will be located.
+	// Experimental.
 	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// The number of days during which automatic DB snapshots are retained.
 	//
 	// Set to zero to disable backups.
 	// When creating a read replica, you must enable automatic backups on the source
 	// database instance by setting the backup retention to a value other than zero.
+	// Experimental.
 	BackupRetention awscdk.Duration `json:"backupRetention" yaml:"backupRetention"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
+	// Experimental.
 	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports" yaml:"cloudwatchLogsExports"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `Infinity`.
+	// Experimental.
 	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention" yaml:"cloudwatchLogsRetention"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
+	// Experimental.
 	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole" yaml:"cloudwatchLogsRetentionRole"`
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance.
+	// Experimental.
 	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// Indicates whether automated backups should be deleted or retained when you delete a DB instance.
+	// Experimental.
 	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups" yaml:"deleteAutomatedBackups"`
 	// Indicates whether the DB instance should have deletion protection enabled.
+	// Experimental.
 	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// The Active Directory directory ID to create the DB instance in.
+	// Experimental.
 	Domain *string `json:"domain" yaml:"domain"`
 	// The IAM role to be used when making API calls to the Directory Service.
 	//
 	// The role needs the AWS-managed policy
 	// AmazonRDSDirectoryServiceAccess or equivalent.
+	// Experimental.
 	DomainRole awsiam.IRole `json:"domainRole" yaml:"domainRole"`
 	// Whether to enable Performance Insights for the DB instance.
+	// Experimental.
 	EnablePerformanceInsights *bool `json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
+	// Experimental.
 	IamAuthentication *bool `json:"iamAuthentication" yaml:"iamAuthentication"`
 	// A name for the DB instance.
 	//
 	// If you specify a name, AWS CloudFormation
 	// converts it to lowercase.
+	// Experimental.
 	InstanceIdentifier *string `json:"instanceIdentifier" yaml:"instanceIdentifier"`
 	// The number of I/O operations per second (IOPS) that the database provisions.
 	//
 	// The value must be equal to or greater than 1000.
+	// Experimental.
 	Iops *float64 `json:"iops" yaml:"iops"`
 	// Upper limit to which RDS can scale the storage in GiB(Gibibyte).
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling
 	//
+	// Experimental.
 	MaxAllocatedStorage *float64 `json:"maxAllocatedStorage" yaml:"maxAllocatedStorage"`
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instance.
+	// Experimental.
 	MonitoringInterval awscdk.Duration `json:"monitoringInterval" yaml:"monitoringInterval"`
 	// Role that will be used to manage DB instance monitoring.
+	// Experimental.
 	MonitoringRole awsiam.IRole `json:"monitoringRole" yaml:"monitoringRole"`
 	// Specifies if the database instance is a multiple Availability Zone deployment.
+	// Experimental.
 	MultiAz *bool `json:"multiAz" yaml:"multiAz"`
 	// The option group to associate with the instance.
+	// Experimental.
 	OptionGroup IOptionGroup `json:"optionGroup" yaml:"optionGroup"`
 	// The DB parameter group to associate with the instance.
+	// Experimental.
 	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// The AWS KMS key for encryption of Performance Insights data.
+	// Experimental.
 	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
+	// Experimental.
 	PerformanceInsightRetention PerformanceInsightRetention `json:"performanceInsightRetention" yaml:"performanceInsightRetention"`
 	// The port for the instance.
+	// Experimental.
 	Port *float64 `json:"port" yaml:"port"`
 	// The daily time range during which automated backups are performed.
 	//
@@ -18910,17 +21660,22 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// - Must be in Universal Coordinated Time (UTC).
 	// - Must not conflict with the preferred maintenance window.
 	// - Must be at least 30 minutes.
+	// Experimental.
 	PreferredBackupWindow *string `json:"preferredBackupWindow" yaml:"preferredBackupWindow"`
 	// The weekly time range (in UTC) during which system maintenance can occur.
 	//
 	// Format: `ddd:hh24:mi-ddd:hh24:mi`
 	// Constraint: Minimum 30-minute window.
+	// Experimental.
 	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The number of CPU cores and the number of threads per core.
+	// Experimental.
 	ProcessorFeatures *ProcessorFeatures `json:"processorFeatures" yaml:"processorFeatures"`
 	// Indicates whether the DB instance is an internet-facing instance.
+	// Experimental.
 	PubliclyAccessible *bool `json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// The CloudFormation policy to apply when the instance is removed from the stack or replaced during an update.
+	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// S3 buckets that you want to load data into.
 	//
@@ -18929,6 +21684,7 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// For Microsoft SQL Server:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
+	// Experimental.
 	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets" yaml:"s3ExportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 export.
 	//
@@ -18937,6 +21693,7 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// For Microsoft SQL Server:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
+	// Experimental.
 	S3ExportRole awsiam.IRole `json:"s3ExportRole" yaml:"s3ExportRole"`
 	// S3 buckets that you want to load data from.
 	//
@@ -18947,6 +21704,7 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// For Microsoft SQL Server:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
+	// Experimental.
 	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets" yaml:"s3ImportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 import.
 	//
@@ -18957,58 +21715,77 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// For Microsoft SQL Server:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
+	// Experimental.
 	S3ImportRole awsiam.IRole `json:"s3ImportRole" yaml:"s3ImportRole"`
 	// The security groups to assign to the DB instance.
+	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The storage type.
 	//
 	// Storage types supported are gp2, io1, standard.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#Concepts.Storage.GeneralSSD
 	//
+	// Experimental.
 	StorageType StorageType `json:"storageType" yaml:"storageType"`
 	// Existing subnet group for the instance.
+	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup" yaml:"subnetGroup"`
 	// The type of subnets to add to the created DB subnet group.
+	// Deprecated: use `vpcSubnets`.
+	VpcPlacement *awsec2.SubnetSelection `json:"vpcPlacement" yaml:"vpcPlacement"`
+	// The type of subnets to add to the created DB subnet group.
+	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The database engine.
+	// Experimental.
 	Engine IInstanceEngine `json:"engine" yaml:"engine"`
 	// The allocated storage size, specified in gigabytes (GB).
+	// Experimental.
 	AllocatedStorage *float64 `json:"allocatedStorage" yaml:"allocatedStorage"`
 	// Whether to allow major version upgrades.
+	// Experimental.
 	AllowMajorVersionUpgrade *bool `json:"allowMajorVersionUpgrade" yaml:"allowMajorVersionUpgrade"`
 	// The name of the database.
+	// Experimental.
 	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// The name of the compute and memory capacity for the instance.
+	// Experimental.
 	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// The license model.
+	// Experimental.
 	LicenseModel LicenseModel `json:"licenseModel" yaml:"licenseModel"`
 	// The parameters in the DBParameterGroup to create automatically.
 	//
 	// You can only specify parameterGroup or parameters but not both.
 	// You need to use a versioned engine to auto-generate a DBParameterGroup.
+	// Experimental.
 	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
 	// The time zone of the instance.
 	//
 	// This is currently supported only by Microsoft Sql Server.
+	// Experimental.
 	Timezone *string `json:"timezone" yaml:"timezone"`
 	// The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance.
 	//
 	// If you're restoring from a shared manual DB
 	// snapshot, you must specify the ARN of the snapshot.
+	// Experimental.
 	SnapshotIdentifier *string `json:"snapshotIdentifier" yaml:"snapshotIdentifier"`
 	// Master user credentials.
 	//
 	// Note - It is not possible to change the master username for a snapshot;
 	// however, it is possible to provide (or generate) a new password.
+	// Experimental.
 	Credentials SnapshotCredentials `json:"credentials" yaml:"credentials"`
 }
 
 // Construction properties for a DatabaseInstanceNew.
 //
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import rds "github.com/aws/aws-cdk-go/awscdk/aws_rds"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import rds "github.com/aws/aws-cdk-go/awscdk/aws_rds"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
 //
 //   var bucket bucket
+//   var duration duration
 //   var key key
 //   var optionGroup optionGroup
 //   var parameterGroup parameterGroup
@@ -19024,7 +21801,7 @@ type DatabaseInstanceFromSnapshotProps struct {
 //   	// the properties below are optional
 //   	autoMinorVersionUpgrade: jsii.Boolean(false),
 //   	availabilityZone: jsii.String("availabilityZone"),
-//   	backupRetention: cdk.duration.minutes(jsii.Number(30)),
+//   	backupRetention: duration,
 //   	cloudwatchLogsExports: []*string{
 //   		jsii.String("cloudwatchLogsExports"),
 //   	},
@@ -19040,7 +21817,7 @@ type DatabaseInstanceFromSnapshotProps struct {
 //   	instanceIdentifier: jsii.String("instanceIdentifier"),
 //   	iops: jsii.Number(123),
 //   	maxAllocatedStorage: jsii.Number(123),
-//   	monitoringInterval: cdk.*duration.minutes(jsii.Number(30)),
+//   	monitoringInterval: duration,
 //   	monitoringRole: role,
 //   	multiAz: jsii.Boolean(false),
 //   	optionGroup: optionGroup,
@@ -19055,7 +21832,7 @@ type DatabaseInstanceFromSnapshotProps struct {
 //   		threadsPerCore: jsii.Number(123),
 //   	},
 //   	publiclyAccessible: jsii.Boolean(false),
-//   	removalPolicy: cdk.removalPolicy_DESTROY,
+//   	removalPolicy: monocdk.removalPolicy_DESTROY,
 //   	s3ExportBuckets: []iBucket{
 //   		bucket,
 //   	},
@@ -19069,6 +21846,21 @@ type DatabaseInstanceFromSnapshotProps struct {
 //   	},
 //   	storageType: rds.storageType_STANDARD,
 //   	subnetGroup: subnetGroup,
+//   	vpcPlacement: &subnetSelection{
+//   		availabilityZones: []*string{
+//   			jsii.String("availabilityZones"),
+//   		},
+//   		onePerAz: jsii.Boolean(false),
+//   		subnetFilters: []*subnetFilter{
+//   			subnetFilter,
+//   		},
+//   		subnetGroupName: jsii.String("subnetGroupName"),
+//   		subnetName: jsii.String("subnetName"),
+//   		subnets: []iSubnet{
+//   			subnet,
+//   		},
+//   		subnetType: ec2.subnetType_ISOLATED,
+//   	},
 //   	vpcSubnets: &subnetSelection{
 //   		availabilityZones: []*string{
 //   			jsii.String("availabilityZones"),
@@ -19078,81 +21870,108 @@ type DatabaseInstanceFromSnapshotProps struct {
 //   			subnetFilter,
 //   		},
 //   		subnetGroupName: jsii.String("subnetGroupName"),
-//   		subnets: []iSubnet{
+//   		subnetName: jsii.String("subnetName"),
+//   		subnets: []*iSubnet{
 //   			subnet,
 //   		},
-//   		subnetType: ec2.subnetType_PRIVATE_ISOLATED,
+//   		subnetType: ec2.*subnetType_ISOLATED,
 //   	},
 //   }
 //
+// Experimental.
 type DatabaseInstanceNewProps struct {
 	// The VPC network where the DB subnet group should be created.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.
+	// Experimental.
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// The name of the Availability Zone where the DB instance will be located.
+	// Experimental.
 	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// The number of days during which automatic DB snapshots are retained.
 	//
 	// Set to zero to disable backups.
 	// When creating a read replica, you must enable automatic backups on the source
 	// database instance by setting the backup retention to a value other than zero.
+	// Experimental.
 	BackupRetention awscdk.Duration `json:"backupRetention" yaml:"backupRetention"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
+	// Experimental.
 	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports" yaml:"cloudwatchLogsExports"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `Infinity`.
+	// Experimental.
 	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention" yaml:"cloudwatchLogsRetention"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
+	// Experimental.
 	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole" yaml:"cloudwatchLogsRetentionRole"`
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance.
+	// Experimental.
 	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// Indicates whether automated backups should be deleted or retained when you delete a DB instance.
+	// Experimental.
 	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups" yaml:"deleteAutomatedBackups"`
 	// Indicates whether the DB instance should have deletion protection enabled.
+	// Experimental.
 	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// The Active Directory directory ID to create the DB instance in.
+	// Experimental.
 	Domain *string `json:"domain" yaml:"domain"`
 	// The IAM role to be used when making API calls to the Directory Service.
 	//
 	// The role needs the AWS-managed policy
 	// AmazonRDSDirectoryServiceAccess or equivalent.
+	// Experimental.
 	DomainRole awsiam.IRole `json:"domainRole" yaml:"domainRole"`
 	// Whether to enable Performance Insights for the DB instance.
+	// Experimental.
 	EnablePerformanceInsights *bool `json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
+	// Experimental.
 	IamAuthentication *bool `json:"iamAuthentication" yaml:"iamAuthentication"`
 	// A name for the DB instance.
 	//
 	// If you specify a name, AWS CloudFormation
 	// converts it to lowercase.
+	// Experimental.
 	InstanceIdentifier *string `json:"instanceIdentifier" yaml:"instanceIdentifier"`
 	// The number of I/O operations per second (IOPS) that the database provisions.
 	//
 	// The value must be equal to or greater than 1000.
+	// Experimental.
 	Iops *float64 `json:"iops" yaml:"iops"`
 	// Upper limit to which RDS can scale the storage in GiB(Gibibyte).
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling
 	//
+	// Experimental.
 	MaxAllocatedStorage *float64 `json:"maxAllocatedStorage" yaml:"maxAllocatedStorage"`
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instance.
+	// Experimental.
 	MonitoringInterval awscdk.Duration `json:"monitoringInterval" yaml:"monitoringInterval"`
 	// Role that will be used to manage DB instance monitoring.
+	// Experimental.
 	MonitoringRole awsiam.IRole `json:"monitoringRole" yaml:"monitoringRole"`
 	// Specifies if the database instance is a multiple Availability Zone deployment.
+	// Experimental.
 	MultiAz *bool `json:"multiAz" yaml:"multiAz"`
 	// The option group to associate with the instance.
+	// Experimental.
 	OptionGroup IOptionGroup `json:"optionGroup" yaml:"optionGroup"`
 	// The DB parameter group to associate with the instance.
+	// Experimental.
 	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// The AWS KMS key for encryption of Performance Insights data.
+	// Experimental.
 	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
+	// Experimental.
 	PerformanceInsightRetention PerformanceInsightRetention `json:"performanceInsightRetention" yaml:"performanceInsightRetention"`
 	// The port for the instance.
+	// Experimental.
 	Port *float64 `json:"port" yaml:"port"`
 	// The daily time range during which automated backups are performed.
 	//
@@ -19161,17 +21980,22 @@ type DatabaseInstanceNewProps struct {
 	// - Must be in Universal Coordinated Time (UTC).
 	// - Must not conflict with the preferred maintenance window.
 	// - Must be at least 30 minutes.
+	// Experimental.
 	PreferredBackupWindow *string `json:"preferredBackupWindow" yaml:"preferredBackupWindow"`
 	// The weekly time range (in UTC) during which system maintenance can occur.
 	//
 	// Format: `ddd:hh24:mi-ddd:hh24:mi`
 	// Constraint: Minimum 30-minute window.
+	// Experimental.
 	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The number of CPU cores and the number of threads per core.
+	// Experimental.
 	ProcessorFeatures *ProcessorFeatures `json:"processorFeatures" yaml:"processorFeatures"`
 	// Indicates whether the DB instance is an internet-facing instance.
+	// Experimental.
 	PubliclyAccessible *bool `json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// The CloudFormation policy to apply when the instance is removed from the stack or replaced during an update.
+	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// S3 buckets that you want to load data into.
 	//
@@ -19180,6 +22004,7 @@ type DatabaseInstanceNewProps struct {
 	// For Microsoft SQL Server:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
+	// Experimental.
 	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets" yaml:"s3ExportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 export.
 	//
@@ -19188,6 +22013,7 @@ type DatabaseInstanceNewProps struct {
 	// For Microsoft SQL Server:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
+	// Experimental.
 	S3ExportRole awsiam.IRole `json:"s3ExportRole" yaml:"s3ExportRole"`
 	// S3 buckets that you want to load data from.
 	//
@@ -19198,6 +22024,7 @@ type DatabaseInstanceNewProps struct {
 	// For Microsoft SQL Server:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
+	// Experimental.
 	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets" yaml:"s3ImportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 import.
 	//
@@ -19208,18 +22035,26 @@ type DatabaseInstanceNewProps struct {
 	// For Microsoft SQL Server:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
+	// Experimental.
 	S3ImportRole awsiam.IRole `json:"s3ImportRole" yaml:"s3ImportRole"`
 	// The security groups to assign to the DB instance.
+	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The storage type.
 	//
 	// Storage types supported are gp2, io1, standard.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#Concepts.Storage.GeneralSSD
 	//
+	// Experimental.
 	StorageType StorageType `json:"storageType" yaml:"storageType"`
 	// Existing subnet group for the instance.
+	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup" yaml:"subnetGroup"`
 	// The type of subnets to add to the created DB subnet group.
+	// Deprecated: use `vpcSubnets`.
+	VpcPlacement *awsec2.SubnetSelection `json:"vpcPlacement" yaml:"vpcPlacement"`
+	// The type of subnets to add to the created DB subnet group.
+	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
@@ -19249,74 +22084,100 @@ type DatabaseInstanceNewProps struct {
 //   	credentials: rds.*credentials.fromSecret(mySecret),
 //   })
 //
+// Experimental.
 type DatabaseInstanceProps struct {
 	// The VPC network where the DB subnet group should be created.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.
+	// Experimental.
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// The name of the Availability Zone where the DB instance will be located.
+	// Experimental.
 	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// The number of days during which automatic DB snapshots are retained.
 	//
 	// Set to zero to disable backups.
 	// When creating a read replica, you must enable automatic backups on the source
 	// database instance by setting the backup retention to a value other than zero.
+	// Experimental.
 	BackupRetention awscdk.Duration `json:"backupRetention" yaml:"backupRetention"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
+	// Experimental.
 	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports" yaml:"cloudwatchLogsExports"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `Infinity`.
+	// Experimental.
 	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention" yaml:"cloudwatchLogsRetention"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
+	// Experimental.
 	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole" yaml:"cloudwatchLogsRetentionRole"`
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance.
+	// Experimental.
 	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// Indicates whether automated backups should be deleted or retained when you delete a DB instance.
+	// Experimental.
 	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups" yaml:"deleteAutomatedBackups"`
 	// Indicates whether the DB instance should have deletion protection enabled.
+	// Experimental.
 	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// The Active Directory directory ID to create the DB instance in.
+	// Experimental.
 	Domain *string `json:"domain" yaml:"domain"`
 	// The IAM role to be used when making API calls to the Directory Service.
 	//
 	// The role needs the AWS-managed policy
 	// AmazonRDSDirectoryServiceAccess or equivalent.
+	// Experimental.
 	DomainRole awsiam.IRole `json:"domainRole" yaml:"domainRole"`
 	// Whether to enable Performance Insights for the DB instance.
+	// Experimental.
 	EnablePerformanceInsights *bool `json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
+	// Experimental.
 	IamAuthentication *bool `json:"iamAuthentication" yaml:"iamAuthentication"`
 	// A name for the DB instance.
 	//
 	// If you specify a name, AWS CloudFormation
 	// converts it to lowercase.
+	// Experimental.
 	InstanceIdentifier *string `json:"instanceIdentifier" yaml:"instanceIdentifier"`
 	// The number of I/O operations per second (IOPS) that the database provisions.
 	//
 	// The value must be equal to or greater than 1000.
+	// Experimental.
 	Iops *float64 `json:"iops" yaml:"iops"`
 	// Upper limit to which RDS can scale the storage in GiB(Gibibyte).
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling
 	//
+	// Experimental.
 	MaxAllocatedStorage *float64 `json:"maxAllocatedStorage" yaml:"maxAllocatedStorage"`
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instance.
+	// Experimental.
 	MonitoringInterval awscdk.Duration `json:"monitoringInterval" yaml:"monitoringInterval"`
 	// Role that will be used to manage DB instance monitoring.
+	// Experimental.
 	MonitoringRole awsiam.IRole `json:"monitoringRole" yaml:"monitoringRole"`
 	// Specifies if the database instance is a multiple Availability Zone deployment.
+	// Experimental.
 	MultiAz *bool `json:"multiAz" yaml:"multiAz"`
 	// The option group to associate with the instance.
+	// Experimental.
 	OptionGroup IOptionGroup `json:"optionGroup" yaml:"optionGroup"`
 	// The DB parameter group to associate with the instance.
+	// Experimental.
 	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// The AWS KMS key for encryption of Performance Insights data.
+	// Experimental.
 	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
+	// Experimental.
 	PerformanceInsightRetention PerformanceInsightRetention `json:"performanceInsightRetention" yaml:"performanceInsightRetention"`
 	// The port for the instance.
+	// Experimental.
 	Port *float64 `json:"port" yaml:"port"`
 	// The daily time range during which automated backups are performed.
 	//
@@ -19325,17 +22186,22 @@ type DatabaseInstanceProps struct {
 	// - Must be in Universal Coordinated Time (UTC).
 	// - Must not conflict with the preferred maintenance window.
 	// - Must be at least 30 minutes.
+	// Experimental.
 	PreferredBackupWindow *string `json:"preferredBackupWindow" yaml:"preferredBackupWindow"`
 	// The weekly time range (in UTC) during which system maintenance can occur.
 	//
 	// Format: `ddd:hh24:mi-ddd:hh24:mi`
 	// Constraint: Minimum 30-minute window.
+	// Experimental.
 	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The number of CPU cores and the number of threads per core.
+	// Experimental.
 	ProcessorFeatures *ProcessorFeatures `json:"processorFeatures" yaml:"processorFeatures"`
 	// Indicates whether the DB instance is an internet-facing instance.
+	// Experimental.
 	PubliclyAccessible *bool `json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// The CloudFormation policy to apply when the instance is removed from the stack or replaced during an update.
+	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// S3 buckets that you want to load data into.
 	//
@@ -19344,6 +22210,7 @@ type DatabaseInstanceProps struct {
 	// For Microsoft SQL Server:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
+	// Experimental.
 	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets" yaml:"s3ExportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 export.
 	//
@@ -19352,6 +22219,7 @@ type DatabaseInstanceProps struct {
 	// For Microsoft SQL Server:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
+	// Experimental.
 	S3ExportRole awsiam.IRole `json:"s3ExportRole" yaml:"s3ExportRole"`
 	// S3 buckets that you want to load data from.
 	//
@@ -19362,6 +22230,7 @@ type DatabaseInstanceProps struct {
 	// For Microsoft SQL Server:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
+	// Experimental.
 	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets" yaml:"s3ImportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 import.
 	//
@@ -19372,47 +22241,67 @@ type DatabaseInstanceProps struct {
 	// For Microsoft SQL Server:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
+	// Experimental.
 	S3ImportRole awsiam.IRole `json:"s3ImportRole" yaml:"s3ImportRole"`
 	// The security groups to assign to the DB instance.
+	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The storage type.
 	//
 	// Storage types supported are gp2, io1, standard.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#Concepts.Storage.GeneralSSD
 	//
+	// Experimental.
 	StorageType StorageType `json:"storageType" yaml:"storageType"`
 	// Existing subnet group for the instance.
+	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup" yaml:"subnetGroup"`
 	// The type of subnets to add to the created DB subnet group.
+	// Deprecated: use `vpcSubnets`.
+	VpcPlacement *awsec2.SubnetSelection `json:"vpcPlacement" yaml:"vpcPlacement"`
+	// The type of subnets to add to the created DB subnet group.
+	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The database engine.
+	// Experimental.
 	Engine IInstanceEngine `json:"engine" yaml:"engine"`
 	// The allocated storage size, specified in gigabytes (GB).
+	// Experimental.
 	AllocatedStorage *float64 `json:"allocatedStorage" yaml:"allocatedStorage"`
 	// Whether to allow major version upgrades.
+	// Experimental.
 	AllowMajorVersionUpgrade *bool `json:"allowMajorVersionUpgrade" yaml:"allowMajorVersionUpgrade"`
 	// The name of the database.
+	// Experimental.
 	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// The name of the compute and memory capacity for the instance.
+	// Experimental.
 	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// The license model.
+	// Experimental.
 	LicenseModel LicenseModel `json:"licenseModel" yaml:"licenseModel"`
 	// The parameters in the DBParameterGroup to create automatically.
 	//
 	// You can only specify parameterGroup or parameters but not both.
 	// You need to use a versioned engine to auto-generate a DBParameterGroup.
+	// Experimental.
 	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
 	// The time zone of the instance.
 	//
 	// This is currently supported only by Microsoft Sql Server.
+	// Experimental.
 	Timezone *string `json:"timezone" yaml:"timezone"`
 	// For supported engines, specifies the character set to associate with the DB instance.
+	// Experimental.
 	CharacterSetName *string `json:"characterSetName" yaml:"characterSetName"`
 	// Credentials for the administrative user.
+	// Experimental.
 	Credentials Credentials `json:"credentials" yaml:"credentials"`
 	// Indicates whether the DB instance is encrypted.
+	// Experimental.
 	StorageEncrypted *bool `json:"storageEncrypted" yaml:"storageEncrypted"`
 	// The KMS key that's used to encrypt the DB instance.
+	// Experimental.
 	StorageEncryptionKey awskms.IKey `json:"storageEncryptionKey" yaml:"storageEncryptionKey"`
 }
 
@@ -19437,21 +22326,28 @@ type DatabaseInstanceProps struct {
 //   	vpc: vpc,
 //   })
 //
+// Experimental.
 type DatabaseInstanceReadReplica interface {
 	DatabaseInstanceBase
 	IDatabaseInstance
 	// Access to network connections.
+	// Experimental.
 	Connections() awsec2.Connections
 	// The instance endpoint address.
+	// Experimental.
 	DbInstanceEndpointAddress() *string
 	// The instance endpoint port.
+	// Experimental.
 	DbInstanceEndpointPort() *string
+	// Experimental.
 	EnableIamAuthentication() *bool
+	// Experimental.
 	SetEnableIamAuthentication(val *bool)
 	// The engine of this database Instance.
 	//
 	// May be not known for imported Instances if it wasn't provided explicitly,
 	// or for read replicas.
+	// Experimental.
 	Engine() IInstanceEngine
 	// The environment this resource belongs to.
 	//
@@ -19461,17 +22357,24 @@ type DatabaseInstanceReadReplica interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// The instance arn.
+	// Experimental.
 	InstanceArn() *string
 	// The instance endpoint.
+	// Experimental.
 	InstanceEndpoint() Endpoint
 	// The instance identifier.
+	// Experimental.
 	InstanceIdentifier() *string
+	// Experimental.
 	InstanceType() awsec2.InstanceType
+	// Experimental.
 	NewCfnProps() *CfnDBInstanceProps
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -19479,13 +22382,18 @@ type DatabaseInstanceReadReplica interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// The VPC where this database instance is deployed.
+	// Experimental.
 	Vpc() awsec2.IVpc
+	// Experimental.
 	VpcPlacement() *awsec2.SubnetSelection
 	// Add a new db proxy to this instance.
+	// Experimental.
 	AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy
 	// Apply the given removal policy to this resource.
 	//
@@ -19496,9 +22404,12 @@ type DatabaseInstanceReadReplica interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Renders the secret attachment target specifications.
+	// Experimental.
 	AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -19506,51 +22417,112 @@ type DatabaseInstanceReadReplica interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity connection access to the database.
 	//
 	// **Note**: this method does not currently work, see https://github.com/aws/aws-cdk/issues/11851 for details.
+	// Experimental.
 	GrantConnect(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this DBInstance.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The percentage of CPU utilization.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of database connections in use.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of available random access memory.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of available storage space.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The average number of disk write I/O operations per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricReadIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The average number of disk read I/O operations per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricWriteIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Defines a CloudWatch event rule which triggers for instance events.
 	//
 	// Use
 	// `rule.addEventPattern(pattern)` to specify a filter.
+	// Experimental.
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Experimental.
 	SetLogRetention()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for DatabaseInstanceReadReplica
@@ -19669,8 +22641,8 @@ func (j *jsiiProxy_DatabaseInstanceReadReplica) NewCfnProps() *CfnDBInstanceProp
 	return returns
 }
 
-func (j *jsiiProxy_DatabaseInstanceReadReplica) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DatabaseInstanceReadReplica) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -19720,13 +22692,14 @@ func (j *jsiiProxy_DatabaseInstanceReadReplica) VpcPlacement() *awsec2.SubnetSel
 }
 
 
+// Experimental.
 func NewDatabaseInstanceReadReplica(scope constructs.Construct, id *string, props *DatabaseInstanceReadReplicaProps) DatabaseInstanceReadReplica {
 	_init_.Initialize()
 
 	j := jsiiProxy_DatabaseInstanceReadReplica{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceReadReplica",
+		"monocdk.aws_rds.DatabaseInstanceReadReplica",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -19734,11 +22707,12 @@ func NewDatabaseInstanceReadReplica(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Experimental.
 func NewDatabaseInstanceReadReplica_Override(d DatabaseInstanceReadReplica, scope constructs.Construct, id *string, props *DatabaseInstanceReadReplicaProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceReadReplica",
+		"monocdk.aws_rds.DatabaseInstanceReadReplica",
 		[]interface{}{scope, id, props},
 		d,
 	)
@@ -19753,13 +22727,14 @@ func (j *jsiiProxy_DatabaseInstanceReadReplica) SetEnableIamAuthentication(val *
 }
 
 // Import an existing database instance.
+// Experimental.
 func DatabaseInstanceReadReplica_FromDatabaseInstanceAttributes(scope constructs.Construct, id *string, attrs *DatabaseInstanceAttributes) IDatabaseInstance {
 	_init_.Initialize()
 
 	var returns IDatabaseInstance
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceReadReplica",
+		"monocdk.aws_rds.DatabaseInstanceReadReplica",
 		"fromDatabaseInstanceAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -19768,17 +22743,15 @@ func DatabaseInstanceReadReplica_FromDatabaseInstanceAttributes(scope constructs
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func DatabaseInstanceReadReplica_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceReadReplica",
+		"monocdk.aws_rds.DatabaseInstanceReadReplica",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -19788,13 +22761,14 @@ func DatabaseInstanceReadReplica_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func DatabaseInstanceReadReplica_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func DatabaseInstanceReadReplica_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceReadReplica",
+		"monocdk.aws_rds.DatabaseInstanceReadReplica",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -19993,11 +22967,56 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) OnEvent(id *string, options *aws
 	return returns
 }
 
+func (d *jsiiProxy_DatabaseInstanceReadReplica) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (d *jsiiProxy_DatabaseInstanceReadReplica) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (d *jsiiProxy_DatabaseInstanceReadReplica) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseInstanceReadReplica) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 func (d *jsiiProxy_DatabaseInstanceReadReplica) SetLogRetention() {
 	_jsii_.InvokeVoid(
 		d,
 		"setLogRetention",
 		nil, // no parameters
+	)
+}
+
+func (d *jsiiProxy_DatabaseInstanceReadReplica) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
 	)
 }
 
@@ -20007,6 +23026,19 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) ToString() *string {
 	_jsii_.Invoke(
 		d,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseInstanceReadReplica) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -20035,74 +23067,100 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) ToString() *string {
 //   	vpc: vpc,
 //   })
 //
+// Experimental.
 type DatabaseInstanceReadReplicaProps struct {
 	// The VPC network where the DB subnet group should be created.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.
+	// Experimental.
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// The name of the Availability Zone where the DB instance will be located.
+	// Experimental.
 	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// The number of days during which automatic DB snapshots are retained.
 	//
 	// Set to zero to disable backups.
 	// When creating a read replica, you must enable automatic backups on the source
 	// database instance by setting the backup retention to a value other than zero.
+	// Experimental.
 	BackupRetention awscdk.Duration `json:"backupRetention" yaml:"backupRetention"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
+	// Experimental.
 	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports" yaml:"cloudwatchLogsExports"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `Infinity`.
+	// Experimental.
 	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention" yaml:"cloudwatchLogsRetention"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
+	// Experimental.
 	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole" yaml:"cloudwatchLogsRetentionRole"`
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance.
+	// Experimental.
 	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// Indicates whether automated backups should be deleted or retained when you delete a DB instance.
+	// Experimental.
 	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups" yaml:"deleteAutomatedBackups"`
 	// Indicates whether the DB instance should have deletion protection enabled.
+	// Experimental.
 	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// The Active Directory directory ID to create the DB instance in.
+	// Experimental.
 	Domain *string `json:"domain" yaml:"domain"`
 	// The IAM role to be used when making API calls to the Directory Service.
 	//
 	// The role needs the AWS-managed policy
 	// AmazonRDSDirectoryServiceAccess or equivalent.
+	// Experimental.
 	DomainRole awsiam.IRole `json:"domainRole" yaml:"domainRole"`
 	// Whether to enable Performance Insights for the DB instance.
+	// Experimental.
 	EnablePerformanceInsights *bool `json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
+	// Experimental.
 	IamAuthentication *bool `json:"iamAuthentication" yaml:"iamAuthentication"`
 	// A name for the DB instance.
 	//
 	// If you specify a name, AWS CloudFormation
 	// converts it to lowercase.
+	// Experimental.
 	InstanceIdentifier *string `json:"instanceIdentifier" yaml:"instanceIdentifier"`
 	// The number of I/O operations per second (IOPS) that the database provisions.
 	//
 	// The value must be equal to or greater than 1000.
+	// Experimental.
 	Iops *float64 `json:"iops" yaml:"iops"`
 	// Upper limit to which RDS can scale the storage in GiB(Gibibyte).
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling
 	//
+	// Experimental.
 	MaxAllocatedStorage *float64 `json:"maxAllocatedStorage" yaml:"maxAllocatedStorage"`
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instance.
+	// Experimental.
 	MonitoringInterval awscdk.Duration `json:"monitoringInterval" yaml:"monitoringInterval"`
 	// Role that will be used to manage DB instance monitoring.
+	// Experimental.
 	MonitoringRole awsiam.IRole `json:"monitoringRole" yaml:"monitoringRole"`
 	// Specifies if the database instance is a multiple Availability Zone deployment.
+	// Experimental.
 	MultiAz *bool `json:"multiAz" yaml:"multiAz"`
 	// The option group to associate with the instance.
+	// Experimental.
 	OptionGroup IOptionGroup `json:"optionGroup" yaml:"optionGroup"`
 	// The DB parameter group to associate with the instance.
+	// Experimental.
 	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// The AWS KMS key for encryption of Performance Insights data.
+	// Experimental.
 	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
+	// Experimental.
 	PerformanceInsightRetention PerformanceInsightRetention `json:"performanceInsightRetention" yaml:"performanceInsightRetention"`
 	// The port for the instance.
+	// Experimental.
 	Port *float64 `json:"port" yaml:"port"`
 	// The daily time range during which automated backups are performed.
 	//
@@ -20111,17 +23169,22 @@ type DatabaseInstanceReadReplicaProps struct {
 	// - Must be in Universal Coordinated Time (UTC).
 	// - Must not conflict with the preferred maintenance window.
 	// - Must be at least 30 minutes.
+	// Experimental.
 	PreferredBackupWindow *string `json:"preferredBackupWindow" yaml:"preferredBackupWindow"`
 	// The weekly time range (in UTC) during which system maintenance can occur.
 	//
 	// Format: `ddd:hh24:mi-ddd:hh24:mi`
 	// Constraint: Minimum 30-minute window.
+	// Experimental.
 	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The number of CPU cores and the number of threads per core.
+	// Experimental.
 	ProcessorFeatures *ProcessorFeatures `json:"processorFeatures" yaml:"processorFeatures"`
 	// Indicates whether the DB instance is an internet-facing instance.
+	// Experimental.
 	PubliclyAccessible *bool `json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// The CloudFormation policy to apply when the instance is removed from the stack or replaced during an update.
+	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// S3 buckets that you want to load data into.
 	//
@@ -20130,6 +23193,7 @@ type DatabaseInstanceReadReplicaProps struct {
 	// For Microsoft SQL Server:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
+	// Experimental.
 	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets" yaml:"s3ExportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 export.
 	//
@@ -20138,6 +23202,7 @@ type DatabaseInstanceReadReplicaProps struct {
 	// For Microsoft SQL Server:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
+	// Experimental.
 	S3ExportRole awsiam.IRole `json:"s3ExportRole" yaml:"s3ExportRole"`
 	// S3 buckets that you want to load data from.
 	//
@@ -20148,6 +23213,7 @@ type DatabaseInstanceReadReplicaProps struct {
 	// For Microsoft SQL Server:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
+	// Experimental.
 	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets" yaml:"s3ImportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 import.
 	//
@@ -20158,38 +23224,51 @@ type DatabaseInstanceReadReplicaProps struct {
 	// For Microsoft SQL Server:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
+	// Experimental.
 	S3ImportRole awsiam.IRole `json:"s3ImportRole" yaml:"s3ImportRole"`
 	// The security groups to assign to the DB instance.
+	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The storage type.
 	//
 	// Storage types supported are gp2, io1, standard.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#Concepts.Storage.GeneralSSD
 	//
+	// Experimental.
 	StorageType StorageType `json:"storageType" yaml:"storageType"`
 	// Existing subnet group for the instance.
+	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup" yaml:"subnetGroup"`
 	// The type of subnets to add to the created DB subnet group.
+	// Deprecated: use `vpcSubnets`.
+	VpcPlacement *awsec2.SubnetSelection `json:"vpcPlacement" yaml:"vpcPlacement"`
+	// The type of subnets to add to the created DB subnet group.
+	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The name of the compute and memory capacity classes.
+	// Experimental.
 	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// The source database instance.
 	//
 	// Each DB instance can have a limited number of read replicas. For more
 	// information, see https://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/USER_ReadRepl.html.
+	// Experimental.
 	SourceDatabaseInstance IDatabaseInstance `json:"sourceDatabaseInstance" yaml:"sourceDatabaseInstance"`
 	// Indicates whether the DB instance is encrypted.
+	// Experimental.
 	StorageEncrypted *bool `json:"storageEncrypted" yaml:"storageEncrypted"`
 	// The KMS key that's used to encrypt the DB instance.
+	// Experimental.
 	StorageEncryptionKey awskms.IKey `json:"storageEncryptionKey" yaml:"storageEncryptionKey"`
 }
 
 // Construction properties for a DatabaseInstanceSource.
 //
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import rds "github.com/aws/aws-cdk-go/awscdk/aws_rds"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import rds "github.com/aws/aws-cdk-go/awscdk/aws_rds"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
 //
 //   var bucket bucket
+//   var duration duration
 //   var instanceEngine iInstanceEngine
 //   var instanceType instanceType
 //   var key key
@@ -20210,7 +23289,7 @@ type DatabaseInstanceReadReplicaProps struct {
 //   	allowMajorVersionUpgrade: jsii.Boolean(false),
 //   	autoMinorVersionUpgrade: jsii.Boolean(false),
 //   	availabilityZone: jsii.String("availabilityZone"),
-//   	backupRetention: cdk.duration.minutes(jsii.Number(30)),
+//   	backupRetention: duration,
 //   	cloudwatchLogsExports: []*string{
 //   		jsii.String("cloudwatchLogsExports"),
 //   	},
@@ -20229,7 +23308,7 @@ type DatabaseInstanceReadReplicaProps struct {
 //   	iops: jsii.Number(123),
 //   	licenseModel: rds.licenseModel_LICENSE_INCLUDED,
 //   	maxAllocatedStorage: jsii.Number(123),
-//   	monitoringInterval: cdk.*duration.minutes(jsii.Number(30)),
+//   	monitoringInterval: duration,
 //   	monitoringRole: role,
 //   	multiAz: jsii.Boolean(false),
 //   	optionGroup: optionGroup,
@@ -20247,7 +23326,7 @@ type DatabaseInstanceReadReplicaProps struct {
 //   		threadsPerCore: jsii.Number(123),
 //   	},
 //   	publiclyAccessible: jsii.Boolean(false),
-//   	removalPolicy: cdk.removalPolicy_DESTROY,
+//   	removalPolicy: monocdk.removalPolicy_DESTROY,
 //   	s3ExportBuckets: []iBucket{
 //   		bucket,
 //   	},
@@ -20262,6 +23341,21 @@ type DatabaseInstanceReadReplicaProps struct {
 //   	storageType: rds.storageType_STANDARD,
 //   	subnetGroup: subnetGroup,
 //   	timezone: jsii.String("timezone"),
+//   	vpcPlacement: &subnetSelection{
+//   		availabilityZones: []*string{
+//   			jsii.String("availabilityZones"),
+//   		},
+//   		onePerAz: jsii.Boolean(false),
+//   		subnetFilters: []*subnetFilter{
+//   			subnetFilter,
+//   		},
+//   		subnetGroupName: jsii.String("subnetGroupName"),
+//   		subnetName: jsii.String("subnetName"),
+//   		subnets: []iSubnet{
+//   			subnet,
+//   		},
+//   		subnetType: ec2.subnetType_ISOLATED,
+//   	},
 //   	vpcSubnets: &subnetSelection{
 //   		availabilityZones: []*string{
 //   			jsii.String("availabilityZones"),
@@ -20271,81 +23365,108 @@ type DatabaseInstanceReadReplicaProps struct {
 //   			subnetFilter,
 //   		},
 //   		subnetGroupName: jsii.String("subnetGroupName"),
-//   		subnets: []iSubnet{
+//   		subnetName: jsii.String("subnetName"),
+//   		subnets: []*iSubnet{
 //   			subnet,
 //   		},
-//   		subnetType: ec2.subnetType_PRIVATE_ISOLATED,
+//   		subnetType: ec2.*subnetType_ISOLATED,
 //   	},
 //   }
 //
+// Experimental.
 type DatabaseInstanceSourceProps struct {
 	// The VPC network where the DB subnet group should be created.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.
+	// Experimental.
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// The name of the Availability Zone where the DB instance will be located.
+	// Experimental.
 	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// The number of days during which automatic DB snapshots are retained.
 	//
 	// Set to zero to disable backups.
 	// When creating a read replica, you must enable automatic backups on the source
 	// database instance by setting the backup retention to a value other than zero.
+	// Experimental.
 	BackupRetention awscdk.Duration `json:"backupRetention" yaml:"backupRetention"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
+	// Experimental.
 	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports" yaml:"cloudwatchLogsExports"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `Infinity`.
+	// Experimental.
 	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention" yaml:"cloudwatchLogsRetention"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
+	// Experimental.
 	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole" yaml:"cloudwatchLogsRetentionRole"`
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance.
+	// Experimental.
 	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// Indicates whether automated backups should be deleted or retained when you delete a DB instance.
+	// Experimental.
 	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups" yaml:"deleteAutomatedBackups"`
 	// Indicates whether the DB instance should have deletion protection enabled.
+	// Experimental.
 	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// The Active Directory directory ID to create the DB instance in.
+	// Experimental.
 	Domain *string `json:"domain" yaml:"domain"`
 	// The IAM role to be used when making API calls to the Directory Service.
 	//
 	// The role needs the AWS-managed policy
 	// AmazonRDSDirectoryServiceAccess or equivalent.
+	// Experimental.
 	DomainRole awsiam.IRole `json:"domainRole" yaml:"domainRole"`
 	// Whether to enable Performance Insights for the DB instance.
+	// Experimental.
 	EnablePerformanceInsights *bool `json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
+	// Experimental.
 	IamAuthentication *bool `json:"iamAuthentication" yaml:"iamAuthentication"`
 	// A name for the DB instance.
 	//
 	// If you specify a name, AWS CloudFormation
 	// converts it to lowercase.
+	// Experimental.
 	InstanceIdentifier *string `json:"instanceIdentifier" yaml:"instanceIdentifier"`
 	// The number of I/O operations per second (IOPS) that the database provisions.
 	//
 	// The value must be equal to or greater than 1000.
+	// Experimental.
 	Iops *float64 `json:"iops" yaml:"iops"`
 	// Upper limit to which RDS can scale the storage in GiB(Gibibyte).
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling
 	//
+	// Experimental.
 	MaxAllocatedStorage *float64 `json:"maxAllocatedStorage" yaml:"maxAllocatedStorage"`
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instance.
+	// Experimental.
 	MonitoringInterval awscdk.Duration `json:"monitoringInterval" yaml:"monitoringInterval"`
 	// Role that will be used to manage DB instance monitoring.
+	// Experimental.
 	MonitoringRole awsiam.IRole `json:"monitoringRole" yaml:"monitoringRole"`
 	// Specifies if the database instance is a multiple Availability Zone deployment.
+	// Experimental.
 	MultiAz *bool `json:"multiAz" yaml:"multiAz"`
 	// The option group to associate with the instance.
+	// Experimental.
 	OptionGroup IOptionGroup `json:"optionGroup" yaml:"optionGroup"`
 	// The DB parameter group to associate with the instance.
+	// Experimental.
 	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// The AWS KMS key for encryption of Performance Insights data.
+	// Experimental.
 	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
+	// Experimental.
 	PerformanceInsightRetention PerformanceInsightRetention `json:"performanceInsightRetention" yaml:"performanceInsightRetention"`
 	// The port for the instance.
+	// Experimental.
 	Port *float64 `json:"port" yaml:"port"`
 	// The daily time range during which automated backups are performed.
 	//
@@ -20354,17 +23475,22 @@ type DatabaseInstanceSourceProps struct {
 	// - Must be in Universal Coordinated Time (UTC).
 	// - Must not conflict with the preferred maintenance window.
 	// - Must be at least 30 minutes.
+	// Experimental.
 	PreferredBackupWindow *string `json:"preferredBackupWindow" yaml:"preferredBackupWindow"`
 	// The weekly time range (in UTC) during which system maintenance can occur.
 	//
 	// Format: `ddd:hh24:mi-ddd:hh24:mi`
 	// Constraint: Minimum 30-minute window.
+	// Experimental.
 	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The number of CPU cores and the number of threads per core.
+	// Experimental.
 	ProcessorFeatures *ProcessorFeatures `json:"processorFeatures" yaml:"processorFeatures"`
 	// Indicates whether the DB instance is an internet-facing instance.
+	// Experimental.
 	PubliclyAccessible *bool `json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// The CloudFormation policy to apply when the instance is removed from the stack or replaced during an update.
+	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// S3 buckets that you want to load data into.
 	//
@@ -20373,6 +23499,7 @@ type DatabaseInstanceSourceProps struct {
 	// For Microsoft SQL Server:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
+	// Experimental.
 	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets" yaml:"s3ExportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 export.
 	//
@@ -20381,6 +23508,7 @@ type DatabaseInstanceSourceProps struct {
 	// For Microsoft SQL Server:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
+	// Experimental.
 	S3ExportRole awsiam.IRole `json:"s3ExportRole" yaml:"s3ExportRole"`
 	// S3 buckets that you want to load data from.
 	//
@@ -20391,6 +23519,7 @@ type DatabaseInstanceSourceProps struct {
 	// For Microsoft SQL Server:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
+	// Experimental.
 	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets" yaml:"s3ImportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 import.
 	//
@@ -20401,39 +23530,55 @@ type DatabaseInstanceSourceProps struct {
 	// For Microsoft SQL Server:.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
+	// Experimental.
 	S3ImportRole awsiam.IRole `json:"s3ImportRole" yaml:"s3ImportRole"`
 	// The security groups to assign to the DB instance.
+	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The storage type.
 	//
 	// Storage types supported are gp2, io1, standard.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#Concepts.Storage.GeneralSSD
 	//
+	// Experimental.
 	StorageType StorageType `json:"storageType" yaml:"storageType"`
 	// Existing subnet group for the instance.
+	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup" yaml:"subnetGroup"`
 	// The type of subnets to add to the created DB subnet group.
+	// Deprecated: use `vpcSubnets`.
+	VpcPlacement *awsec2.SubnetSelection `json:"vpcPlacement" yaml:"vpcPlacement"`
+	// The type of subnets to add to the created DB subnet group.
+	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The database engine.
+	// Experimental.
 	Engine IInstanceEngine `json:"engine" yaml:"engine"`
 	// The allocated storage size, specified in gigabytes (GB).
+	// Experimental.
 	AllocatedStorage *float64 `json:"allocatedStorage" yaml:"allocatedStorage"`
 	// Whether to allow major version upgrades.
+	// Experimental.
 	AllowMajorVersionUpgrade *bool `json:"allowMajorVersionUpgrade" yaml:"allowMajorVersionUpgrade"`
 	// The name of the database.
+	// Experimental.
 	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// The name of the compute and memory capacity for the instance.
+	// Experimental.
 	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// The license model.
+	// Experimental.
 	LicenseModel LicenseModel `json:"licenseModel" yaml:"licenseModel"`
 	// The parameters in the DBParameterGroup to create automatically.
 	//
 	// You can only specify parameterGroup or parameters but not both.
 	// You need to use a versioned engine to auto-generate a DBParameterGroup.
+	// Experimental.
 	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
 	// The time zone of the instance.
 	//
 	// This is currently supported only by Microsoft Sql Server.
+	// Experimental.
 	Timezone *string `json:"timezone" yaml:"timezone"`
 }
 
@@ -20461,18 +23606,23 @@ type DatabaseInstanceSourceProps struct {
 //   })
 //   proxy.grantConnect(role, jsii.String("admin"))
 //
+// Experimental.
 type DatabaseProxy interface {
 	awscdk.Resource
 	awsec2.IConnectable
 	IDatabaseProxy
 	awssecretsmanager.ISecretAttachmentTarget
 	// Access to network connections.
+	// Experimental.
 	Connections() awsec2.Connections
 	// DB Proxy ARN.
+	// Experimental.
 	DbProxyArn() *string
 	// DB Proxy Name.
+	// Experimental.
 	DbProxyName() *string
 	// Endpoint.
+	// Experimental.
 	Endpoint() *string
 	// The environment this resource belongs to.
 	//
@@ -20482,9 +23632,11 @@ type DatabaseProxy interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -20492,8 +23644,10 @@ type DatabaseProxy interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
 	//
@@ -20504,9 +23658,12 @@ type DatabaseProxy interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Renders the secret attachment target specifications.
+	// Experimental.
 	AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -20514,17 +23671,69 @@ type DatabaseProxy interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity connection access to the proxy.
+	// Experimental.
 	GrantConnect(grantee awsiam.IGrantable, dbUser *string) awsiam.Grant
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for DatabaseProxy
@@ -20585,8 +23794,8 @@ func (j *jsiiProxy_DatabaseProxy) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_DatabaseProxy) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DatabaseProxy) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -20616,13 +23825,14 @@ func (j *jsiiProxy_DatabaseProxy) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewDatabaseProxy(scope constructs.Construct, id *string, props *DatabaseProxyProps) DatabaseProxy {
 	_init_.Initialize()
 
 	j := jsiiProxy_DatabaseProxy{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseProxy",
+		"monocdk.aws_rds.DatabaseProxy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -20630,24 +23840,26 @@ func NewDatabaseProxy(scope constructs.Construct, id *string, props *DatabasePro
 	return &j
 }
 
+// Experimental.
 func NewDatabaseProxy_Override(d DatabaseProxy, scope constructs.Construct, id *string, props *DatabaseProxyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseProxy",
+		"monocdk.aws_rds.DatabaseProxy",
 		[]interface{}{scope, id, props},
 		d,
 	)
 }
 
 // Import an existing database proxy.
+// Experimental.
 func DatabaseProxy_FromDatabaseProxyAttributes(scope constructs.Construct, id *string, attrs *DatabaseProxyAttributes) IDatabaseProxy {
 	_init_.Initialize()
 
 	var returns IDatabaseProxy
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseProxy",
+		"monocdk.aws_rds.DatabaseProxy",
 		"fromDatabaseProxyAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -20656,17 +23868,15 @@ func DatabaseProxy_FromDatabaseProxyAttributes(scope constructs.Construct, id *s
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func DatabaseProxy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseProxy",
+		"monocdk.aws_rds.DatabaseProxy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -20676,13 +23886,14 @@ func DatabaseProxy_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func DatabaseProxy_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func DatabaseProxy_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseProxy",
+		"monocdk.aws_rds.DatabaseProxy",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -20764,12 +23975,70 @@ func (d *jsiiProxy_DatabaseProxy) GrantConnect(grantee awsiam.IGrantable, dbUser
 	return returns
 }
 
+func (d *jsiiProxy_DatabaseProxy) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (d *jsiiProxy_DatabaseProxy) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (d *jsiiProxy_DatabaseProxy) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseProxy) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (d *jsiiProxy_DatabaseProxy) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (d *jsiiProxy_DatabaseProxy) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		d,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseProxy) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -20792,14 +24061,19 @@ func (d *jsiiProxy_DatabaseProxy) ToString() *string {
 //   	},
 //   }
 //
+// Experimental.
 type DatabaseProxyAttributes struct {
 	// DB Proxy ARN.
+	// Experimental.
 	DbProxyArn *string `json:"dbProxyArn" yaml:"dbProxyArn"`
 	// DB Proxy Name.
+	// Experimental.
 	DbProxyName *string `json:"dbProxyName" yaml:"dbProxyName"`
 	// Endpoint.
+	// Experimental.
 	Endpoint *string `json:"endpoint" yaml:"endpoint"`
 	// The security groups of the instance.
+	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 }
 
@@ -20818,13 +24092,16 @@ type DatabaseProxyAttributes struct {
 //   	vpc: vpc,
 //   })
 //
+// Experimental.
 type DatabaseProxyOptions struct {
 	// The secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster.
 	//
 	// These secrets are stored within Amazon Secrets Manager.
 	// One or more secrets are required.
+	// Experimental.
 	Secrets *[]awssecretsmanager.ISecret `json:"secrets" yaml:"secrets"`
 	// The VPC to associate with the new proxy.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The duration for a proxy to wait for a connection to become available in the connection pool.
 	//
@@ -20832,12 +24109,14 @@ type DatabaseProxyOptions struct {
 	// sessions.
 	//
 	// Value must be between 1 second and 1 hour, or `Duration.seconds(0)` to represent unlimited.
+	// Experimental.
 	BorrowTimeout awscdk.Duration `json:"borrowTimeout" yaml:"borrowTimeout"`
 	// The identifier for the proxy.
 	//
 	// This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
 	// An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens;
 	// it can't end with a hyphen or contain two consecutive hyphens.
+	// Experimental.
 	DbProxyName *string `json:"dbProxyName" yaml:"dbProxyName"`
 	// Whether the proxy includes detailed information about SQL statements in its logs.
 	//
@@ -20845,12 +24124,15 @@ type DatabaseProxyOptions struct {
 	// The debug information includes the text of SQL statements that you submit through the proxy.
 	// Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive
 	// information that appears in the logs.
+	// Experimental.
 	DebugLogging *bool `json:"debugLogging" yaml:"debugLogging"`
 	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
+	// Experimental.
 	IamAuth *bool `json:"iamAuth" yaml:"iamAuth"`
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
 	//
 	// You can set this value higher or lower than the connection timeout limit for the associated database.
+	// Experimental.
 	IdleClientTimeout awscdk.Duration `json:"idleClientTimeout" yaml:"idleClientTimeout"`
 	// One or more SQL statements for the proxy to run when opening each new database connection.
 	//
@@ -20860,6 +24142,7 @@ type DatabaseProxyOptions struct {
 	// You can also include multiple variables in a single SET statement, such as SET x=1, y=2.
 	//
 	// not currently supported for PostgreSQL.
+	// Experimental.
 	InitQuery *string `json:"initQuery" yaml:"initQuery"`
 	// The maximum size of the connection pool for each target in a target group.
 	//
@@ -20867,6 +24150,7 @@ type DatabaseProxyOptions struct {
 	// cluster used by the target group.
 	//
 	// 1-100.
+	// Experimental.
 	MaxConnectionsPercent *float64 `json:"maxConnectionsPercent" yaml:"maxConnectionsPercent"`
 	// Controls how actively the proxy closes idle database connections in the connection pool.
 	//
@@ -20877,20 +24161,26 @@ type DatabaseProxyOptions struct {
 	// or Aurora DB cluster used by the target group.
 	//
 	// between 0 and MaxConnectionsPercent.
+	// Experimental.
 	MaxIdleConnectionsPercent *float64 `json:"maxIdleConnectionsPercent" yaml:"maxIdleConnectionsPercent"`
 	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
 	//
 	// By enabling this setting, you can enforce encrypted TLS connections to the proxy.
+	// Experimental.
 	RequireTLS *bool `json:"requireTLS" yaml:"requireTLS"`
 	// IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// One or more VPC security groups to associate with the new proxy.
+	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection.
 	//
 	// Including an item in the list exempts that class of SQL operations from the pinning behavior.
+	// Experimental.
 	SessionPinningFilters *[]SessionPinningFilter `json:"sessionPinningFilters" yaml:"sessionPinningFilters"`
 	// The subnets used by the proxy.
+	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
@@ -20918,13 +24208,16 @@ type DatabaseProxyOptions struct {
 //   })
 //   proxy.grantConnect(role, jsii.String("admin"))
 //
+// Experimental.
 type DatabaseProxyProps struct {
 	// The secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster.
 	//
 	// These secrets are stored within Amazon Secrets Manager.
 	// One or more secrets are required.
+	// Experimental.
 	Secrets *[]awssecretsmanager.ISecret `json:"secrets" yaml:"secrets"`
 	// The VPC to associate with the new proxy.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The duration for a proxy to wait for a connection to become available in the connection pool.
 	//
@@ -20932,12 +24225,14 @@ type DatabaseProxyProps struct {
 	// sessions.
 	//
 	// Value must be between 1 second and 1 hour, or `Duration.seconds(0)` to represent unlimited.
+	// Experimental.
 	BorrowTimeout awscdk.Duration `json:"borrowTimeout" yaml:"borrowTimeout"`
 	// The identifier for the proxy.
 	//
 	// This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
 	// An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens;
 	// it can't end with a hyphen or contain two consecutive hyphens.
+	// Experimental.
 	DbProxyName *string `json:"dbProxyName" yaml:"dbProxyName"`
 	// Whether the proxy includes detailed information about SQL statements in its logs.
 	//
@@ -20945,12 +24240,15 @@ type DatabaseProxyProps struct {
 	// The debug information includes the text of SQL statements that you submit through the proxy.
 	// Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive
 	// information that appears in the logs.
+	// Experimental.
 	DebugLogging *bool `json:"debugLogging" yaml:"debugLogging"`
 	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
+	// Experimental.
 	IamAuth *bool `json:"iamAuth" yaml:"iamAuth"`
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
 	//
 	// You can set this value higher or lower than the connection timeout limit for the associated database.
+	// Experimental.
 	IdleClientTimeout awscdk.Duration `json:"idleClientTimeout" yaml:"idleClientTimeout"`
 	// One or more SQL statements for the proxy to run when opening each new database connection.
 	//
@@ -20960,6 +24258,7 @@ type DatabaseProxyProps struct {
 	// You can also include multiple variables in a single SET statement, such as SET x=1, y=2.
 	//
 	// not currently supported for PostgreSQL.
+	// Experimental.
 	InitQuery *string `json:"initQuery" yaml:"initQuery"`
 	// The maximum size of the connection pool for each target in a target group.
 	//
@@ -20967,6 +24266,7 @@ type DatabaseProxyProps struct {
 	// cluster used by the target group.
 	//
 	// 1-100.
+	// Experimental.
 	MaxConnectionsPercent *float64 `json:"maxConnectionsPercent" yaml:"maxConnectionsPercent"`
 	// Controls how actively the proxy closes idle database connections in the connection pool.
 	//
@@ -20977,43 +24277,73 @@ type DatabaseProxyProps struct {
 	// or Aurora DB cluster used by the target group.
 	//
 	// between 0 and MaxConnectionsPercent.
+	// Experimental.
 	MaxIdleConnectionsPercent *float64 `json:"maxIdleConnectionsPercent" yaml:"maxIdleConnectionsPercent"`
 	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
 	//
 	// By enabling this setting, you can enforce encrypted TLS connections to the proxy.
+	// Experimental.
 	RequireTLS *bool `json:"requireTLS" yaml:"requireTLS"`
 	// IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+	// Experimental.
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// One or more VPC security groups to associate with the new proxy.
+	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection.
 	//
 	// Including an item in the list exempts that class of SQL operations from the pinning behavior.
+	// Experimental.
 	SessionPinningFilters *[]SessionPinningFilter `json:"sessionPinningFilters" yaml:"sessionPinningFilters"`
 	// The subnets used by the proxy.
+	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// DB proxy target: Instance or Cluster.
+	// Experimental.
 	ProxyTarget ProxyTarget `json:"proxyTarget" yaml:"proxyTarget"`
 }
 
 // A database secret.
 //
 // Example:
-//   var instance databaseInstance
-//   myUserSecret := rds.NewDatabaseSecret(this, jsii.String("MyUserSecret"), &databaseSecretProps{
-//   	username: jsii.String("myuser"),
-//   	secretName: jsii.String("my-user-secret"),
-//   	 // optional, defaults to a CloudFormation-generated name
-//   	masterSecret: instance.secret,
-//   	excludeCharacters: jsii.String("{}[]()'\"/\\"),
-//   })
-//   myUserSecretAttached := myUserSecret.attach(instance) // Adds DB connections information in the secret
-//
-//   instance.addRotationMultiUser(jsii.String("MyUser"), &rotationMultiUserOptions{
-//   	 // Add rotation using the multi user scheme
-//   	secret: myUserSecretAttached,
+//   // Build a data source for AppSync to access the database.
+//   var api graphqlApi// Create username and password secret for DB Cluster
+//   secret := rds.NewDatabaseSecret(this, jsii.String("AuroraSecret"), &databaseSecretProps{
+//   	username: jsii.String("clusteradmin"),
 //   })
 //
+//   // The VPC to place the cluster in
+//   vpc := ec2.NewVpc(this, jsii.String("AuroraVpc"))
+//
+//   // Create the serverless cluster, provide all values needed to customise the database.
+//   cluster := rds.NewServerlessCluster(this, jsii.String("AuroraCluster"), &serverlessClusterProps{
+//   	engine: rds.databaseClusterEngine_AURORA_MYSQL(),
+//   	vpc: vpc,
+//   	credentials: map[string]*string{
+//   		"username": jsii.String("clusteradmin"),
+//   	},
+//   	clusterIdentifier: jsii.String("db-endpoint-test"),
+//   	defaultDatabaseName: jsii.String("demos"),
+//   })
+//   rdsDS := api.addRdsDataSource(jsii.String("rds"), cluster, secret, jsii.String("demos"))
+//
+//   // Set up a resolver for an RDS query.
+//   rdsDS.createResolver(&baseResolverProps{
+//   	typeName: jsii.String("Query"),
+//   	fieldName: jsii.String("getDemosRds"),
+//   	requestMappingTemplate: appsync.mappingTemplate.fromString(jsii.String("\n  {\n    \"version\": \"2018-05-29\",\n    \"statements\": [\n      \"SELECT * FROM demos\"\n    ]\n  }\n  ")),
+//   	responseMappingTemplate: appsync.*mappingTemplate.fromString(jsii.String("\n    $utils.toJson($utils.rds.toJsonObject($ctx.result)[0])\n  ")),
+//   })
+//
+//   // Set up a resolver for an RDS mutation.
+//   rdsDS.createResolver(&baseResolverProps{
+//   	typeName: jsii.String("Mutation"),
+//   	fieldName: jsii.String("addDemoRds"),
+//   	requestMappingTemplate: appsync.*mappingTemplate.fromString(jsii.String("\n  {\n    \"version\": \"2018-05-29\",\n    \"statements\": [\n      \"INSERT INTO demos VALUES (:id, :version)\",\n      \"SELECT * WHERE id = :id\"\n    ],\n    \"variableMap\": {\n      \":id\": $util.toJson($util.autoId()),\n      \":version\": $util.toJson($ctx.args.version)\n    }\n  }\n  ")),
+//   	responseMappingTemplate: appsync.*mappingTemplate.fromString(jsii.String("\n    $utils.toJson($utils.rds.toJsonObject($ctx.result)[1][0])\n  ")),
+//   })
+//
+// Experimental.
 type DatabaseSecret interface {
 	awssecretsmanager.Secret
 	// Provides an identifier for this secret for use in IAM policies.
@@ -21021,12 +24351,15 @@ type DatabaseSecret interface {
 	// If there is a full ARN, this is just the ARN;
 	// if we have a partial ARN -- due to either importing by secret name or partial ARN --
 	// then we need to add a suffix to capture the full ARN's format.
+	// Experimental.
 	ArnForPolicies() *string
+	// Experimental.
 	AutoCreatePolicy() *bool
 	// The customer-managed encryption key that is used to encrypt this secret, if any.
 	//
 	// When not specified, the default
 	// KMS key for the account and region is being used.
+	// Experimental.
 	EncryptionKey() awskms.IKey
 	// The environment this resource belongs to.
 	//
@@ -21036,9 +24369,11 @@ type DatabaseSecret interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -21046,34 +24381,48 @@ type DatabaseSecret interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The ARN of the secret in AWS Secrets Manager.
 	//
 	// Will return the full ARN if available, otherwise a partial arn.
 	// For secrets imported by the deprecated `fromSecretName`, it will return the `secretName`.
+	// Experimental.
 	SecretArn() *string
 	// The full ARN of the secret in AWS Secrets Manager, which is the ARN including the Secrets Manager-supplied 6-character suffix.
 	//
 	// This is equal to `secretArn` in most cases, but is undefined when a full ARN is not available (e.g., secrets imported by name).
+	// Experimental.
 	SecretFullArn() *string
 	// The name of the secret.
 	//
 	// For "owned" secrets, this will be the full resource name (secret name + suffix), unless the
 	// '@aws-cdk/aws-secretsmanager:parseOwnedSecretName' feature flag is set.
+	// Experimental.
 	SecretName() *string
 	// Retrieve the value of the stored secret as a `SecretValue`.
+	// Experimental.
 	SecretValue() awscdk.SecretValue
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// Adds a replica region for the secret.
+	// Experimental.
 	AddReplicaRegion(region *string, encryptionKey awskms.IKey)
 	// Adds a rotation schedule to the secret.
+	// Experimental.
 	AddRotationSchedule(id *string, options *awssecretsmanager.RotationScheduleOptions) awssecretsmanager.RotationSchedule
+	// Adds a target attachment to the secret.
+	//
+	// Returns: an AttachedSecret.
+	// Deprecated: use `attach()` instead.
+	AddTargetAttachment(id *string, options *awssecretsmanager.AttachedSecretOptions) awssecretsmanager.SecretTargetAttachment
 	// Adds a statement to the IAM resource policy associated with this secret.
 	//
 	// If this secret was created in this stack, a resource policy will be
 	// automatically created upon the first call to `addToResourcePolicy`. If
 	// the secret is imported, then this is a no-op.
+	// Experimental.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Apply the given removal policy to this resource.
 	//
@@ -21084,13 +24433,17 @@ type DatabaseSecret interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Attach a target to this secret.
 	//
 	// Returns: An attached secret.
+	// Experimental.
 	Attach(target awssecretsmanager.ISecretAttachmentTarget) awssecretsmanager.ISecret
 	// Denies the `DeleteSecret` action to all principals within the current account.
+	// Experimental.
 	DenyAccountRootDelete()
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -21098,21 +24451,73 @@ type DatabaseSecret interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grants reading the secret value to some role.
+	// Experimental.
 	GrantRead(grantee awsiam.IGrantable, versionStages *[]*string) awsiam.Grant
 	// Grants writing and updating the secret value to some role.
+	// Experimental.
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	// Interpret the secret as a JSON object and return a field's value from it as a `SecretValue`.
+	// Experimental.
 	SecretValueFromJson(jsonField *string) awscdk.SecretValue
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for DatabaseSecret
@@ -21160,8 +24565,8 @@ func (j *jsiiProxy_DatabaseSecret) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_DatabaseSecret) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DatabaseSecret) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -21231,13 +24636,14 @@ func (j *jsiiProxy_DatabaseSecret) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewDatabaseSecret(scope constructs.Construct, id *string, props *DatabaseSecretProps) DatabaseSecret {
 	_init_.Initialize()
 
 	j := jsiiProxy_DatabaseSecret{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"monocdk.aws_rds.DatabaseSecret",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -21245,24 +24651,42 @@ func NewDatabaseSecret(scope constructs.Construct, id *string, props *DatabaseSe
 	return &j
 }
 
+// Experimental.
 func NewDatabaseSecret_Override(d DatabaseSecret, scope constructs.Construct, id *string, props *DatabaseSecretProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"monocdk.aws_rds.DatabaseSecret",
 		[]interface{}{scope, id, props},
 		d,
 	)
 }
 
+// Deprecated: use `fromSecretCompleteArn` or `fromSecretPartialArn`.
+func DatabaseSecret_FromSecretArn(scope constructs.Construct, id *string, secretArn *string) awssecretsmanager.ISecret {
+	_init_.Initialize()
+
+	var returns awssecretsmanager.ISecret
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_rds.DatabaseSecret",
+		"fromSecretArn",
+		[]interface{}{scope, id, secretArn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Import an existing secret into the Stack.
+// Experimental.
 func DatabaseSecret_FromSecretAttributes(scope constructs.Construct, id *string, attrs *awssecretsmanager.SecretAttributes) awssecretsmanager.ISecret {
 	_init_.Initialize()
 
 	var returns awssecretsmanager.ISecret
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"monocdk.aws_rds.DatabaseSecret",
 		"fromSecretAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -21274,15 +24698,36 @@ func DatabaseSecret_FromSecretAttributes(scope constructs.Construct, id *string,
 // Imports a secret by complete ARN.
 //
 // The complete ARN is the ARN with the Secrets Manager-supplied suffix.
+// Experimental.
 func DatabaseSecret_FromSecretCompleteArn(scope constructs.Construct, id *string, secretCompleteArn *string) awssecretsmanager.ISecret {
 	_init_.Initialize()
 
 	var returns awssecretsmanager.ISecret
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"monocdk.aws_rds.DatabaseSecret",
 		"fromSecretCompleteArn",
 		[]interface{}{scope, id, secretCompleteArn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Imports a secret by secret name;
+//
+// the ARN of the Secret will be set to the secret name.
+// A secret with this name must exist in the same account & region.
+// Deprecated: use `fromSecretNameV2`.
+func DatabaseSecret_FromSecretName(scope constructs.Construct, id *string, secretName *string) awssecretsmanager.ISecret {
+	_init_.Initialize()
+
+	var returns awssecretsmanager.ISecret
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_rds.DatabaseSecret",
+		"fromSecretName",
+		[]interface{}{scope, id, secretName},
 		&returns,
 	)
 
@@ -21293,13 +24738,14 @@ func DatabaseSecret_FromSecretCompleteArn(scope constructs.Construct, id *string
 //
 // A secret with this name must exist in the same account & region.
 // Replaces the deprecated `fromSecretName`.
+// Experimental.
 func DatabaseSecret_FromSecretNameV2(scope constructs.Construct, id *string, secretName *string) awssecretsmanager.ISecret {
 	_init_.Initialize()
 
 	var returns awssecretsmanager.ISecret
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"monocdk.aws_rds.DatabaseSecret",
 		"fromSecretNameV2",
 		[]interface{}{scope, id, secretName},
 		&returns,
@@ -21311,13 +24757,14 @@ func DatabaseSecret_FromSecretNameV2(scope constructs.Construct, id *string, sec
 // Imports a secret by partial ARN.
 //
 // The partial ARN is the ARN without the Secrets Manager-supplied suffix.
+// Experimental.
 func DatabaseSecret_FromSecretPartialArn(scope constructs.Construct, id *string, secretPartialArn *string) awssecretsmanager.ISecret {
 	_init_.Initialize()
 
 	var returns awssecretsmanager.ISecret
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"monocdk.aws_rds.DatabaseSecret",
 		"fromSecretPartialArn",
 		[]interface{}{scope, id, secretPartialArn},
 		&returns,
@@ -21326,17 +24773,15 @@ func DatabaseSecret_FromSecretPartialArn(scope constructs.Construct, id *string,
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func DatabaseSecret_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"monocdk.aws_rds.DatabaseSecret",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -21346,13 +24791,14 @@ func DatabaseSecret_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func DatabaseSecret_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func DatabaseSecret_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"monocdk.aws_rds.DatabaseSecret",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -21375,6 +24821,19 @@ func (d *jsiiProxy_DatabaseSecret) AddRotationSchedule(id *string, options *awss
 	_jsii_.Invoke(
 		d,
 		"addRotationSchedule",
+		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseSecret) AddTargetAttachment(id *string, options *awssecretsmanager.AttachedSecretOptions) awssecretsmanager.SecretTargetAttachment {
+	var returns awssecretsmanager.SecretTargetAttachment
+
+	_jsii_.Invoke(
+		d,
+		"addTargetAttachment",
 		[]interface{}{id, options},
 		&returns,
 	)
@@ -21489,6 +24948,43 @@ func (d *jsiiProxy_DatabaseSecret) GrantWrite(grantee awsiam.IGrantable) awsiam.
 	return returns
 }
 
+func (d *jsiiProxy_DatabaseSecret) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (d *jsiiProxy_DatabaseSecret) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (d *jsiiProxy_DatabaseSecret) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseSecret) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 func (d *jsiiProxy_DatabaseSecret) SecretValueFromJson(jsonField *string) awscdk.SecretValue {
 	var returns awscdk.SecretValue
 
@@ -21500,6 +24996,14 @@ func (d *jsiiProxy_DatabaseSecret) SecretValueFromJson(jsonField *string) awscdk
 	)
 
 	return returns
+}
+
+func (d *jsiiProxy_DatabaseSecret) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 func (d *jsiiProxy_DatabaseSecret) ToString() *string {
@@ -21515,32 +25019,72 @@ func (d *jsiiProxy_DatabaseSecret) ToString() *string {
 	return returns
 }
 
+func (d *jsiiProxy_DatabaseSecret) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Construction properties for a DatabaseSecret.
 //
 // Example:
-//   var instance databaseInstance
-//   myUserSecret := rds.NewDatabaseSecret(this, jsii.String("MyUserSecret"), &databaseSecretProps{
-//   	username: jsii.String("myuser"),
-//   	secretName: jsii.String("my-user-secret"),
-//   	 // optional, defaults to a CloudFormation-generated name
-//   	masterSecret: instance.secret,
-//   	excludeCharacters: jsii.String("{}[]()'\"/\\"),
-//   })
-//   myUserSecretAttached := myUserSecret.attach(instance) // Adds DB connections information in the secret
-//
-//   instance.addRotationMultiUser(jsii.String("MyUser"), &rotationMultiUserOptions{
-//   	 // Add rotation using the multi user scheme
-//   	secret: myUserSecretAttached,
+//   // Build a data source for AppSync to access the database.
+//   var api graphqlApi// Create username and password secret for DB Cluster
+//   secret := rds.NewDatabaseSecret(this, jsii.String("AuroraSecret"), &databaseSecretProps{
+//   	username: jsii.String("clusteradmin"),
 //   })
 //
+//   // The VPC to place the cluster in
+//   vpc := ec2.NewVpc(this, jsii.String("AuroraVpc"))
+//
+//   // Create the serverless cluster, provide all values needed to customise the database.
+//   cluster := rds.NewServerlessCluster(this, jsii.String("AuroraCluster"), &serverlessClusterProps{
+//   	engine: rds.databaseClusterEngine_AURORA_MYSQL(),
+//   	vpc: vpc,
+//   	credentials: map[string]*string{
+//   		"username": jsii.String("clusteradmin"),
+//   	},
+//   	clusterIdentifier: jsii.String("db-endpoint-test"),
+//   	defaultDatabaseName: jsii.String("demos"),
+//   })
+//   rdsDS := api.addRdsDataSource(jsii.String("rds"), cluster, secret, jsii.String("demos"))
+//
+//   // Set up a resolver for an RDS query.
+//   rdsDS.createResolver(&baseResolverProps{
+//   	typeName: jsii.String("Query"),
+//   	fieldName: jsii.String("getDemosRds"),
+//   	requestMappingTemplate: appsync.mappingTemplate.fromString(jsii.String("\n  {\n    \"version\": \"2018-05-29\",\n    \"statements\": [\n      \"SELECT * FROM demos\"\n    ]\n  }\n  ")),
+//   	responseMappingTemplate: appsync.*mappingTemplate.fromString(jsii.String("\n    $utils.toJson($utils.rds.toJsonObject($ctx.result)[0])\n  ")),
+//   })
+//
+//   // Set up a resolver for an RDS mutation.
+//   rdsDS.createResolver(&baseResolverProps{
+//   	typeName: jsii.String("Mutation"),
+//   	fieldName: jsii.String("addDemoRds"),
+//   	requestMappingTemplate: appsync.*mappingTemplate.fromString(jsii.String("\n  {\n    \"version\": \"2018-05-29\",\n    \"statements\": [\n      \"INSERT INTO demos VALUES (:id, :version)\",\n      \"SELECT * WHERE id = :id\"\n    ],\n    \"variableMap\": {\n      \":id\": $util.toJson($util.autoId()),\n      \":version\": $util.toJson($ctx.args.version)\n    }\n  }\n  ")),
+//   	responseMappingTemplate: appsync.*mappingTemplate.fromString(jsii.String("\n    $utils.toJson($utils.rds.toJsonObject($ctx.result)[1][0])\n  ")),
+//   })
+//
+// Experimental.
 type DatabaseSecretProps struct {
 	// The username.
+	// Experimental.
 	Username *string `json:"username" yaml:"username"`
 	// The KMS key to use to encrypt the secret.
+	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// Characters to not include in the generated password.
+	// Experimental.
 	ExcludeCharacters *string `json:"excludeCharacters" yaml:"excludeCharacters"`
 	// The master secret which will be used to rotate this secret.
+	// Experimental.
 	MasterSecret awssecretsmanager.ISecret `json:"masterSecret" yaml:"masterSecret"`
 	// Whether to replace this secret when the criteria for the password change.
 	//
@@ -21548,10 +25092,13 @@ type DatabaseSecretProps struct {
 	// with a hash of the options that influence the password generation. This
 	// way a new secret will be created when the password is regenerated and the
 	// cluster or instance consuming this secret will have its credentials updated.
+	// Experimental.
 	ReplaceOnPasswordCriteriaChanges *bool `json:"replaceOnPasswordCriteriaChanges" yaml:"replaceOnPasswordCriteriaChanges"`
 	// A list of regions where to replicate this secret.
+	// Experimental.
 	ReplicaRegions *[]*awssecretsmanager.ReplicaRegion `json:"replicaRegions" yaml:"replicaRegions"`
 	// A name for the secret.
+	// Experimental.
 	SecretName *string `json:"secretName" yaml:"secretName"`
 }
 
@@ -21563,12 +25110,16 @@ type DatabaseSecretProps struct {
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import rds "github.com/aws/aws-cdk-go/awscdk/aws_rds"
 //   endpoint := rds.NewEndpoint(jsii.String("address"), jsii.Number(123))
 //
+// Experimental.
 type Endpoint interface {
 	// The hostname of the endpoint.
+	// Experimental.
 	Hostname() *string
 	// The port of the endpoint.
+	// Experimental.
 	Port() *float64
 	// The combination of "HOSTNAME:PORT" for this endpoint.
+	// Experimental.
 	SocketAddress() *string
 }
 
@@ -21608,13 +25159,14 @@ func (j *jsiiProxy_Endpoint) SocketAddress() *string {
 }
 
 
+// Experimental.
 func NewEndpoint(address *string, port *float64) Endpoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_Endpoint{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.Endpoint",
+		"monocdk.aws_rds.Endpoint",
 		[]interface{}{address, port},
 		&j,
 	)
@@ -21622,11 +25174,12 @@ func NewEndpoint(address *string, port *float64) Endpoint {
 	return &j
 }
 
+// Experimental.
 func NewEndpoint_Override(e Endpoint, address *string, port *float64) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.Endpoint",
+		"monocdk.aws_rds.Endpoint",
 		[]interface{}{address, port},
 		e,
 	)
@@ -21643,25 +25196,34 @@ func NewEndpoint_Override(e Endpoint, address *string, port *float64) {
 //   	fullVersion: jsii.String("fullVersion"),
 //   }
 //
+// Experimental.
 type EngineVersion struct {
 	// The major version of the engine, for example, "5.6". Used in specifying the ParameterGroup family and OptionGroup version for this engine.
+	// Experimental.
 	MajorVersion *string `json:"majorVersion" yaml:"majorVersion"`
 	// The full version string of the engine, for example, "5.6.mysql_aurora.1.22.1". It can be undefined, which means RDS should use whatever version it deems appropriate for the given engine type.
+	// Experimental.
 	FullVersion *string `json:"fullVersion" yaml:"fullVersion"`
 }
 
 // The interface representing a database cluster (as opposed to instance) engine.
+// Experimental.
 type IClusterEngine interface {
 	IEngine
 	// Method called when the engine is used to create a new cluster.
-	BindToCluster(scope constructs.Construct, options *ClusterEngineBindOptions) *ClusterEngineConfig
+	// Experimental.
+	BindToCluster(scope awscdk.Construct, options *ClusterEngineBindOptions) *ClusterEngineConfig
 	// Whether the IAM Roles used for data importing and exporting need to be combined for this Engine, or can they be kept separate.
+	// Experimental.
 	CombineImportAndExportRoles() *bool
 	// The application used by this engine to perform rotation for a multi-user scenario.
+	// Experimental.
 	MultiUserRotationApplication() awssecretsmanager.SecretRotationApplication
 	// The application used by this engine to perform rotation for a single-user scenario.
+	// Experimental.
 	SingleUserRotationApplication() awssecretsmanager.SecretRotationApplication
 	// The log types that are available with this engine type.
+	// Experimental.
 	SupportedLogTypes() *[]*string
 }
 
@@ -21670,7 +25232,7 @@ type jsiiProxy_IClusterEngine struct {
 	jsiiProxy_IEngine
 }
 
-func (i *jsiiProxy_IClusterEngine) BindToCluster(scope constructs.Construct, options *ClusterEngineBindOptions) *ClusterEngineConfig {
+func (i *jsiiProxy_IClusterEngine) BindToCluster(scope awscdk.Construct, options *ClusterEngineBindOptions) *ClusterEngineConfig {
 	var returns *ClusterEngineConfig
 
 	_jsii_.Invoke(
@@ -21724,83 +25286,106 @@ func (j *jsiiProxy_IClusterEngine) SupportedLogTypes() *[]*string {
 }
 
 // Create a clustered database with a given number of instances.
+// Experimental.
 type IDatabaseCluster interface {
 	awsec2.IConnectable
 	awscdk.IResource
 	awssecretsmanager.ISecretAttachmentTarget
 	// Add a new db proxy to this cluster.
+	// Experimental.
 	AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy
 	// Return the given named metric for this DBCluster.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The percentage of CPU utilization.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of database connections in use.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The average number of deadlocks in the database per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricDeadlocks(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of time that the instance has been running, in seconds.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricEngineUptime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of available random access memory, in bytes.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of local storage available, in bytes.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricFreeLocalStorage(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of network throughput received from clients by each instance, in bytes per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricNetworkReceiveThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of network throughput both received from and transmitted to clients by each instance, in bytes per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricNetworkThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of network throughput sent to clients by each instance, in bytes per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricNetworkTransmitThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total amount of backup storage in bytes consumed by all Aurora snapshots outside its backup retention window.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricSnapshotStorageUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total amount of backup storage in bytes for which you are billed.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricTotalBackupStorageBilled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of storage used by your Aurora DB instance, in bytes.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricVolumeBytesUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of billed read I/O operations from a cluster volume, reported at 5-minute intervals.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricVolumeReadIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of write disk I/O operations to the cluster volume, reported at 5-minute intervals.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricVolumeWriteIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The endpoint to use for read/write operations.
+	// Experimental.
 	ClusterEndpoint() Endpoint
 	// Identifier of the cluster.
+	// Experimental.
 	ClusterIdentifier() *string
 	// Endpoint to use for load-balanced read-only operations.
+	// Experimental.
 	ClusterReadEndpoint() Endpoint
 	// The engine of this Cluster.
 	//
 	// May be not known for imported Clusters if it wasn't provided explicitly.
+	// Experimental.
 	Engine() IClusterEngine
 	// Endpoints which address each individual replica.
+	// Experimental.
 	InstanceEndpoints() *[]Endpoint
 	// Identifiers of the replicas.
+	// Experimental.
 	InstanceIdentifiers() *[]*string
 }
 
@@ -22120,8 +25705,8 @@ func (j *jsiiProxy_IDatabaseCluster) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IDatabaseCluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IDatabaseCluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -22141,63 +25726,80 @@ func (j *jsiiProxy_IDatabaseCluster) Stack() awscdk.Stack {
 }
 
 // A database instance.
+// Experimental.
 type IDatabaseInstance interface {
 	awsec2.IConnectable
 	awscdk.IResource
 	awssecretsmanager.ISecretAttachmentTarget
 	// Add a new db proxy to this instance.
+	// Experimental.
 	AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy
 	// Grant the given identity connection access to the database.
 	//
 	// **Note**: this method does not currently work, see https://github.com/aws/aws-cdk/issues/11851 for details.
 	// See: https://github.com/aws/aws-cdk/issues/11851
 	//
+	// Experimental.
 	GrantConnect(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this DBInstance.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The percentage of CPU utilization.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of database connections in use.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of available random access memory.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of available storage space.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The average number of disk write I/O operations per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricReadIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The average number of disk read I/O operations per second.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricWriteIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Defines a CloudWatch event rule which triggers for instance events.
 	//
 	// Use
 	// `rule.addEventPattern(pattern)` to specify a filter.
+	// Experimental.
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// The instance endpoint address.
+	// Experimental.
 	DbInstanceEndpointAddress() *string
 	// The instance endpoint port.
+	// Experimental.
 	DbInstanceEndpointPort() *string
 	// The engine of this database Instance.
 	//
 	// May be not known for imported Instances if it wasn't provided explicitly,
 	// or for read replicas.
+	// Experimental.
 	Engine() IInstanceEngine
 	// The instance arn.
+	// Experimental.
 	InstanceArn() *string
 	// The instance endpoint.
+	// Experimental.
 	InstanceEndpoint() Endpoint
 	// The instance identifier.
+	// Experimental.
 	InstanceIdentifier() *string
 }
 
@@ -22439,8 +26041,8 @@ func (j *jsiiProxy_IDatabaseInstance) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IDatabaseInstance) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IDatabaseInstance) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -22460,15 +26062,20 @@ func (j *jsiiProxy_IDatabaseInstance) Stack() awscdk.Stack {
 }
 
 // DB Proxy.
+// Experimental.
 type IDatabaseProxy interface {
 	awscdk.IResource
 	// Grant the given identity connection access to the proxy.
+	// Experimental.
 	GrantConnect(grantee awsiam.IGrantable, dbUser *string) awsiam.Grant
 	// DB Proxy ARN.
+	// Experimental.
 	DbProxyArn() *string
 	// DB Proxy Name.
+	// Experimental.
 	DbProxyName() *string
 	// Endpoint.
+	// Experimental.
 	Endpoint() *string
 }
 
@@ -22525,27 +26132,33 @@ func (j *jsiiProxy_IDatabaseProxy) Endpoint() *string {
 // Don't implement this interface directly,
 // instead implement one of the known sub-interfaces,
 // like IClusterEngine and IInstanceEngine.
+// Experimental.
 type IEngine interface {
 	// The default name of the master database user if one was not provided explicitly.
 	//
 	// The global default of 'admin' will be used if this is `undefined`.
 	// Note that 'admin' is a reserved word in PostgreSQL and cannot be used.
+	// Experimental.
 	DefaultUsername() *string
 	// The family this engine belongs to, like "MYSQL", or "POSTGRESQL".
 	//
 	// This property is used when creating a Database Proxy.
 	// Most engines don't belong to any family
 	// (and because of that, you can't create Database Proxies for their Clusters or Instances).
+	// Experimental.
 	EngineFamily() *string
 	// The type of the engine, for example "mysql".
+	// Experimental.
 	EngineType() *string
 	// The exact version of the engine that is used, for example "5.1.42".
+	// Experimental.
 	EngineVersion() *EngineVersion
 	// The family to use for ParameterGroups using this engine.
 	//
 	// This is usually equal to "<engineType><engineMajorVersion>",
 	// but can sometimes be a variation of that.
 	// You can pass this property when creating new ParameterGroup.
+	// Experimental.
 	ParameterGroupFamily() *string
 }
 
@@ -22605,15 +26218,20 @@ func (j *jsiiProxy_IEngine) ParameterGroupFamily() *string {
 }
 
 // Interface representing a database instance (as opposed to cluster) engine.
+// Experimental.
 type IInstanceEngine interface {
 	IEngine
 	// Method called when the engine is used to create a new instance.
-	BindToInstance(scope constructs.Construct, options *InstanceEngineBindOptions) *InstanceEngineConfig
+	// Experimental.
+	BindToInstance(scope awscdk.Construct, options *InstanceEngineBindOptions) *InstanceEngineConfig
 	// The application used by this engine to perform rotation for a multi-user scenario.
+	// Experimental.
 	MultiUserRotationApplication() awssecretsmanager.SecretRotationApplication
 	// The application used by this engine to perform rotation for a single-user scenario.
+	// Experimental.
 	SingleUserRotationApplication() awssecretsmanager.SecretRotationApplication
 	// Whether this engine supports automatic backups of a read replica instance.
+	// Experimental.
 	SupportsReadReplicaBackups() *bool
 }
 
@@ -22622,7 +26240,7 @@ type jsiiProxy_IInstanceEngine struct {
 	jsiiProxy_IEngine
 }
 
-func (i *jsiiProxy_IInstanceEngine) BindToInstance(scope constructs.Construct, options *InstanceEngineBindOptions) *InstanceEngineConfig {
+func (i *jsiiProxy_IInstanceEngine) BindToInstance(scope awscdk.Construct, options *InstanceEngineBindOptions) *InstanceEngineConfig {
 	var returns *InstanceEngineConfig
 
 	_jsii_.Invoke(
@@ -22666,6 +26284,7 @@ func (j *jsiiProxy_IInstanceEngine) SupportsReadReplicaBackups() *bool {
 }
 
 // An option group.
+// Experimental.
 type IOptionGroup interface {
 	awscdk.IResource
 	// Adds a configuration to this OptionGroup.
@@ -22673,8 +26292,10 @@ type IOptionGroup interface {
 	// This method is a no-op for an imported OptionGroup.
 	//
 	// Returns: true if the OptionConfiguration was successfully added.
+	// Experimental.
 	AddConfiguration(configuration *OptionConfiguration) *bool
 	// The name of the option group.
+	// Experimental.
 	OptionGroupName() *string
 }
 
@@ -22710,6 +26331,7 @@ func (j *jsiiProxy_IOptionGroup) OptionGroupName() *string {
 //
 // Represents both a cluster parameter group,
 // and an instance parameter group.
+// Experimental.
 type IParameterGroup interface {
 	awscdk.IResource
 	// Adds a parameter to this group.
@@ -22720,10 +26342,13 @@ type IParameterGroup interface {
 	// Returns: true if the parameter was actually added
 	// (i.e., this ParameterGroup is not imported),
 	// false otherwise.
+	// Experimental.
 	AddParameter(key *string, value *string) *bool
 	// Method called when this Parameter Group is used when defining a database cluster.
+	// Experimental.
 	BindToCluster(options *ParameterGroupClusterBindOptions) *ParameterGroupClusterConfig
 	// Method called when this Parameter Group is used when defining a database instance.
+	// Experimental.
 	BindToInstance(options *ParameterGroupInstanceBindOptions) *ParameterGroupInstanceConfig
 }
 
@@ -22772,19 +26397,25 @@ func (i *jsiiProxy_IParameterGroup) BindToInstance(options *ParameterGroupInstan
 }
 
 // Interface representing a serverless database cluster.
+// Experimental.
 type IServerlessCluster interface {
 	awsec2.IConnectable
 	awscdk.IResource
 	awssecretsmanager.ISecretAttachmentTarget
 	// Grant the given identity to access to the Data API.
+	// Experimental.
 	GrantDataApiAccess(grantee awsiam.IGrantable) awsiam.Grant
 	// The ARN of the cluster.
+	// Experimental.
 	ClusterArn() *string
 	// The endpoint to use for read/write operations.
+	// Experimental.
 	ClusterEndpoint() Endpoint
 	// Identifier of the cluster.
+	// Experimental.
 	ClusterIdentifier() *string
 	// Endpoint to use for load-balanced read-only operations.
+	// Experimental.
 	ClusterReadEndpoint() Endpoint
 }
 
@@ -22889,8 +26520,8 @@ func (j *jsiiProxy_IServerlessCluster) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IServerlessCluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IServerlessCluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -22910,9 +26541,11 @@ func (j *jsiiProxy_IServerlessCluster) Stack() awscdk.Stack {
 }
 
 // Interface for a subnet group.
+// Experimental.
 type ISubnetGroup interface {
 	awscdk.IResource
 	// The name of the subnet group.
+	// Experimental.
 	SubnetGroupName() *string
 }
 
@@ -22946,16 +26579,22 @@ func (j *jsiiProxy_ISubnetGroup) SubnetGroupName() *string {
 //   	timezone: jsii.String("timezone"),
 //   }
 //
+// Experimental.
 type InstanceEngineBindOptions struct {
 	// The Active Directory directory ID to create the DB instance in.
+	// Experimental.
 	Domain *string `json:"domain" yaml:"domain"`
 	// The option group of the database.
+	// Experimental.
 	OptionGroup IOptionGroup `json:"optionGroup" yaml:"optionGroup"`
 	// The role used for S3 exporting.
+	// Experimental.
 	S3ExportRole awsiam.IRole `json:"s3ExportRole" yaml:"s3ExportRole"`
 	// The role used for S3 importing.
+	// Experimental.
 	S3ImportRole awsiam.IRole `json:"s3ImportRole" yaml:"s3ImportRole"`
 	// The timezone of the database, set by the customer.
+	// Experimental.
 	Timezone *string `json:"timezone" yaml:"timezone"`
 }
 
@@ -22973,12 +26612,15 @@ type InstanceEngineBindOptions struct {
 //   	optionGroup: optionGroup,
 //   }
 //
+// Experimental.
 type InstanceEngineConfig struct {
 	// Features supported by the database engine.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html
 	//
+	// Experimental.
 	Features *InstanceEngineFeatures `json:"features" yaml:"features"`
 	// Option group of the database.
+	// Experimental.
 	OptionGroup IOptionGroup `json:"optionGroup" yaml:"optionGroup"`
 }
 
@@ -22991,10 +26633,13 @@ type InstanceEngineConfig struct {
 //   	s3Import: jsii.String("s3Import"),
 //   }
 //
+// Experimental.
 type InstanceEngineFeatures struct {
 	// Feature name for the DB instance that the IAM role to export to S3 bucket is to be associated with.
+	// Experimental.
 	S3Export *string `json:"s3Export" yaml:"s3Export"`
 	// Feature name for the DB instance that the IAM role to access the S3 bucket for import is to be associated with.
+	// Experimental.
 	S3Import *string `json:"s3Import" yaml:"s3Import"`
 }
 
@@ -23022,37 +26667,51 @@ type InstanceEngineFeatures struct {
 //   })
 //   proxy.grantConnect(role, jsii.String("admin"))
 //
+// Experimental.
 type InstanceProps struct {
 	// What subnets to run the RDS instances in.
 	//
 	// Must be at least 2 subnets in two different AZs.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Whether to allow upgrade of major version for the DB instance.
+	// Experimental.
 	AllowMajorVersionUpgrade *bool `json:"allowMajorVersionUpgrade" yaml:"allowMajorVersionUpgrade"`
 	// Whether to enable automatic upgrade of minor version for the DB instance.
+	// Experimental.
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// Whether to remove automated backups immediately after the DB instance is deleted for the DB instance.
+	// Experimental.
 	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups" yaml:"deleteAutomatedBackups"`
 	// Whether to enable Performance Insights for the DB instance.
+	// Experimental.
 	EnablePerformanceInsights *bool `json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// What type of instance to start for the replicas.
+	// Experimental.
 	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// The DB parameter group to associate with the instance.
+	// Experimental.
 	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// The parameters in the DBParameterGroup to create automatically.
 	//
 	// You can only specify parameterGroup or parameters but not both.
 	// You need to use a versioned engine to auto-generate a DBParameterGroup.
+	// Experimental.
 	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
 	// The AWS KMS key for encryption of Performance Insights data.
+	// Experimental.
 	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
+	// Experimental.
 	PerformanceInsightRetention PerformanceInsightRetention `json:"performanceInsightRetention" yaml:"performanceInsightRetention"`
 	// Indicates whether the DB instance is an internet-facing instance.
+	// Experimental.
 	PubliclyAccessible *bool `json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// Security group.
+	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// Where to place the instances within the VPC.
+	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
@@ -23150,14 +26809,18 @@ type InstanceProps struct {
 //   	},
 //   })
 //
+// Experimental.
 type LicenseModel string
 
 const (
 	// License included.
+	// Experimental.
 	LicenseModel_LICENSE_INCLUDED LicenseModel = "LICENSE_INCLUDED"
 	// Bring your own licencse.
+	// Experimental.
 	LicenseModel_BRING_YOUR_OWN_LICENSE LicenseModel = "BRING_YOUR_OWN_LICENSE"
 	// General public license.
+	// Experimental.
 	LicenseModel_GENERAL_PUBLIC_LICENSE LicenseModel = "GENERAL_PUBLIC_LICENSE"
 )
 
@@ -23165,12 +26828,15 @@ const (
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import rds "github.com/aws/aws-cdk-go/awscdk/aws_rds"
-//   mariaDbEngineVersion := rds.mariaDbEngineVersion_VER_10_2()
+//   mariaDbEngineVersion := rds.mariaDbEngineVersion_VER_10_0()
 //
+// Experimental.
 type MariaDbEngineVersion interface {
 	// The full version string, for example, "10.5.28".
+	// Experimental.
 	MariaDbFullVersion() *string
 	// The major version of the engine, for example, "10.5".
+	// Experimental.
 	MariaDbMajorVersion() *string
 }
 
@@ -23201,13 +26867,14 @@ func (j *jsiiProxy_MariaDbEngineVersion) MariaDbMajorVersion() *string {
 
 
 // Create a new MariaDbEngineVersion with an arbitrary version.
+// Experimental.
 func MariaDbEngineVersion_Of(mariaDbFullVersion *string, mariaDbMajorVersion *string) MariaDbEngineVersion {
 	_init_.Initialize()
 
 	var returns MariaDbEngineVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"of",
 		[]interface{}{mariaDbFullVersion, mariaDbMajorVersion},
 		&returns,
@@ -23216,11 +26883,176 @@ func MariaDbEngineVersion_Of(mariaDbFullVersion *string, mariaDbMajorVersion *st
 	return returns
 }
 
+func MariaDbEngineVersion_VER_10_0() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_0",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_0_17() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_0_17",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_0_24() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_0_24",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_0_28() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_0_28",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_0_31() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_0_31",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_0_32() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_0_32",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_0_34() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_0_34",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_0_35() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_0_35",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_1() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_1",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_1_14() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_1_14",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_1_19() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_1_19",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_1_23() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_1_23",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_1_26() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_1_26",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_1_31() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_1_31",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_1_34() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_1_34",
+		&returns,
+	)
+	return returns
+}
+
 func MariaDbEngineVersion_VER_10_2() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_2",
 		&returns,
 	)
@@ -23231,7 +27063,7 @@ func MariaDbEngineVersion_VER_10_2_11() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_2_11",
 		&returns,
 	)
@@ -23242,7 +27074,7 @@ func MariaDbEngineVersion_VER_10_2_12() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_2_12",
 		&returns,
 	)
@@ -23253,7 +27085,7 @@ func MariaDbEngineVersion_VER_10_2_15() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_2_15",
 		&returns,
 	)
@@ -23264,7 +27096,7 @@ func MariaDbEngineVersion_VER_10_2_21() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_2_21",
 		&returns,
 	)
@@ -23275,7 +27107,7 @@ func MariaDbEngineVersion_VER_10_2_32() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_2_32",
 		&returns,
 	)
@@ -23286,7 +27118,7 @@ func MariaDbEngineVersion_VER_10_2_37() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_2_37",
 		&returns,
 	)
@@ -23297,7 +27129,7 @@ func MariaDbEngineVersion_VER_10_2_39() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_2_39",
 		&returns,
 	)
@@ -23308,7 +27140,7 @@ func MariaDbEngineVersion_VER_10_2_40() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_2_40",
 		&returns,
 	)
@@ -23319,7 +27151,7 @@ func MariaDbEngineVersion_VER_10_2_41() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_2_41",
 		&returns,
 	)
@@ -23330,7 +27162,7 @@ func MariaDbEngineVersion_VER_10_3() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_3",
 		&returns,
 	)
@@ -23341,7 +27173,7 @@ func MariaDbEngineVersion_VER_10_3_13() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_3_13",
 		&returns,
 	)
@@ -23352,7 +27184,7 @@ func MariaDbEngineVersion_VER_10_3_20() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_3_20",
 		&returns,
 	)
@@ -23363,7 +27195,7 @@ func MariaDbEngineVersion_VER_10_3_23() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_3_23",
 		&returns,
 	)
@@ -23374,7 +27206,7 @@ func MariaDbEngineVersion_VER_10_3_28() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_3_28",
 		&returns,
 	)
@@ -23385,7 +27217,7 @@ func MariaDbEngineVersion_VER_10_3_31() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_3_31",
 		&returns,
 	)
@@ -23396,7 +27228,7 @@ func MariaDbEngineVersion_VER_10_3_32() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_3_32",
 		&returns,
 	)
@@ -23407,7 +27239,7 @@ func MariaDbEngineVersion_VER_10_3_8() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_3_8",
 		&returns,
 	)
@@ -23418,7 +27250,7 @@ func MariaDbEngineVersion_VER_10_4() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_4",
 		&returns,
 	)
@@ -23429,7 +27261,7 @@ func MariaDbEngineVersion_VER_10_4_13() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_4_13",
 		&returns,
 	)
@@ -23440,7 +27272,7 @@ func MariaDbEngineVersion_VER_10_4_18() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_4_18",
 		&returns,
 	)
@@ -23451,7 +27283,7 @@ func MariaDbEngineVersion_VER_10_4_21() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_4_21",
 		&returns,
 	)
@@ -23462,7 +27294,7 @@ func MariaDbEngineVersion_VER_10_4_22() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_4_22",
 		&returns,
 	)
@@ -23473,7 +27305,7 @@ func MariaDbEngineVersion_VER_10_4_8() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_4_8",
 		&returns,
 	)
@@ -23484,7 +27316,7 @@ func MariaDbEngineVersion_VER_10_5() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_5",
 		&returns,
 	)
@@ -23495,7 +27327,7 @@ func MariaDbEngineVersion_VER_10_5_12() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_5_12",
 		&returns,
 	)
@@ -23506,7 +27338,7 @@ func MariaDbEngineVersion_VER_10_5_13() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_5_13",
 		&returns,
 	)
@@ -23517,7 +27349,7 @@ func MariaDbEngineVersion_VER_10_5_8() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_5_8",
 		&returns,
 	)
@@ -23528,7 +27360,7 @@ func MariaDbEngineVersion_VER_10_5_9() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_5_9",
 		&returns,
 	)
@@ -23547,8 +27379,10 @@ func MariaDbEngineVersion_VER_10_5_9() MariaDbEngineVersion {
 //   	version: mariaDbEngineVersion,
 //   }
 //
+// Experimental.
 type MariaDbInstanceEngineProps struct {
 	// The exact version of the engine to use.
+	// Experimental.
 	Version MariaDbEngineVersion `json:"version" yaml:"version"`
 }
 
@@ -23574,8 +27408,10 @@ type MariaDbInstanceEngineProps struct {
 //   	domainRole: role,
 //   })
 //
+// Experimental.
 type MySqlInstanceEngineProps struct {
 	// The exact version of the engine to use.
+	// Experimental.
 	Version MysqlEngineVersion `json:"version" yaml:"version"`
 }
 
@@ -23599,10 +27435,13 @@ type MySqlInstanceEngineProps struct {
 //   	domainRole: role,
 //   })
 //
+// Experimental.
 type MysqlEngineVersion interface {
 	// The full version string, for example, "10.5.28".
+	// Experimental.
 	MysqlFullVersion() *string
 	// The major version of the engine, for example, "10.5".
+	// Experimental.
 	MysqlMajorVersion() *string
 }
 
@@ -23633,13 +27472,14 @@ func (j *jsiiProxy_MysqlEngineVersion) MysqlMajorVersion() *string {
 
 
 // Create a new MysqlEngineVersion with an arbitrary version.
+// Experimental.
 func MysqlEngineVersion_Of(mysqlFullVersion *string, mysqlMajorVersion *string) MysqlEngineVersion {
 	_init_.Initialize()
 
 	var returns MysqlEngineVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"of",
 		[]interface{}{mysqlFullVersion, mysqlMajorVersion},
 		&returns,
@@ -23648,11 +27488,220 @@ func MysqlEngineVersion_Of(mysqlFullVersion *string, mysqlMajorVersion *string) 
 	return returns
 }
 
+func MysqlEngineVersion_VER_5_5() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_5",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_5_46() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_5_46",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_5_53() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_5_53",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_5_57() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_5_57",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_5_59() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_5_59",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_5_61() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_5_61",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6_34() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6_34",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6_35() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6_35",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6_37() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6_37",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6_39() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6_39",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6_40() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6_40",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6_41() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6_41",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6_43() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6_43",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6_44() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6_44",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6_46() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6_46",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6_48() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6_48",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6_49() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6_49",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6_51() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6_51",
+		&returns,
+	)
+	return returns
+}
+
 func MysqlEngineVersion_VER_5_7() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7",
 		&returns,
 	)
@@ -23663,7 +27712,7 @@ func MysqlEngineVersion_VER_5_7_16() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_16",
 		&returns,
 	)
@@ -23674,7 +27723,7 @@ func MysqlEngineVersion_VER_5_7_17() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_17",
 		&returns,
 	)
@@ -23685,7 +27734,7 @@ func MysqlEngineVersion_VER_5_7_19() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_19",
 		&returns,
 	)
@@ -23696,7 +27745,7 @@ func MysqlEngineVersion_VER_5_7_21() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_21",
 		&returns,
 	)
@@ -23707,7 +27756,7 @@ func MysqlEngineVersion_VER_5_7_22() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_22",
 		&returns,
 	)
@@ -23718,7 +27767,7 @@ func MysqlEngineVersion_VER_5_7_23() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_23",
 		&returns,
 	)
@@ -23729,7 +27778,7 @@ func MysqlEngineVersion_VER_5_7_24() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_24",
 		&returns,
 	)
@@ -23740,7 +27789,7 @@ func MysqlEngineVersion_VER_5_7_25() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_25",
 		&returns,
 	)
@@ -23751,7 +27800,7 @@ func MysqlEngineVersion_VER_5_7_26() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_26",
 		&returns,
 	)
@@ -23762,7 +27811,7 @@ func MysqlEngineVersion_VER_5_7_28() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_28",
 		&returns,
 	)
@@ -23773,7 +27822,7 @@ func MysqlEngineVersion_VER_5_7_30() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_30",
 		&returns,
 	)
@@ -23784,7 +27833,7 @@ func MysqlEngineVersion_VER_5_7_31() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_31",
 		&returns,
 	)
@@ -23795,7 +27844,7 @@ func MysqlEngineVersion_VER_5_7_33() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_33",
 		&returns,
 	)
@@ -23806,7 +27855,7 @@ func MysqlEngineVersion_VER_5_7_34() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_34",
 		&returns,
 	)
@@ -23817,7 +27866,7 @@ func MysqlEngineVersion_VER_5_7_35() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_35",
 		&returns,
 	)
@@ -23828,7 +27877,7 @@ func MysqlEngineVersion_VER_5_7_36() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_36",
 		&returns,
 	)
@@ -23839,7 +27888,7 @@ func MysqlEngineVersion_VER_5_7_37() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_37",
 		&returns,
 	)
@@ -23850,7 +27899,7 @@ func MysqlEngineVersion_VER_8_0() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_8_0",
 		&returns,
 	)
@@ -23861,7 +27910,7 @@ func MysqlEngineVersion_VER_8_0_11() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_8_0_11",
 		&returns,
 	)
@@ -23872,7 +27921,7 @@ func MysqlEngineVersion_VER_8_0_13() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_8_0_13",
 		&returns,
 	)
@@ -23883,7 +27932,7 @@ func MysqlEngineVersion_VER_8_0_15() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_8_0_15",
 		&returns,
 	)
@@ -23894,7 +27943,7 @@ func MysqlEngineVersion_VER_8_0_16() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_8_0_16",
 		&returns,
 	)
@@ -23905,7 +27954,7 @@ func MysqlEngineVersion_VER_8_0_17() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_8_0_17",
 		&returns,
 	)
@@ -23916,7 +27965,7 @@ func MysqlEngineVersion_VER_8_0_19() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_8_0_19",
 		&returns,
 	)
@@ -23927,7 +27976,7 @@ func MysqlEngineVersion_VER_8_0_20() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_8_0_20",
 		&returns,
 	)
@@ -23938,7 +27987,7 @@ func MysqlEngineVersion_VER_8_0_21() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_8_0_21",
 		&returns,
 	)
@@ -23949,7 +27998,7 @@ func MysqlEngineVersion_VER_8_0_23() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_8_0_23",
 		&returns,
 	)
@@ -23960,7 +28009,7 @@ func MysqlEngineVersion_VER_8_0_25() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_8_0_25",
 		&returns,
 	)
@@ -23971,7 +28020,7 @@ func MysqlEngineVersion_VER_8_0_26() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_8_0_26",
 		&returns,
 	)
@@ -23982,7 +28031,7 @@ func MysqlEngineVersion_VER_8_0_27() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_8_0_27",
 		&returns,
 	)
@@ -23993,7 +28042,7 @@ func MysqlEngineVersion_VER_8_0_28() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_8_0_28",
 		&returns,
 	)
@@ -24022,26 +28071,33 @@ func MysqlEngineVersion_VER_8_0_28() MysqlEngineVersion {
 //   	vpc: vpc,
 //   }
 //
+// Experimental.
 type OptionConfiguration struct {
 	// The name of the option.
+	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 	// The port number that this option uses.
 	//
 	// If `port` is specified then `vpc`
 	// must also be specified.
+	// Experimental.
 	Port *float64 `json:"port" yaml:"port"`
 	// Optional list of security groups to use for this option, if `vpc` is specified.
 	//
 	// If no groups are provided, a default one will be created.
+	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The settings for the option.
+	// Experimental.
 	Settings *map[string]*string `json:"settings" yaml:"settings"`
 	// The version for the option.
+	// Experimental.
 	Version *string `json:"version" yaml:"version"`
 	// The VPC where a security group should be created for this option.
 	//
 	// If `vpc`
 	// is specified then `port` must also be specified.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
@@ -24139,6 +28195,7 @@ type OptionConfiguration struct {
 //   	},
 //   })
 //
+// Experimental.
 type OptionGroup interface {
 	awscdk.Resource
 	IOptionGroup
@@ -24150,12 +28207,16 @@ type OptionGroup interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// The connections object for the options.
+	// Experimental.
 	OptionConnections() *map[string]awsec2.Connections
 	// The name of the option group.
+	// Experimental.
 	OptionGroupName() *string
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
@@ -24164,12 +28225,15 @@ type OptionGroup interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// Adds a configuration to this OptionGroup.
 	//
 	// This method is a no-op for an imported OptionGroup.
+	// Experimental.
 	AddConfiguration(configuration *OptionConfiguration) *bool
 	// Apply the given removal policy to this resource.
 	//
@@ -24180,7 +28244,9 @@ type OptionGroup interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -24188,15 +28254,66 @@ type OptionGroup interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for OptionGroup
@@ -24215,8 +28332,8 @@ func (j *jsiiProxy_OptionGroup) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_OptionGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_OptionGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -24266,13 +28383,14 @@ func (j *jsiiProxy_OptionGroup) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewOptionGroup(scope constructs.Construct, id *string, props *OptionGroupProps) OptionGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_OptionGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.OptionGroup",
+		"monocdk.aws_rds.OptionGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -24280,24 +28398,26 @@ func NewOptionGroup(scope constructs.Construct, id *string, props *OptionGroupPr
 	return &j
 }
 
+// Experimental.
 func NewOptionGroup_Override(o OptionGroup, scope constructs.Construct, id *string, props *OptionGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.OptionGroup",
+		"monocdk.aws_rds.OptionGroup",
 		[]interface{}{scope, id, props},
 		o,
 	)
 }
 
 // Import an existing option group.
+// Experimental.
 func OptionGroup_FromOptionGroupName(scope constructs.Construct, id *string, optionGroupName *string) IOptionGroup {
 	_init_.Initialize()
 
 	var returns IOptionGroup
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.OptionGroup",
+		"monocdk.aws_rds.OptionGroup",
 		"fromOptionGroupName",
 		[]interface{}{scope, id, optionGroupName},
 		&returns,
@@ -24306,17 +28426,15 @@ func OptionGroup_FromOptionGroupName(scope constructs.Construct, id *string, opt
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func OptionGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.OptionGroup",
+		"monocdk.aws_rds.OptionGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -24326,13 +28444,14 @@ func OptionGroup_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func OptionGroup_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func OptionGroup_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.OptionGroup",
+		"monocdk.aws_rds.OptionGroup",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -24401,12 +28520,70 @@ func (o *jsiiProxy_OptionGroup) GetResourceNameAttribute(nameAttr *string) *stri
 	return returns
 }
 
+func (o *jsiiProxy_OptionGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		o,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (o *jsiiProxy_OptionGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		o,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (o *jsiiProxy_OptionGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		o,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (o *jsiiProxy_OptionGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		o,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (o *jsiiProxy_OptionGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		o,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (o *jsiiProxy_OptionGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		o,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (o *jsiiProxy_OptionGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		o,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -24508,12 +28685,16 @@ func (o *jsiiProxy_OptionGroup) ToString() *string {
 //   	},
 //   })
 //
+// Experimental.
 type OptionGroupProps struct {
 	// The configurations for this option group.
+	// Experimental.
 	Configurations *[]*OptionConfiguration `json:"configurations" yaml:"configurations"`
 	// The database engine that this option group is associated with.
+	// Experimental.
 	Engine IInstanceEngine `json:"engine" yaml:"engine"`
 	// A description of the option group.
+	// Experimental.
 	Description *string `json:"description" yaml:"description"`
 }
 
@@ -24529,8 +28710,10 @@ type OptionGroupProps struct {
 //   	version: oracleEngineVersion,
 //   }
 //
+// Experimental.
 type OracleEeInstanceEngineProps struct {
 	// The exact version of the engine to use.
+	// Experimental.
 	Version OracleEngineVersion `json:"version" yaml:"version"`
 }
 
@@ -24552,10 +28735,13 @@ type OracleEeInstanceEngineProps struct {
 //   	},
 //   })
 //
+// Experimental.
 type OracleEngineVersion interface {
 	// The full version string, for example, "19.0.0.0.ru-2019-10.rur-2019-10.r1".
+	// Experimental.
 	OracleFullVersion() *string
 	// The major version of the engine, for example, "19".
+	// Experimental.
 	OracleMajorVersion() *string
 }
 
@@ -24586,13 +28772,14 @@ func (j *jsiiProxy_OracleEngineVersion) OracleMajorVersion() *string {
 
 
 // Creates a new OracleEngineVersion with an arbitrary version.
+// Experimental.
 func OracleEngineVersion_Of(oracleFullVersion *string, oracleMajorVersion *string) OracleEngineVersion {
 	_init_.Initialize()
 
 	var returns OracleEngineVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"of",
 		[]interface{}{oracleFullVersion, oracleMajorVersion},
 		&returns,
@@ -24605,7 +28792,7 @@ func OracleEngineVersion_VER_12_1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1",
 		&returns,
 	)
@@ -24616,7 +28803,7 @@ func OracleEngineVersion_VER_12_1_0_2_V1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V1",
 		&returns,
 	)
@@ -24627,7 +28814,7 @@ func OracleEngineVersion_VER_12_1_0_2_V10() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V10",
 		&returns,
 	)
@@ -24638,7 +28825,7 @@ func OracleEngineVersion_VER_12_1_0_2_V11() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V11",
 		&returns,
 	)
@@ -24649,7 +28836,7 @@ func OracleEngineVersion_VER_12_1_0_2_V12() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V12",
 		&returns,
 	)
@@ -24660,7 +28847,7 @@ func OracleEngineVersion_VER_12_1_0_2_V13() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V13",
 		&returns,
 	)
@@ -24671,7 +28858,7 @@ func OracleEngineVersion_VER_12_1_0_2_V14() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V14",
 		&returns,
 	)
@@ -24682,7 +28869,7 @@ func OracleEngineVersion_VER_12_1_0_2_V15() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V15",
 		&returns,
 	)
@@ -24693,7 +28880,7 @@ func OracleEngineVersion_VER_12_1_0_2_V16() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V16",
 		&returns,
 	)
@@ -24704,7 +28891,7 @@ func OracleEngineVersion_VER_12_1_0_2_V17() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V17",
 		&returns,
 	)
@@ -24715,7 +28902,7 @@ func OracleEngineVersion_VER_12_1_0_2_V18() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V18",
 		&returns,
 	)
@@ -24726,7 +28913,7 @@ func OracleEngineVersion_VER_12_1_0_2_V19() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V19",
 		&returns,
 	)
@@ -24737,7 +28924,7 @@ func OracleEngineVersion_VER_12_1_0_2_V2() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V2",
 		&returns,
 	)
@@ -24748,7 +28935,7 @@ func OracleEngineVersion_VER_12_1_0_2_V20() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V20",
 		&returns,
 	)
@@ -24759,7 +28946,7 @@ func OracleEngineVersion_VER_12_1_0_2_V21() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V21",
 		&returns,
 	)
@@ -24770,7 +28957,7 @@ func OracleEngineVersion_VER_12_1_0_2_V22() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V22",
 		&returns,
 	)
@@ -24781,7 +28968,7 @@ func OracleEngineVersion_VER_12_1_0_2_V23() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V23",
 		&returns,
 	)
@@ -24792,7 +28979,7 @@ func OracleEngineVersion_VER_12_1_0_2_V24() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V24",
 		&returns,
 	)
@@ -24803,7 +28990,7 @@ func OracleEngineVersion_VER_12_1_0_2_V3() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V3",
 		&returns,
 	)
@@ -24814,7 +29001,7 @@ func OracleEngineVersion_VER_12_1_0_2_V4() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V4",
 		&returns,
 	)
@@ -24825,7 +29012,7 @@ func OracleEngineVersion_VER_12_1_0_2_V5() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V5",
 		&returns,
 	)
@@ -24836,7 +29023,7 @@ func OracleEngineVersion_VER_12_1_0_2_V6() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V6",
 		&returns,
 	)
@@ -24847,7 +29034,7 @@ func OracleEngineVersion_VER_12_1_0_2_V7() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V7",
 		&returns,
 	)
@@ -24858,7 +29045,7 @@ func OracleEngineVersion_VER_12_1_0_2_V8() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V8",
 		&returns,
 	)
@@ -24869,7 +29056,7 @@ func OracleEngineVersion_VER_12_1_0_2_V9() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V9",
 		&returns,
 	)
@@ -24880,7 +29067,7 @@ func OracleEngineVersion_VER_12_2() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_2",
 		&returns,
 	)
@@ -24891,7 +29078,7 @@ func OracleEngineVersion_VER_12_2_0_1_2018_10_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2018_10_R1",
 		&returns,
 	)
@@ -24902,7 +29089,7 @@ func OracleEngineVersion_VER_12_2_0_1_2019_01_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2019_01_R1",
 		&returns,
 	)
@@ -24913,7 +29100,7 @@ func OracleEngineVersion_VER_12_2_0_1_2019_04_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2019_04_R1",
 		&returns,
 	)
@@ -24924,7 +29111,7 @@ func OracleEngineVersion_VER_12_2_0_1_2019_07_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2019_07_R1",
 		&returns,
 	)
@@ -24935,7 +29122,7 @@ func OracleEngineVersion_VER_12_2_0_1_2019_10_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2019_10_R1",
 		&returns,
 	)
@@ -24946,7 +29133,7 @@ func OracleEngineVersion_VER_12_2_0_1_2020_01_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2020_01_R1",
 		&returns,
 	)
@@ -24957,7 +29144,7 @@ func OracleEngineVersion_VER_12_2_0_1_2020_04_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2020_04_R1",
 		&returns,
 	)
@@ -24968,7 +29155,7 @@ func OracleEngineVersion_VER_12_2_0_1_2020_07_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2020_07_R1",
 		&returns,
 	)
@@ -24979,7 +29166,7 @@ func OracleEngineVersion_VER_12_2_0_1_2020_10_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2020_10_R1",
 		&returns,
 	)
@@ -24990,7 +29177,7 @@ func OracleEngineVersion_VER_12_2_0_1_2021_01_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2021_01_R1",
 		&returns,
 	)
@@ -25001,7 +29188,7 @@ func OracleEngineVersion_VER_12_2_0_1_2021_04_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2021_04_R1",
 		&returns,
 	)
@@ -25012,7 +29199,7 @@ func OracleEngineVersion_VER_18() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_18",
 		&returns,
 	)
@@ -25023,7 +29210,7 @@ func OracleEngineVersion_VER_18_0_0_0_2019_07_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_18_0_0_0_2019_07_R1",
 		&returns,
 	)
@@ -25034,7 +29221,7 @@ func OracleEngineVersion_VER_18_0_0_0_2019_10_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_18_0_0_0_2019_10_R1",
 		&returns,
 	)
@@ -25045,7 +29232,7 @@ func OracleEngineVersion_VER_18_0_0_0_2020_01_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_18_0_0_0_2020_01_R1",
 		&returns,
 	)
@@ -25056,7 +29243,7 @@ func OracleEngineVersion_VER_18_0_0_0_2020_04_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_18_0_0_0_2020_04_R1",
 		&returns,
 	)
@@ -25067,7 +29254,7 @@ func OracleEngineVersion_VER_18_0_0_0_2020_07_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_18_0_0_0_2020_07_R1",
 		&returns,
 	)
@@ -25078,7 +29265,7 @@ func OracleEngineVersion_VER_19() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_19",
 		&returns,
 	)
@@ -25089,7 +29276,7 @@ func OracleEngineVersion_VER_19_0_0_0_2019_07_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_19_0_0_0_2019_07_R1",
 		&returns,
 	)
@@ -25100,7 +29287,7 @@ func OracleEngineVersion_VER_19_0_0_0_2019_10_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_19_0_0_0_2019_10_R1",
 		&returns,
 	)
@@ -25111,7 +29298,7 @@ func OracleEngineVersion_VER_19_0_0_0_2020_01_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_19_0_0_0_2020_01_R1",
 		&returns,
 	)
@@ -25122,7 +29309,7 @@ func OracleEngineVersion_VER_19_0_0_0_2020_04_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_19_0_0_0_2020_04_R1",
 		&returns,
 	)
@@ -25133,7 +29320,7 @@ func OracleEngineVersion_VER_19_0_0_0_2020_07_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_19_0_0_0_2020_07_R1",
 		&returns,
 	)
@@ -25144,7 +29331,7 @@ func OracleEngineVersion_VER_19_0_0_0_2020_10_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_19_0_0_0_2020_10_R1",
 		&returns,
 	)
@@ -25155,7 +29342,7 @@ func OracleEngineVersion_VER_19_0_0_0_2021_01_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_19_0_0_0_2021_01_R1",
 		&returns,
 	)
@@ -25166,7 +29353,7 @@ func OracleEngineVersion_VER_19_0_0_0_2021_01_R2() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_19_0_0_0_2021_01_R2",
 		&returns,
 	)
@@ -25177,11 +29364,358 @@ func OracleEngineVersion_VER_19_0_0_0_2021_04_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_19_0_0_0_2021_04_R1",
 		&returns,
 	)
 	return returns
+}
+
+// The versions for the legacy Oracle instance engines (those returned by {@link DatabaseInstanceEngine.oracleSe} and {@link DatabaseInstanceEngine.oracleSe1}). Note: RDS will stop allowing creating new databases with this version in August 2020.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import rds "github.com/aws/aws-cdk-go/awscdk/aws_rds"
+//   oracleLegacyEngineVersion := rds.oracleLegacyEngineVersion_VER_11_2()
+//
+// Deprecated: instances can no longer be created with these engine versions. See https://forums.aws.amazon.com/ann.jspa?annID=7341
+type OracleLegacyEngineVersion interface {
+	// The full version string, for example, "11.2.0.4.v24".
+	// Deprecated: instances can no longer be created with these engine versions. See https://forums.aws.amazon.com/ann.jspa?annID=7341
+	OracleLegacyFullVersion() *string
+	// The major version of the engine, for example, "11.2".
+	// Deprecated: instances can no longer be created with these engine versions. See https://forums.aws.amazon.com/ann.jspa?annID=7341
+	OracleLegacyMajorVersion() *string
+}
+
+// The jsii proxy struct for OracleLegacyEngineVersion
+type jsiiProxy_OracleLegacyEngineVersion struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_OracleLegacyEngineVersion) OracleLegacyFullVersion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"oracleLegacyFullVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_OracleLegacyEngineVersion) OracleLegacyMajorVersion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"oracleLegacyMajorVersion",
+		&returns,
+	)
+	return returns
+}
+
+
+func OracleLegacyEngineVersion_VER_11_2() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_2_V2() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_2_V2",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V1() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V1",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V10() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V10",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V11() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V11",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V12() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V12",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V13() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V13",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V14() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V14",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V15() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V15",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V16() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V16",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V17() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V17",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V18() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V18",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V19() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V19",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V20() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V20",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V21() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V21",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V22() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V22",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V23() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V23",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V24() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V24",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V25() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V25",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V3() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V3",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V4() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V4",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V5() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V5",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V6() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V6",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V7() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V7",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V8() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V8",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V9() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V9",
+		&returns,
+	)
+	return returns
+}
+
+// Properties for Oracle Standard Edition 1 instance engines.
+//
+// Used in {@link DatabaseInstanceEngine.oracleSe1}.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import rds "github.com/aws/aws-cdk-go/awscdk/aws_rds"
+//
+//   var oracleLegacyEngineVersion oracleLegacyEngineVersion
+//   oracleSe1InstanceEngineProps := &oracleSe1InstanceEngineProps{
+//   	version: oracleLegacyEngineVersion,
+//   }
+//
+// Deprecated: instances can no longer be created with this engine. See https://forums.aws.amazon.com/ann.jspa?annID=7341
+type OracleSe1InstanceEngineProps struct {
+	// The exact version of the engine to use.
+	// Deprecated: instances can no longer be created with this engine. See https://forums.aws.amazon.com/ann.jspa?annID=7341
+	Version OracleLegacyEngineVersion `json:"version" yaml:"version"`
 }
 
 // Properties for Oracle Standard Edition 2 instance engines.
@@ -25204,9 +29738,30 @@ func OracleEngineVersion_VER_19_0_0_0_2021_04_R1() OracleEngineVersion {
 //   	},
 //   })
 //
+// Experimental.
 type OracleSe2InstanceEngineProps struct {
 	// The exact version of the engine to use.
+	// Experimental.
 	Version OracleEngineVersion `json:"version" yaml:"version"`
+}
+
+// Properties for Oracle Standard Edition instance engines.
+//
+// Used in {@link DatabaseInstanceEngine.oracleSe}.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import rds "github.com/aws/aws-cdk-go/awscdk/aws_rds"
+//
+//   var oracleLegacyEngineVersion oracleLegacyEngineVersion
+//   oracleSeInstanceEngineProps := &oracleSeInstanceEngineProps{
+//   	version: oracleLegacyEngineVersion,
+//   }
+//
+// Deprecated: instances can no longer be created with this engine. See https://forums.aws.amazon.com/ann.jspa?annID=7341
+type OracleSeInstanceEngineProps struct {
+	// The exact version of the engine to use.
+	// Deprecated: instances can no longer be created with this engine. See https://forums.aws.amazon.com/ann.jspa?annID=7341
+	Version OracleLegacyEngineVersion `json:"version" yaml:"version"`
 }
 
 // A parameter group.
@@ -25230,6 +29785,7 @@ type OracleSe2InstanceEngineProps struct {
 //   	},
 //   })
 //
+// Experimental.
 type ParameterGroup interface {
 	awscdk.Resource
 	IParameterGroup
@@ -25241,9 +29797,11 @@ type ParameterGroup interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -25251,10 +29809,13 @@ type ParameterGroup interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// Add a parameter to this parameter group.
+	// Experimental.
 	AddParameter(key *string, value *string) *bool
 	// Apply the given removal policy to this resource.
 	//
@@ -25265,11 +29826,15 @@ type ParameterGroup interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Method called when this Parameter Group is used when defining a database cluster.
+	// Experimental.
 	BindToCluster(_options *ParameterGroupClusterBindOptions) *ParameterGroupClusterConfig
 	// Method called when this Parameter Group is used when defining a database instance.
+	// Experimental.
 	BindToInstance(_options *ParameterGroupInstanceBindOptions) *ParameterGroupInstanceConfig
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -25277,15 +29842,66 @@ type ParameterGroup interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ParameterGroup
@@ -25304,8 +29920,8 @@ func (j *jsiiProxy_ParameterGroup) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_ParameterGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ParameterGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -25335,13 +29951,14 @@ func (j *jsiiProxy_ParameterGroup) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewParameterGroup(scope constructs.Construct, id *string, props *ParameterGroupProps) ParameterGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_ParameterGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.ParameterGroup",
+		"monocdk.aws_rds.ParameterGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -25349,24 +29966,26 @@ func NewParameterGroup(scope constructs.Construct, id *string, props *ParameterG
 	return &j
 }
 
+// Experimental.
 func NewParameterGroup_Override(p ParameterGroup, scope constructs.Construct, id *string, props *ParameterGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.ParameterGroup",
+		"monocdk.aws_rds.ParameterGroup",
 		[]interface{}{scope, id, props},
 		p,
 	)
 }
 
 // Imports a parameter group.
+// Experimental.
 func ParameterGroup_FromParameterGroupName(scope constructs.Construct, id *string, parameterGroupName *string) IParameterGroup {
 	_init_.Initialize()
 
 	var returns IParameterGroup
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.ParameterGroup",
+		"monocdk.aws_rds.ParameterGroup",
 		"fromParameterGroupName",
 		[]interface{}{scope, id, parameterGroupName},
 		&returns,
@@ -25375,17 +29994,15 @@ func ParameterGroup_FromParameterGroupName(scope constructs.Construct, id *strin
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func ParameterGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.ParameterGroup",
+		"monocdk.aws_rds.ParameterGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -25395,13 +30012,14 @@ func ParameterGroup_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func ParameterGroup_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func ParameterGroup_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.ParameterGroup",
+		"monocdk.aws_rds.ParameterGroup",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -25496,12 +30114,70 @@ func (p *jsiiProxy_ParameterGroup) GetResourceNameAttribute(nameAttr *string) *s
 	return returns
 }
 
+func (p *jsiiProxy_ParameterGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (p *jsiiProxy_ParameterGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (p *jsiiProxy_ParameterGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (p *jsiiProxy_ParameterGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (p *jsiiProxy_ParameterGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (p *jsiiProxy_ParameterGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		p,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (p *jsiiProxy_ParameterGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -25516,6 +30192,7 @@ func (p *jsiiProxy_ParameterGroup) ToString() *string {
 //   parameterGroupClusterBindOptions := &parameterGroupClusterBindOptions{
 //   }
 //
+// Experimental.
 type ParameterGroupClusterBindOptions struct {
 }
 
@@ -25527,8 +30204,10 @@ type ParameterGroupClusterBindOptions struct {
 //   	parameterGroupName: jsii.String("parameterGroupName"),
 //   }
 //
+// Experimental.
 type ParameterGroupClusterConfig struct {
 	// The name of this parameter group.
+	// Experimental.
 	ParameterGroupName *string `json:"parameterGroupName" yaml:"parameterGroupName"`
 }
 
@@ -25539,6 +30218,7 @@ type ParameterGroupClusterConfig struct {
 //   parameterGroupInstanceBindOptions := &parameterGroupInstanceBindOptions{
 //   }
 //
+// Experimental.
 type ParameterGroupInstanceBindOptions struct {
 }
 
@@ -25550,8 +30230,10 @@ type ParameterGroupInstanceBindOptions struct {
 //   	parameterGroupName: jsii.String("parameterGroupName"),
 //   }
 //
+// Experimental.
 type ParameterGroupInstanceConfig struct {
 	// The name of this parameter group.
+	// Experimental.
 	ParameterGroupName *string `json:"parameterGroupName" yaml:"parameterGroupName"`
 }
 
@@ -25649,22 +30331,29 @@ type ParameterGroupInstanceConfig struct {
 //   	},
 //   })
 //
+// Experimental.
 type ParameterGroupProps struct {
 	// The database engine for this parameter group.
+	// Experimental.
 	Engine IEngine `json:"engine" yaml:"engine"`
 	// Description for this parameter group.
+	// Experimental.
 	Description *string `json:"description" yaml:"description"`
 	// The parameters in this parameter group.
+	// Experimental.
 	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
 }
 
 // The retention period for Performance Insight.
+// Experimental.
 type PerformanceInsightRetention string
 
 const (
 	// Default retention period of 7 days.
+	// Experimental.
 	PerformanceInsightRetention_DEFAULT PerformanceInsightRetention = "DEFAULT"
 	// Long term retention period of 2 years.
+	// Experimental.
 	PerformanceInsightRetention_LONG_TERM PerformanceInsightRetention = "LONG_TERM"
 )
 
@@ -25677,10 +30366,13 @@ const (
 //   	s3Import: jsii.Boolean(false),
 //   }
 //
+// Experimental.
 type PostgresEngineFeatures struct {
 	// Whether this version of the Postgres engine supports the S3 data export feature.
+	// Experimental.
 	S3Export *bool `json:"s3Export" yaml:"s3Export"`
 	// Whether this version of the Postgres engine supports the S3 data import feature.
+	// Experimental.
 	S3Import *bool `json:"s3Import" yaml:"s3Import"`
 }
 
@@ -25711,10 +30403,13 @@ type PostgresEngineFeatures struct {
 //   	}),
 //   })
 //
+// Experimental.
 type PostgresEngineVersion interface {
 	// The full version string, for example, "13.11".
+	// Experimental.
 	PostgresFullVersion() *string
 	// The major version of the engine, for example, "13".
+	// Experimental.
 	PostgresMajorVersion() *string
 }
 
@@ -25745,13 +30440,14 @@ func (j *jsiiProxy_PostgresEngineVersion) PostgresMajorVersion() *string {
 
 
 // Create a new PostgresEngineVersion with an arbitrary version.
+// Experimental.
 func PostgresEngineVersion_Of(postgresFullVersion *string, postgresMajorVersion *string, postgresFeatures *PostgresEngineFeatures) PostgresEngineVersion {
 	_init_.Initialize()
 
 	var returns PostgresEngineVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"of",
 		[]interface{}{postgresFullVersion, postgresMajorVersion, postgresFeatures},
 		&returns,
@@ -25764,7 +30460,7 @@ func PostgresEngineVersion_VER_10() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10",
 		&returns,
 	)
@@ -25775,7 +30471,7 @@ func PostgresEngineVersion_VER_10_1() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_1",
 		&returns,
 	)
@@ -25786,7 +30482,7 @@ func PostgresEngineVersion_VER_10_10() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_10",
 		&returns,
 	)
@@ -25797,7 +30493,7 @@ func PostgresEngineVersion_VER_10_11() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_11",
 		&returns,
 	)
@@ -25808,7 +30504,7 @@ func PostgresEngineVersion_VER_10_12() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_12",
 		&returns,
 	)
@@ -25819,7 +30515,7 @@ func PostgresEngineVersion_VER_10_13() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_13",
 		&returns,
 	)
@@ -25830,7 +30526,7 @@ func PostgresEngineVersion_VER_10_14() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_14",
 		&returns,
 	)
@@ -25841,7 +30537,7 @@ func PostgresEngineVersion_VER_10_15() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_15",
 		&returns,
 	)
@@ -25852,7 +30548,7 @@ func PostgresEngineVersion_VER_10_16() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_16",
 		&returns,
 	)
@@ -25863,7 +30559,7 @@ func PostgresEngineVersion_VER_10_17() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_17",
 		&returns,
 	)
@@ -25874,7 +30570,7 @@ func PostgresEngineVersion_VER_10_18() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_18",
 		&returns,
 	)
@@ -25885,7 +30581,7 @@ func PostgresEngineVersion_VER_10_19() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_19",
 		&returns,
 	)
@@ -25896,7 +30592,7 @@ func PostgresEngineVersion_VER_10_20() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_20",
 		&returns,
 	)
@@ -25907,7 +30603,7 @@ func PostgresEngineVersion_VER_10_3() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_3",
 		&returns,
 	)
@@ -25918,7 +30614,7 @@ func PostgresEngineVersion_VER_10_4() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_4",
 		&returns,
 	)
@@ -25929,7 +30625,7 @@ func PostgresEngineVersion_VER_10_5() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_5",
 		&returns,
 	)
@@ -25940,7 +30636,7 @@ func PostgresEngineVersion_VER_10_6() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_6",
 		&returns,
 	)
@@ -25951,7 +30647,7 @@ func PostgresEngineVersion_VER_10_7() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_7",
 		&returns,
 	)
@@ -25962,7 +30658,7 @@ func PostgresEngineVersion_VER_10_9() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_9",
 		&returns,
 	)
@@ -25973,7 +30669,7 @@ func PostgresEngineVersion_VER_11() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11",
 		&returns,
 	)
@@ -25984,7 +30680,7 @@ func PostgresEngineVersion_VER_11_1() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_1",
 		&returns,
 	)
@@ -25995,7 +30691,7 @@ func PostgresEngineVersion_VER_11_10() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_10",
 		&returns,
 	)
@@ -26006,7 +30702,7 @@ func PostgresEngineVersion_VER_11_11() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_11",
 		&returns,
 	)
@@ -26017,7 +30713,7 @@ func PostgresEngineVersion_VER_11_12() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_12",
 		&returns,
 	)
@@ -26028,7 +30724,7 @@ func PostgresEngineVersion_VER_11_13() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_13",
 		&returns,
 	)
@@ -26039,7 +30735,7 @@ func PostgresEngineVersion_VER_11_14() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_14",
 		&returns,
 	)
@@ -26050,7 +30746,7 @@ func PostgresEngineVersion_VER_11_15() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_15",
 		&returns,
 	)
@@ -26061,7 +30757,7 @@ func PostgresEngineVersion_VER_11_2() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_2",
 		&returns,
 	)
@@ -26072,7 +30768,7 @@ func PostgresEngineVersion_VER_11_4() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_4",
 		&returns,
 	)
@@ -26083,7 +30779,7 @@ func PostgresEngineVersion_VER_11_5() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_5",
 		&returns,
 	)
@@ -26094,7 +30790,7 @@ func PostgresEngineVersion_VER_11_6() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_6",
 		&returns,
 	)
@@ -26105,7 +30801,7 @@ func PostgresEngineVersion_VER_11_7() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_7",
 		&returns,
 	)
@@ -26116,7 +30812,7 @@ func PostgresEngineVersion_VER_11_8() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_8",
 		&returns,
 	)
@@ -26127,7 +30823,7 @@ func PostgresEngineVersion_VER_11_9() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_9",
 		&returns,
 	)
@@ -26138,7 +30834,7 @@ func PostgresEngineVersion_VER_12() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_12",
 		&returns,
 	)
@@ -26149,7 +30845,7 @@ func PostgresEngineVersion_VER_12_10() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_12_10",
 		&returns,
 	)
@@ -26160,7 +30856,7 @@ func PostgresEngineVersion_VER_12_2() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_12_2",
 		&returns,
 	)
@@ -26171,7 +30867,7 @@ func PostgresEngineVersion_VER_12_3() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_12_3",
 		&returns,
 	)
@@ -26182,7 +30878,7 @@ func PostgresEngineVersion_VER_12_4() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_12_4",
 		&returns,
 	)
@@ -26193,7 +30889,7 @@ func PostgresEngineVersion_VER_12_5() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_12_5",
 		&returns,
 	)
@@ -26204,7 +30900,7 @@ func PostgresEngineVersion_VER_12_6() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_12_6",
 		&returns,
 	)
@@ -26215,7 +30911,7 @@ func PostgresEngineVersion_VER_12_7() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_12_7",
 		&returns,
 	)
@@ -26226,7 +30922,7 @@ func PostgresEngineVersion_VER_12_8() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_12_8",
 		&returns,
 	)
@@ -26237,7 +30933,7 @@ func PostgresEngineVersion_VER_12_9() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_12_9",
 		&returns,
 	)
@@ -26248,7 +30944,7 @@ func PostgresEngineVersion_VER_13() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_13",
 		&returns,
 	)
@@ -26259,7 +30955,7 @@ func PostgresEngineVersion_VER_13_1() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_13_1",
 		&returns,
 	)
@@ -26270,7 +30966,7 @@ func PostgresEngineVersion_VER_13_2() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_13_2",
 		&returns,
 	)
@@ -26281,7 +30977,7 @@ func PostgresEngineVersion_VER_13_3() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_13_3",
 		&returns,
 	)
@@ -26292,7 +30988,7 @@ func PostgresEngineVersion_VER_13_4() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_13_4",
 		&returns,
 	)
@@ -26303,7 +30999,7 @@ func PostgresEngineVersion_VER_13_5() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_13_5",
 		&returns,
 	)
@@ -26314,7 +31010,7 @@ func PostgresEngineVersion_VER_13_6() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_13_6",
 		&returns,
 	)
@@ -26325,7 +31021,7 @@ func PostgresEngineVersion_VER_14() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_14",
 		&returns,
 	)
@@ -26336,7 +31032,7 @@ func PostgresEngineVersion_VER_14_1() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_14_1",
 		&returns,
 	)
@@ -26347,8 +31043,404 @@ func PostgresEngineVersion_VER_14_2() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_14_2",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_10() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_10",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_12() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_12",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_13() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_13",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_14() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_14",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_15() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_15",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_16() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_16",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_18() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_18",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_19() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_19",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_2() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_2",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_20() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_20",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_21() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_21",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_22() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_22",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_23() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_23",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_24() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_24",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_25() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_25",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_4() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_4",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_6() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_6",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_7() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_7",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_9() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_9",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_1() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_1",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_10() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_10",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_11() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_11",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_12() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_12",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_14() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_14",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_15() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_15",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_16() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_16",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_17() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_17",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_18() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_18",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_19() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_19",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_2() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_2",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_20() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_20",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_21() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_21",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_22() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_22",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_23() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_23",
 		&returns,
 	)
 	return returns
@@ -26358,8 +31450,63 @@ func PostgresEngineVersion_VER_9_6_24() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_9_6_24",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_3() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_3",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_5() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_5",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_6() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_6",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_8() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_8",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_9() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_9",
 		&returns,
 	)
 	return returns
@@ -26394,8 +31541,10 @@ func PostgresEngineVersion_VER_9_6_24() PostgresEngineVersion {
 //   	}),
 //   })
 //
+// Experimental.
 type PostgresInstanceEngineProps struct {
 	// The exact version of the engine to use.
+	// Experimental.
 	Version PostgresEngineVersion `json:"version" yaml:"version"`
 }
 
@@ -26408,10 +31557,13 @@ type PostgresInstanceEngineProps struct {
 //   	threadsPerCore: jsii.Number(123),
 //   }
 //
+// Experimental.
 type ProcessorFeatures struct {
 	// The number of CPU core.
+	// Experimental.
 	CoreCount *float64 `json:"coreCount" yaml:"coreCount"`
 	// The number of threads per core.
+	// Experimental.
 	ThreadsPerCore *float64 `json:"threadsPerCore" yaml:"threadsPerCore"`
 }
 
@@ -26442,8 +31594,10 @@ type ProcessorFeatures struct {
 //   })
 //   proxy.grantConnect(role, jsii.String("admin"))
 //
+// Experimental.
 type ProxyTarget interface {
 	// Bind this target to the specified database proxy.
+	// Experimental.
 	Bind(proxy DatabaseProxy) *ProxyTargetConfig
 }
 
@@ -26453,13 +31607,14 @@ type jsiiProxy_ProxyTarget struct {
 }
 
 // From cluster.
+// Experimental.
 func ProxyTarget_FromCluster(cluster IDatabaseCluster) ProxyTarget {
 	_init_.Initialize()
 
 	var returns ProxyTarget
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.ProxyTarget",
+		"monocdk.aws_rds.ProxyTarget",
 		"fromCluster",
 		[]interface{}{cluster},
 		&returns,
@@ -26469,13 +31624,14 @@ func ProxyTarget_FromCluster(cluster IDatabaseCluster) ProxyTarget {
 }
 
 // From instance.
+// Experimental.
 func ProxyTarget_FromInstance(instance IDatabaseInstance) ProxyTarget {
 	_init_.Initialize()
 
 	var returns ProxyTarget
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.ProxyTarget",
+		"monocdk.aws_rds.ProxyTarget",
 		"fromInstance",
 		[]interface{}{instance},
 		&returns,
@@ -26516,16 +31672,20 @@ func (p *jsiiProxy_ProxyTarget) Bind(proxy DatabaseProxy) *ProxyTargetConfig {
 //   	},
 //   }
 //
+// Experimental.
 type ProxyTargetConfig struct {
 	// The engine family of the database instance or cluster this proxy connects with.
+	// Experimental.
 	EngineFamily *string `json:"engineFamily" yaml:"engineFamily"`
 	// The database clusters to which this proxy connects.
 	//
 	// Either this or `dbInstances` will be set and the other `undefined`.
+	// Experimental.
 	DbClusters *[]IDatabaseCluster `json:"dbClusters" yaml:"dbClusters"`
 	// The database instances to which this proxy connects.
 	//
 	// Either this or `dbClusters` will be set and the other `undefined`.
+	// Experimental.
 	DbInstances *[]IDatabaseInstance `json:"dbInstances" yaml:"dbInstances"`
 }
 
@@ -26538,8 +31698,10 @@ type ProxyTargetConfig struct {
 //   	secret: myImportedSecret,
 //   })
 //
+// Experimental.
 type RotationMultiUserOptions struct {
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
+	// Experimental.
 	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter" yaml:"automaticallyAfter"`
 	// The VPC interface endpoint to use for the Secrets Manager API.
 	//
@@ -26547,10 +31709,13 @@ type RotationMultiUserOptions struct {
 	// need to specify an endpoint. The standard Secrets Manager DNS hostname the Secrets Manager
 	// CLI and SDKs use by default (https://secretsmanager.<region>.amazonaws.com) automatically
 	// resolves to your VPC endpoint.
+	// Experimental.
 	Endpoint awsec2.IInterfaceVpcEndpoint `json:"endpoint" yaml:"endpoint"`
 	// Specifies characters to not include in generated passwords.
+	// Experimental.
 	ExcludeCharacters *string `json:"excludeCharacters" yaml:"excludeCharacters"`
 	// Where to place the rotation Lambda function.
+	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The secret to rotate.
 	//
@@ -26566,6 +31731,7 @@ type RotationMultiUserOptions struct {
 	//    "masterarn": <required: the arn of the master secret which will be used to create users/change passwords>
 	// }
 	// ```.
+	// Experimental.
 	Secret awssecretsmanager.ISecret `json:"secret" yaml:"secret"`
 }
 
@@ -26581,8 +31747,10 @@ type RotationMultiUserOptions struct {
 //   	excludeCharacters: jsii.String("!@#$%^&*"),
 //   })
 //
+// Experimental.
 type RotationSingleUserOptions struct {
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
+	// Experimental.
 	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter" yaml:"automaticallyAfter"`
 	// The VPC interface endpoint to use for the Secrets Manager API.
 	//
@@ -26590,10 +31758,13 @@ type RotationSingleUserOptions struct {
 	// need to specify an endpoint. The standard Secrets Manager DNS hostname the Secrets Manager
 	// CLI and SDKs use by default (https://secretsmanager.<region>.amazonaws.com) automatically
 	// resolves to your VPC endpoint.
+	// Experimental.
 	Endpoint awsec2.IInterfaceVpcEndpoint `json:"endpoint" yaml:"endpoint"`
 	// Specifies characters to not include in generated passwords.
+	// Experimental.
 	ExcludeCharacters *string `json:"excludeCharacters" yaml:"excludeCharacters"`
 	// Where to place the rotation Lambda function.
+	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
@@ -26621,20 +31792,28 @@ type RotationSingleUserOptions struct {
 //   })
 //   cluster.grantDataApiAccess(fn)
 //
+// Experimental.
 type ServerlessCluster interface {
 	awscdk.Resource
 	IServerlessCluster
 	// The ARN of the cluster.
+	// Experimental.
 	ClusterArn() *string
 	// The endpoint to use for read/write operations.
+	// Experimental.
 	ClusterEndpoint() Endpoint
 	// Identifier of the cluster.
+	// Experimental.
 	ClusterIdentifier() *string
 	// The endpoint to use for read/write operations.
+	// Experimental.
 	ClusterReadEndpoint() Endpoint
 	// Access to the network connections.
+	// Experimental.
 	Connections() awsec2.Connections
+	// Experimental.
 	EnableDataApi() *bool
+	// Experimental.
 	SetEnableDataApi(val *bool)
 	// The environment this resource belongs to.
 	//
@@ -26644,10 +31823,13 @@ type ServerlessCluster interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
+	// Experimental.
 	NewCfnProps() *CfnDBClusterProps
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -26655,15 +31837,21 @@ type ServerlessCluster interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The secret attached to this cluster.
+	// Experimental.
 	Secret() awssecretsmanager.ISecret
+	// Experimental.
 	SecurityGroups() *[]awsec2.ISecurityGroup
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// Adds the multi user rotation to this cluster.
+	// Experimental.
 	AddRotationMultiUser(id *string, options *RotationMultiUserOptions) awssecretsmanager.SecretRotation
 	// Adds the single user rotation of the master password to this cluster.
+	// Experimental.
 	AddRotationSingleUser(options *RotationSingleUserOptions) awssecretsmanager.SecretRotation
 	// Apply the given removal policy to this resource.
 	//
@@ -26674,9 +31862,12 @@ type ServerlessCluster interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Renders the secret attachment target specifications.
+	// Experimental.
 	AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -26684,17 +31875,69 @@ type ServerlessCluster interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity to access to the Data API, including read access to the secret attached to the cluster if present.
+	// Experimental.
 	GrantDataApiAccess(grantee awsiam.IGrantable) awsiam.Grant
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ServerlessCluster
@@ -26783,8 +32026,8 @@ func (j *jsiiProxy_ServerlessCluster) NewCfnProps() *CfnDBClusterProps {
 	return returns
 }
 
-func (j *jsiiProxy_ServerlessCluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ServerlessCluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -26834,13 +32077,14 @@ func (j *jsiiProxy_ServerlessCluster) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewServerlessCluster(scope constructs.Construct, id *string, props *ServerlessClusterProps) ServerlessCluster {
 	_init_.Initialize()
 
 	j := jsiiProxy_ServerlessCluster{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.ServerlessCluster",
+		"monocdk.aws_rds.ServerlessCluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -26848,11 +32092,12 @@ func NewServerlessCluster(scope constructs.Construct, id *string, props *Serverl
 	return &j
 }
 
+// Experimental.
 func NewServerlessCluster_Override(s ServerlessCluster, scope constructs.Construct, id *string, props *ServerlessClusterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.ServerlessCluster",
+		"monocdk.aws_rds.ServerlessCluster",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -26867,13 +32112,14 @@ func (j *jsiiProxy_ServerlessCluster) SetEnableDataApi(val *bool) {
 }
 
 // Import an existing DatabaseCluster from properties.
+// Experimental.
 func ServerlessCluster_FromServerlessClusterAttributes(scope constructs.Construct, id *string, attrs *ServerlessClusterAttributes) IServerlessCluster {
 	_init_.Initialize()
 
 	var returns IServerlessCluster
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.ServerlessCluster",
+		"monocdk.aws_rds.ServerlessCluster",
 		"fromServerlessClusterAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -26882,17 +32128,15 @@ func ServerlessCluster_FromServerlessClusterAttributes(scope constructs.Construc
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func ServerlessCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.ServerlessCluster",
+		"monocdk.aws_rds.ServerlessCluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -26902,13 +32146,14 @@ func ServerlessCluster_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func ServerlessCluster_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func ServerlessCluster_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.ServerlessCluster",
+		"monocdk.aws_rds.ServerlessCluster",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -27016,12 +32261,70 @@ func (s *jsiiProxy_ServerlessCluster) GrantDataApiAccess(grantee awsiam.IGrantab
 	return returns
 }
 
+func (s *jsiiProxy_ServerlessCluster) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_ServerlessCluster) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (s *jsiiProxy_ServerlessCluster) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ServerlessCluster) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_ServerlessCluster) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (s *jsiiProxy_ServerlessCluster) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		s,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ServerlessCluster) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -27049,18 +32352,25 @@ func (s *jsiiProxy_ServerlessCluster) ToString() *string {
 //   	},
 //   }
 //
+// Experimental.
 type ServerlessClusterAttributes struct {
 	// Identifier for the cluster.
+	// Experimental.
 	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// Cluster endpoint address.
+	// Experimental.
 	ClusterEndpointAddress *string `json:"clusterEndpointAddress" yaml:"clusterEndpointAddress"`
 	// The database port.
+	// Experimental.
 	Port *float64 `json:"port" yaml:"port"`
 	// Reader endpoint address.
+	// Experimental.
 	ReaderEndpointAddress *string `json:"readerEndpointAddress" yaml:"readerEndpointAddress"`
 	// The secret attached to the database cluster.
+	// Experimental.
 	Secret awssecretsmanager.ISecret `json:"secret" yaml:"secret"`
 	// The security groups of the database cluster.
+	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 }
 
@@ -27074,20 +32384,28 @@ type ServerlessClusterAttributes struct {
 //   	snapshotIdentifier: jsii.String("mySnapshot"),
 //   })
 //
+// Experimental.
 type ServerlessClusterFromSnapshot interface {
 	awscdk.Resource
 	IServerlessCluster
 	// The ARN of the cluster.
+	// Experimental.
 	ClusterArn() *string
 	// The endpoint to use for read/write operations.
+	// Experimental.
 	ClusterEndpoint() Endpoint
 	// Identifier of the cluster.
+	// Experimental.
 	ClusterIdentifier() *string
 	// The endpoint to use for read/write operations.
+	// Experimental.
 	ClusterReadEndpoint() Endpoint
 	// Access to the network connections.
+	// Experimental.
 	Connections() awsec2.Connections
+	// Experimental.
 	EnableDataApi() *bool
+	// Experimental.
 	SetEnableDataApi(val *bool)
 	// The environment this resource belongs to.
 	//
@@ -27097,10 +32415,13 @@ type ServerlessClusterFromSnapshot interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
+	// Experimental.
 	NewCfnProps() *CfnDBClusterProps
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -27108,11 +32429,15 @@ type ServerlessClusterFromSnapshot interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The secret attached to this cluster.
+	// Experimental.
 	Secret() awssecretsmanager.ISecret
+	// Experimental.
 	SecurityGroups() *[]awsec2.ISecurityGroup
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
 	//
@@ -27123,9 +32448,12 @@ type ServerlessClusterFromSnapshot interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Renders the secret attachment target specifications.
+	// Experimental.
 	AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -27133,17 +32461,69 @@ type ServerlessClusterFromSnapshot interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity to access to the Data API, including read access to the secret attached to the cluster if present.
+	// Experimental.
 	GrantDataApiAccess(grantee awsiam.IGrantable) awsiam.Grant
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ServerlessClusterFromSnapshot
@@ -27232,8 +32612,8 @@ func (j *jsiiProxy_ServerlessClusterFromSnapshot) NewCfnProps() *CfnDBClusterPro
 	return returns
 }
 
-func (j *jsiiProxy_ServerlessClusterFromSnapshot) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ServerlessClusterFromSnapshot) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -27283,13 +32663,14 @@ func (j *jsiiProxy_ServerlessClusterFromSnapshot) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewServerlessClusterFromSnapshot(scope constructs.Construct, id *string, props *ServerlessClusterFromSnapshotProps) ServerlessClusterFromSnapshot {
 	_init_.Initialize()
 
 	j := jsiiProxy_ServerlessClusterFromSnapshot{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.ServerlessClusterFromSnapshot",
+		"monocdk.aws_rds.ServerlessClusterFromSnapshot",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -27297,11 +32678,12 @@ func NewServerlessClusterFromSnapshot(scope constructs.Construct, id *string, pr
 	return &j
 }
 
+// Experimental.
 func NewServerlessClusterFromSnapshot_Override(s ServerlessClusterFromSnapshot, scope constructs.Construct, id *string, props *ServerlessClusterFromSnapshotProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.ServerlessClusterFromSnapshot",
+		"monocdk.aws_rds.ServerlessClusterFromSnapshot",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -27315,17 +32697,15 @@ func (j *jsiiProxy_ServerlessClusterFromSnapshot) SetEnableDataApi(val *bool) {
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func ServerlessClusterFromSnapshot_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.ServerlessClusterFromSnapshot",
+		"monocdk.aws_rds.ServerlessClusterFromSnapshot",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -27335,13 +32715,14 @@ func ServerlessClusterFromSnapshot_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func ServerlessClusterFromSnapshot_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func ServerlessClusterFromSnapshot_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.ServerlessClusterFromSnapshot",
+		"monocdk.aws_rds.ServerlessClusterFromSnapshot",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -27423,12 +32804,70 @@ func (s *jsiiProxy_ServerlessClusterFromSnapshot) GrantDataApiAccess(grantee aws
 	return returns
 }
 
+func (s *jsiiProxy_ServerlessClusterFromSnapshot) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_ServerlessClusterFromSnapshot) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (s *jsiiProxy_ServerlessClusterFromSnapshot) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ServerlessClusterFromSnapshot) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_ServerlessClusterFromSnapshot) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (s *jsiiProxy_ServerlessClusterFromSnapshot) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		s,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ServerlessClusterFromSnapshot) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -27446,49 +32885,65 @@ func (s *jsiiProxy_ServerlessClusterFromSnapshot) ToString() *string {
 //   	snapshotIdentifier: jsii.String("mySnapshot"),
 //   })
 //
+// Experimental.
 type ServerlessClusterFromSnapshotProps struct {
 	// What kind of database to start.
+	// Experimental.
 	Engine IClusterEngine `json:"engine" yaml:"engine"`
 	// The identifier for the DB instance snapshot or DB cluster snapshot to restore from.
 	//
 	// You can use either the name or the Amazon Resource Name (ARN) to specify a DB cluster snapshot.
 	// However, you can use only the ARN to specify a DB instance snapshot.
+	// Experimental.
 	SnapshotIdentifier *string `json:"snapshotIdentifier" yaml:"snapshotIdentifier"`
 	// The number of days during which automatic DB snapshots are retained.
 	//
 	// Automatic backup retention cannot be disabled on serverless clusters.
 	// Must be a value from 1 day to 35 days.
+	// Experimental.
 	BackupRetention awscdk.Duration `json:"backupRetention" yaml:"backupRetention"`
 	// An optional identifier for the cluster.
+	// Experimental.
 	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// Master user credentials.
 	//
 	// Note - It is not possible to change the master username for a snapshot;
 	// however, it is possible to provide (or generate) a new password.
+	// Experimental.
 	Credentials SnapshotCredentials `json:"credentials" yaml:"credentials"`
 	// Name of a database which is automatically created inside the cluster.
+	// Experimental.
 	DefaultDatabaseName *string `json:"defaultDatabaseName" yaml:"defaultDatabaseName"`
 	// Indicates whether the DB cluster should have deletion protection enabled.
+	// Experimental.
 	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// Whether to enable the Data API.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html
 	//
+	// Experimental.
 	EnableDataApi *bool `json:"enableDataApi" yaml:"enableDataApi"`
 	// Additional parameters to pass to the database engine.
+	// Experimental.
 	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// The removal policy to apply when the cluster and its instances are removed from the stack or replaced during an update.
+	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// Scaling configuration of an Aurora Serverless database cluster.
+	// Experimental.
 	Scaling *ServerlessScalingOptions `json:"scaling" yaml:"scaling"`
 	// Security group.
+	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// Existing subnet group for the cluster.
+	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup" yaml:"subnetGroup"`
 	// The VPC that this Aurora Serverless cluster has been created in.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Where to place the instances within the VPC.
 	//
 	// If provided, the `vpc` property must also be specified.
+	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
@@ -27516,43 +32971,59 @@ type ServerlessClusterFromSnapshotProps struct {
 //   })
 //   cluster.grantDataApiAccess(fn)
 //
+// Experimental.
 type ServerlessClusterProps struct {
 	// What kind of database to start.
+	// Experimental.
 	Engine IClusterEngine `json:"engine" yaml:"engine"`
 	// The number of days during which automatic DB snapshots are retained.
 	//
 	// Automatic backup retention cannot be disabled on serverless clusters.
 	// Must be a value from 1 day to 35 days.
+	// Experimental.
 	BackupRetention awscdk.Duration `json:"backupRetention" yaml:"backupRetention"`
 	// An optional identifier for the cluster.
+	// Experimental.
 	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// Credentials for the administrative user.
+	// Experimental.
 	Credentials Credentials `json:"credentials" yaml:"credentials"`
 	// Name of a database which is automatically created inside the cluster.
+	// Experimental.
 	DefaultDatabaseName *string `json:"defaultDatabaseName" yaml:"defaultDatabaseName"`
 	// Indicates whether the DB cluster should have deletion protection enabled.
+	// Experimental.
 	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// Whether to enable the Data API.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html
 	//
+	// Experimental.
 	EnableDataApi *bool `json:"enableDataApi" yaml:"enableDataApi"`
 	// Additional parameters to pass to the database engine.
+	// Experimental.
 	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// The removal policy to apply when the cluster and its instances are removed from the stack or replaced during an update.
+	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// Scaling configuration of an Aurora Serverless database cluster.
+	// Experimental.
 	Scaling *ServerlessScalingOptions `json:"scaling" yaml:"scaling"`
 	// Security group.
+	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The KMS key for storage encryption.
+	// Experimental.
 	StorageEncryptionKey awskms.IKey `json:"storageEncryptionKey" yaml:"storageEncryptionKey"`
 	// Existing subnet group for the cluster.
+	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup" yaml:"subnetGroup"`
 	// The VPC that this Aurora Serverless cluster has been created in.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Where to place the instances within the VPC.
 	//
 	// If provided, the `vpc` property must also be specified.
+	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
@@ -27574,6 +33045,7 @@ type ServerlessClusterProps struct {
 //   	},
 //   })
 //
+// Experimental.
 type ServerlessScalingOptions struct {
 	// The time before an Aurora Serverless database cluster is paused.
 	//
@@ -27585,10 +33057,13 @@ type ServerlessScalingOptions struct {
 	// is a request to connect to it.
 	//
 	// Set to 0 to disable.
+	// Experimental.
 	AutoPause awscdk.Duration `json:"autoPause" yaml:"autoPause"`
 	// The maximum capacity for an Aurora Serverless database cluster.
+	// Experimental.
 	MaxCapacity AuroraCapacityUnit `json:"maxCapacity" yaml:"maxCapacity"`
 	// The minimum capacity for an Aurora Serverless database cluster.
+	// Experimental.
 	MinCapacity AuroraCapacityUnit `json:"minCapacity" yaml:"minCapacity"`
 }
 
@@ -27600,8 +33075,10 @@ type ServerlessScalingOptions struct {
 //
 // See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html#rds-proxy-pinning
 //
+// Experimental.
 type SessionPinningFilter interface {
 	// Filter name.
+	// Experimental.
 	FilterName() *string
 }
 
@@ -27622,13 +33099,14 @@ func (j *jsiiProxy_SessionPinningFilter) FilterName() *string {
 
 
 // custom filter.
+// Experimental.
 func SessionPinningFilter_Of(filterName *string) SessionPinningFilter {
 	_init_.Initialize()
 
 	var returns SessionPinningFilter
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.SessionPinningFilter",
+		"monocdk.aws_rds.SessionPinningFilter",
 		"of",
 		[]interface{}{filterName},
 		&returns,
@@ -27641,7 +33119,7 @@ func SessionPinningFilter_EXCLUDE_VARIABLE_SETS() SessionPinningFilter {
 	_init_.Initialize()
 	var returns SessionPinningFilter
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SessionPinningFilter",
+		"monocdk.aws_rds.SessionPinningFilter",
 		"EXCLUDE_VARIABLE_SETS",
 		&returns,
 	)
@@ -27667,29 +33145,38 @@ func SessionPinningFilter_EXCLUDE_VARIABLE_SETS() SessionPinningFilter {
 //   	},
 //   })
 //
+// Experimental.
 type SnapshotCredentials interface {
 	// KMS encryption key to encrypt the generated secret.
+	// Experimental.
 	EncryptionKey() awskms.IKey
 	// The characters to exclude from the generated password.
 	//
 	// Only used if {@link generatePassword} if true.
+	// Experimental.
 	ExcludeCharacters() *string
 	// Whether a new password should be generated.
+	// Experimental.
 	GeneratePassword() *bool
 	// The master user password.
 	//
 	// Do not put passwords in your CDK code directly.
+	// Experimental.
 	Password() awscdk.SecretValue
 	// Whether to replace the generated secret when the criteria for the password change.
+	// Experimental.
 	ReplaceOnPasswordCriteriaChanges() *bool
 	// A list of regions where to replicate the generated secret.
+	// Experimental.
 	ReplicaRegions() *[]*awssecretsmanager.ReplicaRegion
 	// Secret used to instantiate this Login.
+	// Experimental.
 	Secret() awssecretsmanager.ISecret
 	// The master user name.
 	//
 	// Must be the **current** master user name of the snapshot.
 	// It is not possible to change the master user name of a RDS instance.
+	// Experimental.
 	Username() *string
 }
 
@@ -27779,11 +33266,12 @@ func (j *jsiiProxy_SnapshotCredentials) Username() *string {
 }
 
 
+// Experimental.
 func NewSnapshotCredentials_Override(s SnapshotCredentials) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.SnapshotCredentials",
+		"monocdk.aws_rds.SnapshotCredentials",
 		nil, // no parameters
 		s,
 	)
@@ -27794,13 +33282,14 @@ func NewSnapshotCredentials_Override(s SnapshotCredentials) {
 // Note - The username must match the existing master username of the snapshot.
 //
 // NOTE: use `fromGeneratedSecret()` for new Clusters and Instances.
+// Experimental.
 func SnapshotCredentials_FromGeneratedPassword(username *string, options *SnapshotCredentialsFromGeneratedPasswordOptions) SnapshotCredentials {
 	_init_.Initialize()
 
 	var returns SnapshotCredentials
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.SnapshotCredentials",
+		"monocdk.aws_rds.SnapshotCredentials",
 		"fromGeneratedPassword",
 		[]interface{}{username, options},
 		&returns,
@@ -27814,13 +33303,14 @@ func SnapshotCredentials_FromGeneratedPassword(username *string, options *Snapsh
 // The new credentials are stored in Secrets Manager.
 //
 // Note - The username must match the existing master username of the snapshot.
+// Experimental.
 func SnapshotCredentials_FromGeneratedSecret(username *string, options *SnapshotCredentialsFromGeneratedPasswordOptions) SnapshotCredentials {
 	_init_.Initialize()
 
 	var returns SnapshotCredentials
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.SnapshotCredentials",
+		"monocdk.aws_rds.SnapshotCredentials",
 		"fromGeneratedSecret",
 		[]interface{}{username, options},
 		&returns,
@@ -27830,13 +33320,14 @@ func SnapshotCredentials_FromGeneratedSecret(username *string, options *Snapshot
 }
 
 // Update the snapshot login with an existing password.
+// Experimental.
 func SnapshotCredentials_FromPassword(password awscdk.SecretValue) SnapshotCredentials {
 	_init_.Initialize()
 
 	var returns SnapshotCredentials
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.SnapshotCredentials",
+		"monocdk.aws_rds.SnapshotCredentials",
 		"fromPassword",
 		[]interface{}{password},
 		&returns,
@@ -27854,13 +33345,14 @@ func SnapshotCredentials_FromPassword(password awscdk.SecretValue) SnapshotCrede
 //    "password": <required: password>,
 // }
 // ```.
+// Experimental.
 func SnapshotCredentials_FromSecret(secret awssecretsmanager.ISecret) SnapshotCredentials {
 	_init_.Initialize()
 
 	var returns SnapshotCredentials
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.SnapshotCredentials",
+		"monocdk.aws_rds.SnapshotCredentials",
 		"fromSecret",
 		[]interface{}{secret},
 		&returns,
@@ -27888,12 +33380,16 @@ func SnapshotCredentials_FromSecret(secret awssecretsmanager.ISecret) SnapshotCr
 //   	},
 //   }
 //
+// Experimental.
 type SnapshotCredentialsFromGeneratedPasswordOptions struct {
 	// KMS encryption key to encrypt the generated secret.
+	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// The characters to exclude from the generated password.
+	// Experimental.
 	ExcludeCharacters *string `json:"excludeCharacters" yaml:"excludeCharacters"`
 	// A list of regions where to replicate this secret.
+	// Experimental.
 	ReplicaRegions *[]*awssecretsmanager.ReplicaRegion `json:"replicaRegions" yaml:"replicaRegions"`
 }
 
@@ -27919,8 +33415,10 @@ type SnapshotCredentialsFromGeneratedPasswordOptions struct {
 //   	parameterGroup: parameterGroup,
 //   })
 //
+// Experimental.
 type SqlServerEeInstanceEngineProps struct {
 	// The exact version of the engine to use.
+	// Experimental.
 	Version SqlServerEngineVersion `json:"version" yaml:"version"`
 }
 
@@ -27944,10 +33442,13 @@ type SqlServerEeInstanceEngineProps struct {
 //   	parameterGroup: parameterGroup,
 //   })
 //
+// Experimental.
 type SqlServerEngineVersion interface {
 	// The full version string, for example, "15.00.3049.1.v1".
+	// Experimental.
 	SqlServerFullVersion() *string
 	// The major version of the engine, for example, "15.00".
+	// Experimental.
 	SqlServerMajorVersion() *string
 }
 
@@ -27978,13 +33479,14 @@ func (j *jsiiProxy_SqlServerEngineVersion) SqlServerMajorVersion() *string {
 
 
 // Create a new SqlServerEngineVersion with an arbitrary version.
+// Experimental.
 func SqlServerEngineVersion_Of(sqlServerFullVersion *string, sqlServerMajorVersion *string) SqlServerEngineVersion {
 	_init_.Initialize()
 
 	var returns SqlServerEngineVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"of",
 		[]interface{}{sqlServerFullVersion, sqlServerMajorVersion},
 		&returns,
@@ -27997,7 +33499,7 @@ func SqlServerEngineVersion_VER_11() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_11",
 		&returns,
 	)
@@ -28008,7 +33510,7 @@ func SqlServerEngineVersion_VER_11_00_5058_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_11_00_5058_0_V1",
 		&returns,
 	)
@@ -28019,7 +33521,7 @@ func SqlServerEngineVersion_VER_11_00_6020_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_11_00_6020_0_V1",
 		&returns,
 	)
@@ -28030,7 +33532,7 @@ func SqlServerEngineVersion_VER_11_00_6594_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_11_00_6594_0_V1",
 		&returns,
 	)
@@ -28041,7 +33543,7 @@ func SqlServerEngineVersion_VER_11_00_7462_6_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_11_00_7462_6_V1",
 		&returns,
 	)
@@ -28052,7 +33554,7 @@ func SqlServerEngineVersion_VER_11_00_7493_4_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_11_00_7493_4_V1",
 		&returns,
 	)
@@ -28063,7 +33565,7 @@ func SqlServerEngineVersion_VER_12() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_12",
 		&returns,
 	)
@@ -28074,7 +33576,7 @@ func SqlServerEngineVersion_VER_12_00_5000_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_12_00_5000_0_V1",
 		&returns,
 	)
@@ -28085,7 +33587,7 @@ func SqlServerEngineVersion_VER_12_00_5546_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_12_00_5546_0_V1",
 		&returns,
 	)
@@ -28096,7 +33598,7 @@ func SqlServerEngineVersion_VER_12_00_5571_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_12_00_5571_0_V1",
 		&returns,
 	)
@@ -28107,7 +33609,7 @@ func SqlServerEngineVersion_VER_12_00_6293_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_12_00_6293_0_V1",
 		&returns,
 	)
@@ -28118,7 +33620,7 @@ func SqlServerEngineVersion_VER_12_00_6329_1_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_12_00_6329_1_V1",
 		&returns,
 	)
@@ -28129,7 +33631,7 @@ func SqlServerEngineVersion_VER_13() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13",
 		&returns,
 	)
@@ -28140,7 +33642,7 @@ func SqlServerEngineVersion_VER_13_00_2164_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13_00_2164_0_V1",
 		&returns,
 	)
@@ -28151,7 +33653,7 @@ func SqlServerEngineVersion_VER_13_00_4422_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13_00_4422_0_V1",
 		&returns,
 	)
@@ -28162,7 +33664,7 @@ func SqlServerEngineVersion_VER_13_00_4451_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13_00_4451_0_V1",
 		&returns,
 	)
@@ -28173,7 +33675,7 @@ func SqlServerEngineVersion_VER_13_00_4466_4_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13_00_4466_4_V1",
 		&returns,
 	)
@@ -28184,7 +33686,7 @@ func SqlServerEngineVersion_VER_13_00_4522_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13_00_4522_0_V1",
 		&returns,
 	)
@@ -28195,7 +33697,7 @@ func SqlServerEngineVersion_VER_13_00_5216_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13_00_5216_0_V1",
 		&returns,
 	)
@@ -28206,7 +33708,7 @@ func SqlServerEngineVersion_VER_13_00_5292_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13_00_5292_0_V1",
 		&returns,
 	)
@@ -28217,7 +33719,7 @@ func SqlServerEngineVersion_VER_13_00_5366_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13_00_5366_0_V1",
 		&returns,
 	)
@@ -28228,7 +33730,7 @@ func SqlServerEngineVersion_VER_13_00_5426_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13_00_5426_0_V1",
 		&returns,
 	)
@@ -28239,7 +33741,7 @@ func SqlServerEngineVersion_VER_13_00_5598_27_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13_00_5598_27_V1",
 		&returns,
 	)
@@ -28250,7 +33752,7 @@ func SqlServerEngineVersion_VER_13_00_5820_21_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13_00_5820_21_V1",
 		&returns,
 	)
@@ -28261,7 +33763,7 @@ func SqlServerEngineVersion_VER_13_00_5850_14_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13_00_5850_14_V1",
 		&returns,
 	)
@@ -28272,7 +33774,7 @@ func SqlServerEngineVersion_VER_13_00_5882_1_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13_00_5882_1_V1",
 		&returns,
 	)
@@ -28283,7 +33785,7 @@ func SqlServerEngineVersion_VER_14() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_14",
 		&returns,
 	)
@@ -28294,7 +33796,7 @@ func SqlServerEngineVersion_VER_14_00_1000_169_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_14_00_1000_169_V1",
 		&returns,
 	)
@@ -28305,7 +33807,7 @@ func SqlServerEngineVersion_VER_14_00_3015_40_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_14_00_3015_40_V1",
 		&returns,
 	)
@@ -28316,7 +33818,7 @@ func SqlServerEngineVersion_VER_14_00_3035_2_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_14_00_3035_2_V1",
 		&returns,
 	)
@@ -28327,7 +33829,7 @@ func SqlServerEngineVersion_VER_14_00_3049_1_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_14_00_3049_1_V1",
 		&returns,
 	)
@@ -28338,7 +33840,7 @@ func SqlServerEngineVersion_VER_14_00_3192_2_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_14_00_3192_2_V1",
 		&returns,
 	)
@@ -28349,7 +33851,7 @@ func SqlServerEngineVersion_VER_14_00_3223_3_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_14_00_3223_3_V1",
 		&returns,
 	)
@@ -28360,7 +33862,7 @@ func SqlServerEngineVersion_VER_14_00_3281_6_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_14_00_3281_6_V1",
 		&returns,
 	)
@@ -28371,7 +33873,7 @@ func SqlServerEngineVersion_VER_14_00_3294_2_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_14_00_3294_2_V1",
 		&returns,
 	)
@@ -28382,7 +33884,7 @@ func SqlServerEngineVersion_VER_14_00_3356_20_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_14_00_3356_20_V1",
 		&returns,
 	)
@@ -28393,7 +33895,7 @@ func SqlServerEngineVersion_VER_14_00_3381_3_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_14_00_3381_3_V1",
 		&returns,
 	)
@@ -28404,7 +33906,7 @@ func SqlServerEngineVersion_VER_15() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_15",
 		&returns,
 	)
@@ -28415,8 +33917,19 @@ func SqlServerEngineVersion_VER_15_00_4043_16_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_15_00_4043_16_V1",
+		&returns,
+	)
+	return returns
+}
+
+func SqlServerEngineVersion_VER_15_00_4043_23_V1() SqlServerEngineVersion {
+	_init_.Initialize()
+	var returns SqlServerEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.SqlServerEngineVersion",
+		"VER_15_00_4043_23_V1",
 		&returns,
 	)
 	return returns
@@ -28426,7 +33939,7 @@ func SqlServerEngineVersion_VER_15_00_4073_23_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_15_00_4073_23_V1",
 		&returns,
 	)
@@ -28445,8 +33958,10 @@ func SqlServerEngineVersion_VER_15_00_4073_23_V1() SqlServerEngineVersion {
 //   	version: sqlServerEngineVersion,
 //   }
 //
+// Experimental.
 type SqlServerExInstanceEngineProps struct {
 	// The exact version of the engine to use.
+	// Experimental.
 	Version SqlServerEngineVersion `json:"version" yaml:"version"`
 }
 
@@ -28462,8 +33977,10 @@ type SqlServerExInstanceEngineProps struct {
 //   	version: sqlServerEngineVersion,
 //   }
 //
+// Experimental.
 type SqlServerSeInstanceEngineProps struct {
 	// The exact version of the engine to use.
+	// Experimental.
 	Version SqlServerEngineVersion `json:"version" yaml:"version"`
 }
 
@@ -28479,8 +33996,10 @@ type SqlServerSeInstanceEngineProps struct {
 //   	version: sqlServerEngineVersion,
 //   }
 //
+// Experimental.
 type SqlServerWebInstanceEngineProps struct {
 	// The exact version of the engine to use.
+	// Experimental.
 	Version SqlServerEngineVersion `json:"version" yaml:"version"`
 }
 
@@ -28578,21 +34097,25 @@ type SqlServerWebInstanceEngineProps struct {
 //   	},
 //   })
 //
+// Experimental.
 type StorageType string
 
 const (
 	// Standard.
+	// Experimental.
 	StorageType_STANDARD StorageType = "STANDARD"
 	// General purpose (SSD).
+	// Experimental.
 	StorageType_GP2 StorageType = "GP2"
 	// Provisioned IOPS (SSD).
+	// Experimental.
 	StorageType_IO1 StorageType = "IO1"
 )
 
 // Class for creating a RDS DB subnet group.
 //
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import rds "github.com/aws/aws-cdk-go/awscdk/aws_rds"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import rds "github.com/aws/aws-cdk-go/awscdk/aws_rds"
 //
 //   var subnet subnet
 //   var subnetFilter subnetFilter
@@ -28602,7 +34125,7 @@ const (
 //   	vpc: vpc,
 //
 //   	// the properties below are optional
-//   	removalPolicy: cdk.removalPolicy_DESTROY,
+//   	removalPolicy: monocdk.removalPolicy_DESTROY,
 //   	subnetGroupName: jsii.String("subnetGroupName"),
 //   	vpcSubnets: &subnetSelection{
 //   		availabilityZones: []*string{
@@ -28613,13 +34136,15 @@ const (
 //   			subnetFilter,
 //   		},
 //   		subnetGroupName: jsii.String("subnetGroupName"),
+//   		subnetName: jsii.String("subnetName"),
 //   		subnets: []iSubnet{
 //   			subnet,
 //   		},
-//   		subnetType: ec2.subnetType_PRIVATE_ISOLATED,
+//   		subnetType: ec2.subnetType_ISOLATED,
 //   	},
 //   })
 //
+// Experimental.
 type SubnetGroup interface {
 	awscdk.Resource
 	ISubnetGroup
@@ -28631,9 +34156,11 @@ type SubnetGroup interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -28641,10 +34168,13 @@ type SubnetGroup interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// The name of the subnet group.
+	// Experimental.
 	SubnetGroupName() *string
 	// Apply the given removal policy to this resource.
 	//
@@ -28655,7 +34185,9 @@ type SubnetGroup interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -28663,15 +34195,66 @@ type SubnetGroup interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for SubnetGroup
@@ -28690,8 +34273,8 @@ func (j *jsiiProxy_SubnetGroup) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_SubnetGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_SubnetGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -28731,13 +34314,14 @@ func (j *jsiiProxy_SubnetGroup) SubnetGroupName() *string {
 }
 
 
+// Experimental.
 func NewSubnetGroup(scope constructs.Construct, id *string, props *SubnetGroupProps) SubnetGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_SubnetGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.SubnetGroup",
+		"monocdk.aws_rds.SubnetGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -28745,24 +34329,26 @@ func NewSubnetGroup(scope constructs.Construct, id *string, props *SubnetGroupPr
 	return &j
 }
 
+// Experimental.
 func NewSubnetGroup_Override(s SubnetGroup, scope constructs.Construct, id *string, props *SubnetGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.SubnetGroup",
+		"monocdk.aws_rds.SubnetGroup",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
 // Imports an existing subnet group by name.
+// Experimental.
 func SubnetGroup_FromSubnetGroupName(scope constructs.Construct, id *string, subnetGroupName *string) ISubnetGroup {
 	_init_.Initialize()
 
 	var returns ISubnetGroup
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.SubnetGroup",
+		"monocdk.aws_rds.SubnetGroup",
 		"fromSubnetGroupName",
 		[]interface{}{scope, id, subnetGroupName},
 		&returns,
@@ -28771,17 +34357,15 @@ func SubnetGroup_FromSubnetGroupName(scope constructs.Construct, id *string, sub
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Return whether the given object is a Construct.
+// Experimental.
 func SubnetGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.SubnetGroup",
+		"monocdk.aws_rds.SubnetGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -28791,13 +34375,14 @@ func SubnetGroup_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func SubnetGroup_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func SubnetGroup_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.SubnetGroup",
+		"monocdk.aws_rds.SubnetGroup",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -28853,6 +34438,51 @@ func (s *jsiiProxy_SubnetGroup) GetResourceNameAttribute(nameAttr *string) *stri
 	return returns
 }
 
+func (s *jsiiProxy_SubnetGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_SubnetGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (s *jsiiProxy_SubnetGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_SubnetGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_SubnetGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (s *jsiiProxy_SubnetGroup) ToString() *string {
 	var returns *string
 
@@ -28866,10 +34496,23 @@ func (s *jsiiProxy_SubnetGroup) ToString() *string {
 	return returns
 }
 
+func (s *jsiiProxy_SubnetGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties for creating a SubnetGroup.
 //
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import rds "github.com/aws/aws-cdk-go/awscdk/aws_rds"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import rds "github.com/aws/aws-cdk-go/awscdk/aws_rds"
 //
 //   var subnet subnet
 //   var subnetFilter subnetFilter
@@ -28879,7 +34522,7 @@ func (s *jsiiProxy_SubnetGroup) ToString() *string {
 //   	vpc: vpc,
 //
 //   	// the properties below are optional
-//   	removalPolicy: cdk.removalPolicy_DESTROY,
+//   	removalPolicy: monocdk.removalPolicy_DESTROY,
 //   	subnetGroupName: jsii.String("subnetGroupName"),
 //   	vpcSubnets: &subnetSelection{
 //   		availabilityZones: []*string{
@@ -28890,23 +34533,30 @@ func (s *jsiiProxy_SubnetGroup) ToString() *string {
 //   			subnetFilter,
 //   		},
 //   		subnetGroupName: jsii.String("subnetGroupName"),
+//   		subnetName: jsii.String("subnetName"),
 //   		subnets: []iSubnet{
 //   			subnet,
 //   		},
-//   		subnetType: ec2.subnetType_PRIVATE_ISOLATED,
+//   		subnetType: ec2.subnetType_ISOLATED,
 //   	},
 //   }
 //
+// Experimental.
 type SubnetGroupProps struct {
 	// Description of the subnet group.
+	// Experimental.
 	Description *string `json:"description" yaml:"description"`
 	// The VPC to place the subnet group in.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The removal policy to apply when the subnet group are removed from the stack or replaced during an update.
+	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// The name of the subnet group.
+	// Experimental.
 	SubnetGroupName *string `json:"subnetGroupName" yaml:"subnetGroupName"`
 	// Which subnets within the VPC to associate with this group.
+	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
