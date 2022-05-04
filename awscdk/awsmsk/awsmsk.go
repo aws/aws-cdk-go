@@ -1,49 +1,13 @@
 package awsmsk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsacmpca"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/awsmsk/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsmsk/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
-
-// Configuration details related to broker logs.
-//
-// Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
-//
-//   var bucket bucket
-//   var logGroup logGroup
-//   brokerLogging := &brokerLogging{
-//   	cloudwatchLogGroup: logGroup,
-//   	firehoseDeliveryStreamName: jsii.String("firehoseDeliveryStreamName"),
-//   	s3: &s3LoggingConfiguration{
-//   		bucket: bucket,
-//
-//   		// the properties below are optional
-//   		prefix: jsii.String("prefix"),
-//   	},
-//   }
-//
-// Experimental.
-type BrokerLogging struct {
-	// The CloudWatch Logs group that is the destination for broker logs.
-	// Experimental.
-	CloudwatchLogGroup awslogs.ILogGroup `json:"cloudwatchLogGroup" yaml:"cloudwatchLogGroup"`
-	// The Kinesis Data Firehose delivery stream that is the destination for broker logs.
-	// Experimental.
-	FirehoseDeliveryStreamName *string `json:"firehoseDeliveryStreamName" yaml:"firehoseDeliveryStreamName"`
-	// Details of the Amazon S3 destination for broker logs.
-	// Experimental.
-	S3 *S3LoggingConfiguration `json:"s3" yaml:"s3"`
-}
 
 // A CloudFormation `AWS::MSK::BatchScramSecret`.
 //
@@ -64,11 +28,9 @@ type CfnBatchScramSecret interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// The Amazon Resource Name (ARN) of the MSK cluster.
 	ClusterArn() *string
@@ -76,7 +38,6 @@ type CfnBatchScramSecret interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -87,16 +48,13 @@ type CfnBatchScramSecret interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// A list of Amazon Secrets Manager secret ARNs.
 	SecretArnList() *[]*string
@@ -104,22 +62,18 @@ type CfnBatchScramSecret interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -128,7 +82,6 @@ type CfnBatchScramSecret interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -173,15 +126,12 @@ type CfnBatchScramSecret interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -192,13 +142,11 @@ type CfnBatchScramSecret interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -207,74 +155,21 @@ type CfnBatchScramSecret interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -344,8 +239,8 @@ func (j *jsiiProxy_CfnBatchScramSecret) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBatchScramSecret) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnBatchScramSecret) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -396,13 +291,13 @@ func (j *jsiiProxy_CfnBatchScramSecret) UpdatedProperites() *map[string]interfac
 
 
 // Create a new `AWS::MSK::BatchScramSecret`.
-func NewCfnBatchScramSecret(scope awscdk.Construct, id *string, props *CfnBatchScramSecretProps) CfnBatchScramSecret {
+func NewCfnBatchScramSecret(scope constructs.Construct, id *string, props *CfnBatchScramSecretProps) CfnBatchScramSecret {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnBatchScramSecret{}
 
 	_jsii_.Create(
-		"monocdk.aws_msk.CfnBatchScramSecret",
+		"aws-cdk-lib.aws_msk.CfnBatchScramSecret",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -411,11 +306,11 @@ func NewCfnBatchScramSecret(scope awscdk.Construct, id *string, props *CfnBatchS
 }
 
 // Create a new `AWS::MSK::BatchScramSecret`.
-func NewCfnBatchScramSecret_Override(c CfnBatchScramSecret, scope awscdk.Construct, id *string, props *CfnBatchScramSecretProps) {
+func NewCfnBatchScramSecret_Override(c CfnBatchScramSecret, scope constructs.Construct, id *string, props *CfnBatchScramSecretProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_msk.CfnBatchScramSecret",
+		"aws-cdk-lib.aws_msk.CfnBatchScramSecret",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -443,14 +338,13 @@ func (j *jsiiProxy_CfnBatchScramSecret) SetSecretArnList(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnBatchScramSecret_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_msk.CfnBatchScramSecret",
+		"aws-cdk-lib.aws_msk.CfnBatchScramSecret",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -460,14 +354,13 @@ func CfnBatchScramSecret_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnBatchScramSecret_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_msk.CfnBatchScramSecret",
+		"aws-cdk-lib.aws_msk.CfnBatchScramSecret",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -476,15 +369,17 @@ func CfnBatchScramSecret_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnBatchScramSecret_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_msk.CfnBatchScramSecret",
+		"aws-cdk-lib.aws_msk.CfnBatchScramSecret",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -497,7 +392,7 @@ func CfnBatchScramSecret_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_msk.CfnBatchScramSecret",
+		"aws-cdk-lib.aws_msk.CfnBatchScramSecret",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -594,48 +489,11 @@ func (c *jsiiProxy_CfnBatchScramSecret) Inspect(inspector awscdk.TreeInspector) 
 	)
 }
 
-func (c *jsiiProxy_CfnBatchScramSecret) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnBatchScramSecret) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnBatchScramSecret) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnBatchScramSecret) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnBatchScramSecret) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -665,33 +523,12 @@ func (c *jsiiProxy_CfnBatchScramSecret) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnBatchScramSecret) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnBatchScramSecret) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnBatchScramSecret) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -847,11 +684,9 @@ type CfnCluster interface {
 	BrokerNodeGroupInfo() interface{}
 	SetBrokerNodeGroupInfo(val interface{})
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Includes information related to client authentication.
 	ClientAuthentication() interface{}
@@ -865,7 +700,6 @@ type CfnCluster interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The version of the cluster that you want to update.
 	CurrentVersion() *string
@@ -897,11 +731,9 @@ type CfnCluster interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The number of broker nodes you want in the Amazon MSK cluster.
 	//
 	// You can submit an update to increase the number of broker nodes in a cluster.
@@ -914,12 +746,10 @@ type CfnCluster interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A map of key:value pairs to apply to this resource.
 	//
@@ -929,16 +759,13 @@ type CfnCluster interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -947,7 +774,6 @@ type CfnCluster interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -992,15 +818,12 @@ type CfnCluster interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1011,13 +834,11 @@ type CfnCluster interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1026,74 +847,21 @@ type CfnCluster interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1253,8 +1021,8 @@ func (j *jsiiProxy_CfnCluster) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCluster) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnCluster) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1325,13 +1093,13 @@ func (j *jsiiProxy_CfnCluster) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::MSK::Cluster`.
-func NewCfnCluster(scope awscdk.Construct, id *string, props *CfnClusterProps) CfnCluster {
+func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProps) CfnCluster {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnCluster{}
 
 	_jsii_.Create(
-		"monocdk.aws_msk.CfnCluster",
+		"aws-cdk-lib.aws_msk.CfnCluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1340,11 +1108,11 @@ func NewCfnCluster(scope awscdk.Construct, id *string, props *CfnClusterProps) C
 }
 
 // Create a new `AWS::MSK::Cluster`.
-func NewCfnCluster_Override(c CfnCluster, scope awscdk.Construct, id *string, props *CfnClusterProps) {
+func NewCfnCluster_Override(c CfnCluster, scope constructs.Construct, id *string, props *CfnClusterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_msk.CfnCluster",
+		"aws-cdk-lib.aws_msk.CfnCluster",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1444,14 +1212,13 @@ func (j *jsiiProxy_CfnCluster) SetOpenMonitoring(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnCluster_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_msk.CfnCluster",
+		"aws-cdk-lib.aws_msk.CfnCluster",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1461,14 +1228,13 @@ func CfnCluster_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_msk.CfnCluster",
+		"aws-cdk-lib.aws_msk.CfnCluster",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1477,15 +1243,17 @@ func CfnCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_msk.CfnCluster",
+		"aws-cdk-lib.aws_msk.CfnCluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1498,7 +1266,7 @@ func CfnCluster_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_msk.CfnCluster",
+		"aws-cdk-lib.aws_msk.CfnCluster",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1595,48 +1363,11 @@ func (c *jsiiProxy_CfnCluster) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnCluster) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnCluster) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnCluster) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnCluster) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnCluster) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1666,33 +1397,12 @@ func (c *jsiiProxy_CfnCluster) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnCluster) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnCluster) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnCluster) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2395,6 +2105,7 @@ type CfnClusterProps struct {
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
 //   cfnConfiguration := msk.NewCfnConfiguration(this, jsii.String("MyCfnConfiguration"), &cfnConfigurationProps{
+//   	name: jsii.String("name"),
 //   	serverProperties: jsii.String("serverProperties"),
 //
 //   	// the properties below are optional
@@ -2402,7 +2113,6 @@ type CfnClusterProps struct {
 //   	kafkaVersionsList: []*string{
 //   		jsii.String("kafkaVersionsList"),
 //   	},
-//   	name: jsii.String("name"),
 //   })
 //
 type CfnConfiguration interface {
@@ -2411,16 +2121,13 @@ type CfnConfiguration interface {
 	// The ARN of the configuration.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The description of the configuration.
 	Description() *string
@@ -2439,21 +2146,18 @@ type CfnConfiguration interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The name of the configuration.
 	//
 	// Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// Contents of the server.properties file. When using the API, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the CLI, the contents of server.properties can be in plaintext.
 	ServerProperties() *string
@@ -2461,22 +2165,18 @@ type CfnConfiguration interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2485,7 +2185,6 @@ type CfnConfiguration interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -2530,15 +2229,12 @@ type CfnConfiguration interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -2549,13 +2245,11 @@ type CfnConfiguration interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2564,74 +2258,21 @@ type CfnConfiguration interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2731,8 +2372,8 @@ func (j *jsiiProxy_CfnConfiguration) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfiguration) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnConfiguration) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2783,13 +2424,13 @@ func (j *jsiiProxy_CfnConfiguration) UpdatedProperites() *map[string]interface{}
 
 
 // Create a new `AWS::MSK::Configuration`.
-func NewCfnConfiguration(scope awscdk.Construct, id *string, props *CfnConfigurationProps) CfnConfiguration {
+func NewCfnConfiguration(scope constructs.Construct, id *string, props *CfnConfigurationProps) CfnConfiguration {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnConfiguration{}
 
 	_jsii_.Create(
-		"monocdk.aws_msk.CfnConfiguration",
+		"aws-cdk-lib.aws_msk.CfnConfiguration",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2798,11 +2439,11 @@ func NewCfnConfiguration(scope awscdk.Construct, id *string, props *CfnConfigura
 }
 
 // Create a new `AWS::MSK::Configuration`.
-func NewCfnConfiguration_Override(c CfnConfiguration, scope awscdk.Construct, id *string, props *CfnConfigurationProps) {
+func NewCfnConfiguration_Override(c CfnConfiguration, scope constructs.Construct, id *string, props *CfnConfigurationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_msk.CfnConfiguration",
+		"aws-cdk-lib.aws_msk.CfnConfiguration",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2846,14 +2487,13 @@ func (j *jsiiProxy_CfnConfiguration) SetServerProperties(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnConfiguration_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_msk.CfnConfiguration",
+		"aws-cdk-lib.aws_msk.CfnConfiguration",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2863,14 +2503,13 @@ func CfnConfiguration_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_msk.CfnConfiguration",
+		"aws-cdk-lib.aws_msk.CfnConfiguration",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2879,15 +2518,17 @@ func CfnConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnConfiguration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_msk.CfnConfiguration",
+		"aws-cdk-lib.aws_msk.CfnConfiguration",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2900,7 +2541,7 @@ func CfnConfiguration_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_msk.CfnConfiguration",
+		"aws-cdk-lib.aws_msk.CfnConfiguration",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2997,48 +2638,11 @@ func (c *jsiiProxy_CfnConfiguration) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnConfiguration) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnConfiguration) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnConfiguration) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnConfiguration) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -3068,33 +2672,12 @@ func (c *jsiiProxy_CfnConfiguration) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnConfiguration) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnConfiguration) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnConfiguration) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3115,6 +2698,7 @@ func (c *jsiiProxy_CfnConfiguration) ValidateProperties(_properties interface{})
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
 //   cfnConfigurationProps := &cfnConfigurationProps{
+//   	name: jsii.String("name"),
 //   	serverProperties: jsii.String("serverProperties"),
 //
 //   	// the properties below are optional
@@ -3122,10 +2706,13 @@ func (c *jsiiProxy_CfnConfiguration) ValidateProperties(_properties interface{})
 //   	kafkaVersionsList: []*string{
 //   		jsii.String("kafkaVersionsList"),
 //   	},
-//   	name: jsii.String("name"),
 //   }
 //
 type CfnConfigurationProps struct {
+	// The name of the configuration.
+	//
+	// Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
+	Name *string `json:"name" yaml:"name"`
 	// Contents of the server.properties file. When using the API, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the CLI, the contents of server.properties can be in plaintext.
 	ServerProperties *string `json:"serverProperties" yaml:"serverProperties"`
 	// The description of the configuration.
@@ -3134,1221 +2721,5 @@ type CfnConfigurationProps struct {
 	//
 	// You can use this configuration for an MSK cluster only if the Apache Kafka version specified for the cluster appears in this list.
 	KafkaVersionsList *[]*string `json:"kafkaVersionsList" yaml:"kafkaVersionsList"`
-	// The name of the configuration.
-	//
-	// Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
-	Name *string `json:"name" yaml:"name"`
-}
-
-// Configuration properties for client authentication.
-//
-// Example:
-//   var vpc vpc
-//   cluster := msk.NewCluster(this, jsii.String("cluster"), &clusterProps{
-//   	clusterName: jsii.String("myCluster"),
-//   	kafkaVersion: msk.kafkaVersion_V2_8_1(),
-//   	vpc: vpc,
-//   	encryptionInTransit: &encryptionInTransitConfig{
-//   		clientBroker: msk.clientBrokerEncryption_TLS,
-//   	},
-//   	clientAuthentication: msk.clientAuthentication.sasl(&saslAuthProps{
-//   		scram: jsii.Boolean(true),
-//   	}),
-//   })
-//
-// Experimental.
-type ClientAuthentication interface {
-	// - properties for SASL authentication.
-	// Experimental.
-	SaslProps() *SaslAuthProps
-	// - properties for TLS authentication.
-	// Experimental.
-	TlsProps() *TlsAuthProps
-}
-
-// The jsii proxy struct for ClientAuthentication
-type jsiiProxy_ClientAuthentication struct {
-	_ byte // padding
-}
-
-func (j *jsiiProxy_ClientAuthentication) SaslProps() *SaslAuthProps {
-	var returns *SaslAuthProps
-	_jsii_.Get(
-		j,
-		"saslProps",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ClientAuthentication) TlsProps() *TlsAuthProps {
-	var returns *TlsAuthProps
-	_jsii_.Get(
-		j,
-		"tlsProps",
-		&returns,
-	)
-	return returns
-}
-
-
-// SASL authentication.
-// Experimental.
-func ClientAuthentication_Sasl(props *SaslAuthProps) ClientAuthentication {
-	_init_.Initialize()
-
-	var returns ClientAuthentication
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_msk.ClientAuthentication",
-		"sasl",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-// TLS authentication.
-// Experimental.
-func ClientAuthentication_Tls(props *TlsAuthProps) ClientAuthentication {
-	_init_.Initialize()
-
-	var returns ClientAuthentication
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_msk.ClientAuthentication",
-		"tls",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-// Indicates the encryption setting for data in transit between clients and brokers.
-//
-// Example:
-//   var vpc vpc
-//   cluster := msk.NewCluster(this, jsii.String("cluster"), &clusterProps{
-//   	clusterName: jsii.String("myCluster"),
-//   	kafkaVersion: msk.kafkaVersion_V2_8_1(),
-//   	vpc: vpc,
-//   	encryptionInTransit: &encryptionInTransitConfig{
-//   		clientBroker: msk.clientBrokerEncryption_TLS,
-//   	},
-//   	clientAuthentication: msk.clientAuthentication.sasl(&saslAuthProps{
-//   		scram: jsii.Boolean(true),
-//   	}),
-//   })
-//
-// Experimental.
-type ClientBrokerEncryption string
-
-const (
-	// TLS means that client-broker communication is enabled with TLS only.
-	// Experimental.
-	ClientBrokerEncryption_TLS ClientBrokerEncryption = "TLS"
-	// TLS_PLAINTEXT means that client-broker communication is enabled for both TLS-encrypted, as well as plaintext data.
-	// Experimental.
-	ClientBrokerEncryption_TLS_PLAINTEXT ClientBrokerEncryption = "TLS_PLAINTEXT"
-	// PLAINTEXT means that client-broker communication is enabled in plaintext only.
-	// Experimental.
-	ClientBrokerEncryption_PLAINTEXT ClientBrokerEncryption = "PLAINTEXT"
-)
-
-// Create a MSK Cluster.
-//
-// Example:
-//   var vpc vpc
-//   cluster := msk.NewCluster(this, jsii.String("cluster"), &clusterProps{
-//   	clusterName: jsii.String("myCluster"),
-//   	kafkaVersion: msk.kafkaVersion_V2_8_1(),
-//   	vpc: vpc,
-//   	encryptionInTransit: &encryptionInTransitConfig{
-//   		clientBroker: msk.clientBrokerEncryption_TLS,
-//   	},
-//   	clientAuthentication: msk.clientAuthentication.sasl(&saslAuthProps{
-//   		scram: jsii.Boolean(true),
-//   	}),
-//   })
-//
-// Experimental.
-type Cluster interface {
-	awscdk.Resource
-	ICluster
-	// Get the list of brokers that a client application can use to bootstrap.
-	//
-	// Uses a Custom Resource to make an API call to `getBootstrapBrokers` using the Javascript SDK.
-	//
-	// Returns: - A string containing one or more hostname:port pairs.
-	// Experimental.
-	BootstrapBrokers() *string
-	// Get the list of brokers that a SASL/SCRAM authenticated client application can use to bootstrap.
-	//
-	// Uses a Custom Resource to make an API call to `getBootstrapBrokers` using the Javascript SDK.
-	//
-	// Returns: - A string containing one or more dns name (or IP) and SASL SCRAM port pairs.
-	// Experimental.
-	BootstrapBrokersSaslScram() *string
-	// Get the list of brokers that a TLS authenticated client application can use to bootstrap.
-	//
-	// Uses a Custom Resource to make an API call to `getBootstrapBrokers` using the Javascript SDK.
-	//
-	// Returns: - A string containing one or more DNS names (or IP) and TLS port pairs.
-	// Experimental.
-	BootstrapBrokersTls() *string
-	// The ARN of cluster.
-	// Experimental.
-	ClusterArn() *string
-	// The physical name of the cluster.
-	// Experimental.
-	ClusterName() *string
-	// Manages connections for the cluster.
-	// Experimental.
-	Connections() awsec2.Connections
-	// The environment this resource belongs to.
-	//
-	// For resources that are created and managed by the CDK
-	// (generally, those created by creating new class instances like Role, Bucket, etc.),
-	// this is always the same as the environment of the stack they belong to;
-	// however, for imported resources
-	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-	// that might be different than the stack they were imported into.
-	// Experimental.
-	Env() *awscdk.ResourceEnvironment
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
-	//
-	// This value will resolve to one of the following:
-	// - a concrete value (e.g. `"my-awesome-bucket"`)
-	// - `undefined`, when a name should be generated by CloudFormation
-	// - a concrete name generated automatically during synthesis, in
-	//    cross-environment scenarios.
-	// Experimental.
-	PhysicalName() *string
-	// Key used to encrypt SASL/SCRAM users.
-	// Experimental.
-	SaslScramAuthenticationKey() awskms.IKey
-	// The stack in which this resource is defined.
-	// Experimental.
-	Stack() awscdk.Stack
-	// Get the ZooKeeper Connection string.
-	//
-	// Uses a Custom Resource to make an API call to `describeCluster` using the Javascript SDK.
-	//
-	// Returns: - The connection string to use to connect to the Apache ZooKeeper cluster.
-	// Experimental.
-	ZookeeperConnectionString() *string
-	// Get the ZooKeeper Connection string for a TLS enabled cluster.
-	//
-	// Uses a Custom Resource to make an API call to `describeCluster` using the Javascript SDK.
-	//
-	// Returns: - The connection string to use to connect to zookeeper cluster on TLS port.
-	// Experimental.
-	ZookeeperConnectionStringTls() *string
-	// A list of usersnames to register with the cluster.
-	//
-	// The password will automatically be generated using Secrets
-	// Manager and the { username, password } JSON object stored in Secrets Manager as `AmazonMSK_username`.
-	//
-	// Must be using the SASL/SCRAM authentication mechanism.
-	// Experimental.
-	AddUser(usernames ...*string)
-	// Apply the given removal policy to this resource.
-	//
-	// The Removal Policy controls what happens to this resource when it stops
-	// being managed by CloudFormation, either because you've removed it from the
-	// CDK application or because you've made a change that requires the resource
-	// to be replaced.
-	//
-	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
-	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Experimental.
-	GeneratePhysicalName() *string
-	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
-	//
-	// Normally, this token will resolve to `arnAttr`, but if the resource is
-	// referenced across environments, `arnComponents` will be used to synthesize
-	// a concrete ARN with the resource's physical name. Make sure to reference
-	// `this.physicalName` in `arnComponents`.
-	// Experimental.
-	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
-	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
-	//
-	// Normally, this token will resolve to `nameAttr`, but if the resource is
-	// referenced across environments, it will be resolved to `this.physicalName`,
-	// which will be a concrete name.
-	// Experimental.
-	GetResourceNameAttribute(nameAttr *string) *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
-	// Returns a string representation of this construct.
-	// Experimental.
-	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-}
-
-// The jsii proxy struct for Cluster
-type jsiiProxy_Cluster struct {
-	internal.Type__awscdkResource
-	jsiiProxy_ICluster
-}
-
-func (j *jsiiProxy_Cluster) BootstrapBrokers() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"bootstrapBrokers",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Cluster) BootstrapBrokersSaslScram() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"bootstrapBrokersSaslScram",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Cluster) BootstrapBrokersTls() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"bootstrapBrokersTls",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Cluster) ClusterArn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"clusterArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Cluster) ClusterName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"clusterName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Cluster) Connections() awsec2.Connections {
-	var returns awsec2.Connections
-	_jsii_.Get(
-		j,
-		"connections",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Cluster) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
-	_jsii_.Get(
-		j,
-		"env",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Cluster) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
-	_jsii_.Get(
-		j,
-		"node",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Cluster) PhysicalName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"physicalName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Cluster) SaslScramAuthenticationKey() awskms.IKey {
-	var returns awskms.IKey
-	_jsii_.Get(
-		j,
-		"saslScramAuthenticationKey",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Cluster) Stack() awscdk.Stack {
-	var returns awscdk.Stack
-	_jsii_.Get(
-		j,
-		"stack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Cluster) ZookeeperConnectionString() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"zookeeperConnectionString",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Cluster) ZookeeperConnectionStringTls() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"zookeeperConnectionStringTls",
-		&returns,
-	)
-	return returns
-}
-
-
-// Experimental.
-func NewCluster(scope constructs.Construct, id *string, props *ClusterProps) Cluster {
-	_init_.Initialize()
-
-	j := jsiiProxy_Cluster{}
-
-	_jsii_.Create(
-		"monocdk.aws_msk.Cluster",
-		[]interface{}{scope, id, props},
-		&j,
-	)
-
-	return &j
-}
-
-// Experimental.
-func NewCluster_Override(c Cluster, scope constructs.Construct, id *string, props *ClusterProps) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"monocdk.aws_msk.Cluster",
-		[]interface{}{scope, id, props},
-		c,
-	)
-}
-
-// Reference an existing cluster, defined outside of the CDK code, by name.
-// Experimental.
-func Cluster_FromClusterArn(scope constructs.Construct, id *string, clusterArn *string) ICluster {
-	_init_.Initialize()
-
-	var returns ICluster
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_msk.Cluster",
-		"fromClusterArn",
-		[]interface{}{scope, id, clusterArn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Return whether the given object is a Construct.
-// Experimental.
-func Cluster_IsConstruct(x interface{}) *bool {
-	_init_.Initialize()
-
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_msk.Cluster",
-		"isConstruct",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
-// Check whether the given construct is a Resource.
-// Experimental.
-func Cluster_IsResource(construct awscdk.IConstruct) *bool {
-	_init_.Initialize()
-
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_msk.Cluster",
-		"isResource",
-		[]interface{}{construct},
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_Cluster) AddUser(usernames ...*string) {
-	args := []interface{}{}
-	for _, a := range usernames {
-		args = append(args, a)
-	}
-
-	_jsii_.InvokeVoid(
-		c,
-		"addUser",
-		args,
-	)
-}
-
-func (c *jsiiProxy_Cluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
-	_jsii_.InvokeVoid(
-		c,
-		"applyRemovalPolicy",
-		[]interface{}{policy},
-	)
-}
-
-func (c *jsiiProxy_Cluster) GeneratePhysicalName() *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		c,
-		"generatePhysicalName",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_Cluster) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		c,
-		"getResourceArnAttribute",
-		[]interface{}{arnAttr, arnComponents},
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_Cluster) GetResourceNameAttribute(nameAttr *string) *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		c,
-		"getResourceNameAttribute",
-		[]interface{}{nameAttr},
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_Cluster) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_Cluster) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_Cluster) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_Cluster) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_Cluster) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_Cluster) ToString() *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		c,
-		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_Cluster) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// The Amazon MSK configuration to use for the cluster.
-//
-// Note: There is currently no Cloudformation Resource to create a Configuration.
-//
-// Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
-//   clusterConfigurationInfo := &clusterConfigurationInfo{
-//   	arn: jsii.String("arn"),
-//   	revision: jsii.Number(123),
-//   }
-//
-// Experimental.
-type ClusterConfigurationInfo struct {
-	// The Amazon Resource Name (ARN) of the MSK configuration to use.
-	//
-	// For example, arn:aws:kafka:us-east-1:123456789012:configuration/example-configuration-name/abcdabcd-1234-abcd-1234-abcd123e8e8e-1.
-	// Experimental.
-	Arn *string `json:"arn" yaml:"arn"`
-	// The revision of the Amazon MSK configuration to use.
-	// Experimental.
-	Revision *float64 `json:"revision" yaml:"revision"`
-}
-
-// The level of monitoring for the MSK cluster.
-// See: https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html#metrics-details
-//
-// Experimental.
-type ClusterMonitoringLevel string
-
-const (
-	// Default metrics are the essential metrics to monitor.
-	// Experimental.
-	ClusterMonitoringLevel_DEFAULT ClusterMonitoringLevel = "DEFAULT"
-	// Per Broker metrics give you metrics at the broker level.
-	// Experimental.
-	ClusterMonitoringLevel_PER_BROKER ClusterMonitoringLevel = "PER_BROKER"
-	// Per Topic Per Broker metrics help you understand volume at the topic level.
-	// Experimental.
-	ClusterMonitoringLevel_PER_TOPIC_PER_BROKER ClusterMonitoringLevel = "PER_TOPIC_PER_BROKER"
-	// Per Topic Per Partition metrics help you understand consumer group lag at the topic partition level.
-	// Experimental.
-	ClusterMonitoringLevel_PER_TOPIC_PER_PARTITION ClusterMonitoringLevel = "PER_TOPIC_PER_PARTITION"
-)
-
-// Properties for a MSK Cluster.
-//
-// Example:
-//   var vpc vpc
-//   cluster := msk.NewCluster(this, jsii.String("cluster"), &clusterProps{
-//   	clusterName: jsii.String("myCluster"),
-//   	kafkaVersion: msk.kafkaVersion_V2_8_1(),
-//   	vpc: vpc,
-//   	encryptionInTransit: &encryptionInTransitConfig{
-//   		clientBroker: msk.clientBrokerEncryption_TLS,
-//   	},
-//   	clientAuthentication: msk.clientAuthentication.sasl(&saslAuthProps{
-//   		scram: jsii.Boolean(true),
-//   	}),
-//   })
-//
-// Experimental.
-type ClusterProps struct {
-	// The physical name of the cluster.
-	// Experimental.
-	ClusterName *string `json:"clusterName" yaml:"clusterName"`
-	// The version of Apache Kafka.
-	// Experimental.
-	KafkaVersion KafkaVersion `json:"kafkaVersion" yaml:"kafkaVersion"`
-	// Defines the virtual networking environment for this cluster.
-	//
-	// Must have at least 2 subnets in two different AZs.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
-	// Configuration properties for client authentication.
-	//
-	// MSK supports using private TLS certificates or SASL/SCRAM to authenticate the identity of clients.
-	// Experimental.
-	ClientAuthentication ClientAuthentication `json:"clientAuthentication" yaml:"clientAuthentication"`
-	// The Amazon MSK configuration to use for the cluster.
-	// Experimental.
-	ConfigurationInfo *ClusterConfigurationInfo `json:"configurationInfo" yaml:"configurationInfo"`
-	// Information about storage volumes attached to MSK broker nodes.
-	// Experimental.
-	EbsStorageInfo *EbsStorageInfo `json:"ebsStorageInfo" yaml:"ebsStorageInfo"`
-	// Config details for encryption in transit.
-	// Experimental.
-	EncryptionInTransit *EncryptionInTransitConfig `json:"encryptionInTransit" yaml:"encryptionInTransit"`
-	// The EC2 instance type that you want Amazon MSK to use when it creates your brokers.
-	// See: https://docs.aws.amazon.com/msk/latest/developerguide/msk-create-cluster.html#broker-instance-types
-	//
-	// Experimental.
-	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
-	// Configure your MSK cluster to send broker logs to different destination types.
-	// Experimental.
-	Logging *BrokerLogging `json:"logging" yaml:"logging"`
-	// Cluster monitoring configuration.
-	// Experimental.
-	Monitoring *MonitoringConfiguration `json:"monitoring" yaml:"monitoring"`
-	// Number of Apache Kafka brokers deployed in each Availability Zone.
-	// Experimental.
-	NumberOfBrokerNodes *float64 `json:"numberOfBrokerNodes" yaml:"numberOfBrokerNodes"`
-	// What to do when this resource is deleted from a stack.
-	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
-	// The AWS security groups to associate with the elastic network interfaces in order to specify who can connect to and communicate with the Amazon MSK cluster.
-	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
-	// Where to place the nodes within the VPC.
-	//
-	// Amazon MSK distributes the broker nodes evenly across the subnets that you specify.
-	// The subnets that you specify must be in distinct Availability Zones.
-	// Client subnets can't be in Availability Zone us-east-1e.
-	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
-}
-
-// EBS volume information.
-//
-// Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
-//
-//   var key key
-//   ebsStorageInfo := &ebsStorageInfo{
-//   	encryptionKey: key,
-//   	volumeSize: jsii.Number(123),
-//   }
-//
-// Experimental.
-type EbsStorageInfo struct {
-	// The AWS KMS key for encrypting data at rest.
-	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
-	// The size in GiB of the EBS volume for the data drive on each broker node.
-	// Experimental.
-	VolumeSize *float64 `json:"volumeSize" yaml:"volumeSize"`
-}
-
-// The settings for encrypting data in transit.
-//
-// Example:
-//   var vpc vpc
-//   cluster := msk.NewCluster(this, jsii.String("cluster"), &clusterProps{
-//   	clusterName: jsii.String("myCluster"),
-//   	kafkaVersion: msk.kafkaVersion_V2_8_1(),
-//   	vpc: vpc,
-//   	encryptionInTransit: &encryptionInTransitConfig{
-//   		clientBroker: msk.clientBrokerEncryption_TLS,
-//   	},
-//   	clientAuthentication: msk.clientAuthentication.sasl(&saslAuthProps{
-//   		scram: jsii.Boolean(true),
-//   	}),
-//   })
-//
-// See: https://docs.aws.amazon.com/msk/latest/developerguide/msk-encryption.html#msk-encryption-in-transit
-//
-// Experimental.
-type EncryptionInTransitConfig struct {
-	// Indicates the encryption setting for data in transit between clients and brokers.
-	// Experimental.
-	ClientBroker ClientBrokerEncryption `json:"clientBroker" yaml:"clientBroker"`
-	// Indicates that data communication among the broker nodes of the cluster is encrypted.
-	// Experimental.
-	EnableInCluster *bool `json:"enableInCluster" yaml:"enableInCluster"`
-}
-
-// Represents a MSK Cluster.
-// Experimental.
-type ICluster interface {
-	awsec2.IConnectable
-	awscdk.IResource
-	// The ARN of cluster.
-	// Experimental.
-	ClusterArn() *string
-	// The physical name of the cluster.
-	// Experimental.
-	ClusterName() *string
-}
-
-// The jsii proxy for ICluster
-type jsiiProxy_ICluster struct {
-	internal.Type__awsec2IConnectable
-	internal.Type__awscdkIResource
-}
-
-func (i *jsiiProxy_ICluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
-	_jsii_.InvokeVoid(
-		i,
-		"applyRemovalPolicy",
-		[]interface{}{policy},
-	)
-}
-
-func (j *jsiiProxy_ICluster) ClusterArn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"clusterArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ICluster) ClusterName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"clusterName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ICluster) Connections() awsec2.Connections {
-	var returns awsec2.Connections
-	_jsii_.Get(
-		j,
-		"connections",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ICluster) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
-	_jsii_.Get(
-		j,
-		"env",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ICluster) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
-	_jsii_.Get(
-		j,
-		"node",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ICluster) Stack() awscdk.Stack {
-	var returns awscdk.Stack
-	_jsii_.Get(
-		j,
-		"stack",
-		&returns,
-	)
-	return returns
-}
-
-// Kafka cluster version.
-//
-// Example:
-//   var vpc vpc
-//   cluster := msk.NewCluster(this, jsii.String("cluster"), &clusterProps{
-//   	clusterName: jsii.String("myCluster"),
-//   	kafkaVersion: msk.kafkaVersion_V2_8_1(),
-//   	vpc: vpc,
-//   	encryptionInTransit: &encryptionInTransitConfig{
-//   		clientBroker: msk.clientBrokerEncryption_TLS,
-//   	},
-//   	clientAuthentication: msk.clientAuthentication.sasl(&saslAuthProps{
-//   		scram: jsii.Boolean(true),
-//   	}),
-//   })
-//
-// Experimental.
-type KafkaVersion interface {
-	// cluster version number.
-	// Experimental.
-	Version() *string
-}
-
-// The jsii proxy struct for KafkaVersion
-type jsiiProxy_KafkaVersion struct {
-	_ byte // padding
-}
-
-func (j *jsiiProxy_KafkaVersion) Version() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"version",
-		&returns,
-	)
-	return returns
-}
-
-
-// Custom cluster version.
-// Experimental.
-func KafkaVersion_Of(version *string) KafkaVersion {
-	_init_.Initialize()
-
-	var returns KafkaVersion
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_msk.KafkaVersion",
-		"of",
-		[]interface{}{version},
-		&returns,
-	)
-
-	return returns
-}
-
-func KafkaVersion_V1_1_1() KafkaVersion {
-	_init_.Initialize()
-	var returns KafkaVersion
-	_jsii_.StaticGet(
-		"monocdk.aws_msk.KafkaVersion",
-		"V1_1_1",
-		&returns,
-	)
-	return returns
-}
-
-func KafkaVersion_V2_2_1() KafkaVersion {
-	_init_.Initialize()
-	var returns KafkaVersion
-	_jsii_.StaticGet(
-		"monocdk.aws_msk.KafkaVersion",
-		"V2_2_1",
-		&returns,
-	)
-	return returns
-}
-
-func KafkaVersion_V2_3_1() KafkaVersion {
-	_init_.Initialize()
-	var returns KafkaVersion
-	_jsii_.StaticGet(
-		"monocdk.aws_msk.KafkaVersion",
-		"V2_3_1",
-		&returns,
-	)
-	return returns
-}
-
-func KafkaVersion_V2_4_1_1() KafkaVersion {
-	_init_.Initialize()
-	var returns KafkaVersion
-	_jsii_.StaticGet(
-		"monocdk.aws_msk.KafkaVersion",
-		"V2_4_1_1",
-		&returns,
-	)
-	return returns
-}
-
-func KafkaVersion_V2_5_1() KafkaVersion {
-	_init_.Initialize()
-	var returns KafkaVersion
-	_jsii_.StaticGet(
-		"monocdk.aws_msk.KafkaVersion",
-		"V2_5_1",
-		&returns,
-	)
-	return returns
-}
-
-func KafkaVersion_V2_6_0() KafkaVersion {
-	_init_.Initialize()
-	var returns KafkaVersion
-	_jsii_.StaticGet(
-		"monocdk.aws_msk.KafkaVersion",
-		"V2_6_0",
-		&returns,
-	)
-	return returns
-}
-
-func KafkaVersion_V2_6_1() KafkaVersion {
-	_init_.Initialize()
-	var returns KafkaVersion
-	_jsii_.StaticGet(
-		"monocdk.aws_msk.KafkaVersion",
-		"V2_6_1",
-		&returns,
-	)
-	return returns
-}
-
-func KafkaVersion_V2_6_2() KafkaVersion {
-	_init_.Initialize()
-	var returns KafkaVersion
-	_jsii_.StaticGet(
-		"monocdk.aws_msk.KafkaVersion",
-		"V2_6_2",
-		&returns,
-	)
-	return returns
-}
-
-func KafkaVersion_V2_6_3() KafkaVersion {
-	_init_.Initialize()
-	var returns KafkaVersion
-	_jsii_.StaticGet(
-		"monocdk.aws_msk.KafkaVersion",
-		"V2_6_3",
-		&returns,
-	)
-	return returns
-}
-
-func KafkaVersion_V2_7_0() KafkaVersion {
-	_init_.Initialize()
-	var returns KafkaVersion
-	_jsii_.StaticGet(
-		"monocdk.aws_msk.KafkaVersion",
-		"V2_7_0",
-		&returns,
-	)
-	return returns
-}
-
-func KafkaVersion_V2_7_1() KafkaVersion {
-	_init_.Initialize()
-	var returns KafkaVersion
-	_jsii_.StaticGet(
-		"monocdk.aws_msk.KafkaVersion",
-		"V2_7_1",
-		&returns,
-	)
-	return returns
-}
-
-func KafkaVersion_V2_7_2() KafkaVersion {
-	_init_.Initialize()
-	var returns KafkaVersion
-	_jsii_.StaticGet(
-		"monocdk.aws_msk.KafkaVersion",
-		"V2_7_2",
-		&returns,
-	)
-	return returns
-}
-
-func KafkaVersion_V2_8_0() KafkaVersion {
-	_init_.Initialize()
-	var returns KafkaVersion
-	_jsii_.StaticGet(
-		"monocdk.aws_msk.KafkaVersion",
-		"V2_8_0",
-		&returns,
-	)
-	return returns
-}
-
-func KafkaVersion_V2_8_1() KafkaVersion {
-	_init_.Initialize()
-	var returns KafkaVersion
-	_jsii_.StaticGet(
-		"monocdk.aws_msk.KafkaVersion",
-		"V2_8_1",
-		&returns,
-	)
-	return returns
-}
-
-// Monitoring Configuration.
-//
-// Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
-//   monitoringConfiguration := &monitoringConfiguration{
-//   	clusterMonitoringLevel: msk.clusterMonitoringLevel_DEFAULT,
-//   	enablePrometheusJmxExporter: jsii.Boolean(false),
-//   	enablePrometheusNodeExporter: jsii.Boolean(false),
-//   }
-//
-// Experimental.
-type MonitoringConfiguration struct {
-	// Specifies the level of monitoring for the MSK cluster.
-	// Experimental.
-	ClusterMonitoringLevel ClusterMonitoringLevel `json:"clusterMonitoringLevel" yaml:"clusterMonitoringLevel"`
-	// Indicates whether you want to enable or disable the JMX Exporter.
-	// Experimental.
-	EnablePrometheusJmxExporter *bool `json:"enablePrometheusJmxExporter" yaml:"enablePrometheusJmxExporter"`
-	// Indicates whether you want to enable or disable the Prometheus Node Exporter.
-	//
-	// You can use the Prometheus Node Exporter to get CPU and disk metrics for the broker nodes.
-	// Experimental.
-	EnablePrometheusNodeExporter *bool `json:"enablePrometheusNodeExporter" yaml:"enablePrometheusNodeExporter"`
-}
-
-// Details of the Amazon S3 destination for broker logs.
-//
-// Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
-//
-//   var bucket bucket
-//   s3LoggingConfiguration := &s3LoggingConfiguration{
-//   	bucket: bucket,
-//
-//   	// the properties below are optional
-//   	prefix: jsii.String("prefix"),
-//   }
-//
-// Experimental.
-type S3LoggingConfiguration struct {
-	// The S3 bucket that is the destination for broker logs.
-	// Experimental.
-	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
-	// The S3 prefix that is the destination for broker logs.
-	// Experimental.
-	Prefix *string `json:"prefix" yaml:"prefix"`
-}
-
-// SASL authentication properties.
-//
-// Example:
-//   var vpc vpc
-//   cluster := msk.NewCluster(this, jsii.String("cluster"), &clusterProps{
-//   	clusterName: jsii.String("myCluster"),
-//   	kafkaVersion: msk.kafkaVersion_V2_8_1(),
-//   	vpc: vpc,
-//   	encryptionInTransit: &encryptionInTransitConfig{
-//   		clientBroker: msk.clientBrokerEncryption_TLS,
-//   	},
-//   	clientAuthentication: msk.clientAuthentication.sasl(&saslAuthProps{
-//   		scram: jsii.Boolean(true),
-//   	}),
-//   })
-//
-// Experimental.
-type SaslAuthProps struct {
-	// Enable IAM access control.
-	// Experimental.
-	Iam *bool `json:"iam" yaml:"iam"`
-	// KMS Key to encrypt SASL/SCRAM secrets.
-	//
-	// You must use a customer master key (CMK) when creating users in secrets manager.
-	// You cannot use a Secret with Amazon MSK that uses the default Secrets Manager encryption key.
-	// Experimental.
-	Key awskms.IKey `json:"key" yaml:"key"`
-	// Enable SASL/SCRAM authentication.
-	// Experimental.
-	Scram *bool `json:"scram" yaml:"scram"`
-}
-
-// TLS authentication properties.
-//
-// Example:
-//   import acmpca "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var vpc vpc
-//   cluster := msk.NewCluster(this, jsii.String("Cluster"), &clusterProps{
-//   	clusterName: jsii.String("myCluster"),
-//   	kafkaVersion: msk.kafkaVersion_V2_8_1(),
-//   	vpc: vpc,
-//   	encryptionInTransit: &encryptionInTransitConfig{
-//   		clientBroker: msk.clientBrokerEncryption_TLS,
-//   	},
-//   	clientAuthentication: msk.clientAuthentication.tls(&tlsAuthProps{
-//   		certificateAuthorities: []iCertificateAuthority{
-//   			acmpca.certificateAuthority.fromCertificateAuthorityArn(this, jsii.String("CertificateAuthority"), jsii.String("arn:aws:acm-pca:us-west-2:1234567890:certificate-authority/11111111-1111-1111-1111-111111111111")),
-//   		},
-//   	}),
-//   })
-//
-// Experimental.
-type TlsAuthProps struct {
-	// List of ACM Certificate Authorities to enable TLS authentication.
-	// Experimental.
-	CertificateAuthorities *[]awsacmpca.ICertificateAuthority `json:"certificateAuthorities" yaml:"certificateAuthorities"`
 }
 

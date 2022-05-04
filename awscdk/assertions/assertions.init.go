@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.assertions.Annotations",
+		"aws-cdk-lib.assertions.Annotations",
 		reflect.TypeOf((*Annotations)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "findError", GoMethod: "FindError"},
@@ -26,7 +26,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.assertions.Capture",
+		"aws-cdk-lib.assertions.Capture",
 		reflect.TypeOf((*Capture)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "asArray", GoMethod: "AsArray"},
@@ -45,7 +45,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.assertions.Match",
+		"aws-cdk-lib.assertions.Match",
 		reflect.TypeOf((*Match)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -53,15 +53,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.assertions.MatchCapture",
+		"aws-cdk-lib.assertions.MatchCapture",
 		reflect.TypeOf((*MatchCapture)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.assertions.MatchFailure",
+		"aws-cdk-lib.assertions.MatchFailure",
 		reflect.TypeOf((*MatchFailure)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.assertions.MatchResult",
+		"aws-cdk-lib.assertions.MatchResult",
 		reflect.TypeOf((*MatchResult)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "compose", GoMethod: "Compose"},
@@ -79,7 +79,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.assertions.Matcher",
+		"aws-cdk-lib.assertions.Matcher",
 		reflect.TypeOf((*Matcher)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
@@ -90,7 +90,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.assertions.Template",
+		"aws-cdk-lib.assertions.Template",
 		reflect.TypeOf((*Template)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "findConditions", GoMethod: "FindConditions"},
