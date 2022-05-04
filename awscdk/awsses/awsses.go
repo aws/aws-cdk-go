@@ -1657,7 +1657,7 @@ type CfnConfigurationSetEventDestination_DimensionConfigurationProperty struct {
 	//
 	// The name must meet the following requirements:
 	//
-	// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
+	// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), dashes (-), or colons (:).
 	// - Contain 256 characters or fewer.
 	DimensionName *string `json:"dimensionName" yaml:"dimensionName"`
 	// The place where Amazon SES finds the value of a dimension to publish to Amazon CloudWatch.

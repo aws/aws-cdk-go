@@ -48,6 +48,29 @@ import (
 //   	definitionBody: definitionBody,
 //   	definitionUri: jsii.String("definitionUri"),
 //   	description: jsii.String("description"),
+//   	domain: &domainConfigurationProperty{
+//   		certificateArn: jsii.String("certificateArn"),
+//   		domainName: jsii.String("domainName"),
+//
+//   		// the properties below are optional
+//   		basePath: []*string{
+//   			jsii.String("basePath"),
+//   		},
+//   		endpointConfiguration: jsii.String("endpointConfiguration"),
+//   		mutualTlsAuthentication: &mutualTlsAuthenticationProperty{
+//   			truststoreUri: jsii.String("truststoreUri"),
+//   			truststoreVersion: jsii.String("truststoreVersion"),
+//   		},
+//   		ownershipVerificationCertificateArn: jsii.String("ownershipVerificationCertificateArn"),
+//   		route53: &route53ConfigurationProperty{
+//   			distributedDomainName: jsii.String("distributedDomainName"),
+//   			evaluateTargetHealth: jsii.Boolean(false),
+//   			hostedZoneId: jsii.String("hostedZoneId"),
+//   			hostedZoneName: jsii.String("hostedZoneName"),
+//   			ipV6: jsii.Boolean(false),
+//   		},
+//   		securityPolicy: jsii.String("securityPolicy"),
+//   	},
 //   	endpointConfiguration: jsii.String("endpointConfiguration"),
 //   	gatewayResponses: gatewayResponses,
 //   	methodSettings: []interface{}{
@@ -111,6 +134,9 @@ type CfnApi interface {
 	// `AWS::Serverless::Api.Description`.
 	Description() *string
 	SetDescription(val *string)
+	// `AWS::Serverless::Api.Domain`.
+	Domain() interface{}
+	SetDomain(val interface{})
 	// `AWS::Serverless::Api.EndpointConfiguration`.
 	EndpointConfiguration() interface{}
 	SetEndpointConfiguration(val interface{})
@@ -486,6 +512,16 @@ func (j *jsiiProxy_CfnApi) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApi) Domain() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"domain",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApi) EndpointConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -749,6 +785,14 @@ func (j *jsiiProxy_CfnApi) SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApi) SetDomain(val interface{}) {
+	_jsii_.Set(
+		j,
+		"domain",
 		val,
 	)
 }
@@ -1193,6 +1237,51 @@ type CfnApi_CorsConfigurationProperty struct {
 
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   domainConfigurationProperty := &domainConfigurationProperty{
+//   	certificateArn: jsii.String("certificateArn"),
+//   	domainName: jsii.String("domainName"),
+//
+//   	// the properties below are optional
+//   	basePath: []*string{
+//   		jsii.String("basePath"),
+//   	},
+//   	endpointConfiguration: jsii.String("endpointConfiguration"),
+//   	mutualTlsAuthentication: &mutualTlsAuthenticationProperty{
+//   		truststoreUri: jsii.String("truststoreUri"),
+//   		truststoreVersion: jsii.String("truststoreVersion"),
+//   	},
+//   	ownershipVerificationCertificateArn: jsii.String("ownershipVerificationCertificateArn"),
+//   	route53: &route53ConfigurationProperty{
+//   		distributedDomainName: jsii.String("distributedDomainName"),
+//   		evaluateTargetHealth: jsii.Boolean(false),
+//   		hostedZoneId: jsii.String("hostedZoneId"),
+//   		hostedZoneName: jsii.String("hostedZoneName"),
+//   		ipV6: jsii.Boolean(false),
+//   	},
+//   	securityPolicy: jsii.String("securityPolicy"),
+//   }
+//
+type CfnApi_DomainConfigurationProperty struct {
+	// `CfnApi.DomainConfigurationProperty.CertificateArn`.
+	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
+	// `CfnApi.DomainConfigurationProperty.DomainName`.
+	DomainName *string `json:"domainName" yaml:"domainName"`
+	// `CfnApi.DomainConfigurationProperty.BasePath`.
+	BasePath *[]*string `json:"basePath" yaml:"basePath"`
+	// `CfnApi.DomainConfigurationProperty.EndpointConfiguration`.
+	EndpointConfiguration *string `json:"endpointConfiguration" yaml:"endpointConfiguration"`
+	// `CfnApi.DomainConfigurationProperty.MutualTlsAuthentication`.
+	MutualTlsAuthentication interface{} `json:"mutualTlsAuthentication" yaml:"mutualTlsAuthentication"`
+	// `CfnApi.DomainConfigurationProperty.OwnershipVerificationCertificateArn`.
+	OwnershipVerificationCertificateArn *string `json:"ownershipVerificationCertificateArn" yaml:"ownershipVerificationCertificateArn"`
+	// `CfnApi.DomainConfigurationProperty.Route53`.
+	Route53 interface{} `json:"route53" yaml:"route53"`
+	// `CfnApi.DomainConfigurationProperty.SecurityPolicy`.
+	SecurityPolicy *string `json:"securityPolicy" yaml:"securityPolicy"`
+}
+
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
 //   endpointConfigurationProperty := &endpointConfigurationProperty{
 //   	type: jsii.String("type"),
 //   	vpcEndpointIds: []*string{
@@ -1205,6 +1294,43 @@ type CfnApi_EndpointConfigurationProperty struct {
 	Type *string `json:"type" yaml:"type"`
 	// `CfnApi.EndpointConfigurationProperty.VpcEndpointIds`.
 	VpcEndpointIds *[]*string `json:"vpcEndpointIds" yaml:"vpcEndpointIds"`
+}
+
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   mutualTlsAuthenticationProperty := &mutualTlsAuthenticationProperty{
+//   	truststoreUri: jsii.String("truststoreUri"),
+//   	truststoreVersion: jsii.String("truststoreVersion"),
+//   }
+//
+type CfnApi_MutualTlsAuthenticationProperty struct {
+	// `CfnApi.MutualTlsAuthenticationProperty.TruststoreUri`.
+	TruststoreUri *string `json:"truststoreUri" yaml:"truststoreUri"`
+	// `CfnApi.MutualTlsAuthenticationProperty.TruststoreVersion`.
+	TruststoreVersion *string `json:"truststoreVersion" yaml:"truststoreVersion"`
+}
+
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   route53ConfigurationProperty := &route53ConfigurationProperty{
+//   	distributedDomainName: jsii.String("distributedDomainName"),
+//   	evaluateTargetHealth: jsii.Boolean(false),
+//   	hostedZoneId: jsii.String("hostedZoneId"),
+//   	hostedZoneName: jsii.String("hostedZoneName"),
+//   	ipV6: jsii.Boolean(false),
+//   }
+//
+type CfnApi_Route53ConfigurationProperty struct {
+	// `CfnApi.Route53ConfigurationProperty.DistributedDomainName`.
+	DistributedDomainName *string `json:"distributedDomainName" yaml:"distributedDomainName"`
+	// `CfnApi.Route53ConfigurationProperty.EvaluateTargetHealth`.
+	EvaluateTargetHealth interface{} `json:"evaluateTargetHealth" yaml:"evaluateTargetHealth"`
+	// `CfnApi.Route53ConfigurationProperty.HostedZoneId`.
+	HostedZoneId *string `json:"hostedZoneId" yaml:"hostedZoneId"`
+	// `CfnApi.Route53ConfigurationProperty.HostedZoneName`.
+	HostedZoneName *string `json:"hostedZoneName" yaml:"hostedZoneName"`
+	// `CfnApi.Route53ConfigurationProperty.IpV6`.
+	IpV6 interface{} `json:"ipV6" yaml:"ipV6"`
 }
 
 // Example:
@@ -1263,6 +1389,29 @@ type CfnApi_S3LocationProperty struct {
 //   	definitionBody: definitionBody,
 //   	definitionUri: jsii.String("definitionUri"),
 //   	description: jsii.String("description"),
+//   	domain: &domainConfigurationProperty{
+//   		certificateArn: jsii.String("certificateArn"),
+//   		domainName: jsii.String("domainName"),
+//
+//   		// the properties below are optional
+//   		basePath: []*string{
+//   			jsii.String("basePath"),
+//   		},
+//   		endpointConfiguration: jsii.String("endpointConfiguration"),
+//   		mutualTlsAuthentication: &mutualTlsAuthenticationProperty{
+//   			truststoreUri: jsii.String("truststoreUri"),
+//   			truststoreVersion: jsii.String("truststoreVersion"),
+//   		},
+//   		ownershipVerificationCertificateArn: jsii.String("ownershipVerificationCertificateArn"),
+//   		route53: &route53ConfigurationProperty{
+//   			distributedDomainName: jsii.String("distributedDomainName"),
+//   			evaluateTargetHealth: jsii.Boolean(false),
+//   			hostedZoneId: jsii.String("hostedZoneId"),
+//   			hostedZoneName: jsii.String("hostedZoneName"),
+//   			ipV6: jsii.Boolean(false),
+//   		},
+//   		securityPolicy: jsii.String("securityPolicy"),
+//   	},
 //   	endpointConfiguration: jsii.String("endpointConfiguration"),
 //   	gatewayResponses: gatewayResponses,
 //   	methodSettings: []interface{}{
@@ -1304,6 +1453,8 @@ type CfnApiProps struct {
 	DefinitionUri interface{} `json:"definitionUri" yaml:"definitionUri"`
 	// `AWS::Serverless::Api.Description`.
 	Description *string `json:"description" yaml:"description"`
+	// `AWS::Serverless::Api.Domain`.
+	Domain interface{} `json:"domain" yaml:"domain"`
 	// `AWS::Serverless::Api.EndpointConfiguration`.
 	EndpointConfiguration interface{} `json:"endpointConfiguration" yaml:"endpointConfiguration"`
 	// `AWS::Serverless::Api.GatewayResponses`.
@@ -4172,6 +4323,17 @@ type CfnFunction_LogGroupSAMPTProperty struct {
 
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   parameterNameSAMPTProperty := &parameterNameSAMPTProperty{
+//   	parameterName: jsii.String("parameterName"),
+//   }
+//
+type CfnFunction_ParameterNameSAMPTProperty struct {
+	// `CfnFunction.ParameterNameSAMPTProperty.ParameterName`.
+	ParameterName *string `json:"parameterName" yaml:"parameterName"`
+}
+
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
 //   provisionedConcurrencyConfigProperty := &provisionedConcurrencyConfigProperty{
 //   	provisionedConcurrentExecutions: jsii.String("provisionedConcurrentExecutions"),
 //   }
@@ -4292,6 +4454,9 @@ type CfnFunction_S3NotificationFilterProperty struct {
 //   sAMPolicyTemplateProperty := &sAMPolicyTemplateProperty{
 //   	amiDescribePolicy: &emptySAMPTProperty{
 //   	},
+//   	awsSecretsManagerGetSecretValuePolicy: &secretArnSAMPTProperty{
+//   		secretArn: jsii.String("secretArn"),
+//   	},
 //   	cloudFormationDescribeStacksPolicy: &emptySAMPTProperty{
 //   	},
 //   	cloudWatchPutMetricPolicy: &emptySAMPTProperty{
@@ -4304,6 +4469,9 @@ type CfnFunction_S3NotificationFilterProperty struct {
 //   	},
 //   	dynamoDbStreamReadPolicy: &tableStreamSAMPTProperty{
 //   		streamName: jsii.String("streamName"),
+//   		tableName: jsii.String("tableName"),
+//   	},
+//   	dynamoDbWritePolicy: &tableSAMPTProperty{
 //   		tableName: jsii.String("tableName"),
 //   	},
 //   	ec2DescribePolicy: &emptySAMPTProperty{
@@ -4345,6 +4513,9 @@ type CfnFunction_S3NotificationFilterProperty struct {
 //   	s3ReadPolicy: &bucketSAMPTProperty{
 //   		bucketName: jsii.String("bucketName"),
 //   	},
+//   	s3WritePolicy: &bucketSAMPTProperty{
+//   		bucketName: jsii.String("bucketName"),
+//   	},
 //   	sesBulkTemplatedCrudPolicy: &identitySAMPTProperty{
 //   		identityName: jsii.String("identityName"),
 //   	},
@@ -4368,6 +4539,9 @@ type CfnFunction_S3NotificationFilterProperty struct {
 //   	sqsSendMessagePolicy: &queueSAMPTProperty{
 //   		queueName: jsii.String("queueName"),
 //   	},
+//   	ssmParameterReadPolicy: &parameterNameSAMPTProperty{
+//   		parameterName: jsii.String("parameterName"),
+//   	},
 //   	stepFunctionsExecutionPolicy: &stateMachineSAMPTProperty{
 //   		stateMachineName: jsii.String("stateMachineName"),
 //   	},
@@ -4378,6 +4552,8 @@ type CfnFunction_S3NotificationFilterProperty struct {
 type CfnFunction_SAMPolicyTemplateProperty struct {
 	// `CfnFunction.SAMPolicyTemplateProperty.AMIDescribePolicy`.
 	AmiDescribePolicy interface{} `json:"amiDescribePolicy" yaml:"amiDescribePolicy"`
+	// `CfnFunction.SAMPolicyTemplateProperty.AWSSecretsManagerGetSecretValuePolicy`.
+	AwsSecretsManagerGetSecretValuePolicy interface{} `json:"awsSecretsManagerGetSecretValuePolicy" yaml:"awsSecretsManagerGetSecretValuePolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.CloudFormationDescribeStacksPolicy`.
 	CloudFormationDescribeStacksPolicy interface{} `json:"cloudFormationDescribeStacksPolicy" yaml:"cloudFormationDescribeStacksPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.CloudWatchPutMetricPolicy`.
@@ -4388,6 +4564,8 @@ type CfnFunction_SAMPolicyTemplateProperty struct {
 	DynamoDbReadPolicy interface{} `json:"dynamoDbReadPolicy" yaml:"dynamoDbReadPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.DynamoDBStreamReadPolicy`.
 	DynamoDbStreamReadPolicy interface{} `json:"dynamoDbStreamReadPolicy" yaml:"dynamoDbStreamReadPolicy"`
+	// `CfnFunction.SAMPolicyTemplateProperty.DynamoDBWritePolicy`.
+	DynamoDbWritePolicy interface{} `json:"dynamoDbWritePolicy" yaml:"dynamoDbWritePolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.EC2DescribePolicy`.
 	Ec2DescribePolicy interface{} `json:"ec2DescribePolicy" yaml:"ec2DescribePolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.ElasticsearchHttpPostPolicy`.
@@ -4416,6 +4594,8 @@ type CfnFunction_SAMPolicyTemplateProperty struct {
 	S3CrudPolicy interface{} `json:"s3CrudPolicy" yaml:"s3CrudPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.S3ReadPolicy`.
 	S3ReadPolicy interface{} `json:"s3ReadPolicy" yaml:"s3ReadPolicy"`
+	// `CfnFunction.SAMPolicyTemplateProperty.S3WritePolicy`.
+	S3WritePolicy interface{} `json:"s3WritePolicy" yaml:"s3WritePolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.SESBulkTemplatedCrudPolicy`.
 	SesBulkTemplatedCrudPolicy interface{} `json:"sesBulkTemplatedCrudPolicy" yaml:"sesBulkTemplatedCrudPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.SESCrudPolicy`.
@@ -4432,6 +4612,8 @@ type CfnFunction_SAMPolicyTemplateProperty struct {
 	SqsPollerPolicy interface{} `json:"sqsPollerPolicy" yaml:"sqsPollerPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.SQSSendMessagePolicy`.
 	SqsSendMessagePolicy interface{} `json:"sqsSendMessagePolicy" yaml:"sqsSendMessagePolicy"`
+	// `CfnFunction.SAMPolicyTemplateProperty.SSMParameterReadPolicy`.
+	SsmParameterReadPolicy interface{} `json:"ssmParameterReadPolicy" yaml:"ssmParameterReadPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.StepFunctionsExecutionPolicy`.
 	StepFunctionsExecutionPolicy interface{} `json:"stepFunctionsExecutionPolicy" yaml:"stepFunctionsExecutionPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.VPCAccessPolicy`.
@@ -4482,6 +4664,17 @@ type CfnFunction_ScheduleEventProperty struct {
 	Schedule *string `json:"schedule" yaml:"schedule"`
 	// `CfnFunction.ScheduleEventProperty.Input`.
 	Input *string `json:"input" yaml:"input"`
+}
+
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   secretArnSAMPTProperty := &secretArnSAMPTProperty{
+//   	secretArn: jsii.String("secretArn"),
+//   }
+//
+type CfnFunction_SecretArnSAMPTProperty struct {
+	// `CfnFunction.SecretArnSAMPTProperty.SecretArn`.
+	SecretArn *string `json:"secretArn" yaml:"secretArn"`
 }
 
 // Example:

@@ -82692,6 +82692,9 @@ const (
 	// I/O-optimized instances with local NVME drive, 3rd generation.
 	// Experimental.
 	InstanceClass_IO3_DENSE_NVME_DRIVE InstanceClass = "IO3_DENSE_NVME_DRIVE"
+	// I/O-optimized instances with local NVME drive powered by Intel Xeon Scalable processors (code named Ice Lake), 4th generation.
+	// Experimental.
+	InstanceClass_IO4_INTEL InstanceClass = "IO4_INTEL"
 	// Storage optimized instances powered by Graviton2 processor, 4th generation.
 	// Experimental.
 	InstanceClass_STORAGE4_GRAVITON_NETWORK_OPTIMIZED InstanceClass = "STORAGE4_GRAVITON_NETWORK_OPTIMIZED"

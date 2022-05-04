@@ -209,6 +209,24 @@ type PythonFunction interface {
 	// The timeout configured for this lambda.
 	// Experimental.
 	Timeout() awscdk.Duration
+	// Defines an alias for this function.
+	//
+	// The alias will automatically be updated to point to the latest version of
+	// the function as it is being updated during a deployment.
+	//
+	// ```ts
+	// declare const fn: lambda.Function;
+	//
+	// fn.addAlias('Live');
+	//
+	// // Is equivalent to
+	//
+	// new lambda.Alias(this, 'AliasLive', {
+	//    aliasName: 'Live',
+	//    version: fn.currentVersion,
+	// });.
+	// Experimental.
+	AddAlias(aliasName *string, options *awslambda.AliasOptions) awslambda.Alias
 	// Adds an environment variable to this Lambda function.
 	//
 	// If this is a ref to a Lambda function, this operation results in a no-op.
@@ -835,6 +853,19 @@ func PythonFunction_MetricAllUnreservedConcurrentExecutions(props *awscloudwatch
 		"monocdk.aws_lambda_python.PythonFunction",
 		"metricAllUnreservedConcurrentExecutions",
 		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (p *jsiiProxy_PythonFunction) AddAlias(aliasName *string, options *awslambda.AliasOptions) awslambda.Alias {
+	var returns awslambda.Alias
+
+	_jsii_.Invoke(
+		p,
+		"addAlias",
+		[]interface{}{aliasName, options},
 		&returns,
 	)
 

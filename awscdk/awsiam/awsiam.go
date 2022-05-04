@@ -487,6 +487,9 @@ type AccountPrincipal interface {
 	// Add to the policy of this principal.
 	// Experimental.
 	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	// A convenience method for adding a condition that the principal is part of the specified AWS Organization.
+	// Experimental.
+	InOrganization(organizationId *string) PrincipalBase
 	// JSON-ify the principal.
 	//
 	// Used when JSON.stringify() is called
@@ -636,6 +639,19 @@ func (a *jsiiProxy_AccountPrincipal) AddToPrincipalPolicy(_statement PolicyState
 	return returns
 }
 
+func (a *jsiiProxy_AccountPrincipal) InOrganization(organizationId *string) PrincipalBase {
+	var returns PrincipalBase
+
+	_jsii_.Invoke(
+		a,
+		"inOrganization",
+		[]interface{}{organizationId},
+		&returns,
+	)
+
+	return returns
+}
+
 func (a *jsiiProxy_AccountPrincipal) ToJSON() *map[string]*[]*string {
 	var returns *map[string]*[]*string
 
@@ -742,6 +758,9 @@ type AccountRootPrincipal interface {
 	// Add to the policy of this principal.
 	// Experimental.
 	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	// A convenience method for adding a condition that the principal is part of the specified AWS Organization.
+	// Experimental.
+	InOrganization(organizationId *string) PrincipalBase
 	// JSON-ify the principal.
 	//
 	// Used when JSON.stringify() is called
@@ -885,6 +904,19 @@ func (a *jsiiProxy_AccountRootPrincipal) AddToPrincipalPolicy(_statement PolicyS
 		a,
 		"addToPrincipalPolicy",
 		[]interface{}{_statement},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_AccountRootPrincipal) InOrganization(organizationId *string) PrincipalBase {
+	var returns PrincipalBase
+
+	_jsii_.Invoke(
+		a,
+		"inOrganization",
+		[]interface{}{organizationId},
 		&returns,
 	)
 
@@ -1058,6 +1090,9 @@ type AnyPrincipal interface {
 	// Add to the policy of this principal.
 	// Experimental.
 	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	// A convenience method for adding a condition that the principal is part of the specified AWS Organization.
+	// Experimental.
+	InOrganization(organizationId *string) PrincipalBase
 	// JSON-ify the principal.
 	//
 	// Used when JSON.stringify() is called
@@ -1197,6 +1232,19 @@ func (a *jsiiProxy_AnyPrincipal) AddToPrincipalPolicy(_statement PolicyStatement
 	return returns
 }
 
+func (a *jsiiProxy_AnyPrincipal) InOrganization(organizationId *string) PrincipalBase {
+	var returns PrincipalBase
+
+	_jsii_.Invoke(
+		a,
+		"inOrganization",
+		[]interface{}{organizationId},
+		&returns,
+	)
+
+	return returns
+}
+
 func (a *jsiiProxy_AnyPrincipal) ToJSON() *map[string]*[]*string {
 	var returns *map[string]*[]*string
 
@@ -1290,6 +1338,9 @@ type Anyone interface {
 	// Add to the policy of this principal.
 	// Deprecated: use `AnyPrincipal`.
 	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	// A convenience method for adding a condition that the principal is part of the specified AWS Organization.
+	// Deprecated: use `AnyPrincipal`.
+	InOrganization(organizationId *string) PrincipalBase
 	// JSON-ify the principal.
 	//
 	// Used when JSON.stringify() is called
@@ -1429,6 +1480,19 @@ func (a *jsiiProxy_Anyone) AddToPrincipalPolicy(_statement PolicyStatement) *Add
 	return returns
 }
 
+func (a *jsiiProxy_Anyone) InOrganization(organizationId *string) PrincipalBase {
+	var returns PrincipalBase
+
+	_jsii_.Invoke(
+		a,
+		"inOrganization",
+		[]interface{}{organizationId},
+		&returns,
+	)
+
+	return returns
+}
+
 func (a *jsiiProxy_Anyone) ToJSON() *map[string]*[]*string {
 	var returns *map[string]*[]*string
 
@@ -1538,6 +1602,9 @@ type ArnPrincipal interface {
 	// Add to the policy of this principal.
 	// Experimental.
 	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	// A convenience method for adding a condition that the principal is part of the specified AWS Organization.
+	// Experimental.
+	InOrganization(organizationId *string) PrincipalBase
 	// JSON-ify the principal.
 	//
 	// Used when JSON.stringify() is called
@@ -1671,6 +1738,19 @@ func (a *jsiiProxy_ArnPrincipal) AddToPrincipalPolicy(_statement PolicyStatement
 		a,
 		"addToPrincipalPolicy",
 		[]interface{}{_statement},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_ArnPrincipal) InOrganization(organizationId *string) PrincipalBase {
+	var returns PrincipalBase
+
+	_jsii_.Invoke(
+		a,
+		"inOrganization",
+		[]interface{}{organizationId},
 		&returns,
 	)
 
@@ -17900,6 +17980,8 @@ type PolicyStatement interface {
 	// Experimental.
 	SetSid(val *string)
 	// Add a condition that limits to a given account.
+	//
+	// This method can only be called once: subsequent calls will overwrite earlier calls.
 	// Experimental.
 	AddAccountCondition(accountId *string)
 	// Adds an AWS account root user principal to this policy statement.
@@ -17928,9 +18010,32 @@ type PolicyStatement interface {
 	// Experimental.
 	AddCanonicalUserPrincipal(canonicalUserId *string)
 	// Add a condition to the Policy.
+	//
+	// If multiple calls are made to add a condition with the same operator and field, only
+	// the last one wins. For example:
+	//
+	// ```ts
+	// declare const stmt: iam.PolicyStatement;
+	//
+	// stmt.addCondition('StringEquals', { 'aws:SomeField': '1' });
+	// stmt.addCondition('StringEquals', { 'aws:SomeField': '2' });
+	// ```
+	//
+	// Will end up with the single condition `StringEquals: { 'aws:SomeField': '2' }`.
+	//
+	// If you meant to add a condition to say that the field can be *either* `1` or `2`, write
+	// this:
+	//
+	// ```ts
+	// declare const stmt: iam.PolicyStatement;
+	//
+	// stmt.addCondition('StringEquals', { 'aws:SomeField': ['1', '2'] });
+	// ```.
 	// Experimental.
 	AddCondition(key *string, value interface{})
 	// Add multiple conditions to the Policy.
+	//
+	// See the `addCondition` function for a caveat on calling this method multiple times.
 	// Experimental.
 	AddConditions(conditions *map[string]interface{})
 	// Adds a federated identity provider such as Amazon Cognito to this policy statement.

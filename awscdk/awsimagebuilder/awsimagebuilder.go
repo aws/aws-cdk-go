@@ -11,7 +11,10 @@ import (
 
 // A CloudFormation `AWS::ImageBuilder::Component`.
 //
-// Components are orchestration documents that define a sequence of steps for downloading, installing, and configuring software packages or for defining tests to run on software packages. They also define validation and security hardening steps. A component is defined using a YAML document format. For more information, see [Using Documents in Image Builder](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-application-documents.html) .
+// Creates a new component that can be used to build, validate, test, and assess your image. The component is based on a YAML document that you specify using exactly one of the following methods:
+//
+// - Inline, using the `data` property in the request body.
+// - A URL that points to a YAML document file stored in Amazon S3, using the `uri` property in the request body.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
@@ -47,9 +50,9 @@ type CfnComponent interface {
 	AttrEncrypted() awscdk.IResolvable
 	// Returns the name of the component.
 	AttrName() *string
-	// Returns the component type.
+	// Image Builder determines the component type based on the phases that are defined in the component document.
 	//
-	// For example, `BUILD` or `TEST` .
+	// If there is only one phase, and its name is "test", then the type is `TEST` . For all other components, the type is `BUILD` .
 	AttrType() *string
 	// Options for this resource, such as condition, update policy etc.
 	// Experimental.
@@ -58,9 +61,9 @@ type CfnComponent interface {
 	// AWS resource type.
 	// Experimental.
 	CfnResourceType() *string
-	// A change description of the component.
+	// The change description of the component.
 	//
-	// For example `initial version` .
+	// Describes what change has been made in this version, or what makes this version different from other versions of this component.
 	ChangeDescription() *string
 	SetChangeDescription(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -68,15 +71,17 @@ type CfnComponent interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// The data of the component.
+	// Component `data` contains inline YAML document content for the component.
 	//
-	// For example, `name: HelloWorldTestingDocument\ndescription: This is hello world testing document.\nschemaVersion: 1.0\n\nphases:\n - name: test\n steps:\n - name: HelloWorldStep\n action: ExecuteBash\n inputs:\n commands:\n - echo \"Hello World! Test.\"\n` . See Examples below for the schema for creating a component using Data.
+	// Alternatively, you can specify the `uri` of a YAML document file stored in Amazon S3. However, you cannot specify both properties.
 	Data() *string
 	SetData(val *string)
 	// The description of the component.
+	//
+	// Describes the contents of the component.
 	Description() *string
 	SetDescription(val *string)
-	// The KMS key identifier used to encrypt the component.
+	// The ID of the KMS key that should be used to encrypt this component.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -97,8 +102,6 @@ type CfnComponent interface {
 	// Experimental.
 	Node() awscdk.ConstructNode
 	// The platform of the component.
-	//
-	// For example, `Windows` .
 	Platform() *string
 	SetPlatform(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -117,7 +120,7 @@ type CfnComponent interface {
 	// If the OS information is available, a prefix match is performed against the base image OS version during image recipe creation.
 	SupportedOsVersions() *[]*string
 	SetSupportedOsVersions(val *[]*string)
-	// The tags associated with the component.
+	// The tags of the component.
 	Tags() awscdk.TagManager
 	// Return properties modified after initiation.
 	//
@@ -935,30 +938,30 @@ type CfnComponentProps struct {
 	// The name of the component.
 	Name *string `json:"name" yaml:"name"`
 	// The platform of the component.
-	//
-	// For example, `Windows` .
 	Platform *string `json:"platform" yaml:"platform"`
 	// The component version.
 	//
 	// For example, `1.0.0` .
 	Version *string `json:"version" yaml:"version"`
-	// A change description of the component.
+	// The change description of the component.
 	//
-	// For example `initial version` .
+	// Describes what change has been made in this version, or what makes this version different from other versions of this component.
 	ChangeDescription *string `json:"changeDescription" yaml:"changeDescription"`
-	// The data of the component.
+	// Component `data` contains inline YAML document content for the component.
 	//
-	// For example, `name: HelloWorldTestingDocument\ndescription: This is hello world testing document.\nschemaVersion: 1.0\n\nphases:\n - name: test\n steps:\n - name: HelloWorldStep\n action: ExecuteBash\n inputs:\n commands:\n - echo \"Hello World! Test.\"\n` . See Examples below for the schema for creating a component using Data.
+	// Alternatively, you can specify the `uri` of a YAML document file stored in Amazon S3. However, you cannot specify both properties.
 	Data *string `json:"data" yaml:"data"`
 	// The description of the component.
+	//
+	// Describes the contents of the component.
 	Description *string `json:"description" yaml:"description"`
-	// The KMS key identifier used to encrypt the component.
+	// The ID of the KMS key that should be used to encrypt this component.
 	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The operating system (OS) version supported by the component.
 	//
 	// If the OS information is available, a prefix match is performed against the base image OS version during image recipe creation.
 	SupportedOsVersions *[]*string `json:"supportedOsVersions" yaml:"supportedOsVersions"`
-	// The tags associated with the component.
+	// The tags of the component.
 	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// The `uri` of a YAML component document file.
 	//
@@ -1062,7 +1065,7 @@ type CfnContainerRecipe interface {
 	// The S3 URI for the Dockerfile that will be used to build your container image.
 	DockerfileTemplateUri() *string
 	SetDockerfileTemplateUri(val *string)
-	// Specifies the operating system version for the source image.
+	// Specifies the operating system version for the base image.
 	ImageOsVersionOverride() *string
 	SetImageOsVersionOverride(val *string)
 	// A group of options that can be used to configure an instance for building and testing container images.
@@ -1091,7 +1094,7 @@ type CfnContainerRecipe interface {
 	// The base image for the container recipe.
 	ParentImage() *string
 	SetParentImage(val *string)
-	// Specifies the operating system platform when you use a custom source image.
+	// Specifies the operating system platform when you use a custom base image.
 	PlatformOverride() *string
 	SetPlatformOverride(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -2049,7 +2052,7 @@ type CfnContainerRecipe_InstanceBlockDeviceMappingProperty struct {
 	VirtualName *string `json:"virtualName" yaml:"virtualName"`
 }
 
-// Defines a custom source AMI and block device mapping configurations of an instance used for building and testing container images.
+// Defines a custom base AMI and block device mapping configurations of an instance used for building and testing container images.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
@@ -2184,13 +2187,13 @@ type CfnContainerRecipeProps struct {
 	DockerfileTemplateData *string `json:"dockerfileTemplateData" yaml:"dockerfileTemplateData"`
 	// The S3 URI for the Dockerfile that will be used to build your container image.
 	DockerfileTemplateUri *string `json:"dockerfileTemplateUri" yaml:"dockerfileTemplateUri"`
-	// Specifies the operating system version for the source image.
+	// Specifies the operating system version for the base image.
 	ImageOsVersionOverride *string `json:"imageOsVersionOverride" yaml:"imageOsVersionOverride"`
 	// A group of options that can be used to configure an instance for building and testing container images.
 	InstanceConfiguration interface{} `json:"instanceConfiguration" yaml:"instanceConfiguration"`
 	// Identifies which KMS key is used to encrypt the container image for distribution to the target Region.
 	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
-	// Specifies the operating system platform when you use a custom source image.
+	// Specifies the operating system platform when you use a custom base image.
 	PlatformOverride *string `json:"platformOverride" yaml:"platformOverride"`
 	// Tags that are attached to the container recipe.
 	Tags *map[string]*string `json:"tags" yaml:"tags"`
@@ -2942,6 +2945,77 @@ func (c *jsiiProxy_CfnDistributionConfiguration) ValidateProperties(_properties 
 	)
 }
 
+// Define and configure the output AMIs of the pipeline.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   amiDistributionConfigurationProperty := &amiDistributionConfigurationProperty{
+//   	amiTags: map[string]*string{
+//   		"amiTagsKey": jsii.String("amiTags"),
+//   	},
+//   	description: jsii.String("description"),
+//   	kmsKeyId: jsii.String("kmsKeyId"),
+//   	launchPermissionConfiguration: &launchPermissionConfigurationProperty{
+//   		organizationalUnitArns: []*string{
+//   			jsii.String("organizationalUnitArns"),
+//   		},
+//   		organizationArns: []*string{
+//   			jsii.String("organizationArns"),
+//   		},
+//   		userGroups: []*string{
+//   			jsii.String("userGroups"),
+//   		},
+//   		userIds: []*string{
+//   			jsii.String("userIds"),
+//   		},
+//   	},
+//   	name: jsii.String("name"),
+//   	targetAccountIds: []*string{
+//   		jsii.String("targetAccountIds"),
+//   	},
+//   }
+//
+type CfnDistributionConfiguration_AmiDistributionConfigurationProperty struct {
+	// The tags to apply to AMIs distributed to this Region.
+	AmiTags interface{} `json:"amiTags" yaml:"amiTags"`
+	// The description of the AMI distribution configuration.
+	//
+	// Minimum and maximum length are in characters.
+	Description *string `json:"description" yaml:"description"`
+	// The KMS key identifier used to encrypt the distributed image.
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	// Launch permissions can be used to configure which AWS account s can use the AMI to launch instances.
+	LaunchPermissionConfiguration interface{} `json:"launchPermissionConfiguration" yaml:"launchPermissionConfiguration"`
+	// The name of the output AMI.
+	Name *string `json:"name" yaml:"name"`
+	// The ID of an account to which you want to distribute an image.
+	TargetAccountIds *[]*string `json:"targetAccountIds" yaml:"targetAccountIds"`
+}
+
+// Container distribution settings for encryption, licensing, and sharing in a specific Region.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"
+//   containerDistributionConfigurationProperty := &containerDistributionConfigurationProperty{
+//   	containerTags: []*string{
+//   		jsii.String("containerTags"),
+//   	},
+//   	description: jsii.String("description"),
+//   	targetRepository: &targetContainerRepositoryProperty{
+//   		repositoryName: jsii.String("repositoryName"),
+//   		service: jsii.String("service"),
+//   	},
+//   }
+//
+type CfnDistributionConfiguration_ContainerDistributionConfigurationProperty struct {
+	// Tags that are attached to the container distribution configuration.
+	ContainerTags *[]*string `json:"containerTags" yaml:"containerTags"`
+	// The description of the container distribution configuration.
+	Description *string `json:"description" yaml:"description"`
+	// The destination repository for the container distribution configuration.
+	TargetRepository interface{} `json:"targetRepository" yaml:"targetRepository"`
+}
+
 // The distribution configuration distribution defines the settings for a specific Region in the Distribution Configuration.
 //
 // You must specify whether the distribution is for an AMI or a container image. To do so, include exactly one of the following data types for your distribution:
@@ -3144,7 +3218,12 @@ type CfnImage interface {
 	// For example, `arn:aws:imagebuilder:us-west-2:123456789012:image/mybasicrecipe/2019.12.03/1` .
 	AttrArn() *string
 	// Returns the AMI ID of the Amazon EC2 AMI in the Region in which you are using Image Builder.
+	//
+	// Values are returned only for AMIs, and not for container images.
 	AttrImageId() *string
+	// Returns a list of URIs for container images created in the context Region.
+	//
+	// Values are returned only for container images, and not for AMIs.
 	AttrImageUri() *string
 	// Returns the name of the image.
 	AttrName() *string
@@ -4869,7 +4948,7 @@ type CfnImagePipeline_ImageTestsConfigurationProperty struct {
 type CfnImagePipeline_ScheduleProperty struct {
 	// The condition configures when the pipeline should trigger a new image build.
 	//
-	// When the `pipelineExecutionStartCondition` is set to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` , and you use semantic version filters on the source image or components in your image recipe, Image Builder will build a new image only when there are new versions of the image or components in your recipe that match the semantic version filter. When it is set to `EXPRESSION_MATCH_ONLY` , it will build a new image every time the CRON expression matches the current time. For semantic version syntax, see [CreateComponent](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html) in the *Image Builder API Reference* .
+	// When the `pipelineExecutionStartCondition` is set to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` , and you use semantic version filters on the base image or components in your image recipe, Image Builder will build a new image only when there are new versions of the image or components in your recipe that match the semantic version filter. When it is set to `EXPRESSION_MATCH_ONLY` , it will build a new image every time the CRON expression matches the current time. For semantic version syntax, see [CreateComponent](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html) in the *Image Builder API Reference* .
 	PipelineExecutionStartCondition *string `json:"pipelineExecutionStartCondition" yaml:"pipelineExecutionStartCondition"`
 	// The cron expression determines how often EC2 Image Builder evaluates your `pipelineExecutionStartCondition` .
 	//
@@ -4976,7 +5055,7 @@ type CfnImageProps struct {
 
 // A CloudFormation `AWS::ImageBuilder::ImageRecipe`.
 //
-// An Image Builder image recipe is a document that defines the source image and the components to be applied to the source image to produce the desired configuration for the output image. You can use an image recipe to duplicate builds. Image Builder image recipes can be shared, branched, and edited using the console wizard, the AWS CLI , or the API. You can use image recipes with your version control software to maintain shareable versioned image recipes.
+// An Image Builder image recipe is a document that defines the base image and the components to be applied to the base image to produce the desired configuration for the output image. You can use an image recipe to duplicate builds. Image Builder image recipes can be shared, branched, and edited using the console wizard, the AWS CLI , or the API. You can use image recipes with your version control software to maintain shareable versioned image recipes.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import imagebuilder "github.com/aws/aws-cdk-go/awscdk/aws_imagebuilder"

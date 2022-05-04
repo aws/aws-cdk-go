@@ -811,11 +811,22 @@ type CfnDetectorProps struct {
 //   			eq: []*string{
 //   				jsii.String("eq"),
 //   			},
+//   			equalTo: []*string{
+//   				jsii.String("equalTo"),
+//   			},
+//   			greaterThan: jsii.Number(123),
+//   			greaterThanOrEqual: jsii.Number(123),
+//   			gt: jsii.Number(123),
 //   			gte: jsii.Number(123),
+//   			lessThan: jsii.Number(123),
+//   			lessThanOrEqual: jsii.Number(123),
 //   			lt: jsii.Number(123),
 //   			lte: jsii.Number(123),
 //   			neq: []*string{
 //   				jsii.String("neq"),
+//   			},
+//   			notEquals: []*string{
+//   				jsii.String("notEquals"),
 //   			},
 //   		},
 //   	},
@@ -1564,25 +1575,50 @@ func (c *jsiiProxy_CfnFilter) ValidateProperties(_properties interface{}) {
 //   	eq: []*string{
 //   		jsii.String("eq"),
 //   	},
+//   	equalTo: []*string{
+//   		jsii.String("equalTo"),
+//   	},
+//   	greaterThan: jsii.Number(123),
+//   	greaterThanOrEqual: jsii.Number(123),
+//   	gt: jsii.Number(123),
 //   	gte: jsii.Number(123),
+//   	lessThan: jsii.Number(123),
+//   	lessThanOrEqual: jsii.Number(123),
 //   	lt: jsii.Number(123),
 //   	lte: jsii.Number(123),
 //   	neq: []*string{
 //   		jsii.String("neq"),
+//   	},
+//   	notEquals: []*string{
+//   		jsii.String("notEquals"),
 //   	},
 //   }
 //
 type CfnFilter_ConditionProperty struct {
 	// Represents the equal condition to apply to a single field when querying for findings.
 	Eq *[]*string `json:"eq" yaml:"eq"`
+	// Represents an *equal* ** condition to be applied to a single field when querying for findings.
+	EqualTo *[]*string `json:"equalTo" yaml:"equalTo"`
+	// Represents a *greater than* condition to be applied to a single field when querying for findings.
+	GreaterThan *float64 `json:"greaterThan" yaml:"greaterThan"`
+	// Represents a *greater than or equal* condition to be applied to a single field when querying for findings.
+	GreaterThanOrEqual *float64 `json:"greaterThanOrEqual" yaml:"greaterThanOrEqual"`
+	// Represents a *greater than* condition to be applied to a single field when querying for findings.
+	Gt *float64 `json:"gt" yaml:"gt"`
 	// Represents the greater than or equal condition to apply to a single field when querying for findings.
 	Gte *float64 `json:"gte" yaml:"gte"`
+	// Represents a *less than* condition to be applied to a single field when querying for findings.
+	LessThan *float64 `json:"lessThan" yaml:"lessThan"`
+	// Represents a *less than or equal* condition to be applied to a single field when querying for findings.
+	LessThanOrEqual *float64 `json:"lessThanOrEqual" yaml:"lessThanOrEqual"`
 	// Represents the less than condition to apply to a single field when querying for findings.
 	Lt *float64 `json:"lt" yaml:"lt"`
 	// Represents the less than or equal condition to apply to a single field when querying for findings.
 	Lte *float64 `json:"lte" yaml:"lte"`
 	// Represents the not equal condition to apply to a single field when querying for findings.
 	Neq *[]*string `json:"neq" yaml:"neq"`
+	// Represents a *not equal* ** condition to be applied to a single field when querying for findings.
+	NotEquals *[]*string `json:"notEquals" yaml:"notEquals"`
 }
 
 // Represents a map of finding properties that match specified conditions and values when querying findings.
@@ -1597,11 +1633,22 @@ type CfnFilter_ConditionProperty struct {
 //   		eq: []*string{
 //   			jsii.String("eq"),
 //   		},
+//   		equalTo: []*string{
+//   			jsii.String("equalTo"),
+//   		},
+//   		greaterThan: jsii.Number(123),
+//   		greaterThanOrEqual: jsii.Number(123),
+//   		gt: jsii.Number(123),
 //   		gte: jsii.Number(123),
+//   		lessThan: jsii.Number(123),
+//   		lessThanOrEqual: jsii.Number(123),
 //   		lt: jsii.Number(123),
 //   		lte: jsii.Number(123),
 //   		neq: []*string{
 //   			jsii.String("neq"),
+//   		},
+//   		notEquals: []*string{
+//   			jsii.String("notEquals"),
 //   		},
 //   	},
 //   }
@@ -1687,11 +1734,22 @@ type CfnFilter_FindingCriteriaProperty struct {
 //   			eq: []*string{
 //   				jsii.String("eq"),
 //   			},
+//   			equalTo: []*string{
+//   				jsii.String("equalTo"),
+//   			},
+//   			greaterThan: jsii.Number(123),
+//   			greaterThanOrEqual: jsii.Number(123),
+//   			gt: jsii.Number(123),
 //   			gte: jsii.Number(123),
+//   			lessThan: jsii.Number(123),
+//   			lessThanOrEqual: jsii.Number(123),
 //   			lt: jsii.Number(123),
 //   			lte: jsii.Number(123),
 //   			neq: []*string{
 //   				jsii.String("neq"),
+//   			},
+//   			notEquals: []*string{
+//   				jsii.String("notEquals"),
 //   			},
 //   		},
 //   	},

@@ -3875,6 +3875,8 @@ type CfnEndpoint interface {
 	Description() *string
 	SetDescription(val *string)
 	// The event buses being used by the endpoint.
+	//
+	// *Exactly* : `2`.
 	EventBuses() interface{}
 	SetEventBuses(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -4765,6 +4767,8 @@ type CfnEndpoint_SecondaryProperty struct {
 //
 type CfnEndpointProps struct {
 	// The event buses being used by the endpoint.
+	//
+	// *Exactly* : `2`.
 	EventBuses interface{} `json:"eventBuses" yaml:"eventBuses"`
 	// The name of the endpoint.
 	Name *string `json:"name" yaml:"name"`

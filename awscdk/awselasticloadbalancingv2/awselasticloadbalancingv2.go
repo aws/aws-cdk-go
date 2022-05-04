@@ -5222,7 +5222,7 @@ type BaseTargetGroupProps struct {
 
 // A CloudFormation `AWS::ElasticLoadBalancingV2::Listener`.
 //
-// Specifies a listener for an Application Load Balancer or Network Load Balancer.
+// Specifies a listener for an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
@@ -7280,6 +7280,8 @@ type CfnListenerProps struct {
 //
 // Specifies a listener rule. The listener must be associated with an Application Load Balancer. Each rule consists of a priority, one or more actions, and one or more conditions.
 //
+// For more information, see [Quotas for your Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html) in the *User Guide for Application Load Balancers* .
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
 //   cfnListenerRule := elasticloadbalancingv2.NewCfnListenerRule(this, jsii.String("MyCfnListenerRule"), &cfnListenerRuleProps{
@@ -8470,7 +8472,7 @@ type CfnListenerRule_HttpRequestMethodConfigProperty struct {
 //   }
 //
 type CfnListenerRule_PathPatternConfigProperty struct {
-	// One or more path patterns to compare against the request URL.
+	// The path patterns to compare against the request URL.
 	//
 	// The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
 	//
@@ -8687,9 +8689,7 @@ type CfnListenerRule_RuleConditionProperty struct {
 //   }
 //
 type CfnListenerRule_SourceIpConfigProperty struct {
-	// One or more source IP addresses, in CIDR format.
-	//
-	// You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
+	// The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
 	//
 	// If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header.
 	Values *[]*string `json:"values" yaml:"values"`
@@ -9970,7 +9970,7 @@ type CfnLoadBalancerProps struct {
 
 // A CloudFormation `AWS::ElasticLoadBalancingV2::TargetGroup`.
 //
-// Specifies a target group for a load balancer.
+// Specifies a target group for an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
 //
 // If the protocol of the target group is TCP, TLS, UDP, or TCP_UDP, you can't modify the health check protocol, interval, timeout, or success codes.
 //

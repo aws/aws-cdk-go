@@ -934,7 +934,7 @@ func (c *jsiiProxy_CfnConnectorProfile) ValidateProperties(_properties interface
 	)
 }
 
-// The `AmplitudeConnectorProfileCredentials` property type specifies the connector-specific credentials required when using Amplitude.
+// The connector-specific credentials required when using Amplitude.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -950,7 +950,7 @@ type CfnConnectorProfile_AmplitudeConnectorProfileCredentialsProperty struct {
 	SecretKey *string `json:"secretKey" yaml:"secretKey"`
 }
 
-// The `ConnectorOAuthRequest` property type specifies the select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
+// Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1148,7 +1148,7 @@ type CfnConnectorProfile_ConnectorProfileConfigProperty struct {
 	ConnectorProfileProperties interface{} `json:"connectorProfileProperties" yaml:"connectorProfileProperties"`
 }
 
-// The `ConnectorProfileCredentials` property type specifies the connector-specific credentials required by a given connector.
+// The connector-specific credentials required by a connector.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1272,7 +1272,7 @@ type CfnConnectorProfile_ConnectorProfileCredentialsProperty struct {
 	Redshift interface{} `json:"redshift" yaml:"redshift"`
 	// The connector-specific credentials required when using Salesforce.
 	Salesforce interface{} `json:"salesforce" yaml:"salesforce"`
-	// `CfnConnectorProfile.ConnectorProfileCredentialsProperty.SAPOData`.
+	// The connector-specific profile credentials required when using SAPOData.
 	SapoData interface{} `json:"sapoData" yaml:"sapoData"`
 	// The connector-specific credentials required when using ServiceNow.
 	ServiceNow interface{} `json:"serviceNow" yaml:"serviceNow"`
@@ -1290,7 +1290,7 @@ type CfnConnectorProfile_ConnectorProfileCredentialsProperty struct {
 	Zendesk interface{} `json:"zendesk" yaml:"zendesk"`
 }
 
-// The `ConnectorProfileProperties` property type specifies the connector-specific profile properties required by each connector.
+// The connector-specific profile properties required by each connector.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1372,7 +1372,7 @@ type CfnConnectorProfile_ConnectorProfilePropertiesProperty struct {
 	Redshift interface{} `json:"redshift" yaml:"redshift"`
 	// The connector-specific properties required by Salesforce.
 	Salesforce interface{} `json:"salesforce" yaml:"salesforce"`
-	// `CfnConnectorProfile.ConnectorProfilePropertiesProperty.SAPOData`.
+	// The connector-specific profile properties required when using SAPOData.
 	SapoData interface{} `json:"sapoData" yaml:"sapoData"`
 	// The connector-specific properties required by serviceNow.
 	ServiceNow interface{} `json:"serviceNow" yaml:"serviceNow"`
@@ -1386,7 +1386,7 @@ type CfnConnectorProfile_ConnectorProfilePropertiesProperty struct {
 	Zendesk interface{} `json:"zendesk" yaml:"zendesk"`
 }
 
-// The `DatadogConnectorProfileCredentials` property type specifies the connector-specific credentials required by Datadog.
+// The connector-specific credentials required by Datadog.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1404,7 +1404,7 @@ type CfnConnectorProfile_DatadogConnectorProfileCredentialsProperty struct {
 	ApplicationKey *string `json:"applicationKey" yaml:"applicationKey"`
 }
 
-// The `DatadogConnectorProfileProperties` property type specifies the connector-specific profile properties required by Datadog.
+// The connector-specific profile properties required by Datadog.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1417,7 +1417,7 @@ type CfnConnectorProfile_DatadogConnectorProfilePropertiesProperty struct {
 	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
 }
 
-// The `DynatraceConnectorProfileCredentials` property type specifies the connector-specific profile credentials required by Dynatrace.
+// The connector-specific profile credentials required by Dynatrace.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1430,7 +1430,7 @@ type CfnConnectorProfile_DynatraceConnectorProfileCredentialsProperty struct {
 	ApiToken *string `json:"apiToken" yaml:"apiToken"`
 }
 
-// The `DynatraceConnectorProfileProperties` property type specifies the connector-specific profile properties required by Dynatrace.
+// The connector-specific profile properties required by Dynatrace.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1443,7 +1443,7 @@ type CfnConnectorProfile_DynatraceConnectorProfilePropertiesProperty struct {
 	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
 }
 
-// The `GoogleAnalyticsConnectorProfileCredentials` property type specifies the connector-specific profile credentials required by Google Analytics.
+// The connector-specific profile credentials required by Google Analytics.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1475,7 +1475,7 @@ type CfnConnectorProfile_GoogleAnalyticsConnectorProfileCredentialsProperty stru
 	RefreshToken *string `json:"refreshToken" yaml:"refreshToken"`
 }
 
-// The `InforNexusConnectorProfileCredentials` property type specifies the connector-specific profile credentials required by Infor Nexus.
+// The connector-specific profile credentials required by Infor Nexus.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1497,7 +1497,7 @@ type CfnConnectorProfile_InforNexusConnectorProfileCredentialsProperty struct {
 	UserId *string `json:"userId" yaml:"userId"`
 }
 
-// The `InforNexusConnectorProfileProperties` property type specifies the connector-specific profile properties required by Infor Nexus.
+// The connector-specific profile properties required by Infor Nexus.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1510,7 +1510,7 @@ type CfnConnectorProfile_InforNexusConnectorProfilePropertiesProperty struct {
 	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
 }
 
-// The `MarketoConnectorProfileCredentials` property type specifies the connector-specific profile credentials required by Marketo.
+// The connector-specific profile credentials required by Marketo.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1537,7 +1537,7 @@ type CfnConnectorProfile_MarketoConnectorProfileCredentialsProperty struct {
 	ConnectorOAuthRequest interface{} `json:"connectorOAuthRequest" yaml:"connectorOAuthRequest"`
 }
 
-// The `MarketoConnectorProfileProperties` property type specifies the connector-specific profile properties required when using Marketo.
+// The connector-specific profile properties required when using Marketo.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1550,6 +1550,8 @@ type CfnConnectorProfile_MarketoConnectorProfilePropertiesProperty struct {
 	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
 }
 
+// The OAuth properties required for OAuth type authentication.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
 //   oAuthPropertiesProperty := &oAuthPropertiesProperty{
@@ -1561,15 +1563,15 @@ type CfnConnectorProfile_MarketoConnectorProfilePropertiesProperty struct {
 //   }
 //
 type CfnConnectorProfile_OAuthPropertiesProperty struct {
-	// `CfnConnectorProfile.OAuthPropertiesProperty.AuthCodeUrl`.
+	// The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
 	AuthCodeUrl *string `json:"authCodeUrl" yaml:"authCodeUrl"`
-	// `CfnConnectorProfile.OAuthPropertiesProperty.OAuthScopes`.
+	// The OAuth scopes required for OAuth type authentication.
 	OAuthScopes *[]*string `json:"oAuthScopes" yaml:"oAuthScopes"`
-	// `CfnConnectorProfile.OAuthPropertiesProperty.TokenUrl`.
+	// The token url required to fetch access/refresh tokens using authorization code and also to refresh expired access token using refresh token.
 	TokenUrl *string `json:"tokenUrl" yaml:"tokenUrl"`
 }
 
-// The `RedshiftConnectorProfileCredentials` property type specifies the connector-specific profile credentials required when using Amazon Redshift.
+// The connector-specific profile credentials required when using Amazon Redshift.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1585,7 +1587,7 @@ type CfnConnectorProfile_RedshiftConnectorProfileCredentialsProperty struct {
 	Username *string `json:"username" yaml:"username"`
 }
 
-// The `RedshiftConnectorProfileProperties` property type specifies the connector-specific profile properties when using Amazon Redshift.
+// The connector-specific profile properties when using Amazon Redshift.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1609,6 +1611,8 @@ type CfnConnectorProfile_RedshiftConnectorProfilePropertiesProperty struct {
 	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
 }
 
+// The connector-specific profile credentials required when using SAPOData.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
 //
@@ -1620,12 +1624,14 @@ type CfnConnectorProfile_RedshiftConnectorProfilePropertiesProperty struct {
 //   }
 //
 type CfnConnectorProfile_SAPODataConnectorProfileCredentialsProperty struct {
-	// `CfnConnectorProfile.SAPODataConnectorProfileCredentialsProperty.BasicAuthCredentials`.
+	// The SAPOData basic authentication credentials.
 	BasicAuthCredentials interface{} `json:"basicAuthCredentials" yaml:"basicAuthCredentials"`
-	// `CfnConnectorProfile.SAPODataConnectorProfileCredentialsProperty.OAuthCredentials`.
+	// The SAPOData OAuth type authentication credentials.
 	OAuthCredentials interface{} `json:"oAuthCredentials" yaml:"oAuthCredentials"`
 }
 
+// The connector-specific profile properties required when using SAPOData.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
 //   sAPODataConnectorProfilePropertiesProperty := &sAPODataConnectorProfilePropertiesProperty{
@@ -1645,23 +1651,23 @@ type CfnConnectorProfile_SAPODataConnectorProfileCredentialsProperty struct {
 //   }
 //
 type CfnConnectorProfile_SAPODataConnectorProfilePropertiesProperty struct {
-	// `CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty.ApplicationHostUrl`.
+	// The location of the SAPOData resource.
 	ApplicationHostUrl *string `json:"applicationHostUrl" yaml:"applicationHostUrl"`
-	// `CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty.ApplicationServicePath`.
+	// The application path to catalog service.
 	ApplicationServicePath *string `json:"applicationServicePath" yaml:"applicationServicePath"`
-	// `CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty.ClientNumber`.
+	// The client number for the client creating the connection.
 	ClientNumber *string `json:"clientNumber" yaml:"clientNumber"`
-	// `CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty.LogonLanguage`.
+	// The logon language of SAPOData instance.
 	LogonLanguage *string `json:"logonLanguage" yaml:"logonLanguage"`
-	// `CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty.OAuthProperties`.
+	// The SAPOData OAuth properties required for OAuth type authentication.
 	OAuthProperties interface{} `json:"oAuthProperties" yaml:"oAuthProperties"`
-	// `CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty.PortNumber`.
+	// The port number of the SAPOData instance.
 	PortNumber *float64 `json:"portNumber" yaml:"portNumber"`
-	// `CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty.PrivateLinkServiceName`.
+	// The SAPOData Private Link service name to be used for private data transfers.
 	PrivateLinkServiceName *string `json:"privateLinkServiceName" yaml:"privateLinkServiceName"`
 }
 
-// The `SalesforceConnectorProfileCredentials` property type specifies the connector-specific profile credentials required when using Salesforce.
+// The connector-specific profile credentials required when using Salesforce.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1686,7 +1692,7 @@ type CfnConnectorProfile_SalesforceConnectorProfileCredentialsProperty struct {
 	RefreshToken *string `json:"refreshToken" yaml:"refreshToken"`
 }
 
-// The `SalesforceConnectorProfileProperties` property type specifies the connector-specific profile properties required when using Salesforce.
+// The connector-specific profile properties required when using Salesforce.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1702,7 +1708,7 @@ type CfnConnectorProfile_SalesforceConnectorProfilePropertiesProperty struct {
 	IsSandboxEnvironment interface{} `json:"isSandboxEnvironment" yaml:"isSandboxEnvironment"`
 }
 
-// The `ServiceNowConnectorProfileCredentials` property type specifies the connector-specific profile credentials required when using ServiceNow.
+// The connector-specific profile credentials required when using ServiceNow.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1718,7 +1724,7 @@ type CfnConnectorProfile_ServiceNowConnectorProfileCredentialsProperty struct {
 	Username *string `json:"username" yaml:"username"`
 }
 
-// The `ServiceNowConnectorProfileProperties` property type specifies the connector-specific profile properties required when using ServiceNow.
+// The connector-specific profile properties required when using ServiceNow.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1731,7 +1737,7 @@ type CfnConnectorProfile_ServiceNowConnectorProfilePropertiesProperty struct {
 	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
 }
 
-// The `SingularConnectorProfileCredentials` property type specifies the connector-specific profile credentials required when using Singular.
+// The connector-specific profile credentials required when using Singular.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1744,7 +1750,7 @@ type CfnConnectorProfile_SingularConnectorProfileCredentialsProperty struct {
 	ApiKey *string `json:"apiKey" yaml:"apiKey"`
 }
 
-// The `SlackConnectorProfileCredentials` property type specifies the connector-specific profile credentials required when using Slack.
+// The connector-specific profile credentials required when using Slack.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1771,7 +1777,7 @@ type CfnConnectorProfile_SlackConnectorProfileCredentialsProperty struct {
 	ConnectorOAuthRequest interface{} `json:"connectorOAuthRequest" yaml:"connectorOAuthRequest"`
 }
 
-// The `SlackConnectorProfileProperties` property type specifies the connector-specific profile properties required when using Slack.
+// The connector-specific profile properties required when using Slack.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1784,7 +1790,7 @@ type CfnConnectorProfile_SlackConnectorProfilePropertiesProperty struct {
 	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
 }
 
-// The `SnowflakeConnectorProfileCredentials` property type specifies the connector-specific profile credentials required when using Snowflake.
+// The connector-specific profile credentials required when using Snowflake.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1800,7 +1806,7 @@ type CfnConnectorProfile_SnowflakeConnectorProfileCredentialsProperty struct {
 	Username *string `json:"username" yaml:"username"`
 }
 
-// The `SnowflakeConnectorProfileProperties` property type specifies the connector-specific profile properties required when using Snowflake.
+// The connector-specific profile properties required when using Snowflake.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1835,7 +1841,7 @@ type CfnConnectorProfile_SnowflakeConnectorProfilePropertiesProperty struct {
 	Region *string `json:"region" yaml:"region"`
 }
 
-// The `TrendmicroConnectorProfileCredentials` property type specifies the connector-specific profile credentials required when using Trend Micro.
+// The connector-specific profile credentials required when using Trend Micro.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1848,7 +1854,7 @@ type CfnConnectorProfile_TrendmicroConnectorProfileCredentialsProperty struct {
 	ApiSecretKey *string `json:"apiSecretKey" yaml:"apiSecretKey"`
 }
 
-// The `VeevaConnectorProfileCredentials` property type specifies the connector-specific profile credentials required when using Veeva.
+// The connector-specific profile credentials required when using Veeva.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1864,7 +1870,7 @@ type CfnConnectorProfile_VeevaConnectorProfileCredentialsProperty struct {
 	Username *string `json:"username" yaml:"username"`
 }
 
-// The `VeevaConnectorProfileProperties` property type specifies the connector-specific profile properties required when using Veeva.
+// The connector-specific profile properties required when using Veeva.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1877,7 +1883,7 @@ type CfnConnectorProfile_VeevaConnectorProfilePropertiesProperty struct {
 	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
 }
 
-// The `ZendeskConnectorProfileCredentials` property type specifies the connector-specific profile credentials required when using Zendesk.
+// The connector-specific profile credentials required when using Zendesk.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -1904,7 +1910,7 @@ type CfnConnectorProfile_ZendeskConnectorProfileCredentialsProperty struct {
 	ConnectorOAuthRequest interface{} `json:"connectorOAuthRequest" yaml:"connectorOAuthRequest"`
 }
 
-// The `ZendeskConnectorProfileProperties` property type specifies the connector-specific profile properties required when using Zendesk.
+// The connector-specific profile properties required when using Zendesk.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -3242,7 +3248,7 @@ type CfnFlow_ConnectorOperatorProperty struct {
 	S3 *string `json:"s3" yaml:"s3"`
 	// The operation to be performed on the provided Salesforce source fields.
 	Salesforce *string `json:"salesforce" yaml:"salesforce"`
-	// `CfnFlow.ConnectorOperatorProperty.SAPOData`.
+	// The operation to be performed on the provided SAPOData source fields.
 	SapoData *string `json:"sapoData" yaml:"sapoData"`
 	// The operation to be performed on the provided ServiceNow source fields.
 	ServiceNow *string `json:"serviceNow" yaml:"serviceNow"`
@@ -3424,11 +3430,11 @@ type CfnFlow_DestinationConnectorPropertiesProperty struct {
 	Snowflake interface{} `json:"snowflake" yaml:"snowflake"`
 	// The properties required to query Upsolver.
 	Upsolver interface{} `json:"upsolver" yaml:"upsolver"`
-	// `CfnFlow.DestinationConnectorPropertiesProperty.Zendesk`.
+	// The properties required to query Zendesk.
 	Zendesk interface{} `json:"zendesk" yaml:"zendesk"`
 }
 
-// The `DestinationFlowConfig` property type specifies information about the configuration of destination connectors present in the flow.
+// Contains information about the configuration of destination connectors present in the flow.
 //
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
@@ -3707,7 +3713,9 @@ type CfnFlow_LookoutMetricsDestinationPropertiesProperty struct {
 type CfnFlow_MarketoDestinationPropertiesProperty struct {
 	// The object specified in the Marketo flow destination.
 	Object *string `json:"object" yaml:"object"`
-	// `CfnFlow.MarketoDestinationPropertiesProperty.ErrorHandlingConfig`.
+	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination.
+	//
+	// For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
 	ErrorHandlingConfig interface{} `json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
 }
 
@@ -3802,6 +3810,8 @@ type CfnFlow_S3DestinationPropertiesProperty struct {
 	S3OutputFormatConfig interface{} `json:"s3OutputFormatConfig" yaml:"s3OutputFormatConfig"`
 }
 
+// When you use Amazon S3 as the source, the configuration format that you provide the flow input data.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
 //   s3InputFormatConfigProperty := &s3InputFormatConfigProperty{
@@ -3809,7 +3819,7 @@ type CfnFlow_S3DestinationPropertiesProperty struct {
 //   }
 //
 type CfnFlow_S3InputFormatConfigProperty struct {
-	// `CfnFlow.S3InputFormatConfigProperty.S3InputFileType`.
+	// The file type that Amazon AppFlow gets from your Amazon S3 bucket.
 	S3InputFileType *string `json:"s3InputFileType" yaml:"s3InputFileType"`
 }
 
@@ -3858,7 +3868,7 @@ type CfnFlow_S3SourcePropertiesProperty struct {
 	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// The object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
-	// `CfnFlow.S3SourcePropertiesProperty.S3InputFormatConfig`.
+	// When you use Amazon S3 as the source, the configuration format that you provide the flow input data.
 	S3InputFormatConfig interface{} `json:"s3InputFormatConfig" yaml:"s3InputFormatConfig"`
 }
 
@@ -3888,18 +3898,24 @@ type CfnFlow_S3SourcePropertiesProperty struct {
 type CfnFlow_SAPODataDestinationPropertiesProperty struct {
 	// The object path specified in the SAPOData flow destination.
 	ObjectPath *string `json:"objectPath" yaml:"objectPath"`
-	// `CfnFlow.SAPODataDestinationPropertiesProperty.ErrorHandlingConfig`.
+	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination.
+	//
+	// For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
 	ErrorHandlingConfig interface{} `json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
-	// `CfnFlow.SAPODataDestinationPropertiesProperty.IdFieldNames`.
+	// A list of field names that can be used as an ID field when performing a write operation.
 	IdFieldNames *[]*string `json:"idFieldNames" yaml:"idFieldNames"`
 	// Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data.
 	//
 	// For example, this setting would determine where to write the response from a destination connector upon a successful insert operation.
 	SuccessResponseHandlingConfig interface{} `json:"successResponseHandlingConfig" yaml:"successResponseHandlingConfig"`
-	// `CfnFlow.SAPODataDestinationPropertiesProperty.WriteOperationType`.
+	// The possible write operations in the destination connector.
+	//
+	// When this value is not provided, this defaults to the `INSERT` operation.
 	WriteOperationType *string `json:"writeOperationType" yaml:"writeOperationType"`
 }
 
+// The properties that are applied when using SAPOData as a flow source.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
 //   sAPODataSourcePropertiesProperty := &sAPODataSourcePropertiesProperty{
@@ -3907,7 +3923,7 @@ type CfnFlow_SAPODataDestinationPropertiesProperty struct {
 //   }
 //
 type CfnFlow_SAPODataSourcePropertiesProperty struct {
-	// `CfnFlow.SAPODataSourcePropertiesProperty.ObjectPath`.
+	// The object path specified in the SAPOData flow source.
 	ObjectPath *string `json:"objectPath" yaml:"objectPath"`
 }
 
@@ -3984,7 +4000,7 @@ type CfnFlow_SalesforceSourcePropertiesProperty struct {
 //   }
 //
 type CfnFlow_ScheduledTriggerPropertiesProperty struct {
-	// The scheduling expression that determines the rate at which the scheduled flow will run, for example: `rate(5minutes)` .
+	// The scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)` .
 	ScheduleExpression *string `json:"scheduleExpression" yaml:"scheduleExpression"`
 	// Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
 	DataPullMode *string `json:"dataPullMode" yaml:"dataPullMode"`
@@ -4152,7 +4168,7 @@ type CfnFlow_SourceConnectorPropertiesProperty struct {
 	S3 interface{} `json:"s3" yaml:"s3"`
 	// Specifies the information that is required for querying Salesforce.
 	Salesforce interface{} `json:"salesforce" yaml:"salesforce"`
-	// `CfnFlow.SourceConnectorPropertiesProperty.SAPOData`.
+	// The properties that are applied when using SAPOData as a flow source.
 	SapoData interface{} `json:"sapoData" yaml:"sapoData"`
 	// Specifies the information that is required for querying ServiceNow.
 	ServiceNow interface{} `json:"serviceNow" yaml:"serviceNow"`
@@ -4300,7 +4316,7 @@ type CfnFlow_TaskPropertiesObjectProperty struct {
 	Value *string `json:"value" yaml:"value"`
 }
 
-// The `Task` property type specifies the class for modeling different type of tasks.
+// A class for modeling different type of tasks.
 //
 // Task implementation varies based on the `TaskType` .
 //
@@ -4477,16 +4493,18 @@ type CfnFlow_UpsolverS3OutputFormatConfigProperty struct {
 type CfnFlow_VeevaSourcePropertiesProperty struct {
 	// The object specified in the Veeva flow source.
 	Object *string `json:"object" yaml:"object"`
-	// `CfnFlow.VeevaSourcePropertiesProperty.DocumentType`.
+	// The document type specified in the Veeva document extract flow.
 	DocumentType *string `json:"documentType" yaml:"documentType"`
-	// `CfnFlow.VeevaSourcePropertiesProperty.IncludeAllVersions`.
+	// Boolean value to include All Versions of files in Veeva document extract flow.
 	IncludeAllVersions interface{} `json:"includeAllVersions" yaml:"includeAllVersions"`
-	// `CfnFlow.VeevaSourcePropertiesProperty.IncludeRenditions`.
+	// Boolean value to include file renditions in Veeva document extract flow.
 	IncludeRenditions interface{} `json:"includeRenditions" yaml:"includeRenditions"`
-	// `CfnFlow.VeevaSourcePropertiesProperty.IncludeSourceFiles`.
+	// Boolean value to include source files in Veeva document extract flow.
 	IncludeSourceFiles interface{} `json:"includeSourceFiles" yaml:"includeSourceFiles"`
 }
 
+// The properties that are applied when Zendesk is used as a destination.
+//
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
 //   zendeskDestinationPropertiesProperty := &zendeskDestinationPropertiesProperty{
@@ -4505,13 +4523,17 @@ type CfnFlow_VeevaSourcePropertiesProperty struct {
 //   }
 //
 type CfnFlow_ZendeskDestinationPropertiesProperty struct {
-	// `CfnFlow.ZendeskDestinationPropertiesProperty.Object`.
+	// The object specified in the Zendesk flow destination.
 	Object *string `json:"object" yaml:"object"`
-	// `CfnFlow.ZendeskDestinationPropertiesProperty.ErrorHandlingConfig`.
+	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination.
+	//
+	// For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
 	ErrorHandlingConfig interface{} `json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
-	// `CfnFlow.ZendeskDestinationPropertiesProperty.IdFieldNames`.
+	// A list of field names that can be used as an ID field when performing a write operation.
 	IdFieldNames *[]*string `json:"idFieldNames" yaml:"idFieldNames"`
-	// `CfnFlow.ZendeskDestinationPropertiesProperty.WriteOperationType`.
+	// The possible write operations in the destination connector.
+	//
+	// When this value is not provided, this defaults to the `INSERT` operation.
 	WriteOperationType *string `json:"writeOperationType" yaml:"writeOperationType"`
 }
 

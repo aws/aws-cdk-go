@@ -786,7 +786,7 @@ func (c *jsiiProxy_CfnApp) ValidateProperties(_properties interface{}) {
 type CfnApp_ResourceSpecProperty struct {
 	// The instance type that the image version runs on.
 	//
-	// > JupyterServer Apps only support the `system` value.
+	// > JupyterServer Apps only support the `system` value. KernelGateway Apps do not support the `system` value, but support all other values for available instance types.
 	InstanceType *string `json:"instanceType" yaml:"instanceType"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn *string `json:"sageMakerImageArn" yaml:"sageMakerImageArn"`
@@ -6425,6 +6425,8 @@ type CfnDomain_DomainSettingsProperty struct {
 //
 type CfnDomain_JupyterServerAppSettingsProperty struct {
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
+	//
+	// If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
 	DefaultResourceSpec interface{} `json:"defaultResourceSpec" yaml:"defaultResourceSpec"`
 }
 
@@ -6519,7 +6521,7 @@ type CfnDomain_RStudioServerProDomainSettingsProperty struct {
 type CfnDomain_ResourceSpecProperty struct {
 	// The instance type that the image version runs on.
 	//
-	// > JupyterServer Apps only support the `system` value.
+	// > JupyterServer Apps only support the `system` value. KernelGateway Apps do not support the `system` value, but support all other values for available instance types.
 	InstanceType *string `json:"instanceType" yaml:"instanceType"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn *string `json:"sageMakerImageArn" yaml:"sageMakerImageArn"`
@@ -23497,6 +23499,8 @@ type CfnUserProfile_CustomImageProperty struct {
 //
 type CfnUserProfile_JupyterServerAppSettingsProperty struct {
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
+	//
+	// If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
 	DefaultResourceSpec interface{} `json:"defaultResourceSpec" yaml:"defaultResourceSpec"`
 }
 
@@ -23563,7 +23567,7 @@ type CfnUserProfile_RStudioServerProAppSettingsProperty struct {
 type CfnUserProfile_ResourceSpecProperty struct {
 	// The instance type that the image version runs on.
 	//
-	// > JupyterServer Apps only support the `system` value.
+	// > JupyterServer Apps only support the `system` value. KernelGateway Apps do not support the `system` value, but support all other values for available instance types.
 	InstanceType *string `json:"instanceType" yaml:"instanceType"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn *string `json:"sageMakerImageArn" yaml:"sageMakerImageArn"`

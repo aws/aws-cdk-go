@@ -1616,11 +1616,11 @@ func (c *jsiiProxy_CfnLoggingConfiguration) ValidateProperties(_properties inter
 	)
 }
 
-// The part of a web request that you want AWS WAF to inspect.
+// The part of the web request that you want AWS WAF to inspect.
 //
-// Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of a web request, create a separate rule statement for each component.
+// Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
 //
-// JSON specification for a `QueryString` field to match:
+// Example JSON for a `QueryString` field to match:
 //
 // `"FieldToMatch": { "QueryString": {} }`
 //
@@ -1649,7 +1649,7 @@ type CfnLoggingConfiguration_FieldToMatchProperty struct {
 	//
 	// The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	//
-	// Note that only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. If you don't need to inspect more than 8 KB, you can guarantee that you don't allow additional bytes in by combining a statement that inspects the body of the web request, such as `ByteMatchStatement` or `RegexPatternSetReferenceStatement` , with a `SizeConstraintStatement` that enforces an 8 KB size limit on the body of the request. AWS WAF doesn't support inspecting the entire contents of web requests whose bodies exceed the 8 KB limit.
+	// Only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
 	JsonBody interface{} `json:"jsonBody" yaml:"jsonBody"`
 	// Inspect the HTTP method.
 	//
@@ -1663,11 +1663,13 @@ type CfnLoggingConfiguration_FieldToMatchProperty struct {
 	//
 	// Provide the name of the header to inspect, for example, `User-Agent` or `Referer` . This setting isn't case sensitive.
 	//
-	// Example JSON: `"SingleHeader": { "Name": "haystack" }`.
+	// Example JSON: `"SingleHeader": { "Name": "haystack" }`
+	//
+	// Alternately, you can filter and inspect all headers with the `Headers` `FieldToMatch` setting.
 	SingleHeader interface{} `json:"singleHeader" yaml:"singleHeader"`
 	// Inspect the request URI path.
 	//
-	// This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg` .
+	// This is the part of the web request that identifies a resource, for example, `/images/daily-ad.jpg` .
 	UriPath interface{} `json:"uriPath" yaml:"uriPath"`
 }
 

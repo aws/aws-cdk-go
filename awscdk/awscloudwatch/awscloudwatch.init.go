@@ -657,6 +657,29 @@ func init() {
 		reflect.TypeOf((*CreateAlarmOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"monocdk.aws_cloudwatch.CustomWidget",
+		reflect.TypeOf((*CustomWidget)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "copyMetricWarnings", GoMethod: "CopyMetricWarnings"},
+			_jsii_.MemberProperty{JsiiProperty: "height", GoGetter: "Height"},
+			_jsii_.MemberMethod{JsiiMethod: "position", GoMethod: "Position"},
+			_jsii_.MemberMethod{JsiiMethod: "toJson", GoMethod: "ToJson"},
+			_jsii_.MemberProperty{JsiiProperty: "warnings", GoGetter: "Warnings"},
+			_jsii_.MemberProperty{JsiiProperty: "width", GoGetter: "Width"},
+			_jsii_.MemberProperty{JsiiProperty: "x", GoGetter: "X"},
+			_jsii_.MemberProperty{JsiiProperty: "y", GoGetter: "Y"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CustomWidget{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ConcreteWidget)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_cloudwatch.CustomWidgetProps",
+		reflect.TypeOf((*CustomWidgetProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"monocdk.aws_cloudwatch.Dashboard",
 		reflect.TypeOf((*Dashboard)(nil)).Elem(),
 		[]_jsii_.Member{

@@ -78,13 +78,19 @@ const (
 //   		tags: map[string]*string{
 //   			"tagsKey": jsii.String("tags"),
 //   		},
+//   		updateToLatestImageVersion: jsii.Boolean(false),
 //   	},
+//   	replaceComputeEnvironment: jsii.Boolean(false),
 //   	serviceRole: jsii.String("serviceRole"),
 //   	state: jsii.String("state"),
 //   	tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
 //   	unmanagedvCpus: jsii.Number(123),
+//   	updatePolicy: &updatePolicyProperty{
+//   		jobExecutionTimeoutMinutes: jsii.Number(123),
+//   		terminateJobsOnUpdate: jsii.Boolean(false),
+//   	},
 //   })
 //
 type CfnComputeEnvironment interface {
@@ -129,6 +135,9 @@ type CfnComputeEnvironment interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
+	// `AWS::Batch::ComputeEnvironment.ReplaceComputeEnvironment`.
+	ReplaceComputeEnvironment() interface{}
+	SetReplaceComputeEnvironment(val interface{})
 	// `AWS::Batch::ComputeEnvironment.ServiceRole`.
 	ServiceRole() *string
 	SetServiceRole(val *string)
@@ -154,6 +163,9 @@ type CfnComputeEnvironment interface {
 	// collect and return the properties object for this resource.
 	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// `AWS::Batch::ComputeEnvironment.UpdatePolicy`.
+	UpdatePolicy() interface{}
+	SetUpdatePolicy(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	// Experimental.
 	AddDeletionOverride(path *string)
@@ -426,6 +438,16 @@ func (j *jsiiProxy_CfnComputeEnvironment) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnComputeEnvironment) ReplaceComputeEnvironment() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"replaceComputeEnvironment",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnComputeEnvironment) ServiceRole() *string {
 	var returns *string
 	_jsii_.Get(
@@ -496,6 +518,16 @@ func (j *jsiiProxy_CfnComputeEnvironment) UpdatedProperites() *map[string]interf
 	return returns
 }
 
+func (j *jsiiProxy_CfnComputeEnvironment) UpdatePolicy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"updatePolicy",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::Batch::ComputeEnvironment`.
 func NewCfnComputeEnvironment(scope awscdk.Construct, id *string, props *CfnComputeEnvironmentProps) CfnComputeEnvironment {
@@ -539,6 +571,14 @@ func (j *jsiiProxy_CfnComputeEnvironment) SetComputeResources(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnComputeEnvironment) SetReplaceComputeEnvironment(val interface{}) {
+	_jsii_.Set(
+		j,
+		"replaceComputeEnvironment",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnComputeEnvironment) SetServiceRole(val *string) {
 	_jsii_.Set(
 		j,
@@ -567,6 +607,14 @@ func (j *jsiiProxy_CfnComputeEnvironment) SetUnmanagedvCpus(val *float64) {
 	_jsii_.Set(
 		j,
 		"unmanagedvCpus",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnComputeEnvironment) SetUpdatePolicy(val interface{}) {
+	_jsii_.Set(
+		j,
+		"updatePolicy",
 		val,
 	)
 }
@@ -882,6 +930,7 @@ func (c *jsiiProxy_CfnComputeEnvironment) ValidateProperties(_properties interfa
 //   	tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
+//   	updateToLatestImageVersion: jsii.Boolean(false),
 //   }
 //
 type CfnComputeEnvironment_ComputeResourcesProperty struct {
@@ -919,6 +968,8 @@ type CfnComputeEnvironment_ComputeResourcesProperty struct {
 	SpotIamFleetRole *string `json:"spotIamFleetRole" yaml:"spotIamFleetRole"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.Tags`.
 	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	// `CfnComputeEnvironment.ComputeResourcesProperty.UpdateToLatestImageVersion`.
+	UpdateToLatestImageVersion interface{} `json:"updateToLatestImageVersion" yaml:"updateToLatestImageVersion"`
 }
 
 // Example:
@@ -952,6 +1003,20 @@ type CfnComputeEnvironment_LaunchTemplateSpecificationProperty struct {
 	LaunchTemplateName *string `json:"launchTemplateName" yaml:"launchTemplateName"`
 	// `CfnComputeEnvironment.LaunchTemplateSpecificationProperty.Version`.
 	Version *string `json:"version" yaml:"version"`
+}
+
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   updatePolicyProperty := &updatePolicyProperty{
+//   	jobExecutionTimeoutMinutes: jsii.Number(123),
+//   	terminateJobsOnUpdate: jsii.Boolean(false),
+//   }
+//
+type CfnComputeEnvironment_UpdatePolicyProperty struct {
+	// `CfnComputeEnvironment.UpdatePolicyProperty.JobExecutionTimeoutMinutes`.
+	JobExecutionTimeoutMinutes *float64 `json:"jobExecutionTimeoutMinutes" yaml:"jobExecutionTimeoutMinutes"`
+	// `CfnComputeEnvironment.UpdatePolicyProperty.TerminateJobsOnUpdate`.
+	TerminateJobsOnUpdate interface{} `json:"terminateJobsOnUpdate" yaml:"terminateJobsOnUpdate"`
 }
 
 // Properties for defining a `CfnComputeEnvironment`.
@@ -1002,13 +1067,19 @@ type CfnComputeEnvironment_LaunchTemplateSpecificationProperty struct {
 //   		tags: map[string]*string{
 //   			"tagsKey": jsii.String("tags"),
 //   		},
+//   		updateToLatestImageVersion: jsii.Boolean(false),
 //   	},
+//   	replaceComputeEnvironment: jsii.Boolean(false),
 //   	serviceRole: jsii.String("serviceRole"),
 //   	state: jsii.String("state"),
 //   	tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
 //   	unmanagedvCpus: jsii.Number(123),
+//   	updatePolicy: &updatePolicyProperty{
+//   		jobExecutionTimeoutMinutes: jsii.Number(123),
+//   		terminateJobsOnUpdate: jsii.Boolean(false),
+//   	},
 //   }
 //
 type CfnComputeEnvironmentProps struct {
@@ -1018,6 +1089,8 @@ type CfnComputeEnvironmentProps struct {
 	ComputeEnvironmentName *string `json:"computeEnvironmentName" yaml:"computeEnvironmentName"`
 	// `AWS::Batch::ComputeEnvironment.ComputeResources`.
 	ComputeResources interface{} `json:"computeResources" yaml:"computeResources"`
+	// `AWS::Batch::ComputeEnvironment.ReplaceComputeEnvironment`.
+	ReplaceComputeEnvironment interface{} `json:"replaceComputeEnvironment" yaml:"replaceComputeEnvironment"`
 	// `AWS::Batch::ComputeEnvironment.ServiceRole`.
 	ServiceRole *string `json:"serviceRole" yaml:"serviceRole"`
 	// `AWS::Batch::ComputeEnvironment.State`.
@@ -1026,6 +1099,8 @@ type CfnComputeEnvironmentProps struct {
 	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// `AWS::Batch::ComputeEnvironment.UnmanagedvCpus`.
 	UnmanagedvCpus *float64 `json:"unmanagedvCpus" yaml:"unmanagedvCpus"`
+	// `AWS::Batch::ComputeEnvironment.UpdatePolicy`.
+	UpdatePolicy interface{} `json:"updatePolicy" yaml:"updatePolicy"`
 }
 
 // A CloudFormation `AWS::Batch::JobDefinition`.

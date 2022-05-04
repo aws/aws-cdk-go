@@ -2395,6 +2395,7 @@ type CfnClusterProps struct {
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
 //   cfnConfiguration := msk.NewCfnConfiguration(this, jsii.String("MyCfnConfiguration"), &cfnConfigurationProps{
+//   	name: jsii.String("name"),
 //   	serverProperties: jsii.String("serverProperties"),
 //
 //   	// the properties below are optional
@@ -2402,7 +2403,6 @@ type CfnClusterProps struct {
 //   	kafkaVersionsList: []*string{
 //   		jsii.String("kafkaVersionsList"),
 //   	},
-//   	name: jsii.String("name"),
 //   })
 //
 type CfnConfiguration interface {
@@ -3115,6 +3115,7 @@ func (c *jsiiProxy_CfnConfiguration) ValidateProperties(_properties interface{})
 // Example:
 //   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
 //   cfnConfigurationProps := &cfnConfigurationProps{
+//   	name: jsii.String("name"),
 //   	serverProperties: jsii.String("serverProperties"),
 //
 //   	// the properties below are optional
@@ -3122,10 +3123,13 @@ func (c *jsiiProxy_CfnConfiguration) ValidateProperties(_properties interface{})
 //   	kafkaVersionsList: []*string{
 //   		jsii.String("kafkaVersionsList"),
 //   	},
-//   	name: jsii.String("name"),
 //   }
 //
 type CfnConfigurationProps struct {
+	// The name of the configuration.
+	//
+	// Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
+	Name *string `json:"name" yaml:"name"`
 	// Contents of the server.properties file. When using the API, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the CLI, the contents of server.properties can be in plaintext.
 	ServerProperties *string `json:"serverProperties" yaml:"serverProperties"`
 	// The description of the configuration.
@@ -3134,10 +3138,6 @@ type CfnConfigurationProps struct {
 	//
 	// You can use this configuration for an MSK cluster only if the Apache Kafka version specified for the cluster appears in this list.
 	KafkaVersionsList *[]*string `json:"kafkaVersionsList" yaml:"kafkaVersionsList"`
-	// The name of the configuration.
-	//
-	// Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
-	Name *string `json:"name" yaml:"name"`
 }
 
 // Configuration properties for client authentication.

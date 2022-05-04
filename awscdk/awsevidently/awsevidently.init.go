@@ -41,6 +41,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "randomizationSalt", GoGetter: "RandomizationSalt"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "runningStatus", GoGetter: "RunningStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "samplingRate", GoGetter: "SamplingRate"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -66,6 +67,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_evidently.CfnExperiment.OnlineAbConfigObjectProperty",
 		reflect.TypeOf((*CfnExperiment_OnlineAbConfigObjectProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_evidently.CfnExperiment.RunningStatusObjectProperty",
+		reflect.TypeOf((*CfnExperiment_RunningStatusObjectProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_evidently.CfnExperiment.TreatmentObjectProperty",
@@ -159,6 +164,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "executionStatus", GoGetter: "ExecutionStatus"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "groups", GoGetter: "Groups"},
@@ -192,6 +198,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_evidently.CfnLaunch.ExecutionStatusObjectProperty",
+		reflect.TypeOf((*CfnLaunch_ExecutionStatusObjectProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_evidently.CfnLaunch.GroupToWeightProperty",

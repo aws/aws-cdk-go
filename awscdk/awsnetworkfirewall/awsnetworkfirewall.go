@@ -3070,7 +3070,8 @@ type CfnRuleGroup interface {
 	Tags() awscdk.TagManager
 	// Indicates whether the rule group is stateless or stateful.
 	//
-	// If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules.
+	// If the rule group is stateless, it contains
+	// stateless rules. If it is stateful, it contains stateful rules.
 	Type() *string
 	SetType(val *string)
 	// Return properties modified after initiation.
@@ -4900,7 +4901,8 @@ type CfnRuleGroupProps struct {
 	RuleGroupName *string `json:"ruleGroupName" yaml:"ruleGroupName"`
 	// Indicates whether the rule group is stateless or stateful.
 	//
-	// If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules.
+	// If the rule group is stateless, it contains
+	// stateless rules. If it is stateful, it contains stateful rules.
 	Type *string `json:"type" yaml:"type"`
 	// A description of the rule group.
 	Description *string `json:"description" yaml:"description"`

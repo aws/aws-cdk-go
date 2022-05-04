@@ -3888,31 +3888,28 @@ type ScalingSchedule struct {
 // Schedule for scheduled scaling actions.
 //
 // Example:
-//   import autoscaling "github.com/aws/aws-cdk-go/awscdk"
+//   var resource someScalableResource
 //
-//   var fn function
-//   alias := lambda.NewAlias(this, jsii.String("Alias"), &aliasProps{
-//   	aliasName: jsii.String("prod"),
-//   	version: fn.latestVersion,
-//   })
 //
-//   // Create AutoScaling target
-//   as := alias.addAutoScaling(&autoScalingOptions{
+//   capacity := resource.autoScaleCapacity(&caps{
+//   	minCapacity: jsii.Number(1),
 //   	maxCapacity: jsii.Number(50),
 //   })
 //
-//   // Configure Target Tracking
-//   as.scaleOnUtilization(&utilizationScalingOptions{
-//   	utilizationTarget: jsii.Number(0.5),
-//   })
-//
-//   // Configure Scheduled Scaling
-//   as.scaleOnSchedule(jsii.String("ScaleUpInTheMorning"), &scalingSchedule{
-//   	schedule: autoscaling.schedule.cron(&cronOptions{
+//   capacity.scaleOnSchedule(jsii.String("PrescaleInTheMorning"), &scalingSchedule{
+//   	schedule: appscaling.schedule.cron(&cronOptions{
 //   		hour: jsii.String("8"),
 //   		minute: jsii.String("0"),
 //   	}),
 //   	minCapacity: jsii.Number(20),
+//   })
+//
+//   capacity.scaleOnSchedule(jsii.String("AllowDownscalingAtNight"), &scalingSchedule{
+//   	schedule: appscaling.*schedule.cron(&cronOptions{
+//   		hour: jsii.String("20"),
+//   		minute: jsii.String("0"),
+//   	}),
+//   	minCapacity: jsii.Number(1),
 //   })
 //
 // Experimental.

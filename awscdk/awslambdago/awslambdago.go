@@ -205,6 +205,24 @@ type GoFunction interface {
 	// The timeout configured for this lambda.
 	// Experimental.
 	Timeout() awscdk.Duration
+	// Defines an alias for this function.
+	//
+	// The alias will automatically be updated to point to the latest version of
+	// the function as it is being updated during a deployment.
+	//
+	// ```ts
+	// declare const fn: lambda.Function;
+	//
+	// fn.addAlias('Live');
+	//
+	// // Is equivalent to
+	//
+	// new lambda.Alias(this, 'AliasLive', {
+	//    aliasName: 'Live',
+	//    version: fn.currentVersion,
+	// });.
+	// Experimental.
+	AddAlias(aliasName *string, options *awslambda.AliasOptions) awslambda.Alias
 	// Adds an environment variable to this Lambda function.
 	//
 	// If this is a ref to a Lambda function, this operation results in a no-op.
@@ -831,6 +849,19 @@ func GoFunction_MetricAllUnreservedConcurrentExecutions(props *awscloudwatch.Met
 		"monocdk.aws_lambda_go.GoFunction",
 		"metricAllUnreservedConcurrentExecutions",
 		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (g *jsiiProxy_GoFunction) AddAlias(aliasName *string, options *awslambda.AliasOptions) awslambda.Alias {
+	var returns awslambda.Alias
+
+	_jsii_.Invoke(
+		g,
+		"addAlias",
+		[]interface{}{aliasName, options},
 		&returns,
 	)
 

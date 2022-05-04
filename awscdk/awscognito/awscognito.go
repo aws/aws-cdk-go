@@ -3958,9 +3958,13 @@ type CfnUserPool_VerificationMessageTemplateProperty struct {
 type CfnUserPoolClient interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The time limit after which the access token is no longer valid and can't be used.
+	// The access token time limit.
 	//
-	// If you supply a TokenValidityUnits value, you override the default time unit of *hours* . The default time unit for AccessTokenValidity in an API request is hours.
+	// After this limit expires, your user can't use their access token. To specify the time unit for `AccessTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
+	//
+	// For example, when you set `AccessTokenValidity` to `10` and `TokenValidityUnits` to `hours` , your user can authorize access with their access token for 10 hours.
+	//
+	// The default time unit for `AccessTokenValidity` in an API request is hours.
 	AccessTokenValidity() *float64
 	SetAccessTokenValidity(val *float64)
 	// The allowed OAuth flows.
@@ -4055,9 +4059,13 @@ type CfnUserPoolClient interface {
 	// Boolean to specify whether you want to generate a secret for the user pool client being created.
 	GenerateSecret() interface{}
 	SetGenerateSecret(val interface{})
-	// The time limit after which the access token is no longer valid and can't be used.
+	// The ID token time limit.
 	//
-	// If you supply a TokenValidityUnits value, you override the default time unit of *hours* . The default time unit for AccessTokenValidity in an API request is hours.
+	// After this limit expires, your user can't use their ID token. To specify the time unit for `IdTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
+	//
+	// For example, when you set `IdTokenValidity` as `10` and `TokenValidityUnits` as `hours` , your user can authenticate their session with their ID token for 10 hours.
+	//
+	// The default time unit for `AccessTokenValidity` in an API request is hours.
 	IdTokenValidity() *float64
 	SetIdTokenValidity(val *float64)
 	// The logical ID for this CloudFormation stack element.
@@ -4091,9 +4099,13 @@ type CfnUserPoolClient interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
-	// The time limit after which the refresh token is no longer valid and can't be used.
+	// The refresh token time limit.
 	//
-	// The default time unit for RefreshTokenValidity in an API request is days.
+	// After this limit expires, your user can't use their refresh token. To specify the time unit for `RefreshTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
+	//
+	// For example, when you set `RefreshTokenValidity` as `10` and `TokenValidityUnits` as `days` , your user can refresh their session and retrieve new access and ID tokens for 10 days.
+	//
+	// The default time unit for `RefreshTokenValidity` in an API request is days. You can't set `RefreshTokenValidity` to 0. If you do, Amazon Cognito overrides the value with the default value of 30 days.
 	RefreshTokenValidity() *float64
 	SetRefreshTokenValidity(val *float64)
 	// The stack in which this element is defined.
@@ -4101,9 +4113,9 @@ type CfnUserPoolClient interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// A list of provider names for the identity providers that are supported on this client.
+	// A list of provider names for the IdPs that this client supports.
 	//
-	// The following are supported: `COGNITO` , `Facebook` , `SignInWithApple` , `Google` and `LoginWithAmazon` .
+	// The following are supported: `COGNITO` , `Facebook` , `Google` `LoginWithAmazon` , and the names of your own SAML and OIDC providers.
 	SupportedIdentityProviders() *[]*string
 	SetSupportedIdentityProviders(val *[]*string)
 	// The units in which the validity times are represented.
@@ -5172,9 +5184,13 @@ type CfnUserPoolClient_TokenValidityUnitsProperty struct {
 type CfnUserPoolClientProps struct {
 	// The user pool ID for the user pool where you want to create a user pool client.
 	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
-	// The time limit after which the access token is no longer valid and can't be used.
+	// The access token time limit.
 	//
-	// If you supply a TokenValidityUnits value, you override the default time unit of *hours* . The default time unit for AccessTokenValidity in an API request is hours.
+	// After this limit expires, your user can't use their access token. To specify the time unit for `AccessTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
+	//
+	// For example, when you set `AccessTokenValidity` to `10` and `TokenValidityUnits` to `hours` , your user can authorize access with their access token for 10 hours.
+	//
+	// The default time unit for `AccessTokenValidity` in an API request is hours.
 	AccessTokenValidity *float64 `json:"accessTokenValidity" yaml:"accessTokenValidity"`
 	// The allowed OAuth flows.
 	//
@@ -5244,9 +5260,13 @@ type CfnUserPoolClientProps struct {
 	ExplicitAuthFlows *[]*string `json:"explicitAuthFlows" yaml:"explicitAuthFlows"`
 	// Boolean to specify whether you want to generate a secret for the user pool client being created.
 	GenerateSecret interface{} `json:"generateSecret" yaml:"generateSecret"`
-	// The time limit after which the access token is no longer valid and can't be used.
+	// The ID token time limit.
 	//
-	// If you supply a TokenValidityUnits value, you override the default time unit of *hours* . The default time unit for AccessTokenValidity in an API request is hours.
+	// After this limit expires, your user can't use their ID token. To specify the time unit for `IdTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
+	//
+	// For example, when you set `IdTokenValidity` as `10` and `TokenValidityUnits` as `hours` , your user can authenticate their session with their ID token for 10 hours.
+	//
+	// The default time unit for `AccessTokenValidity` in an API request is hours.
 	IdTokenValidity *float64 `json:"idTokenValidity" yaml:"idTokenValidity"`
 	// A list of allowed logout URLs for the IdPs.
 	LogoutUrLs *[]*string `json:"logoutUrLs" yaml:"logoutUrLs"`
@@ -5256,13 +5276,17 @@ type CfnUserPoolClientProps struct {
 	PreventUserExistenceErrors *string `json:"preventUserExistenceErrors" yaml:"preventUserExistenceErrors"`
 	// The read attributes.
 	ReadAttributes *[]*string `json:"readAttributes" yaml:"readAttributes"`
-	// The time limit after which the refresh token is no longer valid and can't be used.
+	// The refresh token time limit.
 	//
-	// The default time unit for RefreshTokenValidity in an API request is days.
+	// After this limit expires, your user can't use their refresh token. To specify the time unit for `RefreshTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
+	//
+	// For example, when you set `RefreshTokenValidity` as `10` and `TokenValidityUnits` as `days` , your user can refresh their session and retrieve new access and ID tokens for 10 days.
+	//
+	// The default time unit for `RefreshTokenValidity` in an API request is days. You can't set `RefreshTokenValidity` to 0. If you do, Amazon Cognito overrides the value with the default value of 30 days.
 	RefreshTokenValidity *float64 `json:"refreshTokenValidity" yaml:"refreshTokenValidity"`
-	// A list of provider names for the identity providers that are supported on this client.
+	// A list of provider names for the IdPs that this client supports.
 	//
-	// The following are supported: `COGNITO` , `Facebook` , `SignInWithApple` , `Google` and `LoginWithAmazon` .
+	// The following are supported: `COGNITO` , `Facebook` , `Google` `LoginWithAmazon` , and the names of your own SAML and OIDC providers.
 	SupportedIdentityProviders *[]*string `json:"supportedIdentityProviders" yaml:"supportedIdentityProviders"`
 	// The units in which the validity times are represented.
 	//

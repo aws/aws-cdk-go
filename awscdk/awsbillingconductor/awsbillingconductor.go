@@ -27,6 +27,12 @@ import (
 //
 //   	// the properties below are optional
 //   	description: jsii.String("description"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 type CfnBillingGroup interface {
@@ -90,6 +96,8 @@ type CfnBillingGroup interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
+	// `AWS::BillingConductor::BillingGroup.Tags`.
+	Tags() awscdk.TagManager
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
@@ -453,6 +461,16 @@ func (j *jsiiProxy_CfnBillingGroup) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBillingGroup) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"tags",
 		&returns,
 	)
 	return returns
@@ -847,6 +865,12 @@ type CfnBillingGroup_ComputationPreferenceProperty struct {
 //
 //   	// the properties below are optional
 //   	description: jsii.String("description"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 type CfnBillingGroupProps struct {
@@ -860,6 +884,8 @@ type CfnBillingGroupProps struct {
 	PrimaryAccountId *string `json:"primaryAccountId" yaml:"primaryAccountId"`
 	// `AWS::BillingConductor::BillingGroup.Description`.
 	Description *string `json:"description" yaml:"description"`
+	// `AWS::BillingConductor::BillingGroup.Tags`.
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::BillingConductor::CustomLineItem`.
@@ -892,6 +918,12 @@ type CfnBillingGroupProps struct {
 //   		},
 //   	},
 //   	description: jsii.String("description"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 type CfnCustomLineItem interface {
@@ -955,6 +987,8 @@ type CfnCustomLineItem interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
+	// `AWS::BillingConductor::CustomLineItem.Tags`.
+	Tags() awscdk.TagManager
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
@@ -1318,6 +1352,16 @@ func (j *jsiiProxy_CfnCustomLineItem) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCustomLineItem) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"tags",
 		&returns,
 	)
 	return returns
@@ -1771,6 +1815,12 @@ type CfnCustomLineItem_CustomLineItemPercentageChargeDetailsProperty struct {
 //   		},
 //   	},
 //   	description: jsii.String("description"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 type CfnCustomLineItemProps struct {
@@ -1784,6 +1834,8 @@ type CfnCustomLineItemProps struct {
 	CustomLineItemChargeDetails interface{} `json:"customLineItemChargeDetails" yaml:"customLineItemChargeDetails"`
 	// `AWS::BillingConductor::CustomLineItem.Description`.
 	Description *string `json:"description" yaml:"description"`
+	// `AWS::BillingConductor::CustomLineItem.Tags`.
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::BillingConductor::PricingPlan`.
@@ -1797,6 +1849,12 @@ type CfnCustomLineItemProps struct {
 //   	description: jsii.String("description"),
 //   	pricingRuleArns: []*string{
 //   		jsii.String("pricingRuleArns"),
+//   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
 //   	},
 //   })
 //
@@ -1853,6 +1911,8 @@ type CfnPricingPlan interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
+	// `AWS::BillingConductor::PricingPlan.Tags`.
+	Tags() awscdk.TagManager
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
@@ -2176,6 +2236,16 @@ func (j *jsiiProxy_CfnPricingPlan) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPricingPlan) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"tags",
 		&returns,
 	)
 	return returns
@@ -2524,6 +2594,12 @@ func (c *jsiiProxy_CfnPricingPlan) ValidateProperties(_properties interface{}) {
 //   	pricingRuleArns: []*string{
 //   		jsii.String("pricingRuleArns"),
 //   	},
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 type CfnPricingPlanProps struct {
@@ -2533,6 +2609,8 @@ type CfnPricingPlanProps struct {
 	Description *string `json:"description" yaml:"description"`
 	// `AWS::BillingConductor::PricingPlan.PricingRuleArns`.
 	PricingRuleArns *[]*string `json:"pricingRuleArns" yaml:"pricingRuleArns"`
+	// `AWS::BillingConductor::PricingPlan.Tags`.
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::BillingConductor::PricingRule`.
@@ -2548,6 +2626,12 @@ type CfnPricingPlanProps struct {
 //   	// the properties below are optional
 //   	description: jsii.String("description"),
 //   	service: jsii.String("service"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 type CfnPricingRule interface {
@@ -2609,6 +2693,8 @@ type CfnPricingRule interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
+	// `AWS::BillingConductor::PricingRule.Tags`.
+	Tags() awscdk.TagManager
 	// `AWS::BillingConductor::PricingRule.Type`.
 	Type() *string
 	SetType(val *string)
@@ -2955,6 +3041,16 @@ func (j *jsiiProxy_CfnPricingRule) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPricingRule) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"tags",
 		&returns,
 	)
 	return returns
@@ -3338,6 +3434,12 @@ func (c *jsiiProxy_CfnPricingRule) ValidateProperties(_properties interface{}) {
 //   	// the properties below are optional
 //   	description: jsii.String("description"),
 //   	service: jsii.String("service"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 type CfnPricingRuleProps struct {
@@ -3353,5 +3455,7 @@ type CfnPricingRuleProps struct {
 	Description *string `json:"description" yaml:"description"`
 	// `AWS::BillingConductor::PricingRule.Service`.
 	Service *string `json:"service" yaml:"service"`
+	// `AWS::BillingConductor::PricingRule.Tags`.
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

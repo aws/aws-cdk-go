@@ -199,6 +199,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_imagebuilder.CfnDistributionConfiguration.AmiDistributionConfigurationProperty",
+		reflect.TypeOf((*CfnDistributionConfiguration_AmiDistributionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_imagebuilder.CfnDistributionConfiguration.ContainerDistributionConfigurationProperty",
+		reflect.TypeOf((*CfnDistributionConfiguration_ContainerDistributionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_imagebuilder.CfnDistributionConfiguration.DistributionProperty",
 		reflect.TypeOf((*CfnDistributionConfiguration_DistributionProperty)(nil)).Elem(),
 	)

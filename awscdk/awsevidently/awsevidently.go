@@ -55,6 +55,12 @@ import (
 //   	// the properties below are optional
 //   	description: jsii.String("description"),
 //   	randomizationSalt: jsii.String("randomizationSalt"),
+//   	runningStatus: &runningStatusObjectProperty{
+//   		analysisCompleteTime: jsii.String("analysisCompleteTime"),
+//   		desiredState: jsii.String("desiredState"),
+//   		reason: jsii.String("reason"),
+//   		status: jsii.String("status"),
+//   	},
 //   	samplingRate: jsii.Number(123),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -127,6 +133,9 @@ type CfnExperiment interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
+	// A structure that you can use to start and stop the experiment.
+	RunningStatus() interface{}
+	SetRunningStatus(val interface{})
 	// The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent.
 	//
 	// The available audience is the total audience minus the audience that you have allocated to overrides or current launches of this feature.
@@ -470,6 +479,16 @@ func (j *jsiiProxy_CfnExperiment) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnExperiment) RunningStatus() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"runningStatus",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnExperiment) SamplingRate() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -591,6 +610,14 @@ func (j *jsiiProxy_CfnExperiment) SetRandomizationSalt(val *string) {
 	_jsii_.Set(
 		j,
 		"randomizationSalt",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnExperiment) SetRunningStatus(val interface{}) {
+	_jsii_.Set(
+		j,
+		"runningStatus",
 		val,
 	)
 }
@@ -944,6 +971,32 @@ type CfnExperiment_OnlineAbConfigObjectProperty struct {
 	TreatmentWeights interface{} `json:"treatmentWeights" yaml:"treatmentWeights"`
 }
 
+// Use this structure to start and stop the experiment.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import evidently "github.com/aws/aws-cdk-go/awscdk/aws_evidently"
+//   runningStatusObjectProperty := &runningStatusObjectProperty{
+//   	analysisCompleteTime: jsii.String("analysisCompleteTime"),
+//   	desiredState: jsii.String("desiredState"),
+//   	reason: jsii.String("reason"),
+//   	status: jsii.String("status"),
+//   }
+//
+type CfnExperiment_RunningStatusObjectProperty struct {
+	// If you are using AWS CloudFormation to start the experiment, use this field to specify when the experiment is to end.
+	//
+	// The format is as a UNIX timestamp. For more information about this format, see [The Current Epoch Unix Timestamp](https://docs.aws.amazon.com/https://www.unixtimestamp.com/index.php) .
+	AnalysisCompleteTime *string `json:"analysisCompleteTime" yaml:"analysisCompleteTime"`
+	// If you are using AWS CloudFormation to stop this experiment, specify either `COMPLETED` or `CANCELLED` here to indicate how to classify this experiment.
+	DesiredState *string `json:"desiredState" yaml:"desiredState"`
+	// If you are using AWS CloudFormation to stop this experiment, this is an optional field that you can use to record why the experiment is being stopped or cancelled.
+	Reason *string `json:"reason" yaml:"reason"`
+	// To start the experiment now, specify `START` for this parameter.
+	//
+	// If this experiment is currently running and you want to stop it now, specify `STOP` .
+	Status *string `json:"status" yaml:"status"`
+}
+
 // A structure that defines one treatment in an experiment.
 //
 // A treatment is a variation of the feature that you are including in the experiment.
@@ -1032,6 +1085,12 @@ type CfnExperiment_TreatmentToWeightProperty struct {
 //   	// the properties below are optional
 //   	description: jsii.String("description"),
 //   	randomizationSalt: jsii.String("randomizationSalt"),
+//   	runningStatus: &runningStatusObjectProperty{
+//   		analysisCompleteTime: jsii.String("analysisCompleteTime"),
+//   		desiredState: jsii.String("desiredState"),
+//   		reason: jsii.String("reason"),
+//   		status: jsii.String("status"),
+//   	},
 //   	samplingRate: jsii.Number(123),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -1062,6 +1121,8 @@ type CfnExperimentProps struct {
 	//
 	// This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the experiment name as the `randomizationSalt` .
 	RandomizationSalt *string `json:"randomizationSalt" yaml:"randomizationSalt"`
+	// A structure that you can use to start and stop the experiment.
+	RunningStatus interface{} `json:"runningStatus" yaml:"runningStatus"`
 	// The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent.
 	//
 	// The available audience is the total audience minus the audience that you have allocated to overrides or current launches of this feature.
@@ -2075,6 +2136,13 @@ type CfnFeatureProps struct {
 //
 //   	// the properties below are optional
 //   	description: jsii.String("description"),
+//   	executionStatus: &executionStatusObjectProperty{
+//   		status: jsii.String("status"),
+//
+//   		// the properties below are optional
+//   		desiredState: jsii.String("desiredState"),
+//   		reason: jsii.String("reason"),
+//   	},
 //   	metricMonitors: []interface{}{
 //   		&metricDefinitionObjectProperty{
 //   			entityIdKey: jsii.String("entityIdKey"),
@@ -2117,6 +2185,9 @@ type CfnLaunch interface {
 	// An optional description for the launch.
 	Description() *string
 	SetDescription(val *string)
+	// A structure that you can use to start and stop the launch.
+	ExecutionStatus() interface{}
+	SetExecutionStatus(val interface{})
 	// An array of structures that contains the feature and variations that are to be used for the launch.
 	//
 	// You can up to five launch groups in a launch.
@@ -2416,6 +2487,16 @@ func (j *jsiiProxy_CfnLaunch) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLaunch) ExecutionStatus() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"executionStatus",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLaunch) Groups() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -2567,6 +2648,14 @@ func (j *jsiiProxy_CfnLaunch) SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLaunch) SetExecutionStatus(val interface{}) {
+	_jsii_.Set(
+		j,
+		"executionStatus",
 		val,
 	)
 }
@@ -2889,6 +2978,31 @@ func (c *jsiiProxy_CfnLaunch) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Use this structure to start and stop the launch.
+//
+// Example:
+//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import evidently "github.com/aws/aws-cdk-go/awscdk/aws_evidently"
+//   executionStatusObjectProperty := &executionStatusObjectProperty{
+//   	status: jsii.String("status"),
+//
+//   	// the properties below are optional
+//   	desiredState: jsii.String("desiredState"),
+//   	reason: jsii.String("reason"),
+//   }
+//
+type CfnLaunch_ExecutionStatusObjectProperty struct {
+	// To start the launch now, specify `START` for this parameter.
+	//
+	// If this launch is currently running and you want to stop it now, specify `STOP` .
+	Status *string `json:"status" yaml:"status"`
+	// If you are using AWS CloudFormation to stop this launch, specify either `COMPLETED` or `CANCELLED` here to indicate how to classify this experiment.
+	//
+	// If you omit this parameter, the default of `COMPLETED` is used.
+	DesiredState *string `json:"desiredState" yaml:"desiredState"`
+	// If you are using AWS CloudFormation to stop this launch, this is an optional field that you can use to record why the launch is being stopped or cancelled.
+	Reason *string `json:"reason" yaml:"reason"`
+}
+
 // A structure containing the percentage of launch traffic to allocate to one launch group.
 //
 // Example:
@@ -3024,6 +3138,13 @@ type CfnLaunch_StepConfigProperty struct {
 //
 //   	// the properties below are optional
 //   	description: jsii.String("description"),
+//   	executionStatus: &executionStatusObjectProperty{
+//   		status: jsii.String("status"),
+//
+//   		// the properties below are optional
+//   		desiredState: jsii.String("desiredState"),
+//   		reason: jsii.String("reason"),
+//   	},
 //   	metricMonitors: []interface{}{
 //   		&metricDefinitionObjectProperty{
 //   			entityIdKey: jsii.String("entityIdKey"),
@@ -3059,6 +3180,8 @@ type CfnLaunchProps struct {
 	ScheduledSplitsConfig interface{} `json:"scheduledSplitsConfig" yaml:"scheduledSplitsConfig"`
 	// An optional description for the launch.
 	Description *string `json:"description" yaml:"description"`
+	// A structure that you can use to start and stop the launch.
+	ExecutionStatus interface{} `json:"executionStatus" yaml:"executionStatus"`
 	// An array of structures that define the metrics that will be used to monitor the launch performance.
 	//
 	// You can have up to three metric monitors in the array.

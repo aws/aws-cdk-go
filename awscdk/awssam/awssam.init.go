@@ -32,6 +32,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "definitionBody", GoGetter: "DefinitionBody"},
 			_jsii_.MemberProperty{JsiiProperty: "definitionUri", GoGetter: "DefinitionUri"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "domain", GoGetter: "Domain"},
 			_jsii_.MemberProperty{JsiiProperty: "endpointConfiguration", GoGetter: "EndpointConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "gatewayResponses", GoGetter: "GatewayResponses"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
@@ -87,8 +88,20 @@ func init() {
 		reflect.TypeOf((*CfnApi_CorsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_sam.CfnApi.DomainConfigurationProperty",
+		reflect.TypeOf((*CfnApi_DomainConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_sam.CfnApi.EndpointConfigurationProperty",
 		reflect.TypeOf((*CfnApi_EndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_sam.CfnApi.MutualTlsAuthenticationProperty",
+		reflect.TypeOf((*CfnApi_MutualTlsAuthenticationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_sam.CfnApi.Route53ConfigurationProperty",
+		reflect.TypeOf((*CfnApi_Route53ConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_sam.CfnApi.S3LocationProperty",
@@ -349,6 +362,10 @@ func init() {
 		reflect.TypeOf((*CfnFunction_LogGroupSAMPTProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_sam.CfnFunction.ParameterNameSAMPTProperty",
+		reflect.TypeOf((*CfnFunction_ParameterNameSAMPTProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_sam.CfnFunction.ProvisionedConcurrencyConfigProperty",
 		reflect.TypeOf((*CfnFunction_ProvisionedConcurrencyConfigProperty)(nil)).Elem(),
 	)
@@ -391,6 +408,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_sam.CfnFunction.ScheduleEventProperty",
 		reflect.TypeOf((*CfnFunction_ScheduleEventProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_sam.CfnFunction.SecretArnSAMPTProperty",
+		reflect.TypeOf((*CfnFunction_SecretArnSAMPTProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_sam.CfnFunction.StateMachineSAMPTProperty",

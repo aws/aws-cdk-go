@@ -1659,11 +1659,12 @@ type CfnDBCluster interface {
 	//
 	// - `GlobalClusterIdentifier`
 	// - `MasterUsername`
+	// - `MasterUserPassword`
 	// - `ReplicationSourceIdentifier`
 	// - `RestoreType`
 	// - `SourceDBClusterIdentifier`
 	// - `SourceRegion`
-	// - `StorageEncrypted`
+	// - `StorageEncrypted` (for an encrypted snapshot)
 	// - `UseLatestRestorableTime`
 	//
 	// Constraints:
@@ -1692,7 +1693,11 @@ type CfnDBCluster interface {
 	//
 	// If you specify the `KmsKeyId` property, then you must enable encryption.
 	//
-	// If you specify the `SnapshotIdentifier` or `SourceDBClusterIdentifier` property, don't specify this property. The value is inherited from the snapshot or source DB cluster, and if the DB cluster is encrypted, the specified `KmsKeyId` property is used.
+	// If you specify the `SourceDBClusterIdentifier` property, don't specify this property. The value is inherited from the source DB cluster, and if the DB cluster is encrypted, the specified `KmsKeyId` property is used.
+	//
+	// If you specify the `SnapshotIdentifier` and the specified snapshot is encrypted, don't specify this property. The value is inherited from the snapshot, and the specified `KmsKeyId` property is used.
+	//
+	// If you specify the `SnapshotIdentifier` and the specified snapshot isn't encrypted, you can use this property to specify that the restored DB cluster is encrypted. Specify the `KmsKeyId` property for the KMS key to use for encryption. If you don't want the restored DB cluster to be encrypted, then don't set this property or set it to `false` .
 	StorageEncrypted() interface{}
 	SetStorageEncrypted(val interface{})
 	// Tags to assign to the DB cluster.
@@ -3982,11 +3987,12 @@ type CfnDBClusterProps struct {
 	//
 	// - `GlobalClusterIdentifier`
 	// - `MasterUsername`
+	// - `MasterUserPassword`
 	// - `ReplicationSourceIdentifier`
 	// - `RestoreType`
 	// - `SourceDBClusterIdentifier`
 	// - `SourceRegion`
-	// - `StorageEncrypted`
+	// - `StorageEncrypted` (for an encrypted snapshot)
 	// - `UseLatestRestorableTime`
 	//
 	// Constraints:
@@ -4007,7 +4013,11 @@ type CfnDBClusterProps struct {
 	//
 	// If you specify the `KmsKeyId` property, then you must enable encryption.
 	//
-	// If you specify the `SnapshotIdentifier` or `SourceDBClusterIdentifier` property, don't specify this property. The value is inherited from the snapshot or source DB cluster, and if the DB cluster is encrypted, the specified `KmsKeyId` property is used.
+	// If you specify the `SourceDBClusterIdentifier` property, don't specify this property. The value is inherited from the source DB cluster, and if the DB cluster is encrypted, the specified `KmsKeyId` property is used.
+	//
+	// If you specify the `SnapshotIdentifier` and the specified snapshot is encrypted, don't specify this property. The value is inherited from the snapshot, and the specified `KmsKeyId` property is used.
+	//
+	// If you specify the `SnapshotIdentifier` and the specified snapshot isn't encrypted, you can use this property to specify that the restored DB cluster is encrypted. Specify the `KmsKeyId` property for the KMS key to use for encryption. If you don't want the restored DB cluster to be encrypted, then don't set this property or set it to `false` .
 	StorageEncrypted interface{} `json:"storageEncrypted" yaml:"storageEncrypted"`
 	// Tags to assign to the DB cluster.
 	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
@@ -4304,9 +4314,7 @@ type CfnDBInstance interface {
 	SetDbInstanceIdentifier(val *string)
 	// The meaning of this parameter differs according to the database engine you use.
 	//
-	// > If you specify the `[DBSnapshotIdentifier](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsnapshotidentifier)` property, AWS CloudFormation ignores this property.
-	// >
-	// > If you restore DB instances from snapshots, this property doesn't apply to the MySQL, PostgreSQL, or MariaDB engines.
+	// > If you specify the `[DBSnapshotIdentifier](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsnapshotidentifier)` property, this property only applies to RDS for Oracle.
 	//
 	// *Amazon Aurora*
 	//
@@ -4417,12 +4425,13 @@ type CfnDBInstance interface {
 	// - `EnablePerformanceInsights`
 	// - `KmsKeyId`
 	// - `MasterUsername`
+	// - `MasterUserPassword`
 	// - `PerformanceInsightsKMSKeyId`
 	// - `PerformanceInsightsRetentionPeriod`
 	// - `PromotionTier`
 	// - `SourceDBInstanceIdentifier`
 	// - `SourceRegion`
-	// - `StorageEncrypted`
+	// - `StorageEncrypted` (for an encrypted snapshot)
 	// - `Timezone`
 	//
 	// *Amazon Aurora*
@@ -4858,7 +4867,11 @@ type CfnDBInstance interface {
 	//
 	// If you specify the `KmsKeyId` property, then you must enable encryption.
 	//
-	// If you specify the `SnapshotIdentifier` or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the snapshot or source DB instance, and if the DB instance is encrypted, the specified `KmsKeyId` property is used.
+	// If you specify the `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the source DB instance, and if the DB instance is encrypted, the specified `KmsKeyId` property is used.
+	//
+	// If you specify the `SnapshotIdentifier` and the specified snapshot is encrypted, don't specify this property. The value is inherited from the snapshot, and the specified `KmsKeyId` property is used.
+	//
+	// If you specify the `SnapshotIdentifier` and the specified snapshot isn't encrypted, you can use this property to specify that the restored DB instance is encrypted. Specify the `KmsKeyId` property for the KMS key to use for encryption. If you don't want the restored DB instance to be encrypted, then don't set this property or set it to `false` .
 	//
 	// *Amazon Aurora*
 	//
@@ -6681,9 +6694,7 @@ type CfnDBInstanceProps struct {
 	DbInstanceIdentifier *string `json:"dbInstanceIdentifier" yaml:"dbInstanceIdentifier"`
 	// The meaning of this parameter differs according to the database engine you use.
 	//
-	// > If you specify the `[DBSnapshotIdentifier](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsnapshotidentifier)` property, AWS CloudFormation ignores this property.
-	// >
-	// > If you restore DB instances from snapshots, this property doesn't apply to the MySQL, PostgreSQL, or MariaDB engines.
+	// > If you specify the `[DBSnapshotIdentifier](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsnapshotidentifier)` property, this property only applies to RDS for Oracle.
 	//
 	// *Amazon Aurora*
 	//
@@ -6791,12 +6802,13 @@ type CfnDBInstanceProps struct {
 	// - `EnablePerformanceInsights`
 	// - `KmsKeyId`
 	// - `MasterUsername`
+	// - `MasterUserPassword`
 	// - `PerformanceInsightsKMSKeyId`
 	// - `PerformanceInsightsRetentionPeriod`
 	// - `PromotionTier`
 	// - `SourceDBInstanceIdentifier`
 	// - `SourceRegion`
-	// - `StorageEncrypted`
+	// - `StorageEncrypted` (for an encrypted snapshot)
 	// - `Timezone`
 	//
 	// *Amazon Aurora*
@@ -7176,7 +7188,11 @@ type CfnDBInstanceProps struct {
 	//
 	// If you specify the `KmsKeyId` property, then you must enable encryption.
 	//
-	// If you specify the `SnapshotIdentifier` or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the snapshot or source DB instance, and if the DB instance is encrypted, the specified `KmsKeyId` property is used.
+	// If you specify the `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the source DB instance, and if the DB instance is encrypted, the specified `KmsKeyId` property is used.
+	//
+	// If you specify the `SnapshotIdentifier` and the specified snapshot is encrypted, don't specify this property. The value is inherited from the snapshot, and the specified `KmsKeyId` property is used.
+	//
+	// If you specify the `SnapshotIdentifier` and the specified snapshot isn't encrypted, you can use this property to specify that the restored DB instance is encrypted. Specify the `KmsKeyId` property for the KMS key to use for encryption. If you don't want the restored DB instance to be encrypted, then don't set this property or set it to `false` .
 	//
 	// *Amazon Aurora*
 	//
@@ -7275,7 +7291,7 @@ type CfnDBParameterGroup interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// Provides the customer-specified description for this DB parameter group.
+	// Provides the customer-specified description for this DB Parameter Group.
 	Description() *string
 	SetDescription(val *string)
 	// The DB parameter group family name.
@@ -7981,7 +7997,7 @@ func (c *jsiiProxy_CfnDBParameterGroup) ValidateProperties(_properties interface
 //   }
 //
 type CfnDBParameterGroupProps struct {
-	// Provides the customer-specified description for this DB parameter group.
+	// Provides the customer-specified description for this DB Parameter Group.
 	Description *string `json:"description" yaml:"description"`
 	// The DB parameter group family name.
 	//
@@ -10826,7 +10842,7 @@ type CfnDBSecurityGroup interface {
 	// > The `EC2VpcId` property is for backward compatibility with older regions, and is no longer recommended for providing security information to an RDS DB instance.
 	Ec2VpcId() *string
 	SetEc2VpcId(val *string)
-	// Provides the description of the DB security group.
+	// Provides the description of the DB Security Group.
 	GroupDescription() *string
 	SetGroupDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -12310,7 +12326,7 @@ type CfnDBSecurityGroupIngressProps struct {
 type CfnDBSecurityGroupProps struct {
 	// Ingress rules to be applied to the DB security group.
 	DbSecurityGroupIngress interface{} `json:"dbSecurityGroupIngress" yaml:"dbSecurityGroupIngress"`
-	// Provides the description of the DB security group.
+	// Provides the description of the DB Security Group.
 	GroupDescription *string `json:"groupDescription" yaml:"groupDescription"`
 	// The identifier of an Amazon VPC. This property indicates the VPC that this DB security group belongs to.
 	//
@@ -16067,6 +16083,9 @@ type DatabaseCluster interface {
 	// Identifiers of the replicas.
 	// Experimental.
 	InstanceIdentifiers() *[]*string
+	// Application for multi user rotation to this cluster.
+	// Experimental.
+	MultiUserRotationApplication() awssecretsmanager.SecretRotationApplication
 	// Experimental.
 	NewCfnProps() *CfnDBClusterProps
 	// The construct tree node associated with this construct.
@@ -16086,11 +16105,20 @@ type DatabaseCluster interface {
 	Secret() awssecretsmanager.ISecret
 	// Experimental.
 	SecurityGroups() *[]awsec2.ISecurityGroup
+	// Application for single user rotation of the master password to this cluster.
+	// Experimental.
+	SingleUserRotationApplication() awssecretsmanager.SecretRotationApplication
 	// The stack in which this resource is defined.
 	// Experimental.
 	Stack() awscdk.Stack
 	// Experimental.
 	SubnetGroup() ISubnetGroup
+	// The VPC network to place the cluster in.
+	// Experimental.
+	Vpc() awsec2.IVpc
+	// The cluster's subnets.
+	// Experimental.
+	VpcSubnets() *awsec2.SubnetSelection
 	// Add a new db proxy to this cluster.
 	// Experimental.
 	AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy
@@ -16342,6 +16370,16 @@ func (j *jsiiProxy_DatabaseCluster) InstanceIdentifiers() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_DatabaseCluster) MultiUserRotationApplication() awssecretsmanager.SecretRotationApplication {
+	var returns awssecretsmanager.SecretRotationApplication
+	_jsii_.Get(
+		j,
+		"multiUserRotationApplication",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_DatabaseCluster) NewCfnProps() *CfnDBClusterProps {
 	var returns *CfnDBClusterProps
 	_jsii_.Get(
@@ -16392,6 +16430,16 @@ func (j *jsiiProxy_DatabaseCluster) SecurityGroups() *[]awsec2.ISecurityGroup {
 	return returns
 }
 
+func (j *jsiiProxy_DatabaseCluster) SingleUserRotationApplication() awssecretsmanager.SecretRotationApplication {
+	var returns awssecretsmanager.SecretRotationApplication
+	_jsii_.Get(
+		j,
+		"singleUserRotationApplication",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_DatabaseCluster) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -16407,6 +16455,26 @@ func (j *jsiiProxy_DatabaseCluster) SubnetGroup() ISubnetGroup {
 	_jsii_.Get(
 		j,
 		"subnetGroup",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseCluster) Vpc() awsec2.IVpc {
+	var returns awsec2.IVpc
+	_jsii_.Get(
+		j,
+		"vpc",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseCluster) VpcSubnets() *awsec2.SubnetSelection {
+	var returns *awsec2.SubnetSelection
+	_jsii_.Get(
+		j,
+		"vpcSubnets",
 		&returns,
 	)
 	return returns
@@ -17813,6 +17881,9 @@ type DatabaseClusterFromSnapshot interface {
 	// Identifiers of the replicas.
 	// Experimental.
 	InstanceIdentifiers() *[]*string
+	// Application for multi user rotation to this cluster.
+	// Experimental.
+	MultiUserRotationApplication() awssecretsmanager.SecretRotationApplication
 	// Experimental.
 	NewCfnProps() *CfnDBClusterProps
 	// The construct tree node associated with this construct.
@@ -17827,16 +17898,34 @@ type DatabaseClusterFromSnapshot interface {
 	//    cross-environment scenarios.
 	// Experimental.
 	PhysicalName() *string
+	// The secret attached to this cluster.
+	// Experimental.
+	Secret() awssecretsmanager.ISecret
 	// Experimental.
 	SecurityGroups() *[]awsec2.ISecurityGroup
+	// Application for single user rotation of the master password to this cluster.
+	// Experimental.
+	SingleUserRotationApplication() awssecretsmanager.SecretRotationApplication
 	// The stack in which this resource is defined.
 	// Experimental.
 	Stack() awscdk.Stack
 	// Experimental.
 	SubnetGroup() ISubnetGroup
+	// The VPC network to place the cluster in.
+	// Experimental.
+	Vpc() awsec2.IVpc
+	// The cluster's subnets.
+	// Experimental.
+	VpcSubnets() *awsec2.SubnetSelection
 	// Add a new db proxy to this cluster.
 	// Experimental.
 	AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy
+	// Adds the multi user rotation to this cluster.
+	// Experimental.
+	AddRotationMultiUser(id *string, options *RotationMultiUserOptions) awssecretsmanager.SecretRotation
+	// Adds the single user rotation of the master password to this cluster.
+	// Experimental.
+	AddRotationSingleUser(options *RotationSingleUserOptions) awssecretsmanager.SecretRotation
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -18079,6 +18168,16 @@ func (j *jsiiProxy_DatabaseClusterFromSnapshot) InstanceIdentifiers() *[]*string
 	return returns
 }
 
+func (j *jsiiProxy_DatabaseClusterFromSnapshot) MultiUserRotationApplication() awssecretsmanager.SecretRotationApplication {
+	var returns awssecretsmanager.SecretRotationApplication
+	_jsii_.Get(
+		j,
+		"multiUserRotationApplication",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_DatabaseClusterFromSnapshot) NewCfnProps() *CfnDBClusterProps {
 	var returns *CfnDBClusterProps
 	_jsii_.Get(
@@ -18109,11 +18208,31 @@ func (j *jsiiProxy_DatabaseClusterFromSnapshot) PhysicalName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_DatabaseClusterFromSnapshot) Secret() awssecretsmanager.ISecret {
+	var returns awssecretsmanager.ISecret
+	_jsii_.Get(
+		j,
+		"secret",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_DatabaseClusterFromSnapshot) SecurityGroups() *[]awsec2.ISecurityGroup {
 	var returns *[]awsec2.ISecurityGroup
 	_jsii_.Get(
 		j,
 		"securityGroups",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseClusterFromSnapshot) SingleUserRotationApplication() awssecretsmanager.SecretRotationApplication {
+	var returns awssecretsmanager.SecretRotationApplication
+	_jsii_.Get(
+		j,
+		"singleUserRotationApplication",
 		&returns,
 	)
 	return returns
@@ -18134,6 +18253,26 @@ func (j *jsiiProxy_DatabaseClusterFromSnapshot) SubnetGroup() ISubnetGroup {
 	_jsii_.Get(
 		j,
 		"subnetGroup",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseClusterFromSnapshot) Vpc() awsec2.IVpc {
+	var returns awsec2.IVpc
+	_jsii_.Get(
+		j,
+		"vpc",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseClusterFromSnapshot) VpcSubnets() *awsec2.SubnetSelection {
+	var returns *awsec2.SubnetSelection
+	_jsii_.Get(
+		j,
+		"vpcSubnets",
 		&returns,
 	)
 	return returns
@@ -18207,6 +18346,32 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) AddProxy(id *string, options *Da
 		d,
 		"addProxy",
 		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseClusterFromSnapshot) AddRotationMultiUser(id *string, options *RotationMultiUserOptions) awssecretsmanager.SecretRotation {
+	var returns awssecretsmanager.SecretRotation
+
+	_jsii_.Invoke(
+		d,
+		"addRotationMultiUser",
+		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseClusterFromSnapshot) AddRotationSingleUser(options *RotationSingleUserOptions) awssecretsmanager.SecretRotation {
+	var returns awssecretsmanager.SecretRotation
+
+	_jsii_.Invoke(
+		d,
+		"addRotationSingleUser",
+		[]interface{}{options},
 		&returns,
 	)
 
@@ -18599,6 +18764,9 @@ type DatabaseClusterFromSnapshotProps struct {
 	// Whether to copy tags to the snapshot when a snapshot is created.
 	// Experimental.
 	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
+	// Credentials for the administrative user.
+	// Experimental.
+	Credentials Credentials `json:"credentials" yaml:"credentials"`
 	// Name of a database which is automatically created inside the cluster.
 	// Experimental.
 	DefaultDatabaseName *string `json:"defaultDatabaseName" yaml:"defaultDatabaseName"`

@@ -28,31 +28,23 @@ import (
 // A new alias to a particular version of a Lambda function.
 //
 // Example:
-//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var alias alias
-//
-//   // or add alarms to an existing group
-//   var blueGreenAlias alias
-//   alarm := cloudwatch.NewAlarm(this, jsii.String("Errors"), &alarmProps{
-//   	comparisonOperator: cloudwatch.comparisonOperator_GREATER_THAN_THRESHOLD,
-//   	threshold: jsii.Number(1),
-//   	evaluationPeriods: jsii.Number(1),
-//   	metric: alias.metricErrors(),
+//   lambdaCode := lambda.code.fromCfnParameters()
+//   func := lambda.NewFunction(this, jsii.String("Lambda"), &functionProps{
+//   	code: lambdaCode,
+//   	handler: jsii.String("index.handler"),
+//   	runtime: lambda.runtime_NODEJS_12_X(),
 //   })
-//   deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &lambdaDeploymentGroupProps{
+//   // used to make sure each CDK synthesis produces a different Version
+//   version := func.currentVersion
+//   alias := lambda.NewAlias(this, jsii.String("LambdaAlias"), &aliasProps{
+//   	aliasName: jsii.String("Prod"),
+//   	version: version,
+//   })
+//
+//   codedeploy.NewLambdaDeploymentGroup(this, jsii.String("DeploymentGroup"), &lambdaDeploymentGroupProps{
 //   	alias: alias,
 //   	deploymentConfig: codedeploy.lambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_1MINUTE(),
-//   	alarms: []iAlarm{
-//   		alarm,
-//   	},
 //   })
-//   deploymentGroup.addAlarm(cloudwatch.NewAlarm(this, jsii.String("BlueGreenErrors"), &alarmProps{
-//   	comparisonOperator: cloudwatch.*comparisonOperator_GREATER_THAN_THRESHOLD,
-//   	threshold: jsii.Number(1),
-//   	evaluationPeriods: jsii.Number(1),
-//   	metric: blueGreenAlias.metricErrors(),
-//   }))
 //
 // Experimental.
 type Alias interface {
@@ -960,31 +952,22 @@ type AliasOptions struct {
 // Properties for a new Lambda alias.
 //
 // Example:
-//   import autoscaling "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var fn function
-//   alias := lambda.NewAlias(this, jsii.String("Alias"), &aliasProps{
-//   	aliasName: jsii.String("prod"),
-//   	version: fn.latestVersion,
+//   lambdaCode := lambda.code.fromCfnParameters()
+//   func := lambda.NewFunction(this, jsii.String("Lambda"), &functionProps{
+//   	code: lambdaCode,
+//   	handler: jsii.String("index.handler"),
+//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   })
+//   // used to make sure each CDK synthesis produces a different Version
+//   version := func.currentVersion
+//   alias := lambda.NewAlias(this, jsii.String("LambdaAlias"), &aliasProps{
+//   	aliasName: jsii.String("Prod"),
+//   	version: version,
 //   })
 //
-//   // Create AutoScaling target
-//   as := alias.addAutoScaling(&autoScalingOptions{
-//   	maxCapacity: jsii.Number(50),
-//   })
-//
-//   // Configure Target Tracking
-//   as.scaleOnUtilization(&utilizationScalingOptions{
-//   	utilizationTarget: jsii.Number(0.5),
-//   })
-//
-//   // Configure Scheduled Scaling
-//   as.scaleOnSchedule(jsii.String("ScaleUpInTheMorning"), &scalingSchedule{
-//   	schedule: autoscaling.schedule.cron(&cronOptions{
-//   		hour: jsii.String("8"),
-//   		minute: jsii.String("0"),
-//   	}),
-//   	minCapacity: jsii.Number(20),
+//   codedeploy.NewLambdaDeploymentGroup(this, jsii.String("DeploymentGroup"), &lambdaDeploymentGroupProps{
+//   	alias: alias,
+//   	deploymentConfig: codedeploy.lambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_1MINUTE(),
 //   })
 //
 // Experimental.
@@ -1890,10 +1873,7 @@ type AssetImageCodeProps struct {
 //   import autoscaling "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var fn function
-//   alias := lambda.NewAlias(this, jsii.String("Alias"), &aliasProps{
-//   	aliasName: jsii.String("prod"),
-//   	version: fn.latestVersion,
-//   })
+//   alias := fn.addAlias(jsii.String("prod"))
 //
 //   // Create AutoScaling target
 //   as := alias.addAutoScaling(&autoScalingOptions{
@@ -4475,7 +4455,7 @@ type CfnEventSourceMapping interface {
 	// Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).
 	//
 	// - *Amazon Kinesis* - Default 100. Max 10,000.
-	// - *Amazon DynamoDB Streams* - Default 100. Max 1,000.
+	// - *Amazon DynamoDB Streams* - Default 100. Max 10,000.
 	// - *Amazon Simple Queue Service* - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.
 	// - *Amazon Managed Streaming for Apache Kafka* - Default 100. Max 10,000.
 	// - *Self-Managed Apache Kafka* - Default 100. Max 10,000.
@@ -5718,7 +5698,7 @@ type CfnEventSourceMappingProps struct {
 	// Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).
 	//
 	// - *Amazon Kinesis* - Default 100. Max 10,000.
-	// - *Amazon DynamoDB Streams* - Default 100. Max 1,000.
+	// - *Amazon DynamoDB Streams* - Default 100. Max 10,000.
 	// - *Amazon Simple Queue Service* - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.
 	// - *Amazon Managed Streaming for Apache Kafka* - Default 100. Max 10,000.
 	// - *Self-Managed Apache Kafka* - Default 100. Max 10,000.
@@ -7001,9 +6981,9 @@ type CfnFunction_CodeProperty struct {
 	S3Key *string `json:"s3Key" yaml:"s3Key"`
 	// For versioned objects, the version of the deployment package object to use.
 	S3ObjectVersion *string `json:"s3ObjectVersion" yaml:"s3ObjectVersion"`
-	// (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named `index` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) . For the `Handler` property, the first part of the handler identifier must be `index` . For example, `index.handler` .
+	// (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named `index` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) . This zip file cannot exceed 4MB. For the `Handler` property, the first part of the handler identifier must be `index` . For example, `index.handler` .
 	//
-	// Your source code can contain up to 4096 characters. For JSON, you must escape quotes and special characters such as newline ( `\n` ) with a backslash.
+	// For JSON, you must escape quotes and special characters such as newline ( `\n` ) with a backslash.
 	//
 	// If you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module ( [cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html) ) that simplifies sending responses. See [Using AWS Lambda with AWS CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html) for details.
 	ZipFile *string `json:"zipFile" yaml:"zipFile"`
@@ -12911,6 +12891,24 @@ type DockerImageFunction interface {
 	// The timeout configured for this lambda.
 	// Experimental.
 	Timeout() awscdk.Duration
+	// Defines an alias for this function.
+	//
+	// The alias will automatically be updated to point to the latest version of
+	// the function as it is being updated during a deployment.
+	//
+	// ```ts
+	// declare const fn: lambda.Function;
+	//
+	// fn.addAlias('Live');
+	//
+	// // Is equivalent to
+	//
+	// new lambda.Alias(this, 'AliasLive', {
+	//    aliasName: 'Live',
+	//    version: fn.currentVersion,
+	// });.
+	// Experimental.
+	AddAlias(aliasName *string, options *AliasOptions) Alias
 	// Adds an environment variable to this Lambda function.
 	//
 	// If this is a ref to a Lambda function, this operation results in a no-op.
@@ -13537,6 +13535,19 @@ func DockerImageFunction_MetricAllUnreservedConcurrentExecutions(props *awscloud
 		"monocdk.aws_lambda.DockerImageFunction",
 		"metricAllUnreservedConcurrentExecutions",
 		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DockerImageFunction) AddAlias(aliasName *string, options *AliasOptions) Alias {
+	var returns Alias
+
+	_jsii_.Invoke(
+		d,
+		"addAlias",
+		[]interface{}{aliasName, options},
 		&returns,
 	)
 
@@ -15809,6 +15820,24 @@ type Function interface {
 	// The timeout configured for this lambda.
 	// Experimental.
 	Timeout() awscdk.Duration
+	// Defines an alias for this function.
+	//
+	// The alias will automatically be updated to point to the latest version of
+	// the function as it is being updated during a deployment.
+	//
+	// ```ts
+	// declare const fn: lambda.Function;
+	//
+	// fn.addAlias('Live');
+	//
+	// // Is equivalent to
+	//
+	// new lambda.Alias(this, 'AliasLive', {
+	//    aliasName: 'Live',
+	//    version: fn.currentVersion,
+	// });.
+	// Experimental.
+	AddAlias(aliasName *string, options *AliasOptions) Alias
 	// Adds an environment variable to this Lambda function.
 	//
 	// If this is a ref to a Lambda function, this operation results in a no-op.
@@ -16435,6 +16464,19 @@ func Function_MetricAllUnreservedConcurrentExecutions(props *awscloudwatch.Metri
 		"monocdk.aws_lambda.Function",
 		"metricAllUnreservedConcurrentExecutions",
 		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_Function) AddAlias(aliasName *string, options *AliasOptions) Alias {
+	var returns Alias
+
+	_jsii_.Invoke(
+		f,
+		"addAlias",
+		[]interface{}{aliasName, options},
 		&returns,
 	)
 
@@ -19372,7 +19414,7 @@ func (i *jsiiProxy_IScalableFunctionAttribute) ScaleOnUtilization(options *Utili
 type IVersion interface {
 	IFunction
 	// Defines an alias for this version.
-	// Experimental.
+	// Deprecated: Calling `addAlias` on a `Version` object will cause the Alias to be replaced on every function update. Call `function.addAlias()` or `new Alias()` instead.
 	AddAlias(aliasName *string, options *AliasOptions) Alias
 	// The ARN of the version for Lambda@Edge.
 	// Experimental.
@@ -23839,10 +23881,7 @@ const (
 //   import autoscaling "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var fn function
-//   alias := lambda.NewAlias(this, jsii.String("Alias"), &aliasProps{
-//   	aliasName: jsii.String("prod"),
-//   	version: fn.latestVersion,
-//   })
+//   alias := fn.addAlias(jsii.String("prod"))
 //
 //   // Create AutoScaling target
 //   as := alias.addAutoScaling(&autoScalingOptions{
@@ -24017,7 +24056,7 @@ type Version interface {
 	// Experimental.
 	Version() *string
 	// Defines an alias for this version.
-	// Experimental.
+	// Deprecated: Calling `addAlias` on a `Version` object will cause the Alias to be replaced on every function update. Call `function.addAlias()` or `new Alias()` instead.
 	AddAlias(aliasName *string, options *AliasOptions) Alias
 	// Adds an event source to this function.
 	//
@@ -24786,7 +24825,7 @@ type VersionAttributes struct {
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   })
 //
-//   fn.currentVersion.addAlias(jsii.String("live"))
+//   fn.addAlias(jsii.String("live"))
 //
 // Experimental.
 type VersionOptions struct {
